@@ -1,0 +1,7 @@
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Information Fetcher\bin\Debug\Supermarket License Information Fetcher.exe.config
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Information Fetcher\bin\Debug\Supermarket License Information Fetcher.exe
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Information Fetcher\bin\Debug\Supermarket License Information Fetcher.pdb
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Debug\NeatVibezPOS License Information Fetcher.csprojAssemblyReference.cache
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Debug\NeatVibezPOS License Information Fetcher.csproj.CoreCompileInputs.cache
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Debug\Supermarket License Information Fetcher.exe
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Debug\Supermarket License Information Fetcher.pdb

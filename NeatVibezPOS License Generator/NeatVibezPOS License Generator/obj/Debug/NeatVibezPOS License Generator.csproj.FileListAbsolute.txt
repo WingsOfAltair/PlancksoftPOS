@@ -1,0 +1,7 @@
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Generator\NeatVibezPOS License Generator\bin\Debug\Supermarket License Key Generator.exe.config
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Generator\NeatVibezPOS License Generator\bin\Debug\Supermarket License Key Generator.exe
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Generator\NeatVibezPOS License Generator\bin\Debug\Supermarket License Key Generator.pdb
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Generator\NeatVibezPOS License Generator\obj\Debug\NeatVibezPOS License Generator.csprojAssemblyReference.cache
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Generator\NeatVibezPOS License Generator\obj\Debug\NeatVibezPOS License Generator.csproj.CoreCompileInputs.cache
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Generator\NeatVibezPOS License Generator\obj\Debug\Supermarket License Key Generator.exe
+D:\Projects\NeatVibezPOS\NeatVibezPOS License Generator\NeatVibezPOS License Generator\obj\Debug\Supermarket License Key Generator.pdb
