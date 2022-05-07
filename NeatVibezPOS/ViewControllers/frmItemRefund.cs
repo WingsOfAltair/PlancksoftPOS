@@ -22,11 +22,11 @@ namespace NeatVibezPOS
             this.UID = UID;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             if (ItemNametxt.Text != "" && ItemBarCodetxt.Text != "")
             {
-                if (Connection.ReturnItem(ItemNametxt.Text, ItemBarCodetxt.Text, Convert.ToInt32(ItemQuantitynud.Value), this.UID))
+                if (Connection.server.ReturnItem(ItemNametxt.Text, ItemBarCodetxt.Text, Convert.ToInt32(ItemQuantitynud.Value), this.UID))
                 {
                     MessageBox.Show(".تم ارجاع الماده للمستودع");
                     this.Close();
@@ -39,12 +39,12 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             try
             {

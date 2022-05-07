@@ -6,45 +6,45 @@ using System.IO;
 
 namespace RawDataPrint
 {
-    internal class RawPrinterHelper
+    public class RawPrinterHelper
     {
         // Structure and API declarions:
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-        internal class DOCINFOA
+        public class DOCINFOA
         {
             [MarshalAs(UnmanagedType.LPStr)]
-            internal string pDocName;
+            public string pDocName;
             [MarshalAs(UnmanagedType.LPStr)]
-            internal string pOutputFile;
+            public string pOutputFile;
             [MarshalAs(UnmanagedType.LPStr)]
-            internal string pDataType;
+            public string pDataType;
         }
         [DllImport("winspool.Drv", EntryPoint = "OpenPrinterA", SetLastError = true, CharSet = CharSet.Unicode, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
-        internal static extern bool OpenPrinter([MarshalAs(UnmanagedType.LPStr)] string szPrinter, out IntPtr hPrinter, IntPtr pd);
+        public static extern bool OpenPrinter([MarshalAs(UnmanagedType.LPStr)] string szPrinter, out IntPtr hPrinter, IntPtr pd);
 
         [DllImport("winspool.Drv", EntryPoint = "ClosePrinter", SetLastError = true, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
-        internal static extern bool ClosePrinter(IntPtr hPrinter);
+        public static extern bool ClosePrinter(IntPtr hPrinter);
 
         [DllImport("winspool.Drv", EntryPoint = "StartDocPrinterA", SetLastError = true, CharSet = CharSet.Unicode, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
-        internal static extern bool StartDocPrinter(IntPtr hPrinter, Int32 level, [In, MarshalAs(UnmanagedType.LPStruct)] DOCINFOA di);
+        public static extern bool StartDocPrinter(IntPtr hPrinter, Int32 level, [In, MarshalAs(UnmanagedType.LPStruct)] DOCINFOA di);
 
         [DllImport("winspool.Drv", EntryPoint = "EndDocPrinter", SetLastError = true, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
-        internal static extern bool EndDocPrinter(IntPtr hPrinter);
+        public static extern bool EndDocPrinter(IntPtr hPrinter);
 
         [DllImport("winspool.Drv", EntryPoint = "StartPagePrinter", SetLastError = true, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
-        internal static extern bool StartPagePrinter(IntPtr hPrinter);
+        public static extern bool StartPagePrinter(IntPtr hPrinter);
 
         [DllImport("winspool.Drv", EntryPoint = "EndPagePrinter", SetLastError = true, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
-        internal static extern bool EndPagePrinter(IntPtr hPrinter);
+        public static extern bool EndPagePrinter(IntPtr hPrinter);
 
         [DllImport("winspool.Drv", EntryPoint = "WritePrinter", SetLastError = true, ExactSpelling = true, CallingConvention = CallingConvention.StdCall)]
-        internal static extern bool WritePrinter(IntPtr hPrinter, IntPtr pBytes, Int32 dwCount, out Int32 dwWritten);
+        public static extern bool WritePrinter(IntPtr hPrinter, IntPtr pBytes, Int32 dwCount, out Int32 dwWritten);
 
         // SendBytesToPrinter()
         // When the function is given a printer name and an unmanaged array
         // of bytes, the function sends those bytes to the print queue.
         // Returns true on success, false on failure.
-        internal static bool SendBytesToPrinter(string szPrinterName, IntPtr pBytes, Int32 dwCount)
+        public static bool SendBytesToPrinter(string szPrinterName, IntPtr pBytes, Int32 dwCount)
         {
             Int32 dwError = 0, dwWritten = 0;
             IntPtr hPrinter = new IntPtr(0);
@@ -84,7 +84,7 @@ namespace RawDataPrint
             return bSuccess;
         }
 
-        internal static bool SendFileToPrinter(string szPrinterName, string szFileName)
+        public static bool SendFileToPrinter(string szPrinterName, string szFileName)
         {
             // Open the file.
             FileStream fs = new FileStream(szFileName, FileMode.Open);
@@ -113,7 +113,7 @@ namespace RawDataPrint
             fs = null;
             return bSuccess;
         }
-        internal static bool SendStringToPrinter(string szPrinterName, string szString)
+        public static bool SendStringToPrinter(string szPrinterName, string szString)
         {
             IntPtr pBytes;
             Int32 dwCount;

@@ -11,23 +11,22 @@ using System.Windows.Forms;
 
 namespace NeatVibezPOS
 {
-    internal partial class frmDBConfigure : Form
+    public partial class frmDBConfigure : Form
     {
-
         Connection Connection = new Connection();
 
-        internal frmDBConfigure()
+        public frmDBConfigure()
         {
             InitializeComponent();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             try
             {
                 if (textBox1.Text != "" && textBox2.Text != "" && textBox3.Text != "" && textBox4.Text != "")
                 {
-                    if (Connection.CheckConnection(textBox4.Text, textBox1.Text, textBox2.Text, textBox3.Text))
+                    if (Connection.server.CheckConnection(textBox4.Text, textBox1.Text, textBox2.Text, textBox3.Text))
                     {
                         Settings.Default["ComputerName"] = textBox4.Text;
                         Settings.Default["DBName"] = textBox1.Text;
@@ -51,36 +50,36 @@ namespace NeatVibezPOS
             }
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        public void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button2.PerformClick();
         }
 
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        public void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button2.PerformClick();
         }
 
-        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        public void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button2.PerformClick();
         }
 
-        private void frmDBConfigure_Load(object sender, EventArgs e)
+        public void frmDBConfigure_Load(object sender, EventArgs e)
         {
             textBox4.Text = Environment.MachineName;
         }
 
-        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        public void textBox4_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button2.PerformClick();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
             textBox2.Text = "";

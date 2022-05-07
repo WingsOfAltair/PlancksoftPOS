@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,18 +14,18 @@ namespace NeatVibezPOS
     public partial class frmPickCustomerLookup : Form
     {
         Connection Connection = new Connection();
-        internal Customer pickedCustomer = new Customer();
-        internal DialogResult dialogResult;
-        private int ID = 0;
+        public Customer pickedCustomer = new Customer();
+        public DialogResult dialogResult;
+        public int ID = 0;
 
         public frmPickCustomerLookup()
         {
             InitializeComponent();
-            DataTable RetrievedCustomers = Connection.SearchCustomersInfo("", "").Item2;
+            DataTable RetrievedCustomers = Connection.server.SearchCustomersInfo("", "").Item2;
             DGVCustomers.DataSource = RetrievedCustomers;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             if (!DGVCustomers.Rows[this.ID].IsNewRow) {
                 pickedCustomer.CustomerID = Convert.ToInt32(DGVCustomers.Rows[this.ID].Cells[0].Value.ToString());
@@ -39,42 +40,42 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             this.dialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public void textBox1_TextChanged(object sender, EventArgs e)
         {
-            DataTable RetrievedCustomers = Connection.SearchCustomers(textBox1.Text, "");
+            DataTable RetrievedCustomers = Connection.server.SearchCustomers(textBox1.Text, "", "");
             DGVCustomers.DataSource = RetrievedCustomers;
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        public void textBox2_TextChanged(object sender, EventArgs e)
         {
-            DataTable RetrievedCustomers = Connection.SearchCustomers("", textBox2.Text);
+            DataTable RetrievedCustomers = Connection.server.SearchCustomers("", textBox2.Text, "");
             DGVCustomers.DataSource = RetrievedCustomers;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
             textBox2.Text = "";
         }
 
-        private void DGVCustomers_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void DGVCustomers_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.ID = e.RowIndex;
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        public void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button1.PerformClick();
         }
 
-        private void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        public void textBox2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button1.PerformClick();

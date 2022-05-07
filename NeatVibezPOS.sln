@@ -1,13 +1,20 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.30804.86
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatVibezPOS", "NeatVibezPOS\NeatVibezPOS.csproj", "{690B9723-B20B-4BBA-BFED-5BC79081D516}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E9FD12D7-24CB-4B93-848E-83B73645CD1A} = {E9FD12D7-24CB-4B93-848E-83B73645CD1A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatVibezPOS License Information Fetcher", "NeatVibezPOS License Information Fetcher\NeatVibezPOS License Information Fetcher.csproj", "{45CB5898-2997-45F6-A3C1-2044FC29C37F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatVibezPOS License Generator", "NeatVibezPOS License Generator\NeatVibezPOS License Generator\NeatVibezPOS License Generator.csproj", "{209064A6-4BF2-45D7-993C-421447E3E168}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NeatVibezPOS Server", "NeatVibezPOS Server\NeatVibezPOS Server.csproj", "{E9FD12D7-24CB-4B93-848E-83B73645CD1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{123458DB-B615-47E7-A917-C3D7E67CABD2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +34,14 @@ Global
 		{209064A6-4BF2-45D7-993C-421447E3E168}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{209064A6-4BF2-45D7-993C-421447E3E168}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{209064A6-4BF2-45D7-993C-421447E3E168}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9FD12D7-24CB-4B93-848E-83B73645CD1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9FD12D7-24CB-4B93-848E-83B73645CD1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9FD12D7-24CB-4B93-848E-83B73645CD1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9FD12D7-24CB-4B93-848E-83B73645CD1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{123458DB-B615-47E7-A917-C3D7E67CABD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{123458DB-B615-47E7-A917-C3D7E67CABD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{123458DB-B615-47E7-A917-C3D7E67CABD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{123458DB-B615-47E7-A917-C3D7E67CABD2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -11,17 +11,17 @@ using System.Windows.Forms;
 
 namespace NeatVibezPOS
 {
-    internal partial class frmPay : Form
+    public partial class frmPay : Form
     {
-        internal decimal totalAmount = 0;
-        internal decimal moneyPaid = 0;
-        internal decimal paidAmount = 0;
-        internal decimal remainderAmount = 0;
-        internal bool paybycash = false;
+        public decimal totalAmount = 0;
+        public decimal moneyPaid = 0;
+        public decimal paidAmount = 0;
+        public decimal remainderAmount = 0;
+        public bool paybycash = false;
 
-        internal DialogResult dialogResult;
+        public DialogResult dialogResult;
 
-        internal frmPay(decimal totalAmount = 0)
+        public frmPay(decimal totalAmount = 0)
         {
             InitializeComponent();
             textBox2.Text = totalAmount.ToString();
@@ -34,20 +34,20 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        public void button13_Click(object sender, EventArgs e)
         {
             this.dialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        public void button12_Click(object sender, EventArgs e)
         {
             this.moneyPaid = 0;
             this.dialogResult = DialogResult.Ignore;
             this.Close();
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        public void button11_Click(object sender, EventArgs e)
         {
             if (Cash.Checked)
                 this.paybycash = true;
@@ -57,7 +57,7 @@ namespace NeatVibezPOS
             this.Close();
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        public void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
@@ -82,7 +82,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        public void textBox1_TextChanged(object sender, EventArgs e)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace NeatVibezPOS
             } catch(Exception error) { }
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        public void button10_Click(object sender, EventArgs e)
         {
             textBox1.Text += "0";
             textBox1.SelectionStart = textBox1.Text.Length;
@@ -102,7 +102,7 @@ namespace NeatVibezPOS
             textBox1.Select();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             textBox1.Text += "1";
             textBox1.SelectionStart = textBox1.Text.Length;
@@ -110,7 +110,7 @@ namespace NeatVibezPOS
             textBox1.Select();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             textBox1.Text += "2";
             textBox1.SelectionStart = textBox1.Text.Length;
@@ -118,7 +118,7 @@ namespace NeatVibezPOS
             textBox1.Select();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             textBox1.Text += "3";
             textBox1.SelectionStart = textBox1.Text.Length;
@@ -126,7 +126,7 @@ namespace NeatVibezPOS
             textBox1.Select();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        public void button4_Click(object sender, EventArgs e)
         {
             textBox1.Text += "4";
             textBox1.SelectionStart = textBox1.Text.Length;
@@ -134,7 +134,7 @@ namespace NeatVibezPOS
             textBox1.Select();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        public void button5_Click(object sender, EventArgs e)
         {
             textBox1.Text += "5";
             textBox1.SelectionStart = textBox1.Text.Length;
@@ -142,7 +142,7 @@ namespace NeatVibezPOS
             textBox1.Select();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        public void button6_Click(object sender, EventArgs e)
         {
             textBox1.Text += "6";
             textBox1.SelectionStart = textBox1.Text.Length;
@@ -150,7 +150,7 @@ namespace NeatVibezPOS
             textBox1.Select();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        public void button7_Click(object sender, EventArgs e)
         {
             textBox1.Text += "7";
             textBox1.SelectionStart = textBox1.Text.Length;
@@ -158,7 +158,7 @@ namespace NeatVibezPOS
             textBox1.Select();
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        public void button8_Click(object sender, EventArgs e)
         {
             textBox1.Text += "8";
             textBox1.SelectionStart = textBox1.Text.Length;
@@ -166,7 +166,7 @@ namespace NeatVibezPOS
             textBox1.Select();
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        public void button9_Click(object sender, EventArgs e)
         {
             textBox1.Text += "9";
             textBox1.SelectionStart = textBox1.Text.Length;
@@ -174,14 +174,14 @@ namespace NeatVibezPOS
             textBox1.Select();
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        public void button14_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
             textBox2.Text = "";
             textBox3.Text = "";
         }
 
-        private void cbWithDiscount_CheckedChanged(object sender, EventArgs e)
+        public void cbWithDiscount_CheckedChanged(object sender, EventArgs e)
         {
             if (cbWithDiscount.Checked)
             {
@@ -192,7 +192,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void discountRateNUD_ValueChanged(object sender, EventArgs e)
+        public void discountRateNUD_ValueChanged(object sender, EventArgs e)
         {
             decimal discount = Convert.ToDecimal(textBox2.Text) * (discountRateNUD.Value / 100);
             decimal newPrice = Convert.ToDecimal(textBox2.Text) - discount;

@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace NeatVibezPOS
 {
-    internal partial class frmCloseRegister : Form
+    public partial class frmCloseRegister : Form
     {
 
-        private decimal moneyInRegister;
-        internal DialogResult dialogResult;
+        public decimal moneyInRegister;
+        public DialogResult dialogResult;
         Connection Connection = new Connection();
 
-        internal frmCloseRegister(string cashierName, decimal moneyInRegister)
+        public frmCloseRegister(string cashierName, decimal moneyInRegister)
         {
             InitializeComponent();
             this.moneyInRegister = moneyInRegister;
@@ -25,20 +25,20 @@ namespace NeatVibezPOS
             richTextBox1.AppendText(".الرجاء إدخال موجودات النقد في الكاش في الخانه في الأسفل");
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             numericUpDown1.Value = 0;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             this.dialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
-            if (numericUpDown1.Value >= this.moneyInRegister && numericUpDown1.Value >= Connection.GetTotalSalesAmount())
+            if (numericUpDown1.Value >= this.moneyInRegister && numericUpDown1.Value >= Connection.server.GetTotalSalesAmount())
             {
                 this.dialogResult = DialogResult.OK;
                 this.Close();
@@ -50,7 +50,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void numericUpDown1_KeyPress(object sender, KeyPressEventArgs e)
+        public void numericUpDown1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button2.PerformClick();

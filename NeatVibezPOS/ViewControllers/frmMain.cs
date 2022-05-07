@@ -14,36 +14,37 @@ using RawDataPrint;
 using WMPLib;
 using System.Text;
 using System.IO.Ports;
+using DataAccessLayer;
 
 namespace NeatVibezPOS
 {
 
-    internal partial class frmMain : Form
+    public partial class frmMain : Form
     {
-        private Connection Connection = new Connection();
-        private int ID = 0, CurrentBillNumber = 0, CurrentVendorBillNumber = 0, customerItemID = 0, heldBillsCount = 0, EmployeeID = 0, AbsenceID = 0;
+        public Connection Connection = new Connection();
+        public int ID = 0, CurrentBillNumber = 0, CurrentVendorBillNumber = 0, customerItemID = 0, heldBillsCount = 0, EmployeeID = 0, AbsenceID = 0;
         public static int Authority = 0;
-        private string CurrentItemBarcode = "", BarCode = "", cashierName = "Developer Mode", UID, PWD, NeatVibezPOSName, NeatVibezPOSPhone, printerName;
-        private Tuple<Item[], DataTable> FavoriteItems;
-        private Stack<Bill> previousBillsList = new Stack<Bill>();
-        private Stack<Bill> nextBillsList = new Stack<Bill>();
-        private decimal totalAmount = 0, totalVendorAmount = 0, paidAmount = 0, remainderAmount = 0, moneyInRegister = 0, moneyInRegisterInitial = 0;
-        private List<Item> saleItems = new List<Item>();
-        private List<Item> customersaleItems = new List<Item>();
-        private List<Item> DISCOUNT_ITEMS = new List<Item>();
-        private Item[] ItemsList, retrievedFavoriteItems;
-        private Account[] Users;
-        private List<Category> Categories = new List<Category>();
-        private List<ItemType> ItemTypesList = new List<ItemType>();
-        private List<Warehouse> WarehousesList = new List<Warehouse>();
-        private Customer currentCustomer;
-        private decimal CapitalAmount, TaxRate;
-        private int PrintBillNumber = 0;
-        private SortedList<int, string> itemtypes = new SortedList<int, string>();
-        private SortedList<int, string> warehouses = new SortedList<int, string>();
-        private SortedList<int, string> favorites = new SortedList<int, string>();
-        private string ScannedBarCode = "";
-        private bool timerstarted = false, registerOpen = false;
+        public string CurrentItemBarcode = "", BarCode = "", cashierName = "Developer Mode", UID, PWD, NeatVibezPOSName, NeatVibezPOSPhone, printerName;
+        public Tuple<List<Item>, DataTable> FavoriteItems;
+        public Stack<Bill> previousBillsList = new Stack<Bill>();
+        public Stack<Bill> nextBillsList = new Stack<Bill>();
+        public decimal totalAmount = 0, totalVendorAmount = 0, paidAmount = 0, remainderAmount = 0, moneyInRegister = 0, moneyInRegisterInitial = 0;
+        public List<Item> saleItems = new List<Item>();
+        public List<Item> customersaleItems = new List<Item>();
+        public List<Item> DISCOUNT_ITEMS = new List<Item>();
+        public List<Item> ItemsList, retrievedFavoriteItems;
+        public List<Account> Users;
+        public List<Category> Categories = new List<Category>();
+        public List<ItemType> ItemTypesList = new List<ItemType>();
+        public List<Warehouse> WarehousesList = new List<Warehouse>();
+        public Customer currentCustomer;
+        public decimal CapitalAmount, TaxRate;
+        public int PrintBillNumber = 0;
+        public SortedList<int, string> itemtypes = new SortedList<int, string>();
+        public SortedList<int, string> warehouses = new SortedList<int, string>();
+        public SortedList<int, string> favorites = new SortedList<int, string>();
+        public string ScannedBarCode = "";
+        public bool timerstarted = false, registerOpen = false;
         decimal capital, taxRate;
         TextBox AddItemType;
         List<TextBox> ItemTypeNamestxt = new List<TextBox>();
@@ -62,12 +63,12 @@ namespace NeatVibezPOS
         Button saveWarehousesBtn;
         Button saveFavoritesBtn;
 
-        private Account userPermissions;
+        public Account userPermissions;
 
-        private class Items
+        public class Items
         {
-            internal string Name;
-            internal Items(string Name)
+            public string Name;
+            public Items(string Name)
             {
                 this.Name = Name;
             }
@@ -78,10 +79,10 @@ namespace NeatVibezPOS
             }
         }
 
-        private class ItemTypeCategory
+        public class ItemTypeCategory
         {
-            internal string Name;
-            internal ItemTypeCategory(string Name)
+            public string Name;
+            public ItemTypeCategory(string Name)
             {
                 this.Name = Name;
             }
@@ -92,10 +93,10 @@ namespace NeatVibezPOS
             }
         }
 
-        private class WarehouseCategory
+        public class WarehouseCategory
         {
-            internal string Name;
-            internal WarehouseCategory(string Name)
+            public string Name;
+            public WarehouseCategory(string Name)
             {
                 this.Name = Name;
             }
@@ -106,10 +107,10 @@ namespace NeatVibezPOS
             }
         }
 
-        private class FavoriteCategory
+        public class FavoriteCategory
         {
-            internal string Name;
-            internal FavoriteCategory(string Name)
+            public string Name;
+            public FavoriteCategory(string Name)
             {
                 this.Name = Name;
             }
@@ -120,7 +121,7 @@ namespace NeatVibezPOS
             }
         }
 
-        internal frmMain(Account Account)
+        public frmMain(Account Account)
         {
             try
             {
@@ -144,7 +145,7 @@ namespace NeatVibezPOS
                 this.PWD = Account.GetAccountPWD();
                 frmMain.Authority = Account.GetAccountAuthority();
 
-                this.userPermissions = Connection.RetrieveUserPermissions(this.UID);
+                this.userPermissions = Connection.server.RetrieveUserPermissions(this.UID);
 
                 customer_card_edit.Checked = this.userPermissions.customer_card_edit;
                 discount_edit.Checked = this.userPermissions.discount_edit;
@@ -213,18 +214,18 @@ namespace NeatVibezPOS
                 this.moneyInRegister = Properties.Settings.Default.moneyInRegister;
                 this.moneyInRegisterInitial = Properties.Settings.Default.moneyInRegisterInitial;
                 nudTaxRate.Value = Convert.ToDecimal(taxRate * 100);
-                capital = Connection.GetCapitalAmount();
+                capital = Connection.server.GetCapitalAmount();
                 CapitalAmountnud.Value = capital;
                 CapitalAmount = capital;
                 TaxRate = Convert.ToDecimal(nudTaxRate.Value / 100);
 
-                this.saleItems = Connection.RetrieveSaleToday(DateTime.Now, 10);
+                this.saleItems = Connection.server.RetrieveSaleToday(DateTime.Now, 10);
 
-                this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
                 richTextBox5.ResetText();
-                richTextBox5.AppendText(" :رقم الفاتوره " + this.CurrentBillNumber);
+                richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
 
-                Tuple<Customer[], DataTable> retrievedCustomers = Connection.GetRetrieveCustomers();
+                Tuple<List<Customer>, DataTable> retrievedCustomers = Connection.server.GetRetrieveCustomers();
 
                 dgvCustomers.DataSource = retrievedCustomers.Item2;
                 
@@ -247,11 +248,11 @@ namespace NeatVibezPOS
                     openRegisterBtn.Enabled = false;
                     label65.Enabled = false;
                     // get last bill number of today
-                    this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
                     richTextBox4.ResetText();
                     richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
                     richTextBox5.ResetText();
-                    richTextBox5.AppendText(" :رقم الفاتوره " + this.CurrentBillNumber);
+                    richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                 }
                 else
                 {
@@ -278,7 +279,7 @@ namespace NeatVibezPOS
                 }
                 DisplayFavorites();
 
-                this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
 
                 if (Properties.Settings.Default.PrinterName == "")
                 {
@@ -294,22 +295,22 @@ namespace NeatVibezPOS
             { MessageBox.Show(e.ToString()); }
         }
 
-        internal void DisplayCashierNames()
+        public void DisplayCashierNames()
         {
-            List<string> CashierNames = Connection.RetrieveCashierNames();
+            List<string> CashierNames = Connection.server.RetrieveCashierNames();
             foreach(string CashierName in CashierNames)
             {
                 comboBox2.Items.Add(CashierName);
             }
         }
 
-        internal void DisplayItemTypes()
+        public void DisplayItemTypes()
         {
             ItemType.Items.Clear();
             comboBox1.Items.Clear();
             itemtypes.Clear();
 
-            this.ItemTypesList = Connection.RetrieveItemTypes();
+            this.ItemTypesList = Connection.server.RetrieveItemTypes();
 
             foreach (ItemType Itemtype in this.ItemTypesList)
             {
@@ -386,14 +387,14 @@ namespace NeatVibezPOS
             flowLayoutPanel3.Controls.Add(saveItemTypesBtn);
         }
 
-        internal void DisplayWarehouses()
+        public void DisplayWarehouses()
         {
             Warehouse.Items.Clear();
             WarehousesQuantityList.Items.Clear();
             WarehouseEntryExitList.Items.Clear();
             warehouses.Clear();
 
-            this.WarehousesList = Connection.RetrieveWarehouses();
+            this.WarehousesList = Connection.server.RetrieveWarehouses();
 
             foreach (Warehouse Warehouse in this.WarehousesList)
             {
@@ -472,13 +473,13 @@ namespace NeatVibezPOS
             flowLayoutPanel2.Controls.Add(saveWarehousesBtn);
         }
 
-        internal void DisplayFavorites()
+        public void DisplayFavorites()
         {
             tabControl2.TabPages.Clear();
             FavoriteCategories.Items.Clear();
             this.favorites.Clear();
 
-            this.Categories = Connection.RetrieveFavoriteCategories();
+            this.Categories = Connection.server.RetrieveFavoriteCategories();
 
             foreach (Category Category in this.Categories)
             {
@@ -557,7 +558,7 @@ namespace NeatVibezPOS
             DisplayFavoriteItems();
         }
 
-        internal void DisplayFavoriteItems()
+        public void DisplayFavoriteItems()
         {
             int i = 0;
             foreach (KeyValuePair<int, string> favorite in this.favorites)
@@ -578,13 +579,13 @@ namespace NeatVibezPOS
                     string favoriteName = tabControl2.TabPages[y].Text;
                     if (favoriteName == favorite.Value)
                     {
-                        retrievedFavoriteItems = Connection.RetrieveFavoriteItems(favorite.Key).Item1;
+                        retrievedFavoriteItems = Connection.server.RetrieveFavoriteItems(favorite.Key).Item1;
                         foreach (Item favoriteItem in retrievedFavoriteItems)
                         {
                             Button btn = new Button();
                             btn.Name = favoriteItem.GetName();
                             btn.Tag = favoriteItem.GetItemBarCode();
-                            byte[] picture = Connection.RetrieveItemPictureFromBarCode(favoriteItem.GetItemBarCode()).picture;
+                            byte[] picture = Connection.server.RetrieveItemPictureFromBarCode(favoriteItem.GetItemBarCode()).picture;
                             var stream = new MemoryStream(picture);
                             btn.BackgroundImage = Image.FromStream(stream);
                             btn.BackgroundImageLayout = ImageLayout.Stretch;
@@ -608,7 +609,7 @@ namespace NeatVibezPOS
             try
             {
                 bool deletedItemType = false;
-                deletedItemType = Connection.DeleteItemType(Index);
+                deletedItemType = Connection.server.DeleteItemType(Index);
                 if (deletedItemType)
                 {
                     DisplayItemTypes();
@@ -627,7 +628,7 @@ namespace NeatVibezPOS
             try
             {
                 bool addedItemType = false;
-                addedItemType = Connection.InsertItemType(AddItemType.Text);
+                addedItemType = Connection.server.InsertItemType(AddItemType.Text);
                 if (addedItemType)
                 {
                     DisplayItemTypes();
@@ -649,7 +650,7 @@ namespace NeatVibezPOS
                 int i = 0;
                 foreach (KeyValuePair<int, string> itemtype in itemtypes)
                 {
-                    updatedItemTypes = Connection.UpdateItemTypes(Convert.ToInt32(ItemTypeNamestxt[i].Tag), ItemTypeNamestxt[i++].Text);
+                    updatedItemTypes = Connection.server.UpdateItemTypes(Convert.ToInt32(ItemTypeNamestxt[i].Tag), ItemTypeNamestxt[i++].Text);
                 }
                 if (updatedItemTypes)
                 {
@@ -669,7 +670,7 @@ namespace NeatVibezPOS
             try
             {
                 bool deletedWarehouse = false;
-                deletedWarehouse = Connection.DeleteWarehouse(Index);
+                deletedWarehouse = Connection.server.DeleteWarehouse(Index);
                 if (deletedWarehouse)
                 {
                     DisplayWarehouses();
@@ -688,7 +689,7 @@ namespace NeatVibezPOS
             try
             {
                 bool addedWarehouse = false;
-                addedWarehouse = Connection.InsertWarehouse(AddWarehouse.Text);
+                addedWarehouse = Connection.server.InsertWarehouse(AddWarehouse.Text);
                 if (addedWarehouse)
                 {
                     DisplayWarehouses();
@@ -710,7 +711,7 @@ namespace NeatVibezPOS
                 int i = 0;
                 foreach (KeyValuePair<int, string> warehouse in warehouses)
                 {
-                    updatedWarehouses = Connection.UpdateWarehouses(Convert.ToInt32(WarehouseNamestxt[i].Tag), WarehouseNamestxt[i++].Text);
+                    updatedWarehouses = Connection.server.UpdateWarehouses(Convert.ToInt32(WarehouseNamestxt[i].Tag), WarehouseNamestxt[i++].Text);
                 }
                 if (updatedWarehouses)
                 {
@@ -729,7 +730,7 @@ namespace NeatVibezPOS
         {
             try
             {
-                //List<Item> quantity_items = Connection.RetrieveItemsQuantity(item.GetItemBarCode());
+                //List<Item> quantity_items = Connection.server.RetrieveItemsQuantity(item.GetItemBarCode());
 
                 /*foreach (Item quantity_item in quantity_items)
                 {
@@ -821,7 +822,7 @@ namespace NeatVibezPOS
             try
             {
                 bool deletedFavoriteCategory = false;
-                deletedFavoriteCategory = Connection.DeleteFavoriteCategory(Index);
+                deletedFavoriteCategory = Connection.server.DeleteFavoriteCategory(Index);
                 if (deletedFavoriteCategory)
                 {
                     DisplayFavorites();
@@ -840,7 +841,7 @@ namespace NeatVibezPOS
             try
             {
                 bool addedFavoriteCategory = false;
-                addedFavoriteCategory = Connection.InsertFavoriteCategory(AddFavorite.Text);
+                addedFavoriteCategory = Connection.server.InsertFavoriteCategory(AddFavorite.Text);
                 if (addedFavoriteCategory)
                 {
                     DisplayFavorites();
@@ -862,7 +863,7 @@ namespace NeatVibezPOS
                 int i = 0;
                 foreach(KeyValuePair<int, string> favorite in favorites)
                 {
-                    updatedFavoriteCategories = Connection.UpdateFavoriteCategories(Convert.ToInt32(FavoriteNamestxt[i].Tag), FavoriteNamestxt[i++].Text);
+                    updatedFavoriteCategories = Connection.server.UpdateFavoriteCategories(Convert.ToInt32(FavoriteNamestxt[i].Tag), FavoriteNamestxt[i++].Text);
                 }
                 if (updatedFavoriteCategories)
                 {
@@ -877,7 +878,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button17_Click(object sender, EventArgs e)
+        public void button17_Click(object sender, EventArgs e)
         {
             try
             {
@@ -905,7 +906,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void calculateStatistics()
+        public void calculateStatistics()
         {
             this.totalAmount = 0;
             foreach (DataGridViewRow itemToCalculate in ItemsPendingPurchase.Rows)
@@ -917,17 +918,17 @@ namespace NeatVibezPOS
             }
             
             richTextBox5.ResetText();
-            richTextBox5.AppendText(" :رقم الفاتوره " + this.CurrentBillNumber);
+            richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
             richTextBox4.ResetText();
             richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
         }
 
-        private void خروجToolStripMenuItem1_Click(object sender, EventArgs e)
+        public void خروجToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void button23_Click(object sender, EventArgs e)
+        public void button23_Click(object sender, EventArgs e)
         {
             try
             {
@@ -952,7 +953,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button24_Click(object sender, EventArgs e)
+        public void button24_Click(object sender, EventArgs e)
         {
             try
             {
@@ -979,7 +980,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button21_Click(object sender, EventArgs e)
+        public void button21_Click(object sender, EventArgs e)
         {
             groupBox5.Visible = false;
             try
@@ -1012,12 +1013,12 @@ namespace NeatVibezPOS
             this.ActiveControl = tabControl1;
         }
 
-        private void searchItemDGV_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void searchItemDGV_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
         }
 
-        private void button27_Click(object sender, EventArgs e)
+        public void button27_Click(object sender, EventArgs e)
         {
             /*
             PrintDocument printDocument1 = new PrintDocument();
@@ -1042,7 +1043,7 @@ namespace NeatVibezPOS
             // uses a specific named printer
 
             MyPrinter.Open("Receipt"); // opens and tells the spooler the document title
-            MyPrinter.Print("" + InvoiceNo + "رقم الفاتورة ");
+            MyPrinter.Print("" + InvoiceNo + "رقم الفاتورة الحالية ");
             MyPrinter.Print("" + InvoiceDate + "");
             MyPrinter.Print("إسم المنتج                " + "              السعر " + "               الكمية      ");
             MyPrinter.Print("----------------------------------------------------------");
@@ -1083,14 +1084,14 @@ namespace NeatVibezPOS
 
         }
 
-        private void BtnSearchItem_Click(object sender, EventArgs e)
+        public void BtnSearchItem_Click(object sender, EventArgs e)
         {
-            Tuple<Item[], DataTable> RetrievedItems;
-            RetrievedItems = Connection.SearchInventoryItems(txtItemNameSearch.Text, nudItemBarCodeSearch.Text);
+            Tuple<List<Item>, DataTable> RetrievedItems;
+            RetrievedItems = Connection.server.SearchInventoryItems(txtItemNameSearch.Text, nudItemBarCodeSearch.Text);
             DgvInventory.DataSource = RetrievedItems.Item2;
         }
 
-        private void BtnAddItem_Click(object sender, EventArgs e)
+        public void BtnAddItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1105,19 +1106,19 @@ namespace NeatVibezPOS
                     newItem.SetPriceTax(nuditemPriceTax.Value);
                     if (ItemType.SelectedItem != null)
                     {
-                        int ItemTypeID = Connection.RetrieveItemTypeID(ItemType.SelectedItem.ToString());
+                        int ItemTypeID = Connection.server.RetrieveItemTypeID(ItemType.SelectedItem.ToString());
                         newItem.SetItemTypeID(ItemTypeID);
                     }
                     else newItem.SetItemTypeID(0);
                     if (Warehouse.SelectedItem != null)
                     {
-                        int WarehouseID = Connection.RetrieveWarehouseID(Warehouse.SelectedItem.ToString());
+                        int WarehouseID = Connection.server.RetrieveWarehouseID(Warehouse.SelectedItem.ToString());
                         newItem.SetWarehouseID(WarehouseID);
                     }
                     else newItem.SetWarehouseID(0);
                     if (FavoriteCategories.SelectedItem != null)
                     {
-                        int Category = Connection.RetrieveFavoriteCategoryID(FavoriteCategories.SelectedItem.ToString());
+                        int Category = Connection.server.RetrieveFavoriteCategoryID(FavoriteCategories.SelectedItem.ToString());
                         newItem.SetFavoriteCategory(Category);
                     }
                     else newItem.SetFavoriteCategory(0);
@@ -1136,10 +1137,10 @@ namespace NeatVibezPOS
                         newItem.SetPicture(a);
                     }
 
-                    if (Connection.InsertItem(newItem))
+                    if (Connection.server.InsertItem(newItem))
                     {
                         this.ItemsList = DisplayData();
-                        this.CapitalAmount = Convert.ToDecimal(Connection.GetCapitalAmount());
+                        this.CapitalAmount = Convert.ToDecimal(Connection.server.GetCapitalAmount());
                         CapitalAmountnud.Value = CapitalAmount;
                     }
                     else
@@ -1163,7 +1164,7 @@ namespace NeatVibezPOS
 
 
 
-        private void ClearInput()
+        public void ClearInput()
         {
             txtItemName.Text = "";
             txtItemBarCode.Text = "";
@@ -1191,42 +1192,42 @@ namespace NeatVibezPOS
             BtnDeleteItem.Enabled = false;
         }
 
-        private void DataGridView1_DataSourceChanged(object sender, EventArgs e)
+        public void DataGridView1_DataSourceChanged(object sender, EventArgs e)
         {
             DgvInventory.Refresh();
         }
 
-        private Bill[] DisplayPortedBills()
+        public List<Bill> DisplayPortedBills()
         {
-            Tuple<Bill[], DataTable> RetrievedBills = Connection.RetrievePortedBills();
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrievePortedBills();
             dgvPortedSales.DataSource = RetrievedBills.Item2;
             return RetrievedBills.Item1;
         }
 
-        private Bill[] DisplayBillsEdit()
+        public List<Bill> DisplayBillsEdit()
         {
-            Tuple<Bill[], DataTable> RetrievedBills = Connection.RetrieveBills();
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveBills();
             dgvBillsEdit.DataSource = RetrievedBills.Item2;
             return RetrievedBills.Item1;
         }
 
-        private Bill[] DisplayVendorBills()
+        public List<Bill> DisplayVendorBills()
         {
-            Tuple<Bill[], DataTable> RetrievedBills = Connection.RetrieveVendorBills();
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveVendorBills();
             dgvVendorBills.DataSource = RetrievedBills.Item2;
             return RetrievedBills.Item1;
         }
 
-        private Bill[] DisplayBills()
+        public List<Bill> DisplayBills()
         {
-            Tuple<Bill[], DataTable> RetrievedBills = Connection.RetrieveBills();
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveBills();
             dgvBills.DataSource = RetrievedBills.Item2;
             return RetrievedBills.Item1;
         }
 
-        private Item[] DisplayData()
+        public List<Item> DisplayData()
         {
-            Tuple<Item[], DataTable> RetrievedItems = Connection.RetrieveItems();
+            Tuple<List<Item>, DataTable> RetrievedItems = Connection.server.RetrieveItems();
             DgvInventory.DataSource = RetrievedItems.Item2;
 
            for (int i = 0; i < DgvInventory.Columns.Count; i++)
@@ -1241,26 +1242,26 @@ namespace NeatVibezPOS
             return RetrievedItems.Item1;
         }
 
-        private void DisplayAbsence()
+        public void DisplayAbsence()
         {
-            DataTable RetrievedAbsences = Connection.RetrieveAbsence(DateTime.Now, DateTime.Now);
+            DataTable RetrievedAbsences = Connection.server.RetrieveAbsence(DateTime.Now, DateTime.Now);
             dgvAbsence.DataSource = RetrievedAbsences;
         }
 
-        private void DisplayEmployees()
+        public void DisplayEmployees()
         {
-            DataTable RetrievedEmployees = Connection.RetrieveEmployees();
+            DataTable RetrievedEmployees = Connection.server.RetrieveEmployees();
             dgvEmployees.DataSource = RetrievedEmployees;
         }
 
-        private Account[] DisplayUsers()
+        public List<Account> DisplayUsers()
         {
-            Tuple<Account[], DataTable> RetrievedUsers = Connection.RetrieveUsers();
+            Tuple<List<Account>, DataTable> RetrievedUsers = Connection.server.RetrieveUsers();
             dgvUsers.DataSource = RetrievedUsers.Item2;
             return RetrievedUsers.Item1;
         }
 
-        private void BtnUpdateItem_Click(object sender, EventArgs e)
+        public void BtnUpdateItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1285,19 +1286,19 @@ namespace NeatVibezPOS
                                 newItem.SetPriceTax(Convert.ToDecimal(nuditemPriceTax.Value));
                                 if (ItemType.SelectedItem != null)
                                 {
-                                    int ItemTypeID = Connection.RetrieveItemTypeID(ItemType.SelectedItem.ToString());
+                                    int ItemTypeID = Connection.server.RetrieveItemTypeID(ItemType.SelectedItem.ToString());
                                     newItem.SetItemTypeID(ItemTypeID);
                                 }
                                 else newItem.SetItemTypeID(0);
                                 if (Warehouse.SelectedItem != null)
                                 {
-                                    int WarehouseID = Connection.RetrieveWarehouseID(Warehouse.SelectedItem.ToString());
+                                    int WarehouseID = Connection.server.RetrieveWarehouseID(Warehouse.SelectedItem.ToString());
                                     newItem.SetWarehouseID(WarehouseID);
                                 }
                                 else newItem.SetWarehouseID(0);
                                 if (FavoriteCategories.SelectedItem != null)
                                 {
-                                    int Category = Connection.RetrieveFavoriteCategoryID(FavoriteCategories.SelectedItem.ToString());
+                                    int Category = Connection.server.RetrieveFavoriteCategoryID(FavoriteCategories.SelectedItem.ToString());
                                     newItem.SetFavoriteCategory(Category);
                                 }
                                 else newItem.SetFavoriteCategory(0);
@@ -1315,7 +1316,7 @@ namespace NeatVibezPOS
                                     newItem.SetPicture(a);
                                 }
 
-                                if (Connection.UpdateItem(newItem))
+                                if (Connection.server.UpdateItem(newItem))
                                 {
                                     this.ItemsList = DisplayData();
                                     DisplayFavorites();
@@ -1353,7 +1354,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void BtnDeleteItem_Click(object sender, EventArgs e)
+        public void BtnDeleteItem_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1370,7 +1371,7 @@ namespace NeatVibezPOS
                             {
                                 if (row.Selected == true)
                                 {
-                                    if (Connection.DeleteItem(row.Cells[1].Value.ToString()))
+                                    if (Connection.server.DeleteItem(row.Cells[1].Value.ToString()))
                                     {
                                         deletedCount++;
                                     }
@@ -1401,7 +1402,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void nudItemBarCodeSearch_KeyPress(object sender, KeyPressEventArgs e)
+        public void nudItemBarCodeSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
@@ -1409,7 +1410,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void txtItemNameSearch_KeyPress(object sender, KeyPressEventArgs e)
+        public void txtItemNameSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
@@ -1417,7 +1418,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void DgvInventory_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void DgvInventory_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
@@ -1429,9 +1430,9 @@ namespace NeatVibezPOS
                 nuditemPrice.Value = Convert.ToDecimal(DgvInventory.Rows[e.RowIndex].Cells["InventoryItemSellPrice"].Value.ToString());
                 decimal Tax = TaxRate * nuditemPrice.Value;
                 nuditemPriceTax.Value = nuditemPrice.Value + Tax;
-                FavoriteCategories.SelectedIndex = FavoriteCategories.FindStringExact(Connection.RetrieveFavoriteCategoryName(Convert.ToInt32(DgvInventory.Rows[e.RowIndex].Cells["FavoriteCategoryNumber"].Value.ToString())));
-                Warehouse.SelectedIndex = Warehouse.FindStringExact(Connection.RetrieveWarehouseName(Convert.ToInt32(DgvInventory.Rows[e.RowIndex].Cells["InventoryWarehouseID"].Value.ToString())));
-                ItemType.SelectedIndex = ItemType.FindStringExact(Connection.RetrieveItemTypeName(Convert.ToInt32(DgvInventory.Rows[e.RowIndex].Cells["InventoryItemTypeNumber"].Value.ToString())));
+                FavoriteCategories.SelectedIndex = FavoriteCategories.FindStringExact(Connection.server.RetrieveFavoriteCategoryName(Convert.ToInt32(DgvInventory.Rows[e.RowIndex].Cells["FavoriteCategoryNumber"].Value.ToString())));
+                Warehouse.SelectedIndex = Warehouse.FindStringExact(Connection.server.RetrieveWarehouseName(Convert.ToInt32(DgvInventory.Rows[e.RowIndex].Cells["InventoryWarehouseID"].Value.ToString())));
+                ItemType.SelectedIndex = ItemType.FindStringExact(Connection.server.RetrieveItemTypeName(Convert.ToInt32(DgvInventory.Rows[e.RowIndex].Cells["InventoryItemTypeNumber"].Value.ToString())));
 
 
                 if (!Convert.IsDBNull(DgvInventory.Rows[e.RowIndex].Cells["ItemPicture"].Value))
@@ -1441,7 +1442,7 @@ namespace NeatVibezPOS
                     PBAddProfilePicture.Image = Image.FromStream(stream);
                 }
 
-                Item itemInfo = Connection.RetrieveItemsQuantityDates(txtItemBarCode.Text);
+                Item itemInfo = Connection.server.RetrieveItemsQuantityDates(txtItemBarCode.Text);
 
                 QuantityWarning.Value = itemInfo.QuantityWarning;
                 ProductionDate.Value = itemInfo.ProductionDate;
@@ -1454,39 +1455,39 @@ namespace NeatVibezPOS
             catch (Exception ex) { }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        public void timer1_Tick(object sender, EventArgs e)
         {
             dateTimeLbl.Text = String.Format("{0}", DateTime.Now.ToString("dddd, dd MMMM yyyy MM/dd h:mm:ss tt"));
         }
 
-        private void nudItemQuantity_Enter(object sender, EventArgs e)
+        public void nudItemQuantity_Enter(object sender, EventArgs e)
         {
             nudItemQuantity.Select(1, 1);
         }
 
-        private void nuditemPrice_Enter(object sender, EventArgs e)
+        public void nuditemPrice_Enter(object sender, EventArgs e)
         {
             nuditemPrice.Select(0, 1);
         }
 
-        private void nuditemPriceTax_Enter(object sender, EventArgs e)
+        public void nuditemPriceTax_Enter(object sender, EventArgs e)
         {
             decimal Tax = TaxRate * nuditemPrice.Value;
             nuditemPriceTax.Value = nuditemPrice.Value + Tax;
             nuditemPriceTax.Select(0, 1);
         }
 
-        private void nuditemFavoriteCategory_Enter(object sender, EventArgs e)
+        public void nuditemFavoriteCategory_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void pendingPurchaseNewPrice_ValueChanged(object sender, EventArgs e)
+        public void pendingPurchaseNewPrice_ValueChanged(object sender, EventArgs e)
         {
             pendingPurchaseNewPriceTax.Value = Convert.ToDecimal(pendingPurchaseNewPrice.Value * Convert.ToDecimal(TaxRate));
         }
 
-        private void pictureBox10_Click(object sender, EventArgs e)
+        public void pictureBox10_Click(object sender, EventArgs e)
         {
             if (ItemsPendingPurchase.Rows[0].IsNewRow)
             {
@@ -1522,10 +1523,10 @@ namespace NeatVibezPOS
                             itemsToAdd[row].SetQuantity(itemQuantity);
                             itemsToAdd[row].SetPrice(itemPrice);
                             itemsToAdd[row++].SetPriceTax(itemPriceTax);
-                            int newItemQuantity = Connection.GetItemQuantity(itemBarCode) - itemQuantity;
-                            bool updatedQuantity = Connection.UpdateItemQuantity(new Item(itemName, itemBarCode, newItemQuantity, itemPrice, itemPriceTax, DateTime.Now));
+                            int newItemQuantity = Connection.server.GetItemQuantity(itemBarCode) - itemQuantity;
+                            bool updatedQuantity = Connection.server.UpdateItemQuantity(new Item(itemName, itemBarCode, newItemQuantity, itemPrice, itemPriceTax, DateTime.Now));
 
-                            Tuple<List<Item>, DataTable> itemsExpirationStock = Connection.RetrieveExpireStockToday(DateTime.Now);
+                            Tuple<List<Item>, DataTable> itemsExpirationStock = Connection.server.RetrieveExpireStockToday(DateTime.Now);
                             if (itemsExpirationStock != null)
                             {
                                 if (itemsExpirationStock.Item1.Count > 0)
@@ -1542,12 +1543,12 @@ namespace NeatVibezPOS
                     }
 
                     Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now);
-                    if (Connection.PayBill(billToAdd, this.cashierName))
+                    if (Connection.server.PayBill(billToAdd, this.cashierName))
                     {
                         // paid bill
 
                         printReceipt();
-                        this.CapitalAmount = Connection.GetCapitalAmount();
+                        this.CapitalAmount = Connection.server.GetCapitalAmount();
                         CapitalAmountnud.Value = this.CapitalAmount;
                         label91.Text = this.CapitalAmount.ToString();
                         this.customersaleItems.Clear();
@@ -1587,10 +1588,10 @@ namespace NeatVibezPOS
                     this.customersaleItems.Clear();
                 }
 
-                this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
 
                 richTextBox5.ResetText();
-                richTextBox5.AppendText(" :رقم الفاتوره " + this.CurrentBillNumber);
+                richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                 richTextBox4.ResetText();
                 richTextBox3.ResetText();
                 richTextBox3.AppendText(" :المجموع السابق " + this.totalAmount);
@@ -1620,7 +1621,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox12_Click(object sender, EventArgs e)
+        public void pictureBox12_Click(object sender, EventArgs e)
         {
             if (ItemsPendingPurchase.Rows[0].IsNewRow)
             {
@@ -1670,15 +1671,15 @@ namespace NeatVibezPOS
                 this.paidAmount = 0;
                 this.remainderAmount = 0;
                 items = null;
-                this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
                 richTextBox5.ResetText();
-                richTextBox5.AppendText(" :رقم الفاتوره " + this.CurrentBillNumber);
+                richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                 heldBillsCount += 1;
                 label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
             }
         }
 
-        private void pictureBox13_Click(object sender, EventArgs e)
+        public void pictureBox13_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1707,7 +1708,7 @@ namespace NeatVibezPOS
                     ItemsPendingPurchase.Rows.Clear();
                     Bill bill = previousBillsList.Pop();
                     //this.CurrentBillNumber = bill.getBillNumber();
-                    this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
                     foreach (Item item in bill.getItemsList())
                     {
                         var index = ItemsPendingPurchase.Rows.Add();
@@ -1751,7 +1752,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox14_Click(object sender, EventArgs e)
+        public void pictureBox14_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1781,7 +1782,7 @@ namespace NeatVibezPOS
                     previousBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
                     ItemsPendingPurchase.Rows.Clear();
                     Bill bill = nextBillsList.Pop();
-                    this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
                     //this.CurrentBillNumber = bill.getBillNumber();
 
                     foreach (Item item in bill.getItemsList())
@@ -1825,7 +1826,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void BtnPrint_Click(object sender, EventArgs e)
+        public void BtnPrint_Click(object sender, EventArgs e)
         {
             try
             {
@@ -1861,7 +1862,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox15_Click_1(object sender, EventArgs e)
+        public void pictureBox15_Click_1(object sender, EventArgs e)
         {
             this.ItemsList = DisplayData();
             for (int i = 0; i < DgvInventory.Rows.Count; i++)
@@ -1877,7 +1878,7 @@ namespace NeatVibezPOS
             txtItemNameSearch.Text = "";
         }
 
-        private void pictureBox16_Click_1(object sender, EventArgs e)
+        public void pictureBox16_Click_1(object sender, EventArgs e)
         {
             Users = DisplayUsers();
             for (int i = 0; i < dgvUsers.Rows.Count; i++)
@@ -1891,7 +1892,7 @@ namespace NeatVibezPOS
             dgvUsers.Refresh();
         }
 
-        private void dgvUsers_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void dgvUsers_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
@@ -1902,7 +1903,7 @@ namespace NeatVibezPOS
                 button20.Enabled = true;
                 button19.Enabled = true;
 
-                this.userPermissions = Connection.RetrieveUserPermissions(UserID);
+                this.userPermissions = Connection.server.RetrieveUserPermissions(UserID);
 
                 customer_card_edit.Checked = this.userPermissions.customer_card_edit;
                 discount_edit.Checked = this.userPermissions.discount_edit;
@@ -1918,7 +1919,7 @@ namespace NeatVibezPOS
             catch (Exception ex) { }
         }
 
-        private void button22_Click(object sender, EventArgs e)
+        public void button22_Click(object sender, EventArgs e)
         {
             if (Authority == 1)
             {
@@ -1952,7 +1953,7 @@ namespace NeatVibezPOS
                             newAccount.personnel_edit = personnel_edit.Checked;
                             newAccount.openclose_edit = openclose_edit.Checked;
 
-                            if (Connection.Register(newAccount, this.UID, newAccount.GetAccountAuthority()))
+                            if (Connection.server.Register(newAccount, this.UID, newAccount.GetAccountAuthority()))
                             {
                                 Users = DisplayUsers();
                                 DisplayCashierNames();
@@ -1984,7 +1985,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button20_Click(object sender, EventArgs e)
+        public void button20_Click(object sender, EventArgs e)
         {
             if (Authority == 1)
             {
@@ -2019,14 +2020,14 @@ namespace NeatVibezPOS
                             newAccount.personnel_edit = personnel_edit.Checked;
                             newAccount.openclose_edit = openclose_edit.Checked;
 
-                            if (Connection.UpdateUser(newAccount, this.UID, newAccount.GetAccountAuthority()))
+                            if (Connection.server.UpdateUser(newAccount, this.UID, newAccount.GetAccountAuthority()))
                             {
                                 Users = DisplayUsers();
                                 DisplayCashierNames();
                                 cashierNameLbl.Text = txtUserNameAdd.Text;
                                 frmMain.Authority = newAccount.GetAccountAuthority();
 
-                                this.userPermissions = Connection.RetrieveUserPermissions(this.UID);
+                                this.userPermissions = Connection.server.RetrieveUserPermissions(this.UID);
 
                                 customer_card_edit.Checked = this.userPermissions.customer_card_edit;
                                 discount_edit.Checked = this.userPermissions.discount_edit;
@@ -2126,7 +2127,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button19_Click(object sender, EventArgs e)
+        public void button19_Click(object sender, EventArgs e)
         {
             if (Authority == 1)
             {
@@ -2151,7 +2152,7 @@ namespace NeatVibezPOS
                             Account newAccount = new Account();
                             newAccount.SetAccountUID(txtUserIDAdd.Text);
 
-                            if (Connection.DeleteUser(newAccount, this.UID))
+                            if (Connection.server.DeleteUser(newAccount, this.UID))
                             {
                                 Users = DisplayUsers();
                                 DisplayCashierNames();
@@ -2191,14 +2192,14 @@ namespace NeatVibezPOS
             }
         }
 
-        private void nudBillNumberSearch_Enter(object sender, EventArgs e)
+        public void nudBillNumberSearch_Enter(object sender, EventArgs e)
         {
             nudBillNumberSearch.Select(1, 1);
         }
 
-        private void pictureBox17_Click(object sender, EventArgs e)
+        public void pictureBox17_Click(object sender, EventArgs e)
         {
-            Bill[] Bills = DisplayBills();
+            List<Bill> Bills = DisplayBills();
             for (int i = 0; i < dgvBills.Rows.Count; i++)
             {
                 CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dgvBills.DataSource];
@@ -2210,7 +2211,7 @@ namespace NeatVibezPOS
             dgvBills.Refresh();
         }
 
-        private void pictureBox18_Click(object sender, EventArgs e)
+        public void pictureBox18_Click(object sender, EventArgs e)
         {
             try
             {
@@ -2263,18 +2264,18 @@ namespace NeatVibezPOS
             }
         }
 
-        private void dgvBills_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void dgvBills_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             dgvBillItems.DataSource = RetrieveBillItems(e.RowIndex);
         }
 
-        internal DataTable RetrieveBillItems(int Index)
+        public DataTable RetrieveBillItems(int Index)
         {
             try
             {
                 int BillNumber = Convert.ToInt32(dgvBills.Rows[Index].Cells[0].Value.ToString());
                 PrintBillNumber = BillNumber;
-                Tuple<Item[], DataTable> RetrievedItems = Connection.RetrieveBillItems(BillNumber);
+                Tuple<List<Item>, DataTable> RetrievedItems = Connection.server.RetrieveBillItems(BillNumber);
                 return RetrievedItems.Item2;
             }
             catch (Exception ex)
@@ -2284,7 +2285,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox20_Click(object sender, EventArgs e)
+        public void pictureBox20_Click(object sender, EventArgs e)
         {
             try
             {
@@ -2321,42 +2322,42 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button18_Click(object sender, EventArgs e)
+        public void button18_Click(object sender, EventArgs e)
         {
-            Tuple<Item[], DataTable> mostBoughtItems = Connection.RetrieveMostBoughtItems();
+            Tuple<List<Item>, DataTable> mostBoughtItems = Connection.server.RetrieveMostBoughtItems();
             dgvBillItems.DataSource = mostBoughtItems.Item2;
         }
 
-        private void nudBillNumberSearch_KeyPress(object sender, KeyPressEventArgs e)
+        public void nudBillNumberSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
-            Tuple<Bill[], DataTable> RetrievedItems;
-            RetrievedItems = Connection.SearchBills(Convert.ToInt32(nudBillNumberSearch.Value));
+            Tuple<List<Bill>, DataTable> RetrievedItems;
+            RetrievedItems = Connection.server.SearchBills(Convert.ToInt32(nudBillNumberSearch.Value));
             dgvBills.DataSource = RetrievedItems.Item2;
         }
 
-        private void pictureBox19_Click(object sender, EventArgs e)
+        public void pictureBox19_Click(object sender, EventArgs e)
         {
-            Tuple<Bill[], DataTable> RetrievedItems;
-            RetrievedItems = Connection.SearchBills(Convert.ToInt32(nudBillNumberSearch.Value));
+            Tuple<List<Bill>, DataTable> RetrievedItems;
+            RetrievedItems = Connection.server.SearchBills(Convert.ToInt32(nudBillNumberSearch.Value));
             dgvBills.DataSource = RetrievedItems.Item2;
         }
 
-        private void button25_Click(object sender, EventArgs e)
+        public void button25_Click(object sender, EventArgs e)
         {
-            Tuple<Item[], DataTable> leastBoughtItems = Connection.RetrieveLeastBoughtItems();
+            Tuple<List<Item>, DataTable> leastBoughtItems = Connection.server.RetrieveLeastBoughtItems();
             dgvBillItems.DataSource = leastBoughtItems.Item2;
         }
 
-        private void button26_Click(object sender, EventArgs e)
+        public void button26_Click(object sender, EventArgs e)
         {
-            Tuple<Bill[], DataTable> RetrievedItems;
-            RetrievedItems = Connection.SearchTodayBills(DateTime.Today);
-            RetrievedItems = Connection.SearchTodayBills(DateTime.Today);
-            RetrievedItems = Connection.SearchTodayBills(DateTime.Today);
+            Tuple<List<Bill>, DataTable> RetrievedItems;
+            RetrievedItems = Connection.server.SearchTodayBills(DateTime.Today);
+            RetrievedItems = Connection.server.SearchTodayBills(DateTime.Today);
+            RetrievedItems = Connection.server.SearchTodayBills(DateTime.Today);
             dgvBills.DataSource = RetrievedItems.Item2;
         }
 
-        private void button28_Click(object sender, EventArgs e)
+        public void button28_Click(object sender, EventArgs e)
         {
             try
             {
@@ -2369,13 +2370,13 @@ namespace NeatVibezPOS
             { }
         }
 
-        private void pictureBox22_Click(object sender, EventArgs e)
+        public void pictureBox22_Click(object sender, EventArgs e)
         {
-            Tuple<Item[], DataTable> exports = Connection.RetrieveExports();
+            Tuple<List<Item>, DataTable> exports = Connection.server.RetrieveExports();
             dgvExports.DataSource = exports.Item2;
         }
 
-        private void PBAddProfilePicture_Click(object sender, EventArgs e)
+        public void PBAddProfilePicture_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog loadImage = new OpenFileDialog())
             {
@@ -2390,12 +2391,12 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        public void pictureBox4_Click(object sender, EventArgs e)
         {
             decimal total = 0;
             DataTable dt = new DataTable();
             dt.Clear();
-            Tuple<Bill[], DataTable> RetrievedBills = Connection.RetrieveUnPortedBills();
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveUnPortedBills();
             dgvUnPortedSales.DataSource = RetrievedBills.Item2;
             for (int i = 0; i < dgvUnPortedSales.Rows.Count; i++)
             {
@@ -2411,12 +2412,12 @@ namespace NeatVibezPOS
             dgvUnPortedSales.Refresh();
         }
 
-        private void pictureBox6_Click(object sender, EventArgs e)
+        public void pictureBox6_Click(object sender, EventArgs e)
         {
             decimal total = 0;
             DataTable dt = new DataTable();
             dt.Clear();
-            Tuple<Bill[], DataTable> RetrievedBills = Connection.RetrievePortedBills();
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrievePortedBills();
             dgvUnPortedSales.DataSource = RetrievedBills.Item2;
             for (int i = 0; i < dgvPortedSales.Rows.Count; i++)
             {
@@ -2432,7 +2433,7 @@ namespace NeatVibezPOS
             dgvPortedSales.Refresh();
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
+        public void pictureBox5_Click(object sender, EventArgs e)
         {
             try
             {
@@ -2468,7 +2469,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox7_Click(object sender, EventArgs e)
+        public void pictureBox7_Click(object sender, EventArgs e)
         {
             try
             {
@@ -2504,7 +2505,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void timer2_Tick(object sender, EventArgs e)
+        public void timer2_Tick(object sender, EventArgs e)
         {
             try
             {
@@ -2514,7 +2515,7 @@ namespace NeatVibezPOS
 
                 if (ScannedBarCode != "")
                 {
-                    Item item = Connection.SearchInventoryItemsWithBarCode(ScannedBarCode);
+                    Item item = Connection.server.SearchInventoryItemsWithBarCode(ScannedBarCode);
 
                     /*if (item.GetQuantity() < 1)
                     {
@@ -2578,7 +2579,7 @@ namespace NeatVibezPOS
                     calculateStatistics();
                 }
                 this.timerstarted = false;
-                this.timer2.Stop();
+                this.itemBarCodeEntryTimer.Stop();
                 if (!found)
                 {
                     var file = $"{Path.GetTempPath()}temp.mp3";
@@ -2608,17 +2609,17 @@ namespace NeatVibezPOS
             }
             catch (Exception ex)
             {
-                this.timer2.Stop();
+                this.itemBarCodeEntryTimer.Stop();
                 this.timerstarted = false;
             }
         }
 
-        private void pictureBox2_Click_1(object sender, EventArgs e)
+        public void pictureBox2_Click_1(object sender, EventArgs e)
         {
             MessageBox.Show(String.Format(".+962 79 294 2040 .{0} الرجاء مخاطبة للدعم الفني", Application.CompanyName));
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        public void pictureBox3_Click(object sender, EventArgs e)
         {
             try
             {
@@ -2648,7 +2649,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox8_Click(object sender, EventArgs e)
+        public void pictureBox8_Click(object sender, EventArgs e)
         {
             try
             {
@@ -2684,7 +2685,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox9_Click(object sender, EventArgs e)
+        public void pictureBox9_Click(object sender, EventArgs e)
         {
             try
             {
@@ -2720,7 +2721,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox27_Click(object sender, EventArgs e)
+        public void pictureBox27_Click(object sender, EventArgs e)
         {
             try
             {
@@ -2756,13 +2757,13 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox30_Click(object sender, EventArgs e)
+        public void pictureBox30_Click(object sender, EventArgs e)
         {
             int ItemTypeID = 0;
             string CashierName = null;
             if (comboBox1.SelectedItem != null)
             {
-                ItemTypeID = Connection.RetrieveItemTypeID(comboBox1.SelectedItem.ToString());
+                ItemTypeID = Connection.server.RetrieveItemTypeID(comboBox1.SelectedItem.ToString());
             }
             else ItemTypeID = 0;
             if (comboBox2.SelectedItem != null)
@@ -2770,12 +2771,12 @@ namespace NeatVibezPOS
                 CashierName = comboBox2.SelectedItem.ToString();
             }
             else CashierName = "";
-            dgvItemProfit.DataSource = Connection.RetrieveBillItemsProfit(Convert.ToDateTime(dateTimePicker4.Text), Convert.ToDateTime(dateTimePicker3.Text), ItemTypeID, CashierName);
+            dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(Convert.ToDateTime(dateTimePicker4.Text), Convert.ToDateTime(dateTimePicker3.Text), ItemTypeID, CashierName);
         }
 
-        private void tabControl4_SelectedIndexChanged(object sender, EventArgs e)
+        public void tabControl4_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Bill[] Bills = DisplayBillsEdit();
+            List<Bill> Bills = DisplayBillsEdit();
             for (int i = 0; i < dgvBillsEdit.Rows.Count; i++)
             {
                 CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dgvBillsEdit.DataSource];
@@ -2790,18 +2791,18 @@ namespace NeatVibezPOS
             string CashierName = "";
             if (comboBox1.SelectedItem != null)
             {
-                ItemTypeID = Connection.RetrieveItemTypeID(comboBox1.SelectedItem.ToString());
+                ItemTypeID = Connection.server.RetrieveItemTypeID(comboBox1.SelectedItem.ToString());
             }
             if (comboBox2.SelectedItem != null)
             {
                 CashierName = comboBox1.SelectedItem.ToString();
             }
-            dgvItemProfit.DataSource = Connection.RetrieveBillItemsProfit(Convert.ToDateTime(dateTimePicker4.Value), Convert.ToDateTime(dateTimePicker3.Value), ItemTypeID, CashierName);
+            dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(Convert.ToDateTime(dateTimePicker4.Value), Convert.ToDateTime(dateTimePicker3.Value), ItemTypeID, CashierName);
         }
 
-        private void pictureBox31_Click(object sender, EventArgs e)
+        public void pictureBox31_Click(object sender, EventArgs e)
         {
-            Bill[] Bills = DisplayBillsEdit();
+            List<Bill> Bills = DisplayBillsEdit();
             for (int i = 0; i < dgvBillsEdit.Rows.Count; i++)
             {
                 CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dgvBillsEdit.DataSource];
@@ -2813,27 +2814,27 @@ namespace NeatVibezPOS
             dgvBillsEdit.Refresh();
         }
 
-        private void pictureBox28_Click(object sender, EventArgs e)
+        public void pictureBox28_Click(object sender, EventArgs e)
         {
-            Tuple<Bill[], DataTable> RetrievedItems;
-            RetrievedItems = Connection.SearchBills(Convert.ToInt32(nudBillNumberEdit.Value));
+            Tuple<List<Bill>, DataTable> RetrievedItems;
+            RetrievedItems = Connection.server.SearchBills(Convert.ToInt32(nudBillNumberEdit.Value));
             dgvBillsEdit.DataSource = RetrievedItems.Item2;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             try
             {
                 if (BillEditNumber.Value != 0 && BillsCashierName.Text != "" && BillsTotalAmount.Value != 0 && BillsPaidAmount.Value != 0 && BillsRemainderAmount.Value != 0)
                 {
-                    Connection.UpdateBill(Convert.ToInt32(BillEditNumber.Value), BillsCashierName.Text, BillsTotalAmount.Value, BillsPaidAmount.Value, BillsRemainderAmount.Value);
+                    Connection.server.UpdateBill(Convert.ToInt32(BillEditNumber.Value), BillsCashierName.Text, BillsTotalAmount.Value, BillsPaidAmount.Value, BillsRemainderAmount.Value);
                     BillEditNumber.Value = 0;
                     BillsCashierName.Text = "";
                     BillsTotalAmount.Value = 0;
                     BillsPaidAmount.Value = 0;
                     BillsRemainderAmount.Value = 0;
                     BillsEditButton.Enabled = false;
-                    Bill[] Bills = DisplayBillsEdit();
+                    List<Bill> Bills = DisplayBillsEdit();
                     for (int i = 0; i < dgvBillsEdit.Rows.Count; i++)
                     {
                         CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dgvBillsEdit.DataSource];
@@ -2855,7 +2856,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void dgvBillsEdit_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void dgvBillsEdit_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
@@ -2871,21 +2872,21 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
+        public void button3_Click_1(object sender, EventArgs e)
         {
             textBox4.Text = "";
             numericUpDown1.Value = 0;
         }
 
-        private void pictureBox33_Click(object sender, EventArgs e)
+        public void pictureBox33_Click(object sender, EventArgs e)
         {
             DataTable RetrievedExpenses;
-            RetrievedExpenses = Connection.SearchExpenses(dateTimePicker8.Value, dateTimePicker7.Value, textBox1.Text, textBox2.Text);
+            RetrievedExpenses = Connection.server.SearchExpenses(dateTimePicker8.Value, dateTimePicker7.Value, textBox1.Text, textBox2.Text);
             dgvExpenses.DataSource = RetrievedExpenses;
-            CapitalAmountnud.Value = Connection.GetCapitalAmount();
+            CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
         }
 
-        private void pictureBox34_Click(object sender, EventArgs e)
+        public void pictureBox34_Click(object sender, EventArgs e)
         {
             try
             {
@@ -2921,79 +2922,79 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             try
             {
-                if (Connection.InsertExpense(textBox4.Text, numericUpDown1.Value, this.UID, DateTime.Now))
+                if (Connection.server.InsertExpense(textBox4.Text, numericUpDown1.Value, this.UID, DateTime.Now))
                 {
                     textBox4.Text = "";
                     numericUpDown1.Value = 0;
-                    decimal newCapitalAmount = Connection.GetCapitalAmount() - CapitalAmountnud.Value;
+                    decimal newCapitalAmount = Connection.server.GetCapitalAmount() - CapitalAmountnud.Value;
                     MessageBox.Show(".تمت اضافة المصروف");
                 }
             } catch(Exception error) { MessageBox.Show(".لم نتمكن من اضافة المصروف"); }
         }
 
-        private void numericUpDown1_Enter(object sender, EventArgs e)
+        public void numericUpDown1_Enter(object sender, EventArgs e)
         {
             numericUpDown1.Select(0, 1);
         }
 
-        private void textBox4_KeyPress(object sender, KeyPressEventArgs e)
+        public void textBox4_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button2.PerformClick();
         }
 
-        private void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
+        public void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
         {
 
         }
 
-        private void ItemsPendingPurchase_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        public void ItemsPendingPurchase_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             this.ScannedBarCode = "";
         }
 
-        private void pictureBox35_Click(object sender, EventArgs e)
+        public void pictureBox35_Click(object sender, EventArgs e)
         {
             frmMaintenance frmMaintenance = new frmMaintenance();
             frmMaintenance.ShowDialog();
         }
 
-        private void customerID_Enter(object sender, EventArgs e)
+        public void customerID_Enter(object sender, EventArgs e)
         {
             customerID.Select(0, 1);
         }
 
-        private void BuyPrice_Enter(object sender, EventArgs e)
+        public void BuyPrice_Enter(object sender, EventArgs e)
         {
             BuyPrice.Select(0, 1);
         }
 
-        private void SellPrice_Enter(object sender, EventArgs e)
+        public void SellPrice_Enter(object sender, EventArgs e)
         {
             SellPrice.Select(0, 1);
         }
 
-        private void SellPriceTax_Enter(object sender, EventArgs e)
+        public void SellPriceTax_Enter(object sender, EventArgs e)
         {
             SellPriceTax.Select(0, 1);
         }
 
-        private void CustomerPrice_Enter(object sender, EventArgs e)
+        public void CustomerPrice_Enter(object sender, EventArgs e)
         {
             CustomerPrice.Select(0, 1);
         }
 
-        private void numericUpDown1_KeyPress(object sender, KeyPressEventArgs e)
+        public void numericUpDown1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button2.PerformClick();
         }
 
-        private void tabControl1_KeyPress(object sender, KeyPressEventArgs e)
+        public void tabControl1_KeyPress(object sender, KeyPressEventArgs e)
         {
             try
             {
@@ -3019,7 +3020,7 @@ namespace NeatVibezPOS
 
                             if (!this.timerstarted)
                             {
-                                timer2.Start();
+                                itemBarCodeEntryTimer.Start();
                                 this.timerstarted = true;
                             }
                         }
@@ -3032,7 +3033,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             try
             {
@@ -3053,13 +3054,13 @@ namespace NeatVibezPOS
             { }
         }
 
-        private void pictureBox23_Click(object sender, EventArgs e)
+        public void pictureBox23_Click(object sender, EventArgs e)
         {
-            Tuple<Item[], DataTable> imports = Connection.RetrieveImports();
+            Tuple<List<Item>, DataTable> imports = Connection.server.RetrieveImports();
             dgvImports.DataSource = imports.Item2;
         }
 
-        private void adminCheckBox_CheckedChanged(object sender, EventArgs e)
+        public void adminCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (adminCheckBox.Checked)
                 if (frmMain.Authority != 1)
@@ -3069,13 +3070,13 @@ namespace NeatVibezPOS
                 }
         }
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        public void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 if (tabControl1.SelectedTab == tabControl1.TabPages["Sales"])
                 {
-                    Bill[] Bills = DisplayBills();
+                    List<Bill> Bills = DisplayBills();
                     for (int i = 0; i < dgvBills.Rows.Count; i++)
                     {
                         CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dgvBills.DataSource];
@@ -3089,7 +3090,7 @@ namespace NeatVibezPOS
                     decimal total = 0;
                     DataTable dt = new DataTable();
                     dt.Clear();
-                    Tuple<Bill[], DataTable> RetrievedBills = Connection.RetrieveUnPortedBills();
+                    Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveUnPortedBills();
                     dgvUnPortedSales.DataSource = RetrievedBills.Item2;
                     for (int i = 0; i < dgvUnPortedSales.Rows.Count; i++)
                     {
@@ -3107,7 +3108,7 @@ namespace NeatVibezPOS
                     total = 0;
                     dt = new DataTable();
                     dt.Clear();
-                    RetrievedBills = Connection.RetrievePortedBills();
+                    RetrievedBills = Connection.server.RetrievePortedBills();
                     dgvPortedSales.DataSource = RetrievedBills.Item2;
                     for (int i = 0; i < dgvPortedSales.Rows.Count; i++)
                     {
@@ -3126,13 +3127,13 @@ namespace NeatVibezPOS
                     string CashierName = null;
                     if (comboBox1.SelectedItem != null)
                     {
-                        ItemTypeID = Connection.RetrieveItemTypeID(comboBox1.SelectedItem.ToString());
+                        ItemTypeID = Connection.server.RetrieveItemTypeID(comboBox1.SelectedItem.ToString());
                     }
                     if (comboBox2.SelectedItem != null)
                     {
                         CashierName = comboBox2.SelectedItem.ToString();
                     }
-                    dgvItemProfit.DataSource = Connection.RetrieveBillItemsProfit(Convert.ToDateTime(dateTimePicker4.Text), Convert.ToDateTime(dateTimePicker3.Text), ItemTypeID, CashierName);
+                    dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(Convert.ToDateTime(dateTimePicker4.Text), Convert.ToDateTime(dateTimePicker3.Text), ItemTypeID, CashierName);
                 }
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["Inventory"])
                 {
@@ -3152,18 +3153,18 @@ namespace NeatVibezPOS
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["Expenses"])
                 {
                     DataTable RetrievedExpenses;
-                    RetrievedExpenses = Connection.SearchExpenses(dateTimePicker8.Value, dateTimePicker7.Value, textBox1.Text, textBox2.Text);
+                    RetrievedExpenses = Connection.server.SearchExpenses(dateTimePicker8.Value, dateTimePicker7.Value, textBox1.Text, textBox2.Text);
                     dgvExpenses.DataSource = RetrievedExpenses;
                 }
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["IncomingOutgoing"])
                 {
-                    Tuple<Item[], DataTable> exports = Connection.RetrieveExports();
+                    Tuple<List<Item>, DataTable> exports = Connection.server.RetrieveExports();
                     dgvExports.DataSource = exports.Item2;
 
-                    Tuple<Item[], DataTable> imports = Connection.RetrieveImports();
+                    Tuple<List<Item>, DataTable> imports = Connection.server.RetrieveImports();
                     dgvImports.DataSource = imports.Item2;
 
-                    Tuple<Item[], DataTable> capitalWinnings = Connection.RetrieveCapitalRevenue();
+                    Tuple<List<Item>, DataTable> capitalWinnings = Connection.server.RetrieveCapitalRevenue();
                     dvgCapital.DataSource = capitalWinnings.Item2;
 
                     decimal SumOfRevenue = 0;
@@ -3202,7 +3203,7 @@ namespace NeatVibezPOS
                 }
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["Agents"])
                 {
-                    Tuple<Customer[], DataTable> retrievedCustomers = Connection.GetRetrieveCustomers();
+                    Tuple<List<Customer>, DataTable> retrievedCustomers = Connection.server.GetRetrieveCustomers();
 
                     dgvCustomers.DataSource = retrievedCustomers.Item2;
 
@@ -3212,7 +3213,7 @@ namespace NeatVibezPOS
                         customerName.Items.Add(new Items(customer.CustomerName));
                     }
 
-                    Tuple<Customer[], DataTable> retrievedVendors = Connection.GetRetrieveVendors();
+                    Tuple<List<Customer>, DataTable> retrievedVendors = Connection.server.GetRetrieveVendors();
 
                     dgvVendors.DataSource = retrievedVendors.Item2;
 
@@ -3224,7 +3225,7 @@ namespace NeatVibezPOS
                 }
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["Alerts"])
                 {
-                    Tuple<List<Item>, DataTable> itemsExpirationStock = Connection.RetrieveExpireStockToday(DateTime.Now);
+                    Tuple<List<Item>, DataTable> itemsExpirationStock = Connection.server.RetrieveExpireStockToday(DateTime.Now);
                     if (itemsExpirationStock.Item1 != null)
                     {
                         if (itemsExpirationStock.Item1.Count > 0)
@@ -3240,13 +3241,13 @@ namespace NeatVibezPOS
                             dgvAlerts.DataSource = dt;
                         }
                     }
-                    Tuple<Item[], DataTable> retreivedCustomerItems = Connection.RetrieveItems();
+                    Tuple<List<Item>, DataTable> retreivedCustomerItems = Connection.server.RetrieveItems();
                     DGVCustomerItems.DataSource = retreivedCustomerItems.Item2;
                 }
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["Taxes"])
                 {
                     decimal totalTax = 0;
-                    DataTable TaxZReport = Connection.RetrieveTaxZReport();
+                    DataTable TaxZReport = Connection.server.RetrieveTaxZReport();
                     foreach (DataRow row in TaxZReport.Rows)
                     {
                         if (row["Bill Number"] != null && row["Bill Number"] != DBNull.Value && !String.IsNullOrWhiteSpace(row["Bill Number"].ToString()))
@@ -3275,15 +3276,15 @@ namespace NeatVibezPOS
                 }
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["Retrievals"])
                 {
-                    dgvReturnedItems.DataSource = Connection.RetrieveReturnedItems();
+                    dgvReturnedItems.DataSource = Connection.server.RetrieveReturnedItems();
                 }
             } catch (Exception error)
             { }
         }
 
-        private void pictureBox24_Click(object sender, EventArgs e)
+        public void pictureBox24_Click(object sender, EventArgs e)
         {
-            Tuple<Item[], DataTable> capitalWinnings = Connection.RetrieveCapitalRevenue();
+            Tuple<List<Item>, DataTable> capitalWinnings = Connection.server.RetrieveCapitalRevenue();
             dvgCapital.DataSource = capitalWinnings.Item2;
 
             decimal SumOfRevenue = 0;
@@ -3298,7 +3299,7 @@ namespace NeatVibezPOS
             label91.Text = CapitalAmount.ToString();
         }
 
-        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        public void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             switch (e.CloseReason)
             {
@@ -3311,25 +3312,25 @@ namespace NeatVibezPOS
                 case CloseReason.None:
                     Properties.Settings.Default.moneyInRegister = this.moneyInRegister;
                     Properties.Settings.Default.Save();
-                    Connection.LogLogout(this.UID, DateTime.Now);
+                    Connection.server.LogLogout(this.UID, DateTime.Now);
                     break;
             }
         }
 
-        private void txtPWD_KeyPress(object sender, KeyPressEventArgs e)
+        public void txtPWD_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 BtnRegister.PerformClick();
         }
 
-        private void txtUserPasswordAdd_KeyPress(object sender, KeyPressEventArgs e)
+        public void txtUserPasswordAdd_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar));
             if (e.KeyChar == (Char)Keys.Enter)
                 button22.PerformClick();
         }
 
-        private void pictureBox25_Click(object sender, EventArgs e)
+        public void pictureBox25_Click(object sender, EventArgs e)
         {
             if (userPermissions.customer_card_edit)
             {
@@ -3400,18 +3401,18 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button31_Click(object sender, EventArgs e)
+        public void button31_Click(object sender, EventArgs e)
         {
             try
             {
-                if (Connection.RegisterCustomer(new Customer(customerName.Text, Convert.ToInt32(customerID.Value), CustomerPhone.Text, CustomerAddress.Text)))
+                if (Connection.server.RegisterCustomer(new Customer(customerName.Text, Convert.ToInt32(customerID.Value), CustomerPhone.Text, CustomerAddress.Text)))
                 {
                     customerName.Text = "";
                     customerID.Value = 0;
                     CustomerPhone.Text = "";
                     CustomerAddress.Text = "";
 
-                    Tuple<Customer[], DataTable> retrievedCustomers = Connection.GetRetrieveCustomers();
+                    Tuple<List<Customer>, DataTable> retrievedCustomers = Connection.server.GetRetrieveCustomers();
 
                     dgvCustomers.DataSource = retrievedCustomers.Item2;
 
@@ -3431,11 +3432,11 @@ namespace NeatVibezPOS
             { }
         }
 
-        private void pictureBox21_Click(object sender, EventArgs e)
+        public void pictureBox21_Click(object sender, EventArgs e)
         {
             try
             {
-                Tuple<Customer[], DataTable> retrievedCustomers = Connection.GetRetrieveCustomers();
+                Tuple<List<Customer>, DataTable> retrievedCustomers = Connection.server.GetRetrieveCustomers();
 
                 dgvCustomers.DataSource = retrievedCustomers.Item2;
 
@@ -3448,13 +3449,13 @@ namespace NeatVibezPOS
             { }
         }
 
-        private void button30_Click(object sender, EventArgs e)
+        public void button30_Click(object sender, EventArgs e)
         {
             try
             {
-                if (Connection.DeletesCustomer(dgvCustomers.CurrentRow.Cells["CustomerIDDelete"].Value.ToString()))
+                if (Connection.server.DeletesCustomer(dgvCustomers.CurrentRow.Cells["CustomerIDDelete"].Value.ToString()))
                 {
-                    Tuple<Customer[], DataTable> retrievedCustomers = Connection.GetRetrieveCustomers();
+                    Tuple<List<Customer>, DataTable> retrievedCustomers = Connection.server.GetRetrieveCustomers();
 
                     dgvCustomers.DataSource = retrievedCustomers.Item2;
 
@@ -3473,7 +3474,7 @@ namespace NeatVibezPOS
             { }
         }
 
-        private void pictureBox26_Click(object sender, EventArgs e)
+        public void pictureBox26_Click(object sender, EventArgs e)
         {
             if (userPermissions.price_edit)
             {
@@ -3488,12 +3489,12 @@ namespace NeatVibezPOS
             }
         }
 
-        private void nudItemBuyPrice_Enter(object sender, EventArgs e)
+        public void nudItemBuyPrice_Enter(object sender, EventArgs e)
         {
             nudItemBuyPrice.Select(0, 1);
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        public void button5_Click(object sender, EventArgs e)
         {
             try
             {
@@ -3502,7 +3503,7 @@ namespace NeatVibezPOS
 
                 if (pickCustomer.pickedCustomer.CustomerName != null)
                 {
-                    Customer pickedCustomer = Connection.SearchCustomersInfo(pickCustomer.pickedCustomer.CustomerName, Convert.ToString(pickCustomer.pickedCustomer.CustomerID)).Item1;
+                    Customer pickedCustomer = Connection.server.SearchCustomersInfo(pickCustomer.pickedCustomer.CustomerName, Convert.ToString(pickCustomer.pickedCustomer.CustomerID)).Item1;
                     textBox7.Text = pickedCustomer.CustomerName;
                     numericUpDown2.Value = pickedCustomer.CustomerID;
                     CustomerPrice.Value = pickedCustomer.CustomerPrice;
@@ -3513,13 +3514,13 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        public void button4_Click(object sender, EventArgs e)
         {
             try
             {
                 Item pickedItem = new Item();
                 pickedItem.SetBarCode(DGVCustomerItems.Rows[customerItemID].Cells[1].Value.ToString());
-                bool addedItemToCustomer = Connection.AddItemToCustomer(pickedItem.GetItemBarCode(), Convert.ToInt32(numericUpDown2.Value), CustomerPrice.Value);
+                bool addedItemToCustomer = Connection.server.AddItemToCustomer(pickedItem.GetItemBarCode(), Convert.ToInt32(numericUpDown2.Value), CustomerPrice.Value);
 
                 if (addedItemToCustomer)
                 {
@@ -3553,32 +3554,32 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox40_Click(object sender, EventArgs e)
+        public void pictureBox40_Click(object sender, EventArgs e)
         {
-            DGVCustomerItems.DataSource = Connection.RetrieveItems().Item2;
+            DGVCustomerItems.DataSource = Connection.server.RetrieveItems().Item2;
         }
 
-        private void BuyPrice_Enter_1(object sender, EventArgs e)
+        public void BuyPrice_Enter_1(object sender, EventArgs e)
         {
             BuyPrice.Select(0, 1);
         }
 
-        private void SellPrice_Enter_1(object sender, EventArgs e)
+        public void SellPrice_Enter_1(object sender, EventArgs e)
         {
             SellPrice.Select(0, 1);
         }
 
-        private void SellPriceTax_Enter_1(object sender, EventArgs e)
+        public void SellPriceTax_Enter_1(object sender, EventArgs e)
         {
             SellPriceTax.Select(0, 1);
         }
 
-        private void CustomerPrice_Enter_1(object sender, EventArgs e)
+        public void CustomerPrice_Enter_1(object sender, EventArgs e)
         {
             CustomerPrice.Select(0, 1);
         }
 
-        private void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
+        public void tabControl1_Selecting(object sender, TabControlCancelEventArgs e)
         {
 
             if (!this.userPermissions.customer_card_edit)
@@ -3606,7 +3607,7 @@ namespace NeatVibezPOS
                     e.Cancel = true;
         }
 
-        private void tabControl4_Selecting(object sender, TabControlCancelEventArgs e)
+        public void tabControl4_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if (!this.userPermissions.receipt_edit)
             {
@@ -3619,7 +3620,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void cbAdminOrNotAdd_CheckedChanged(object sender, EventArgs e)
+        public void cbAdminOrNotAdd_CheckedChanged(object sender, EventArgs e)
         {
             if (adminCheckBox.Checked)
                 if (frmMain.Authority != 1)
@@ -3640,21 +3641,21 @@ namespace NeatVibezPOS
             }
         }
 
-        private void QuantityWarning_Enter(object sender, EventArgs e)
+        public void QuantityWarning_Enter(object sender, EventArgs e)
         {
             QuantityWarning.Select(0, 1);
         }
 
-        private void tabControl3_SelectedIndexChanged(object sender, EventArgs e)
+        public void tabControl3_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (tabControl3.SelectedTab == tabControl3.TabPages["AgentsDefinitions"])
             {
-                Tuple<Item[], DataTable> retreivedCustomerItems = Connection.RetrieveItems();
+                Tuple<List<Item>, DataTable> retreivedCustomerItems = Connection.server.RetrieveItems();
                 DGVCustomerItems.DataSource = retreivedCustomerItems.Item2;
             } else if (tabControl3.SelectedTab == tabControl3.TabPages["AgentsItemsDefinitions"])
             {
                 VendorName.Items.Clear();
-                Tuple<Customer[], DataTable> retrievedVendors = Connection.GetRetrieveVendors();
+                Tuple<List<Customer>, DataTable> retrievedVendors = Connection.server.GetRetrieveVendors();
 
                 dgvVendors.DataSource = retrievedVendors.Item2;
 
@@ -3665,31 +3666,31 @@ namespace NeatVibezPOS
             }
         }
 
-        private void اضافةصنفToolStripMenuItem_Click(object sender, EventArgs e)
+        public void اضافةصنفToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
             tabControl6.SelectedTab = tabControl6.TabPages["AddTypes"];
         }
 
-        private void اضافةمستودعToolStripMenuItem_Click(object sender, EventArgs e)
+        public void اضافةمستودعToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
             tabControl6.SelectedTab = tabControl6.TabPages["AddFavorites"];
         }
 
-        private void اضافةمستودعToolStripMenuItem1_Click(object sender, EventArgs e)
+        public void اضافةمستودعToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
             tabControl6.SelectedTab = tabControl6.TabPages["AddWarehouses"];
         }
 
-        private void اضافةمادهToolStripMenuItem_Click(object sender, EventArgs e)
+        public void اضافةمادهToolStripMenuItem_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
             tabControl6.SelectedTab = tabControl6.TabPages["posInventory"];
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        public void button8_Click(object sender, EventArgs e)
         {
             try
             {
@@ -3705,7 +3706,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        public void button9_Click(object sender, EventArgs e)
         {
             try
             {
@@ -3716,7 +3717,7 @@ namespace NeatVibezPOS
                 textBox8.Text = vendorName;
                 numericUpDown3.Value = vendorID;
 
-                Bill[] Bills = DisplayVendorBills();
+                List<Bill> Bills = DisplayVendorBills();
                 for (int i = 0; i < dgvVendorBills.Rows.Count; i++)
                 {
                     CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dgvVendorBills.DataSource];
@@ -3733,11 +3734,11 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        public void button7_Click(object sender, EventArgs e)
         {
             try
             {
-                if (Connection.RegisterVendor(new Customer(VendorName.Text, Convert.ToInt32(VendorID.Value), VendorPhone.Text, VendorAddress.Text)))
+                if (Connection.server.RegisterVendor(new Customer(VendorName.Text, Convert.ToInt32(VendorID.Value), VendorPhone.Text, VendorAddress.Text)))
                 {
                     VendorName.Text = "";
                     VendorName.Items.Clear();
@@ -3745,7 +3746,7 @@ namespace NeatVibezPOS
                     VendorPhone.Text = "";
                     VendorAddress.Text = "";
 
-                    Tuple<Customer[], DataTable> retrievedVendors = Connection.GetRetrieveVendors();
+                    Tuple<List<Customer>, DataTable> retrievedVendors = Connection.server.GetRetrieveVendors();
 
                     dgvVendors.DataSource = retrievedVendors.Item2;
 
@@ -3765,13 +3766,13 @@ namespace NeatVibezPOS
             { }
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        public void button6_Click(object sender, EventArgs e)
         {
             try
             {
-                if (Connection.DeletesCustomer(dgvVendors.CurrentRow.Cells["CustomerIDDelete"].Value.ToString()))
+                if (Connection.server.DeletesCustomer(dgvVendors.CurrentRow.Cells["CustomerIDDelete"].Value.ToString()))
                 {
-                    Tuple<Customer[], DataTable> retrievedCustomers = Connection.GetRetrieveVendors();
+                    Tuple<List<Customer>, DataTable> retrievedCustomers = Connection.server.GetRetrieveVendors();
 
                     dgvVendors.DataSource = retrievedCustomers.Item2;
 
@@ -3790,17 +3791,17 @@ namespace NeatVibezPOS
             { }
         }
 
-        private void VendorID_Enter(object sender, EventArgs e)
+        public void VendorID_Enter(object sender, EventArgs e)
         {
             VendorID.Select(0, 1);
         }
 
-        private void pictureBox42_Click(object sender, EventArgs e)
+        public void pictureBox42_Click(object sender, EventArgs e)
         {
             try
             {
                 VendorName.Items.Clear();
-                Tuple<Customer[], DataTable> retrievedVendors = Connection.GetRetrieveVendors();
+                Tuple<List<Customer>, DataTable> retrievedVendors = Connection.server.GetRetrieveVendors();
 
                 dgvVendors.DataSource = retrievedVendors.Item2;
 
@@ -3814,7 +3815,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button12_Click(object sender, EventArgs e)
+        public void button12_Click(object sender, EventArgs e)
         {
             try
             {
@@ -3840,15 +3841,15 @@ namespace NeatVibezPOS
                             itemsToAdd[row].SetBuyPrice(itemBuyPrice);
                             itemsToAdd[row].SetPrice(itemPrice);
                             itemsToAdd[row].SetPriceTax(itemPriceTax);
-                            Connection.UpdateItemQuantity(itemsToAdd[row++]);
+                            Connection.server.UpdateItemQuantity(itemsToAdd[row++]);
                             this.totalVendorAmount += itemBuyPrice * itemQuantity;
                         }
                     }
 
                     Bill billToAdd = new Bill(this.CurrentVendorBillNumber, this.totalVendorAmount, itemsToAdd, DateTime.Now);
-                    if (Connection.AddVendorBill(billToAdd, this.cashierName))
+                    if (Connection.server.AddVendorBill(billToAdd, this.cashierName))
                     {
-                        this.totalVendorAmount = Connection.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                        this.totalVendorAmount = Connection.server.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
                         this.CurrentVendorBillNumber++;
                         this.ItemsList = DisplayData();
                         DisplayFavorites();
@@ -3866,22 +3867,22 @@ namespace NeatVibezPOS
             }
         }
 
-        private void tabControl3_Selecting(object sender, TabControlCancelEventArgs e)
+        public void tabControl3_Selecting(object sender, TabControlCancelEventArgs e)
         {
             /*if (e.TabPage == tabPage17)
                 e.Cancel = true;
                 */
         }
 
-        private void dgvVendorBills_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void dgvVendorBills_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            dgvVendorBillItems.DataSource = Connection.RetrieveVendorBillItems(Convert.ToInt32(dgvVendorBills.Rows[e.RowIndex].Cells[0].Value.ToString())).Item2;
+            dgvVendorBillItems.DataSource = Connection.server.RetrieveVendorBillItems(Convert.ToInt32(dgvVendorBills.Rows[e.RowIndex].Cells[0].Value.ToString())).Item2;
         }
 
-        private void pictureBox44_Click(object sender, EventArgs e)
+        public void pictureBox44_Click(object sender, EventArgs e)
         {
             decimal totalTax = 0;
-            DataTable TaxZReport = Connection.RetrieveTaxZReport();
+            DataTable TaxZReport = Connection.server.RetrieveTaxZReport();
             foreach (DataRow row in TaxZReport.Rows)
             {
                 if (row["Bill Number"] != null && row["Bill Number"] != DBNull.Value && !String.IsNullOrWhiteSpace(row["Bill Number"].ToString()))
@@ -3894,7 +3895,7 @@ namespace NeatVibezPOS
             dgvTaxZReport.DataSource = TaxZReport;
         }
 
-        private void pictureBox46_Click(object sender, EventArgs e)
+        public void pictureBox46_Click(object sender, EventArgs e)
         {
             try
             {
@@ -3930,7 +3931,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox45_Click(object sender, EventArgs e)
+        public void pictureBox45_Click(object sender, EventArgs e)
         {
             try
             {
@@ -3966,12 +3967,12 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        public void pictureBox1_Click(object sender, EventArgs e)
         {
             MessageBox.Show(1.ToString());
         }
 
-        private void ItemsPendingPurchase_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void ItemsPendingPurchase_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
@@ -3983,7 +3984,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pendingPurchaseRemovalQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        public void pendingPurchaseRemovalQuantity_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
             {
@@ -3993,7 +3994,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pendingPurchaseNewQuantity_KeyPress(object sender, KeyPressEventArgs e)
+        public void pendingPurchaseNewQuantity_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
             {
@@ -4003,55 +4004,55 @@ namespace NeatVibezPOS
             }
         }
 
-        private void customerName_KeyPress(object sender, KeyPressEventArgs e)
+        public void customerName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button31.PerformClick();
         }
 
-        private void customerID_KeyPress(object sender, KeyPressEventArgs e)
+        public void customerID_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button31.PerformClick();
         }
 
-        private void CustomerPhone_KeyPress(object sender, KeyPressEventArgs e)
+        public void CustomerPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button31.PerformClick();
         }
 
-        private void CustomerAddress_KeyPress(object sender, KeyPressEventArgs e)
+        public void CustomerAddress_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button31.PerformClick();
         }
 
-        private void VendorName_KeyPress(object sender, KeyPressEventArgs e)
+        public void VendorName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button7.PerformClick();
         }
 
-        private void VendorID_KeyPress(object sender, KeyPressEventArgs e)
+        public void VendorID_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button7.PerformClick();
         }
 
-        private void VendorPhone_KeyPress(object sender, KeyPressEventArgs e)
+        public void VendorPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button7.PerformClick();
         }
 
-        private void VendorAddress_KeyPress(object sender, KeyPressEventArgs e)
+        public void VendorAddress_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button7.PerformClick();
         }
 
-        private void label67_MouseClick(object sender, MouseEventArgs e)
+        public void label67_MouseClick(object sender, MouseEventArgs e)
         {
             if (ItemsPendingPurchase.Rows[0].IsNewRow)
             {
@@ -4087,10 +4088,10 @@ namespace NeatVibezPOS
                             itemsToAdd[row].SetQuantity(itemQuantity);
                             itemsToAdd[row].SetPrice(itemPrice);
                             itemsToAdd[row++].SetPriceTax(itemPriceTax);
-                            int newItemQuantity = Connection.GetItemQuantity(itemBarCode) - itemQuantity;
-                            bool updatedQuantity = Connection.UpdateItemQuantity(new Item(itemName, itemBarCode, newItemQuantity, itemPrice, itemPriceTax, DateTime.Now));
+                            int newItemQuantity = Connection.server.GetItemQuantity(itemBarCode) - itemQuantity;
+                            bool updatedQuantity = Connection.server.UpdateItemQuantity(new Item(itemName, itemBarCode, newItemQuantity, itemPrice, itemPriceTax, DateTime.Now));
 
-                            Tuple<List<Item>, DataTable> itemsExpirationStock = Connection.RetrieveExpireStockToday(DateTime.Now);
+                            Tuple<List<Item>, DataTable> itemsExpirationStock = Connection.server.RetrieveExpireStockToday(DateTime.Now);
                             if (itemsExpirationStock != null)
                             {
                                 if (itemsExpirationStock.Item1.Count > 0)
@@ -4107,12 +4108,12 @@ namespace NeatVibezPOS
                     }
 
                     Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now);
-                    if (Connection.PayBill(billToAdd, this.cashierName))
+                    if (Connection.server.PayBill(billToAdd, this.cashierName))
                     {
                         // paid bill
 
                         printReceipt();
-                        CapitalAmountnud.Value = Connection.GetCapitalAmount();
+                        CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
                         label91.Text = this.CapitalAmount.ToString();
                         this.customersaleItems.Clear();
                     }
@@ -4151,10 +4152,10 @@ namespace NeatVibezPOS
                     this.customersaleItems.Clear();
                 }
 
-                this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
 
                 richTextBox5.ResetText();
-                richTextBox5.AppendText(" :رقم الفاتوره " + this.CurrentBillNumber);
+                richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                 richTextBox4.ResetText();
                 richTextBox3.ResetText();
                 richTextBox3.AppendText(" :المجموع السابق " + this.totalAmount);
@@ -4184,7 +4185,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void label93_MouseClick(object sender, MouseEventArgs e)
+        public void label93_MouseClick(object sender, MouseEventArgs e)
         {
             if (userPermissions.customer_card_edit)
             {
@@ -4255,32 +4256,32 @@ namespace NeatVibezPOS
             }
         }
 
-        private void label69_MouseClick(object sender, MouseEventArgs e)
+        public void label69_MouseClick(object sender, MouseEventArgs e)
         {
 
         }
 
-        private void label68_MouseClick(object sender, MouseEventArgs e)
+        public void label68_MouseClick(object sender, MouseEventArgs e)
         {
 
         }
 
-        private void label89_MouseClick(object sender, MouseEventArgs e)
+        public void label89_MouseClick(object sender, MouseEventArgs e)
         {
 
         }
 
-        private void label2_MouseClick(object sender, MouseEventArgs e)
+        public void label2_MouseClick(object sender, MouseEventArgs e)
         {
 
         }
 
-        private void label24_MouseClick(object sender, MouseEventArgs e)
+        public void label24_MouseClick(object sender, MouseEventArgs e)
         {
 
         }
 
-        private void label69_Click(object sender, EventArgs e)
+        public void label69_Click(object sender, EventArgs e)
         {
             if (ItemsPendingPurchase.Rows[0].IsNewRow)
             {
@@ -4330,15 +4331,15 @@ namespace NeatVibezPOS
                 this.paidAmount = 0;
                 this.remainderAmount = 0;
                 items = null;
-                this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
                 richTextBox5.ResetText();
-                richTextBox5.AppendText(" :رقم الفاتوره " + this.CurrentBillNumber);
+                richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                 heldBillsCount += 1;
                 label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
             }
         }
 
-        private void label68_Click(object sender, EventArgs e)
+        public void label68_Click(object sender, EventArgs e)
         {
             if (userPermissions.discount_edit)
             {
@@ -4368,7 +4369,7 @@ namespace NeatVibezPOS
                             }
                         }
 
-                        Connection.AddSaleOnItems(saleItems);
+                        Connection.server.AddSaleOnItems(saleItems);
 
 
                         foreach (DataGridViewRow item in ItemsPendingPurchase.Rows)
@@ -4416,7 +4417,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void label89_Click(object sender, EventArgs e)
+        public void label89_Click(object sender, EventArgs e)
         {
             if (userPermissions.price_edit)
             {
@@ -4431,7 +4432,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        public void label2_Click(object sender, EventArgs e)
         {
             try
             {
@@ -4462,7 +4463,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void label24_Click(object sender, EventArgs e)
+        public void label24_Click(object sender, EventArgs e)
         {
             try
             {
@@ -4473,7 +4474,7 @@ namespace NeatVibezPOS
                 {
                     try
                     {
-                        List<Item> quantity_items = Connection.RetrieveItemsQuantity(itemLookup.selectedItem.GetItemBarCode());
+                        List<Item> quantity_items = Connection.server.RetrieveItemsQuantity(itemLookup.selectedItem.GetItemBarCode());
 
                         /*foreach (Item item in quantity_items)
                         {
@@ -4563,13 +4564,13 @@ namespace NeatVibezPOS
             }
         }
 
-        private void tabControl1_KeyDown(object sender, KeyEventArgs e)
+        public void tabControl1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Modifiers == Keys.Control && e.KeyCode == Keys.F1)
             {
                 frmItemRefund frmItemRefund = new frmItemRefund(itemtypes, this.UID);
                 frmItemRefund.ShowDialog();
-                capital = Connection.GetCapitalAmount();
+                capital = Connection.server.GetCapitalAmount();
                 CapitalAmountnud.Value = capital;
                 CapitalAmount = capital;
                 return;
@@ -4611,10 +4612,10 @@ namespace NeatVibezPOS
                                     itemsToAdd[row].SetQuantity(itemQuantity);
                                     itemsToAdd[row].SetPrice(itemPrice);
                                     itemsToAdd[row++].SetPriceTax(itemPriceTax);
-                                    int newItemQuantity = Connection.GetItemQuantity(itemBarCode) - itemQuantity;
-                                    bool updatedQuantity = Connection.UpdateItemQuantity(new Item(itemName, itemBarCode, newItemQuantity, itemPrice, itemPriceTax, DateTime.Now));
+                                    int newItemQuantity = Connection.server.GetItemQuantity(itemBarCode) - itemQuantity;
+                                    bool updatedQuantity = Connection.server.UpdateItemQuantity(new Item(itemName, itemBarCode, newItemQuantity, itemPrice, itemPriceTax, DateTime.Now));
 
-                                    Tuple<List<Item>, DataTable> itemsExpirationStock = Connection.RetrieveExpireStockToday(DateTime.Now);
+                                    Tuple<List<Item>, DataTable> itemsExpirationStock = Connection.server.RetrieveExpireStockToday(DateTime.Now);
                                     if (itemsExpirationStock != null)
                                     {
                                         if (itemsExpirationStock.Item1.Count > 0)
@@ -4631,12 +4632,12 @@ namespace NeatVibezPOS
                             }
 
                             Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now);
-                            if (Connection.PayBill(billToAdd, this.cashierName))
+                            if (Connection.server.PayBill(billToAdd, this.cashierName))
                             {
                                 // paid bill
 
                                 printReceipt();
-                                capital = Connection.GetCapitalAmount();
+                                capital = Connection.server.GetCapitalAmount();
                                 CapitalAmountnud.Value = capital;
                                 CapitalAmount = capital;
                                 label91.Text = this.CapitalAmount.ToString();
@@ -4677,10 +4678,10 @@ namespace NeatVibezPOS
                             this.customersaleItems.Clear();
                         }
 
-                        this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                        this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
 
                         richTextBox5.ResetText();
-                        richTextBox5.AppendText(" :رقم الفاتوره " + this.CurrentBillNumber);
+                        richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                         richTextBox4.ResetText();
                         richTextBox3.ResetText();
                         richTextBox3.AppendText(" :المجموع السابق " + this.totalAmount);
@@ -4829,9 +4830,9 @@ namespace NeatVibezPOS
                         this.paidAmount = 0;
                         this.remainderAmount = 0;
                         items = null;
-                        this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                        this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
                         richTextBox5.ResetText();
-                        richTextBox5.AppendText(" :رقم الفاتوره " + this.CurrentBillNumber);
+                        richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                         heldBillsCount += 1;
                         label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
                     }
@@ -4866,7 +4867,7 @@ namespace NeatVibezPOS
                                     }
                                 }
 
-                                Connection.AddSaleOnItems(saleItems);
+                                Connection.server.AddSaleOnItems(saleItems);
 
 
                                 foreach (DataGridViewRow item in ItemsPendingPurchase.Rows)
@@ -4986,7 +4987,7 @@ namespace NeatVibezPOS
                             ItemsPendingPurchase.Rows.Clear();
                             Bill bill = previousBillsList.Pop();
                             //this.CurrentBillNumber = bill.getBillNumber();
-                            this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
                             foreach (Item item in bill.getItemsList())
                             {
                                 var index = ItemsPendingPurchase.Rows.Add();
@@ -5059,7 +5060,7 @@ namespace NeatVibezPOS
                             previousBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
                             ItemsPendingPurchase.Rows.Clear();
                             Bill bill = nextBillsList.Pop();
-                            this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
                             //this.CurrentBillNumber = bill.getBillNumber();
 
                             foreach (Item item in bill.getItemsList())
@@ -5113,7 +5114,7 @@ namespace NeatVibezPOS
                         {
                             try
                             {
-                                List<Item> quantity_items = Connection.RetrieveItemsQuantity(itemLookup.selectedItem.GetItemBarCode());
+                                List<Item> quantity_items = Connection.server.RetrieveItemsQuantity(itemLookup.selectedItem.GetItemBarCode());
 
                                 /*foreach (Item item in quantity_items)
                                 {
@@ -5214,7 +5215,7 @@ namespace NeatVibezPOS
                         this.registerOpen = true;
                         this.moneyInRegisterInitial = this.moneyInRegister = openRegister.moneyInRegister;
                         openRegister.Dispose();
-                        bool openedRegister = Connection.SaveRegisterOpen(cashierName, moneyInRegister);
+                        bool openedRegister = Connection.server.SaveRegisterOpen(cashierName, moneyInRegister);
                         if (openedRegister)
                         {
                             Properties.Settings.Default.RegisterOpen = true;
@@ -5229,11 +5230,11 @@ namespace NeatVibezPOS
                             openRegisterBtn.Enabled = false;
                             label65.Enabled = false;
                             // get last bill number of today
-                            this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
                             richTextBox4.ResetText();
                             richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
                             richTextBox5.ResetText();
-                            richTextBox5.AppendText(" :رقم الفاتوره " + this.CurrentBillNumber);
+                            richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                             MessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), Application.ProductName);
                             this.Select();
                         }
@@ -5249,12 +5250,12 @@ namespace NeatVibezPOS
                         if (!registerOpen)
                             return;
 
-                        frmCloseRegister closeRegister = new frmCloseRegister(this.cashierName, Connection.GetOpenRegisterAmount());
+                        frmCloseRegister closeRegister = new frmCloseRegister(this.cashierName, Connection.server.GetOpenRegisterAmount());
 
                         closeRegister.ShowDialog(this);
                         if (closeRegister.dialogResult == DialogResult.OK)
                         {
-                            bool closedRegister = Connection.SaveRegisterClose(cashierName, moneyInRegister);
+                            bool closedRegister = Connection.server.SaveRegisterClose(cashierName, moneyInRegister);
                             if (closedRegister)
                             {
                                 Properties.Settings.Default.RegisterOpen = false;
@@ -5273,7 +5274,7 @@ namespace NeatVibezPOS
                                 try
                                 {
 
-                                    DataTable retrievedLoginLogoutData = Connection.RetrieveLoginLogoutInfo(DateTime.Now);
+                                    DataTable retrievedLoginLogoutData = Connection.server.RetrieveLoginLogoutInfo(DateTime.Now);
 
                                     dgvLoginLogout.DataSource = retrievedLoginLogoutData;
                                     for (int i = 0; i < dgvLoginLogout.Rows.Count; i++)
@@ -5329,19 +5330,19 @@ namespace NeatVibezPOS
             }
         }
 
-        private void label66_Click(object sender, EventArgs e)
+        public void label66_Click(object sender, EventArgs e)
         {
             if (!userPermissions.openclose_edit)
                 return;
 
             try
             {
-                frmCloseRegister closeRegister = new frmCloseRegister(this.cashierName, Connection.GetOpenRegisterAmount());
+                frmCloseRegister closeRegister = new frmCloseRegister(this.cashierName, Connection.server.GetOpenRegisterAmount());
 
                 closeRegister.ShowDialog(this);
                 if (closeRegister.dialogResult == DialogResult.OK)
                 {
-                    bool closedRegister = Connection.SaveRegisterClose(cashierName, moneyInRegister);
+                    bool closedRegister = Connection.server.SaveRegisterClose(cashierName, moneyInRegister);
                     if (closedRegister)
                     {
                         Properties.Settings.Default.RegisterOpen = false;
@@ -5359,7 +5360,7 @@ namespace NeatVibezPOS
 
                         try
                         {
-                            DataTable retrievedLoginLogoutData = Connection.RetrieveLoginLogoutInfo(DateTime.Now);
+                            DataTable retrievedLoginLogoutData = Connection.server.RetrieveLoginLogoutInfo(DateTime.Now);
 
                             dgvLoginLogout.DataSource = retrievedLoginLogoutData;
                             for (int i = 0; i < dgvLoginLogout.Rows.Count; i++)
@@ -5413,7 +5414,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void label65_Click(object sender, EventArgs e)
+        public void label65_Click(object sender, EventArgs e)
         {
             if (!userPermissions.openclose_edit)
                 return;
@@ -5426,7 +5427,7 @@ namespace NeatVibezPOS
                 this.registerOpen = true;
                 this.moneyInRegisterInitial = this.moneyInRegister = openRegister.moneyInRegister;
                 openRegister.Dispose();
-                bool openedRegister = Connection.SaveRegisterOpen(cashierName, moneyInRegister);
+                bool openedRegister = Connection.server.SaveRegisterOpen(cashierName, moneyInRegister);
                 if (openedRegister)
                 {
                     Properties.Settings.Default.RegisterOpen = true;
@@ -5441,51 +5442,51 @@ namespace NeatVibezPOS
                     openRegisterBtn.Enabled = false;
                     label65.Enabled = false;
                     // get last bill number of today
-                    this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
                     richTextBox4.ResetText();
                     richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
                     richTextBox5.ResetText();
-                    richTextBox5.AppendText(" :رقم الفاتوره " + this.CurrentBillNumber);
+                    richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                     MessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), Application.ProductName);
                     this.Select();
                 }
             }
         }
 
-        private void txtUID_KeyPress(object sender, KeyPressEventArgs e)
+        public void txtUID_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 BtnRegister.PerformClick();
         }
 
-        private void txtFname_KeyPress(object sender, KeyPressEventArgs e)
+        public void txtFname_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 BtnRegister.PerformClick();
         }
 
-        private void txtUserNameAdd_KeyPress(object sender, KeyPressEventArgs e)
+        public void txtUserNameAdd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button22.PerformClick();
         }
 
-        private void button13_Click(object sender, EventArgs e)
+        public void button13_Click(object sender, EventArgs e)
         {
             try
             {
                 if (WarehousesQuantityList.Text != "")
                 {
-                    Tuple<Item[], DataTable> RetrievedItems;
-                    int WarehouseID = Connection.RetrieveWarehouseID(WarehousesQuantityList.SelectedItem.ToString());
-                    RetrievedItems = Connection.SearchWarehouseInventoryItems(WarehouseID);
+                    Tuple<List<Item>, DataTable> RetrievedItems;
+                    int WarehouseID = Connection.server.RetrieveWarehouseID(WarehousesQuantityList.SelectedItem.ToString());
+                    RetrievedItems = Connection.server.SearchWarehouseInventoryItems(WarehouseID);
                     dgvWarehouseInventory.DataSource = RetrievedItems.Item2;
                 }
             }
             catch { }
         }
 
-        private void pictureBox47_Click(object sender, EventArgs e)
+        public void pictureBox47_Click(object sender, EventArgs e)
         {
             try
             {
@@ -5521,7 +5522,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button14_Click(object sender, EventArgs e)
+        public void button14_Click(object sender, EventArgs e)
         {
             try
             {
@@ -5549,12 +5550,11 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button15_Click(object sender, EventArgs e)
+        public void button15_Click(object sender, EventArgs e)
         {
             try
             {
-                Item[] itemsToAdd = new Item[0];
-                int row = 0;
+                List<Item> itemsToAdd = new List<Item>();
 
                 foreach (DataGridViewRow currentBillRow in dvgEntryExitItems.Rows)
                 {
@@ -5562,7 +5562,6 @@ namespace NeatVibezPOS
                     {
                         if (currentBillRow.Cells[0].Value != null && currentBillRow.Cells[0].Value != DBNull.Value && !String.IsNullOrWhiteSpace(currentBillRow.Cells[0].Value.ToString()))
                         {
-                            Array.Resize(ref itemsToAdd, itemsToAdd.Length + 1);
                             Item newItem = new Item();
 
                             newItem.SetName(currentBillRow.Cells[0].Value.ToString());
@@ -5576,23 +5575,23 @@ namespace NeatVibezPOS
 
                             if (WarehouseEntryExitList.SelectedItem != null)
                             {
-                                int WarehouseID = Connection.RetrieveWarehouseID(currentBillRow.Cells[3].Value.ToString());
+                                int WarehouseID = Connection.server.RetrieveWarehouseID(currentBillRow.Cells[3].Value.ToString());
                                 newItem.SetWarehouseID(WarehouseID);
                             }
                             else newItem.SetWarehouseID(0);
-                            itemsToAdd[row++] = newItem;
+                            itemsToAdd.Add(newItem);
                         }
                         
                     }
                 }
                 dvgEntryExitItems.Rows.Clear();
 
-                if (Connection.UpdateItemWarehouse(itemsToAdd, this.UID, EntryExitType.SelectedIndex))
+                if (Connection.server.UpdateItemWarehouse(itemsToAdd, this.UID, EntryExitType.SelectedIndex))
                 {
                     this.ItemsList = DisplayData();
                     DisplayFavorites();
 
-                    capital = Connection.GetCapitalAmount();
+                    capital = Connection.server.GetCapitalAmount();
                     CapitalAmountnud.Value = capital;
                     CapitalAmount = capital;
                     MessageBox.Show(".تم ادخال العمليه", Application.ProductName);
@@ -5608,7 +5607,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        public void pictureBox2_Click(object sender, EventArgs e)
         {
             DisplayEmployees();
             for (int i = 0; i < dgvEmployees.Rows.Count; i++)
@@ -5622,7 +5621,7 @@ namespace NeatVibezPOS
             dgvEmployees.Refresh();
         }
 
-        private void button34_Click(object sender, EventArgs e)
+        public void button34_Click(object sender, EventArgs e)
         {
             if (frmMain.Authority != 1)
             {
@@ -5631,7 +5630,7 @@ namespace NeatVibezPOS
             }
             if (AddEmployeeName.Text != "" && AddEmployeeSalary.Value != 0)
             {
-                if (Connection.InsertEmployee(AddEmployeeName.Text, AddEmployeeSalary.Value, AddEmployeePhone.Text, AddEmployeeAddress.Text))
+                if (Connection.server.InsertEmployee(AddEmployeeName.Text, AddEmployeeSalary.Value, AddEmployeePhone.Text, AddEmployeeAddress.Text))
                 {
                     AddEmployeeName.Text = "";
                     AddEmployeeSalary.Value = 0;
@@ -5655,7 +5654,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void dgvEmployees_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void dgvEmployees_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
@@ -5673,7 +5672,7 @@ namespace NeatVibezPOS
             catch (Exception ex) { }
         }
 
-        private void button16_Click(object sender, EventArgs e)
+        public void button16_Click(object sender, EventArgs e)
         {
             if (frmMain.Authority != 1)
             {
@@ -5682,7 +5681,7 @@ namespace NeatVibezPOS
             }
             if (EmployeeID != 0)
             {
-                if (Connection.DeleteEmployee(EmployeeID))
+                if (Connection.server.DeleteEmployee(EmployeeID))
                 {
                     DisplayEmployees();
                     for (int i = 0; i < dgvEmployees.Rows.Count; i++)
@@ -5720,7 +5719,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox43_Click(object sender, EventArgs e)
+        public void pictureBox43_Click(object sender, EventArgs e)
         {
             DisplayAbsence();
             for (int i = 0; i < dgvAbsence.Rows.Count; i++)
@@ -5734,13 +5733,13 @@ namespace NeatVibezPOS
             dgvAbsence.Refresh();
         }
 
-        private void pictureBox48_Click(object sender, EventArgs e)
+        public void pictureBox48_Click(object sender, EventArgs e)
         {
-            DataTable RetrievedAbsences = Connection.RetrieveAbsence(AbsenceFrom.Value, AbsenceTo.Value);
+            DataTable RetrievedAbsences = Connection.server.RetrieveAbsence(AbsenceFrom.Value, AbsenceTo.Value);
             dgvAbsence.DataSource = RetrievedAbsences;
         }
 
-        private void button37_Click(object sender, EventArgs e)
+        public void button37_Click(object sender, EventArgs e)
         {
             if (frmMain.Authority != 1)
             {
@@ -5751,7 +5750,7 @@ namespace NeatVibezPOS
             {
                 if (AbsenceHours.SelectedItem.ToString() != "يوم اجازه")
                 {
-                    if (Connection.InsertAbsence(EmployeeID, AbsenceDate.Value, Convert.ToInt32(AbsenceHours.SelectedItem.ToString())))
+                    if (Connection.server.InsertAbsence(EmployeeID, AbsenceDate.Value, Convert.ToInt32(AbsenceHours.SelectedItem.ToString())))
                     {
                         AbsenceEmpName.Text = "";
                         AbsenceDate.Value = DateTime.Now;
@@ -5772,7 +5771,7 @@ namespace NeatVibezPOS
 
                     }
                     else MessageBox.Show(".لم نتمكن من تسجيل الغياب", Application.ProductName);
-                } else if (Connection.InsertDayOff(EmployeeID, AbsenceDate.Value))
+                } else if (Connection.server.InsertDayOff(EmployeeID, AbsenceDate.Value))
                     {
                     AbsenceEmpName.Text = "";
                     AbsenceDate.Value = DateTime.Now;
@@ -5794,7 +5793,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button33_Click(object sender, EventArgs e)
+        public void button33_Click(object sender, EventArgs e)
         {
             if (frmMain.Authority != 1)
             {
@@ -5803,7 +5802,7 @@ namespace NeatVibezPOS
             }
             if (AbsenceID != 0)
             {
-                if (Connection.DeleteAbsence(AbsenceID))
+                if (Connection.server.DeleteAbsence(AbsenceID))
                 {
                     DisplayAbsence();
                     for (int i = 0; i < dgvAbsence.Rows.Count; i++)
@@ -5825,7 +5824,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button35_Click(object sender, EventArgs e)
+        public void button35_Click(object sender, EventArgs e)
         {
             if (frmMain.Authority != 1)
             {
@@ -5834,7 +5833,7 @@ namespace NeatVibezPOS
             }
             if (EmployeeID != 0)
             {
-                if (Connection.InsertDeduction(EmployeeID, DateTime.Now, SalaryDeduction.Value))
+                if (Connection.server.InsertDeduction(EmployeeID, DateTime.Now, SalaryDeduction.Value))
                 {
                     DisplayAbsence();
                     for (int i = 0; i < dgvAbsence.Rows.Count; i++)
@@ -5867,7 +5866,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button38_Click(object sender, EventArgs e)
+        public void button38_Click(object sender, EventArgs e)
         {
             try
             {
@@ -5896,7 +5895,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void dvgEntryExitItems_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void dvgEntryExitItems_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
@@ -5907,7 +5906,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button36_Click(object sender, EventArgs e)
+        public void button36_Click(object sender, EventArgs e)
         {
             try
             {
@@ -5936,47 +5935,47 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pendingPurchaseRemovalQuantity_Enter(object sender, EventArgs e)
+        public void pendingPurchaseRemovalQuantity_Enter(object sender, EventArgs e)
         {
             pendingPurchaseRemovalQuantity.Select(0, pendingPurchaseRemovalQuantity.Value.ToString().Length);
             pendingPurchaseRemovalQuantity.Focus();
         }
 
-        private void pendingPurchaseNewQuantity_Enter(object sender, EventArgs e)
+        public void pendingPurchaseNewQuantity_Enter(object sender, EventArgs e)
         {
             pendingPurchaseNewQuantity.Select(0, pendingPurchaseNewQuantity.Value.ToString().Length);
             pendingPurchaseNewQuantity.Focus();
         }
 
-        private void nudBillNumberSearch_Enter_1(object sender, EventArgs e)
+        public void nudBillNumberSearch_Enter_1(object sender, EventArgs e)
         {
             nudBillNumberSearch.Select(0, nudBillNumberSearch.Value.ToString().Length);
             pendingPurchaseRemovalQuantity.Focus();
         }
 
-        private void nudBillNumberEdit_Enter(object sender, EventArgs e)
+        public void nudBillNumberEdit_Enter(object sender, EventArgs e)
         {
             nudBillNumberEdit.Select(0, nudBillNumberEdit.Value.ToString().Length);
             pendingPurchaseRemovalQuantity.Focus();
         }
 
-        private void BillsCashierName_Enter(object sender, EventArgs e)
+        public void BillsCashierName_Enter(object sender, EventArgs e)
         {
             BillsCashierName.Select(0, BillsCashierName.Text.Length);
             pendingPurchaseRemovalQuantity.Focus();
         }
 
-        private void QuantityWarning_Enter_1(object sender, EventArgs e)
+        public void QuantityWarning_Enter_1(object sender, EventArgs e)
         {
             QuantityWarning.Select(0, QuantityWarning.Value.ToString().Length);
             pendingPurchaseRemovalQuantity.Focus();
         }
 
-        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        public void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
             {
-                bool addedFavoriteCategory = Connection.InsertFavoriteCategory(FavoriteCategoryEntry.Text);
+                bool addedFavoriteCategory = Connection.server.InsertFavoriteCategory(FavoriteCategoryEntry.Text);
                 if (addedFavoriteCategory)
                 {
                     DisplayFavorites();
@@ -5985,11 +5984,11 @@ namespace NeatVibezPOS
             }
         }
 
-        private void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        public void textBox5_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
             {
-                bool addedWarehouse = Connection.InsertWarehouse(WarehouseEntry.Text);
+                bool addedWarehouse = Connection.server.InsertWarehouse(WarehouseEntry.Text);
                 if (addedWarehouse)
                 {
                     DisplayWarehouses();
@@ -5998,12 +5997,12 @@ namespace NeatVibezPOS
             }
         }
 
-        private void CapitalAmountnud_Enter(object sender, EventArgs e)
+        public void CapitalAmountnud_Enter(object sender, EventArgs e)
         {
             CapitalAmountnud.Select(0, 1);
         }
 
-        private void pictureBox49_Click(object sender, EventArgs e)
+        public void pictureBox49_Click(object sender, EventArgs e)
         {
             try
             {
@@ -6039,22 +6038,22 @@ namespace NeatVibezPOS
             }
         }
 
-        private void groupBox30_Enter(object sender, EventArgs e)
+        public void groupBox30_Enter(object sender, EventArgs e)
         {
              
         }
 
-        private void groupBox26_Enter(object sender, EventArgs e)
+        public void groupBox26_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void groupBox36_Enter(object sender, EventArgs e)
+        public void groupBox36_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void pictureBox29_Click(object sender, EventArgs e)
+        public void pictureBox29_Click(object sender, EventArgs e)
         {
             try
             {
@@ -6090,7 +6089,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox32_Click(object sender, EventArgs e)
+        public void pictureBox32_Click(object sender, EventArgs e)
         {
             try
             {
@@ -6126,7 +6125,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox35_Click_1(object sender, EventArgs e)
+        public void pictureBox35_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -6162,12 +6161,17 @@ namespace NeatVibezPOS
             }
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
+        public void frmMain_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void pictureBox99_Click(object sender, EventArgs e)
+        public void pictureBox99_Click(object sender, EventArgs e)
+        {
+            refreshInventoryItems();
+        }
+
+        public void refreshInventoryItems()
         {
             try
             {
@@ -6187,7 +6191,7 @@ namespace NeatVibezPOS
             catch { }
         }
 
-        private void picLogoStore_Click(object sender, EventArgs e)
+        public void picLogoStore_Click(object sender, EventArgs e)
         {
             try
             {
@@ -6210,7 +6214,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button29_Click(object sender, EventArgs e)
+        public void button29_Click(object sender, EventArgs e)
         {
             try
             {
@@ -6223,11 +6227,27 @@ namespace NeatVibezPOS
             { }
         }
 
-        private void textBox6_KeyPress(object sender, KeyPressEventArgs e)
+        private void lastBillNumberUpdaterTimer_Tick(object sender, EventArgs e)
+        {
+            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+            richTextBox5.ResetText();
+            richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+        }
+
+        private void updateWarehouses_Tick(object sender, EventArgs e)
+        {
+            DisplayItemTypes();
+            DisplayFavoriteItems();
+            DisplayWarehouses();
+            DisplayFavorites();
+            refreshInventoryItems();
+        }
+
+        public void textBox6_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
             {
-                bool addedItemType = Connection.InsertItemType(ItemTypeEntry.Text);
+                bool addedItemType = Connection.server.InsertItemType(ItemTypeEntry.Text);
                 if (addedItemType)
                 {
                     DisplayItemTypes();
@@ -6235,7 +6255,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void dgvAbsence_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void dgvAbsence_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
@@ -6244,7 +6264,7 @@ namespace NeatVibezPOS
             } catch { }
         }
 
-        private void button32_Click(object sender, EventArgs e)
+        public void button32_Click(object sender, EventArgs e)
         {
             if (frmMain.Authority != 1)
             {
@@ -6253,7 +6273,7 @@ namespace NeatVibezPOS
             }
             if (EmployeeID != 0 && EditEmployeeName.Text != "" && EditEmployeeSalary.Value != 0)
             {
-                if (Connection.UpdateEmployee(EmployeeID, EditEmployeeName.Text, EditEmployeeSalary.Value, EditEmployeePhone.Text, EditEmployeeAddress.Text))
+                if (Connection.server.UpdateEmployee(EmployeeID, EditEmployeeName.Text, EditEmployeeSalary.Value, EditEmployeePhone.Text, EditEmployeeAddress.Text))
                 {
                     DisplayEmployees();
                     for (int i = 0; i < dgvEmployees.Rows.Count; i++)
@@ -6291,29 +6311,29 @@ namespace NeatVibezPOS
             }
         }
 
-        private void txtUserIDAdd_KeyPress(object sender, KeyPressEventArgs e)
+        public void txtUserIDAdd_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button22.PerformClick();
         }
 
-        private void nuditemPrice_ValueChanged(object sender, EventArgs e)
+        public void nuditemPrice_ValueChanged(object sender, EventArgs e)
         {
             decimal Tax = TaxRate * nuditemPrice.Value;
             nuditemPriceTax.Value = nuditemPrice.Value + Tax;
         }
 
-        private void pendingPurchaseRemovalQuantity_KeyDown(object sender, KeyEventArgs e)
+        public void pendingPurchaseRemovalQuantity_KeyDown(object sender, KeyEventArgs e)
         {
             //e.SuppressKeyPress = true;
         }
 
-        private void pendingPurchaseNewQuantity_KeyDown(object sender, KeyEventArgs e)
+        public void pendingPurchaseNewQuantity_KeyDown(object sender, KeyEventArgs e)
         {
             //e.SuppressKeyPress = true;
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        public void button11_Click(object sender, EventArgs e)
         {
             try
             {
@@ -6337,7 +6357,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        public void button10_Click(object sender, EventArgs e)
         {
             try
             {
@@ -6368,7 +6388,7 @@ namespace NeatVibezPOS
                             dgvVendorItemsPick.Rows[index].Cells["VendorItemBarCode"].Value = itemLookup.selectedItem.GetItemBarCode();
                             if (itemLookup.selectedItem.GetItemTypeeID() != 0)
                             {
-                                dgvVendorItemsPick.Rows[index].Cells["VendorItemType"].Value = Connection.RetrieveItemTypeName(itemLookup.selectedItem.GetItemTypeeID());
+                                dgvVendorItemsPick.Rows[index].Cells["VendorItemType"].Value = Connection.server.RetrieveItemTypeName(itemLookup.selectedItem.GetItemTypeeID());
                             }
                             else
                             {
@@ -6391,7 +6411,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox41_Click(object sender, EventArgs e)
+        public void pictureBox41_Click(object sender, EventArgs e)
         {
             try
             {
@@ -6427,7 +6447,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void DGVCustomerItems_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void DGVCustomerItems_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             customerItemID = e.RowIndex;
             BuyPrice.Value = Convert.ToDecimal(DGVCustomerItems.Rows[e.RowIndex].Cells[3].Value.ToString());
@@ -6435,7 +6455,7 @@ namespace NeatVibezPOS
             SellPriceTax.Value = Convert.ToDecimal(DGVCustomerItems.Rows[e.RowIndex].Cells[5].Value.ToString());
         }
 
-        private void BtnRegister_Click(object sender, EventArgs e)
+        public void BtnRegister_Click(object sender, EventArgs e)
         {
             if (txtUID.Text != "" && txtPWD.Text != "" && txtFname.Text != "")
             {
@@ -6454,7 +6474,7 @@ namespace NeatVibezPOS
 
                 int AdminOrNot = Convert.ToInt32(adminCheckBox.Checked);
 
-                if (Connection.Register(newAccount,  this.UID, AdminOrNot))
+                if (Connection.server.Register(newAccount,  this.UID, AdminOrNot))
                 {
                     MessageBox.Show(".تم تسجيل حساب المستخدم", Application.ProductName);
                     txtUID.Text = "";
@@ -6477,16 +6497,16 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox39_Click(object sender, EventArgs e)
+        public void pictureBox39_Click(object sender, EventArgs e)
         {
-            bool addedItemType = Connection.InsertItemType(ItemTypeEntry.Text);
+            bool addedItemType = Connection.server.InsertItemType(ItemTypeEntry.Text);
             if (addedItemType)
             {
                 DisplayItemTypes();
             }
         }
 
-        private void pictureBox37_Click(object sender, EventArgs e)
+        public void pictureBox37_Click(object sender, EventArgs e)
         {
             try
             {
@@ -6497,7 +6517,7 @@ namespace NeatVibezPOS
                 {
                     try
                     {
-                        List<Item> quantity_items = Connection.RetrieveItemsQuantity(itemLookup.selectedItem.GetItemBarCode());
+                        List<Item> quantity_items = Connection.server.RetrieveItemsQuantity(itemLookup.selectedItem.GetItemBarCode());
 
                         /*foreach(Item item in quantity_items)
                         {
@@ -6587,29 +6607,29 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox38_Click(object sender, EventArgs e)
+        public void pictureBox38_Click(object sender, EventArgs e)
         {
-            bool addedWarehouse = Connection.InsertWarehouse(WarehouseEntry.Text);
+            bool addedWarehouse = Connection.server.InsertWarehouse(WarehouseEntry.Text);
             if (addedWarehouse)
             {
                 DisplayWarehouses();
             }
         }
 
-        private void pictureBox16_Click(object sender, EventArgs e)
+        public void pictureBox16_Click(object sender, EventArgs e)
         {
             if (!userPermissions.openclose_edit)
                 return;
 
             try
             {
-                frmCloseRegister closeRegister = new frmCloseRegister(this.cashierName, Connection.GetOpenRegisterAmount());
+                frmCloseRegister closeRegister = new frmCloseRegister(this.cashierName, Connection.server.GetOpenRegisterAmount());
 
                 closeRegister.ShowDialog(this);
                 if (closeRegister.dialogResult == DialogResult.OK)
                 {
                     printCloseRegister();
-                    bool closedRegister = Connection.SaveRegisterClose(cashierName, moneyInRegister);
+                    bool closedRegister = Connection.server.SaveRegisterClose(cashierName, moneyInRegister);
                     if (closedRegister)
                     {
                         Properties.Settings.Default.RegisterOpen = false;
@@ -6626,7 +6646,7 @@ namespace NeatVibezPOS
                         try
                         {
 
-                            DataTable retrievedLoginLogoutData = Connection.RetrieveLoginLogoutInfo(DateTime.Now);
+                            DataTable retrievedLoginLogoutData = Connection.server.RetrieveLoginLogoutInfo(DateTime.Now);
 
                             dgvLoginLogout.DataSource = retrievedLoginLogoutData;
                             for (int i = 0; i < dgvLoginLogout.Rows.Count; i++)
@@ -6679,16 +6699,16 @@ namespace NeatVibezPOS
             }
         }
 
-        private void pictureBox36_Click(object sender, EventArgs e)
+        public void pictureBox36_Click(object sender, EventArgs e)
         {
-            bool addedFavoriteCategory = Connection.InsertFavoriteCategory(FavoriteCategoryEntry.Text);
+            bool addedFavoriteCategory = Connection.server.InsertFavoriteCategory(FavoriteCategoryEntry.Text);
             if (addedFavoriteCategory)
             {
                 DisplayFavorites();
             }
         }
 
-        private void pictureBox15_Click(object sender, EventArgs e)
+        public void pictureBox15_Click(object sender, EventArgs e)
         {
             if (!userPermissions.openclose_edit)
                 return;
@@ -6701,7 +6721,7 @@ namespace NeatVibezPOS
                 this.registerOpen = true;
                 this.moneyInRegisterInitial = this.moneyInRegister = openRegister.moneyInRegister;
                 openRegister.Dispose();
-                bool openedRegister = Connection.SaveRegisterOpen(cashierName, moneyInRegister);
+                bool openedRegister = Connection.server.SaveRegisterOpen(cashierName, moneyInRegister);
                 if (openedRegister)
                 {
                     Properties.Settings.Default.RegisterOpen = true;
@@ -6716,18 +6736,18 @@ namespace NeatVibezPOS
                     openRegisterBtn.Enabled = false;
                     label65.Enabled = false;
                     // get last bill number of today
-                    this.CurrentBillNumber = Connection.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
                     richTextBox4.ResetText();
                     richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
                     richTextBox5.ResetText();
-                    richTextBox5.AppendText(" :رقم الفاتوره " + this.CurrentBillNumber);
+                    richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                     MessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), Application.ProductName);
                     this.Select();
                 }
             }
         }
 
-        private void pictureBox11_Click(object sender, EventArgs e)
+        public void pictureBox11_Click(object sender, EventArgs e)
         {
             if (userPermissions.discount_edit)
             {
@@ -6757,7 +6777,7 @@ namespace NeatVibezPOS
                             }
                         }
 
-                        Connection.AddSaleOnItems(saleItems);
+                        Connection.server.AddSaleOnItems(saleItems);
 
 
                         foreach (DataGridViewRow item in ItemsPendingPurchase.Rows)
@@ -6805,7 +6825,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        public void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             e.Graphics.DrawImage(pictureBox1.Image, 0, 0);
             try
@@ -6814,13 +6834,13 @@ namespace NeatVibezPOS
             } catch(Exception error) { }
         }
 
-        private void printCertainReceipt(int BillNumber, string cashierName, decimal totalAmount, decimal paidAmount, decimal remainderAmount, DateTime invoiceDate)
+        public void printCertainReceipt(int BillNumber, string cashierName, decimal totalAmount, decimal paidAmount, decimal remainderAmount, DateTime invoiceDate)
         {
             try
             {
                 string welcome = "شكرا لزيارتك متجرنا ";
                 string welcome2 = this.NeatVibezPOSName;
-                string InvoiceNo = "" + BillNumber.ToString() + "رقم الفاتورة ";
+                string InvoiceNo = "" + BillNumber.ToString() + "رقم الفاتورة الحالية ";
                 string cashierNamePrint = cashierName + " :اسم الكاشير";
                 decimal gross = Convert.ToDecimal(totalAmount);
                 decimal net = Convert.ToDecimal(totalAmount);
@@ -6959,13 +6979,13 @@ namespace NeatVibezPOS
             }
         }
 
-        private void printReceipt()
+        public void printReceipt()
         {
             try
             {
                 string welcome = "شكرا لزيارتك متجرنا ";
                 string welcome2 = this.NeatVibezPOSName;
-                string InvoiceNo = "" + this.CurrentBillNumber.ToString() + "رقم الفاتورة ";
+                string InvoiceNo = "" + this.CurrentBillNumber.ToString() + "رقم الفاتورة الحالية ";
                 string cashierNamePrint = this.cashierName + " :اسم الكاشير";
                 decimal gross = Convert.ToDecimal(this.totalAmount);
                 decimal net = Convert.ToDecimal(this.totalAmount);
@@ -7103,7 +7123,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void printCloseRegister()
+        public void printCloseRegister()
         {
             try
             {
@@ -7139,12 +7159,12 @@ namespace NeatVibezPOS
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(this.cashierName + " اسم الكاشير: ", newfont2, black, 0, startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString(Connection.GetLastOpenRegisterDate() + " تاريخ فتح الصندوق ", newfont2, black, 0, startY + offsetY);
+                        graphic.DrawString(Connection.server.GetLastOpenRegisterDate() + " تاريخ فتح الصندوق ", newfont2, black, 0, startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(DateTime.Now.ToShortDateString() + " تاريخ اغلاق الصندوق ", newfont2, black, 0, startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        decimal openRegisterAmount = Connection.GetOpenRegisterAmount();
-                        decimal totalSalesAmount = Connection.GetTotalSalesAmount();
+                        decimal openRegisterAmount = Connection.server.GetOpenRegisterAmount();
+                        decimal totalSalesAmount = Connection.server.GetTotalSalesAmount();
                         graphic.DrawString(openRegisterAmount.ToString() + " أرضية الكاش ", newfont2, black, 0, startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(totalSalesAmount.ToString() + " مبلغ المبيعات ", newfont2, black, 0, startY + offsetY);
@@ -7174,12 +7194,12 @@ namespace NeatVibezPOS
             }
         }
 
-        internal bool IsRtl(string input)
+        public bool IsRtl(string input)
         {
             return Regex.IsMatch(input, @"\p{IsArabic}");
         }
 
-        internal static Bitmap ResizeImage(Image image, int width, int height)
+        public static Bitmap ResizeImage(Image image, int width, int height)
         {
             var destRect = new Rectangle(0, 0, width, height);
             var destImage = new Bitmap(width, height);
@@ -7204,21 +7224,21 @@ namespace NeatVibezPOS
             return destImage;
         }
 
-        private void aToolStripMenuItem_Click(object sender, EventArgs e)
+        public void aToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmMaintenance frmMaintenance = new frmMaintenance();
             frmMaintenance.ShowDialog();
         }
 
-        private Tuple<Item[], DataTable> DisplayEditedBills(int Category)
+        public Tuple<List<Item>, DataTable> DisplayEditedBills(int Category)
         {
-            Tuple<Item[], DataTable> RetrievedItems = Connection.RetrieveFavoriteItems(Category);
+            Tuple<List<Item>, DataTable> RetrievedItems = Connection.server.RetrieveFavoriteItems(Category);
             return RetrievedItems;
         }
 
-        private Tuple<Item[], DataTable> DisplayFavoriteData(int Category)
+        public Tuple<List<Item>, DataTable> DisplayFavoriteData(int Category)
         {
-            Tuple<Item[], DataTable> RetrievedItems = Connection.RetrieveFavoriteItems(Category);
+            Tuple<List<Item>, DataTable> RetrievedItems = Connection.server.RetrieveFavoriteItems(Category);
             return RetrievedItems;
         }
     }

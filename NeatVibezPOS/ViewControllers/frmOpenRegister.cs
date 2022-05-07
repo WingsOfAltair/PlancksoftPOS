@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace NeatVibezPOS
 {
-    internal partial class frmOpenRegister : Form
+    public partial class frmOpenRegister : Form
     {
 
-        internal string cashierName;
-        internal decimal moneyInRegister = 0;
-        internal DialogResult dialogResult;
+        public string cashierName;
+        public decimal moneyInRegister = 0;
+        public DialogResult dialogResult;
 
-        internal frmOpenRegister(string cashierName = "")
+        public frmOpenRegister(string cashierName = "")
         {
             InitializeComponent();
             this.cashierName = cashierName;
@@ -25,25 +25,25 @@ namespace NeatVibezPOS
             richTextBox1.AppendText(".الرجاء إدخال المبلغ لبدء التسجيل في الكاش في الأسفل");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             dialogResult = DialogResult.OK;
             this.moneyInRegister = numericUpDown1.Value;
             this.Close();
         }
 
-        private void frmPayCash_Load(object sender, EventArgs e)
+        public void frmPayCash_Load(object sender, EventArgs e)
         {
             numericUpDown1.Focus();
             numericUpDown1.Select();
         }
 
-        private void numericUpDown1_KeyPress(object sender, KeyPressEventArgs e)
+        public void numericUpDown1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Enter))
             {
@@ -55,12 +55,12 @@ namespace NeatVibezPOS
             }
         }
 
-        private void numericUpDown1_Enter(object sender, EventArgs e)
+        public void numericUpDown1_Enter(object sender, EventArgs e)
         {
             numericUpDown1.Select(1, 1);
         }
 
-        private void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        public void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Escape))
             {
@@ -68,7 +68,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             numericUpDown1.Value = 0;
         }

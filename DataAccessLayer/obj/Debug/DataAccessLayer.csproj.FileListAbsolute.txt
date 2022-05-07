@@ -1,0 +1,6 @@
+C:\Users\basha\Desktop\NeatVibezPOS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\basha\Desktop\NeatVibezPOS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\basha\Desktop\NeatVibezPOS\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\Users\basha\Desktop\NeatVibezPOS\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\Users\basha\Desktop\NeatVibezPOS\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\Users\basha\Desktop\NeatVibezPOS\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

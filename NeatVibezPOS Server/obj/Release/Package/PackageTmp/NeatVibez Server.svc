@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="NeatVibezPOS_Server.NeatVibez_Server" CodeBehind="NeatVibez Server.svc.cs" %>

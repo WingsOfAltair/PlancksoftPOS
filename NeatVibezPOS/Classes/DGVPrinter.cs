@@ -19,15 +19,15 @@ namespace NeatVibezPOS //AllocationRequest
     #region Supporting Classes
 
     /// <summary>
-    /// Setup and implements logs for internal logging
+    /// Setup and implements logs for public logging
     /// </summary>
     class LogManager
     {
         /// <summary>
         /// Path to log file
         /// </summary>
-        private String basepath;
-        internal String BasePath
+        public String basepath;
+        public String BasePath
         {
             get { return basepath; }
             set { basepath = value; }
@@ -36,19 +36,19 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Header for log file name
         /// </summary>
-        private String logheader;
-        internal String LogNameHeader
+        public String logheader;
+        public String LogNameHeader
         {
             get { return logheader; }
             set { logheader = value; }
         }
 
-        private int useFrame = 1;
+        public int useFrame = 1;
 
         /// <summary>
         /// Define logging message categories
         /// </summary>
-        internal enum Categories
+        public enum Categories
         {
             Info = 1,
             Warning,
@@ -61,7 +61,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// </summary>
         /// <param name="userbasepath"></param>
         /// <param name="userlogname"></param>
-        internal LogManager(String userbasepath, String userlogname)
+        public LogManager(String userbasepath, String userlogname)
         {
             BasePath = String.IsNullOrEmpty(userbasepath) ? "." : userbasepath;
             LogNameHeader = String.IsNullOrEmpty(userlogname) ? "MsgLog" : userlogname;
@@ -74,7 +74,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// </summary>
         /// <param name="category"></param>
         /// <param name="msg"></param>
-        internal void Log(Categories category, String msg)
+        public void Log(Categories category, String msg)
         {
             // get call stack
             StackTrace stackTrace = new StackTrace();
@@ -93,7 +93,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// Log an informational message
         /// </summary>
         /// <param name="msg"></param>
-        internal void LogInfoMsg(String msg)
+        public void LogInfoMsg(String msg)
         {
             useFrame++; // bump up the stack frame pointer to skip this entry
             Log(Categories.Info, msg);
@@ -103,7 +103,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// Log an error message
         /// </summary>
         /// <param name="msg"></param>
-        internal void LogErrorMsg(String msg)
+        public void LogErrorMsg(String msg)
         {
             useFrame++; // bump up the stack frame pointer to skip this entry
             Log(Categories.Error, msg);
@@ -113,7 +113,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// Log an exception
         /// </summary>
         /// <param name="ex"></param>
-        internal void Log(Exception ex)
+        public void Log(Exception ex)
         {
             useFrame++; // bump up the stack frame pointer to skip this entry
             Log(Categories.Exception, String.Format("{0} from {1}", ex.Message, ex.Source));
@@ -130,7 +130,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        private static String LogFileName(String name)
+        public static String LogFileName(String name)
         {
             return String.Format("{0}_{1:yyyyMMdd}.Log", name, DateTime.Now);
         }
@@ -144,7 +144,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <param name="msg"></param>
         /// <param name="path"></param>
         /// <param name="name"></param>
-        internal static void Write(String from, LogManager.Categories category, String msg, String path, String name)
+        public static void Write(String from, LogManager.Categories category, String msg, String path, String name)
         {
             StringBuilder line = new StringBuilder();
             line.Append(DateTime.Now.ToShortDateString().ToString());
@@ -167,16 +167,16 @@ namespace NeatVibezPOS //AllocationRequest
     /// Class for the ownerdraw event. Provide the caller with the cell data, the current
     /// graphics context and the location in which to draw the cell.
     /// </summary>
-    internal class DGVCellDrawingEventArgs : EventArgs
+    public class DGVCellDrawingEventArgs : EventArgs
     {
-        internal Graphics g;
-        internal RectangleF DrawingBounds;
-        internal DataGridViewCellStyle CellStyle;
-        internal int row;
-        internal int column;
-        internal Boolean Handled;
+        public Graphics g;
+        public RectangleF DrawingBounds;
+        public DataGridViewCellStyle CellStyle;
+        public int row;
+        public int column;
+        public Boolean Handled;
 
-        internal DGVCellDrawingEventArgs(Graphics g, RectangleF bounds, DataGridViewCellStyle style,
+        public DGVCellDrawingEventArgs(Graphics g, RectangleF bounds, DataGridViewCellStyle style,
             int row, int column)
             : base()
         {
@@ -194,12 +194,12 @@ namespace NeatVibezPOS //AllocationRequest
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    internal delegate void CellOwnerDrawEventHandler(object sender, DGVCellDrawingEventArgs e);
+    public delegate void CellOwnerDrawEventHandler(object sender, DGVCellDrawingEventArgs e);
 
     /// <summary>
     /// Hold Extension methods
     /// </summary>
-    internal static class Extensions
+    public static class Extensions
     {
         /// <summary>
         /// Extension method to print all the "ImbeddedImages" in a provided list
@@ -210,7 +210,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <param name="pagewidth"></param>
         /// <param name="pageheight"></param>
         /// <param name="margins"></param>
-        internal static void DrawImbeddedImage<T>(this IEnumerable<T> list,
+        public static void DrawImbeddedImage<T>(this IEnumerable<T> list,
             Graphics g, int pagewidth, int pageheight, Margins margins)
         {
             foreach (T t in list)
@@ -235,32 +235,32 @@ namespace NeatVibezPOS //AllocationRequest
     /// Data Grid View Printer. Print functions for a datagridview, since MS
     /// didn't see fit to do it.
     /// </summary>
-    internal class DGVPrinter
+    public class DGVPrinter
     {
-        internal enum Alignment { NotSet, Left, Right, Center }
-        internal enum Location { Header, Footer, Absolute }
-        internal enum SizeType { CellSize, StringSize, Porportional }
-        internal enum PrintLocation { All, FirstOnly, LastOnly, None }
+        public enum Alignment { NotSet, Left, Right, Center }
+        public enum Location { Header, Footer, Absolute }
+        public enum SizeType { CellSize, StringSize, Porportional }
+        public enum PrintLocation { All, FirstOnly, LastOnly, None }
 
         //---------------------------------------------------------------------
-        // internal classes/structs
+        // public classes/structs
         //---------------------------------------------------------------------
-        #region Internal Classes
+        #region public Classes
 
         // Identify the reason for a new page when tracking rows
         enum paging { keepgoing, outofroom, datachange };
 
         // Allow the user to provide images that will be printed as either logos in the
         // header and/or footer or watermarked as in printed behind the text.
-        internal class ImbeddedImage
+        public class ImbeddedImage
         {
-            internal Image theImage { get; set; }
-            internal Alignment ImageAlignment { get; set; }
-            internal Location ImageLocation { get; set; }
-            internal Int32 ImageX { get; set; }
-            internal Int32 ImageY { get; set; }
+            public Image theImage { get; set; }
+            public Alignment ImageAlignment { get; set; }
+            public Location ImageLocation { get; set; }
+            public Int32 ImageX { get; set; }
+            public Int32 ImageY { get; set; }
 
-            internal Point upperleft(int pagewidth, int pageheight, Margins margins)
+            public Point upperleft(int pagewidth, int pageheight, Margins margins)
             {
                 int y = 0;
                 int x = 0;
@@ -305,14 +305,14 @@ namespace NeatVibezPOS //AllocationRequest
             }
         }
 
-        internal IList<ImbeddedImage> ImbeddedImageList = new List<ImbeddedImage>();
+        public IList<ImbeddedImage> ImbeddedImageList = new List<ImbeddedImage>();
 
         // handle wide-column printing - that is, lists of columns that extend
         // wider than one page width. Columns are broken up into "Page Sets" that
         // are printed one after another until all columns are printed.
         class PageDef
         {
-            internal PageDef(Margins m, int count, int pagewidth)
+            public PageDef(Margins m, int count, int pagewidth)
             {
                 columnindex = new List<int>(count);
                 colstoprint = new List<object>(count);
@@ -323,15 +323,15 @@ namespace NeatVibezPOS //AllocationRequest
                 pageWidth = pagewidth;
             }
 
-            internal List<int> columnindex;
-            internal List<object> colstoprint;
-            internal List<float> colwidths;
-            internal List<float> colwidthsoverride;
-            internal float coltotalwidth;
-            internal Margins margins;
-            private int pageWidth;
+            public List<int> columnindex;
+            public List<object> colstoprint;
+            public List<float> colwidths;
+            public List<float> colwidthsoverride;
+            public float coltotalwidth;
+            public Margins margins;
+            public int pageWidth;
 
-            internal int printWidth
+            public int printWidth
             {
                 get { return pageWidth - margins.Left - margins.Right; }
             }
@@ -341,24 +341,24 @@ namespace NeatVibezPOS //AllocationRequest
 
         // class to hold settings for the PrintDialog presented to the user during
         // the print process
-        internal class PrintDialogSettingsClass
+        public class PrintDialogSettingsClass
         {
-            internal bool AllowSelection = true;
-            internal bool AllowSomePages = true;
-            internal bool AllowCurrentPage = true;
-            internal bool AllowPrintToFile = false;
-            internal bool ShowHelp = true;
-            internal bool ShowNetwork = true;
-            internal bool UseEXDialog = true;
+            public bool AllowSelection = true;
+            public bool AllowSomePages = true;
+            public bool AllowCurrentPage = true;
+            public bool AllowPrintToFile = false;
+            public bool ShowHelp = true;
+            public bool ShowNetwork = true;
+            public bool UseEXDialog = true;
         }
 
         // class to identify row data for printing
-        internal class rowdata
+        public class rowdata
         {
-            internal DataGridViewRow row = null;
-            internal float height = 0;
-            internal bool pagebreak = false;
-            internal bool splitrow = false;
+            public DataGridViewRow row = null;
+            public float height = 0;
+            public bool pagebreak = false;
+            public bool splitrow = false;
         }
         #endregion
 
@@ -398,13 +398,13 @@ namespace NeatVibezPOS //AllocationRequest
         PrintRange printRange;
 
         // calculated values
-        //private float headerHeight = 0;
-        private float footerHeight = 0;
-        private float pagenumberHeight = 0;
-        private float colheaderheight = 0;
-        //private List<float> rowheights;
-        private List<float> colwidths;
-        //private List<List<SizeF>> cellsizes;
+        //public float headerHeight = 0;
+        public float footerHeight = 0;
+        public float pagenumberHeight = 0;
+        public float colheaderheight = 0;
+        //public List<float> rowheights;
+        public List<float> colwidths;
+        //public List<List<SizeF>> cellsizes;
 
         #endregion
 
@@ -421,7 +421,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// an impact on performance, it should be used for troubleshooting purposes only.
         /// </summary>
         protected Boolean enablelogging;
-        internal Boolean EnableLogging
+        public Boolean EnableLogging
         {
             get { return enablelogging; }
             set
@@ -437,7 +437,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Allow the user to change the logging directory. Setting this enables logging by default.
         /// </summary>
-        internal String LogDirectory
+        public String LogDirectory
         {
             get
             {
@@ -458,16 +458,16 @@ namespace NeatVibezPOS //AllocationRequest
         /// OwnerDraw Event declaration. Callers can subscribe to this event to override the 
         /// cell drawing.
         /// </summary>
-        internal event CellOwnerDrawEventHandler OwnerDraw;
+        public event CellOwnerDrawEventHandler OwnerDraw;
 
         /// <summary>
         /// provide an override for the print preview dialog "owner" field
         /// Note: Changed style for VS2005 compatibility
         /// </summary>
-        //internal Form Owner
+        //public Form Owner
         //{ get; set; }
         protected Form _Owner = null;
-        internal Form Owner
+        public Form Owner
         {
             get { return _Owner; }
             set { _Owner = value; }
@@ -477,10 +477,10 @@ namespace NeatVibezPOS //AllocationRequest
         /// provide an override for the print preview zoom setting
         /// Note: Changed style for VS2005 compatibility
         /// </summary>
-        //internal Double PrintPreviewZoom
+        //public Double PrintPreviewZoom
         //{ get; set; }
         protected Double _PrintPreviewZoom = 1.0;
-        internal Double PrintPreviewZoom
+        public Double PrintPreviewZoom
         {
             get { return _PrintPreviewZoom; }
             set { _PrintPreviewZoom = value; }
@@ -490,7 +490,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// expose printer settings to allow access to calling program
         /// </summary>
-        internal PrinterSettings PrintSettings
+        public PrinterSettings PrintSettings
         {
             get { return printDoc.PrinterSettings; }
         }
@@ -498,8 +498,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// expose settings for the PrintDialog displayed to the user
         /// </summary>
-        private PrintDialogSettingsClass printDialogSettings = new PrintDialogSettingsClass();
-        internal PrintDialogSettingsClass PrintDialogSettings
+        public PrintDialogSettingsClass printDialogSettings = new PrintDialogSettingsClass();
+        public PrintDialogSettingsClass PrintDialogSettings
         {
             get { return printDialogSettings; }
         }
@@ -507,8 +507,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Set Printer Name
         /// </summary>
-        private String printerName;
-        internal String PrinterName
+        public String printerName;
+        public String PrinterName
         {
             get { return printerName; }
             set { printerName = value; }
@@ -517,7 +517,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Allow access to the underlying print document
         /// </summary>
-        internal PrintDocument printDocument
+        public PrintDocument printDocument
         {
             get { return printDoc; }
             set { printDoc = value; }
@@ -527,8 +527,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow caller to set the upper-left corner icon used
         /// in the print preview dialog
         /// </summary>
-        private Icon ppvIcon = null;
-        internal Icon PreviewDialogIcon
+        public Icon ppvIcon = null;
+        public Icon PreviewDialogIcon
         {
             get { return ppvIcon; }
             set { ppvIcon = value; }
@@ -537,8 +537,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Allow caller to set print preview dialog
         /// </summary>
-        private PrintPreviewDialog previewdialog = null;
-        internal PrintPreviewDialog PreviewDialog
+        public PrintPreviewDialog previewdialog = null;
+        public PrintPreviewDialog PreviewDialog
         {
             get { return previewdialog; }
             set { previewdialog = value; }
@@ -547,8 +547,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Flag to control whether or not we print the Page Header
         /// </summary>
-        private Boolean printHeader = true;
-        internal Boolean PrintHeader
+        public Boolean printHeader = true;
+        public Boolean PrintHeader
         {
             get { return printHeader; }
             set { printHeader = value; }
@@ -557,7 +557,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Determine the height of the header
         /// </summary>
-        private float HeaderHeight
+        public float HeaderHeight
         {
             get
             {
@@ -583,8 +583,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Flag to control whether or not we print the Page Footer
         /// </summary>
-        private Boolean printFooter = true;
-        internal Boolean PrintFooter
+        public Boolean printFooter = true;
+        public Boolean PrintFooter
         {
             get { return printFooter; }
             set { printFooter = value; }
@@ -593,8 +593,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Flag to control whether or not we print the Column Header line
         /// </summary>
-        private Boolean? printColumnHeaders;
-        internal Boolean? PrintColumnHeaders
+        public Boolean? printColumnHeaders;
+        public Boolean? PrintColumnHeaders
         {
             get { return printColumnHeaders; }
             set { printColumnHeaders = value; }
@@ -604,8 +604,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// Flag to control whether or not we print the Column Header line
         /// Defaults to False to match previous functionality
         /// </summary>
-        private Boolean? printRowHeaders = false;
-        internal Boolean? PrintRowHeaders
+        public Boolean? printRowHeaders = false;
+        public Boolean? PrintRowHeaders
         {
             get { return printRowHeaders; }
             set { printRowHeaders = value; }
@@ -616,8 +616,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// rows should be printed to fill the bottom of the page. Turn this
         /// "Off" (i.e. false) to print cells/rows deeper than one page
         /// </summary>
-        private Boolean keepRowsTogether = true;
-        internal Boolean KeepRowsTogether
+        public Boolean keepRowsTogether = true;
+        public Boolean KeepRowsTogether
         {
             get { return keepRowsTogether; }
             set { keepRowsTogether = value; }
@@ -627,8 +627,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// How much of a row must show on the current page before it is 
         /// split when KeepRowsTogether is set to true.
         /// </summary>
-        private float keeprowstogethertolerance = 15;
-        internal float KeepRowsTogetherTolerance
+        public float keeprowstogethertolerance = 15;
+        public float KeepRowsTogetherTolerance
         {
             get { return keeprowstogethertolerance; }
             set { keeprowstogethertolerance = value; }
@@ -648,8 +648,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Title for this report. Default is empty.
         /// </summary>
-        private String title;
-        internal String Title
+        public String title;
+        public String Title
         {
             get { return title; }
             set
@@ -665,8 +665,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Name of the document. Default is report title (can be empty)
         /// </summary>
-        private String docName;
-        internal String DocName
+        public String docName;
+        public String DocName
         {
             get { return docName; }
             set { printDoc.DocumentName = value; docName = value; }
@@ -675,8 +675,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Font for the title. Default is Tahoma, 18pt.
         /// </summary>
-        private Font titlefont;
-        internal Font TitleFont
+        public Font titlefont;
+        public Font TitleFont
         {
             get { return titlefont; }
             set { titlefont = value; }
@@ -685,8 +685,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Foreground color for the title. Default is Black
         /// </summary>
-        private Color titlecolor;
-        internal Color TitleColor
+        public Color titlecolor;
+        public Color TitleColor
         {
             get { return titlecolor; }
             set { titlecolor = value; }
@@ -695,8 +695,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Allow override of the header cell format object
         /// </summary>
-        private StringFormat titleformat;
-        internal StringFormat TitleFormat
+        public StringFormat titleformat;
+        public StringFormat TitleFormat
         {
             get { return titleformat; }
             set { titleformat = value; overridetitleformat = true; }
@@ -706,7 +706,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to override the title string alignment. Default value is 
         /// Alignment - Near; 
         /// </summary>
-        internal StringAlignment TitleAlignment
+        public StringAlignment TitleAlignment
         {
             get { return titleformat.Alignment; }
             set
@@ -720,7 +720,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to override the title string format flags. Default values
         /// are: FormatFlags - NoWrap, LineLimit, NoClip
         /// </summary>
-        internal StringFormatFlags TitleFormatFlags
+        public StringFormatFlags TitleFormatFlags
         {
             get { return titleformat.FormatFlags; }
             set
@@ -733,8 +733,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Control where in the document the title prints
         /// </summary>
-        private PrintLocation titleprint = PrintLocation.All;
-        internal PrintLocation TitlePrint
+        public PrintLocation titleprint = PrintLocation.All;
+        public PrintLocation TitlePrint
         {
             get { return titleprint; }
             set { titleprint = value; }
@@ -743,7 +743,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Return the title height based whether to print it or not
         /// </summary>
-        private float TitleHeight
+        public float TitleHeight
         {
             get
             {
@@ -763,8 +763,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Mandatory spacing between the grid and the footer
         /// </summary>
-        private float titlespacing;
-        internal float TitleSpacing
+        public float titlespacing;
+        public float TitleSpacing
         {
             get { return titlespacing; }
             set { titlespacing = value; }
@@ -773,8 +773,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Title Block Background Color
         /// </summary>
-        private Brush titlebackground;
-        internal Brush TitleBackground
+        public Brush titlebackground;
+        public Brush TitleBackground
         {
             get { return titlebackground; }
             set { titlebackground = value; }
@@ -783,8 +783,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Title Block Border
         /// </summary>
-        private Pen titleborder;
-        internal Pen TitleBorder
+        public Pen titleborder;
+        public Pen TitleBorder
         {
             get { return titleborder; }
             set { titleborder = value; }
@@ -804,8 +804,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// SubTitle for this report. Default is empty.
         /// </summary>
-        private String subtitle;
-        internal String SubTitle
+        public String subtitle;
+        public String SubTitle
         {
             get { return subtitle; }
             set { subtitle = value; }
@@ -814,8 +814,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Font for the subtitle. Default is Tahoma, 12pt.
         /// </summary>
-        private Font subtitlefont;
-        internal Font SubTitleFont
+        public Font subtitlefont;
+        public Font SubTitleFont
         {
             get { return subtitlefont; }
             set { subtitlefont = value; }
@@ -824,8 +824,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Foreground color for the subtitle. Default is Black
         /// </summary>
-        private Color subtitlecolor;
-        internal Color SubTitleColor
+        public Color subtitlecolor;
+        public Color SubTitleColor
         {
             get { return subtitlecolor; }
             set { subtitlecolor = value; }
@@ -834,8 +834,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Allow override of the header cell format object
         /// </summary>
-        private StringFormat subtitleformat;
-        internal StringFormat SubTitleFormat
+        public StringFormat subtitleformat;
+        public StringFormat SubTitleFormat
         {
             get { return subtitleformat; }
             set { subtitleformat = value; overridesubtitleformat = true; }
@@ -845,7 +845,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to override the subtitle string alignment. Default value is 
         /// Alignment - Near; 
         /// </summary>
-        internal StringAlignment SubTitleAlignment
+        public StringAlignment SubTitleAlignment
         {
             get { return subtitleformat.Alignment; }
             set
@@ -859,7 +859,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to override the subtitle string format flags. Default values
         /// are: FormatFlags - NoWrap, LineLimit, NoClip
         /// </summary>
-        internal StringFormatFlags SubTitleFormatFlags
+        public StringFormatFlags SubTitleFormatFlags
         {
             get { return subtitleformat.FormatFlags; }
             set
@@ -872,8 +872,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Control where in the document the title prints
         /// </summary>
-        private PrintLocation subtitleprint = PrintLocation.All;
-        internal PrintLocation SubTitlePrint
+        public PrintLocation subtitleprint = PrintLocation.All;
+        public PrintLocation SubTitlePrint
         {
             get { return subtitleprint; }
             set { subtitleprint = value; }
@@ -882,7 +882,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Return the title height based whether to print it or not
         /// </summary>
-        private float SubTitleHeight
+        public float SubTitleHeight
         {
             get
             {
@@ -902,8 +902,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Mandatory spacing between the grid and the footer
         /// </summary>
-        private float subtitlespacing;
-        internal float SubTitleSpacing
+        public float subtitlespacing;
+        public float SubTitleSpacing
         {
             get { return subtitlespacing; }
             set { subtitlespacing = value; }
@@ -912,8 +912,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Title Block Background Color
         /// </summary>
-        private Brush subtitlebackground;
-        internal Brush SubTitleBackground
+        public Brush subtitlebackground;
+        public Brush SubTitleBackground
         {
             get { return subtitlebackground; }
             set { subtitlebackground = value; }
@@ -922,8 +922,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Title Block Border
         /// </summary>
-        private Pen subtitleborder;
-        internal Pen SubTitleBorder
+        public Pen subtitleborder;
+        public Pen SubTitleBorder
         {
             get { return subtitleborder; }
             set { subtitleborder = value; }
@@ -940,8 +940,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// footer for this report. Default is empty.
         /// </summary>
-        private String footer;
-        internal String Footer
+        public String footer;
+        public String Footer
         {
             get { return footer; }
             set { footer = value; }
@@ -950,8 +950,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Font for the footer. Default is Tahoma, 10pt.
         /// </summary>
-        private Font footerfont;
-        internal Font FooterFont
+        public Font footerfont;
+        public Font FooterFont
         {
             get { return footerfont; }
             set { footerfont = value; }
@@ -960,8 +960,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Foreground color for the footer. Default is Black
         /// </summary>
-        private Color footercolor;
-        internal Color FooterColor
+        public Color footercolor;
+        public Color FooterColor
         {
             get { return footercolor; }
             set { footercolor = value; }
@@ -970,8 +970,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Allow override of the header cell format object
         /// </summary>
-        private StringFormat footerformat;
-        internal StringFormat FooterFormat
+        public StringFormat footerformat;
+        public StringFormat FooterFormat
         {
             get { return footerformat; }
             set { footerformat = value; overridefooterformat = true; }
@@ -981,7 +981,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to override the footer string alignment. Default value is 
         /// Alignment - Center; 
         /// </summary>
-        internal StringAlignment FooterAlignment
+        public StringAlignment FooterAlignment
         {
             get { return footerformat.Alignment; }
             set
@@ -995,7 +995,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to override the footer string format flags. Default values
         /// are: FormatFlags - NoWrap, LineLimit, NoClip
         /// </summary>
-        internal StringFormatFlags FooterFormatFlags
+        public StringFormatFlags FooterFormatFlags
         {
             get { return footerformat.FormatFlags; }
             set
@@ -1008,8 +1008,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Mandatory spacing between the grid and the footer
         /// </summary>
-        private float footerspacing;
-        internal float FooterSpacing
+        public float footerspacing;
+        public float FooterSpacing
         {
             get { return footerspacing; }
             set { footerspacing = value; }
@@ -1018,8 +1018,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Control where in the document the title prints
         /// </summary>
-        private PrintLocation footerprint = PrintLocation.All;
-        internal PrintLocation FooterPrint
+        public PrintLocation footerprint = PrintLocation.All;
+        public PrintLocation FooterPrint
         {
             get { return footerprint; }
             set { footerprint = value; }
@@ -1028,7 +1028,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Determine the height of the footer
         /// </summary>
-        private float FooterHeight
+        public float FooterHeight
         {
             get
             {
@@ -1050,8 +1050,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Title Block Background Color
         /// </summary>
-        private Brush footerbackground;
-        internal Brush FooterBackground
+        public Brush footerbackground;
+        public Brush FooterBackground
         {
             get { return footerbackground; }
             set { footerbackground = value; }
@@ -1060,8 +1060,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Title Block Border
         /// </summary>
-        private Pen footerborder;
-        internal Pen FooterBorder
+        public Pen footerborder;
+        public Pen FooterBorder
         {
             get { return footerborder; }
             set { footerborder = value; }
@@ -1078,8 +1078,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Include page number in the printout. Default is true.
         /// </summary>
-        private bool pageno = true;
-        internal bool PageNumbers
+        public bool pageno = true;
+        public bool PageNumbers
         {
             get { return pageno; }
             set { pageno = value; }
@@ -1088,8 +1088,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Font for the page number, Default is Tahoma, 8pt.
         /// </summary>
-        private Font pagenofont;
-        internal Font PageNumberFont
+        public Font pagenofont;
+        public Font PageNumberFont
         {
             get { return pagenofont; }
             set { pagenofont = value; }
@@ -1098,8 +1098,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Text color (foreground) for the page number. Default is Black
         /// </summary>
-        private Color pagenocolor;
-        internal Color PageNumberColor
+        public Color pagenocolor;
+        public Color PageNumberColor
         {
             get { return pagenocolor; }
             set { pagenocolor = value; }
@@ -1108,8 +1108,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Allow override of the header cell format object
         /// </summary>
-        private StringFormat pagenumberformat;
-        internal StringFormat PageNumberFormat
+        public StringFormat pagenumberformat;
+        public StringFormat PageNumberFormat
         {
             get { return pagenumberformat; }
             set { pagenumberformat = value; overridepagenumberformat = true; }
@@ -1119,7 +1119,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to override the page number string alignment. Default value is 
         /// Alignment - Near; 
         /// </summary>
-        internal StringAlignment PageNumberAlignment
+        public StringAlignment PageNumberAlignment
         {
             get { return pagenumberformat.Alignment; }
             set
@@ -1133,7 +1133,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to override the pagenumber string format flags. Default values
         /// are: FormatFlags - NoWrap, LineLimit, NoClip
         /// </summary>
-        internal StringFormatFlags PageNumberFormatFlags
+        public StringFormatFlags PageNumberFormatFlags
         {
             get { return pagenumberformat.FormatFlags; }
             set
@@ -1147,8 +1147,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to select whether to have the page number at the top or bottom
         /// of the page. Default is false: page numbers on the bottom of the page
         /// </summary>
-        private bool pagenumberontop = false;
-        internal bool PageNumberInHeader
+        public bool pagenumberontop = false;
+        public bool PageNumberInHeader
         {
             get { return pagenumberontop; }
             set { pagenumberontop = value; }
@@ -1158,8 +1158,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// Should the page number be printed on a separate line, or printed on the
         /// same line as the header / footer? Default is false;
         /// </summary>
-        private bool pagenumberonseparateline = false;
-        internal bool PageNumberOnSeparateLine
+        public bool pagenumberonseparateline = false;
+        public bool PageNumberOnSeparateLine
         {
             get { return pagenumberonseparateline; }
             set { pagenumberonseparateline = value; }
@@ -1168,8 +1168,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Show the total page number as n of total 
         /// </summary>
-        private bool showtotalpagenumber = false;
-        internal bool ShowTotalPageNumber
+        public bool showtotalpagenumber = false;
+        public bool ShowTotalPageNumber
         {
             get { return showtotalpagenumber; }
             set { showtotalpagenumber = value; }
@@ -1178,22 +1178,22 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Text separating page number and total page number. Default is ' of '.
         /// </summary>
-        private String pageseparator = " من ";
-        internal String PageSeparator
+        public String pageseparator = " من ";
+        public String PageSeparator
         {
             get { return pageseparator; }
             set { pageseparator = value; }
         }
 
-        private String pagetext = "الصفحه ";
-        internal String PageText
+        public String pagetext = "الصفحه ";
+        public String PageText
         {
             get { return pagetext; }
             set { pagetext = value; }
         }
 
-        private String parttext = " - الجزء ";
-        internal String PartText
+        public String parttext = " - الجزء ";
+        public String PartText
         {
             get { return parttext; }
             set { parttext = value; }
@@ -1202,8 +1202,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Control where in the document the title prints
         /// </summary>
-        private PrintLocation pagenumberprint = PrintLocation.All;
-        internal PrintLocation PageNumberPrint
+        public PrintLocation pagenumberprint = PrintLocation.All;
+        public PrintLocation PageNumberPrint
         {
             get { return pagenumberprint; }
             set { pagenumberprint = value; }
@@ -1212,7 +1212,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Determine the height of the footer
         /// </summary>
-        private float PageNumberHeight
+        public float PageNumberHeight
         {
             get
             {
@@ -1245,8 +1245,8 @@ namespace NeatVibezPOS //AllocationRequest
         // Header Cell Printing 
         #region header cell properties
 
-        private DataGridViewCellStyle rowheaderstyle;
-        internal DataGridViewCellStyle RowHeaderCellStyle
+        public DataGridViewCellStyle rowheaderstyle;
+        public DataGridViewCellStyle RowHeaderCellStyle
         {
             get { return rowheaderstyle; }
             set { rowheaderstyle = value; }
@@ -1255,8 +1255,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Allow override of the row header cell format object
         /// </summary>
-        private StringFormat rowheadercellformat = null;
-        internal StringFormat GetRowHeaderCellFormat(DataGridView grid)
+        public StringFormat rowheadercellformat = null;
+        public StringFormat GetRowHeaderCellFormat(DataGridView grid)
         {
             // get default values from provided data grid view, but only
             // if we don't already have a header cell format
@@ -1278,8 +1278,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// Default value to show in the row header cell if no value is provided in the DataGridView.
         /// Defaults to one tab space
         /// </summary>
-        private String rowheadercelldefaulttext = "\t";
-        internal String RowHeaderCellDefaultText
+        public String rowheadercelldefaulttext = "\t";
+        public String RowHeaderCellDefaultText
         {
             get { return rowheadercelldefaulttext; }
             set { rowheadercelldefaulttext = value; }
@@ -1288,9 +1288,9 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Allow override of the header cell format object
         /// </summary>
-        private Dictionary<string, DataGridViewCellStyle> columnheaderstyles =
+        public Dictionary<string, DataGridViewCellStyle> columnheaderstyles =
             new Dictionary<string, DataGridViewCellStyle>();
-        internal Dictionary<string, DataGridViewCellStyle> ColumnHeaderStyles
+        public Dictionary<string, DataGridViewCellStyle> ColumnHeaderStyles
         {
             get { return columnheaderstyles; }
         }
@@ -1298,8 +1298,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Allow override of the header cell format object
         /// </summary>
-        private StringFormat columnheadercellformat = null;
-        internal StringFormat GetColumnHeaderCellFormat(DataGridView grid)
+        public StringFormat columnheadercellformat = null;
+        public StringFormat GetColumnHeaderCellFormat(DataGridView grid)
         {
             // get default values from provided data grid view, but only
             // if we don't already have a header cell format
@@ -1322,8 +1322,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to override the header cell string alignment. Default value is 
         /// Alignment - Near; 
         /// </summary>
-        private StringAlignment headercellalignment;
-        internal StringAlignment HeaderCellAlignment
+        public StringAlignment headercellalignment;
+        public StringAlignment HeaderCellAlignment
         {
             get { return headercellalignment; }
             set { headercellalignment = value; }
@@ -1334,8 +1334,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to override the header cell string format flags. Default values
         /// are: FormatFlags - NoWrap, LineLimit, NoClip
         /// </summary>
-        private StringFormatFlags headercellformatflags;
-        internal StringFormatFlags HeaderCellFormatFlags
+        public StringFormatFlags headercellformatflags;
+        public StringFormatFlags HeaderCellFormatFlags
         {
             get { return headercellformatflags; }
             set { headercellformatflags = value; }
@@ -1348,8 +1348,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Allow override of the cell printing format
         /// </summary>
-        private StringFormat cellformat = null;
-        internal StringFormat GetCellFormat(DataGridView grid)
+        public StringFormat cellformat = null;
+        public StringFormat GetCellFormat(DataGridView grid)
         {
             // get default values from provided data grid view, but only
             // if we don't already have a cell format
@@ -1372,8 +1372,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to override the cell string alignment. Default value is 
         /// Alignment - Near; 
         /// </summary>
-        private StringAlignment cellalignment;
-        internal StringAlignment CellAlignment
+        public StringAlignment cellalignment;
+        public StringAlignment CellAlignment
         {
             get { return cellalignment; }
             set { cellalignment = value; }
@@ -1384,8 +1384,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to override the cell string format flags. Default values
         /// are: FormatFlags - NoWrap, LineLimit, NoClip
         /// </summary>
-        private StringFormatFlags cellformatflags;
-        internal StringFormatFlags CellFormatFlags
+        public StringFormatFlags cellformatflags;
+        public StringFormatFlags CellFormatFlags
         {
             get { return cellformatflags; }
             set { cellformatflags = value; }
@@ -1394,19 +1394,19 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// allow the user to override the column width calcs with their own defaults
         /// </summary>
-        private List<float> colwidthsoverride = new List<float>();
-        private Dictionary<string, float> internalwidthoverrides = new Dictionary<string, float>();
-        internal Dictionary<string, float> ColumnWidths
+        public List<float> colwidthsoverride = new List<float>();
+        public Dictionary<string, float> publicwidthoverrides = new Dictionary<string, float>();
+        public Dictionary<string, float> ColumnWidths
         {
-            get { return internalwidthoverrides; }
+            get { return publicwidthoverrides; }
         }
 
         /// <summary>
         /// Allow per column style overrides
         /// </summary>
-        private Dictionary<string, DataGridViewCellStyle> colstyles =
+        public Dictionary<string, DataGridViewCellStyle> colstyles =
             new Dictionary<string, DataGridViewCellStyle>();
-        internal Dictionary<string, DataGridViewCellStyle> ColumnStyles
+        public Dictionary<string, DataGridViewCellStyle> ColumnStyles
         {
             get { return colstyles; }
         }
@@ -1414,9 +1414,9 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Allow per column style overrides
         /// </summary>
-        private Dictionary<string, DataGridViewCellStyle> altrowcolstyles =
+        public Dictionary<string, DataGridViewCellStyle> altrowcolstyles =
             new Dictionary<string, DataGridViewCellStyle>();
-        internal Dictionary<string, DataGridViewCellStyle> AlternatingRowColumnStyles
+        public Dictionary<string, DataGridViewCellStyle> AlternatingRowColumnStyles
         {
             get { return altrowcolstyles; }
         }
@@ -1425,9 +1425,9 @@ namespace NeatVibezPOS //AllocationRequest
         /// Allow the user to set columns that appear on every pageset. Only used when 
         /// the printout is wider than one page.
         /// </summary>
-        private List<int> fixedcolumns = new List<int>();
-        private List<string> fixedcolumnnames = new List<string>();
-        internal List<string> FixedColumns
+        public List<int> fixedcolumns = new List<int>();
+        public List<string> fixedcolumnnames = new List<string>();
+        public List<string> FixedColumns
         {
             get { return fixedcolumnnames; }
         }
@@ -1435,8 +1435,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// List of columns to not display in the grid view printout.
         /// </summary>
-        private List<String> hidecolumns = new List<string>();
-        internal List<String> HideColumns
+        public List<String> hidecolumns = new List<string>();
+        public List<String> HideColumns
         {
             get { return hidecolumns; }
         }
@@ -1444,9 +1444,9 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Insert a page break when the value in this column changes
         /// </summary>
-        private object oldvalue = null;
-        private String breakonvaluechange;
-        internal String BreakOnValueChange
+        public object oldvalue = null;
+        public String breakonvaluechange;
+        public String BreakOnValueChange
         {
             get { return breakonvaluechange; }
             set { breakonvaluechange = value; }
@@ -1460,7 +1460,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Page margins override. Default is (60, 60, 40, 40)
         /// </summary>
-        internal Margins PrintMargins
+        public Margins PrintMargins
         {
             get { return PageSettings.Margins; }
             set { PageSettings.Margins = value; }
@@ -1469,7 +1469,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Expose the printdocument default page settings to the caller
         /// </summary>
-        internal PageSettings PageSettings
+        public PageSettings PageSettings
         {
             get { return printDoc.DefaultPageSettings; }
         }
@@ -1478,8 +1478,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// Spread the columns porportionally accross the page. Default is false.
         /// Deprecated. Please use the ColumnWidth property
         /// </summary>
-        private bool porportionalcolumns = false;
-        internal bool PorportionalColumns
+        public bool porportionalcolumns = false;
+        public bool PorportionalColumns
         {
             get { return porportionalcolumns; }
             set
@@ -1495,8 +1495,8 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Center the table on the page. 
         /// </summary>
-        private Alignment tablealignment = Alignment.NotSet;
-        internal Alignment TableAlignment
+        public Alignment tablealignment = Alignment.NotSet;
+        public Alignment TableAlignment
         {
             get { return tablealignment; }
             set { tablealignment = value; }
@@ -1506,9 +1506,9 @@ namespace NeatVibezPOS //AllocationRequest
         /// Change the default row height to either the height of the string or the size of 
         /// the cell. Added for image cell handling; set to CellHeight for image cells
         /// </summary>
-        internal enum RowHeightSetting { DataHeight, CellHeight }
-        private RowHeightSetting _rowheight = RowHeightSetting.DataHeight;
-        internal RowHeightSetting RowHeight
+        public enum RowHeightSetting { DataHeight, CellHeight }
+        public RowHeightSetting _rowheight = RowHeightSetting.DataHeight;
+        public RowHeightSetting RowHeight
         {
             get { return _rowheight; }
             set { _rowheight = value; }
@@ -1519,9 +1519,9 @@ namespace NeatVibezPOS //AllocationRequest
         /// to the size of the grid cell or the size of the formatted data string.
         /// Set to CellWidth for image cells.
         /// </summary>
-        internal enum ColumnWidthSetting { DataWidth, CellWidth, Porportional }
-        private ColumnWidthSetting _rowwidth = ColumnWidthSetting.CellWidth;
-        internal ColumnWidthSetting ColumnWidth
+        public enum ColumnWidthSetting { DataWidth, CellWidth, Porportional }
+        public ColumnWidthSetting _rowwidth = ColumnWidthSetting.CellWidth;
+        public ColumnWidthSetting ColumnWidth
         {
             get { return _rowwidth; }
             set
@@ -1542,7 +1542,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// calculate the print preview window width to show the entire page
         /// </summary>
         /// <returns></returns>
-        private int PreviewDisplayWidth()
+        public int PreviewDisplayWidth()
         {
             double displayWidth = printDoc.DefaultPageSettings.Bounds.Width
                 + 3 * printDoc.DefaultPageSettings.HardMarginY;
@@ -1553,7 +1553,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// calculate the print preview window height to show the entire page
         /// </summary>
         /// <returns></returns>
-        private int PreviewDisplayHeight()
+        public int PreviewDisplayHeight()
         {
             double displayHeight = printDoc.DefaultPageSettings.Bounds.Height
                 + 3 * printDoc.DefaultPageSettings.HardMarginX;
@@ -1637,7 +1637,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Constructor for DGVPrinter
         /// </summary>
-        internal DGVPrinter()
+        public DGVPrinter()
         {
             // create print document
             printDoc = new PrintDocument();
@@ -1699,7 +1699,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// </summary>
         /// <param name="dgv">The DataGridView to print</param>
         /// NOTE: Any changes to this method also need to be done in PrintPreviewDataGridView
-        internal void PrintDataGridView(DataGridView dgv)
+        public void PrintDataGridView(DataGridView dgv)
         {
             if (EnableLogging) Logger.LogInfoMsg("PrintDataGridView process started");
             if (null == dgv) throw new Exception("Null Parameter passed to DGVPrinter.");
@@ -1721,7 +1721,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// </summary>
         /// <param name="dgv">The DataGridView to print</param>
         /// NOTE: Any changes to this method also need to be done in PrintDataGridView
-        internal void PrintPreviewDataGridView(DataGridView dgv)
+        public void PrintPreviewDataGridView(DataGridView dgv)
         {
             if (EnableLogging) Logger.LogInfoMsg("PrintPreviewDataGridView process started");
             if (null == dgv) throw new Exception("Null Parameter passed to DGVPrinter.");
@@ -1757,7 +1757,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// or PrintPreviewNoDisplay methods.
         /// </summary>
         /// <returns></returns>
-        internal DialogResult DisplayPrintDialog()
+        public DialogResult DisplayPrintDialog()
         {
             if (EnableLogging) Logger.LogInfoMsg("DisplayPrintDialog process started");
             // create new print dialog and set options
@@ -1770,7 +1770,7 @@ namespace NeatVibezPOS //AllocationRequest
             pd.ShowHelp = printDialogSettings.ShowHelp;
             pd.ShowNetwork = printDialogSettings.ShowNetwork;
 
-            //// setup print dialog with internal setttings
+            //// setup print dialog with public setttings
             pd.Document = printDoc;
             if (!String.IsNullOrEmpty(printerName))
                 printDoc.PrinterSettings.PrinterName = printerName;
@@ -1784,7 +1784,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// setup must be completed prior to calling this routine
         /// </summary>
         /// <param name="dgv"></param>
-        internal void PrintNoDisplay(DataGridView dgv)
+        public void PrintNoDisplay(DataGridView dgv)
         {
             if (EnableLogging) Logger.LogInfoMsg("PrintNoDisplay process started");
             if (null == dgv) throw new Exception("Null Parameter passed to DGVPrinter.");
@@ -1807,7 +1807,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// setup must be completed prior to calling this routine
         /// </summary>
         /// <param name="dgv"></param>
-        internal void PrintPreviewNoDisplay(DataGridView dgv)
+        public void PrintPreviewNoDisplay(DataGridView dgv)
         {
             if (EnableLogging) Logger.LogInfoMsg("PrintPreviewNoDisplay process started");
             if (null == dgv) throw new Exception("Null Parameter passed to DGVPrinter.");
@@ -1852,7 +1852,7 @@ namespace NeatVibezPOS //AllocationRequest
         // NOTE: This is retained only for backward compatibility, and should 
         // not be used for printing grid views that might be larger than the 
         // input print area.
-        internal Boolean EmbeddedPrint(DataGridView dgv, Graphics g, Rectangle area)
+        public Boolean EmbeddedPrint(DataGridView dgv, Graphics g, Rectangle area)
         {
             if (EnableLogging) Logger.LogInfoMsg("EmbeddedPrint process started");
             // verify we've been set up properly
@@ -1899,7 +1899,7 @@ namespace NeatVibezPOS //AllocationRequest
             return false;
         }
 
-        internal void EmbeddedPrintMultipageSetup(DataGridView dgv, Rectangle area)
+        public void EmbeddedPrintMultipageSetup(DataGridView dgv, Rectangle area)
         {
             if (EnableLogging) Logger.LogInfoMsg("EmbeddedPrintMultipageSetup process started");
             // verify we've been set up properly
@@ -1945,7 +1945,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        internal void BeginPrintEventHandler(object sender, PrintEventArgs e)
+        public void BeginPrintEventHandler(object sender, PrintEventArgs e)
         {
             if (EnableLogging) Logger.LogInfoMsg("BeginPrintEventHandler called. Printing started.");
             // reset counters since we'll go through this twice if we print from preview
@@ -1961,7 +1961,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// </summary>
         /// <param name="sender">default object from windows</param>
         /// <param name="e">Event info from Windows about the printing</param>
-        internal void PrintPageEventHandler(object sender, PrintPageEventArgs e)
+        public void PrintPageEventHandler(object sender, PrintPageEventArgs e)
         {
             if (EnableLogging) Logger.LogInfoMsg("PrintPageEventHandler called. Printing a page.");
             e.HasMorePages = PrintPage(e.Graphics);
@@ -1970,7 +1970,7 @@ namespace NeatVibezPOS //AllocationRequest
 
         //---------------------------------------------------------------------
         //---------------------------------------------------------------------
-        // Internal Methods
+        // public Methods
         //---------------------------------------------------------------------
         //---------------------------------------------------------------------
 
@@ -2132,7 +2132,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Set up width override and fixed columns lists
         /// </summary>
-        private void SetupColumns()
+        public void SetupColumns()
         {
             // identify fixed columns by their column number in the print list
             foreach (string colname in fixedcolumnnames)
@@ -2151,8 +2151,8 @@ namespace NeatVibezPOS //AllocationRequest
 
             // Adjust override list to have the same number of entries as colstoprint,
             foreach (DataGridViewColumn col in colstoprint)
-                if (internalwidthoverrides.ContainsKey(col.Name))
-                    colwidthsoverride.Add(internalwidthoverrides[col.Name]);
+                if (publicwidthoverrides.ContainsKey(col.Name))
+                    colwidthsoverride.Add(publicwidthoverrides[col.Name]);
                 else
                     colwidthsoverride.Add(-1);
 
@@ -2164,7 +2164,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// order and the columns appear in DisplayIndex order to account for added columns
         /// and re-ordered columns.
         /// </summary>
-        private void SetupPrintRange()
+        public void SetupPrintRange()
         {
             //-----------------------------------------------------------------
             // set up the rows and columns to print
@@ -2305,7 +2305,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <param name="flags">String format flags</param>
         /// <param name="trim">Override string trimming flags</param>
         /// <returns></returns>
-        private void buildstringformat(ref StringFormat format, DataGridViewCellStyle controlstyle,
+        public void buildstringformat(ref StringFormat format, DataGridViewCellStyle controlstyle,
             StringAlignment alignment, StringAlignment linealignment, StringFormatFlags flags,
             StringTrimming trim)
         {
@@ -2349,7 +2349,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <param name="basewidth">Initial width for size calculation</param>
         /// <param name="format">Computed string format for cell data</param>
         /// <returns>Size of printed cell</returns>
-        private SizeF calccellsize(Graphics g, DataGridViewCell cell, DataGridViewCellStyle cellstyle,
+        public SizeF calccellsize(Graphics g, DataGridViewCell cell, DataGridViewCellStyle cellstyle,
             float basewidth, float overridewidth, StringFormat format)
         {
             // Start with the grid view cell size
@@ -2435,7 +2435,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <param name="g">Graphics Context for measuring image columns</param>
         /// <param name="colindex">column index in colstoprint</param>
         /// <param name="newcolwidth">new column width</param>
-        private void RecalcRowHeights(Graphics g, int colindex, float newcolwidth)
+        public void RecalcRowHeights(Graphics g, int colindex, float newcolwidth)
         {
             DataGridViewCell cell = null;
             float finalsize = 0F;
@@ -2479,7 +2479,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// the header sizes, and determine all the row heights.
         /// </summary>
         /// <param name="g">The graphics context for all measurements</param>
-        private void measureprintarea(Graphics g)
+        public void measureprintarea(Graphics g)
         {
             int i, j;
             colwidths = new List<float>(colstoprint.Count);
@@ -2897,7 +2897,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <summary>
         /// Set page breaks for the rows to be printed, and count total pages
         /// </summary>
-        private int Pagination()
+        public int Pagination()
         {
             float pos = 0;
             paging newpage = paging.keepgoing;
@@ -3003,7 +3003,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// Check for more pages. This is called at the end of printing a page set.
         /// If there's another page set to print, we return true.
         /// </summary>
-        private bool DetermineHasMorePages()
+        public bool DetermineHasMorePages()
         {
             currentpageset++;
             if (currentpageset < pagesets.Count)
@@ -3021,7 +3021,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// the Print event.
         /// </summary>
         /// <param name="g">Graphics object to print to</param>
-        private bool PrintPage(Graphics g)
+        public bool PrintPage(Graphics g)
         {
             // for tracing and logging purposes
             int firstrow = 0;
@@ -3333,7 +3333,7 @@ namespace NeatVibezPOS //AllocationRequest
         /// <param name="g"></param>
         /// <param name="printpos"></param>
         /// <returns></returns>
-        private float PrintPageNo(Graphics g, float printpos)
+        public float PrintPageNo(Graphics g, float printpos)
         {
             if (pageno)
             {

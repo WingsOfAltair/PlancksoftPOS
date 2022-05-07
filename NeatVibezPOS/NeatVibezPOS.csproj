@@ -86,6 +86,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -97,8 +99,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Account.cs" />
-    <Compile Include="Models\Bill.cs" />
+    <Compile Include="Connected Services\NeatVibez_Server\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="ViewControllers\frmAuth.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,16 +134,12 @@
     <Compile Include="ViewControllers\frmPickCustomer.Designer.cs">
       <DependentUpon>frmPickCustomer.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\ItemType.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Models\Warehouse.cs" />
-    <Compile Include="Models\Category.cs" />
     <Compile Include="Classes\Connection.cs" />
-    <Compile Include="Models\Customer.cs" />
     <Compile Include="Classes\DGVPrinter.cs" />
     <Compile Include="ViewControllers\frmCloseRegister.cs">
       <SubType>Form</SubType>
@@ -212,7 +213,6 @@
     <Compile Include="ViewControllers\frmSales.Designer.cs">
       <DependentUpon>frmSales.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Item.cs" />
     <Compile Include="Classes\LPrinter.cs" />
     <Compile Include="Classes\MassageBoxManager.cs" />
     <Compile Include="Classes\MD5Encryption.cs" />
@@ -276,7 +276,34 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez_Server.wsdl" />
     <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\DataAccessLayer.Account.datasource" />
+    <None Include="Properties\DataSources\DataAccessLayer.Bill.datasource" />
+    <None Include="Properties\DataSources\DataAccessLayer.Category.datasource" />
+    <None Include="Properties\DataSources\DataAccessLayer.Customer.datasource" />
+    <None Include="Properties\DataSources\DataAccessLayer.Item.datasource" />
+    <None Include="Properties\DataSources\DataAccessLayer.ItemType.datasource" />
+    <None Include="Properties\DataSources\DataAccessLayer.Warehouse.datasource" />
+    <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -378,6 +405,13 @@
     <None Include="Resources\closeregister.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server.disco" />
+    <None Include="Connected Services\NeatVibez_Server\configuration91.svcinfo" />
+    <None Include="Connected Services\NeatVibez_Server\configuration.svcinfo" />
+    <None Include="Connected Services\NeatVibez_Server\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Resources\pos.ico" />
     <None Include="Resources\neat vibez.png" />
     <None Include="Resources\point-of-sale.jpg" />
@@ -394,6 +428,18 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{123458db-b615-47e7-a917-c3d7e67cabd2}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\NeatVibez_Server\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace NeatVibezPOS
 {
-    internal static class MD5Encryption
+    public static class MD5Encryption
     {
-        internal static string Encrypt(string text, string key)
+        public static string Encrypt(string text, string key)
         {
             using (var md5 = new MD5CryptoServiceProvider())
             {
@@ -29,7 +29,7 @@ namespace NeatVibezPOS
             }
         }
 
-        internal static string Decrypt(string cipher, string key)
+        public static string Decrypt(string cipher, string key)
         {
             using (var md5 = new MD5CryptoServiceProvider())
             {

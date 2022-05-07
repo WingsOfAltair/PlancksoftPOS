@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,16 +11,16 @@ using System.Windows.Forms;
 
 namespace NeatVibezPOS
 {
-    internal partial class frmRegisterAdmin : Form
+    public partial class frmRegisterAdmin : Form
     {
-        private Connection Connection = new Connection();
+        public Connection Connection = new Connection();
 
-        internal frmRegisterAdmin()
+        public frmRegisterAdmin()
         {
             InitializeComponent();
         }
         
-        private void BtnRegister_Click(object sender, EventArgs e)
+        public void BtnRegister_Click(object sender, EventArgs e)
         {
             if (txtUID.Text != "" && txtPWD.Text != "" && txtFname.Text != "")
             {
@@ -38,7 +39,7 @@ namespace NeatVibezPOS
                 newAccount.personnel_edit = true;
                 newAccount.openclose_edit = true;
 
-                if (Connection.RegisterAdmin(newAccount))
+                if (Connection.server.RegisterAdmin(newAccount))
                 {
                     MessageBox.Show(".تم تسجيل الحساب الاداري");
                     this.Hide();
@@ -49,7 +50,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void frmRegisterAdmin_FormClosing(object sender, FormClosingEventArgs e)
+        public void frmRegisterAdmin_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
@@ -64,20 +65,20 @@ namespace NeatVibezPOS
             { }
         }
 
-        private void txtPWD_KeyPress(object sender, KeyPressEventArgs e)
+        public void txtPWD_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar));
             if (e.KeyChar == (Char)Keys.Enter)
                 BtnRegister.PerformClick();
         }
 
-        private void txtFname_KeyPress(object sender, KeyPressEventArgs e)
+        public void txtFname_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 BtnRegister.PerformClick();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             txtPWD.Text = "";
             txtFname.Text = "";

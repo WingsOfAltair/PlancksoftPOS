@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,26 +11,26 @@ using System.Windows.Forms;
 
 namespace NeatVibezPOS
 {
-    internal partial class frmCustomerCard : Form
+    public partial class frmCustomerCard : Form
     {
         Connection Connection = new Connection();
-        internal Customer customer = new Customer();
-        internal DialogResult dialogResult;
-        internal List<Item> saleItems = new List<Item>();
+        public Customer customer = new Customer();
+        public DialogResult dialogResult;
+        public List<Item> saleItems = new List<Item>();
 
 
-        internal frmCustomerCard()
+        public frmCustomerCard()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
-            DataTable RetrievedCustomers = Connection.SearchCustomers(customerName.Text, "", itemName.Text);
+            DataTable RetrievedCustomers = Connection.server.SearchCustomers(customerName.Text, "", itemName.Text);
             dgvCustomers.DataSource = RetrievedCustomers;
         }
 
-        private void dgvCustomers_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void dgvCustomers_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
@@ -70,24 +71,24 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             dialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void customerName_TextChanged(object sender, EventArgs e)
+        public void customerName_TextChanged(object sender, EventArgs e)
         {
-            DataTable RetrievedCustomers = Connection.SearchCustomers(customerName.Text);
+            DataTable RetrievedCustomers = Connection.server.SearchCustomers(customerName.Text, "", "");
             dgvCustomers.DataSource = RetrievedCustomers;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             customerName.Text = "";
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        public void button4_Click(object sender, EventArgs e)
         {
             dialogResult = DialogResult.None;
             this.Close();

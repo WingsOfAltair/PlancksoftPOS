@@ -1,4 +1,5 @@
-﻿using NeatVibezPOS.Properties;
+﻿using DataAccessLayer;
+using NeatVibezPOS.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,19 +14,19 @@ using System.Windows.Forms;
 
 namespace NeatVibezPOS
 {
-    internal partial class frmLogin : Form
+    public partial class frmLogin : Form
     {
-        private const string AesIV256 = @"!QAZ2WSX#EDC4RFV";
-        private const string AesKey256 = @"5TGB&YHN7UJM(IK<5TGB&YHN7UJM(IK<";
+        public const string AesIV256 = @"!QAZ2WSX#EDC4RFV";
+        public const string AesKey256 = @"5TGB&YHN7UJM(IK<5TGB&YHN7UJM(IK<";
 
-        private Connection Connection = new Connection();
-        private Mutex _mutex;
+        public Connection Connection = new Connection();
+        public Mutex _mutex;
 
-        private class Item
+        public class Item
         {
-            internal string Name;
-            internal string UID;
-            internal Item(string UID, string Name)
+            public string Name;
+            public string UID;
+            public Item(string UID, string Name)
             {
                 this.UID = UID;
                 this.Name = Name;
@@ -37,7 +38,7 @@ namespace NeatVibezPOS
             }
         }
 
-        internal static byte[] GetSha512Hash(string plainText)
+        public static byte[] GetSha512Hash(string plainText)
         {
             SHA512 sha512 = SHA512.Create();
             byte[] computedHash = sha512.ComputeHash(Encoding.UTF8.GetBytes(plainText));
@@ -45,14 +46,14 @@ namespace NeatVibezPOS
         }
 
 
-        internal static string GetHash256Str(string message)
+        public static string GetHash256Str(string message)
         {
             byte[] hashed = GetSha512Hash(message);
             string result = BitConverter.ToString(hashed).Replace("-", "");
             return result;
         }
 
-        internal frmLogin()
+        public frmLogin()
         {
             InitializeComponent();
             try
@@ -77,7 +78,7 @@ namespace NeatVibezPOS
                 }
                 if (Decrypt256(Settings.Default.LicenseKey) == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName))
                 {
-                    if (!Connection.CheckConnection(Settings.Default.ComputerName, Settings.Default.DBName, Settings.Default.DBUID, Settings.Default.DBPWD))
+                    if (!Connection.server.CheckConnection(Settings.Default.ComputerName, Settings.Default.DBName, Settings.Default.DBUID, Settings.Default.DBPWD))
                     {
                         frmDBConfigure frm1 = new frmDBConfigure();
                         frm1.ShowDialog();
@@ -87,7 +88,7 @@ namespace NeatVibezPOS
                     }
                     else
                     {
-                        if (!Connection.CheckAdmin()) // if admin is not registered, open a form to make one.
+                        if (!Connection.server.CheckAdmin()) // if admin is not registered, open a form to make one.
                         {
                             this.Hide();
                             frmRegisterAdmin registerAdmin = new frmRegisterAdmin();
@@ -114,7 +115,7 @@ namespace NeatVibezPOS
         /// <summary>
         /// AES decryption
         /// </summary>
-        private string Decrypt256(string text)
+        public string Decrypt256(string text)
         {
             // AesCryptoServiceProvider
             AesCryptoServiceProvider aes = new AesCryptoServiceProvider();
@@ -136,10 +137,10 @@ namespace NeatVibezPOS
             }
         }
 
-        internal void RetrieveUsersList()
+        public void RetrieveUsersList()
         {
             txtUID.Items.Clear();
-            Tuple<Account[], DataTable> retrievedUsersList = Connection.RetrieveUsersList();
+            Tuple<List<Account>, DataTable> retrievedUsersList = Connection.server.RetrieveUsersList();
             foreach (Account account in retrievedUsersList.Item1)
             {
                 txtUID.Items.Add(new Item(account.GetAccountUID(), account.GetAccountName()));
@@ -153,12 +154,12 @@ namespace NeatVibezPOS
             }
         }
 
-        private void BtnExit_Click(object sender, EventArgs e)
+        public void BtnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        private void BtnLogin_Click(object sender, EventArgs e)
+        public void BtnLogin_Click(object sender, EventArgs e)
         {
             if (txtUID.Text == "" && txtPWD.Text == "")
             {
@@ -169,7 +170,7 @@ namespace NeatVibezPOS
             newAccount.SetAccountUID(txtUID.Text);
             newAccount.SetAccountPWD(MD5Encryption.Encrypt(txtPWD.Text, "NeatVibezPOS"));
 
-            Tuple<bool, string, bool> result = Connection.Login(newAccount);
+            Tuple<bool, string, bool> result = Connection.server.Login(newAccount);
             if (result.Item1)
             {
                 if (result.Item2 != "notloggedin...")
@@ -179,7 +180,7 @@ namespace NeatVibezPOS
                     frmMain frm2 = new frmMain(newAccount);
                     frm2.Show();
                     this.Hide();
-                    Connection.LogLogin(txtUID.Text, DateTime.Now);
+                    Connection.server.LogLogin(txtUID.Text, DateTime.Now);
                 }
             }
             else MessageBox.Show(".المستخدم غير مسجل", Application.ProductName);
@@ -187,20 +188,20 @@ namespace NeatVibezPOS
             txtPWD.Text = "";
         }
 
-        private void txtPWD_KeyPress(object sender, KeyPressEventArgs e)
+        public void txtPWD_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar));
             if (e.KeyChar == (Char)Keys.Enter)
                 BtnLogin.PerformClick();
         }
 
-        private void txtUID_KeyPress(object sender, KeyPressEventArgs e)
+        public void txtUID_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 BtnLogin.PerformClick();
         }
 
-        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        public void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
@@ -222,7 +223,7 @@ namespace NeatVibezPOS
             { }
         }
 
-        private void button10_Click(object sender, EventArgs e)
+        public void button10_Click(object sender, EventArgs e)
         {
             txtPWD.Text += "0";
             txtPWD.SelectionStart = txtPWD.Text.Length;
@@ -230,7 +231,7 @@ namespace NeatVibezPOS
             txtPWD.Select();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             txtPWD.Text += "1";
             txtPWD.SelectionStart = txtPWD.Text.Length;
@@ -238,7 +239,7 @@ namespace NeatVibezPOS
             txtPWD.Select();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             txtPWD.Text += "2";
             txtPWD.SelectionStart = txtPWD.Text.Length;
@@ -246,7 +247,7 @@ namespace NeatVibezPOS
             txtPWD.Select();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             txtPWD.Text += "3";
             txtPWD.SelectionStart = txtPWD.Text.Length;
@@ -254,7 +255,7 @@ namespace NeatVibezPOS
             txtPWD.Select();
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        public void button4_Click(object sender, EventArgs e)
         {
             txtPWD.Text += "4";
             txtPWD.SelectionStart = txtPWD.Text.Length;
@@ -262,7 +263,7 @@ namespace NeatVibezPOS
             txtPWD.Select();
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        public void button5_Click(object sender, EventArgs e)
         {
             txtPWD.Text += "5";
             txtPWD.SelectionStart = txtPWD.Text.Length;
@@ -270,7 +271,7 @@ namespace NeatVibezPOS
             txtPWD.Select();
         }
 
-        private void button6_Click(object sender, EventArgs e)
+        public void button6_Click(object sender, EventArgs e)
         {
             txtPWD.Text += "6";
             txtPWD.SelectionStart = txtPWD.Text.Length;
@@ -278,7 +279,7 @@ namespace NeatVibezPOS
             txtPWD.Select();
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        public void button7_Click(object sender, EventArgs e)
         {
             txtPWD.Text += "7";
             txtPWD.SelectionStart = txtPWD.Text.Length;
@@ -286,7 +287,7 @@ namespace NeatVibezPOS
             txtPWD.Select();
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        public void button8_Click(object sender, EventArgs e)
         {
             txtPWD.Text += "8";
             txtPWD.SelectionStart = txtPWD.Text.Length;
@@ -294,7 +295,7 @@ namespace NeatVibezPOS
             txtPWD.Select();
         }
 
-        private void button9_Click(object sender, EventArgs e)
+        public void button9_Click(object sender, EventArgs e)
         {
             txtPWD.Text += "9";
             txtPWD.SelectionStart = txtPWD.Text.Length;
@@ -302,12 +303,12 @@ namespace NeatVibezPOS
             txtPWD.Select();
         }
 
-        private void button11_Click(object sender, EventArgs e)
+        public void button11_Click(object sender, EventArgs e)
         {
             txtPWD.Text = "";
         }
 
-        private void txtUID_Enter(object sender, EventArgs e)
+        public void txtUID_Enter(object sender, EventArgs e)
         {
             RetrieveUsersList();
         }

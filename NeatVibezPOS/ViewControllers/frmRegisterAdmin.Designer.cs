@@ -5,7 +5,7 @@
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -26,7 +26,7 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegisterAdmin));
             this.BtnRegister = new System.Windows.Forms.Button();
@@ -170,13 +170,13 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button BtnRegister;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtFname;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtPWD;
-        private System.Windows.Forms.TextBox txtUID;
-        private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button BtnRegister;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.TextBox txtFname;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox txtPWD;
+        public System.Windows.Forms.TextBox txtUID;
+        public System.Windows.Forms.Button button3;
     }
 }

@@ -32,7 +32,7 @@ namespace NeatVibezPOS
             }
         }
 
-        internal static Process PriorProcess()
+        public static Process PriorProcess()
         // Returns a System.Diagnostics.Process pointing to
         // a pre-existing process with the same name as the
         // current one, if any; or null if the current process

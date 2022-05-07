@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -11,17 +12,17 @@ using System.Windows.Forms;
 
 namespace NeatVibezPOS
 {
-    internal partial class frmItemLookup : Form
+    public partial class frmItemLookup : Form
     {
         Connection Connection = new Connection();
-        internal DialogResult dialogResult = new DialogResult();
-        internal Item selectedItem = new Item();
+        public DialogResult dialogResult = new DialogResult();
+        public Item selectedItem = new Item();
         string UID;
 
-        private class ItemTypeCategory
+        public class ItemTypeCategory
         {
-            internal string Name;
-            internal ItemTypeCategory(string Name)
+            public string Name;
+            public ItemTypeCategory(string Name)
             {
                 this.Name = Name;
             }
@@ -32,7 +33,7 @@ namespace NeatVibezPOS
             }
         }
 
-        internal frmItemLookup(SortedList<int, string> itemtypes, string UID)
+        public frmItemLookup(SortedList<int, string> itemtypes, string UID)
         {
             InitializeComponent();
             this.UID = UID;
@@ -42,31 +43,31 @@ namespace NeatVibezPOS
                 comboBox1.Items.Add(new ItemTypeCategory(itemType.Value));
             }
 
-            DGVItemsLookup.DataSource = Connection.SearchItems("", "");
+            DGVItemsLookup.DataSource = Connection.server.SearchItems("", "", 0);
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             ItemNametxt.Text = "";
             ItemBarCodetxt.Text = "";
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             int ItemTypeID;
             if (comboBox1.SelectedItem != null)
-                ItemTypeID = Connection.RetrieveItemTypeID(comboBox1.SelectedItem.ToString());
+                ItemTypeID = Connection.server.RetrieveItemTypeID(comboBox1.SelectedItem.ToString());
             else ItemTypeID = 0;
-            DGVItemsLookup.DataSource = Connection.SearchItems(ItemNametxt.Text, ItemBarCodetxt.Text, ItemTypeID).Item2;
+            DGVItemsLookup.DataSource = Connection.server.SearchItems(ItemNametxt.Text, ItemBarCodetxt.Text, ItemTypeID).Item2;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             this.dialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void DGVItemsLookup_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        public void DGVItemsLookup_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
@@ -78,7 +79,7 @@ namespace NeatVibezPOS
                 selectedItem.SetPriceTax(Convert.ToDecimal(DGVItemsLookup.Rows[e.RowIndex].Cells[5].Value.ToString()));
                 if (comboBox1.Text != "")
                 {
-                    int ItemTypeID = Connection.RetrieveItemTypeID(comboBox1.SelectedItem.ToString());
+                    int ItemTypeID = Connection.server.RetrieveItemTypeID(comboBox1.SelectedItem.ToString());
                     selectedItem.SetItemTypeID(ItemTypeID);
                 } else
                 {
@@ -96,31 +97,31 @@ namespace NeatVibezPOS
             }
         }
 
-        private void ItemNametxt_KeyPress(object sender, KeyPressEventArgs e)
+        public void ItemNametxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
             button1.PerformClick();
         }
 
-        private void ItemBarCodetxt_KeyPress(object sender, KeyPressEventArgs e)
+        public void ItemBarCodetxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button1.PerformClick();
         }
 
-        private void numericUpDown1_KeyPress(object sender, KeyPressEventArgs e)
+        public void numericUpDown1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button1.PerformClick();
         }
 
-        private void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
+        public void comboBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button1.PerformClick();
         }
 
-        private void BtnPrint_Click(object sender, EventArgs e)
+        public void BtnPrint_Click(object sender, EventArgs e)
         {
             try
             {

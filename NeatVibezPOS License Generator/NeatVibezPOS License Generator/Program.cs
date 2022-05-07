@@ -35,7 +35,7 @@ namespace NeatVibezPOS
             t.Join();
         }
 
-        internal static byte[] GetSha512Hash(string plainText)
+        public static byte[] GetSha512Hash(string plainText)
         {
             SHA512 sha512 = SHA512.Create();
             byte[] computedHash = sha512.ComputeHash(Encoding.UTF8.GetBytes(plainText));
@@ -43,7 +43,7 @@ namespace NeatVibezPOS
         }
 
 
-        internal static string GetHash256Str(string message)
+        public static string GetHash256Str(string message)
         {
             byte[] hashed = GetSha512Hash(message);
             string result = BitConverter.ToString(hashed).Replace("-", "");

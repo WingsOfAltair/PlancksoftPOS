@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccessLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,39 +11,39 @@ using System.Windows.Forms;
 
 namespace NeatVibezPOS
 {
-    internal partial class frmSales : Form
+    public partial class frmSales : Form
     {
-        private Connection Connection = new Connection();
-        internal List<Item> saleItems = new List<Item>();
+        public Connection Connection = new Connection();
+        public List<Item> saleItems = new List<Item>();
 
-        internal DialogResult dialogResult;
+        public DialogResult dialogResult;
 
-        internal frmSales()
+        public frmSales()
         {
             InitializeComponent();
         }
 
-        private void searchItemName_TextChanged(object sender, EventArgs e)
+        public void searchItemName_TextChanged(object sender, EventArgs e)
         {
             if (searchItemName.Text != "")
             {
-                Tuple<Item[], DataTable> RetrievedItems;
-                RetrievedItems = Connection.SearchItems(searchItemName.Text, "");
+                Tuple<List<Item>, DataTable> RetrievedItems;
+                RetrievedItems = Connection.server.SearchItems(searchItemName.Text, "", 0);
                 searchItemDGV.DataSource = RetrievedItems.Item2;
             }
         }
 
-        private void searchItemBarCode_TextChanged(object sender, EventArgs e)
+        public void searchItemBarCode_TextChanged(object sender, EventArgs e)
         {
             if (searchItemBarCode.Text != "")
             {
-                Tuple<Item[], DataTable> RetrievedItems;
-                RetrievedItems = Connection.SearchItems("", searchItemBarCode.Text);
+                Tuple<List<Item>, DataTable> RetrievedItems;
+                RetrievedItems = Connection.server.SearchItems("", searchItemBarCode.Text, 0);
                 searchItemDGV.DataSource = RetrievedItems.Item2;
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             bool found = false;
             foreach (DataGridViewRow item in searchItemDGV.Rows)
@@ -78,25 +79,25 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             dialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        private void frmSales_Load(object sender, EventArgs e)
+        public void frmSales_Load(object sender, EventArgs e)
         {
             searchItemName.SelectionStart = searchItemName.Text.Length;
             searchItemName.SelectionLength = 0;
             searchItemName.Select();
         }
 
-        private void saleRate_Enter(object sender, EventArgs e)
+        public void saleRate_Enter(object sender, EventArgs e)
         {
             saleRate.Select(1, 1);
         }
 
-        private void frmSales_KeyPress(object sender, KeyPressEventArgs e)
+        public void frmSales_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Escape)
             {
@@ -105,7 +106,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void searchItemName_KeyPress(object sender, KeyPressEventArgs e)
+        public void searchItemName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Escape)
             {
@@ -114,7 +115,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void searchItemBarCode_KeyPress(object sender, KeyPressEventArgs e)
+        public void searchItemBarCode_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Escape)
             {
@@ -123,7 +124,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void saleRate_KeyPress(object sender, KeyPressEventArgs e)
+        public void saleRate_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Escape)
             {
@@ -132,7 +133,7 @@ namespace NeatVibezPOS
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             searchItemName.Text = "";
             searchItemBarCode.Text = "";

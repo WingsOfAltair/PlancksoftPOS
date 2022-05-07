@@ -12,22 +12,22 @@ using System.Windows.Forms;
 
 namespace NeatVibezPOS
 {
-    internal partial class frmLicense : Form
+    public partial class frmLicense : Form
     {
-        private const string AesIV256 = @"!QAZ2WSX#EDC4RFV";
-        private const string AesKey256 = @"5TGB&YHN7UJM(IK<5TGB&YHN7UJM(IK<";
+        public const string AesIV256 = @"!QAZ2WSX#EDC4RFV";
+        public const string AesKey256 = @"5TGB&YHN7UJM(IK<5TGB&YHN7UJM(IK<";
 
-        internal frmLicense()
+        public frmLicense()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
-        internal static byte[] GetSha512Hash(string plainText)
+        public static byte[] GetSha512Hash(string plainText)
         {
             SHA512 sha512 = SHA512.Create();
             byte[] computedHash = sha512.ComputeHash(Encoding.UTF8.GetBytes(plainText));
@@ -35,14 +35,14 @@ namespace NeatVibezPOS
         }
 
 
-        internal static string GetHash256Str(string message)
+        public static string GetHash256Str(string message)
         {
             byte[] hashed = GetSha512Hash(message);
             string result = BitConverter.ToString(hashed).Replace("-", "");
             return result;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public void button2_Click(object sender, EventArgs e)
         {
             if (textBox1.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName))
             {
@@ -59,7 +59,7 @@ namespace NeatVibezPOS
 
         }
 
-        private string Encrypt256(string text)
+        public string Encrypt256(string text)
         {
             // AesCryptoServiceProvider
             AesCryptoServiceProvider aes = new AesCryptoServiceProvider();
@@ -83,13 +83,13 @@ namespace NeatVibezPOS
             }
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        public void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
                 button2.PerformClick();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        public void button3_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
         }
