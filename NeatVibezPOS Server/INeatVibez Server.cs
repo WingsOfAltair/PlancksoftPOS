@@ -186,7 +186,7 @@ namespace NeatVibezPOS_Server
         [OperationContract]
         Bill RetrieveLastVendorBillNumberToday(DateTime Date);
         [OperationContract]
-        Bill RetrieveLastBillNumberToday(DateTime Date);
+        Bill RetrieveLastBillNumberToday();
         [OperationContract]
         List<Item> RetrieveItemsQuantity(string ItemBarCode = "");
         [OperationContract]

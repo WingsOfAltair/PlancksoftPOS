@@ -280,7 +280,7 @@ namespace NeatVibezPOS.NeatVibez_Server {
         DataAccessLayer.Bill RetrieveLastVendorBillNumberToday(System.DateTime Date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveLastBillNumberToday", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveLastBillNumberTodayResponse")]
-        DataAccessLayer.Bill RetrieveLastBillNumberToday(System.DateTime Date);
+        DataAccessLayer.Bill RetrieveLastBillNumberToday();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveItemsQuantity", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveItemsQuantityResponse")]
         System.Collections.Generic.List<DataAccessLayer.Item> RetrieveItemsQuantity(string ItemBarCode);
@@ -698,8 +698,8 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.RetrieveLastVendorBillNumberToday(Date);
         }
         
-        public DataAccessLayer.Bill RetrieveLastBillNumberToday(System.DateTime Date) {
-            return base.Channel.RetrieveLastBillNumberToday(Date);
+        public DataAccessLayer.Bill RetrieveLastBillNumberToday() {
+            return base.Channel.RetrieveLastBillNumberToday();
         }
         
         public System.Collections.Generic.List<DataAccessLayer.Item> RetrieveItemsQuantity(string ItemBarCode) {

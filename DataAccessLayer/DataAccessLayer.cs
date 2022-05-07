@@ -2734,22 +2734,17 @@ namespace DataAccessLayer
             }
         }
 
-        public Bill RetrieveLastBillNumberToday(DateTime Date)
+        public Bill RetrieveLastBillNumberToday()
         {
             try
             {
                 Bill Bill = new Bill();
                 SqlDataAdapter adapter = new SqlDataAdapter();
-                SqlCommand cmd = new SqlCommand("RetrieveLastBillNumberToday", connection)
+                SqlCommand cmd = new SqlCommand("RetrieveLastBillNumber", connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
 
-                if (Date != null)
-                {
-                    cmd.Parameters.AddWithValue("@Date1", Date);
-                    cmd.Parameters.AddWithValue("@Date2", Date);
-                }
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);

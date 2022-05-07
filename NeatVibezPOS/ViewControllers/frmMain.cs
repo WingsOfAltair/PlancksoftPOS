@@ -221,7 +221,7 @@ namespace NeatVibezPOS
 
                 this.saleItems = Connection.server.RetrieveSaleToday(DateTime.Now, 10);
 
-                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                 richTextBox5.ResetText();
                 richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
 
@@ -248,7 +248,7 @@ namespace NeatVibezPOS
                     openRegisterBtn.Enabled = false;
                     label65.Enabled = false;
                     // get last bill number of today
-                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                     richTextBox4.ResetText();
                     richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
                     richTextBox5.ResetText();
@@ -279,7 +279,7 @@ namespace NeatVibezPOS
                 }
                 DisplayFavorites();
 
-                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
 
                 if (Properties.Settings.Default.PrinterName == "")
                 {
@@ -1588,7 +1588,7 @@ namespace NeatVibezPOS
                     this.customersaleItems.Clear();
                 }
 
-                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
 
                 richTextBox5.ResetText();
                 richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
@@ -1671,7 +1671,7 @@ namespace NeatVibezPOS
                 this.paidAmount = 0;
                 this.remainderAmount = 0;
                 items = null;
-                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                 richTextBox5.ResetText();
                 richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                 heldBillsCount += 1;
@@ -1708,7 +1708,7 @@ namespace NeatVibezPOS
                     ItemsPendingPurchase.Rows.Clear();
                     Bill bill = previousBillsList.Pop();
                     //this.CurrentBillNumber = bill.getBillNumber();
-                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                     foreach (Item item in bill.getItemsList())
                     {
                         var index = ItemsPendingPurchase.Rows.Add();
@@ -1782,7 +1782,7 @@ namespace NeatVibezPOS
                     previousBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
                     ItemsPendingPurchase.Rows.Clear();
                     Bill bill = nextBillsList.Pop();
-                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                     //this.CurrentBillNumber = bill.getBillNumber();
 
                     foreach (Item item in bill.getItemsList())
@@ -4152,7 +4152,7 @@ namespace NeatVibezPOS
                     this.customersaleItems.Clear();
                 }
 
-                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
 
                 richTextBox5.ResetText();
                 richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
@@ -4331,7 +4331,7 @@ namespace NeatVibezPOS
                 this.paidAmount = 0;
                 this.remainderAmount = 0;
                 items = null;
-                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                 richTextBox5.ResetText();
                 richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                 heldBillsCount += 1;
@@ -4678,7 +4678,7 @@ namespace NeatVibezPOS
                             this.customersaleItems.Clear();
                         }
 
-                        this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                        this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
 
                         richTextBox5.ResetText();
                         richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
@@ -4830,7 +4830,7 @@ namespace NeatVibezPOS
                         this.paidAmount = 0;
                         this.remainderAmount = 0;
                         items = null;
-                        this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                        this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                         richTextBox5.ResetText();
                         richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                         heldBillsCount += 1;
@@ -4987,7 +4987,7 @@ namespace NeatVibezPOS
                             ItemsPendingPurchase.Rows.Clear();
                             Bill bill = previousBillsList.Pop();
                             //this.CurrentBillNumber = bill.getBillNumber();
-                            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                             foreach (Item item in bill.getItemsList())
                             {
                                 var index = ItemsPendingPurchase.Rows.Add();
@@ -5060,7 +5060,7 @@ namespace NeatVibezPOS
                             previousBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
                             ItemsPendingPurchase.Rows.Clear();
                             Bill bill = nextBillsList.Pop();
-                            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                             //this.CurrentBillNumber = bill.getBillNumber();
 
                             foreach (Item item in bill.getItemsList())
@@ -5230,7 +5230,7 @@ namespace NeatVibezPOS
                             openRegisterBtn.Enabled = false;
                             label65.Enabled = false;
                             // get last bill number of today
-                            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                             richTextBox4.ResetText();
                             richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
                             richTextBox5.ResetText();
@@ -5442,7 +5442,7 @@ namespace NeatVibezPOS
                     openRegisterBtn.Enabled = false;
                     label65.Enabled = false;
                     // get last bill number of today
-                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                     richTextBox4.ResetText();
                     richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
                     richTextBox5.ResetText();
@@ -6229,7 +6229,7 @@ namespace NeatVibezPOS
 
         private void lastBillNumberUpdaterTimer_Tick(object sender, EventArgs e)
         {
-            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
             richTextBox5.ResetText();
             richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
         }
@@ -6736,7 +6736,7 @@ namespace NeatVibezPOS
                     openRegisterBtn.Enabled = false;
                     label65.Enabled = false;
                     // get last bill number of today
-                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                     richTextBox4.ResetText();
                     richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
                     richTextBox5.ResetText();

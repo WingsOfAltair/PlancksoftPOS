@@ -359,9 +359,9 @@ namespace NeatVibezPOS_Server
         {
             return DAL.RetrieveLastVendorBillNumberToday(Date);
         }
-        public Bill RetrieveLastBillNumberToday(DateTime Date)
+        public Bill RetrieveLastBillNumberToday()
         {
-            return DAL.RetrieveLastBillNumberToday(Date);
+            return DAL.RetrieveLastBillNumberToday();
         }
         public List<Item> RetrieveItemsQuantity(string ItemBarCode = "")
         {
