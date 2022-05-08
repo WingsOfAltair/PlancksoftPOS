@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="b1b91f9b-1738-46a8-b0e5-2e450aafad2f" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="3cbff776-ef5e-4bf6-9739-9791cccc5617" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -23,14 +23,14 @@
     <MetadataSource Address="http://localhost/NeatVibezPOS_Server/NeatVibez%20Server.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="NeatVibez Server.xsd" MetadataType="Schema" ID="5e5d378c-6b0a-407d-9323-f9c3c1778c88" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd2" />
-    <MetadataFile FileName="NeatVibez Server1.xsd" MetadataType="Schema" ID="6f7cfa92-3966-4b7a-8109-39440d54c70c" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd3" />
-    <MetadataFile FileName="NeatVibez Server2.xsd" MetadataType="Schema" ID="6e93d72e-60ab-4f6c-95fa-ecffe0a30160" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd5" />
-    <MetadataFile FileName="NeatVibez Server3.xsd" MetadataType="Schema" ID="257b3aae-71de-4ced-a98e-99b027e47c4f" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd4" />
-    <MetadataFile FileName="NeatVibez Server4.xsd" MetadataType="Schema" ID="9b13a764-7afc-4110-9739-c55b0bdb9aca" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd1" />
-    <MetadataFile FileName="NeatVibez_Server.wsdl" MetadataType="Wsdl" ID="905abaac-952b-4dd4-91bc-31444fe91454" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?wsdl" />
-    <MetadataFile FileName="NeatVibez Server5.xsd" MetadataType="Schema" ID="1ca8112b-a1a2-4d39-bc37-f78860543373" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd0" />
-    <MetadataFile FileName="NeatVibez Server.disco" MetadataType="Disco" ID="0a58f04c-de21-4ab2-9317-27053763d295" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?disco" />
+    <MetadataFile FileName="NeatVibez Server.xsd" MetadataType="Schema" ID="54b045a2-8318-4e13-b036-6f3e5cad910b" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd2" />
+    <MetadataFile FileName="NeatVibez Server1.xsd" MetadataType="Schema" ID="7f4ed7cd-6e29-4eae-8700-ae3859bbcebe" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd3" />
+    <MetadataFile FileName="NeatVibez Server2.xsd" MetadataType="Schema" ID="86f97e47-91c9-47e6-97ff-adeb52bef877" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd5" />
+    <MetadataFile FileName="NeatVibez Server3.xsd" MetadataType="Schema" ID="86600a6e-d94b-46fa-bef8-5b236e0acf76" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd4" />
+    <MetadataFile FileName="NeatVibez Server4.xsd" MetadataType="Schema" ID="5bbc142d-48a1-4317-b07e-c157bb75f760" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd1" />
+    <MetadataFile FileName="NeatVibez_Server.wsdl" MetadataType="Wsdl" ID="4a2cab77-d6d0-4118-8065-1054d792566c" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?wsdl" />
+    <MetadataFile FileName="NeatVibez Server5.xsd" MetadataType="Schema" ID="1afa5d82-9de4-4d74-882e-c5c68140723d" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd0" />
+    <MetadataFile FileName="NeatVibez Server.disco" MetadataType="Disco" ID="49a3f3c4-5a9c-41b5-bddb-4354b13645fb" SourceId="1" SourceUrl="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

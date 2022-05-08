@@ -115,9 +115,12 @@
       <xs:element minOccurs="0" name="QuantityWarning" type="xs:int" />
       <xs:element minOccurs="0" name="Warehouse_ID" type="xs:int" />
       <xs:element minOccurs="0" name="customerPrice" type="xs:decimal" />
+      <xs:element minOccurs="0" name="favoriteCategoryName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="itemNewBarCode" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="itemTypeName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="saleRate" type="xs:int" />
       <xs:element minOccurs="0" name="vendorQuantity" type="xs:int" />
+      <xs:element minOccurs="0" name="warehouseName" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Item" nillable="true" type="tns:Item" />

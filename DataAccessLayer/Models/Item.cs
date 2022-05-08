@@ -13,7 +13,7 @@ namespace DataAccessLayer
         [DataMember]
         public int ItemID, Warehouse_ID, ItemTypeID, QuantityEnd, QuantityWarning, vendorQuantity;
         [DataMember]
-        public string ItemName, ItemBarCode, itemNewBarCode;
+        public string ItemName, ItemBarCode, itemNewBarCode, favoriteCategoryName, warehouseName, itemTypeName;
         [DataMember]
         public int ItemQuantity, FavoriteCategory, saleRate;
         [DataMember]
@@ -56,6 +56,9 @@ namespace DataAccessLayer
         public int ItemID1 { get => ItemID; set => ItemID = value; }
         public string ItemName1 { get => ItemName; set => ItemName = value; }
         public string ItemBarCode1 { get => ItemBarCode; set => ItemBarCode = value; }
+        public string FavoriteCategoryName { get => favoriteCategoryName; set => favoriteCategoryName = value; }
+        public string WarehouseName { get => warehouseName; set => warehouseName = value; }
+        public string ItemTypeName { get => itemTypeName; set => itemTypeName = value; }
         public int ItemQuantity1 { get => ItemQuantity; set => ItemQuantity = value; }
         public decimal ItemBuyPrice1 { get => ItemBuyPrice; set => ItemBuyPrice = value; }
         public decimal ItemPrice1 { get => ItemPrice; set => ItemPrice = value; }
@@ -107,14 +110,29 @@ namespace DataAccessLayer
             return this.ItemTypeID1;
         }
 
+        public string GetItemTypeName()
+        {
+            return this.ItemTypeName;
+        }
+
         public int GetWarehouseID()
         {
             return this.WarehouseID1;
         }
 
+        public string GetWarehouseName()
+        {
+            return this.WarehouseName;
+        }
+
         public decimal GetFavoriteCategory()
         {
             return this.FavoriteCategory1;
+        }
+
+        public string GetFavoriteCategoryName()
+        {
+            return this.FavoriteCategoryName;
         }
 
         public DateTime GetDate()
@@ -172,16 +190,31 @@ namespace DataAccessLayer
             this.ItemTypeID1 = ID;
         }
 
+        public void SetItemTypeName(string ItemTypeName)
+        {
+            this.ItemTypeName = ItemTypeName;
+        }
+
         public void SetWarehouseID(int ID)
         {
             this.WarehouseID1 = ID;
+        }
+
+        public void SetWarehouseName(string WarehouseName)
+        {
+            this.WarehouseName = WarehouseName;
         }
 
         public void SetFavoriteCategory(int Category)
         {
             this.FavoriteCategory1 = Category;
         }
-        
+
+        public void SetFavoriteCategoryName(string FavoriteCategoryName)
+        {
+            this.FavoriteCategoryName = FavoriteCategoryName;
+        }
+
         public void SetDate(DateTime Date)
         {
             this.Date = Date;

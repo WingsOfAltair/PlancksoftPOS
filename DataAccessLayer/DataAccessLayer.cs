@@ -52,6 +52,10 @@ namespace DataAccessLayer
                 {
                     Name = Category["ItemType Name"].ToString();
                 }
+                if (Name == "")
+                {
+                    Name = "غير مصنف";
+                }
                 return Name;
             }
             catch (Exception ex)
@@ -82,6 +86,10 @@ namespace DataAccessLayer
                 {
                     Name = Category["Warehouse Name"].ToString();
                 }
+                if (Name == "")
+                {
+                    Name = "غير موجود";
+                }
                 return Name;
             }
             catch (Exception ex)
@@ -111,6 +119,10 @@ namespace DataAccessLayer
                 foreach (DataRow Category in dt.Rows)
                 {
                     Name = Category["Category Name"].ToString();
+                }
+                if (Name == "")
+                {
+                    Name = "غير مفضله";
                 }
                 return Name;
             }
@@ -1330,6 +1342,12 @@ namespace DataAccessLayer
                     item.SetQuantity(Convert.ToInt32(Item["Item Quantity"].ToString()));
                     item.SetPrice(Convert.ToDecimal(Item["Item Price"].ToString()));
                     item.SetPriceTax(Convert.ToDecimal(Item["Item Price Tax"].ToString()));
+                    item.SetFavoriteCategory(Convert.ToInt32(Item["Favorite Category Number"].ToString()));
+                    item.SetFavoriteCategoryName(Item["Favorite Category"].ToString());
+                    item.SetWarehouseID(Convert.ToInt32(Item["Warehouse ID"].ToString()));
+                    item.SetWarehouseName(Item["InventoryItemWarehouse"].ToString());
+                    item.SetItemTypeID(Convert.ToInt32(Item["Item Type"].ToString()));
+                    item.SetItemTypeName(Item["InventoryItemType"].ToString());
                     Items.Add(item);
                 }
                 return Tuple.Create(Items, dt);

@@ -44,7 +44,7 @@ namespace NeatVibezPOS
         public SortedList<int, string> warehouses = new SortedList<int, string>();
         public SortedList<int, string> favorites = new SortedList<int, string>();
         public string ScannedBarCode = "";
-        public bool timerstarted = false, registerOpen = false;
+        public bool timerstarted = false, registerOpen = false, IncludeLogoInReceipt = false;
         decimal capital, taxRate;
         TextBox AddItemType;
         List<TextBox> ItemTypeNamestxt = new List<TextBox>();
@@ -237,6 +237,14 @@ namespace NeatVibezPOS
                 this.PrinterName.Text = Properties.Settings.Default.PrinterName;
                 this.receiptSpacingnud.Value = Properties.Settings.Default.receiptSpacing;
                 this.registerOpen = Properties.Settings.Default.RegisterOpen;
+                this.IncludeLogoReceipt.Checked = Properties.Settings.Default.IncludeLogoInReceipt;
+                if (Properties.Settings.Default.IncludeLogoInReceipt)
+                {
+                    IncludeLogoInReceipt = true;
+                } else
+                {
+                    IncludeLogoInReceipt = false;
+                }
                 
                 if (registerOpen)
                 {
@@ -383,6 +391,7 @@ namespace NeatVibezPOS
                 ItemType.Items.Add(new ItemTypeCategory(itemtype.Value));
                 comboBox1.Items.Add(new ItemTypeCategory(itemtype.Value));
             }
+            ItemType.SelectedIndex = 0;
 
             flowLayoutPanel3.Controls.Add(saveItemTypesBtn);
         }
@@ -439,7 +448,7 @@ namespace NeatVibezPOS
             saveWarehousesBtn.Font = new Font(saveWarehousesBtn.Font.FontFamily, 14, FontStyle.Bold);
             saveWarehousesBtn.Click += (sender, e) => { SaveWarehousesHandler(sender, e); };
 
-            //Warehouse.Items.Add(new WarehouseCategory("غير موجود"));
+            Warehouse.Items.Add(new WarehouseCategory("غير موجود"));
             //WarehousesQuantityList.Items.Add(new WarehouseCategory("غير موجود"));
             //WarehouseEntryExitList.Items.Add(new WarehouseCategory("غير موجود"));
 
@@ -469,6 +478,7 @@ namespace NeatVibezPOS
                 WarehousesQuantityList.Items.Add(new WarehouseCategory(warehouse.Value));
                 WarehouseEntryExitList.Items.Add(new WarehouseCategory(warehouse.Value));
             }
+            Warehouse.SelectedIndex = 0;
 
             flowLayoutPanel2.Controls.Add(saveWarehousesBtn);
         }
@@ -552,6 +562,7 @@ namespace NeatVibezPOS
                 tabControl2.TabPages.Add(favorite.Value);
                 FavoriteCategories.Items.Add(new FavoriteCategory(favorite.Value));
             }
+            FavoriteCategories.SelectedIndex = 0;
 
             flowLayoutPanel1.Controls.Add(saveFavoritesBtn);
             
@@ -1095,7 +1106,7 @@ namespace NeatVibezPOS
         {
             try
             {
-                if (txtItemName.Text != "" && Warehouse.SelectedItem.ToString() != "")
+                if (txtItemName.Text != "" && FavoriteCategories.SelectedItem.ToString() != "" && ItemType.SelectedItem.ToString() != "" && Warehouse.SelectedItem.ToString() != "")
                 {
                     Item newItem = new Item();
                     newItem.SetName(txtItemName.Text);
@@ -2623,11 +2634,11 @@ namespace NeatVibezPOS
         {
             try
             {
-                
+
                 /*LPrinter MyPrinter = new LPrinter(); // creates the printer object
                 MyPrinter.PrinterName = "\\\\" + Environment.MachineName + "\\" + Properties.Settings.Default.PrinterName;
-                MyPrinter.Print("");
-                printDocument2.Print();*/
+                MyPrinter.Print("");*/
+                printDocument2.Print();
 
                 Encoding enc = Encoding.Unicode;
                 SerialPort sp = new SerialPort();
@@ -3041,6 +3052,14 @@ namespace NeatVibezPOS
                 Properties.Settings.Default.ShopPhone = this.shopPhone.Text;
                 Properties.Settings.Default.PrinterName = this.PrinterName.Text;
                 Properties.Settings.Default.receiptSpacing = Convert.ToInt32(this.receiptSpacingnud.Value);
+                Properties.Settings.Default.IncludeLogoInReceipt = this.IncludeLogoReceipt.Checked;
+                if (this.IncludeLogoReceipt.Checked)
+                {
+                    IncludeLogoInReceipt = true;
+                } else
+                {
+                    IncludeLogoInReceipt = false;
+                }
                 Properties.Settings.Default.Save();
                 this.NeatVibezPOSName = this.shopName.Text;
                 this.NeatVibezPOSPhone = this.shopPhone.Text;
@@ -6892,7 +6911,20 @@ namespace NeatVibezPOS
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(welcome, newfont2, black, (bitm.Width / 3) - (welcome.Length + 10), startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        //graphic.DrawImage(ResizeImage(Resources.neat_vibez, 150, 150), (bitm.Width / 2) - 150, 0);
+                        if (IncludeLogoInReceipt)
+                        {
+                            try
+                            {
+                                string imagePath = Properties.Settings.Default.Logo;
+
+                                graphic.DrawImage(ResizeImage(new Bitmap(imagePath), 150, 150), (bitm.Width / 2) - 150, 0);
+                            }
+                            catch (Exception err)
+                            {
+                                graphic.DrawImage(ResizeImage(Resources.neat_vibez, 150, 150), (bitm.Width / 2) - 150, 0);
+                            }
+                            offsetY = offsetY + lineHeight;
+                        }
                         graphic.DrawString(InvoiceNo, newfont2, black, (bitm.Width / 3) - InvoiceNo.Length, startY + offsetY);
                         offsetY = offsetY + lineHeight;
 
@@ -7037,7 +7069,20 @@ namespace NeatVibezPOS
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(welcome, newfont2, black, (bitm.Width / 3) - (welcome.Length + 10), startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        //graphic.DrawImage(ResizeImage(Resources.neat_vibez, 150, 150), (bitm.Width / 2) - 150, 0);
+                        if (IncludeLogoInReceipt)
+                        {
+                            try
+                            {
+                                string imagePath = Properties.Settings.Default.Logo;
+
+                                graphic.DrawImage(ResizeImage(new Bitmap(imagePath), 150, 150), (bitm.Width / 2) - 150, 0);
+                            }
+                            catch (Exception err)
+                            {
+                                graphic.DrawImage(ResizeImage(Resources.neat_vibez, 150, 150), (bitm.Width / 2) - 150, 0);
+                            }
+                            offsetY = offsetY + lineHeight;
+                        }
                         graphic.DrawString(InvoiceNo, newfont2, black, (bitm.Width / 3) - InvoiceNo.Length, startY + offsetY);
                         offsetY = offsetY + lineHeight;
 
@@ -7128,9 +7173,16 @@ namespace NeatVibezPOS
             try
             {
                 int lineHeight = 20;
-                int height = 30;
+                int height = 20;
 
-                Bitmap bitm = new Bitmap(354, height + 140);
+
+                for (int i = 0; i < 7; i++)
+                {
+                    height += lineHeight;
+                }
+
+                Bitmap bitm = new Bitmap(354, height + 350);
+
                 StringFormat format = new StringFormat(StringFormatFlags.DirectionRightToLeft);
                 using (Graphics graphic = Graphics.FromImage(bitm))
                 {
@@ -7150,11 +7202,28 @@ namespace NeatVibezPOS
 
                         black = new SolidBrush(Color.Black);
                         white = new SolidBrush(Color.White);
+                        graphic.FillRectangle(white, 0, 0, bitm.Width, bitm.Height);
 
                         //PointF point = new PointF(40f, 2f);
-                        
-                        offsetY = offsetY + lineHeight;
-                        graphic.FillRectangle(white, 0, 0, bitm.Width, bitm.Height);
+
+                        if (IncludeLogoInReceipt)
+                        {
+                            try
+                            {
+                                string imagePath = Properties.Settings.Default.Logo;
+
+                                graphic.DrawImage(ResizeImage(new Bitmap(imagePath), 150, 150), (bitm.Width / 2) - 150, 0);
+                            }
+                            catch (Exception err)
+                            {
+                                graphic.DrawImage(ResizeImage(Resources.neat_vibez, 150, 150), (bitm.Width / 2) - 150, 0);
+                            }
+                            offsetY = offsetY + lineHeight;
+                            offsetY = offsetY + lineHeight;
+                            offsetY = offsetY + lineHeight;
+                            offsetY = offsetY + lineHeight;
+                            offsetY = offsetY + lineHeight;
+                        }
                         graphic.DrawString("تقرير اغلاق الصندوق", newfont2, black, 0, startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(this.cashierName + " اسم الكاشير: ", newfont2, black, 0, startY + offsetY);

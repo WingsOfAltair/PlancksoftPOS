@@ -202,5 +202,17 @@ namespace NeatVibezPOS.Properties {
                 this["Logo"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool IncludeLogoInReceipt {
+            get {
+                return ((bool)(this["IncludeLogoInReceipt"]));
+            }
+            set {
+                this["IncludeLogoInReceipt"] = value;
+            }
+        }
     }
 }
