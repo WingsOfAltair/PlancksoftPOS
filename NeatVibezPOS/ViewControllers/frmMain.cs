@@ -1349,7 +1349,7 @@ namespace NeatVibezPOS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(".لم نتمكن من تحديث معلومات الماده بسبب مشكله في ادخال كلمة السر", Application.ProductName);
+                MessageBox.Show(".لم نتمكن من تحديث معلومات الماده بسبب مشكله", Application.ProductName);
                 return;
             }
         }
