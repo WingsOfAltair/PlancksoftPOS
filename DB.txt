@@ -1,6 +1,6 @@
 USE [NeatVibezPOS]
 GO
-/****** Object:  User [NeatVibezPOS]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  User [NeatVibezPOS]    Script Date: 5/8/2022 5:55:36 PM ******/
 CREATE USER [NeatVibezPOS] FOR LOGIN [NeatVibezPOS] WITH DEFAULT_SCHEMA=[dbo]
 GO
 ALTER ROLE [db_owner] ADD MEMBER [NeatVibezPOS]
@@ -21,7 +21,7 @@ ALTER ROLE [db_denydatareader] ADD MEMBER [NeatVibezPOS]
 GO
 ALTER ROLE [db_denydatawriter] ADD MEMBER [NeatVibezPOS]
 GO
-/****** Object:  Table [dbo].[Absence]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[Absence]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -33,7 +33,7 @@ CREATE TABLE [dbo].[Absence](
 	[hours] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[BillItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[BillItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -44,7 +44,7 @@ CREATE TABLE [dbo].[BillItems](
 	[item_quantity] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Bills]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[Bills]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -60,7 +60,7 @@ CREATE TABLE [dbo].[Bills](
 	[paymentByCash] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CustomersItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[CustomersItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -71,7 +71,7 @@ CREATE TABLE [dbo].[CustomersItems](
 	[item_price] [decimal](18, 2) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[CustomersVendors]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[CustomersVendors]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -87,7 +87,7 @@ CREATE TABLE [dbo].[CustomersVendors](
 	[customerAddress] [nvarchar](255) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Deductions]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[Deductions]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -99,7 +99,7 @@ CREATE TABLE [dbo].[Deductions](
 	[date] [date] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Discounts]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[Discounts]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -113,7 +113,7 @@ CREATE TABLE [dbo].[Discounts](
 	[quantity_end] [int] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Employees]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[Employees]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -126,7 +126,7 @@ CREATE TABLE [dbo].[Employees](
 	[address] [nvarchar](255) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Expenses]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[Expenses]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -139,7 +139,7 @@ CREATE TABLE [dbo].[Expenses](
 	[date] [datetime] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[FavoriteCategories]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[FavoriteCategories]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -149,7 +149,7 @@ CREATE TABLE [dbo].[FavoriteCategories](
 	[name] [nvarchar](255) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Items]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[Items]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -177,7 +177,7 @@ CREATE TABLE [dbo].[Items](
 GO
 SET ANSI_PADDING OFF
 GO
-/****** Object:  Table [dbo].[ItemTypes]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[ItemTypes]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -187,7 +187,7 @@ CREATE TABLE [dbo].[ItemTypes](
 	[name] [nvarchar](255) NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[LoginLogout]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[LoginLogout]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -199,7 +199,7 @@ CREATE TABLE [dbo].[LoginLogout](
 	[action] [nvarchar](255) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[RegisterHistory]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[RegisterHistory]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -212,7 +212,7 @@ CREATE TABLE [dbo].[RegisterHistory](
 	[moneyInRegister] [decimal](18, 2) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[TransactionItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[TransactionItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -224,7 +224,7 @@ CREATE TABLE [dbo].[TransactionItems](
 	[transaction_id] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Transactions]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[Transactions]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -237,7 +237,7 @@ CREATE TABLE [dbo].[Transactions](
 	[time] [time](7) NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[UserPermissions]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[UserPermissions]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -256,7 +256,7 @@ CREATE TABLE [dbo].[UserPermissions](
 	[openclose_edit_perm] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -273,7 +273,7 @@ CREATE TABLE [dbo].[Users](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[VendorBillItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[VendorBillItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -284,7 +284,7 @@ CREATE TABLE [dbo].[VendorBillItems](
 	[item_quantity] [int] NOT NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[VendorBills]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[VendorBills]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -296,7 +296,7 @@ CREATE TABLE [dbo].[VendorBills](
 	[date] [date] NULL
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Warehouses]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  Table [dbo].[Warehouses]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -354,7 +354,7 @@ ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_Authority]  DEFAULT ((0)) FO
 GO
 ALTER TABLE [dbo].[VendorBillItems] ADD  CONSTRAINT [DF_VendorBillItems_item_quantity]  DEFAULT ((0)) FOR [item_quantity]
 GO
-/****** Object:  StoredProcedure [dbo].[AddItemToBill]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddItemToBill]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -369,7 +369,7 @@ BEGIN
 	INSERT INTO BillItems(bill_id, item_barcode, item_quantity) VALUES (@BillID, @ItemBarCode, @ItemQuantity)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[AddItemToCustomer]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddItemToCustomer]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -391,7 +391,7 @@ BEGIN
 		End
 END
 GO
-/****** Object:  StoredProcedure [dbo].[AddItemToVendorBill]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddItemToVendorBill]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -406,7 +406,7 @@ BEGIN
 	INSERT INTO VendorBillItems(bill_id, item_barcode, item_quantity) VALUES (@BillID, @ItemBarCode, @ItemQuantity)
 END
 GO
-/****** Object:  StoredProcedure [dbo].[AddSaleOnItem]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddSaleOnItem]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -433,7 +433,7 @@ IF NOT EXISTS (SELECT * FROM Discounts
 		End
 END
 GO
-/****** Object:  StoredProcedure [dbo].[AddVendorBill]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddVendorBill]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -453,7 +453,7 @@ set @BillID = @bill_id
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CheckAdmin]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[CheckAdmin]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -467,7 +467,7 @@ DECLARE @cnt INT = (SELECT COUNT(UID)FROM Users Where UID = @UserID AND Authorit
 set @Status = @cnt
 END
 GO
-/****** Object:  StoredProcedure [dbo].[CreateTransaction]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[CreateTransaction]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -488,7 +488,7 @@ BEGIN
 	set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[DeleteAbsence]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteAbsence]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -502,7 +502,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[DeleteCustomer]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteCustomer]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -516,7 +516,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[DeleteEmployee]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteEmployee]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -530,7 +530,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[DeleteFavoriteCategory]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteFavoriteCategory]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -544,7 +544,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[DeleteFavoriteItem]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteFavoriteItem]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -558,7 +558,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[DeleteItem]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteItem]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -573,7 +573,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[DeleteItemType]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteItemType]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -587,7 +587,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[DeleteUser]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteUser]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -603,7 +603,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[DeleteWarehouse]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteWarehouse]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -617,7 +617,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[GetCapitalAmount]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetCapitalAmount]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -631,7 +631,7 @@ BEGIN
 	set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[GetLastOpenRegisterDate]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetLastOpenRegisterDate]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -645,7 +645,7 @@ BEGIN
 	set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[GetOpenRegisterAmount]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetOpenRegisterAmount]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -659,7 +659,7 @@ BEGIN
 	set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[GetTotalSalesAmount]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetTotalSalesAmount]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -674,7 +674,7 @@ BEGIN
 	set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[GetTotalSalesAmountCloseCash]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetTotalSalesAmountCloseCash]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -688,7 +688,7 @@ BEGIN
 	set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[InsertAbsence]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertAbsence]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -704,7 +704,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[InsertDayOff]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertDayOff]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -719,7 +719,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[InsertDeduction]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertDeduction]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -735,7 +735,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[InsertEmployee]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertEmployee]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -752,7 +752,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[InsertExpense]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertExpense]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -769,7 +769,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[InsertFavoriteCategory]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertFavoriteCategory]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -787,7 +787,7 @@ IF NOT EXISTS (SELECT * FROM FavoriteCategories
 		End
 END
 GO
-/****** Object:  StoredProcedure [dbo].[InsertItem]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertItem]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -815,7 +815,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[InsertItemType]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertItemType]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -833,7 +833,7 @@ IF NOT EXISTS (SELECT * FROM ItemTypes
 		End
 END
 GO
-/****** Object:  StoredProcedure [dbo].[InsertWarehouse]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertWarehouse]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -851,7 +851,7 @@ IF NOT EXISTS (SELECT * FROM Warehouses
 		End
 END
 GO
-/****** Object:  StoredProcedure [dbo].[LoginAccount]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[LoginAccount]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -872,7 +872,7 @@ SET @Name = @name2
 set @Status = @cnt
 END
 GO
-/****** Object:  StoredProcedure [dbo].[LogLogin]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[LogLogin]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -885,7 +885,7 @@ BEGIN
 INSERT INTO LoginLogout(cashierName, date, action) VALUES (@cashierName, @Date, 'Login')
 END
 GO
-/****** Object:  StoredProcedure [dbo].[LogLogout]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[LogLogout]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -898,7 +898,7 @@ BEGIN
 INSERT INTO LoginLogout(cashierName, date, action) VALUES (@cashierName, @Date, 'Logout')
 END
 GO
-/****** Object:  StoredProcedure [dbo].[PayBill]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[PayBill]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -921,7 +921,7 @@ set @BillID = @bill_id
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RegisterAccount]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RegisterAccount]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -967,7 +967,7 @@ BEGIN
 	End
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RegisterAdmin]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RegisterAdmin]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1001,7 +1001,7 @@ IF NOT EXISTS (SELECT * FROM Users
 		End
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RegisterCustomer]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RegisterCustomer]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1018,7 +1018,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RegisterVendor]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RegisterVendor]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1035,7 +1035,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveAbsence]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveAbsence]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1052,7 +1052,7 @@ BEGIN
 	ORDER BY Absence.id, Employees.name, Absence.date, Absence.hours
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveBillItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveBillItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1070,7 +1070,7 @@ BEGIN
 	ORDER by BillItems.item_quantity DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveBillItemsProfit]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveBillItemsProfit]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1090,7 +1090,7 @@ BEGIN
 	GROUP BY Items.ItemBarCode, Items.ItemName, ItemTypes.name, Bills.cashierName, Items.ItemPriceTax ORDER by 'Times Sold', Bills.cashierName, ItemTypes.name DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveBills]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveBills]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1104,7 +1104,7 @@ BEGIN
 	End as 'Payment Type', date as 'Invoice Date' FROM Bills ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveCapitalRevenue]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveCapitalRevenue]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1117,7 +1117,7 @@ BEGIN
 	JOIN Bills ON Billitems.bill_id = Bills.id GROUP BY Bills.Date ORDER BY Bills.Date DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveCashierNames]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveCashierNames]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1128,7 +1128,7 @@ BEGIN
     SELECT cashierName as 'Cashier Name' FROM Users
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveCustomersList]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveCustomersList]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1140,7 +1140,7 @@ BEGIN
     SELECT customerName as 'Customer Name', customerID as 'Customer ID', customerPhone as 'Customer Phone', customerAddress as 'Customer Address' FROM CustomersVendors WHERE (@customerName is null or customerName LIKE '%' + @customerName + '%') AND vendor = 0 ORDER by customerName DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveEmployees]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveEmployees]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1158,7 +1158,7 @@ BEGIN
 	ORDER by Employees.id, Employees.name DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveExpireStockToday]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveExpireStockToday]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1175,7 +1175,7 @@ set @Date2 = DATEADD(Day, 1, @Date2)
 SELECT TOP 1 ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ProductionDate as 'Start Date', ExpirationDate as 'End Date', QuantityWarning as 'Quantity End', ItemQuantity as 'Current Quantity' FROM Items WHERE ((ExpirationDate <= @Date1) OR (QuantityWarning > @CurrentQuantity)) and ItemBarCode = @ItemBarCode ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveExports]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveExports]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1187,7 +1187,7 @@ BEGIN
 	JOIN BillItems ON BillItems.item_barcode=Items.ItemBarCode GROUP BY Date ORDER BY Items.Date DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategories]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategories]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1198,7 +1198,7 @@ BEGIN
     SELECT id as 'Category ID', name as 'Category Name' FROM FavoriteCategories ORDER by id ASC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategoryIndex]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategoryIndex]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1210,7 +1210,7 @@ BEGIN
     SELECT TOP 1 id as 'Category ID' FROM FavoriteCategories WHERE name = @CategoryName
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategoryName]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategoryName]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1219,10 +1219,10 @@ CREATE procedure [dbo].[RetrieveFavoriteCategoryName]
 @CategoryIndex nvarchar(255)
 AS
 BEGIN
-    SELECT TOP 1 name as 'Category Name' FROM FavoriteCategories WHERE id = @CategoryIndex
+    SELECT TOP 1 CASE WHEN name IS NULL THEN N'غير مفضله' ELSE name END as 'Category Name' FROM FavoriteCategories WHERE id = @CategoryIndex
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1234,7 +1234,7 @@ BEGIN
     SELECT id as 'Item ID', ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', ItemPrice as 'Item Price', ItemPriceTax as 'Item Price Tax', Favorite as 'Favorite Category' FROM Items WHERE Favorite = @Category ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveImports]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveImports]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1245,7 +1245,7 @@ BEGIN
     SELECT Items.Date as 'Date', sum(Items.ItemPriceTax * Items.ItemQuantity) as 'Total Cost' FROM Items GROUP BY Date ORDER BY Items.Date DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItemPictureFromBarCode]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItemPictureFromBarCode]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1257,7 +1257,7 @@ BEGIN
     SELECT TOP 1 Picture as 'Item Picture' FROM Items WHERE ItemBarCode = @ItemBarCode ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1265,7 +1265,7 @@ GO
 CREATE procedure [dbo].[RetrieveItems]
 AS
 BEGIN
-    SELECT ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', ItemBuyPrice as 'Item Buy Price', ItemPrice as 'Item Price', ItemPriceTax as 'Item Price Tax', Favorite as 'Favorite Category Number', F.name as 'Favorite Category', Warehouse_id as 'Warehouse ID', W.name as 'InventoryItemWarehouse', ItemType as 'Item Type', T.name as 'InventoryItemType', Picture as 'Item Picture'
+    SELECT ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', ItemBuyPrice as 'Item Buy Price', ItemPrice as 'Item Price', ItemPriceTax as 'Item Price Tax', Favorite as 'Favorite Category Number', CASE WHEN F.name IS NULL THEN N'غير مفضله' ELSE F.name END as 'Favorite Category', Warehouse_id as 'Warehouse ID', CASE WHEN W.name IS NULL THEN N'غير موجود' ELSE W.name END as 'InventoryItemWarehouse', ItemType as 'Item Type', CASE WHEN T.name IS NULL THEN N'غير مصنف' ELSE T.name END as 'InventoryItemType', Picture as 'Item Picture'
 	FROM Items I
 	LEFT JOIN FavoriteCategories f ON f.id = I.Favorite
 	LEFT JOIN Warehouses w ON w.id = I.Warehouse_id
@@ -1273,7 +1273,7 @@ BEGIN
 	ORDER by I.id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItemsQuantity]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItemsQuantity]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1297,7 +1297,7 @@ BEGIN
 		end
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItemsQuantityDates]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItemsQuantityDates]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1309,7 +1309,7 @@ BEGIN
     SELECT TOP 1 ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', QuantityWarning as 'Quantity Warning', ProductionDate as 'Production Date', ExpirationDate as 'Expiration Date', EntryDate as 'Entry Date' FROM Items WHERE ItemBarCode = @ItemBarCode ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItemTypeIndex]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItemTypeIndex]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1321,7 +1321,7 @@ BEGIN
     SELECT TOP 1 id as 'ItemType ID' FROM ItemTypes WHERE name = @ItemTypeName
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItemTypeName]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItemTypeName]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1330,10 +1330,10 @@ CREATE procedure [dbo].[RetrieveItemTypeName]
 @ItemTypeIndex nvarchar(255)
 AS
 BEGIN
-    SELECT TOP 1 name as 'ItemType Name' FROM ItemTypes WHERE id = @ItemTypeIndex
+    SELECT TOP 1 CASE WHEN name IS NULL THEN N'غير مصنف' ELSE name END as 'ItemType Name' FROM ItemTypes WHERE id = @ItemTypeIndex
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItemTypes]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItemTypes]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1344,7 +1344,7 @@ BEGIN
     SELECT id as 'ItemType ID', name as 'ItemType Name' FROM ItemTypes ORDER by id ASC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveLastBillNumber]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveLastBillNumber]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1355,7 +1355,7 @@ BEGIN
 SELECT TOP 1 id as 'Bill Number' FROM Bills ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveLastBillNumberByDates]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveLastBillNumberByDates]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1370,7 +1370,7 @@ BEGIN
 SELECT TOP 1 id as 'Bill Number' FROM Bills WHERE ( Date >= @Date1 AND Date <= @Date2) ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveLastVendorBillNumberToday]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveLastVendorBillNumberToday]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1385,7 +1385,7 @@ BEGIN
 SELECT TOP 1 id as 'Bill Number' FROM VendorBills WHERE ( Date >= @Date1 AND Date <= @Date2) ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveLeastBoughtItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveLeastBoughtItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1398,7 +1398,7 @@ BEGIN
 	JOIN BillItems ON Items.ItemBarCode = BillItems.item_barcode GROUP BY Items.ItemBarCode, Items.ItemName, Items.ItemPrice, Items.ItemPriceTax ORDER BY 'Times Sold' ASC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveLoginLogoutInfo]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveLoginLogoutInfo]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1414,7 +1414,7 @@ set @Date2 = DATEADD(Day, 1, @Date2)
 	WHERE ( Date >= @Date1 AND Date <= @Date2) ORDER BY id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveMostBoughtItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveMostBoughtItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1427,7 +1427,7 @@ BEGIN
 	JOIN BillItems ON Items.ItemBarCode = BillItems.item_barcode GROUP BY Items.ItemBarCode, Items.ItemName, Items.ItemPrice, Items.ItemPriceTax ORDER BY 'Times Sold' DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrievePortedBills]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrievePortedBills]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1440,7 +1440,7 @@ BEGIN
 	End as 'Payment Type', '' as 'TotalPorted'  FROM Bills WHERE ported = 1 ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveReturnedItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveReturnedItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1456,7 +1456,7 @@ BEGIN
 	ORDER BY TransactionItems.id
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveSale]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveSale]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1472,7 +1472,7 @@ set @Date2 = DATEADD(Day, 1, @Date2)
 SELECT TOP 1 id as 'Sale ID', item_barcode as 'Item BarCode', sale_rate as 'Sale Rate', start_date as 'Start Date', end_date as 'End Date', quantity_end as 'Quantity End' FROM Discounts WHERE ((start_date <= @Date2 AND end_date >= @Date1) OR (quantity_end < @QuantityEnd)) ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveSaleItemsQuantity]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveSaleItemsQuantity]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1486,7 +1486,7 @@ GROUP BY Discounts.id, Discounts.item_barcode, Items.ItemQuantity
 ORDER by Discounts.id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveTaxZReport]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveTaxZReport]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1501,7 +1501,7 @@ group by Bills.id, bills.cashierName, bills.totalAmount, bills.date
 ORDER by bills.id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveUnPortedBills]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveUnPortedBills]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1514,7 +1514,7 @@ BEGIN
 	End as 'Payment Type', '' as 'TotalUnPorted'  FROM Bills WHERE ported = 0 ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveUserPermissions]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveUserPermissions]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1527,7 +1527,7 @@ BEGIN
     SELECT TOP 1 customer_card_perm as 'Customer Card Permission', discount_perm as 'Discount Permission', price_edit_perm as 'Price Edit Permission', receipt_edit_perm as 'Receipt Edit Permission', inventory_edit_perm as 'Inventory Edit Permission', expense_add_perm as 'Expense Add Permission', users_edit_perm as 'Users Edit Permission', settings_edit_perm as 'Settings Edit Permission', personnel_edit_perm as 'Personnel Edit Permission', openclose_edit_perm as 'Open Close Cash Permission' FROM UserPermissions WHERE user_id = @UID
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveUsers]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveUsers]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1538,7 +1538,7 @@ BEGIN
     SELECT cashierName as 'User Name', UID as 'User ID', PWD as 'User Password', Authority as 'User Authority' FROM Users ORDER by Authority, id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveUsersList]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveUsersList]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1549,7 +1549,7 @@ BEGIN
     SELECT cashierName as 'User Name', UID as 'User ID' FROM Users ORDER by Authority, id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveVendorBillItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveVendorBillItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1562,7 +1562,7 @@ BEGIN
 	JOIN VendorBillItems ON VendorBillItems.bill_id = @BillNumber ORDER BY Items.ItemName
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveVendorBills]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveVendorBills]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1573,7 +1573,7 @@ BEGIN
     SELECT id as 'Bill Number', cashierName as 'Cashier Name', totalAmount as 'Total Amount', date as 'Date' FROM VendorBills ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveVendorsList]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveVendorsList]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1585,7 +1585,7 @@ BEGIN
     SELECT customerName as 'Customer Name', customerID as 'Customer ID', customerPhone as 'Customer Phone', customerAddress as 'Customer Address' FROM CustomersVendors WHERE (@customerName is null or customerName LIKE '%' + @customerName + '%') AND vendor = 1 ORDER by customerName DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveWarehouseIndex]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveWarehouseIndex]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1597,7 +1597,7 @@ BEGIN
     SELECT TOP 1 id as 'Warehouse ID' FROM Warehouses WHERE name = @WarehouseName
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveWarehouseName]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveWarehouseName]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1606,10 +1606,10 @@ CREATE procedure [dbo].[RetrieveWarehouseName]
 @WarehouseIndex nvarchar(255)
 AS
 BEGIN
-    SELECT TOP 1 name as 'Warehouse Name' FROM Warehouses WHERE id = @WarehouseIndex
+    SELECT TOP 1 CASE WHEN name IS NULL THEN N'غير موجود' ELSE name END as 'Warehouse Name' FROM Warehouses WHERE id = @WarehouseIndex
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveWarehouses]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveWarehouses]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1620,7 +1620,7 @@ BEGIN
     SELECT id as 'Warehouse ID', name as 'Warehouse Name' FROM Warehouses ORDER by id ASC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[ReturnItem]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[ReturnItem]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1645,7 +1645,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SaveRegisterClose]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[SaveRegisterClose]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1666,7 +1666,7 @@ set @Date2 = DATEADD(Day, 1, @date)
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SaveRegisterOpen]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[SaveRegisterOpen]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1682,7 +1682,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SearchBills]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchBills]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1697,7 +1697,7 @@ SELECT id as 'Bill Number', cashierName as 'Cashier Name', totalAmount as 'Total
 	End as 'Payment Type', date as 'Invoice Date' FROM Bills WHERE id = @BillNumber ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SearchCustomers]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchCustomers]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1716,7 +1716,7 @@ GROUP BY CustomersVendors.id, CustomersVendors.customerName, CustomersVendors.cu
 Order by CustomersVendors.id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SearchCustomersInfo]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchCustomersInfo]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1731,7 +1731,7 @@ where (@customerName is null or CustomersVendors.customerName LIKE '%' + @custom
 Order by CustomersVendors.id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SearchExpenses]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchExpenses]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1750,7 +1750,7 @@ Group by id, name, date, employee_id
 Order by date DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SearchInventoryItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchInventoryItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1765,7 +1765,7 @@ SELECT ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as '
 Order by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SearchInventoryItemsWithBarCode]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchInventoryItemsWithBarCode]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1779,7 +1779,7 @@ ItemBarCode = @ItemBarCode
 Order by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SearchItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1795,7 +1795,7 @@ SELECT ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as '
 Order by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SearchItemsQuantity]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchItemsQuantity]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1809,7 +1809,7 @@ SELECT ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as '
 Order by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SearchTodayBills]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchTodayBills]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1824,7 +1824,7 @@ set @Date2 = DATEADD(Day, 1, @Date2)
 SELECT id as 'Bill Number', cashierName as 'Cashier Name', totalAmount as 'Total Amount', paidAmount as 'Paid Amount', remainderAmount as 'Remainder Amount', date as 'Date' FROM Bills WHERE ( Date >= @Date1 AND Date <= @Date2) ORDER by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[SearchWarehouseInventoryItems]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchWarehouseInventoryItems]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1838,7 +1838,7 @@ SELECT ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as '
 Order by id DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[UpdateBill]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateBill]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1856,7 +1856,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[UpdateEmployee]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateEmployee]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1874,7 +1874,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[UpdateFavoriteCategory]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateFavoriteCategory]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1889,7 +1889,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[UpdateItem]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateItem]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1918,7 +1918,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[UpdateItemQuantity]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateItemQuantity]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1934,7 +1934,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[UpdateItemType]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateItemType]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1949,7 +1949,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[UpdateItemWarehouse]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateItemWarehouse]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1980,7 +1980,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[UpdateUser]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateUser]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2009,7 +2009,7 @@ BEGIN
 set @Status = 1
 END
 GO
-/****** Object:  StoredProcedure [dbo].[UpdateWarehouse]    Script Date: 5/8/2022 1:16:01 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateWarehouse]    Script Date: 5/8/2022 5:55:36 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
