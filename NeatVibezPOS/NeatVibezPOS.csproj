@@ -276,25 +276,25 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server.xsd">
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server1.xsd">
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server61.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server2.xsd">
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server62.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server3.xsd">
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server63.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server4.xsd">
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server64.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server5.xsd">
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server65.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\NeatVibez_Server\NeatVibez_Server.wsdl" />
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez_Server1.wsdl" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\DataAccessLayer.Account.datasource" />
     <None Include="Properties\DataSources\DataAccessLayer.Bill.datasource" />
@@ -405,13 +405,13 @@
     <None Include="Resources\closeregister.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server.disco" />
     <None Include="Connected Services\NeatVibez_Server\configuration91.svcinfo" />
     <None Include="Connected Services\NeatVibez_Server\configuration.svcinfo" />
     <None Include="Connected Services\NeatVibez_Server\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\NeatVibez_Server\NeatVibez Server1.disco" />
     <Content Include="Resources\pos.ico" />
     <None Include="Resources\neat vibez.png" />
     <None Include="Resources\point-of-sale.jpg" />

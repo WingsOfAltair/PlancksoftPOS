@@ -26,13 +26,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ادارةالمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اضافةمادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -233,6 +233,20 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.panel17 = new System.Windows.Forms.Panel();
             this.DgvInventory = new System.Windows.Forms.DataGridView();
+            this.InventoryItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemSellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemSellPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FavoriteCategoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemFavoriteCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryWarehouseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemWarehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemTypeNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemPicture = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel18 = new System.Windows.Forms.Panel();
             this.BtnDeleteItem = new System.Windows.Forms.Button();
             this.BtnAddItem = new System.Windows.Forms.Button();
@@ -629,6 +643,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button29 = new System.Windows.Forms.Button();
             this.picLogoStore = new System.Windows.Forms.PictureBox();
+            this.IncludeLogoReceipt = new System.Windows.Forms.CheckBox();
             this.receiptSpacingnud = new System.Windows.Forms.NumericUpDown();
             this.label114 = new System.Windows.Forms.Label();
             this.shopPhone = new System.Windows.Forms.TextBox();
@@ -661,20 +676,6 @@
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.lastBillNumberUpdaterTimer = new System.Windows.Forms.Timer(this.components);
             this.updateWarehouses = new System.Windows.Forms.Timer(this.components);
-            this.IncludeLogoReceipt = new System.Windows.Forms.CheckBox();
-            this.InventoryItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemSellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemSellPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FavoriteCategoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemFavoriteCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryWarehouseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemWarehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemTypeNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemPicture = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -3393,6 +3394,7 @@
             this.DgvInventory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DgvInventory.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.InventoryItemName,
+            this.ItemID,
             this.InventoryItemBarCode,
             this.InventoryItemQuantity,
             this.InventoryItemBuyPrice,
@@ -3412,6 +3414,118 @@
             this.DgvInventory.Size = new System.Drawing.Size(1232, 379);
             this.DgvInventory.TabIndex = 0;
             this.DgvInventory.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvInventory_RowHeaderMouseClick);
+            // 
+            // InventoryItemName
+            // 
+            this.InventoryItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemName.DataPropertyName = "Item Name";
+            this.InventoryItemName.HeaderText = "اسم القطعه";
+            this.InventoryItemName.Name = "InventoryItemName";
+            this.InventoryItemName.ReadOnly = true;
+            // 
+            // ItemID
+            // 
+            this.ItemID.DataPropertyName = "Item ID";
+            this.ItemID.HeaderText = "رقم القطعه";
+            this.ItemID.Name = "ItemID";
+            this.ItemID.ReadOnly = true;
+            this.ItemID.Visible = false;
+            // 
+            // InventoryItemBarCode
+            // 
+            this.InventoryItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemBarCode.DataPropertyName = "Item BarCode";
+            this.InventoryItemBarCode.HeaderText = "باركود القطعه";
+            this.InventoryItemBarCode.Name = "InventoryItemBarCode";
+            this.InventoryItemBarCode.ReadOnly = true;
+            // 
+            // InventoryItemQuantity
+            // 
+            this.InventoryItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemQuantity.DataPropertyName = "Item Quantity";
+            this.InventoryItemQuantity.HeaderText = "عدد القطعه";
+            this.InventoryItemQuantity.Name = "InventoryItemQuantity";
+            this.InventoryItemQuantity.ReadOnly = true;
+            // 
+            // InventoryItemBuyPrice
+            // 
+            this.InventoryItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemBuyPrice.DataPropertyName = "Item Buy Price";
+            this.InventoryItemBuyPrice.HeaderText = "سعر الشراء";
+            this.InventoryItemBuyPrice.Name = "InventoryItemBuyPrice";
+            this.InventoryItemBuyPrice.ReadOnly = true;
+            // 
+            // InventoryItemSellPrice
+            // 
+            this.InventoryItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemSellPrice.DataPropertyName = "Item Price";
+            this.InventoryItemSellPrice.HeaderText = "سعر القطعه";
+            this.InventoryItemSellPrice.Name = "InventoryItemSellPrice";
+            this.InventoryItemSellPrice.ReadOnly = true;
+            // 
+            // InventoryItemSellPriceTax
+            // 
+            this.InventoryItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemSellPriceTax.DataPropertyName = "Item Price Tax";
+            this.InventoryItemSellPriceTax.HeaderText = "سعر القطعه بالضريبه";
+            this.InventoryItemSellPriceTax.Name = "InventoryItemSellPriceTax";
+            this.InventoryItemSellPriceTax.ReadOnly = true;
+            // 
+            // FavoriteCategoryNumber
+            // 
+            this.FavoriteCategoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FavoriteCategoryNumber.DataPropertyName = "Favorite Category Number";
+            this.FavoriteCategoryNumber.HeaderText = "المصنف المفضل رقم";
+            this.FavoriteCategoryNumber.Name = "FavoriteCategoryNumber";
+            this.FavoriteCategoryNumber.ReadOnly = true;
+            this.FavoriteCategoryNumber.Visible = false;
+            // 
+            // InventoryItemFavoriteCategory
+            // 
+            this.InventoryItemFavoriteCategory.DataPropertyName = "Favorite Category";
+            this.InventoryItemFavoriteCategory.HeaderText = "المصنف المفضل";
+            this.InventoryItemFavoriteCategory.Name = "InventoryItemFavoriteCategory";
+            this.InventoryItemFavoriteCategory.ReadOnly = true;
+            // 
+            // InventoryWarehouseID
+            // 
+            this.InventoryWarehouseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryWarehouseID.DataPropertyName = "Warehouse ID";
+            this.InventoryWarehouseID.HeaderText = "المستودع رقم";
+            this.InventoryWarehouseID.Name = "InventoryWarehouseID";
+            this.InventoryWarehouseID.ReadOnly = true;
+            this.InventoryWarehouseID.Visible = false;
+            // 
+            // InventoryItemWarehouse
+            // 
+            this.InventoryItemWarehouse.DataPropertyName = "InventoryItemWarehouse";
+            this.InventoryItemWarehouse.HeaderText = "المستودع";
+            this.InventoryItemWarehouse.Name = "InventoryItemWarehouse";
+            this.InventoryItemWarehouse.ReadOnly = true;
+            // 
+            // InventoryItemTypeNumber
+            // 
+            this.InventoryItemTypeNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemTypeNumber.DataPropertyName = "Item Type";
+            this.InventoryItemTypeNumber.HeaderText = "تصنيف الماده رقم";
+            this.InventoryItemTypeNumber.Name = "InventoryItemTypeNumber";
+            this.InventoryItemTypeNumber.ReadOnly = true;
+            this.InventoryItemTypeNumber.Visible = false;
+            // 
+            // InventoryItemType
+            // 
+            this.InventoryItemType.DataPropertyName = "InventoryItemType";
+            this.InventoryItemType.HeaderText = "تصنيف الماده";
+            this.InventoryItemType.Name = "InventoryItemType";
+            this.InventoryItemType.ReadOnly = true;
+            // 
+            // ItemPicture
+            // 
+            this.ItemPicture.DataPropertyName = "Item Picture";
+            this.ItemPicture.HeaderText = "Item Picture";
+            this.ItemPicture.Name = "ItemPicture";
+            this.ItemPicture.ReadOnly = true;
+            this.ItemPicture.Visible = false;
             // 
             // panel18
             // 
@@ -7312,8 +7426,8 @@
             // 
             this.VendorItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemName.DataPropertyName = "Item Name";
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle1;
             this.VendorItemName.HeaderText = "اسم الماده";
             this.VendorItemName.Name = "VendorItemName";
             this.VendorItemName.ReadOnly = true;
@@ -7322,8 +7436,8 @@
             // 
             this.VendorItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBarCode.DataPropertyName = "Item BarCode";
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle2;
             this.VendorItemBarCode.HeaderText = "باركود الماده";
             this.VendorItemBarCode.Name = "VendorItemBarCode";
             this.VendorItemBarCode.ReadOnly = true;
@@ -7332,8 +7446,8 @@
             // 
             this.VendorItemType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemType.DataPropertyName = "Item Type";
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle3;
             this.VendorItemType.HeaderText = "صنف الماده";
             this.VendorItemType.Name = "VendorItemType";
             this.VendorItemType.ReadOnly = true;
@@ -7342,8 +7456,8 @@
             // 
             this.VendorItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemQuantity.DataPropertyName = "Item Quantity";
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle4;
             this.VendorItemQuantity.HeaderText = "عدد القطع";
             this.VendorItemQuantity.Name = "VendorItemQuantity";
             this.VendorItemQuantity.ReadOnly = true;
@@ -7352,8 +7466,8 @@
             // 
             this.VendorItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBuyPrice.DataPropertyName = "VendorItemBuyPrice";
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle5;
             this.VendorItemBuyPrice.HeaderText = "سعر الشراء";
             this.VendorItemBuyPrice.Name = "VendorItemBuyPrice";
             this.VendorItemBuyPrice.ReadOnly = true;
@@ -7362,8 +7476,8 @@
             // 
             this.VendorItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPrice.DataPropertyName = "VendorItemSellPrice";
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle6;
             this.VendorItemSellPrice.HeaderText = "سعر البيع";
             this.VendorItemSellPrice.Name = "VendorItemSellPrice";
             this.VendorItemSellPrice.ReadOnly = true;
@@ -7372,8 +7486,8 @@
             // 
             this.VendorItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPriceTax.DataPropertyName = "VendorItemSellPriceTax";
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle7;
             this.VendorItemSellPriceTax.HeaderText = "سعر البيع مع الضريبه";
             this.VendorItemSellPriceTax.Name = "VendorItemSellPriceTax";
             this.VendorItemSellPriceTax.ReadOnly = true;
@@ -8448,6 +8562,19 @@
             this.picLogoStore.TabStop = false;
             this.picLogoStore.Click += new System.EventHandler(this.picLogoStore_Click);
             // 
+            // IncludeLogoReceipt
+            // 
+            this.IncludeLogoReceipt.AutoSize = true;
+            this.IncludeLogoReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
+            this.IncludeLogoReceipt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.IncludeLogoReceipt.Location = new System.Drawing.Point(15, 262);
+            this.IncludeLogoReceipt.Name = "IncludeLogoReceipt";
+            this.IncludeLogoReceipt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.IncludeLogoReceipt.Size = new System.Drawing.Size(209, 28);
+            this.IncludeLogoReceipt.TabIndex = 33;
+            this.IncludeLogoReceipt.Text = "تضمين الشعار في الفاتوره";
+            this.IncludeLogoReceipt.UseVisualStyleBackColor = true;
+            // 
             // receiptSpacingnud
             // 
             this.receiptSpacingnud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -8787,125 +8914,8 @@
             // updateWarehouses
             // 
             this.updateWarehouses.Enabled = true;
-            this.updateWarehouses.Interval = 30000;
+            this.updateWarehouses.Interval = 10000;
             this.updateWarehouses.Tick += new System.EventHandler(this.updateWarehouses_Tick);
-            // 
-            // IncludeLogoReceipt
-            // 
-            this.IncludeLogoReceipt.AutoSize = true;
-            this.IncludeLogoReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
-            this.IncludeLogoReceipt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.IncludeLogoReceipt.Location = new System.Drawing.Point(15, 262);
-            this.IncludeLogoReceipt.Name = "IncludeLogoReceipt";
-            this.IncludeLogoReceipt.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.IncludeLogoReceipt.Size = new System.Drawing.Size(209, 28);
-            this.IncludeLogoReceipt.TabIndex = 33;
-            this.IncludeLogoReceipt.Text = "تضمين الشعار في الفاتوره";
-            this.IncludeLogoReceipt.UseVisualStyleBackColor = true;
-            // 
-            // InventoryItemName
-            // 
-            this.InventoryItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemName.DataPropertyName = "Item Name";
-            this.InventoryItemName.HeaderText = "اسم القطعه";
-            this.InventoryItemName.Name = "InventoryItemName";
-            this.InventoryItemName.ReadOnly = true;
-            // 
-            // InventoryItemBarCode
-            // 
-            this.InventoryItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemBarCode.DataPropertyName = "Item BarCode";
-            this.InventoryItemBarCode.HeaderText = "باركود القطعه";
-            this.InventoryItemBarCode.Name = "InventoryItemBarCode";
-            this.InventoryItemBarCode.ReadOnly = true;
-            // 
-            // InventoryItemQuantity
-            // 
-            this.InventoryItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemQuantity.DataPropertyName = "Item Quantity";
-            this.InventoryItemQuantity.HeaderText = "عدد القطعه";
-            this.InventoryItemQuantity.Name = "InventoryItemQuantity";
-            this.InventoryItemQuantity.ReadOnly = true;
-            // 
-            // InventoryItemBuyPrice
-            // 
-            this.InventoryItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemBuyPrice.DataPropertyName = "Item Buy Price";
-            this.InventoryItemBuyPrice.HeaderText = "سعر الشراء";
-            this.InventoryItemBuyPrice.Name = "InventoryItemBuyPrice";
-            this.InventoryItemBuyPrice.ReadOnly = true;
-            // 
-            // InventoryItemSellPrice
-            // 
-            this.InventoryItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemSellPrice.DataPropertyName = "Item Price";
-            this.InventoryItemSellPrice.HeaderText = "سعر القطعه";
-            this.InventoryItemSellPrice.Name = "InventoryItemSellPrice";
-            this.InventoryItemSellPrice.ReadOnly = true;
-            // 
-            // InventoryItemSellPriceTax
-            // 
-            this.InventoryItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemSellPriceTax.DataPropertyName = "Item Price Tax";
-            this.InventoryItemSellPriceTax.HeaderText = "سعر القطعه بالضريبه";
-            this.InventoryItemSellPriceTax.Name = "InventoryItemSellPriceTax";
-            this.InventoryItemSellPriceTax.ReadOnly = true;
-            // 
-            // FavoriteCategoryNumber
-            // 
-            this.FavoriteCategoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FavoriteCategoryNumber.DataPropertyName = "Favorite Category Number";
-            this.FavoriteCategoryNumber.HeaderText = "المصنف المفضل رقم";
-            this.FavoriteCategoryNumber.Name = "FavoriteCategoryNumber";
-            this.FavoriteCategoryNumber.ReadOnly = true;
-            this.FavoriteCategoryNumber.Visible = false;
-            // 
-            // InventoryItemFavoriteCategory
-            // 
-            this.InventoryItemFavoriteCategory.DataPropertyName = "Favorite Category";
-            this.InventoryItemFavoriteCategory.HeaderText = "المصنف المفضل";
-            this.InventoryItemFavoriteCategory.Name = "InventoryItemFavoriteCategory";
-            this.InventoryItemFavoriteCategory.ReadOnly = true;
-            // 
-            // InventoryWarehouseID
-            // 
-            this.InventoryWarehouseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryWarehouseID.DataPropertyName = "Warehouse ID";
-            this.InventoryWarehouseID.HeaderText = "المستودع رقم";
-            this.InventoryWarehouseID.Name = "InventoryWarehouseID";
-            this.InventoryWarehouseID.ReadOnly = true;
-            this.InventoryWarehouseID.Visible = false;
-            // 
-            // InventoryItemWarehouse
-            // 
-            this.InventoryItemWarehouse.DataPropertyName = "InventoryItemWarehouse";
-            this.InventoryItemWarehouse.HeaderText = "المستودع";
-            this.InventoryItemWarehouse.Name = "InventoryItemWarehouse";
-            this.InventoryItemWarehouse.ReadOnly = true;
-            // 
-            // InventoryItemTypeNumber
-            // 
-            this.InventoryItemTypeNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemTypeNumber.DataPropertyName = "Item Type";
-            this.InventoryItemTypeNumber.HeaderText = "تصنيف الماده رقم";
-            this.InventoryItemTypeNumber.Name = "InventoryItemTypeNumber";
-            this.InventoryItemTypeNumber.ReadOnly = true;
-            this.InventoryItemTypeNumber.Visible = false;
-            // 
-            // InventoryItemType
-            // 
-            this.InventoryItemType.DataPropertyName = "InventoryItemType";
-            this.InventoryItemType.HeaderText = "تصنيف الماده";
-            this.InventoryItemType.Name = "InventoryItemType";
-            this.InventoryItemType.ReadOnly = true;
-            // 
-            // ItemPicture
-            // 
-            this.ItemPicture.DataPropertyName = "Item Picture";
-            this.ItemPicture.HeaderText = "Item Picture";
-            this.ItemPicture.Name = "ItemPicture";
-            this.ItemPicture.ReadOnly = true;
-            this.ItemPicture.Visible = false;
             // 
             // frmMain
             // 
@@ -9829,6 +9839,7 @@
         private System.Windows.Forms.Timer updateWarehouses;
         private System.Windows.Forms.CheckBox IncludeLogoReceipt;
         private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemBarCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemBuyPrice;

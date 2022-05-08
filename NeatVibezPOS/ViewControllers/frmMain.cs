@@ -819,6 +819,7 @@ namespace NeatVibezPOS
                     richTextBox6.AppendText(" :الباركود " + item.GetItemBarCode());
                 }
                 calculateStatistics();
+                ApplyDiscountsToPendingItems();
                 tabControl1.Select();
                 tabControl1.Focus();
             }
@@ -924,7 +925,7 @@ namespace NeatVibezPOS
             {
                 if (!itemToCalculate.IsNewRow)
                 {
-                    this.totalAmount += Convert.ToDecimal(itemToCalculate.Cells["pendingPurchaseItemPriceTax"].Value) * Convert.ToInt32(itemToCalculate.Cells["pendingPurchaseItemQuantity"].Value);
+                    this.totalAmount += Convert.ToDecimal(Connection.server.SearchInventoryItemsWithBarCode(itemToCalculate.Cells["pendingPurchaseItemBarCode"].Value.ToString()).GetPriceTax()) * Convert.ToInt32(itemToCalculate.Cells["pendingPurchaseItemQuantity"].Value);
                 }
             }
             
@@ -1610,6 +1611,9 @@ namespace NeatVibezPOS
                 richTextBox2.AppendText(" :المدفوع السابق " + this.paidAmount);
                 richTextBox1.ResetText();
                 richTextBox1.AppendText(" :الباقي السابق " + this.remainderAmount);
+
+                this.saleItems = Connection.server.RetrieveSaleToday(DateTime.Now, 10);
+                ApplyDiscountsToPendingItems();
 
                 if (frmPayCash.dialogResult == DialogResult.Cancel)
                 {
@@ -3504,6 +3508,21 @@ namespace NeatVibezPOS
                     this.totalAmount = editPrice.moneyDeduction;
                     richTextBox4.ResetText();
                     richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                    if (!this.totalAmount.ToString().Contains("."))
+                        richTextBox4.AppendText(".00");
+                    if (this.totalAmount.ToString().Contains("."))
+                    {
+                        if (this.totalAmount.ToString().EndsWith("."))
+                        {
+                            richTextBox4.AppendText("00");
+                        } else
+                        {
+                            if (this.totalAmount.ToString().Split('.')[1].Length == 1)
+                            {
+                                richTextBox4.AppendText("0");
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -4183,6 +4202,9 @@ namespace NeatVibezPOS
                 richTextBox1.ResetText();
                 richTextBox1.AppendText(" :الباقي السابق " + this.remainderAmount);
 
+                this.saleItems = Connection.server.RetrieveSaleToday(DateTime.Now, 10);
+                ApplyDiscountsToPendingItems();
+
                 if (frmPayCash.dialogResult == DialogResult.Cancel)
                 {
                     richTextBox1.ResetText();
@@ -4389,7 +4411,6 @@ namespace NeatVibezPOS
                         }
 
                         Connection.server.AddSaleOnItems(saleItems);
-
 
                         foreach (DataGridViewRow item in ItemsPendingPurchase.Rows)
                         {
@@ -4708,6 +4729,9 @@ namespace NeatVibezPOS
                         richTextBox2.AppendText(" :المدفوع السابق " + this.paidAmount);
                         richTextBox1.ResetText();
                         richTextBox1.AppendText(" :الباقي السابق " + this.remainderAmount);
+
+                        this.saleItems = Connection.server.RetrieveSaleToday(DateTime.Now, 10);
+                        ApplyDiscountsToPendingItems();
 
                         if (frmPayCash.dialogResult == DialogResult.Cancel)
                         {
@@ -6260,6 +6284,9 @@ namespace NeatVibezPOS
             DisplayWarehouses();
             DisplayFavorites();
             refreshInventoryItems();
+
+            this.saleItems = Connection.server.RetrieveSaleToday(DateTime.Now, 10);
+            ApplyDiscountsToPendingItems();
         }
 
         public void textBox6_KeyPress(object sender, KeyPressEventArgs e)
@@ -6798,35 +6825,6 @@ namespace NeatVibezPOS
 
                         Connection.server.AddSaleOnItems(saleItems);
 
-
-                        foreach (DataGridViewRow item in ItemsPendingPurchase.Rows)
-                        {
-                            if (!item.IsNewRow)
-                            {
-                                if (saleItems.Count > 0)
-                                {
-                                    for (int i = 0; i < saleItems.Count; i++)
-                                    {
-                                        if (saleItems[i].GetItemBarCode() == item.Cells["pendingPurchaseItemBarCode"].Value.ToString())
-                                        {
-                                            decimal priceAfterSales = 0;
-                                            decimal tax = Convert.ToDecimal(saleItems[i].saleRate) / 100;
-                                            decimal discount = (Convert.ToDecimal(item.Cells["pendingPurchaseItemPriceTax"].Value.ToString()) * tax);
-                                            decimal previousPrice = Convert.ToDecimal(item.Cells["pendingPurchaseItemPriceTax"].Value.ToString());
-                                            if (saleItems[i].saleRate != 0)
-                                                priceAfterSales = (Convert.ToDecimal(item.Cells["pendingPurchaseItemPriceTax"].Value.ToString()) - discount);
-                                            else priceAfterSales = Convert.ToDecimal(item.Cells["pendingPurchaseItemPriceTax"].Value.ToString());
-                                            decimal marginPrice = previousPrice - priceAfterSales;
-                                            this.totalAmount = this.totalAmount - marginPrice;
-                                            item.Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
-                                            richTextBox4.ResetText();
-                                            richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
                         frmSales.Dispose();
                         if (replaced)
                             MessageBox.Show(".تعدلت نسبة خصم الأغراض", Application.ProductName);
@@ -6840,6 +6838,50 @@ namespace NeatVibezPOS
                 catch (Exception error)
                 {
                     MessageBox.Show(".لم نتمكن من اضافة الخصم", Application.ProductName);
+                }
+            }
+        }
+
+        public void ApplyDiscountsToPendingItems()
+        {
+            calculateStatistics();
+            foreach (DataGridViewRow item in ItemsPendingPurchase.Rows)
+            {
+                if (!item.IsNewRow)
+                {
+                    if (saleItems.Count > 0)
+                    {
+                        for (int i = 0; i < saleItems.Count; i++)
+                        {
+                            if (saleItems[i].GetItemBarCode() == item.Cells["pendingPurchaseItemBarCode"].Value.ToString())
+                            {
+                                decimal priceAfterSales = 0;
+                                decimal saleRate = Convert.ToDecimal(saleItems[i].saleRate) / 100;
+                                decimal discount = (Convert.ToDecimal(Connection.server.SearchInventoryItemsWithBarCode(item.Cells["pendingPurchaseItemBarCode"].Value.ToString()).GetPriceTax()) * saleRate);
+                                decimal previousPrice = Convert.ToDecimal(Connection.server.SearchInventoryItemsWithBarCode(item.Cells["pendingPurchaseItemBarCode"].Value.ToString()).GetPriceTax());
+                                if (saleItems[i].saleRate != 0)
+                                    priceAfterSales = (Convert.ToDecimal(Connection.server.SearchInventoryItemsWithBarCode(item.Cells["pendingPurchaseItemBarCode"].Value.ToString()).GetPriceTax()) - discount);
+                                else
+                                    priceAfterSales = Convert.ToDecimal(Connection.server.SearchInventoryItemsWithBarCode(item.Cells["pendingPurchaseItemBarCode"].Value.ToString()).GetPriceTax());
+                                decimal marginPrice = previousPrice - priceAfterSales;
+                                if (priceAfterSales != Connection.server.SearchInventoryItemsWithBarCode(item.Cells["pendingPurchaseItemBarCode"].Value.ToString()).GetPriceTax())
+                                {
+                                    this.totalAmount = this.totalAmount - marginPrice;
+                                }
+                                item.Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
+                                richTextBox4.ResetText();
+                                richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                            }
+                        }
+                    } else
+                    {
+                        decimal priceAfterSales = 0;
+                        decimal discount = (Connection.server.SearchInventoryItemsWithBarCode(item.Cells["pendingPurchaseItemBarCode"].Value.ToString()).GetPriceTax());
+                        priceAfterSales = Convert.ToDecimal(Connection.server.SearchInventoryItemsWithBarCode(item.Cells["pendingPurchaseItemBarCode"].Value.ToString()).GetPriceTax());
+                        item.Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
+                        richTextBox4.ResetText();
+                        richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                    }
                 }
             }
         }

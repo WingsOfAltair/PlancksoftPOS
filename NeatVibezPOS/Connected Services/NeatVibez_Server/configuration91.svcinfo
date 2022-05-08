@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="vO6lXwBEcBe64fZho/kR+C3qEoQhBqsIwMHUct8ZwHQ=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="cZ2O7kyVRAv4JNUFHn/UglOvkwpJ3Lx+b3AiMsayB5g=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_INeatVibez_Server">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_INeatVibez_Server" contract="NeatVibez_Server.INeatVibez_Server" bindingType="basicHttpBinding" address="http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc" bindingConfiguration="BasicHttpBinding_INeatVibez_Server">
+    <endpoint name="BasicHttpBinding_INeatVibez_Server" contract="NeatVibez_Server.INeatVibez_Server" bindingType="basicHttpBinding" address="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc" bindingConfiguration="BasicHttpBinding_INeatVibez_Server">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost/NeatVibezPOS_Server/NeatVibez Server.svc</serializedValue>
+          <serializedValue>http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />

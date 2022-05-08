@@ -12,3 +12,11 @@ D:\Projects\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Release\Ne
 D:\Projects\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Release\NeatVibezPOS License Information Fetcher.csproj.CoreCompileInputs.cache
 D:\Projects\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Release\Supermarket License Information Fetcher.exe
 D:\Projects\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Release\Supermarket License Information Fetcher.pdb
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS License Information Fetcher\bin\Release\Supermarket License Information Fetcher.exe.config
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS License Information Fetcher\bin\Release\Supermarket License Information Fetcher.exe
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS License Information Fetcher\bin\Release\Supermarket License Information Fetcher.pdb
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Release\NeatVibezPOS License Information Fetcher.csproj.AssemblyReference.cache
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Release\NeatVibezPOS License Information Fetcher.csproj.SuggestedBindingRedirects.cache
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Release\NeatVibezPOS License Information Fetcher.csproj.CoreCompileInputs.cache
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Release\Supermarket License Information Fetcher.exe
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Release\Supermarket License Information Fetcher.pdb

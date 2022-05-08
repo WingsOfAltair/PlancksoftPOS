@@ -46,12 +46,16 @@
             this.label54 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.searchItemDGV = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FavoriteCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WarehouseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SaleQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.saleRate)).BeginInit();
@@ -275,17 +279,60 @@
             this.searchItemDGV.BackgroundColor = System.Drawing.Color.White;
             this.searchItemDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.searchItemDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn41,
+            this.ItemBuyPrice,
+            this.FavoriteCategory,
+            this.WarehouseID,
+            this.ItemType,
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn41});
+            this.dataGridViewTextBoxColumn5});
             this.searchItemDGV.Location = new System.Drawing.Point(0, 9);
             this.searchItemDGV.Name = "searchItemDGV";
             this.searchItemDGV.ReadOnly = true;
             this.searchItemDGV.Size = new System.Drawing.Size(758, 397);
             this.searchItemDGV.TabIndex = 5;
+            // 
+            // dataGridViewTextBoxColumn41
+            // 
+            this.dataGridViewTextBoxColumn41.DataPropertyName = "Item ID";
+            this.dataGridViewTextBoxColumn41.HeaderText = "رقم القطعه";
+            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
+            this.dataGridViewTextBoxColumn41.ReadOnly = true;
+            // 
+            // ItemBuyPrice
+            // 
+            this.ItemBuyPrice.DataPropertyName = "Item Buy Price";
+            this.ItemBuyPrice.HeaderText = "Item Buy Price";
+            this.ItemBuyPrice.Name = "ItemBuyPrice";
+            this.ItemBuyPrice.ReadOnly = true;
+            this.ItemBuyPrice.Visible = false;
+            // 
+            // FavoriteCategory
+            // 
+            this.FavoriteCategory.DataPropertyName = "Favorite Category";
+            this.FavoriteCategory.HeaderText = "Favorite Category";
+            this.FavoriteCategory.Name = "FavoriteCategory";
+            this.FavoriteCategory.ReadOnly = true;
+            this.FavoriteCategory.Visible = false;
+            // 
+            // WarehouseID
+            // 
+            this.WarehouseID.DataPropertyName = "Warehouse ID";
+            this.WarehouseID.HeaderText = "Warehouse ID";
+            this.WarehouseID.Name = "WarehouseID";
+            this.WarehouseID.ReadOnly = true;
+            this.WarehouseID.Visible = false;
+            // 
+            // ItemType
+            // 
+            this.ItemType.DataPropertyName = "Item Type";
+            this.ItemType.HeaderText = "Item Type";
+            this.ItemType.Name = "ItemType";
+            this.ItemType.ReadOnly = true;
+            this.ItemType.Visible = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -322,13 +369,6 @@
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn41
-            // 
-            this.dataGridViewTextBoxColumn41.DataPropertyName = "Item ID";
-            this.dataGridViewTextBoxColumn41.HeaderText = "رقم القطعه";
-            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
-            this.dataGridViewTextBoxColumn41.ReadOnly = true;
-            // 
             // frmSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,12 +398,6 @@
         #endregion
         public System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.DataGridView searchItemDGV;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
         public System.Windows.Forms.TextBox searchItemBarCode;
         public System.Windows.Forms.TextBox searchItemName;
         public System.Windows.Forms.Label label54;
@@ -379,5 +413,15 @@
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
         public System.Windows.Forms.NumericUpDown SaleQuantity;
         public System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemBuyPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FavoriteCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WarehouseID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
     }
 }
