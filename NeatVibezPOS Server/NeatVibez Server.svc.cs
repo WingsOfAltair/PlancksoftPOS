@@ -8,9 +8,17 @@ namespace NeatVibezPOS_Server
     public class NeatVibez_Server : INeatVibez_Server
     {
         DataAccessLayer.DataAccessLayer DAL = new DataAccessLayer.DataAccessLayer();
-        public bool CheckConnection(string MachineName, string DBName, string DBUID, string DBPWD)
+        public bool CheckConnection()
         {
-            return DAL.CheckConnection(MachineName, DBName, DBUID, DBPWD);
+            return DAL.CheckConnection();
+        }
+        public DataTable RetrieveSystemSettings()
+        {
+            return DAL.RetrieveSystemSettings();
+        }
+        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, int SystemIncludeLogoInReceipt, decimal SystemTax)
+        {
+            return DAL.UpdateSystemSettings(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemPrinterName, SystemIncludeLogoInReceipt, SystemTax);
         }
         public string RetrieveItemTypeName(int ItemTypeIndex)
         {

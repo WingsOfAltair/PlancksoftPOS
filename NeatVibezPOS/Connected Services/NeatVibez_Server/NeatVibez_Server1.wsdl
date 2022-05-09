@@ -4,9 +4,9 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/DataAccessLayer" />
-      <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/DataAccessLayer" />
       <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
@@ -15,6 +15,18 @@
   </wsdl:message>
   <wsdl:message name="INeatVibez_Server_CheckConnection_OutputMessage">
     <wsdl:part name="parameters" element="tns:CheckConnectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="INeatVibez_Server_RetrieveSystemSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSystemSettings" />
+  </wsdl:message>
+  <wsdl:message name="INeatVibez_Server_RetrieveSystemSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSystemSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="INeatVibez_Server_UpdateSystemSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSystemSettings" />
+  </wsdl:message>
+  <wsdl:message name="INeatVibez_Server_UpdateSystemSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSystemSettingsResponse" />
   </wsdl:message>
   <wsdl:message name="INeatVibez_Server_RetrieveItemTypeName_InputMessage">
     <wsdl:part name="parameters" element="tns:RetrieveItemTypeName" />
@@ -621,6 +633,14 @@
       <wsdl:input wsaw:Action="http://tempuri.org/INeatVibez_Server/CheckConnection" message="tns:INeatVibez_Server_CheckConnection_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/INeatVibez_Server/CheckConnectionResponse" message="tns:INeatVibez_Server_CheckConnection_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RetrieveSystemSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/INeatVibez_Server/RetrieveSystemSettings" message="tns:INeatVibez_Server_RetrieveSystemSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INeatVibez_Server/RetrieveSystemSettingsResponse" message="tns:INeatVibez_Server_RetrieveSystemSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSystemSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/INeatVibez_Server/UpdateSystemSettings" message="tns:INeatVibez_Server_UpdateSystemSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INeatVibez_Server/UpdateSystemSettingsResponse" message="tns:INeatVibez_Server_UpdateSystemSettings_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RetrieveItemTypeName">
       <wsdl:input wsaw:Action="http://tempuri.org/INeatVibez_Server/RetrieveItemTypeName" message="tns:INeatVibez_Server_RetrieveItemTypeName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/INeatVibez_Server/RetrieveItemTypeNameResponse" message="tns:INeatVibez_Server_RetrieveItemTypeName_OutputMessage" />
@@ -1026,6 +1046,24 @@
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CheckConnection">
       <soap:operation soapAction="http://tempuri.org/INeatVibez_Server/CheckConnection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSystemSettings">
+      <soap:operation soapAction="http://tempuri.org/INeatVibez_Server/RetrieveSystemSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSystemSettings">
+      <soap:operation soapAction="http://tempuri.org/INeatVibez_Server/UpdateSystemSettings" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

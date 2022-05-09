@@ -10,7 +10,11 @@ namespace NeatVibezPOS_Server
     public interface INeatVibez_Server
     {
         [OperationContract]
-        bool CheckConnection(string MachineName, string DBName, string DBUID, string DBPWD);
+        bool CheckConnection();
+        [OperationContract]
+        DataTable RetrieveSystemSettings();
+        [OperationContract]
+        bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, int SystemIncludeLogoInReceipt, decimal SystemTax);
         [OperationContract]
         string RetrieveItemTypeName(int ItemTypeIndex);
         [OperationContract]

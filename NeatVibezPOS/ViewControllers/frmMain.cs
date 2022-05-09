@@ -62,6 +62,7 @@ namespace NeatVibezPOS
         Button saveItemTypesBtn;
         Button saveWarehousesBtn;
         Button saveFavoritesBtn;
+        byte[] StoreLogo = null;
 
         public Account userPermissions;
 
@@ -121,18 +122,80 @@ namespace NeatVibezPOS
             }
         }
 
+        public void refreshSettings()
+        {
+            DataTable dt = Connection.server.RetrieveSystemSettings();
+
+            try
+            {
+                if (!Convert.IsDBNull(dt.Rows[0]["SystemLogo"]))
+                {
+                    StoreLogo = (Byte[])(dt.Rows[0]["SystemLogo"]);
+                    var stream = new MemoryStream(StoreLogo);
+                    picLogoStore.Image = Image.FromStream(stream);
+                    picLogo.Image = Image.FromStream(stream);
+                }
+                else
+                {
+                    picLogoStore.Image = new Bitmap(Properties.Resources.neat_vibez);
+                    picLogo.Image = new Bitmap(Properties.Resources.neat_vibez);
+                }
+            }
+            catch (Exception err)
+            {
+                picLogoStore.Image = new Bitmap(Properties.Resources.neat_vibez);
+                picLogo.Image = new Bitmap(Properties.Resources.neat_vibez);
+            }
+
+
+            taxRate = Convert.ToDecimal(dt.Rows[0]["SystemTax"].ToString());
+            nudTaxRate.Value = Convert.ToDecimal(taxRate * 100);
+            TaxRate = Convert.ToDecimal(nudTaxRate.Value / 100);
+
+            this.NeatVibezPOSName = dt.Rows[0]["SystemName"].ToString();
+            this.shopName.Text = dt.Rows[0]["SystemName"].ToString();
+            this.shopPhone.Text = dt.Rows[0]["SystemPhone"].ToString();
+            this.Text = this.NeatVibezPOSName + " - الشاشه الرئيسيه";
+            label45.Text = " هذه النسخه مرخصه لمتجر " + this.NeatVibezPOSName;
+            this.PrinterName.Text = dt.Rows[0]["SystemPrinterName"].ToString();
+            this.receiptSpacingnud.Value = Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString());
+            this.registerOpen = Properties.Settings.Default.RegisterOpen;
+            this.IncludeLogoReceipt.Checked = Convert.ToBoolean(Convert.ToInt32(dt.Rows[0]["SystemIncludeLogoInReceipt"].ToString()));
+            if (Convert.ToBoolean(Convert.ToInt32(dt.Rows[0]["SystemIncludeLogoInReceipt"].ToString())))
+            {
+                IncludeLogoInReceipt = true;
+            }
+            else
+            {
+                IncludeLogoInReceipt = false;
+            }
+
+            capital = Connection.server.GetCapitalAmount();
+            CapitalAmountnud.Value = capital;
+            CapitalAmount = capital;
+        }
+
         public frmMain(Account Account)
         {
             try
             {
                 InitializeComponent();
 
+                DataTable dt = Connection.server.RetrieveSystemSettings();
+
                 try
                 {
-                    string imagePath = Properties.Settings.Default.Logo;
-
-                    picLogoStore.Image = new Bitmap(imagePath);
-                    picLogo.Image = new Bitmap(imagePath);
+                    if (!Convert.IsDBNull(dt.Rows[0]["SystemLogo"]))
+                    {
+                        StoreLogo = (Byte[])(dt.Rows[0]["SystemLogo"]);
+                        var stream = new MemoryStream(StoreLogo);
+                        picLogoStore.Image = Image.FromStream(stream);
+                        picLogo.Image = Image.FromStream(stream);
+                    } else
+                    {
+                        picLogoStore.Image = new Bitmap(Properties.Resources.neat_vibez);
+                        picLogo.Image = new Bitmap(Properties.Resources.neat_vibez);
+                    }
                 } catch(Exception err)
                 {
                     picLogoStore.Image = new Bitmap(Properties.Resources.neat_vibez);
@@ -210,7 +273,7 @@ namespace NeatVibezPOS
                     label66.Enabled = false;
                 }
 
-                taxRate = Properties.Settings.Default.TaxRate;
+                taxRate = Convert.ToDecimal(dt.Rows[0]["SystemTax"].ToString());
                 this.moneyInRegister = Properties.Settings.Default.moneyInRegister;
                 this.moneyInRegisterInitial = Properties.Settings.Default.moneyInRegisterInitial;
                 nudTaxRate.Value = Convert.ToDecimal(taxRate * 100);
@@ -229,16 +292,16 @@ namespace NeatVibezPOS
 
                 dgvCustomers.DataSource = retrievedCustomers.Item2;
                 
-                this.NeatVibezPOSName = Properties.Settings.Default.ShopName;
-                this.shopName.Text = Properties.Settings.Default.ShopName;
-                this.shopPhone.Text = Properties.Settings.Default.ShopPhone;
+                this.NeatVibezPOSName = dt.Rows[0]["SystemName"].ToString();
+                this.shopName.Text = dt.Rows[0]["SystemName"].ToString();
+                this.shopPhone.Text = dt.Rows[0]["SystemPhone"].ToString();
                 this.Text = this.NeatVibezPOSName + " - الشاشه الرئيسيه";
                 label45.Text = " هذه النسخه مرخصه لمتجر " + this.NeatVibezPOSName;
-                this.PrinterName.Text = Properties.Settings.Default.PrinterName;
-                this.receiptSpacingnud.Value = Properties.Settings.Default.receiptSpacing;
+                this.PrinterName.Text = dt.Rows[0]["SystemPrinterName"].ToString();
+                this.receiptSpacingnud.Value = Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString());
                 this.registerOpen = Properties.Settings.Default.RegisterOpen;
-                this.IncludeLogoReceipt.Checked = Properties.Settings.Default.IncludeLogoInReceipt;
-                if (Properties.Settings.Default.IncludeLogoInReceipt)
+                this.IncludeLogoReceipt.Checked = Convert.ToBoolean(Convert.ToInt32(dt.Rows[0]["SystemIncludeLogoInReceipt"].ToString()));
+                if (Convert.ToBoolean(Convert.ToInt32(dt.Rows[0]["SystemIncludeLogoInReceipt"].ToString())))
                 {
                     IncludeLogoInReceipt = true;
                 } else
@@ -289,14 +352,13 @@ namespace NeatVibezPOS
 
                 this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
 
-                if (Properties.Settings.Default.PrinterName == "")
+                if (dt.Rows[0]["SystemPhone"].ToString() == "" && dt.Rows[0]["SystemPrinterName"].ToString() == "")
                 {
-                    if (MessageBox.Show(" .بعض الاعدادات بدون قيم, الرجاء وضع قيمه لها في الاعدادات " + " اضافة ماده؟ ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    if (MessageBox.Show(".بعض الاعدادات بدون قيم, الرجاء وضع قيمه لها في الاعدادات " + " اضافة ماده؟ ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
                     {
                         tabControl1.SelectedTab = tabControl1.TabPages["Settings"];
                         return;
                     }
-                    //else return;
                 }
             }
             catch(Exception e)
@@ -997,9 +1059,9 @@ namespace NeatVibezPOS
             groupBox5.Visible = false;
             try
             {
-
+                DataTable dt = Connection.server.RetrieveSystemSettings();
                 LPrinter MyPrinter = new LPrinter(); // creates the printer object
-                MyPrinter.PrinterName = "\\\\" + Environment.MachineName + "\\" + Properties.Settings.Default.PrinterName;
+                MyPrinter.PrinterName = "\\\\" + Environment.MachineName + "\\" + dt.Rows[0]["SystemPrinterName"].ToString();
                 MyPrinter.Print("");
                 printDocument2.Print();
 
@@ -2372,19 +2434,6 @@ namespace NeatVibezPOS
             dgvBills.DataSource = RetrievedItems.Item2;
         }
 
-        public void button28_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Properties.Settings.Default.TaxRate = Convert.ToDecimal(nudTaxRate.Value / 100);
-                Properties.Settings.Default.Save();
-                TaxRate = Convert.ToDecimal(nudTaxRate.Value / 100);
-                MessageBox.Show(".تم حفظ الاعدادات", Application.ProductName);
-            }
-            catch(Exception error)
-            { }
-        }
-
         public void pictureBox22_Click(object sender, EventArgs e)
         {
             Tuple<List<Item>, DataTable> exports = Connection.server.RetrieveExports();
@@ -3052,29 +3101,33 @@ namespace NeatVibezPOS
         {
             try
             {
-                Properties.Settings.Default.ShopName = this.shopName.Text;
-                Properties.Settings.Default.ShopPhone = this.shopPhone.Text;
-                Properties.Settings.Default.PrinterName = this.PrinterName.Text;
-                Properties.Settings.Default.receiptSpacing = Convert.ToInt32(this.receiptSpacingnud.Value);
-                Properties.Settings.Default.IncludeLogoInReceipt = this.IncludeLogoReceipt.Checked;
-                if (this.IncludeLogoReceipt.Checked)
+                if (Connection.server.UpdateSystemSettings(this.shopName.Text, StoreLogo, this.shopPhone.Text, Convert.ToInt32(this.receiptSpacingnud.Value), this.PrinterName.Text, Convert.ToInt32(this.IncludeLogoReceipt.Checked), nudTaxRate.Value))
                 {
-                    IncludeLogoInReceipt = true;
+                    this.NeatVibezPOSName = this.shopName.Text;
+                    this.NeatVibezPOSPhone = this.shopPhone.Text;
+                    this.printerName = this.PrinterName.Text;
+                    label45.Text = " هذه النسخه مرخصه لمتجر " + this.NeatVibezPOSName;
+                    this.Text = this.NeatVibezPOSName + " - الشاشه الرئيسيه";
+                    if (this.IncludeLogoReceipt.Checked)
+                    {
+                        IncludeLogoInReceipt = true;
+                    }
+                    else
+                    {
+                        IncludeLogoInReceipt = false;
+                    }
+                    TaxRate = Convert.ToDecimal(nudTaxRate.Value / 100);
+                    this.Refresh();
+                    MessageBox.Show(".تم حفظ الاعدادات", Application.ProductName);
                 } else
                 {
-                    IncludeLogoInReceipt = false;
+                    MessageBox.Show(".لم يتم حفظ الاعدادات", Application.ProductName);
                 }
-                Properties.Settings.Default.Save();
-                this.NeatVibezPOSName = this.shopName.Text;
-                this.NeatVibezPOSPhone = this.shopPhone.Text;
-                this.printerName = this.PrinterName.Text;
-                label45.Text = " هذه النسخه مرخصه لمتجر " + this.NeatVibezPOSName;
-                this.Text = this.NeatVibezPOSName + " - الشاشه الرئيسيه";
-                this.Refresh();
-                MessageBox.Show(".تم حفظ الاعدادات", Application.ProductName);
             }
             catch (Exception error)
-            { }
+            {
+                MessageBox.Show(".لم يتم حفظ الاعدادات", Application.ProductName);
+            }
         }
 
         public void pictureBox23_Click(object sender, EventArgs e)
@@ -6244,14 +6297,19 @@ namespace NeatVibezPOS
                 {
                     picLogoStore.Image = new Bitmap(open.FileName);
                     picLogo.Image = new Bitmap(open.FileName);
-                    Properties.Settings.Default["Logo"] = open.FileName;
-                    Properties.Settings.Default.Save();
+                    if (picLogoStore.Image != null)
+                    {
+                        MemoryStream ms = new MemoryStream();
+                        picLogoStore.Image.Save(ms, picLogoStore.Image.RawFormat);
+                        byte[] a = ms.GetBuffer();
+                        ms.Close();
+                        StoreLogo = a;
+                    }
                 }
             }
             catch(Exception err)
             {
-                Properties.Settings.Default["Logo"] = "";
-                Properties.Settings.Default.Save();
+                StoreLogo = null;
                 picLogoStore.Image = Resources.neat_vibez;
                 picLogo.Image = Resources.neat_vibez;
             }
@@ -6261,8 +6319,7 @@ namespace NeatVibezPOS
         {
             try
             {
-                Properties.Settings.Default["Logo"] = "";
-                Properties.Settings.Default.Save();
+                StoreLogo = null;
                 picLogoStore.Image = Resources.neat_vibez;
                 picLogo.Image = Resources.neat_vibez;
             }
@@ -6279,6 +6336,7 @@ namespace NeatVibezPOS
 
         private void updateWarehouses_Tick(object sender, EventArgs e)
         {
+            refreshSettings();
             DisplayItemTypes();
             DisplayFavoriteItems();
             DisplayWarehouses();
@@ -6899,6 +6957,8 @@ namespace NeatVibezPOS
         {
             try
             {
+                DataTable dt = Connection.server.RetrieveSystemSettings();
+
                 string welcome = "شكرا لزيارتك متجرنا ";
                 string welcome2 = this.NeatVibezPOSName;
                 string InvoiceNo = "" + BillNumber.ToString() + "رقم الفاتورة الحالية ";
@@ -6947,7 +7007,7 @@ namespace NeatVibezPOS
 
                         offsetY = offsetY + lineHeight;
                         graphic.FillRectangle(white, 0, 0, bitm.Width, bitm.Height);
-                        graphic.DrawString(this.shopPhone.Text, newfont2, black, (bitm.Width / 2) - Properties.Settings.Default.receiptSpacing, startY + offsetY);
+                        graphic.DrawString(this.shopPhone.Text, newfont2, black, (bitm.Width / 2) - Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString()), startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(welcome2, newfont2, black, (bitm.Width / 3) - (welcome.Length + 5), startY + offsetY);
                         offsetY = offsetY + lineHeight;
@@ -6957,14 +7017,26 @@ namespace NeatVibezPOS
                         {
                             try
                             {
-                                string imagePath = Properties.Settings.Default.Logo;
-
-                                graphic.DrawImage(ResizeImage(new Bitmap(imagePath), 150, 150), (bitm.Width / 2) - 150, 0);
+                                if (!Convert.IsDBNull(dt.Rows[0]["SystemLogo"]))
+                                {
+                                    StoreLogo = (Byte[])(dt.Rows[0]["SystemLogo"]);
+                                    var stream = new MemoryStream(StoreLogo);
+                                    graphic.DrawImage(ResizeImage(new Bitmap(stream), 150, 150), (bitm.Width / 2) - 150, 0);
+                                }
+                                else
+                                {
+                                    graphic.DrawImage(ResizeImage(Resources.neat_vibez, 150, 150), (bitm.Width / 2) - 150, 0);
+                                }
                             }
                             catch (Exception err)
                             {
                                 graphic.DrawImage(ResizeImage(Resources.neat_vibez, 150, 150), (bitm.Width / 2) - 150, 0);
                             }
+
+                            offsetY = offsetY + lineHeight;
+                            offsetY = offsetY + lineHeight;
+                            offsetY = offsetY + lineHeight;
+                            offsetY = offsetY + lineHeight;
                             offsetY = offsetY + lineHeight;
                         }
                         graphic.DrawString(InvoiceNo, newfont2, black, (bitm.Width / 3) - InvoiceNo.Length, startY + offsetY);
@@ -7057,6 +7129,8 @@ namespace NeatVibezPOS
         {
             try
             {
+                DataTable dt = Connection.server.RetrieveSystemSettings();
+
                 string welcome = "شكرا لزيارتك متجرنا ";
                 string welcome2 = this.NeatVibezPOSName;
                 string InvoiceNo = "" + this.CurrentBillNumber.ToString() + "رقم الفاتورة الحالية ";
@@ -7105,7 +7179,7 @@ namespace NeatVibezPOS
 
                         offsetY = offsetY + lineHeight;
                         graphic.FillRectangle(white, 0, 0, bitm.Width, bitm.Height);
-                        graphic.DrawString(this.shopPhone.Text, newfont2, black, (bitm.Width / 2) - Properties.Settings.Default.receiptSpacing, startY + offsetY);
+                        graphic.DrawString(this.shopPhone.Text, newfont2, black, (bitm.Width / 2) - Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString()), startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(welcome2, newfont2, black, (bitm.Width / 3) - (welcome.Length + 5), startY + offsetY);
                         offsetY = offsetY + lineHeight;
@@ -7115,14 +7189,26 @@ namespace NeatVibezPOS
                         {
                             try
                             {
-                                string imagePath = Properties.Settings.Default.Logo;
-
-                                graphic.DrawImage(ResizeImage(new Bitmap(imagePath), 150, 150), (bitm.Width / 2) - 150, 0);
+                                if (!Convert.IsDBNull(dt.Rows[0]["SystemLogo"]))
+                                {
+                                    StoreLogo = (Byte[])(dt.Rows[0]["SystemLogo"]);
+                                    var stream = new MemoryStream(StoreLogo);
+                                    graphic.DrawImage(ResizeImage(new Bitmap(stream), 150, 150), (bitm.Width / 2) - 150, 0);
+                                }
+                                else
+                                {
+                                    graphic.DrawImage(ResizeImage(Resources.neat_vibez, 150, 150), (bitm.Width / 2) - 150, 0);
+                                }
                             }
                             catch (Exception err)
                             {
                                 graphic.DrawImage(ResizeImage(Resources.neat_vibez, 150, 150), (bitm.Width / 2) - 150, 0);
                             }
+
+                            offsetY = offsetY + lineHeight;
+                            offsetY = offsetY + lineHeight;
+                            offsetY = offsetY + lineHeight;
+                            offsetY = offsetY + lineHeight;
                             offsetY = offsetY + lineHeight;
                         }
                         graphic.DrawString(InvoiceNo, newfont2, black, (bitm.Width / 3) - InvoiceNo.Length, startY + offsetY);
@@ -7214,6 +7300,8 @@ namespace NeatVibezPOS
         {
             try
             {
+                DataTable dt = Connection.server.RetrieveSystemSettings();
+
                 int lineHeight = 20;
                 int height = 20;
 
@@ -7252,14 +7340,22 @@ namespace NeatVibezPOS
                         {
                             try
                             {
-                                string imagePath = Properties.Settings.Default.Logo;
-
-                                graphic.DrawImage(ResizeImage(new Bitmap(imagePath), 150, 150), (bitm.Width / 2) - 150, 0);
+                                if (!Convert.IsDBNull(dt.Rows[0]["SystemLogo"]))
+                                {
+                                    StoreLogo = (Byte[])(dt.Rows[0]["SystemLogo"]);
+                                    var stream = new MemoryStream(StoreLogo);
+                                    graphic.DrawImage(ResizeImage(new Bitmap(stream), 150, 150), (bitm.Width / 2) - 150, 0);
+                                }
+                                else
+                                {
+                                    graphic.DrawImage(ResizeImage(Resources.neat_vibez, 150, 150), (bitm.Width / 2) - 150, 0);
+                                }
                             }
                             catch (Exception err)
                             {
                                 graphic.DrawImage(ResizeImage(Resources.neat_vibez, 150, 150), (bitm.Width / 2) - 150, 0);
                             }
+
                             offsetY = offsetY + lineHeight;
                             offsetY = offsetY + lineHeight;
                             offsetY = offsetY + lineHeight;

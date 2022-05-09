@@ -17,7 +17,7 @@ namespace DataAccessLayer
         public int Status;
         public string Name;
 
-        public bool CheckConnection(string MachineName, string DBName, string DBUID, string DBPWD)
+        public bool CheckConnection()
         {
             try
             {
@@ -25,6 +25,60 @@ namespace DataAccessLayer
                 return true;
             }
             catch (Exception e)
+            {
+                return false;
+            }
+        }
+
+        public DataTable RetrieveSystemSettings()
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveSystemSettings", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "SystemSettings";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                return dt;
+            }
+        }
+
+        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, int SystemIncludeLogoInReceipt, decimal SystemTax)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateSystemSettings", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@SystemName", SystemName);
+                    cmd.Parameters.AddWithValue("@SystemLogo    ", SystemLogo);
+                    cmd.Parameters.AddWithValue("@SystemPhone    ", SystemPhone);
+                    cmd.Parameters.AddWithValue("@SystemReceiptBlankSpaces    ", SystemReceiptBlankSpaces);
+                    cmd.Parameters.AddWithValue("@SystemPrinterName    ", SystemPrinterName);
+                    cmd.Parameters.AddWithValue("@SystemIncludeLogoInReceipt    ", SystemIncludeLogoInReceipt);
+                    cmd.Parameters.AddWithValue("@SystemTax    ", SystemTax);
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                }
+                return Convert.ToBoolean(Status);
+            }
+            catch (Exception ex)
             {
                 return false;
             }

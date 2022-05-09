@@ -16,7 +16,13 @@ namespace NeatVibezPOS.NeatVibez_Server {
     public interface INeatVibez_Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/CheckConnection", ReplyAction="http://tempuri.org/INeatVibez_Server/CheckConnectionResponse")]
-        bool CheckConnection(string MachineName, string DBName, string DBUID, string DBPWD);
+        bool CheckConnection();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveSystemSettings", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveSystemSettingsResponse")]
+        System.Data.DataTable RetrieveSystemSettings();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/UpdateSystemSettings", ReplyAction="http://tempuri.org/INeatVibez_Server/UpdateSystemSettingsResponse")]
+        bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, int SystemIncludeLogoInReceipt, decimal SystemTax);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveItemTypeName", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveItemTypeNameResponse")]
         string RetrieveItemTypeName(int ItemTypeIndex);
@@ -346,8 +352,16 @@ namespace NeatVibezPOS.NeatVibez_Server {
                 base(binding, remoteAddress) {
         }
         
-        public bool CheckConnection(string MachineName, string DBName, string DBUID, string DBPWD) {
-            return base.Channel.CheckConnection(MachineName, DBName, DBUID, DBPWD);
+        public bool CheckConnection() {
+            return base.Channel.CheckConnection();
+        }
+        
+        public System.Data.DataTable RetrieveSystemSettings() {
+            return base.Channel.RetrieveSystemSettings();
+        }
+        
+        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, int SystemIncludeLogoInReceipt, decimal SystemTax) {
+            return base.Channel.UpdateSystemSettings(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemPrinterName, SystemIncludeLogoInReceipt, SystemTax);
         }
         
         public string RetrieveItemTypeName(int ItemTypeIndex) {

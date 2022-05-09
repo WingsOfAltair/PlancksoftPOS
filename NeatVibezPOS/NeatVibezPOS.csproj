@@ -153,12 +153,6 @@
     <Compile Include="ViewControllers\frmCustomerCard.Designer.cs">
       <DependentUpon>frmCustomerCard.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewControllers\frmDBConfigure.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewControllers\frmDBConfigure.Designer.cs">
-      <DependentUpon>frmDBConfigure.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewControllers\frmEditPrice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,9 +221,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmCustomerCard.resx">
       <DependentUpon>frmCustomerCard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewControllers\frmDBConfigure.resx">
-      <DependentUpon>frmDBConfigure.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmEditPrice.resx">
       <DependentUpon>frmEditPrice.cs</DependentUpon>

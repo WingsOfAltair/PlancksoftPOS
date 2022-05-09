@@ -26,13 +26,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ادارةالمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اضافةمادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -654,7 +654,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.A = new System.Windows.Forms.Label();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
-            this.button28 = new System.Windows.Forms.Button();
             this.nudTaxRate = new System.Windows.Forms.NumericUpDown();
             this.label78 = new System.Windows.Forms.Label();
             this.Retrievals = new System.Windows.Forms.TabPage();
@@ -7426,8 +7425,8 @@
             // 
             this.VendorItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemName.DataPropertyName = "Item Name";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle8;
             this.VendorItemName.HeaderText = "اسم الماده";
             this.VendorItemName.Name = "VendorItemName";
             this.VendorItemName.ReadOnly = true;
@@ -7436,8 +7435,8 @@
             // 
             this.VendorItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBarCode.DataPropertyName = "Item BarCode";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle9;
             this.VendorItemBarCode.HeaderText = "باركود الماده";
             this.VendorItemBarCode.Name = "VendorItemBarCode";
             this.VendorItemBarCode.ReadOnly = true;
@@ -7446,8 +7445,8 @@
             // 
             this.VendorItemType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemType.DataPropertyName = "Item Type";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle10;
             this.VendorItemType.HeaderText = "صنف الماده";
             this.VendorItemType.Name = "VendorItemType";
             this.VendorItemType.ReadOnly = true;
@@ -7456,8 +7455,8 @@
             // 
             this.VendorItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemQuantity.DataPropertyName = "Item Quantity";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle11;
             this.VendorItemQuantity.HeaderText = "عدد القطع";
             this.VendorItemQuantity.Name = "VendorItemQuantity";
             this.VendorItemQuantity.ReadOnly = true;
@@ -7466,8 +7465,8 @@
             // 
             this.VendorItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBuyPrice.DataPropertyName = "VendorItemBuyPrice";
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle12;
             this.VendorItemBuyPrice.HeaderText = "سعر الشراء";
             this.VendorItemBuyPrice.Name = "VendorItemBuyPrice";
             this.VendorItemBuyPrice.ReadOnly = true;
@@ -7476,8 +7475,8 @@
             // 
             this.VendorItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPrice.DataPropertyName = "VendorItemSellPrice";
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle13;
             this.VendorItemSellPrice.HeaderText = "سعر البيع";
             this.VendorItemSellPrice.Name = "VendorItemSellPrice";
             this.VendorItemSellPrice.ReadOnly = true;
@@ -7486,8 +7485,8 @@
             // 
             this.VendorItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPriceTax.DataPropertyName = "VendorItemSellPriceTax";
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle14;
             this.VendorItemSellPriceTax.HeaderText = "سعر البيع مع الضريبه";
             this.VendorItemSellPriceTax.Name = "VendorItemSellPriceTax";
             this.VendorItemSellPriceTax.ReadOnly = true;
@@ -8494,7 +8493,6 @@
             // 
             this.Settings.BackColor = System.Drawing.Color.White;
             this.Settings.Controls.Add(this.groupBox24);
-            this.Settings.Controls.Add(this.groupBox18);
             this.Settings.Location = new System.Drawing.Point(4, 34);
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(1386, 692);
@@ -8505,6 +8503,8 @@
             // 
             this.groupBox24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox24.Controls.Add(this.groupBox2);
+            this.groupBox24.Controls.Add(this.button1);
+            this.groupBox24.Controls.Add(this.groupBox18);
             this.groupBox24.Controls.Add(this.IncludeLogoReceipt);
             this.groupBox24.Controls.Add(this.receiptSpacingnud);
             this.groupBox24.Controls.Add(this.label114);
@@ -8513,12 +8513,11 @@
             this.groupBox24.Controls.Add(this.shopName);
             this.groupBox24.Controls.Add(this.PrinterName);
             this.groupBox24.Controls.Add(this.label1);
-            this.groupBox24.Controls.Add(this.button1);
             this.groupBox24.Controls.Add(this.A);
             this.groupBox24.ForeColor = System.Drawing.Color.Black;
             this.groupBox24.Location = new System.Drawing.Point(1147, 3);
             this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(236, 616);
+            this.groupBox24.Size = new System.Drawing.Size(236, 689);
             this.groupBox24.TabIndex = 6;
             this.groupBox24.TabStop = false;
             this.groupBox24.Text = "اعدادات البرمجيه";
@@ -8528,9 +8527,9 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.button29);
             this.groupBox2.Controls.Add(this.picLogoStore);
-            this.groupBox2.Location = new System.Drawing.Point(0, 341);
+            this.groupBox2.Location = new System.Drawing.Point(0, 386);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(236, 274);
+            this.groupBox2.Size = new System.Drawing.Size(236, 255);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "صورة المتجر";
@@ -8541,7 +8540,7 @@
             this.button29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button29.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button29.ForeColor = System.Drawing.Color.White;
-            this.button29.Location = new System.Drawing.Point(12, 37);
+            this.button29.Location = new System.Drawing.Point(13, 21);
             this.button29.Name = "button29";
             this.button29.Size = new System.Drawing.Size(218, 39);
             this.button29.TabIndex = 34;
@@ -8554,7 +8553,7 @@
             this.picLogoStore.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picLogoStore.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.picLogoStore.Image = global::NeatVibezPOS.Properties.Resources.neat_vibez;
-            this.picLogoStore.Location = new System.Drawing.Point(3, 81);
+            this.picLogoStore.Location = new System.Drawing.Point(3, 62);
             this.picLogoStore.Name = "picLogoStore";
             this.picLogoStore.Size = new System.Drawing.Size(230, 190);
             this.picLogoStore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -8665,7 +8664,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(35, 296);
+            this.button1.Location = new System.Drawing.Point(35, 642);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 39);
             this.button1.TabIndex = 2;
@@ -8688,30 +8687,15 @@
             // groupBox18
             // 
             this.groupBox18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox18.Controls.Add(this.button28);
             this.groupBox18.Controls.Add(this.nudTaxRate);
             this.groupBox18.Controls.Add(this.label78);
             this.groupBox18.ForeColor = System.Drawing.Color.Black;
-            this.groupBox18.Location = new System.Drawing.Point(905, 3);
+            this.groupBox18.Location = new System.Drawing.Point(0, 296);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(236, 142);
+            this.groupBox18.Size = new System.Drawing.Size(236, 90);
             this.groupBox18.TabIndex = 0;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "الضرائب";
-            // 
-            // button28
-            // 
-            this.button28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button28.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button28.ForeColor = System.Drawing.Color.White;
-            this.button28.Location = new System.Drawing.Point(61, 90);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(160, 38);
-            this.button28.TabIndex = 1;
-            this.button28.Text = "حفظ";
-            this.button28.UseVisualStyleBackColor = false;
-            this.button28.Click += new System.EventHandler(this.button28_Click);
             // 
             // nudTaxRate
             // 
@@ -8914,7 +8898,7 @@
             // updateWarehouses
             // 
             this.updateWarehouses.Enabled = true;
-            this.updateWarehouses.Interval = 10000;
+            this.updateWarehouses.Interval = 30000;
             this.updateWarehouses.Tick += new System.EventHandler(this.updateWarehouses_Tick);
             // 
             // frmMain
@@ -9279,7 +9263,6 @@
         public System.Windows.Forms.Label label75;
         public System.Windows.Forms.TextBox txtUserPasswordAdd;
         public System.Windows.Forms.GroupBox groupBox18;
-        public System.Windows.Forms.Button button28;
         public System.Windows.Forms.NumericUpDown nudTaxRate;
         public System.Windows.Forms.Label label78;
         public System.Windows.Forms.GroupBox groupBox20;

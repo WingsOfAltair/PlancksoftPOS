@@ -25,42 +25,6 @@ namespace NeatVibezPOS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public decimal TaxRate {
-            get {
-                return ((decimal)(this["TaxRate"]));
-            }
-            set {
-                this["TaxRate"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("NeatVibez POS")]
-        public string ShopName {
-            get {
-                return ((string)(this["ShopName"]));
-            }
-            set {
-                this["ShopName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string PrinterName {
-            get {
-                return ((string)(this["PrinterName"]));
-            }
-            set {
-                this["PrinterName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("False")]
         public bool RegisterOpen {
             get {
@@ -68,42 +32,6 @@ namespace NeatVibezPOS.Properties {
             }
             set {
                 this["RegisterOpen"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DBName {
-            get {
-                return ((string)(this["DBName"]));
-            }
-            set {
-                this["DBName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DBUID {
-            get {
-                return ((string)(this["DBUID"]));
-            }
-            set {
-                this["DBUID"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string DBPWD {
-            get {
-                return ((string)(this["DBPWD"]));
-            }
-            set {
-                this["DBPWD"] = value;
             }
         }
         
@@ -152,66 +80,6 @@ namespace NeatVibezPOS.Properties {
             }
             set {
                 this["moneyInRegisterInitial"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ComputerName {
-            get {
-                return ((string)(this["ComputerName"]));
-            }
-            set {
-                this["ComputerName"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string ShopPhone {
-            get {
-                return ((string)(this["ShopPhone"]));
-            }
-            set {
-                this["ShopPhone"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
-        public int receiptSpacing {
-            get {
-                return ((int)(this["receiptSpacing"]));
-            }
-            set {
-                this["receiptSpacing"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
-        public string Logo {
-            get {
-                return ((string)(this["Logo"]));
-            }
-            set {
-                this["Logo"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool IncludeLogoInReceipt {
-            get {
-                return ((bool)(this["IncludeLogoInReceipt"]));
-            }
-            set {
-                this["IncludeLogoInReceipt"] = value;
             }
         }
     }

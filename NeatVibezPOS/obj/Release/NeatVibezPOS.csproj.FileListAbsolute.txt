@@ -65,7 +65,6 @@ C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\obj\Release\NeatVibezPOS.csproj
 C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\obj\Release\NeatVibezPOS.frmAuth.resources
 C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\obj\Release\NeatVibezPOS.frmCloseRegister.resources
 C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\obj\Release\NeatVibezPOS.frmCustomerCard.resources
-C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\obj\Release\NeatVibezPOS.frmDBConfigure.resources
 C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\obj\Release\NeatVibezPOS.frmEditPrice.resources
 C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\obj\Release\NeatVibezPOS.frmItemLookup.resources
 C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\obj\Release\NeatVibezPOS.frmItemRefund.resources

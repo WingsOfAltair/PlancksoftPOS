@@ -78,12 +78,9 @@ namespace NeatVibezPOS
                 }
                 if (Decrypt256(Settings.Default.LicenseKey) == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName))
                 {
-                    if (!Connection.server.CheckConnection(Settings.Default.ComputerName, Settings.Default.DBName, Settings.Default.DBUID, Settings.Default.DBPWD))
+                    if (!Connection.server.CheckConnection())
                     {
-                        frmDBConfigure frm1 = new frmDBConfigure();
-                        frm1.ShowDialog();
-
-                        MessageBox.Show(".الرجاء اعادة تشغيل البرمجيه", Application.ProductName);
+                        MessageBox.Show(".لا يمكن الاتصال بالخادم أو قاعدة البيانات", Application.ProductName);
                         Environment.Exit(0);
                     }
                     else
@@ -107,8 +104,8 @@ namespace NeatVibezPOS
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
-                frmDBConfigure frm1 = new frmDBConfigure();
-                frm1.ShowDialog();
+                MessageBox.Show(".لا يمكن الاتصال بالخادم أو قاعدة البيانات", Application.ProductName);
+                Environment.Exit(0);
             }
         }
         
