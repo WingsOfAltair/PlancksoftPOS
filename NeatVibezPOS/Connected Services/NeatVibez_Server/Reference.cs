@@ -135,6 +135,9 @@ namespace NeatVibezPOS.NeatVibez_Server {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveMostBoughtItems", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveMostBoughtItemsResponse")]
         System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveMostBoughtItems();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveAccountAuthority", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveAccountAuthorityResponse")]
+        int RetrieveAccountAuthority(string UserID);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveUserPermissions", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveUserPermissionsResponse")]
         DataAccessLayer.Account RetrieveUserPermissions(string UserID);
         
@@ -510,6 +513,10 @@ namespace NeatVibezPOS.NeatVibez_Server {
         
         public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveMostBoughtItems() {
             return base.Channel.RetrieveMostBoughtItems();
+        }
+        
+        public int RetrieveAccountAuthority(string UserID) {
+            return base.Channel.RetrieveAccountAuthority(UserID);
         }
         
         public DataAccessLayer.Account RetrieveUserPermissions(string UserID) {

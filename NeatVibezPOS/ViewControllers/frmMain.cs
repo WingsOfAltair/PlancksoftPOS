@@ -64,6 +64,9 @@ namespace NeatVibezPOS
         Button saveFavoritesBtn;
         byte[] StoreLogo = null;
 
+        TabPage AgentsTab = null, InventoryTab = null, ExpensesTab = null, posUsersTab = null, SettingsTab = null, EmployeesTab = null, EditInvoicesTab = null,
+            TravelingUntravelingSalesTab = null, SoldItemsTab = null;
+
         public Account userPermissions;
 
         public class Items
@@ -175,6 +178,148 @@ namespace NeatVibezPOS
             CapitalAmount = capital;
         }
 
+        public void applyAuthorityPermissions()
+        {
+            frmMain.Authority = Connection.server.RetrieveAccountAuthority(this.UID);
+            this.userPermissions = Connection.server.RetrieveUserPermissions(this.UID);
+
+            customer_card_edit.Checked = this.userPermissions.customer_card_edit;
+            discount_edit.Checked = this.userPermissions.discount_edit;
+            price_edit.Checked = this.userPermissions.price_edit;
+            receipt_edit.Checked = this.userPermissions.receipt_edit;
+            inventory_edit.Checked = this.userPermissions.inventory_edit;
+            expenses_edit.Checked = this.userPermissions.expenses_add;
+            users_edit.Checked = this.userPermissions.users_edit;
+            settings_edit.Checked = this.userPermissions.settings_edit;
+            personnel_edit.Checked = this.userPermissions.personnel_edit;
+            openclose_edit.Checked = this.userPermissions.openclose_edit;
+
+            if (!this.userPermissions.customer_card_edit)
+            {
+                pictureBox25.Enabled = false;
+            }
+
+            if (!this.userPermissions.discount_edit)
+            {
+                pictureBox11.Enabled = false;
+            }
+
+            if (!this.userPermissions.price_edit)
+            {
+                pictureBox26.Enabled = false;
+            }
+
+            if (tabControl1.Contains(tabControl1.TabPages["Agents"]))
+                AgentsTab = tabControl1.TabPages["Agents"];
+            if (!this.userPermissions.customer_card_edit)
+            {
+                tabControl1.TabPages.Remove(tabControl1.TabPages["Agents"]);
+            }
+            else
+            {
+                if (!tabControl1.Contains(tabControl1.TabPages["Agents"]))
+                    tabControl1.TabPages.Add(AgentsTab);
+            }
+
+            if (tabControl1.Contains(tabControl1.TabPages["Inventory"]))
+                InventoryTab = tabControl1.TabPages["Inventory"];
+            if (!this.userPermissions.inventory_edit)
+            {
+                tabControl1.TabPages.Remove(tabControl1.TabPages["Inventory"]);
+                ادارةالمستودعToolStripMenuItem.Visible = false;
+                ادارةالمستودعToolStripMenuItem.Enabled = false;
+            } else
+            {
+                if (!tabControl1.Contains(tabControl1.TabPages["Inventory"]))
+                    tabControl1.TabPages.Add(InventoryTab);
+                ادارةالمستودعToolStripMenuItem.Visible = true;
+                ادارةالمستودعToolStripMenuItem.Enabled = true;
+            }
+
+            if (tabControl1.Contains(tabControl1.TabPages["Expenses"]))
+                ExpensesTab = tabControl1.TabPages["Expenses"];
+            if (!this.userPermissions.expenses_add)
+            {
+                tabControl1.TabPages.Remove(tabControl1.TabPages["Expenses"]);
+            }
+            else
+            {
+                if (!tabControl1.Contains(tabControl1.TabPages["Expenses"]))
+                    tabControl1.TabPages.Add(ExpensesTab);
+            }
+
+            if (tabControl1.Contains(tabControl1.TabPages["posUsers"]))
+                posUsersTab = tabControl1.TabPages["posUsers"];
+            if (!this.userPermissions.users_edit)
+            {
+                tabControl1.TabPages.Remove(tabControl1.TabPages["posUsers"]);
+            }
+            else
+            {
+                if (!tabControl1.Contains(tabControl1.TabPages["posUsers"]))
+                    tabControl1.TabPages.Add(posUsersTab);
+            }
+
+            if (tabControl1.Contains(tabControl1.TabPages["Settings"]))
+                SettingsTab = tabControl1.TabPages["Settings"];
+            if (!this.userPermissions.settings_edit)
+            {
+                tabControl1.TabPages.Remove(tabControl1.TabPages["Settings"]);
+            }
+            else
+            {
+                if (!tabControl1.Contains(tabControl1.TabPages["Settings"]))
+                    tabControl1.TabPages.Add(SettingsTab);
+            }
+
+            if (tabControl1.Contains(tabControl1.TabPages["Employees"]))
+                EmployeesTab = tabControl1.TabPages["Employees"];
+            if (!this.userPermissions.personnel_edit)
+            {
+                tabControl1.TabPages.Remove(tabControl1.TabPages["Employees"]);
+            }
+            else
+            {
+                if (!tabControl1.Contains(tabControl1.TabPages["Employees"]))
+                    tabControl1.TabPages.Add(EmployeesTab);
+            }
+
+            if (tabControl4.Contains(tabControl4.TabPages["EditInvoices"]))
+                EditInvoicesTab = tabControl4.TabPages["EditInvoices"];
+            if (tabControl4.Contains(tabControl4.TabPages["TravelingUntravelingSales"]))
+                TravelingUntravelingSalesTab = tabControl4.TabPages["TravelingUntravelingSales"];
+            if (tabControl4.Contains(tabControl4.TabPages["SoldItems"]))
+                SoldItemsTab = tabControl4.TabPages["SoldItems"];
+            if (!this.userPermissions.receipt_edit)
+            {
+                tabControl4.TabPages.Remove(tabControl4.TabPages["EditInvoices"]);
+                tabControl4.TabPages.Remove(tabControl4.TabPages["TravelingUntravelingSales"]);
+                tabControl4.TabPages.Remove(tabControl4.TabPages["SoldItems"]);
+            } else
+            {
+                if (!tabControl4.Contains(tabControl4.TabPages["EditInvoices"]))
+                    tabControl4.TabPages.Add(EditInvoicesTab);
+                if (!tabControl4.Contains(tabControl4.TabPages["TravelingUntravelingSales"]))
+                    tabControl4.TabPages.Add(TravelingUntravelingSalesTab);
+                if (!tabControl4.Contains(tabControl4.TabPages["SoldItems"]))
+                    tabControl4.TabPages.Add(SoldItemsTab);
+            }
+
+            if (!this.userPermissions.openclose_edit)
+            {
+                openRegisterBtn.Enabled = false;
+                closeRegisterBtn.Enabled = false;
+                label65.Enabled = false;
+                label66.Enabled = false;
+            } else
+            {
+                openRegisterBtn.Enabled = true;
+                closeRegisterBtn.Enabled = true;
+                label65.Enabled = true;
+                label66.Enabled = true;
+            }
+        }
+
         public frmMain(Account Account)
         {
             try
@@ -206,72 +351,9 @@ namespace NeatVibezPOS
                 this.cashierNameLbl.Text = this.cashierName;
                 this.UID = Account.GetAccountUID();
                 this.PWD = Account.GetAccountPWD();
-                frmMain.Authority = Account.GetAccountAuthority();
+                frmMain.Authority = Connection.server.RetrieveAccountAuthority(this.UID);
 
-                this.userPermissions = Connection.server.RetrieveUserPermissions(this.UID);
-
-                customer_card_edit.Checked = this.userPermissions.customer_card_edit;
-                discount_edit.Checked = this.userPermissions.discount_edit;
-                price_edit.Checked = this.userPermissions.price_edit;
-                receipt_edit.Checked = this.userPermissions.receipt_edit;
-                inventory_edit.Checked = this.userPermissions.inventory_edit;
-                expenses_edit.Checked = this.userPermissions.expenses_add;
-                users_edit.Checked = this.userPermissions.users_edit;
-                settings_edit.Checked = this.userPermissions.settings_edit;
-                personnel_edit.Checked = this.userPermissions.personnel_edit;
-                openclose_edit.Checked = this.userPermissions.openclose_edit;
-
-                if (!this.userPermissions.customer_card_edit)
-                {
-                    pictureBox25.Enabled = false;
-                }
-
-                if (!this.userPermissions.discount_edit)
-                {
-                    pictureBox11.Enabled = false;
-                }
-
-                if (!this.userPermissions.price_edit)
-                {
-                    pictureBox26.Enabled = false;
-                }
-
-                if (!this.userPermissions.customer_card_edit)
-                    tabControl1.TabPages.Remove(tabControl1.TabPages["Agents"]);
-
-                if (!this.userPermissions.inventory_edit)
-                {
-                    tabControl1.TabPages.Remove(tabControl1.TabPages["Inventory"]);
-                    ادارةالمستودعToolStripMenuItem.Visible = false;
-                    ادارةالمستودعToolStripMenuItem.Enabled = false;
-                }
-
-                if (!this.userPermissions.expenses_add)
-                    tabControl1.TabPages.Remove(tabControl1.TabPages["Expenses"]);
-
-                if (!this.userPermissions.users_edit)
-                    tabControl1.TabPages.Remove(tabControl1.TabPages["posUsers"]);
-
-                if (!this.userPermissions.settings_edit)
-                    tabControl1.TabPages.Remove(tabControl1.TabPages["Settings"]);
-
-                if (!this.userPermissions.personnel_edit)
-                    tabControl1.TabPages.Remove(tabControl1.TabPages["Employees"]);
-
-                if (!this.userPermissions.receipt_edit)
-                {
-                    tabControl4.TabPages.Remove(tabControl4.TabPages["EditInvoices"]);
-                    tabControl4.TabPages.Remove(tabControl4.TabPages["TravelingUntravelingSales"]);
-                    tabControl4.TabPages.Remove(tabControl4.TabPages["SoldItems"]);
-                }
-
-                if (!this.userPermissions.openclose_edit)
-                {
-                    openRegisterBtn.Enabled = false;
-                    closeRegisterBtn.Enabled = false;
-                    label65.Enabled = false;
-                    label66.Enabled = false;
-                }
+                applyAuthorityPermissions();
 
                 taxRate = Convert.ToDecimal(dt.Rows[0]["SystemTax"].ToString());
                 this.moneyInRegister = Properties.Settings.Default.moneyInRegister;
@@ -2074,7 +2156,7 @@ namespace NeatVibezPOS
                     {
                         if (txtUserNameAdd.Text != "" && txtUserIDAdd.Text != "")
                         {
-                            if (txtUserIDAdd.Text.ToLower().Trim() == "admin" && this.UID != "admin" || dgvUsers.SelectedRows[0].Cells["UserID"].Value.ToString().ToLower().Trim() != "admin")
+                            if (txtUserIDAdd.Text.ToLower().Trim() == "admin" && this.UID != "admin")
                             {
                                 MessageBox.Show(".لا يمكن تسجيل رمز المستخدم للحساب الإداري الرئيسي", Application.ProductName);
                                 ClearInput();
@@ -2102,72 +2184,8 @@ namespace NeatVibezPOS
                                 Users = DisplayUsers();
                                 DisplayCashierNames();
                                 cashierNameLbl.Text = txtUserNameAdd.Text;
-                                frmMain.Authority = newAccount.GetAccountAuthority();
-
-                                this.userPermissions = Connection.server.RetrieveUserPermissions(this.UID);
-
-                                customer_card_edit.Checked = this.userPermissions.customer_card_edit;
-                                discount_edit.Checked = this.userPermissions.discount_edit;
-                                price_edit.Checked = this.userPermissions.price_edit;
-                                receipt_edit.Checked = this.userPermissions.receipt_edit;
-                                inventory_edit.Checked = this.userPermissions.inventory_edit;
-                                expenses_edit.Checked = this.userPermissions.expenses_add;
-                                users_edit.Checked = this.userPermissions.users_edit;
-                                settings_edit.Checked = this.userPermissions.settings_edit;
-                                personnel_edit.Checked = this.userPermissions.personnel_edit;
-                                openclose_edit.Checked = this.userPermissions.openclose_edit;
-
-                                if (!this.userPermissions.customer_card_edit)
-                                {
-                                    pictureBox25.Enabled = false;
-                                }
-
-                                if (!this.userPermissions.discount_edit)
-                                {
-                                    pictureBox11.Enabled = false;
-                                }
-
-                                if (!this.userPermissions.price_edit)
-                                {
-                                    pictureBox26.Enabled = false;
-                                }
-
-                                if (!this.userPermissions.customer_card_edit)
-                                    tabControl1.TabPages.Remove(tabControl1.TabPages["Agents"]);
-
-                                if (!this.userPermissions.inventory_edit)
-                                {
-                                    tabControl1.TabPages.Remove(tabControl1.TabPages["Inventory"]);
-                                    ادارةالمستودعToolStripMenuItem.Visible = false;
-                                    ادارةالمستودعToolStripMenuItem.Enabled = false;
-                                }
-
-                                if (!this.userPermissions.expenses_add)
-                                    tabControl1.TabPages.Remove(tabControl1.TabPages["Expenses"]);
-
-                                if (!this.userPermissions.users_edit)
-                                    tabControl1.TabPages.Remove(tabControl1.TabPages["posUsers"]);
-
-                                if (!this.userPermissions.settings_edit)
-                                    tabControl1.TabPages.Remove(tabControl1.TabPages["Settings"]);
-
-                                if (!this.userPermissions.personnel_edit)
-                                    tabControl1.TabPages.Remove(tabControl1.TabPages["Employees"]);
-
-                                if (!this.userPermissions.receipt_edit)
-                                {
-                                    tabControl4.TabPages.Remove(tabControl4.TabPages["EditInvoices"]);
-                                    tabControl4.TabPages.Remove(tabControl4.TabPages["TravelingUntravelingSales"]);
-                                    tabControl4.TabPages.Remove(tabControl4.TabPages["SoldItems"]);
-                                }
-
-                                if (!this.userPermissions.openclose_edit)
-                                {
-                                    openRegisterBtn.Enabled = false;
-                                    closeRegisterBtn.Enabled = false;
-                                    label65.Enabled = false;
-                                    label66.Enabled = false;
-                                }
+                                
+                                applyAuthorityPermissions();
                             }
                             else
                             {
@@ -6336,6 +6354,7 @@ namespace NeatVibezPOS
 
         private void updateWarehouses_Tick(object sender, EventArgs e)
         {
+            applyAuthorityPermissions();
             refreshSettings();
             DisplayItemTypes();
             DisplayFavoriteItems();

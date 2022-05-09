@@ -90,6 +90,8 @@ namespace NeatVibezPOS_Server
         [OperationContract]
         Tuple<List<Item>, DataTable> RetrieveMostBoughtItems();
         [OperationContract]
+        int RetrieveAccountAuthority(string UserID = "");
+        [OperationContract]
         Account RetrieveUserPermissions(string UserID = "");
         [OperationContract]
         Item RetrieveItemPictureFromBarCode(string ItemBarCode);

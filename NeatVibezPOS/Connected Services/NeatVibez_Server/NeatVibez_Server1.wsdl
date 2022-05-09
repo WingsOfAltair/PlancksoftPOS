@@ -250,6 +250,12 @@
   <wsdl:message name="INeatVibez_Server_RetrieveMostBoughtItems_OutputMessage">
     <wsdl:part name="parameters" element="tns:RetrieveMostBoughtItemsResponse" />
   </wsdl:message>
+  <wsdl:message name="INeatVibez_Server_RetrieveAccountAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAccountAuthority" />
+  </wsdl:message>
+  <wsdl:message name="INeatVibez_Server_RetrieveAccountAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAccountAuthorityResponse" />
+  </wsdl:message>
   <wsdl:message name="INeatVibez_Server_RetrieveUserPermissions_InputMessage">
     <wsdl:part name="parameters" element="tns:RetrieveUserPermissions" />
   </wsdl:message>
@@ -788,6 +794,10 @@
     <wsdl:operation name="RetrieveMostBoughtItems">
       <wsdl:input wsaw:Action="http://tempuri.org/INeatVibez_Server/RetrieveMostBoughtItems" message="tns:INeatVibez_Server_RetrieveMostBoughtItems_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/INeatVibez_Server/RetrieveMostBoughtItemsResponse" message="tns:INeatVibez_Server_RetrieveMostBoughtItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAccountAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/INeatVibez_Server/RetrieveAccountAuthority" message="tns:INeatVibez_Server_RetrieveAccountAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/INeatVibez_Server/RetrieveAccountAuthorityResponse" message="tns:INeatVibez_Server_RetrieveAccountAuthority_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RetrieveUserPermissions">
       <wsdl:input wsaw:Action="http://tempuri.org/INeatVibez_Server/RetrieveUserPermissions" message="tns:INeatVibez_Server_RetrieveUserPermissions_InputMessage" />
@@ -1397,6 +1407,15 @@
     </wsdl:operation>
     <wsdl:operation name="RetrieveMostBoughtItems">
       <soap:operation soapAction="http://tempuri.org/INeatVibez_Server/RetrieveMostBoughtItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAccountAuthority">
+      <soap:operation soapAction="http://tempuri.org/INeatVibez_Server/RetrieveAccountAuthority" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

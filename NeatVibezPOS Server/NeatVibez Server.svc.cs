@@ -167,6 +167,10 @@ namespace NeatVibezPOS_Server
         {
             return DAL.RetrieveMostBoughtItems();
         }
+        public int RetrieveAccountAuthority(string UserID = "")
+        {
+            return DAL.RetrieveAccountAuthority(UserID);
+        }
         public Account RetrieveUserPermissions(string UserID = "")
         {
             return DAL.RetrieveUserPermissions(UserID);

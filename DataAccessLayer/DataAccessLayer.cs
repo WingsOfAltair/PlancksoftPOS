@@ -1262,6 +1262,32 @@ namespace DataAccessLayer
             }
         }
 
+        public int RetrieveAccountAuthority(string UserID = "")
+        {
+            try
+            {
+                Account User = new Account();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveAccountAuthority", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                cmd.Parameters.AddWithValue("@UserID", UserID);
+
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "AccountAuthority";
+
+                return Convert.ToInt32(dt.Rows[0]["Authority"].ToString());
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+
         public Account RetrieveUserPermissions(string UserID = "")
         {
             try
