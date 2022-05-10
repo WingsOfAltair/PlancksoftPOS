@@ -48,6 +48,9 @@
             this.searchItemDGV = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FavoriteCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WarehouseName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FavoriteCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.WarehouseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -281,6 +284,9 @@
             this.searchItemDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn41,
             this.ItemBuyPrice,
+            this.FavoriteCategoryName,
+            this.WarehouseName,
+            this.ItemTypeName,
             this.FavoriteCategory,
             this.WarehouseID,
             this.ItemType,
@@ -310,9 +316,33 @@
             this.ItemBuyPrice.ReadOnly = true;
             this.ItemBuyPrice.Visible = false;
             // 
+            // FavoriteCategoryName
+            // 
+            this.FavoriteCategoryName.DataPropertyName = "Favorite Category";
+            this.FavoriteCategoryName.HeaderText = "FavoriteCategoryName";
+            this.FavoriteCategoryName.Name = "FavoriteCategoryName";
+            this.FavoriteCategoryName.ReadOnly = true;
+            this.FavoriteCategoryName.Visible = false;
+            // 
+            // WarehouseName
+            // 
+            this.WarehouseName.DataPropertyName = "InventoryItemWarehouse";
+            this.WarehouseName.HeaderText = "WarehouseName";
+            this.WarehouseName.Name = "WarehouseName";
+            this.WarehouseName.ReadOnly = true;
+            this.WarehouseName.Visible = false;
+            // 
+            // ItemTypeName
+            // 
+            this.ItemTypeName.DataPropertyName = "InventoryItemType";
+            this.ItemTypeName.HeaderText = "ItemTypeName";
+            this.ItemTypeName.Name = "ItemTypeName";
+            this.ItemTypeName.ReadOnly = true;
+            this.ItemTypeName.Visible = false;
+            // 
             // FavoriteCategory
             // 
-            this.FavoriteCategory.DataPropertyName = "Favorite Category";
+            this.FavoriteCategory.DataPropertyName = "Favorite Category Number";
             this.FavoriteCategory.HeaderText = "Favorite Category";
             this.FavoriteCategory.Name = "FavoriteCategory";
             this.FavoriteCategory.ReadOnly = true;
@@ -415,6 +445,9 @@
         public System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemBuyPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FavoriteCategoryName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WarehouseName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FavoriteCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn WarehouseID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemType;

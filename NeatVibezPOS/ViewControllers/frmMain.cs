@@ -6352,7 +6352,7 @@ namespace NeatVibezPOS
             richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
         }
 
-        private void updateWarehouses_Tick(object sender, EventArgs e)
+        private void updateSystem_Tick(object sender, EventArgs e)
         {
             applyAuthorityPermissions();
             refreshSettings();

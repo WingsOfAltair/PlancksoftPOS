@@ -71,12 +71,12 @@ namespace NeatVibezPOS
         {
             try
             {
-                selectedItem.SetName(DGVItemsLookup.Rows[e.RowIndex].Cells[0].Value.ToString());
-                selectedItem.SetBarCode(DGVItemsLookup.Rows[e.RowIndex].Cells[1].Value.ToString());
-                selectedItem.SetQuantity(Convert.ToInt32(DGVItemsLookup.Rows[e.RowIndex].Cells[2].Value.ToString()));
-                selectedItem.SetBuyPrice(Convert.ToDecimal(DGVItemsLookup.Rows[e.RowIndex].Cells[3].Value.ToString()));
-                selectedItem.SetPrice(Convert.ToDecimal(DGVItemsLookup.Rows[e.RowIndex].Cells[4].Value.ToString()));
-                selectedItem.SetPriceTax(Convert.ToDecimal(DGVItemsLookup.Rows[e.RowIndex].Cells[5].Value.ToString()));
+                selectedItem.SetName(DGVItemsLookup.Rows[e.RowIndex].Cells["ItemName"].Value.ToString());
+                selectedItem.SetBarCode(DGVItemsLookup.Rows[e.RowIndex].Cells["ItemBarCode"].Value.ToString());
+                selectedItem.SetQuantity(Convert.ToInt32(DGVItemsLookup.Rows[e.RowIndex].Cells["ItemQuantity"].Value.ToString()));
+                selectedItem.SetBuyPrice(Convert.ToDecimal(DGVItemsLookup.Rows[e.RowIndex].Cells["ItemBuyPrice"].Value.ToString()));
+                selectedItem.SetPrice(Convert.ToDecimal(DGVItemsLookup.Rows[e.RowIndex].Cells["ItemPrice"].Value.ToString()));
+                selectedItem.SetPriceTax(Convert.ToDecimal(DGVItemsLookup.Rows[e.RowIndex].Cells["ItemPriceTax"].Value.ToString()));
                 if (comboBox1.Text != "")
                 {
                     int ItemTypeID = Connection.server.RetrieveItemTypeID(comboBox1.SelectedItem.ToString());

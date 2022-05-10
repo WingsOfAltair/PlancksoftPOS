@@ -36,15 +36,6 @@
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.DGVItemsLookup = new System.Windows.Forms.DataGridView();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -52,6 +43,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ItemNametxt = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.WarehouseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Warehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FavoriteCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FavoriteCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BtnPrint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -84,7 +88,7 @@
             this.BtnPrint.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.BtnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnPrint.Image = global::NeatVibezPOS.Properties.Resources.BtnPrint;
-            this.BtnPrint.Location = new System.Drawing.Point(121, 390);
+            this.BtnPrint.Location = new System.Drawing.Point(242, 394);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(97, 47);
             this.BtnPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -100,6 +104,7 @@
             this.numericUpDown1.Name = "numericUpDown1";
             this.numericUpDown1.Size = new System.Drawing.Size(115, 20);
             this.numericUpDown1.TabIndex = 3;
+            this.numericUpDown1.Visible = false;
             this.numericUpDown1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown1_KeyPress);
             // 
             // label4
@@ -112,6 +117,7 @@
             this.label4.Size = new System.Drawing.Size(61, 13);
             this.label4.TabIndex = 11;
             this.label4.Text = "عدد القطع";
+            this.label4.Visible = false;
             // 
             // comboBox1
             // 
@@ -141,81 +147,31 @@
             this.DGVItemsLookup.BackgroundColor = System.Drawing.Color.White;
             this.DGVItemsLookup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVItemsLookup.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5,
-            this.Column6,
-            this.Column7,
-            this.Column8,
-            this.Column9,
-            this.Column10});
-            this.DGVItemsLookup.Location = new System.Drawing.Point(0, 9);
+            this.ItemID,
+            this.ItemName,
+            this.ItemBarCode,
+            this.ItemQuantity,
+            this.ItemBuyPrice,
+            this.ItemPrice,
+            this.ItemPriceTax,
+            this.WarehouseID,
+            this.Warehouse,
+            this.ItemType,
+            this.ItemTypeName,
+            this.FavoriteCategory,
+            this.FavoriteCategoryName});
+            this.DGVItemsLookup.Location = new System.Drawing.Point(133, 9);
             this.DGVItemsLookup.Name = "DGVItemsLookup";
-            this.DGVItemsLookup.Size = new System.Drawing.Size(1210, 372);
+            this.DGVItemsLookup.Size = new System.Drawing.Size(1077, 372);
             this.DGVItemsLookup.TabIndex = 7;
             this.DGVItemsLookup.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVItemsLookup_RowHeaderMouseClick);
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Item Name";
-            this.Column2.HeaderText = "اسم القطعه";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Item BarCode";
-            this.Column3.HeaderText = "باركود القطعه";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Item Quantity";
-            this.Column4.HeaderText = "عدد القطعه";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Item Buy Price";
-            this.Column5.HeaderText = "سعر الشراء";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "Item Price";
-            this.Column6.HeaderText = "سعر البيع";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.DataPropertyName = "Item Price Tax";
-            this.Column7.HeaderText = "سعر البيع مع الضريبه";
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.DataPropertyName = "Warehouse ID";
-            this.Column8.HeaderText = "رقم المستودع";
-            this.Column8.Name = "Column8";
-            // 
-            // Column9
-            // 
-            this.Column9.DataPropertyName = "Item Type";
-            this.Column9.HeaderText = "تصنيف الماده";
-            this.Column9.Name = "Column9";
-            // 
-            // Column10
-            // 
-            this.Column10.DataPropertyName = "Favorite Category";
-            this.Column10.HeaderText = "المجلد المفضل";
-            this.Column10.Name = "Column10";
             // 
             // button3
             // 
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(12, 390);
+            this.button3.Location = new System.Drawing.Point(133, 394);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(100, 48);
             this.button3.TabIndex = 6;
@@ -228,7 +184,7 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(224, 390);
+            this.button2.Location = new System.Drawing.Point(345, 394);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(100, 48);
             this.button2.TabIndex = 5;
@@ -241,7 +197,7 @@
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(330, 390);
+            this.button1.Location = new System.Drawing.Point(451, 394);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(100, 48);
             this.button1.TabIndex = 4;
@@ -291,12 +247,94 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "اسم الماده";
             // 
+            // ItemID
+            // 
+            this.ItemID.DataPropertyName = "Item ID";
+            this.ItemID.HeaderText = "رقم القطعه";
+            this.ItemID.Name = "ItemID";
+            this.ItemID.Visible = false;
+            // 
+            // ItemName
+            // 
+            this.ItemName.DataPropertyName = "Item Name";
+            this.ItemName.HeaderText = "اسم القطعه";
+            this.ItemName.Name = "ItemName";
+            // 
+            // ItemBarCode
+            // 
+            this.ItemBarCode.DataPropertyName = "Item BarCode";
+            this.ItemBarCode.HeaderText = "باركود القطعه";
+            this.ItemBarCode.Name = "ItemBarCode";
+            // 
+            // ItemQuantity
+            // 
+            this.ItemQuantity.DataPropertyName = "Item Quantity";
+            this.ItemQuantity.HeaderText = "عدد القطعه";
+            this.ItemQuantity.Name = "ItemQuantity";
+            // 
+            // ItemBuyPrice
+            // 
+            this.ItemBuyPrice.DataPropertyName = "Item Buy Price";
+            this.ItemBuyPrice.HeaderText = "سعر الشراء";
+            this.ItemBuyPrice.Name = "ItemBuyPrice";
+            // 
+            // ItemPrice
+            // 
+            this.ItemPrice.DataPropertyName = "Item Price";
+            this.ItemPrice.HeaderText = "سعر البيع";
+            this.ItemPrice.Name = "ItemPrice";
+            // 
+            // ItemPriceTax
+            // 
+            this.ItemPriceTax.DataPropertyName = "Item Price Tax";
+            this.ItemPriceTax.HeaderText = "سعر البيع مع الضريبه";
+            this.ItemPriceTax.Name = "ItemPriceTax";
+            // 
+            // WarehouseID
+            // 
+            this.WarehouseID.DataPropertyName = "Warehouse ID";
+            this.WarehouseID.HeaderText = "رقم المستودع";
+            this.WarehouseID.Name = "WarehouseID";
+            this.WarehouseID.Visible = false;
+            // 
+            // Warehouse
+            // 
+            this.Warehouse.DataPropertyName = "InventoryItemWarehouse";
+            this.Warehouse.HeaderText = "المستودع";
+            this.Warehouse.Name = "Warehouse";
+            // 
+            // ItemType
+            // 
+            this.ItemType.DataPropertyName = "Item Type";
+            this.ItemType.HeaderText = "رقم تصنيف الماده";
+            this.ItemType.Name = "ItemType";
+            this.ItemType.Visible = false;
+            // 
+            // ItemTypeName
+            // 
+            this.ItemTypeName.DataPropertyName = "InventoryItemType";
+            this.ItemTypeName.HeaderText = "تصنيف الماده";
+            this.ItemTypeName.Name = "ItemTypeName";
+            // 
+            // FavoriteCategory
+            // 
+            this.FavoriteCategory.DataPropertyName = "Favorite Category Number";
+            this.FavoriteCategory.HeaderText = "رقم المجلد المفضل";
+            this.FavoriteCategory.Name = "FavoriteCategory";
+            this.FavoriteCategory.Visible = false;
+            // 
+            // FavoriteCategoryName
+            // 
+            this.FavoriteCategoryName.DataPropertyName = "Favorite Category";
+            this.FavoriteCategoryName.HeaderText = "المجلد المفضل";
+            this.FavoriteCategoryName.Name = "FavoriteCategoryName";
+            // 
             // frmItemLookup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1212, 450);
+            this.ClientSize = new System.Drawing.Size(1079, 450);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -328,17 +366,21 @@
         public System.Windows.Forms.DataGridView DGVItemsLookup;
         public System.Windows.Forms.ComboBox comboBox1;
         public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.PictureBox BtnPrint;
         public System.Windows.Forms.NumericUpDown numericUpDown1;
         public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.PictureBox BtnPrint;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemBarCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemBuyPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemPriceTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn WarehouseID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Warehouse;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemType;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemTypeName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FavoriteCategory;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FavoriteCategoryName;
     }
 }
