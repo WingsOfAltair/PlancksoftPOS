@@ -49,6 +49,7 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
+                dt.TableName = "SystemSettings";
                 return dt;
             }
         }
@@ -411,6 +412,7 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
+                dt.TableName = "LoginLogoutInfo";
                 return dt;
             }
         }
@@ -476,6 +478,7 @@ namespace DataAccessLayer
             {
                 List<Customer> Customers = new List<Customer>();
                 DataTable dt = new DataTable();
+                dt.TableName = "CustomersList";
                 return Tuple.Create(Customers, dt);
             }
         }
@@ -508,6 +511,7 @@ namespace DataAccessLayer
             {
                 List<Customer> Customers = new List<Customer>();
                 DataTable dt = new DataTable();
+                dt.TableName = "VendorsList";
                 return Tuple.Create(Customers, dt);
             }
         }
@@ -874,6 +878,7 @@ namespace DataAccessLayer
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
+                dt.TableName = "WarehouseInventoryItems";
                 return Tuple.Create(Items, dt);
             }
         }
@@ -914,6 +919,7 @@ namespace DataAccessLayer
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
+                dt.TableName = "InventoryItems";
                 return Tuple.Create(Items, dt);
             }
         }
@@ -986,6 +992,7 @@ namespace DataAccessLayer
             {
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
+                dt.TableName = "UnPortedBills";
                 return Tuple.Create(Bills, dt);
             }
         }
@@ -1021,6 +1028,7 @@ namespace DataAccessLayer
             {
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
+                dt.TableName = "PortedBills";
                 return Tuple.Create(Bills, dt);
             }
         }
@@ -1055,6 +1063,7 @@ namespace DataAccessLayer
             {
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
+                dt.TableName = "VendorBills";
                 return Tuple.Create(Bills, dt);
             }
         }
@@ -1077,6 +1086,7 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
+                dt.TableName = "TaxZReport";
                 return dt;
             }
         }
@@ -1113,6 +1123,7 @@ namespace DataAccessLayer
             {
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
+                dt.TableName = "Bills";
                 return Tuple.Create(Bills, dt);
             }
         }
@@ -1138,6 +1149,7 @@ namespace DataAccessLayer
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
+                dt.TableName = "CapitalRevenue";
                 return Tuple.Create(Items, dt);
             }
         }
@@ -1163,6 +1175,7 @@ namespace DataAccessLayer
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
+                dt.TableName = "Exports";
                 return Tuple.Create(Items, dt);
             }
         }
@@ -1188,6 +1201,7 @@ namespace DataAccessLayer
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
+                dt.TableName = "Imports";
                 return Tuple.Create(Items, dt);
             }
         }
@@ -1223,6 +1237,7 @@ namespace DataAccessLayer
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
+                dt.TableName = "LeastBoughtItems";
                 return Tuple.Create(Items, dt);
             }
         }
@@ -1258,6 +1273,7 @@ namespace DataAccessLayer
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
+                dt.TableName = "MostBoughtItems";
                 return Tuple.Create(Items, dt);
             }
         }
@@ -1436,6 +1452,7 @@ namespace DataAccessLayer
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
+                dt.TableName = "Items";
                 return Tuple.Create(Items, dt);
             }
         }
@@ -1459,6 +1476,7 @@ namespace DataAccessLayer
             {
                 Account[] Users = new Account[0];
                 DataTable dt = new DataTable();
+                dt.TableName = "Employees";
                 return dt;
             }
         }
@@ -1493,6 +1511,7 @@ namespace DataAccessLayer
             {
                 List<Account> Users = new List<Account>();
                 DataTable dt = new DataTable();
+                dt.TableName = "Users";
                 return Tuple.Create(Users, dt);
             }
         }
@@ -1528,6 +1547,7 @@ namespace DataAccessLayer
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
+                dt.TableName = "VendorBillItems";
                 return Tuple.Create(Items, dt);
             }
         }
@@ -1564,6 +1584,7 @@ namespace DataAccessLayer
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
+                dt.TableName = "BillItems";
                 return Tuple.Create(Items, dt);
             }
         }
@@ -1593,6 +1614,7 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
+                dt.TableName = "BillItemsProfit";
                 return dt;
             }
         }
@@ -1615,6 +1637,7 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
+                dt.TableName = "ReturnedItems";
                 return dt;
             }
         }
@@ -1653,6 +1676,7 @@ namespace DataAccessLayer
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
+                dt.TableName = "FavoriteItems";
                 return Tuple.Create(Items, dt);
             }
         }
@@ -2971,6 +2995,7 @@ namespace DataAccessLayer
             {
                 List<Item> expireItems = new List<Item>();
                 DataTable dt = new DataTable();
+                dt.TableName = "ExpireStockToday";
                 return Tuple.Create(expireItems, dt);
             }
         }
@@ -3059,6 +3084,7 @@ namespace DataAccessLayer
             {
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
+                dt.TableName = "TodayBills";
                 return Tuple.Create(Bills, dt);
             }
         }
@@ -3097,6 +3123,7 @@ namespace DataAccessLayer
             {
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
+                dt.TableName = "Bills";
                 return Tuple.Create(Bills, dt);
             }
         }
@@ -3152,6 +3179,7 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
+                dt.TableName = "Absence";
                 return dt;
             }
         }
@@ -3182,6 +3210,7 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
+                dt.TableName = "Expenses";
                 return dt;
             }
         }
@@ -3225,6 +3254,7 @@ namespace DataAccessLayer
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
+                dt.TableName = "Items";
                 return Tuple.Create(Items, dt);
             }
         }
@@ -3291,6 +3321,7 @@ namespace DataAccessLayer
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
+                dt.TableName = "CustomersInfo";
                 Customer Customer = new Customer();
                 return Tuple.Create(Customer, dt);
             }

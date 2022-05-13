@@ -1,26 +1,5 @@
 USE [NeatVibezPOS]
 GO
-/****** Object:  User [NeatVibezPOS]    Script Date: 5/10/2022 1:27:12 PM ******/
-CREATE USER [NeatVibezPOS] FOR LOGIN [NeatVibezPOS] WITH DEFAULT_SCHEMA=[dbo]
-GO
-ALTER ROLE [db_owner] ADD MEMBER [NeatVibezPOS]
-GO
-ALTER ROLE [db_accessadmin] ADD MEMBER [NeatVibezPOS]
-GO
-ALTER ROLE [db_securityadmin] ADD MEMBER [NeatVibezPOS]
-GO
-ALTER ROLE [db_ddladmin] ADD MEMBER [NeatVibezPOS]
-GO
-ALTER ROLE [db_backupoperator] ADD MEMBER [NeatVibezPOS]
-GO
-ALTER ROLE [db_datareader] ADD MEMBER [NeatVibezPOS]
-GO
-ALTER ROLE [db_datawriter] ADD MEMBER [NeatVibezPOS]
-GO
-ALTER ROLE [db_denydatareader] ADD MEMBER [NeatVibezPOS]
-GO
-ALTER ROLE [db_denydatawriter] ADD MEMBER [NeatVibezPOS]
-GO
 /****** Object:  Table [dbo].[Absence]    Script Date: 5/10/2022 1:27:12 PM ******/
 SET ANSI_NULLS ON
 GO
