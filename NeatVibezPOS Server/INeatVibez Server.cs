@@ -210,7 +210,7 @@ namespace NeatVibezPOS_Server
         [OperationContract]
         DataTable RetrieveAbsence(DateTime Date1, DateTime Date2);
         [OperationContract]
-        DataTable SearchExpenses(DateTime Date1, DateTime Date2, string ExpenseName = "", string EmployeeID = "");
+        DataTable SearchExpenses(string Date1, string Date2, string ExpenseName = "", string EmployeeID = "");
         [OperationContract]
         Tuple<List<Item>, DataTable> SearchItems(string ItemName = "", string ItemBarCode = "", int ItemType = 0);
         [OperationContract]

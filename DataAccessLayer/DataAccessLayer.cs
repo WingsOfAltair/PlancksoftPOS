@@ -3185,7 +3185,7 @@ namespace DataAccessLayer
             }
         }
 
-        public DataTable SearchExpenses(DateTime Date1, DateTime Date2, string ExpenseName = "", string EmployeeID = "")
+        public DataTable SearchExpenses(string Date1, string Date2, string ExpenseName = "", string EmployeeID = "")
         {
             try
             {

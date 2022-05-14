@@ -407,7 +407,7 @@ namespace NeatVibezPOS_Server
         {
             return DAL.RetrieveAbsence(Date1, Date2);
         }
-        public DataTable SearchExpenses(DateTime Date1, DateTime Date2, string ExpenseName = "", string EmployeeID = "")
+        public DataTable SearchExpenses(string Date1, string Date2, string ExpenseName = "", string EmployeeID = "")
         {
             return DAL.SearchExpenses(Date1, Date2, ExpenseName, EmployeeID);
         }

@@ -1482,8 +1482,8 @@
   <xs:element name="SearchExpenses">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Date1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="Date2" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Date1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Date2" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="ExpenseName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="EmployeeID" nillable="true" type="xs:string" />
       </xs:sequence>

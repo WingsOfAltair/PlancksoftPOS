@@ -2447,8 +2447,6 @@ namespace NeatVibezPOS
         {
             Tuple<List<Bill>, DataTable> RetrievedItems;
             RetrievedItems = Connection.server.SearchTodayBills(DateTime.Today);
-            RetrievedItems = Connection.server.SearchTodayBills(DateTime.Today);
-            RetrievedItems = Connection.server.SearchTodayBills(DateTime.Today);
             dgvBills.DataSource = RetrievedItems.Item2;
         }
 
@@ -2963,7 +2961,9 @@ namespace NeatVibezPOS
         public void pictureBox33_Click(object sender, EventArgs e)
         {
             DataTable RetrievedExpenses;
-            RetrievedExpenses = Connection.server.SearchExpenses(dateTimePicker8.Value, dateTimePicker7.Value, textBox1.Text, textBox2.Text);
+            string dateFrom = dateTimePicker8.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+            string dateTo = dateTimePicker7.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
+            RetrievedExpenses = Connection.server.SearchExpenses(dateFrom, dateTo, textBox1.Text, textBox2.Text);
             dgvExpenses.DataSource = RetrievedExpenses;
             CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
         }
@@ -3247,7 +3247,9 @@ namespace NeatVibezPOS
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["Expenses"])
                 {
                     DataTable RetrievedExpenses;
-                    RetrievedExpenses = Connection.server.SearchExpenses(dateTimePicker8.Value, dateTimePicker7.Value, textBox1.Text, textBox2.Text);
+                    string dateFrom = dateTimePicker8.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+                    string dateTo = dateTimePicker7.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
+                    RetrievedExpenses = Connection.server.SearchExpenses(dateFrom, dateTo, textBox1.Text, textBox2.Text);
                     dgvExpenses.DataSource = RetrievedExpenses;
                 }
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["IncomingOutgoing"])

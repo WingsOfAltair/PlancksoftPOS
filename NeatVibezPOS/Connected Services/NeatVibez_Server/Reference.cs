@@ -316,7 +316,7 @@ namespace NeatVibezPOS.NeatVibez_Server {
         System.Data.DataTable RetrieveAbsence(System.DateTime Date1, System.DateTime Date2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/SearchExpenses", ReplyAction="http://tempuri.org/INeatVibez_Server/SearchExpensesResponse")]
-        System.Data.DataTable SearchExpenses(System.DateTime Date1, System.DateTime Date2, string ExpenseName, string EmployeeID);
+        System.Data.DataTable SearchExpenses(string Date1, string Date2, string ExpenseName, string EmployeeID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/SearchItems", ReplyAction="http://tempuri.org/INeatVibez_Server/SearchItemsResponse")]
         System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchItems(string ItemName, string ItemBarCode, int ItemType);
@@ -755,7 +755,7 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.RetrieveAbsence(Date1, Date2);
         }
         
-        public System.Data.DataTable SearchExpenses(System.DateTime Date1, System.DateTime Date2, string ExpenseName, string EmployeeID) {
+        public System.Data.DataTable SearchExpenses(string Date1, string Date2, string ExpenseName, string EmployeeID) {
             return base.Channel.SearchExpenses(Date1, Date2, ExpenseName, EmployeeID);
         }
         
