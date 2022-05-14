@@ -82,6 +82,6 @@ C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\obj\Debug\NeatVibezPOS.csproj.G
 C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\obj\Debug\NeatVibezPOS.csproj.CoreCompileInputs.cache
 C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\obj\Debug\NeatVibezPOS.exe
 C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\obj\Debug\NeatVibezPOS.pdb
-C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\bin\Debug\DataAccessLayer.dll
-C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\bin\Debug\DataAccessLayer.pdb
 C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\obj\Debug\NeatVibezPOS.csproj.CopyComplete
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\bin\Debug\Dependencies.dll
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS\bin\Debug\Dependencies.pdb

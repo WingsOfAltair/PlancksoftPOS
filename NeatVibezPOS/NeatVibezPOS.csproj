@@ -294,6 +294,13 @@
     <None Include="Properties\DataSources\DataAccessLayer.Item.datasource" />
     <None Include="Properties\DataSources\DataAccessLayer.ItemType.datasource" />
     <None Include="Properties\DataSources\DataAccessLayer.Warehouse.datasource" />
+    <None Include="Properties\DataSources\Dependencies.Account.datasource" />
+    <None Include="Properties\DataSources\Dependencies.Bill.datasource" />
+    <None Include="Properties\DataSources\Dependencies.Category.datasource" />
+    <None Include="Properties\DataSources\Dependencies.Customer.datasource" />
+    <None Include="Properties\DataSources\Dependencies.Item.datasource" />
+    <None Include="Properties\DataSources\Dependencies.ItemType.datasource" />
+    <None Include="Properties\DataSources\Dependencies.Warehouse.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -424,13 +431,13 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{123458db-b615-47e7-a917-c3d7e67cabd2}</Project>
-      <Name>DataAccessLayer</Name>
-    </ProjectReference>
+    <WCFMetadataStorage Include="Connected Services\NeatVibez_Server\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\NeatVibez_Server\" />
+    <ProjectReference Include="..\Dependencies\Dependencies.csproj">
+      <Project>{123458db-b615-47e7-a917-c3d7e67cabd2}</Project>
+      <Name>Dependencies</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

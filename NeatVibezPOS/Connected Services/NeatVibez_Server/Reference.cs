@@ -46,31 +46,31 @@ namespace NeatVibezPOS.NeatVibez_Server {
         int RetrieveFavoriteCategoryID(string CategoryName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveItemTypes", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveItemTypesResponse")]
-        System.Collections.Generic.List<DataAccessLayer.ItemType> RetrieveItemTypes();
+        System.Collections.Generic.List<Dependencies.ItemType> RetrieveItemTypes();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveWarehouses", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveWarehousesResponse")]
-        System.Collections.Generic.List<DataAccessLayer.Warehouse> RetrieveWarehouses();
+        System.Collections.Generic.List<Dependencies.Warehouse> RetrieveWarehouses();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveFavoriteCategories", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveFavoriteCategoriesResponse")]
-        System.Collections.Generic.List<DataAccessLayer.Category> RetrieveFavoriteCategories();
+        System.Collections.Generic.List<Dependencies.Category> RetrieveFavoriteCategories();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveLoginLogoutInfo", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveLoginLogoutInfoResponse")]
         System.Data.DataTable RetrieveLoginLogoutInfo(System.DateTime Date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveUsersList", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveUsersListResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Account>, System.Data.DataTable> RetrieveUsersList();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Account>, System.Data.DataTable> RetrieveUsersList();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/GetRetrieveCustomers", ReplyAction="http://tempuri.org/INeatVibez_Server/GetRetrieveCustomersResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Customer>, System.Data.DataTable> GetRetrieveCustomers();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Customer>, System.Data.DataTable> GetRetrieveCustomers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/GetRetrieveVendors", ReplyAction="http://tempuri.org/INeatVibez_Server/GetRetrieveVendorsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Customer>, System.Data.DataTable> GetRetrieveVendors();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Customer>, System.Data.DataTable> GetRetrieveVendors();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/CheckAdmin", ReplyAction="http://tempuri.org/INeatVibez_Server/CheckAdminResponse")]
         bool CheckAdmin();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RegisterAdmin", ReplyAction="http://tempuri.org/INeatVibez_Server/RegisterAdminResponse")]
-        bool RegisterAdmin(DataAccessLayer.Account AccountToRegister);
+        bool RegisterAdmin(Dependencies.Account AccountToRegister);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/LogLogout", ReplyAction="http://tempuri.org/INeatVibez_Server/LogLogoutResponse")]
         void LogLogout(string cashierName, System.DateTime date);
@@ -79,10 +79,10 @@ namespace NeatVibezPOS.NeatVibez_Server {
         void LogLogin(string cashierName, System.DateTime date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/Login", ReplyAction="http://tempuri.org/INeatVibez_Server/LoginResponse")]
-        System.Tuple<bool, string, bool> Login(DataAccessLayer.Account AccountToLogin);
+        System.Tuple<bool, string, bool> Login(Dependencies.Account AccountToLogin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/Register", ReplyAction="http://tempuri.org/INeatVibez_Server/RegisterResponse")]
-        bool Register(DataAccessLayer.Account AccountToRegister, string UID, int AdminOrNot);
+        bool Register(Dependencies.Account AccountToRegister, string UID, int AdminOrNot);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/DeleteFavoriteItem", ReplyAction="http://tempuri.org/INeatVibez_Server/DeleteFavoriteItemResponse")]
         bool DeleteFavoriteItem(string ItemBarCode);
@@ -97,70 +97,70 @@ namespace NeatVibezPOS.NeatVibez_Server {
         bool SaveRegisterOpen(string cashierName, decimal moneyInRegister);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/SearchWarehouseInventoryItems", ReplyAction="http://tempuri.org/INeatVibez_Server/SearchWarehouseInventoryItemsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> SearchWarehouseInventoryItems(int WarehouseID);
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchWarehouseInventoryItems(int WarehouseID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/SearchInventoryItems", ReplyAction="http://tempuri.org/INeatVibez_Server/SearchInventoryItemsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> SearchInventoryItems(string ItemName, string ItemBarCode);
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchInventoryItems(string ItemName, string ItemBarCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/SearchInventoryItemsWithBarCode", ReplyAction="http://tempuri.org/INeatVibez_Server/SearchInventoryItemsWithBarCodeResponse")]
-        DataAccessLayer.Item SearchInventoryItemsWithBarCode(string ItemBarCode);
+        Dependencies.Item SearchInventoryItemsWithBarCode(string ItemBarCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveUnPortedBills", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveUnPortedBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Bill>, System.Data.DataTable> RetrieveUnPortedBills();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnPortedBills();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrievePortedBills", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrievePortedBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Bill>, System.Data.DataTable> RetrievePortedBills();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrievePortedBills();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveVendorBills", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveVendorBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Bill>, System.Data.DataTable> RetrieveVendorBills();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveVendorBills();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveTaxZReport", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveTaxZReportResponse")]
         System.Data.DataTable RetrieveTaxZReport();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveBills", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Bill>, System.Data.DataTable> RetrieveBills();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBills();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveCapitalRevenue", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveCapitalRevenueResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveCapitalRevenue();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveCapitalRevenue();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveExports", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveExportsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveExports();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveExports();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveImports", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveImportsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveImports();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveImports();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveLeastBoughtItems", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveLeastBoughtItemsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveLeastBoughtItems();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveLeastBoughtItems();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveMostBoughtItems", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveMostBoughtItemsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveMostBoughtItems();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveMostBoughtItems();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveAccountAuthority", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveAccountAuthorityResponse")]
         int RetrieveAccountAuthority(string UserID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveUserPermissions", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveUserPermissionsResponse")]
-        DataAccessLayer.Account RetrieveUserPermissions(string UserID);
+        Dependencies.Account RetrieveUserPermissions(string UserID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveItemPictureFromBarCode", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveItemPictureFromBarCodeResponse")]
-        DataAccessLayer.Item RetrieveItemPictureFromBarCode(string ItemBarCode);
+        Dependencies.Item RetrieveItemPictureFromBarCode(string ItemBarCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveItemsQuantityDates", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveItemsQuantityDatesResponse")]
-        DataAccessLayer.Item RetrieveItemsQuantityDates(string ItemBarCode);
+        Dependencies.Item RetrieveItemsQuantityDates(string ItemBarCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveItems", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveItemsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveItems();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveItems();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveEmployees", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveEmployeesResponse")]
         System.Data.DataTable RetrieveEmployees();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveUsers", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveUsersResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Account>, System.Data.DataTable> RetrieveUsers();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Account>, System.Data.DataTable> RetrieveUsers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveVendorBillItems", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveVendorBillItemsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveVendorBillItems(int BillNumber);
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveVendorBillItems(int BillNumber);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveBillItems", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveBillItemsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveBillItems(int BillNumber);
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveBillItems(int BillNumber);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveBillItemsProfit", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveBillItemsProfitResponse")]
         System.Data.DataTable RetrieveBillItemsProfit(System.DateTime Date1, System.DateTime Date2, int ItemTypeID, string CashierName);
@@ -169,7 +169,7 @@ namespace NeatVibezPOS.NeatVibez_Server {
         System.Data.DataTable RetrieveReturnedItems();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveFavoriteItems", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveFavoriteItemsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveFavoriteItems(int Category);
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveFavoriteItems(int Category);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/GetCapitalAmount", ReplyAction="http://tempuri.org/INeatVibez_Server/GetCapitalAmountResponse")]
         decimal GetCapitalAmount();
@@ -202,7 +202,7 @@ namespace NeatVibezPOS.NeatVibez_Server {
         bool InsertEmployee(string EmployeeName, decimal Salary, string Phone, string Address);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/InsertItem", ReplyAction="http://tempuri.org/INeatVibez_Server/InsertItemResponse")]
-        bool InsertItem(DataAccessLayer.Item ItemToInsert);
+        bool InsertItem(Dependencies.Item ItemToInsert);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/DeleteItemType", ReplyAction="http://tempuri.org/INeatVibez_Server/DeleteItemTypeResponse")]
         bool DeleteItemType(int ItemTypeID);
@@ -235,10 +235,10 @@ namespace NeatVibezPOS.NeatVibez_Server {
         bool DeletesCustomer(string CustomerID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RegisterCustomer", ReplyAction="http://tempuri.org/INeatVibez_Server/RegisterCustomerResponse")]
-        bool RegisterCustomer(DataAccessLayer.Customer CustomerToInsert);
+        bool RegisterCustomer(Dependencies.Customer CustomerToInsert);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RegisterVendor", ReplyAction="http://tempuri.org/INeatVibez_Server/RegisterVendorResponse")]
-        bool RegisterVendor(DataAccessLayer.Customer CustomerToInsert);
+        bool RegisterVendor(Dependencies.Customer CustomerToInsert);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/DeleteAbsence", ReplyAction="http://tempuri.org/INeatVibez_Server/DeleteAbsenceResponse")]
         bool DeleteAbsence(int AbsenceID);
@@ -247,25 +247,25 @@ namespace NeatVibezPOS.NeatVibez_Server {
         bool DeleteEmployee(int EmployeeID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/DeleteUser", ReplyAction="http://tempuri.org/INeatVibez_Server/DeleteUserResponse")]
-        bool DeleteUser(DataAccessLayer.Account UserToUpdate, string cashierName);
+        bool DeleteUser(Dependencies.Account UserToUpdate, string cashierName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/AddSaleOnItems", ReplyAction="http://tempuri.org/INeatVibez_Server/AddSaleOnItemsResponse")]
-        bool AddSaleOnItems(System.Collections.Generic.List<DataAccessLayer.Item> saleItems);
+        bool AddSaleOnItems(System.Collections.Generic.List<Dependencies.Item> saleItems);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/AddItemToCustomer", ReplyAction="http://tempuri.org/INeatVibez_Server/AddItemToCustomerResponse")]
         bool AddItemToCustomer(string ItemBarCode, int CustomerID, decimal CustomerPrice);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/AddVendorBill", ReplyAction="http://tempuri.org/INeatVibez_Server/AddVendorBillResponse")]
-        bool AddVendorBill(DataAccessLayer.Bill billToAdd, string cashierName);
+        bool AddVendorBill(Dependencies.Bill billToAdd, string cashierName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/PayBill", ReplyAction="http://tempuri.org/INeatVibez_Server/PayBillResponse")]
-        bool PayBill(DataAccessLayer.Bill billToAdd, string cashierName);
+        bool PayBill(Dependencies.Bill billToAdd, string cashierName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/UpdateEmployee", ReplyAction="http://tempuri.org/INeatVibez_Server/UpdateEmployeeResponse")]
         bool UpdateEmployee(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/UpdateUser", ReplyAction="http://tempuri.org/INeatVibez_Server/UpdateUserResponse")]
-        bool UpdateUser(DataAccessLayer.Account UserToUpdate, string cashierName, int AdminOrNot);
+        bool UpdateUser(Dependencies.Account UserToUpdate, string cashierName, int AdminOrNot);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/UpdateBill", ReplyAction="http://tempuri.org/INeatVibez_Server/UpdateBillResponse")]
         bool UpdateBill(int BillNumber, string CashierName, decimal TotalAmount, decimal PaidAmount, decimal RemainderAmount);
@@ -274,40 +274,40 @@ namespace NeatVibezPOS.NeatVibez_Server {
         bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/UpdateItemWarehouse", ReplyAction="http://tempuri.org/INeatVibez_Server/UpdateItemWarehouseResponse")]
-        bool UpdateItemWarehouse(System.Collections.Generic.List<DataAccessLayer.Item> ItemsToUpdate, string EmployeeName, int EntryExitType);
+        bool UpdateItemWarehouse(System.Collections.Generic.List<Dependencies.Item> ItemsToUpdate, string EmployeeName, int EntryExitType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/UpdateItem", ReplyAction="http://tempuri.org/INeatVibez_Server/UpdateItemResponse")]
-        bool UpdateItem(DataAccessLayer.Item ItemToUpdate);
+        bool UpdateItem(Dependencies.Item ItemToUpdate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/UpdateItemQuantity", ReplyAction="http://tempuri.org/INeatVibez_Server/UpdateItemQuantityResponse")]
-        bool UpdateItemQuantity(DataAccessLayer.Item ItemToUpdate);
+        bool UpdateItemQuantity(Dependencies.Item ItemToUpdate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/DeleteItem", ReplyAction="http://tempuri.org/INeatVibez_Server/DeleteItemResponse")]
         bool DeleteItem(string ItemBarCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveLastVendorBillNumberToday", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveLastVendorBillNumberTodayResponse")]
-        DataAccessLayer.Bill RetrieveLastVendorBillNumberToday(System.DateTime Date);
+        Dependencies.Bill RetrieveLastVendorBillNumberToday(System.DateTime Date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveLastBillNumberToday", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveLastBillNumberTodayResponse")]
-        DataAccessLayer.Bill RetrieveLastBillNumberToday();
+        Dependencies.Bill RetrieveLastBillNumberToday();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveItemsQuantity", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveItemsQuantityResponse")]
-        System.Collections.Generic.List<DataAccessLayer.Item> RetrieveItemsQuantity(string ItemBarCode);
+        System.Collections.Generic.List<Dependencies.Item> RetrieveItemsQuantity(string ItemBarCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveSaleItemsQuantity", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveSaleItemsQuantityResponse")]
-        System.Collections.Generic.List<DataAccessLayer.Item> RetrieveSaleItemsQuantity();
+        System.Collections.Generic.List<Dependencies.Item> RetrieveSaleItemsQuantity();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveExpireStockToday", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveExpireStockTodayResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveExpireStockToday(System.DateTime Date);
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveExpireStockToday(System.DateTime Date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/RetrieveSaleToday", ReplyAction="http://tempuri.org/INeatVibez_Server/RetrieveSaleTodayResponse")]
-        System.Collections.Generic.List<DataAccessLayer.Item> RetrieveSaleToday(System.DateTime Date, int QuantityEnd);
+        System.Collections.Generic.List<Dependencies.Item> RetrieveSaleToday(System.DateTime Date, int QuantityEnd);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/SearchTodayBills", ReplyAction="http://tempuri.org/INeatVibez_Server/SearchTodayBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Bill>, System.Data.DataTable> SearchTodayBills(System.DateTime Date);
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchTodayBills(System.DateTime Date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/SearchBills", ReplyAction="http://tempuri.org/INeatVibez_Server/SearchBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Bill>, System.Data.DataTable> SearchBills(int BillNumber);
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchBills(int BillNumber);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/GetItemQuantity", ReplyAction="http://tempuri.org/INeatVibez_Server/GetItemQuantityResponse")]
         int GetItemQuantity(string ItemBarCode);
@@ -319,13 +319,13 @@ namespace NeatVibezPOS.NeatVibez_Server {
         System.Data.DataTable SearchExpenses(System.DateTime Date1, System.DateTime Date2, string ExpenseName, string EmployeeID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/SearchItems", ReplyAction="http://tempuri.org/INeatVibez_Server/SearchItemsResponse")]
-        System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> SearchItems(string ItemName, string ItemBarCode, int ItemType);
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchItems(string ItemName, string ItemBarCode, int ItemType);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/SearchCustomers", ReplyAction="http://tempuri.org/INeatVibez_Server/SearchCustomersResponse")]
         System.Data.DataTable SearchCustomers(string customerName, string customerID, string itemName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INeatVibez_Server/SearchCustomersInfo", ReplyAction="http://tempuri.org/INeatVibez_Server/SearchCustomersInfoResponse")]
-        System.Tuple<DataAccessLayer.Customer, System.Data.DataTable> SearchCustomersInfo(string customerName, string customerID);
+        System.Tuple<Dependencies.Customer, System.Data.DataTable> SearchCustomersInfo(string customerName, string customerID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -395,15 +395,15 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.RetrieveFavoriteCategoryID(CategoryName);
         }
         
-        public System.Collections.Generic.List<DataAccessLayer.ItemType> RetrieveItemTypes() {
+        public System.Collections.Generic.List<Dependencies.ItemType> RetrieveItemTypes() {
             return base.Channel.RetrieveItemTypes();
         }
         
-        public System.Collections.Generic.List<DataAccessLayer.Warehouse> RetrieveWarehouses() {
+        public System.Collections.Generic.List<Dependencies.Warehouse> RetrieveWarehouses() {
             return base.Channel.RetrieveWarehouses();
         }
         
-        public System.Collections.Generic.List<DataAccessLayer.Category> RetrieveFavoriteCategories() {
+        public System.Collections.Generic.List<Dependencies.Category> RetrieveFavoriteCategories() {
             return base.Channel.RetrieveFavoriteCategories();
         }
         
@@ -411,15 +411,15 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.RetrieveLoginLogoutInfo(Date);
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Account>, System.Data.DataTable> RetrieveUsersList() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Account>, System.Data.DataTable> RetrieveUsersList() {
             return base.Channel.RetrieveUsersList();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Customer>, System.Data.DataTable> GetRetrieveCustomers() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Customer>, System.Data.DataTable> GetRetrieveCustomers() {
             return base.Channel.GetRetrieveCustomers();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Customer>, System.Data.DataTable> GetRetrieveVendors() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Customer>, System.Data.DataTable> GetRetrieveVendors() {
             return base.Channel.GetRetrieveVendors();
         }
         
@@ -427,7 +427,7 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.CheckAdmin();
         }
         
-        public bool RegisterAdmin(DataAccessLayer.Account AccountToRegister) {
+        public bool RegisterAdmin(Dependencies.Account AccountToRegister) {
             return base.Channel.RegisterAdmin(AccountToRegister);
         }
         
@@ -439,11 +439,11 @@ namespace NeatVibezPOS.NeatVibez_Server {
             base.Channel.LogLogin(cashierName, date);
         }
         
-        public System.Tuple<bool, string, bool> Login(DataAccessLayer.Account AccountToLogin) {
+        public System.Tuple<bool, string, bool> Login(Dependencies.Account AccountToLogin) {
             return base.Channel.Login(AccountToLogin);
         }
         
-        public bool Register(DataAccessLayer.Account AccountToRegister, string UID, int AdminOrNot) {
+        public bool Register(Dependencies.Account AccountToRegister, string UID, int AdminOrNot) {
             return base.Channel.Register(AccountToRegister, UID, AdminOrNot);
         }
         
@@ -463,27 +463,27 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.SaveRegisterOpen(cashierName, moneyInRegister);
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> SearchWarehouseInventoryItems(int WarehouseID) {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchWarehouseInventoryItems(int WarehouseID) {
             return base.Channel.SearchWarehouseInventoryItems(WarehouseID);
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> SearchInventoryItems(string ItemName, string ItemBarCode) {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchInventoryItems(string ItemName, string ItemBarCode) {
             return base.Channel.SearchInventoryItems(ItemName, ItemBarCode);
         }
         
-        public DataAccessLayer.Item SearchInventoryItemsWithBarCode(string ItemBarCode) {
+        public Dependencies.Item SearchInventoryItemsWithBarCode(string ItemBarCode) {
             return base.Channel.SearchInventoryItemsWithBarCode(ItemBarCode);
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Bill>, System.Data.DataTable> RetrieveUnPortedBills() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnPortedBills() {
             return base.Channel.RetrieveUnPortedBills();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Bill>, System.Data.DataTable> RetrievePortedBills() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrievePortedBills() {
             return base.Channel.RetrievePortedBills();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Bill>, System.Data.DataTable> RetrieveVendorBills() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveVendorBills() {
             return base.Channel.RetrieveVendorBills();
         }
         
@@ -491,27 +491,27 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.RetrieveTaxZReport();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Bill>, System.Data.DataTable> RetrieveBills() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBills() {
             return base.Channel.RetrieveBills();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveCapitalRevenue() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveCapitalRevenue() {
             return base.Channel.RetrieveCapitalRevenue();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveExports() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveExports() {
             return base.Channel.RetrieveExports();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveImports() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveImports() {
             return base.Channel.RetrieveImports();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveLeastBoughtItems() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveLeastBoughtItems() {
             return base.Channel.RetrieveLeastBoughtItems();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveMostBoughtItems() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveMostBoughtItems() {
             return base.Channel.RetrieveMostBoughtItems();
         }
         
@@ -519,19 +519,19 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.RetrieveAccountAuthority(UserID);
         }
         
-        public DataAccessLayer.Account RetrieveUserPermissions(string UserID) {
+        public Dependencies.Account RetrieveUserPermissions(string UserID) {
             return base.Channel.RetrieveUserPermissions(UserID);
         }
         
-        public DataAccessLayer.Item RetrieveItemPictureFromBarCode(string ItemBarCode) {
+        public Dependencies.Item RetrieveItemPictureFromBarCode(string ItemBarCode) {
             return base.Channel.RetrieveItemPictureFromBarCode(ItemBarCode);
         }
         
-        public DataAccessLayer.Item RetrieveItemsQuantityDates(string ItemBarCode) {
+        public Dependencies.Item RetrieveItemsQuantityDates(string ItemBarCode) {
             return base.Channel.RetrieveItemsQuantityDates(ItemBarCode);
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveItems() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveItems() {
             return base.Channel.RetrieveItems();
         }
         
@@ -539,15 +539,15 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.RetrieveEmployees();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Account>, System.Data.DataTable> RetrieveUsers() {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Account>, System.Data.DataTable> RetrieveUsers() {
             return base.Channel.RetrieveUsers();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveVendorBillItems(int BillNumber) {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveVendorBillItems(int BillNumber) {
             return base.Channel.RetrieveVendorBillItems(BillNumber);
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveBillItems(int BillNumber) {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveBillItems(int BillNumber) {
             return base.Channel.RetrieveBillItems(BillNumber);
         }
         
@@ -559,7 +559,7 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.RetrieveReturnedItems();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveFavoriteItems(int Category) {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveFavoriteItems(int Category) {
             return base.Channel.RetrieveFavoriteItems(Category);
         }
         
@@ -603,7 +603,7 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.InsertEmployee(EmployeeName, Salary, Phone, Address);
         }
         
-        public bool InsertItem(DataAccessLayer.Item ItemToInsert) {
+        public bool InsertItem(Dependencies.Item ItemToInsert) {
             return base.Channel.InsertItem(ItemToInsert);
         }
         
@@ -647,11 +647,11 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.DeletesCustomer(CustomerID);
         }
         
-        public bool RegisterCustomer(DataAccessLayer.Customer CustomerToInsert) {
+        public bool RegisterCustomer(Dependencies.Customer CustomerToInsert) {
             return base.Channel.RegisterCustomer(CustomerToInsert);
         }
         
-        public bool RegisterVendor(DataAccessLayer.Customer CustomerToInsert) {
+        public bool RegisterVendor(Dependencies.Customer CustomerToInsert) {
             return base.Channel.RegisterVendor(CustomerToInsert);
         }
         
@@ -663,11 +663,11 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.DeleteEmployee(EmployeeID);
         }
         
-        public bool DeleteUser(DataAccessLayer.Account UserToUpdate, string cashierName) {
+        public bool DeleteUser(Dependencies.Account UserToUpdate, string cashierName) {
             return base.Channel.DeleteUser(UserToUpdate, cashierName);
         }
         
-        public bool AddSaleOnItems(System.Collections.Generic.List<DataAccessLayer.Item> saleItems) {
+        public bool AddSaleOnItems(System.Collections.Generic.List<Dependencies.Item> saleItems) {
             return base.Channel.AddSaleOnItems(saleItems);
         }
         
@@ -675,11 +675,11 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.AddItemToCustomer(ItemBarCode, CustomerID, CustomerPrice);
         }
         
-        public bool AddVendorBill(DataAccessLayer.Bill billToAdd, string cashierName) {
+        public bool AddVendorBill(Dependencies.Bill billToAdd, string cashierName) {
             return base.Channel.AddVendorBill(billToAdd, cashierName);
         }
         
-        public bool PayBill(DataAccessLayer.Bill billToAdd, string cashierName) {
+        public bool PayBill(Dependencies.Bill billToAdd, string cashierName) {
             return base.Channel.PayBill(billToAdd, cashierName);
         }
         
@@ -687,7 +687,7 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.UpdateEmployee(EmployeeID, EmployeeName, Salary, Phone, Address);
         }
         
-        public bool UpdateUser(DataAccessLayer.Account UserToUpdate, string cashierName, int AdminOrNot) {
+        public bool UpdateUser(Dependencies.Account UserToUpdate, string cashierName, int AdminOrNot) {
             return base.Channel.UpdateUser(UserToUpdate, cashierName, AdminOrNot);
         }
         
@@ -699,15 +699,15 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.ReturnItem(ItemName, ItemBarCode, ItemQuantity, cashierName);
         }
         
-        public bool UpdateItemWarehouse(System.Collections.Generic.List<DataAccessLayer.Item> ItemsToUpdate, string EmployeeName, int EntryExitType) {
+        public bool UpdateItemWarehouse(System.Collections.Generic.List<Dependencies.Item> ItemsToUpdate, string EmployeeName, int EntryExitType) {
             return base.Channel.UpdateItemWarehouse(ItemsToUpdate, EmployeeName, EntryExitType);
         }
         
-        public bool UpdateItem(DataAccessLayer.Item ItemToUpdate) {
+        public bool UpdateItem(Dependencies.Item ItemToUpdate) {
             return base.Channel.UpdateItem(ItemToUpdate);
         }
         
-        public bool UpdateItemQuantity(DataAccessLayer.Item ItemToUpdate) {
+        public bool UpdateItemQuantity(Dependencies.Item ItemToUpdate) {
             return base.Channel.UpdateItemQuantity(ItemToUpdate);
         }
         
@@ -715,35 +715,35 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.DeleteItem(ItemBarCode);
         }
         
-        public DataAccessLayer.Bill RetrieveLastVendorBillNumberToday(System.DateTime Date) {
+        public Dependencies.Bill RetrieveLastVendorBillNumberToday(System.DateTime Date) {
             return base.Channel.RetrieveLastVendorBillNumberToday(Date);
         }
         
-        public DataAccessLayer.Bill RetrieveLastBillNumberToday() {
+        public Dependencies.Bill RetrieveLastBillNumberToday() {
             return base.Channel.RetrieveLastBillNumberToday();
         }
         
-        public System.Collections.Generic.List<DataAccessLayer.Item> RetrieveItemsQuantity(string ItemBarCode) {
+        public System.Collections.Generic.List<Dependencies.Item> RetrieveItemsQuantity(string ItemBarCode) {
             return base.Channel.RetrieveItemsQuantity(ItemBarCode);
         }
         
-        public System.Collections.Generic.List<DataAccessLayer.Item> RetrieveSaleItemsQuantity() {
+        public System.Collections.Generic.List<Dependencies.Item> RetrieveSaleItemsQuantity() {
             return base.Channel.RetrieveSaleItemsQuantity();
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> RetrieveExpireStockToday(System.DateTime Date) {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveExpireStockToday(System.DateTime Date) {
             return base.Channel.RetrieveExpireStockToday(Date);
         }
         
-        public System.Collections.Generic.List<DataAccessLayer.Item> RetrieveSaleToday(System.DateTime Date, int QuantityEnd) {
+        public System.Collections.Generic.List<Dependencies.Item> RetrieveSaleToday(System.DateTime Date, int QuantityEnd) {
             return base.Channel.RetrieveSaleToday(Date, QuantityEnd);
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Bill>, System.Data.DataTable> SearchTodayBills(System.DateTime Date) {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchTodayBills(System.DateTime Date) {
             return base.Channel.SearchTodayBills(Date);
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Bill>, System.Data.DataTable> SearchBills(int BillNumber) {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchBills(int BillNumber) {
             return base.Channel.SearchBills(BillNumber);
         }
         
@@ -759,7 +759,7 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.SearchExpenses(Date1, Date2, ExpenseName, EmployeeID);
         }
         
-        public System.Tuple<System.Collections.Generic.List<DataAccessLayer.Item>, System.Data.DataTable> SearchItems(string ItemName, string ItemBarCode, int ItemType) {
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchItems(string ItemName, string ItemBarCode, int ItemType) {
             return base.Channel.SearchItems(ItemName, ItemBarCode, ItemType);
         }
         
@@ -767,7 +767,7 @@ namespace NeatVibezPOS.NeatVibez_Server {
             return base.Channel.SearchCustomers(customerName, customerID, itemName);
         }
         
-        public System.Tuple<DataAccessLayer.Customer, System.Data.DataTable> SearchCustomersInfo(string customerName, string customerID) {
+        public System.Tuple<Dependencies.Customer, System.Data.DataTable> SearchCustomersInfo(string customerName, string customerID) {
             return base.Channel.SearchCustomersInfo(customerName, customerID);
         }
     }

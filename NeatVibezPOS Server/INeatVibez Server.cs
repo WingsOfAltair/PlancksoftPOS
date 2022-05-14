@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ServiceModel;
 using System.Collections.Generic;
-using DataAccessLayer;
 using System.Data;
+using Dependencies;
 
 namespace NeatVibezPOS_Server
 {

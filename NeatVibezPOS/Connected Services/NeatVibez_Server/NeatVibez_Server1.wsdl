@@ -6,7 +6,7 @@
       <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
       <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/DataAccessLayer" />
+      <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Dependencies" />
       <xsd:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>

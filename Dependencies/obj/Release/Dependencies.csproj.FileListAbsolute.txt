@@ -1,0 +1,6 @@
+C:\Users\basha\Desktop\NeatVibezPOS\Dependencies\obj\Release\Dependencies.csproj.AssemblyReference.cache
+C:\Users\basha\Desktop\NeatVibezPOS\Dependencies\obj\Release\Dependencies.csproj.CoreCompileInputs.cache
+C:\Users\basha\Desktop\NeatVibezPOS\Dependencies\bin\Release\Dependencies.dll
+C:\Users\basha\Desktop\NeatVibezPOS\Dependencies\bin\Release\Dependencies.pdb
+C:\Users\basha\Desktop\NeatVibezPOS\Dependencies\obj\Release\Dependencies.dll
+C:\Users\basha\Desktop\NeatVibezPOS\Dependencies\obj\Release\Dependencies.pdb

@@ -8,3 +8,5 @@ C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\obj\Release\NeatVibezPOS
 C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\obj\Release\NeatVibezPOS Server.csproj.CopyComplete
 C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\obj\Release\NeatVibezPOS Server.dll
 C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\obj\Release\NeatVibezPOS Server.pdb
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\bin\Dependencies.dll
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\bin\Dependencies.pdb

@@ -14,7 +14,7 @@ using RawDataPrint;
 using WMPLib;
 using System.Text;
 using System.IO.Ports;
-using DataAccessLayer;
+using Dependencies;
 
 namespace NeatVibezPOS
 {

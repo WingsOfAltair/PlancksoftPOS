@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/DataAccessLayer" />
-  <xs:complexType name="TupleOfArrayOfAccountDataTableSk00wwEu">
+  <xs:import schemaLocation="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Dependencies" />
+  <xs:complexType name="TupleOfArrayOfAccountDataTablex3XxKQzD">
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="ArrayOfAccount" Namespace="http://schemas.datacontract.org/2004/07/DataAccessLayer" />
+          <GenericParameter Name="ArrayOfAccount" Namespace="http://schemas.datacontract.org/2004/07/Dependencies" />
           <GenericParameter Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/DataAccessLayer" name="m_Item1" nillable="true" type="q1:ArrayOfAccount" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Dependencies" name="m_Item1" nillable="true" type="q1:ArrayOfAccount" />
       <xs:element name="m_Item2" nillable="true">
         <xs:complexType>
           <xs:annotation>
@@ -27,18 +27,18 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TupleOfArrayOfAccountDataTableSk00wwEu" nillable="true" type="tns:TupleOfArrayOfAccountDataTableSk00wwEu" />
-  <xs:complexType name="TupleOfArrayOfCustomerDataTableSk00wwEu">
+  <xs:element name="TupleOfArrayOfAccountDataTablex3XxKQzD" nillable="true" type="tns:TupleOfArrayOfAccountDataTablex3XxKQzD" />
+  <xs:complexType name="TupleOfArrayOfCustomerDataTablex3XxKQzD">
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="ArrayOfCustomer" Namespace="http://schemas.datacontract.org/2004/07/DataAccessLayer" />
+          <GenericParameter Name="ArrayOfCustomer" Namespace="http://schemas.datacontract.org/2004/07/Dependencies" />
           <GenericParameter Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/DataAccessLayer" name="m_Item1" nillable="true" type="q2:ArrayOfCustomer" />
+      <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Dependencies" name="m_Item1" nillable="true" type="q2:ArrayOfCustomer" />
       <xs:element name="m_Item2" nillable="true">
         <xs:complexType>
           <xs:annotation>
@@ -54,7 +54,7 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TupleOfArrayOfCustomerDataTableSk00wwEu" nillable="true" type="tns:TupleOfArrayOfCustomerDataTableSk00wwEu" />
+  <xs:element name="TupleOfArrayOfCustomerDataTablex3XxKQzD" nillable="true" type="tns:TupleOfArrayOfCustomerDataTablex3XxKQzD" />
   <xs:complexType name="TupleOfbooleanstringboolean">
     <xs:annotation>
       <xs:appinfo>
@@ -72,17 +72,17 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TupleOfbooleanstringboolean" nillable="true" type="tns:TupleOfbooleanstringboolean" />
-  <xs:complexType name="TupleOfArrayOfItemDataTableSk00wwEu">
+  <xs:complexType name="TupleOfArrayOfItemDataTablex3XxKQzD">
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="ArrayOfItem" Namespace="http://schemas.datacontract.org/2004/07/DataAccessLayer" />
+          <GenericParameter Name="ArrayOfItem" Namespace="http://schemas.datacontract.org/2004/07/Dependencies" />
           <GenericParameter Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/DataAccessLayer" name="m_Item1" nillable="true" type="q3:ArrayOfItem" />
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/Dependencies" name="m_Item1" nillable="true" type="q3:ArrayOfItem" />
       <xs:element name="m_Item2" nillable="true">
         <xs:complexType>
           <xs:annotation>
@@ -98,18 +98,18 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TupleOfArrayOfItemDataTableSk00wwEu" nillable="true" type="tns:TupleOfArrayOfItemDataTableSk00wwEu" />
-  <xs:complexType name="TupleOfArrayOfBillDataTableSk00wwEu">
+  <xs:element name="TupleOfArrayOfItemDataTablex3XxKQzD" nillable="true" type="tns:TupleOfArrayOfItemDataTablex3XxKQzD" />
+  <xs:complexType name="TupleOfArrayOfBillDataTablex3XxKQzD">
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="ArrayOfBill" Namespace="http://schemas.datacontract.org/2004/07/DataAccessLayer" />
+          <GenericParameter Name="ArrayOfBill" Namespace="http://schemas.datacontract.org/2004/07/Dependencies" />
           <GenericParameter Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/DataAccessLayer" name="m_Item1" nillable="true" type="q4:ArrayOfBill" />
+      <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Dependencies" name="m_Item1" nillable="true" type="q4:ArrayOfBill" />
       <xs:element name="m_Item2" nillable="true">
         <xs:complexType>
           <xs:annotation>
@@ -125,18 +125,18 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TupleOfArrayOfBillDataTableSk00wwEu" nillable="true" type="tns:TupleOfArrayOfBillDataTableSk00wwEu" />
-  <xs:complexType name="TupleOfCustomerDataTableSk00wwEu">
+  <xs:element name="TupleOfArrayOfBillDataTablex3XxKQzD" nillable="true" type="tns:TupleOfArrayOfBillDataTablex3XxKQzD" />
+  <xs:complexType name="TupleOfCustomerDataTablex3XxKQzD">
     <xs:annotation>
       <xs:appinfo>
         <GenericType Name="TupleOf{0}{1}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
-          <GenericParameter Name="Customer" Namespace="http://schemas.datacontract.org/2004/07/DataAccessLayer" />
+          <GenericParameter Name="Customer" Namespace="http://schemas.datacontract.org/2004/07/Dependencies" />
           <GenericParameter Name="DataTable" Namespace="http://schemas.datacontract.org/2004/07/System.Data" />
         </GenericType>
       </xs:appinfo>
     </xs:annotation>
     <xs:sequence>
-      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/DataAccessLayer" name="m_Item1" nillable="true" type="q5:Customer" />
+      <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Dependencies" name="m_Item1" nillable="true" type="q5:Customer" />
       <xs:element name="m_Item2" nillable="true">
         <xs:complexType>
           <xs:annotation>
@@ -152,5 +152,5 @@
       </xs:element>
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TupleOfCustomerDataTableSk00wwEu" nillable="true" type="tns:TupleOfCustomerDataTableSk00wwEu" />
+  <xs:element name="TupleOfCustomerDataTablex3XxKQzD" nillable="true" type="tns:TupleOfCustomerDataTablex3XxKQzD" />
 </xs:schema>
