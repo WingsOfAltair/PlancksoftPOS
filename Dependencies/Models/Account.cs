@@ -32,7 +32,7 @@ namespace Dependencies
 
         public void SetAccountPWD(string pwd)
         {
-            this.Pwd = DataAccessLayer.MD5Encryption.Encrypt(pwd, "NeatVibezPOS");
+            this.Pwd = DataAccessLayer.MD5Encryption.Encrypt(pwd, "PlancksoftPOS");
         }
 
         public void SetAccountName(string name)

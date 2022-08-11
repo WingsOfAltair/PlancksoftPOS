@@ -1,0 +1,76 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace PlancksoftPOS
+{
+    public partial class frmOpenRegister : Form
+    {
+
+        public string cashierName;
+        public decimal moneyInRegister = 0;
+        public DialogResult dialogResult;
+
+        public frmOpenRegister(string cashierName = "")
+        {
+            InitializeComponent();
+            this.cashierName = cashierName;
+            this.label2.Text = this.cashierName;
+            richTextBox1.AppendText(".الرجاء إدخال المبلغ لبدء التسجيل في الكاش في الأسفل");
+        }
+
+        public void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        public void button2_Click(object sender, EventArgs e)
+        {
+            dialogResult = DialogResult.OK;
+            this.moneyInRegister = numericUpDown1.Value;
+            this.Close();
+        }
+
+        public void frmPayCash_Load(object sender, EventArgs e)
+        {
+            numericUpDown1.Focus();
+            numericUpDown1.Select();
+        }
+
+        public void numericUpDown1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Enter))
+            {
+                button2.PerformClick();
+            }
+            if (e.KeyChar == Convert.ToChar(Keys.Escape))
+            {
+                this.Close();
+            }
+        }
+
+        public void numericUpDown1_Enter(object sender, EventArgs e)
+        {
+            numericUpDown1.Select(1, 1);
+        }
+
+        public void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == Convert.ToChar(Keys.Escape))
+            {
+                this.Close();
+            }
+        }
+
+        public void button3_Click(object sender, EventArgs e)
+        {
+            numericUpDown1.Value = 0;
+        }
+    }
+}

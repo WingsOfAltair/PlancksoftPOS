@@ -9,9 +9,9 @@ namespace DataAccessLayer
     public class DataAccessLayer
     {
         public static string ComputerName = "(local)";
-        public static string DBName = "NeatVibezPOS";
-        public static string DBUID = "NeatVibezPOS";
-        public static string DBPWD = "NeatVibezPOS";
+        public static string DBName = "PlancksoftPOS";
+        public static string DBUID = "PlancksoftPOS";
+        public static string DBPWD = "PlancksoftPOS";
 
         public SqlConnection connection = new SqlConnection(@"Data Source=" + ComputerName + ";Initial Catalog=" + DBName + ";User ID=" + DBUID + ";Password=" + DBPWD);
 
@@ -554,7 +554,7 @@ namespace DataAccessLayer
 
                     cmd.Parameters.AddWithValue("@UserName", AccountToRegister.GetAccountName());
                     cmd.Parameters.AddWithValue("@UserID", AccountToRegister.GetAccountUID().ToLower());
-                    cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(AccountToRegister.GetAccountPWD(), "NeatVibezPOS"));
+                    cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(AccountToRegister.GetAccountPWD(), "PlancksoftPOS"));
                     cmd.Parameters.AddWithValue("@customerCardEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.customer_card_edit.ToString())));
                     cmd.Parameters.AddWithValue("@discountEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.discount_edit.ToString())));
                     cmd.Parameters.AddWithValue("@priceEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.price_edit.ToString())));
@@ -638,7 +638,7 @@ namespace DataAccessLayer
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@UserID", AccountToLogin.GetAccountUID());
-                    cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(AccountToLogin.GetAccountPWD(), "NeatVibezPOS"));
+                    cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(AccountToLogin.GetAccountPWD(), "PlancksoftPOS"));
                     cmd.Parameters.Add("@Name", SqlDbType.NVarChar).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Authority", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -675,7 +675,7 @@ namespace DataAccessLayer
 
                             cmd.Parameters.AddWithValue("@UserName", AccountToRegister.GetAccountName());
                             cmd.Parameters.AddWithValue("@UserID", AccountToRegister.GetAccountUID().ToLower());
-                            cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(AccountToRegister.GetAccountPWD().ToString(), "NeatVibezPOS"));
+                            cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(AccountToRegister.GetAccountPWD().ToString(), "PlancksoftPOS"));
                             cmd.Parameters.AddWithValue("@customerCardEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.customer_card_edit.ToString())));
                             cmd.Parameters.AddWithValue("@discountEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.discount_edit.ToString())));
                             cmd.Parameters.AddWithValue("@priceEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.price_edit.ToString())));
@@ -707,7 +707,7 @@ namespace DataAccessLayer
 
                     cmd.Parameters.AddWithValue("@UserName", AccountToRegister.GetAccountName());
                     cmd.Parameters.AddWithValue("@UserID", AccountToRegister.GetAccountUID().ToLower());
-                    cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(AccountToRegister.GetAccountPWD().ToString(), "NeatVibezPOS"));
+                    cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(AccountToRegister.GetAccountPWD().ToString(), "PlancksoftPOS"));
                     cmd.Parameters.AddWithValue("@AdminAcc", UID);
                     cmd.Parameters.AddWithValue("@customerCardEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.customer_card_edit.ToString())));
                     cmd.Parameters.AddWithValue("@discountEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.discount_edit.ToString())));
@@ -2578,7 +2578,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@UserName", UserToUpdate.GetAccountName());
                     cmd.Parameters.AddWithValue("@UserID", UserToUpdate.GetAccountUID());
                     if (UserToUpdate.GetAccountPWD() != null)
-                        cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(UserToUpdate.GetAccountPWD().ToString(), "NeatVibezPOS"));
+                        cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(UserToUpdate.GetAccountPWD().ToString(), "PlancksoftPOS"));
                     cmd.Parameters.AddWithValue("@customerCardEditPerm", Convert.ToInt32(Convert.ToBoolean(UserToUpdate.customer_card_edit.ToString())));
                     cmd.Parameters.AddWithValue("@discountEditPerm", Convert.ToInt32(Convert.ToBoolean(UserToUpdate.discount_edit.ToString())));
                     cmd.Parameters.AddWithValue("@priceEditPerm", Convert.ToInt32(Convert.ToBoolean(UserToUpdate.price_edit.ToString())));

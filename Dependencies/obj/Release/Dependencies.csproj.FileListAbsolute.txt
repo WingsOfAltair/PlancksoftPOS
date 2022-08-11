@@ -4,3 +4,15 @@ C:\Users\basha\Desktop\NeatVibezPOS\Dependencies\bin\Release\Dependencies.dll
 C:\Users\basha\Desktop\NeatVibezPOS\Dependencies\bin\Release\Dependencies.pdb
 C:\Users\basha\Desktop\NeatVibezPOS\Dependencies\obj\Release\Dependencies.dll
 C:\Users\basha\Desktop\NeatVibezPOS\Dependencies\obj\Release\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\NeatVibezPOS\Dependencies\bin\Release\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\Dev\NeatVibezPOS\Dependencies\bin\Release\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\NeatVibezPOS\Dependencies\obj\Release\Dependencies.csproj.AssemblyReference.cache
+C:\Users\basha\OneDrive\Desktop\Dev\NeatVibezPOS\Dependencies\obj\Release\Dependencies.csproj.CoreCompileInputs.cache
+C:\Users\basha\OneDrive\Desktop\Dev\NeatVibezPOS\Dependencies\obj\Release\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\Dev\NeatVibezPOS\Dependencies\obj\Release\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\Dependencies\bin\Release\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\Dependencies\bin\Release\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\Dependencies\obj\Release\Dependencies.csproj.AssemblyReference.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\Dependencies\obj\Release\Dependencies.csproj.CoreCompileInputs.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\Dependencies\obj\Release\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\Dependencies\obj\Release\Dependencies.pdb
