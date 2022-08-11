@@ -1169,6 +1169,10 @@ namespace PlancksoftPOS
         public void button21_Click(object sender, EventArgs e)
         {
             groupBox5.Visible = false;
+            tabControl1.Select();
+            tabControl1.Focus();
+            this.ActiveControl = tabControl1;
+            return;
             try
             {
                 DataTable dt = Connection.server.RetrieveSystemSettings();
@@ -1194,9 +1198,6 @@ namespace PlancksoftPOS
                 MessageBox.Show(e.ToString(), Application.ProductName);
             }
 
-            tabControl1.Select();
-            tabControl1.Focus();
-            this.ActiveControl = tabControl1;
         }
 
         public void searchItemDGV_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
