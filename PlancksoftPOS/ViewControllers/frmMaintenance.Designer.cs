@@ -31,11 +31,11 @@ namespace PlancksoftPOS
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMaintenance));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -55,6 +55,16 @@ namespace PlancksoftPOS
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "عن البرمجية";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(629, 48);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(102, 48);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "إغلاق";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -97,20 +107,10 @@ namespace PlancksoftPOS
             this.label1.ForeColor = System.Drawing.Color.Khaki;
             this.label1.Location = new System.Drawing.Point(161, 48);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(426, 24);
+            this.label1.Size = new System.Drawing.Size(424, 24);
             this.label1.TabIndex = 0;
-            this.label1.Text = "تم تصميم و برمجة هذا النظام من قبل مؤسسة NeatVibez ";
+            this.label1.Text = "تم تصميم و برمجة هذا النظام من قبل مؤسسة Plancksoft ";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(629, 48);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 48);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "إغلاق";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmMaintenance
             // 
