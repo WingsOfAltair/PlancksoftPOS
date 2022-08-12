@@ -750,7 +750,7 @@ namespace PlancksoftPOS
             {
                 int key = favorite.Key;
                 flowLayoutPanels.Add(new FlowLayoutPanel());
-                flowLayoutPanels[i].Size = new Size(460, 407);
+                flowLayoutPanels[i].Size = new Size(359, 659);
                 flowLayoutPanels[i].Location = new Point(0, 1);
                 flowLayoutPanels[i].FlowDirection = FlowDirection.TopDown;
                 flowLayoutPanels[i].AutoScroll = true;
@@ -6655,10 +6655,17 @@ namespace PlancksoftPOS
 
         public void pictureBox39_Click(object sender, EventArgs e)
         {
-            bool addedItemType = Connection.server.InsertItemType(ItemTypeEntry.Text);
-            if (addedItemType)
+            if (ItemTypeEntry.Text.Trim().Length > 0)
             {
-                DisplayItemTypes();
+                bool addedItemType = Connection.server.InsertItemType(ItemTypeEntry.Text);
+                if (addedItemType)
+                {
+                    DisplayItemTypes();
+                }
+            }
+            else
+            {
+                MessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", Application.ProductName);
             }
         }
 
@@ -6765,10 +6772,17 @@ namespace PlancksoftPOS
 
         public void pictureBox38_Click(object sender, EventArgs e)
         {
-            bool addedWarehouse = Connection.server.InsertWarehouse(WarehouseEntry.Text);
-            if (addedWarehouse)
+            if (WarehouseEntry.Text.Trim().Length > 0)
             {
-                DisplayWarehouses();
+                bool addedWarehouse = Connection.server.InsertWarehouse(WarehouseEntry.Text);
+                if (addedWarehouse)
+                {
+                    DisplayWarehouses();
+                }
+                else
+                {
+                    MessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", Application.ProductName);
+                }
             }
         }
 
@@ -6857,10 +6871,17 @@ namespace PlancksoftPOS
 
         public void pictureBox36_Click(object sender, EventArgs e)
         {
-            bool addedFavoriteCategory = Connection.server.InsertFavoriteCategory(FavoriteCategoryEntry.Text);
-            if (addedFavoriteCategory)
+            if (FavoriteCategoryEntry.Text.Trim().Length > 0)
             {
-                DisplayFavorites();
+                bool addedFavoriteCategory = Connection.server.InsertFavoriteCategory(FavoriteCategoryEntry.Text);
+                if (addedFavoriteCategory)
+                {
+                    DisplayFavorites();
+                }
+            }
+            else
+            {
+                MessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", Application.ProductName);
             }
         }
 

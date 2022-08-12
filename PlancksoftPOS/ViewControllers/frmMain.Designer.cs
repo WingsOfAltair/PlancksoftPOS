@@ -26,13 +26,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ادارةالمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اضافةمادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -1077,7 +1077,7 @@
             this.pnlOpenCloseCash.Controls.Add(this.tabControl2);
             this.pnlOpenCloseCash.Location = new System.Drawing.Point(6, 21);
             this.pnlOpenCloseCash.Name = "pnlOpenCloseCash";
-            this.pnlOpenCloseCash.Size = new System.Drawing.Size(476, 659);
+            this.pnlOpenCloseCash.Size = new System.Drawing.Size(359, 659);
             this.pnlOpenCloseCash.TabIndex = 45;
             // 
             // panel3
@@ -1089,7 +1089,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(476, 123);
+            this.panel3.Size = new System.Drawing.Size(359, 123);
             this.panel3.TabIndex = 38;
             // 
             // openRegisterBtn
@@ -1113,7 +1113,7 @@
             this.closeRegisterBtn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.closeRegisterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeRegisterBtn.Image = ((System.Drawing.Image)(resources.GetObject("closeRegisterBtn.Image")));
-            this.closeRegisterBtn.Location = new System.Drawing.Point(326, 13);
+            this.closeRegisterBtn.Location = new System.Drawing.Point(221, 13);
             this.closeRegisterBtn.Name = "closeRegisterBtn";
             this.closeRegisterBtn.Size = new System.Drawing.Size(100, 69);
             this.closeRegisterBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1143,7 +1143,7 @@
             this.label66.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label66.ForeColor = System.Drawing.Color.White;
-            this.label66.Location = new System.Drawing.Point(287, 85);
+            this.label66.Location = new System.Drawing.Point(182, 85);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(179, 25);
             this.label66.TabIndex = 37;
@@ -1163,7 +1163,7 @@
             this.tabControl2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tabControl2.RightToLeftLayout = true;
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(470, 524);
+            this.tabControl2.Size = new System.Drawing.Size(353, 524);
             this.tabControl2.TabIndex = 0;
             // 
             // groupBox4
@@ -1499,9 +1499,9 @@
             this.groupBox3.Controls.Add(this.panel4);
             this.groupBox3.Enabled = false;
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
-            this.groupBox3.Location = new System.Drawing.Point(488, 117);
+            this.groupBox3.Location = new System.Drawing.Point(371, 117);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(615, 566);
+            this.groupBox3.Size = new System.Drawing.Size(732, 566);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "قائمة المشتريات الحاليه";
@@ -1521,7 +1521,7 @@
             this.ItemsPendingPurchase.Location = new System.Drawing.Point(3, 128);
             this.ItemsPendingPurchase.Name = "ItemsPendingPurchase";
             this.ItemsPendingPurchase.ReadOnly = true;
-            this.ItemsPendingPurchase.Size = new System.Drawing.Size(609, 313);
+            this.ItemsPendingPurchase.Size = new System.Drawing.Size(726, 313);
             this.ItemsPendingPurchase.TabIndex = 20;
             this.ItemsPendingPurchase.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ItemsPendingPurchase_RowHeaderMouseClick);
             this.ItemsPendingPurchase.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.ItemsPendingPurchase_RowsAdded);
@@ -1575,7 +1575,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(3, 441);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(609, 122);
+            this.panel5.Size = new System.Drawing.Size(726, 122);
             this.panel5.TabIndex = 45;
             // 
             // richTextBox4
@@ -1596,7 +1596,7 @@
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label52.Location = new System.Drawing.Point(496, 77);
+            this.label52.Location = new System.Drawing.Point(613, 77);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(108, 20);
             this.label52.TabIndex = 36;
@@ -1608,7 +1608,7 @@
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label49.Location = new System.Drawing.Point(531, 29);
+            this.label49.Location = new System.Drawing.Point(648, 29);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(73, 20);
             this.label49.TabIndex = 23;
@@ -1620,7 +1620,7 @@
             this.button24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button24.ForeColor = System.Drawing.Color.White;
-            this.button24.Location = new System.Drawing.Point(221, 65);
+            this.button24.Location = new System.Drawing.Point(338, 65);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(143, 42);
             this.button24.TabIndex = 3;
@@ -1645,7 +1645,7 @@
             this.pendingPurchaseRemovalQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pendingPurchaseRemovalQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pendingPurchaseRemovalQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.pendingPurchaseRemovalQuantity.Location = new System.Drawing.Point(370, 32);
+            this.pendingPurchaseRemovalQuantity.Location = new System.Drawing.Point(487, 32);
             this.pendingPurchaseRemovalQuantity.Maximum = new decimal(new int[] {
             1241513983,
             370409800,
@@ -1664,7 +1664,7 @@
             this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button17.ForeColor = System.Drawing.Color.White;
-            this.button17.Location = new System.Drawing.Point(221, 18);
+            this.button17.Location = new System.Drawing.Point(338, 18);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(143, 42);
             this.button17.TabIndex = 2;
@@ -1677,7 +1677,7 @@
             this.pendingPurchaseNewQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pendingPurchaseNewQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pendingPurchaseNewQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.pendingPurchaseNewQuantity.Location = new System.Drawing.Point(370, 77);
+            this.pendingPurchaseNewQuantity.Location = new System.Drawing.Point(487, 77);
             this.pendingPurchaseNewQuantity.Maximum = new decimal(new int[] {
             1241513983,
             370409800,
@@ -1700,7 +1700,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(3, 18);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(609, 110);
+            this.panel4.Size = new System.Drawing.Size(726, 110);
             this.panel4.TabIndex = 44;
             // 
             // label112
@@ -1733,7 +1733,7 @@
             this.richTextBox5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.richTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.richTextBox5.Location = new System.Drawing.Point(383, 36);
+            this.richTextBox5.Location = new System.Drawing.Point(500, 36);
             this.richTextBox5.Name = "richTextBox5";
             this.richTextBox5.ReadOnly = true;
             this.richTextBox5.Size = new System.Drawing.Size(211, 61);
@@ -1773,9 +1773,9 @@
             this.panel2.Controls.Add(this.picLogo);
             this.panel2.Controls.Add(this.label45);
             this.panel2.Controls.Add(this.cashierNameLbl);
-            this.panel2.Location = new System.Drawing.Point(488, 21);
+            this.panel2.Location = new System.Drawing.Point(371, 21);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(615, 98);
+            this.panel2.Size = new System.Drawing.Size(732, 98);
             this.panel2.TabIndex = 46;
             // 
             // label71
@@ -1784,7 +1784,7 @@
             this.label71.AutoSize = true;
             this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label71.Location = new System.Drawing.Point(534, 17);
+            this.label71.Location = new System.Drawing.Point(651, 17);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(77, 13);
             this.label71.TabIndex = 38;
@@ -1808,7 +1808,7 @@
             this.picLogo.BackColor = System.Drawing.Color.Transparent;
             this.picLogo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.picLogo.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
-            this.picLogo.Location = new System.Drawing.Point(208, 2);
+            this.picLogo.Location = new System.Drawing.Point(267, 2);
             this.picLogo.Name = "picLogo";
             this.picLogo.Size = new System.Drawing.Size(190, 98);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1834,7 +1834,7 @@
             this.cashierNameLbl.AutoSize = true;
             this.cashierNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cashierNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.cashierNameLbl.Location = new System.Drawing.Point(401, 42);
+            this.cashierNameLbl.Location = new System.Drawing.Point(518, 42);
             this.cashierNameLbl.Name = "cashierNameLbl";
             this.cashierNameLbl.Size = new System.Drawing.Size(135, 18);
             this.cashierNameLbl.TabIndex = 39;
@@ -7426,8 +7426,8 @@
             // 
             this.VendorItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemName.DataPropertyName = "Item Name";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle8;
             this.VendorItemName.HeaderText = "اسم الماده";
             this.VendorItemName.Name = "VendorItemName";
             this.VendorItemName.ReadOnly = true;
@@ -7436,8 +7436,8 @@
             // 
             this.VendorItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBarCode.DataPropertyName = "Item BarCode";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle9;
             this.VendorItemBarCode.HeaderText = "باركود الماده";
             this.VendorItemBarCode.Name = "VendorItemBarCode";
             this.VendorItemBarCode.ReadOnly = true;
@@ -7446,8 +7446,8 @@
             // 
             this.VendorItemType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemType.DataPropertyName = "Item Type";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle10;
             this.VendorItemType.HeaderText = "صنف الماده";
             this.VendorItemType.Name = "VendorItemType";
             this.VendorItemType.ReadOnly = true;
@@ -7456,8 +7456,8 @@
             // 
             this.VendorItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemQuantity.DataPropertyName = "Item Quantity";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle11;
             this.VendorItemQuantity.HeaderText = "عدد القطع";
             this.VendorItemQuantity.Name = "VendorItemQuantity";
             this.VendorItemQuantity.ReadOnly = true;
@@ -7466,8 +7466,8 @@
             // 
             this.VendorItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBuyPrice.DataPropertyName = "VendorItemBuyPrice";
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle12;
             this.VendorItemBuyPrice.HeaderText = "سعر الشراء";
             this.VendorItemBuyPrice.Name = "VendorItemBuyPrice";
             this.VendorItemBuyPrice.ReadOnly = true;
@@ -7476,8 +7476,8 @@
             // 
             this.VendorItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPrice.DataPropertyName = "VendorItemSellPrice";
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle13;
             this.VendorItemSellPrice.HeaderText = "سعر البيع";
             this.VendorItemSellPrice.Name = "VendorItemSellPrice";
             this.VendorItemSellPrice.ReadOnly = true;
@@ -7486,8 +7486,8 @@
             // 
             this.VendorItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPriceTax.DataPropertyName = "VendorItemSellPriceTax";
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle14;
             this.VendorItemSellPriceTax.HeaderText = "سعر البيع مع الضريبه";
             this.VendorItemSellPriceTax.Name = "VendorItemSellPriceTax";
             this.VendorItemSellPriceTax.ReadOnly = true;
