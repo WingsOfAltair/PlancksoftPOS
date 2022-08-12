@@ -49,12 +49,14 @@ namespace PlancksoftPOS
                 Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
                 Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(1).ToString());
                 Settings.Default.Save();
+                MessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة شهر واحد", Application.ProductName);
                 this.Close();
             } else if (textBox1.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|2"))
             {
                 Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
                 Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(6).ToString());
                 Settings.Default.Save();
+                MessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة ستة أشهر", Application.ProductName);
                 this.Close();
             }
             else if (textBox1.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|3"))
@@ -62,6 +64,7 @@ namespace PlancksoftPOS
                 Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
                 Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddYears(1).ToString());
                 Settings.Default.Save();
+                MessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة سنة واحدة", Application.ProductName);
                 this.Close();
             }
             else if (textBox1.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|4"))
@@ -69,6 +72,7 @@ namespace PlancksoftPOS
                 Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
                 Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(1000).ToString());
                 Settings.Default.Save();
+                MessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة حياة البرمجية", Application.ProductName);
                 this.Close();
             }
             else
