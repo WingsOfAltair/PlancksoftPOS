@@ -44,13 +44,34 @@ namespace PlancksoftPOS
 
         public void button2_Click(object sender, EventArgs e)
         {
-            if (textBox1.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName))
+            if (textBox1.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|1"))
             {
                 Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
-                Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddYears(10).ToString());
+                Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(1).ToString());
                 Settings.Default.Save();
                 this.Close();
-            } else
+            } else if (textBox1.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|2"))
+            {
+                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
+                Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(6).ToString());
+                Settings.Default.Save();
+                this.Close();
+            }
+            else if (textBox1.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|3"))
+            {
+                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
+                Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddYears(1).ToString());
+                Settings.Default.Save();
+                this.Close();
+            }
+            else if (textBox1.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|4"))
+            {
+                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
+                Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(1000).ToString());
+                Settings.Default.Save();
+                this.Close();
+            }
+            else
             {
                 MessageBox.Show(".مفتاح الرخصه غير صحيح", Application.ProductName);
                 textBox1.Text = "";

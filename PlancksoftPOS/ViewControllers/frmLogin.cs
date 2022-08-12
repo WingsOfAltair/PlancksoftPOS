@@ -64,12 +64,14 @@ namespace PlancksoftPOS
                     {
                         Settings.Default["LicenseKey"] = "";
                         Settings.Default.Save();
+                        MessageBox.Show(".لقد إنتهت فترة صلاحية رخصة البرمجية, الرجاء التواصل مع الدعم الفني لشراء رخصة فعالة جديدة", Application.ProductName);
                     }
                 }
                 catch (Exception e)
                 {
                     Settings.Default["LicenseKey"] = "";
                     Settings.Default.Save();
+                    MessageBox.Show("", Application.ProductName);
                 }
                 if (Decrypt256(Settings.Default.LicenseKey) != GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName))
                 {
