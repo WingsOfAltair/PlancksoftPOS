@@ -22,6 +22,9 @@ namespace PlancksoftPOS
         public Connection Connection = new Connection();
         public Mutex _mutex;
 
+        public LanguageChoice languageChoice = new LanguageChoice();
+        public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
+
         public class Item
         {
             public string Name;
@@ -53,9 +56,60 @@ namespace PlancksoftPOS
             return result;
         }
 
+        public void applyLocalizationOnUI()
+        {
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                Text = "شاشة الدخول";
+                label1.Text = "رمز المستخدم";
+                label2.Text = "الكلمه السريه";
+                BtnLogin.Text = "تسجيل الدخول";
+                BtnExit.Text = "الخروج";
+                button11.Text = "مسح";
+                اللغةToolStripMenuItem.Text = "اللغة";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "الخروج";
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                Text = "Login window";
+                label1.Text = "Username";
+                label2.Text = "Password";
+                BtnLogin.Text = "Login";
+                BtnExit.Text = "Exit";
+                button11.Text = "Clear";
+                اللغةToolStripMenuItem.Text = "Language";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "Exit";
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+            }
+        }
+
         public frmLogin()
         {
             InitializeComponent();
+
+            pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                العربيةToolStripMenuItem.Checked = true;
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                englishToolStripMenuItem.Checked = true;
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+            }
+
+            applyLocalizationOnUI();
+
             try
             {
                 try
@@ -64,14 +118,20 @@ namespace PlancksoftPOS
                     {
                         Settings.Default["LicenseKey"] = "";
                         Settings.Default.Save();
-                        MessageBox.Show(".لقد إنتهت فترة صلاحية رخصة البرمجية, الرجاء التواصل مع الدعم الفني لشراء رخصة فعالة جديدة", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            MessageBox.Show(".لقد إنتهت فترة صلاحية رخصة البرمجية, الرجاء التواصل مع الدعم الفني لشراء رخصة فعالة جديدة", Application.ProductName);
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                            MessageBox.Show("The system's license validity duration has ended. Please contact technical support to purchase a new valid license.", Application.ProductName);
                     }
                 }
                 catch (Exception e)
                 {
                     Settings.Default["LicenseKey"] = "";
                     Settings.Default.Save();
-                    MessageBox.Show(".لقد إنتهت فترة صلاحية رخصة البرمجية, الرجاء التواصل مع الدعم الفني لشراء رخصة فعالة جديدة", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        MessageBox.Show(".لقد إنتهت فترة صلاحية رخصة البرمجية, الرجاء التواصل مع الدعم الفني لشراء رخصة فعالة جديدة", Application.ProductName);
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                        MessageBox.Show("The system's license validity duration has ended. Please contact technical support to purchase a new valid license.", Application.ProductName);
                 }
                 if (Decrypt256(Settings.Default.LicenseKey) != GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName))
                 {
@@ -82,7 +142,10 @@ namespace PlancksoftPOS
                 {
                     if (!Connection.server.CheckConnection())
                     {
-                        MessageBox.Show(".لا يمكن الاتصال بالخادم أو قاعدة البيانات", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            MessageBox.Show(".لا يمكن الاتصال بشبكة السحابة", Application.ProductName);
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                            MessageBox.Show("Unable to communicate with the cloud network.", Application.ProductName);
                         Environment.Exit(0);
                     }
                     else
@@ -106,7 +169,10 @@ namespace PlancksoftPOS
             catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
-                MessageBox.Show(".لا يمكن الاتصال بالخادم أو قاعدة البيانات", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    MessageBox.Show(".لا يمكن الاتصال بشبكة السحابة", Application.ProductName);
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                    MessageBox.Show("Unable to communicate with the cloud network.", Application.ProductName);
                 Environment.Exit(0);
             }
         }
@@ -162,7 +228,10 @@ namespace PlancksoftPOS
         {
             if (txtUID.Text == "" && txtPWD.Text == "")
             {
-                MessageBox.Show(".الرجاء ملأ البيانات الصحيحه و عدم ترك فراغات", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    MessageBox.Show(".الرجاء ملأ البيانات الصحيحه و عدم ترك فراغات", Application.ProductName);
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                    MessageBox.Show("Please fill all blank fields with valid data.", Application.ProductName);
                 return;
             }
             Account newAccount = new Account();
@@ -179,10 +248,17 @@ namespace PlancksoftPOS
                     frmMain frm2 = new frmMain(newAccount);
                     frm2.Show();
                     this.Hide();
+                    PlancksoftPOS.Visible = false;
                     Connection.server.LogLogin(txtUID.Text, DateTime.Now);
                 }
             }
-            else MessageBox.Show(".المستخدم غير مسجل", Application.ProductName);
+            else
+            {
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    MessageBox.Show(".المستخدم غير مسجل", Application.ProductName);
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                    MessageBox.Show("User Account is not registered.", Application.ProductName);
+            }
             txtUID.Text = "";
             txtPWD.Text = "";
         }
@@ -204,18 +280,43 @@ namespace PlancksoftPOS
         {
             try
             {
-                MessageBoxManager.Yes = "نعم";
-                MessageBoxManager.No = "لا";
-                MessageBoxManager.Register();
-                DialogResult status = MessageBox.Show("هل أنت متأكد من رغبتك بالخروج؟", Application.ProductName, MessageBoxButtons.YesNo);
-                MessageBoxManager.Unregister();
-                if (status == DialogResult.No)
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    e.Cancel = true;
+                    MessageBoxManager.Yes = "نعم";
+                    MessageBoxManager.No = "لا";
                 }
-                else
+                else if (pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    Application.Exit();
+                    MessageBoxManager.Yes = "Yes";
+                    MessageBoxManager.No = "No";
+                }
+                MessageBoxManager.Register();
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    DialogResult status = MessageBox.Show("هل أنت متأكد من رغبتك بالخروج؟", Application.ProductName, MessageBoxButtons.YesNo);
+                    MessageBoxManager.Unregister();
+                    if (status == DialogResult.No)
+                    {
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    DialogResult status = MessageBox.Show("Are you sure you would like to quit?", Application.ProductName, MessageBoxButtons.YesNo);
+                    MessageBoxManager.Unregister();
+                    if (status == DialogResult.No)
+                    {
+                        e.Cancel = true;
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
                 }
             }
             catch (Exception error)
@@ -310,6 +411,31 @@ namespace PlancksoftPOS
         public void txtUID_Enter(object sender, EventArgs e)
         {
             RetrieveUsersList();
+        }
+
+        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pickedLanguage = LanguageChoice.Languages.Arabic;
+            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
+            Settings.Default.Save();
+            englishToolStripMenuItem.Checked = false;
+            العربيةToolStripMenuItem.Checked = true;
+            applyLocalizationOnUI();
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            pickedLanguage = LanguageChoice.Languages.English;
+            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
+            Settings.Default.Save();
+            العربيةToolStripMenuItem.Checked = false;
+            englishToolStripMenuItem.Checked = true;
+            applyLocalizationOnUI();
         }
     }
 }

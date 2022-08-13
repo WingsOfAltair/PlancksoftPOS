@@ -26,13 +26,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ادارةالمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اضافةمادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -675,6 +675,12 @@
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.lastBillNumberUpdaterTimer = new System.Windows.Forms.Timer(this.components);
             this.updateSystem = new System.Windows.Forms.Timer(this.components);
+            this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
+            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -903,6 +909,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -929,34 +936,34 @@
             this.ادارةالمستودعToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.ادارةالمستودعToolStripMenuItem.Name = "ادارةالمستودعToolStripMenuItem";
             this.ادارةالمستودعToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.ادارةالمستودعToolStripMenuItem.Text = "ادارة المستودع";
+            this.ادارةالمستودعToolStripMenuItem.Text = "إدارة المستودع";
             // 
             // اضافةمادهToolStripMenuItem
             // 
             this.اضافةمادهToolStripMenuItem.Name = "اضافةمادهToolStripMenuItem";
-            this.اضافةمادهToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.اضافةمادهToolStripMenuItem.Text = "اضافة ماده";
+            this.اضافةمادهToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.اضافةمادهToolStripMenuItem.Text = "إضافة ماده";
             this.اضافةمادهToolStripMenuItem.Click += new System.EventHandler(this.اضافةمادهToolStripMenuItem_Click);
             // 
             // اضافةصنفToolStripMenuItem
             // 
             this.اضافةصنفToolStripMenuItem.Name = "اضافةصنفToolStripMenuItem";
-            this.اضافةصنفToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.اضافةصنفToolStripMenuItem.Text = "اضافة صنف";
+            this.اضافةصنفToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.اضافةصنفToolStripMenuItem.Text = "إضافة صنف";
             this.اضافةصنفToolStripMenuItem.Click += new System.EventHandler(this.اضافةصنفToolStripMenuItem_Click);
             // 
             // اضافةمستودعToolStripMenuItem
             // 
             this.اضافةمستودعToolStripMenuItem.Name = "اضافةمستودعToolStripMenuItem";
-            this.اضافةمستودعToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.اضافةمستودعToolStripMenuItem.Text = "اضافة مجلد مفضلات";
+            this.اضافةمستودعToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.اضافةمستودعToolStripMenuItem.Text = "إضافة مجلد مفضلات";
             this.اضافةمستودعToolStripMenuItem.Click += new System.EventHandler(this.اضافةمستودعToolStripMenuItem_Click);
             // 
             // اضافةمستودعToolStripMenuItem1
             // 
             this.اضافةمستودعToolStripMenuItem1.Name = "اضافةمستودعToolStripMenuItem1";
-            this.اضافةمستودعToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-            this.اضافةمستودعToolStripMenuItem1.Text = "اضافة مستودع";
+            this.اضافةمستودعToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.اضافةمستودعToolStripMenuItem1.Text = "إضافة مستودع";
             this.اضافةمستودعToolStripMenuItem1.Click += new System.EventHandler(this.اضافةمستودعToolStripMenuItem1_Click);
             // 
             // aToolStripMenuItem
@@ -1089,6 +1096,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
+            this.panel3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.panel3.Size = new System.Drawing.Size(359, 123);
             this.panel3.TabIndex = 38;
             // 
@@ -1098,7 +1106,7 @@
             this.openRegisterBtn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.openRegisterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.openRegisterBtn.Image = ((System.Drawing.Image)(resources.GetObject("openRegisterBtn.Image")));
-            this.openRegisterBtn.Location = new System.Drawing.Point(35, 13);
+            this.openRegisterBtn.Location = new System.Drawing.Point(13, 13);
             this.openRegisterBtn.Name = "openRegisterBtn";
             this.openRegisterBtn.Size = new System.Drawing.Size(100, 69);
             this.openRegisterBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1113,7 +1121,7 @@
             this.closeRegisterBtn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.closeRegisterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeRegisterBtn.Image = ((System.Drawing.Image)(resources.GetObject("closeRegisterBtn.Image")));
-            this.closeRegisterBtn.Location = new System.Drawing.Point(221, 13);
+            this.closeRegisterBtn.Location = new System.Drawing.Point(200, 13);
             this.closeRegisterBtn.Name = "closeRegisterBtn";
             this.closeRegisterBtn.Size = new System.Drawing.Size(100, 69);
             this.closeRegisterBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1126,11 +1134,11 @@
             this.label65.AutoSize = true;
             this.label65.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.label65.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label65.ForeColor = System.Drawing.Color.White;
             this.label65.Location = new System.Drawing.Point(3, 85);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(159, 25);
+            this.label65.Size = new System.Drawing.Size(123, 20);
             this.label65.TabIndex = 36;
             this.label65.Text = "فتح الصندوق F11";
             this.label65.Click += new System.EventHandler(this.label65_Click);
@@ -1141,11 +1149,11 @@
             this.label66.AutoSize = true;
             this.label66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.label66.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label66.ForeColor = System.Drawing.Color.White;
-            this.label66.Location = new System.Drawing.Point(182, 85);
+            this.label66.Location = new System.Drawing.Point(180, 85);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(179, 25);
+            this.label66.Size = new System.Drawing.Size(138, 20);
             this.label66.TabIndex = 37;
             this.label66.Text = "اغلاق الصندوق F12";
             this.label66.Click += new System.EventHandler(this.label66_Click);
@@ -1187,6 +1195,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox4.Location = new System.Drawing.Point(1109, 18);
             this.groupBox4.Name = "groupBox4";
+            this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox4.Size = new System.Drawing.Size(268, 665);
             this.groupBox4.TabIndex = 44;
             // 
@@ -1223,11 +1232,11 @@
             this.label93.AutoSize = true;
             this.label93.BackColor = System.Drawing.Color.Transparent;
             this.label93.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label93.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.label93.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label93.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label93.Location = new System.Drawing.Point(138, 104);
+            this.label93.Location = new System.Drawing.Point(146, 104);
             this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(127, 25);
+            this.label93.Size = new System.Drawing.Size(119, 24);
             this.label93.TabIndex = 39;
             this.label93.Text = "بطاقة عميل F2";
             this.label93.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label93_MouseClick);
@@ -1237,11 +1246,11 @@
             this.label67.AutoSize = true;
             this.label67.BackColor = System.Drawing.Color.Transparent;
             this.label67.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label67.Location = new System.Drawing.Point(48, 104);
+            this.label67.Location = new System.Drawing.Point(67, 104);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(84, 25);
+            this.label67.Size = new System.Drawing.Size(73, 24);
             this.label67.TabIndex = 34;
             this.label67.Text = "الدفع F1";
             this.label67.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label67_MouseClick);
@@ -1252,7 +1261,7 @@
             this.pictureBox11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox11.Image = global::PlancksoftPOS.Properties.Resources.discount;
-            this.pictureBox11.Location = new System.Drawing.Point(141, 132);
+            this.pictureBox11.Location = new System.Drawing.Point(141, 131);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(124, 98);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1266,7 +1275,7 @@
             this.pictureBox12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(11, 132);
+            this.pictureBox12.Location = new System.Drawing.Point(11, 131);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(124, 98);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1278,11 +1287,11 @@
             // 
             this.label68.AutoSize = true;
             this.label68.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label68.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label68.Location = new System.Drawing.Point(143, 233);
+            this.label68.Location = new System.Drawing.Point(150, 232);
             this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(122, 25);
+            this.label68.Size = new System.Drawing.Size(115, 24);
             this.label68.TabIndex = 35;
             this.label68.Text = "الخصومات F4";
             this.label68.Click += new System.EventHandler(this.label68_Click);
@@ -1294,7 +1303,7 @@
             this.label69.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label69.Location = new System.Drawing.Point(12, 233);
+            this.label69.Location = new System.Drawing.Point(19, 232);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(125, 24);
             this.label69.TabIndex = 36;
@@ -1308,7 +1317,7 @@
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(141, 261);
+            this.pictureBox3.Location = new System.Drawing.Point(141, 259);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(124, 98);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1322,7 +1331,7 @@
             this.pictureBox26.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox26.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox26.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox26.Image")));
-            this.pictureBox26.Location = new System.Drawing.Point(11, 261);
+            this.pictureBox26.Location = new System.Drawing.Point(11, 259);
             this.pictureBox26.Name = "pictureBox26";
             this.pictureBox26.Size = new System.Drawing.Size(124, 98);
             this.pictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1334,11 +1343,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label2.Location = new System.Drawing.Point(150, 362);
+            this.label2.Location = new System.Drawing.Point(156, 360);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 25);
+            this.label2.Size = new System.Drawing.Size(109, 24);
             this.label2.TabIndex = 43;
             this.label2.Text = "فتح الكاش F6";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -1348,11 +1357,11 @@
             // 
             this.label89.AutoSize = true;
             this.label89.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label89.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label89.Location = new System.Drawing.Point(13, 362);
+            this.label89.Location = new System.Drawing.Point(27, 360);
             this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(131, 25);
+            this.label89.Size = new System.Drawing.Size(123, 24);
             this.label89.TabIndex = 41;
             this.label89.Text = "تعديل السعر F5";
             this.label89.Click += new System.EventHandler(this.label89_Click);
@@ -1362,7 +1371,7 @@
             // 
             this.panel1.Controls.Add(this.pictureBox37);
             this.panel1.Controls.Add(this.label24);
-            this.panel1.Location = new System.Drawing.Point(11, 390);
+            this.panel1.Location = new System.Drawing.Point(11, 387);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(254, 127);
             this.panel1.TabIndex = 46;
@@ -1403,7 +1412,7 @@
             this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox14.Image = global::PlancksoftPOS.Properties.Resources.rightarrow;
-            this.pictureBox14.Location = new System.Drawing.Point(195, 523);
+            this.pictureBox14.Location = new System.Drawing.Point(195, 520);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(70, 98);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1417,7 +1426,7 @@
             this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox13.Image = global::PlancksoftPOS.Properties.Resources.leftarrow;
-            this.pictureBox13.Location = new System.Drawing.Point(110, 523);
+            this.pictureBox13.Location = new System.Drawing.Point(110, 520);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(79, 99);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1431,7 +1440,7 @@
             this.label70.Cursor = System.Windows.Forms.Cursors.Default;
             this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label70.Location = new System.Drawing.Point(125, 625);
+            this.label70.Location = new System.Drawing.Point(125, 622);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(140, 16);
             this.label70.TabIndex = 37;
@@ -2323,7 +2332,6 @@
             this.groupBox30.TabIndex = 0;
             this.groupBox30.TabStop = false;
             this.groupBox30.Text = "لائحة الفواتير";
-            this.groupBox30.Enter += new System.EventHandler(this.groupBox30_Enter);
             // 
             // panel12
             // 
@@ -2768,7 +2776,6 @@
             this.groupBox26.TabIndex = 1;
             this.groupBox26.TabStop = false;
             this.groupBox26.Text = "المبيعات المرحله";
-            this.groupBox26.Enter += new System.EventHandler(this.groupBox26_Enter);
             // 
             // panel16
             // 
@@ -3645,7 +3652,6 @@
             this.groupBox36.TabIndex = 46;
             this.groupBox36.TabStop = false;
             this.groupBox36.Text = "اضافة و تعديل المواد";
-            this.groupBox36.Enter += new System.EventHandler(this.groupBox36_Enter);
             // 
             // ItemType
             // 
@@ -7426,8 +7432,8 @@
             // 
             this.VendorItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemName.DataPropertyName = "Item Name";
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle1;
             this.VendorItemName.HeaderText = "اسم الماده";
             this.VendorItemName.Name = "VendorItemName";
             this.VendorItemName.ReadOnly = true;
@@ -7436,8 +7442,8 @@
             // 
             this.VendorItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBarCode.DataPropertyName = "Item BarCode";
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle2;
             this.VendorItemBarCode.HeaderText = "باركود الماده";
             this.VendorItemBarCode.Name = "VendorItemBarCode";
             this.VendorItemBarCode.ReadOnly = true;
@@ -7446,8 +7452,8 @@
             // 
             this.VendorItemType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemType.DataPropertyName = "Item Type";
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle3;
             this.VendorItemType.HeaderText = "صنف الماده";
             this.VendorItemType.Name = "VendorItemType";
             this.VendorItemType.ReadOnly = true;
@@ -7456,8 +7462,8 @@
             // 
             this.VendorItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemQuantity.DataPropertyName = "Item Quantity";
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle4;
             this.VendorItemQuantity.HeaderText = "عدد القطع";
             this.VendorItemQuantity.Name = "VendorItemQuantity";
             this.VendorItemQuantity.ReadOnly = true;
@@ -7466,8 +7472,8 @@
             // 
             this.VendorItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBuyPrice.DataPropertyName = "VendorItemBuyPrice";
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle5;
             this.VendorItemBuyPrice.HeaderText = "سعر الشراء";
             this.VendorItemBuyPrice.Name = "VendorItemBuyPrice";
             this.VendorItemBuyPrice.ReadOnly = true;
@@ -7476,8 +7482,8 @@
             // 
             this.VendorItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPrice.DataPropertyName = "VendorItemSellPrice";
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle6;
             this.VendorItemSellPrice.HeaderText = "سعر البيع";
             this.VendorItemSellPrice.Name = "VendorItemSellPrice";
             this.VendorItemSellPrice.ReadOnly = true;
@@ -7486,8 +7492,8 @@
             // 
             this.VendorItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPriceTax.DataPropertyName = "VendorItemSellPriceTax";
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle7;
             this.VendorItemSellPriceTax.HeaderText = "سعر البيع مع الضريبه";
             this.VendorItemSellPriceTax.Name = "VendorItemSellPriceTax";
             this.VendorItemSellPriceTax.ReadOnly = true;
@@ -8902,6 +8908,54 @@
             this.updateSystem.Interval = 60000;
             this.updateSystem.Tick += new System.EventHandler(this.updateSystem_Tick);
             // 
+            // PlancksoftPOS
+            // 
+            this.PlancksoftPOS.ContextMenuStrip = this.Menu;
+            this.PlancksoftPOS.Icon = ((System.Drawing.Icon)(resources.GetObject("PlancksoftPOS.Icon")));
+            this.PlancksoftPOS.Text = "PlancksoftPOS";
+            this.PlancksoftPOS.Visible = true;
+            // 
+            // Menu
+            // 
+            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.اللغةToolStripMenuItem,
+            this.الخروجToolStripMenuItem});
+            this.Menu.Name = "Menu";
+            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Menu.Size = new System.Drawing.Size(107, 48);
+            // 
+            // اللغةToolStripMenuItem
+            // 
+            this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.العربيةToolStripMenuItem,
+            this.englishToolStripMenuItem});
+            this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
+            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.اللغةToolStripMenuItem.Text = "اللغة";
+            // 
+            // العربيةToolStripMenuItem
+            // 
+            this.العربيةToolStripMenuItem.CheckOnClick = true;
+            this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
+            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.العربيةToolStripMenuItem.Text = "العربية";
+            this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.CheckOnClick = true;
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.englishToolStripMenuItem.Text = "English";
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            // 
+            // الخروجToolStripMenuItem
+            // 
+            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
+            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.الخروجToolStripMenuItem.Text = "الخروج";
+            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9186,6 +9240,7 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -9836,6 +9891,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemTypeNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemPicture;
+        private System.Windows.Forms.NotifyIcon PlancksoftPOS;
+        private System.Windows.Forms.ContextMenuStrip Menu;
+        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
     }
 }
 

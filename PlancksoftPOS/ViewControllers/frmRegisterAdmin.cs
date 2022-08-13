@@ -1,4 +1,5 @@
 ﻿using Dependencies;
+using PlancksoftPOS.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +15,64 @@ namespace PlancksoftPOS
     public partial class frmRegisterAdmin : Form
     {
         public Connection Connection = new Connection();
+        public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
         public frmRegisterAdmin()
         {
             InitializeComponent();
+
+            frmLogin.pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
+
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+                العربيةToolStripMenuItem.Checked = true;
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+                englishToolStripMenuItem.Checked = true;
+            }
+
+            applyLocalizationOnUI();
         }
-        
+
+        public void applyLocalizationOnUI()
+        {
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                Text = "تسجيل الحساب الإداري";
+                label1.Text = "رمز المستخدم الإداري";
+                label2.Text = "الكلمه السريه";
+                label3.Text = "اسم المستخدم (رئيس قسم الصيانه)";
+                BtnRegister.Text = "التسجيل";
+                button3.Text = "مسح";
+                اللغةToolStripMenuItem.Text = "اللغة";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "الخروج";
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                Text = "Administrator ِAccount Registration";
+                label1.Text = "Admin Account ID";
+                label2.Text = "Password";
+                label3.Text = "User Name (Head of IT)";
+                BtnRegister.Text = "Register";
+                button3.Text = "Clear";
+                اللغةToolStripMenuItem.Text = "Language";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "Exit";
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+            }
+        }
+
         public void BtnRegister_Click(object sender, EventArgs e)
         {
             if (txtUID.Text != "" && txtPWD.Text != "" && txtFname.Text != "")
@@ -82,6 +135,33 @@ namespace PlancksoftPOS
         {
             txtPWD.Text = "";
             txtFname.Text = "";
+        }
+
+        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
+            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
+            Settings.Default.Save();
+            englishToolStripMenuItem.Checked = false;
+            العربيةToolStripMenuItem.Checked = true;
+            PlancksoftPOS.Dispose();
+            applyLocalizationOnUI();
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
+            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
+            Settings.Default.Save();
+            englishToolStripMenuItem.Checked = true;
+            العربيةToolStripMenuItem.Checked = false;
+            PlancksoftPOS.Dispose();
+            applyLocalizationOnUI();
         }
     }
 }

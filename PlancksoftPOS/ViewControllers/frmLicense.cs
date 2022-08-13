@@ -16,10 +16,60 @@ namespace PlancksoftPOS
     {
         public const string AesIV256 = @"!QAZ2WSX#EDC4RFV";
         public const string AesKey256 = @"5TGB&YHN7UJM(IK<5TGB&YHN7UJM(IK<";
+        public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
         public frmLicense()
         {
             InitializeComponent();
+
+            frmLogin.pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
+
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+                العربيةToolStripMenuItem.Checked = true;
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+                englishToolStripMenuItem.Checked = true;
+            }
+
+            applyLocalizationOnUI();
+        }
+
+        public void applyLocalizationOnUI()
+        {
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                Text = "الترخيص و التفعيل";
+                label1.Text = "مفتاح الرخصه";
+                button3.Text = "مسح";
+                button2.Text = "التفعيل";
+                button1.Text = "الخروج";
+                اللغةToolStripMenuItem.Text = "اللغة";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "الخروج";
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                Text = "Licensing & Activation";
+                label1.Text = "License Key";
+                button3.Text = "Clear";
+                button2.Text = "Activate";
+                button1.Text = "Close";
+                اللغةToolStripMenuItem.Text = "Language";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "Exit";
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+            }
         }
 
         public void button1_Click(object sender, EventArgs e)
@@ -117,6 +167,33 @@ namespace PlancksoftPOS
         public void button3_Click(object sender, EventArgs e)
         {
             textBox1.Text = "";
+        }
+
+        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
+            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
+            Settings.Default.Save();
+            englishToolStripMenuItem.Checked = false;
+            العربيةToolStripMenuItem.Checked = true;
+            PlancksoftPOS.Dispose();
+            applyLocalizationOnUI();
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
+            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
+            Settings.Default.Save();
+            englishToolStripMenuItem.Checked = true;
+            العربيةToolStripMenuItem.Checked = false;
+            PlancksoftPOS.Dispose();
+            applyLocalizationOnUI();
         }
     }
 }

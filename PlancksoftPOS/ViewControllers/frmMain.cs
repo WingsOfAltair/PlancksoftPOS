@@ -68,6 +68,7 @@ namespace PlancksoftPOS
             TravelingUntravelingSalesTab = null, SoldItemsTab = null, IncomingOutgoingTab = null, SalesTab = null, TaxesTab = null;
 
         public Account userPermissions;
+        public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
         public class Items
         {
@@ -356,6 +357,23 @@ namespace PlancksoftPOS
             {
                 InitializeComponent();
 
+                frmLogin.pickedLanguage = (LanguageChoice.Languages)Properties.Settings.Default.pickedLanguage;
+
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    العربيةToolStripMenuItem.Checked = true;
+                    RightToLeft = RightToLeft.Yes;
+                    RightToLeftLayout = true;
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    englishToolStripMenuItem.Checked = true;
+                    RightToLeft = RightToLeft.No;
+                    RightToLeftLayout = false;
+                }
+
+                applyLocalizationOnUI();
+
                 DataTable dt = Connection.server.RetrieveSystemSettings();
 
                 try
@@ -475,6 +493,104 @@ namespace PlancksoftPOS
             }
             catch(Exception e)
             { MessageBox.Show(e.ToString()); }
+        }
+
+        public void applyLocalizationOnUI()
+        {
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                Text = "PlancksoftPOS - الشاشه الرئيسيه";
+                label93.Text = "بطاقة عميل F2";
+                label67.Text = "الدفع F1";
+                label68.Text = "الخصومات F4";
+                label69.Text = "فاتوره جديده F3";
+                label2.Text = "فتح الكاش F6";
+                label89.Text = "تعديل السعر F5";
+                label24.Text = "البحث عن المواد F9";
+                label70.Text = "F8 الفواتير السابقه F7";
+                label71.Text = "اسم الكاشير:";
+                label45.Text = "هذه النسخه مرخصه ل";
+                groupBox3.Text = "قائمة المشتريات الحاليه";
+                label112.Text = "0 :عدد الفواتير المعلقه";
+                richTextBox5.Clear();
+                richTextBox5.AppendText("رقم الفاتورة الحالية");
+                richTextBox1.Clear();
+                richTextBox1.AppendText("الباقي السابق");
+                richTextBox2.Clear();
+                richTextBox2.AppendText("المدفوع السابق");
+                richTextBox3.Clear();
+                richTextBox3.AppendText("المجموع السابق");
+                ItemsPendingPurchase.Columns["pendingPurchaseItemName"].HeaderText = "القطعة";
+                ItemsPendingPurchase.Columns["pendingPurchaseItemBarCode"].HeaderText = "الباركود";
+                ItemsPendingPurchase.Columns["pendingPurchaseItemQuantity"].HeaderText = "عدد القطعة";
+                ItemsPendingPurchase.Columns["pendingPurchaseItemPrice"].HeaderText = "سعر القطعة";
+                ItemsPendingPurchase.Columns["pendingPurchaseItemPriceTax"].HeaderText = "سعر القطعة بعد الضريبة";
+                label49.Text = "عدد الحذف";
+                label52.Text = "عدد القطع الجديد";
+                button17.Text = "حذف القطعه من الشراء";
+                button24.Text = "تعديل عدد القطع";
+                label66.Text = "اغلاق الصندوق F12";
+                label65.Text = "فتح الصندوق F11";
+                خروجToolStripMenuItem1.Text = "خروج";
+                aToolStripMenuItem.Text = "طلب الصيانة";
+                ادارةالمستودعToolStripMenuItem.Text = "إدارة المستودع";
+                اضافةصنفToolStripMenuItem.Text = "إضافة صنف";
+                اضافةمستودعToolStripMenuItem.Text = "إضافة مجلد مفضلات";
+                اضافةمستودعToolStripMenuItem1.Text = "إضافة مستودع";
+                اللغةToolStripMenuItem.Text = "اللغة";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "الخروج";
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                Text = "Main Window - PlancksoftPOS";
+                label93.Text = "Client Card F2";
+                label67.Text = "Pay F1";
+                label68.Text = "Discounts F4";
+                label69.Text = "New Bill F3";
+                label2.Text = "Drawer F6";
+                label89.Text = "Edit Price F5";
+                label24.Text = "Items Lookup F9";
+                label70.Text = "F8 Previous Bills F7";
+                label71.Text = "Cashier Name:";
+                label45.Text = "This copy is licensed for ";
+                groupBox3.Text = "List of currently pending items";
+                label112.Text = "Number of pending bills: 0";
+                richTextBox5.Clear();
+                richTextBox5.AppendText("Current Bill Number");
+                richTextBox1.Clear();
+                richTextBox1.AppendText("Previous Remainder");
+                richTextBox2.Clear();
+                richTextBox2.AppendText("Previous Paid");
+                richTextBox3.Clear();
+                richTextBox3.AppendText("Previous Total");
+                ItemsPendingPurchase.Columns["pendingPurchaseItemName"].HeaderText = "Item Name";
+                ItemsPendingPurchase.Columns["pendingPurchaseItemBarCode"].HeaderText = "Item Barcode";
+                ItemsPendingPurchase.Columns["pendingPurchaseItemQuantity"].HeaderText = "Item Quantity";
+                ItemsPendingPurchase.Columns["pendingPurchaseItemPrice"].HeaderText = "Item Price";
+                ItemsPendingPurchase.Columns["pendingPurchaseItemPriceTax"].HeaderText = "Item Price after Tax";
+                label49.Text = "Removal Quantity";
+                label52.Text = "New Item Quantity";
+                button17.Text = "Remove item from bill";
+                button24.Text = "Edit Item Quantity";
+                label66.Text = "Close Register F12";
+                label65.Text = "Open Register F11";
+                خروجToolStripMenuItem1.Text = "Quit";
+                aToolStripMenuItem.Text = "Maintenance Request";
+                ادارةالمستودعToolStripMenuItem.Text = "Warehouse Management";
+                اضافةصنفToolStripMenuItem.Text = "Add Item Type";
+                اضافةمستودعToolStripMenuItem.Text = "Add Favorite Category";
+                اضافةمستودعToolStripMenuItem1.Text = "Add Warehouse";
+                اللغةToolStripMenuItem.Text = "Language";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "Exit";
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+            }
         }
 
         public void DisplayCashierNames()
@@ -3461,7 +3577,7 @@ namespace PlancksoftPOS
         {
             if (userPermissions.customer_card_edit)
             {
-                frmCustomerCard customerCard = new frmCustomerCard();
+                frmClientCard customerCard = new frmClientCard();
                 customerCard.ShowDialog();
                 if (customerCard.dialogResult == DialogResult.OK)
                 {
@@ -3520,10 +3636,6 @@ namespace PlancksoftPOS
                     else MessageBox.Show(".تم اضافة خصم العميل", Application.ProductName);
 
 
-                }
-                else if (customerCard.dialogResult == DialogResult.None)
-                {
-                    tabControl1.SelectedTab = tabControl1.TabPages["Employees"];
                 }
             }
         }
@@ -4334,7 +4446,7 @@ namespace PlancksoftPOS
         {
             if (userPermissions.customer_card_edit)
             {
-                frmCustomerCard customerCard = new frmCustomerCard();
+                frmClientCard customerCard = new frmClientCard();
                 customerCard.ShowDialog();
                 if (customerCard.dialogResult == DialogResult.OK)
                 {
@@ -4861,7 +4973,7 @@ namespace PlancksoftPOS
                 case Keys.F2:
                     if (userPermissions.customer_card_edit)
                     {
-                        frmCustomerCard customerCard = new frmCustomerCard();
+                        frmClientCard customerCard = new frmClientCard();
                         customerCard.ShowDialog();
                         if (customerCard.dialogResult == DialogResult.OK)
                         {
@@ -6185,19 +6297,29 @@ namespace PlancksoftPOS
             }
         }
 
-        public void groupBox30_Enter(object sender, EventArgs e)
+        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             
+            Application.Exit();
         }
 
-        public void groupBox26_Enter(object sender, EventArgs e)
+        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
+            Properties.Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
+            Properties.Settings.Default.Save();
+            englishToolStripMenuItem.Checked = false;
+            العربيةToolStripMenuItem.Checked = true;
+            applyLocalizationOnUI();
         }
 
-        public void groupBox36_Enter(object sender, EventArgs e)
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
+            Properties.Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
+            Properties.Settings.Default.Save();
+            englishToolStripMenuItem.Checked = true;
+            العربيةToolStripMenuItem.Checked = false;
+            applyLocalizationOnUI();
         }
 
         public void pictureBox29_Click(object sender, EventArgs e)
