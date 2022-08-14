@@ -26,13 +26,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ادارةالمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اضافةمادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -218,13 +218,6 @@
             this.pictureBox30 = new System.Windows.Forms.PictureBox();
             this.groupBox27 = new System.Windows.Forms.GroupBox();
             this.dgvItemProfit = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
             this.Inventory = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -681,6 +674,13 @@
             this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -941,28 +941,28 @@
             // اضافةمادهToolStripMenuItem
             // 
             this.اضافةمادهToolStripMenuItem.Name = "اضافةمادهToolStripMenuItem";
-            this.اضافةمادهToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.اضافةمادهToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.اضافةمادهToolStripMenuItem.Text = "إضافة ماده";
             this.اضافةمادهToolStripMenuItem.Click += new System.EventHandler(this.اضافةمادهToolStripMenuItem_Click);
             // 
             // اضافةصنفToolStripMenuItem
             // 
             this.اضافةصنفToolStripMenuItem.Name = "اضافةصنفToolStripMenuItem";
-            this.اضافةصنفToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.اضافةصنفToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.اضافةصنفToolStripMenuItem.Text = "إضافة صنف";
             this.اضافةصنفToolStripMenuItem.Click += new System.EventHandler(this.اضافةصنفToolStripMenuItem_Click);
             // 
             // اضافةمستودعToolStripMenuItem
             // 
             this.اضافةمستودعToolStripMenuItem.Name = "اضافةمستودعToolStripMenuItem";
-            this.اضافةمستودعToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.اضافةمستودعToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.اضافةمستودعToolStripMenuItem.Text = "إضافة مجلد مفضلات";
             this.اضافةمستودعToolStripMenuItem.Click += new System.EventHandler(this.اضافةمستودعToolStripMenuItem_Click);
             // 
             // اضافةمستودعToolStripMenuItem1
             // 
             this.اضافةمستودعToolStripMenuItem1.Name = "اضافةمستودعToolStripMenuItem1";
-            this.اضافةمستودعToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.اضافةمستودعToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
             this.اضافةمستودعToolStripMenuItem1.Text = "إضافة مستودع";
             this.اضافةمستودعToolStripMenuItem1.Click += new System.EventHandler(this.اضافةمستودعToolStripMenuItem1_Click);
             // 
@@ -2438,7 +2438,7 @@
             this.BillsEditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.BillsEditButton.Enabled = false;
             this.BillsEditButton.ForeColor = System.Drawing.Color.White;
-            this.BillsEditButton.Location = new System.Drawing.Point(1121, 3);
+            this.BillsEditButton.Location = new System.Drawing.Point(345, 3);
             this.BillsEditButton.Name = "BillsEditButton";
             this.BillsEditButton.Size = new System.Drawing.Size(142, 81);
             this.BillsEditButton.TabIndex = 5;
@@ -2451,7 +2451,7 @@
             this.BillsCashierName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BillsCashierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsCashierName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsCashierName.Location = new System.Drawing.Point(771, 46);
+            this.BillsCashierName.Location = new System.Drawing.Point(919, 46);
             this.BillsCashierName.Name = "BillsCashierName";
             this.BillsCashierName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BillsCashierName.Size = new System.Drawing.Size(202, 20);
@@ -2463,7 +2463,7 @@
             this.BillEditNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BillEditNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillEditNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillEditNumber.Location = new System.Drawing.Point(979, 46);
+            this.BillEditNumber.Location = new System.Drawing.Point(1127, 46);
             this.BillEditNumber.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2486,7 +2486,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label11.Location = new System.Drawing.Point(828, 8);
+            this.label11.Location = new System.Drawing.Point(976, 8);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(89, 24);
             this.label11.TabIndex = 36;
@@ -2498,7 +2498,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label13.Location = new System.Drawing.Point(1002, 8);
+            this.label13.Location = new System.Drawing.Point(1150, 8);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 24);
             this.label13.TabIndex = 46;
@@ -2510,7 +2510,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label9.Location = new System.Drawing.Point(645, 8);
+            this.label9.Location = new System.Drawing.Point(793, 8);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(105, 24);
             this.label9.TabIndex = 39;
@@ -2522,7 +2522,7 @@
             this.BillsRemainderAmount.DecimalPlaces = 2;
             this.BillsRemainderAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsRemainderAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsRemainderAmount.Location = new System.Drawing.Point(345, 46);
+            this.BillsRemainderAmount.Location = new System.Drawing.Point(493, 46);
             this.BillsRemainderAmount.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2544,7 +2544,7 @@
             this.BillsTotalAmount.DecimalPlaces = 2;
             this.BillsTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsTotalAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsTotalAmount.Location = new System.Drawing.Point(629, 46);
+            this.BillsTotalAmount.Location = new System.Drawing.Point(777, 46);
             this.BillsTotalAmount.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2566,7 +2566,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label12.Location = new System.Drawing.Point(366, 8);
+            this.label12.Location = new System.Drawing.Point(514, 8);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(94, 24);
             this.label12.TabIndex = 44;
@@ -2578,7 +2578,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label10.Location = new System.Drawing.Point(502, 8);
+            this.label10.Location = new System.Drawing.Point(650, 8);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(106, 24);
             this.label10.TabIndex = 42;
@@ -2590,7 +2590,7 @@
             this.BillsPaidAmount.DecimalPlaces = 2;
             this.BillsPaidAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsPaidAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsPaidAmount.Location = new System.Drawing.Point(487, 46);
+            this.BillsPaidAmount.Location = new System.Drawing.Point(635, 46);
             this.BillsPaidAmount.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -3240,62 +3240,6 @@
             this.dgvItemProfit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgvItemProfit.Size = new System.Drawing.Size(1254, 535);
             this.dgvItemProfit.TabIndex = 34;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Item Name";
-            this.dataGridViewTextBoxColumn16.HeaderText = "اسم السلعه";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Item BarCode";
-            this.dataGridViewTextBoxColumn17.HeaderText = "الباركود";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // Column48
-            // 
-            this.Column48.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column48.DataPropertyName = "Item Type";
-            this.Column48.HeaderText = "صنف الماده";
-            this.Column48.Name = "Column48";
-            this.Column48.ReadOnly = true;
-            // 
-            // Column49
-            // 
-            this.Column49.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column49.DataPropertyName = "Cashier Name";
-            this.Column49.HeaderText = "اسم الكاشير";
-            this.Column49.Name = "Column49";
-            this.Column49.ReadOnly = true;
-            // 
-            // ItemPriceTax
-            // 
-            this.ItemPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ItemPriceTax.DataPropertyName = "Item Price Tax";
-            this.ItemPriceTax.HeaderText = "سعر القطعة بعد الضريبة";
-            this.ItemPriceTax.Name = "ItemPriceTax";
-            this.ItemPriceTax.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Times Sold";
-            this.dataGridViewTextBoxColumn18.HeaderText = "الكميه المباعه";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Item Profit";
-            this.dataGridViewTextBoxColumn19.HeaderText = "المجموع";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
             // 
             // pictureBox29
             // 
@@ -7432,8 +7376,8 @@
             // 
             this.VendorItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemName.DataPropertyName = "Item Name";
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle8;
             this.VendorItemName.HeaderText = "اسم الماده";
             this.VendorItemName.Name = "VendorItemName";
             this.VendorItemName.ReadOnly = true;
@@ -7442,8 +7386,8 @@
             // 
             this.VendorItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBarCode.DataPropertyName = "Item BarCode";
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle9;
             this.VendorItemBarCode.HeaderText = "باركود الماده";
             this.VendorItemBarCode.Name = "VendorItemBarCode";
             this.VendorItemBarCode.ReadOnly = true;
@@ -7452,8 +7396,8 @@
             // 
             this.VendorItemType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemType.DataPropertyName = "Item Type";
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle10;
             this.VendorItemType.HeaderText = "صنف الماده";
             this.VendorItemType.Name = "VendorItemType";
             this.VendorItemType.ReadOnly = true;
@@ -7462,8 +7406,8 @@
             // 
             this.VendorItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemQuantity.DataPropertyName = "Item Quantity";
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle11;
             this.VendorItemQuantity.HeaderText = "عدد القطع";
             this.VendorItemQuantity.Name = "VendorItemQuantity";
             this.VendorItemQuantity.ReadOnly = true;
@@ -7472,8 +7416,8 @@
             // 
             this.VendorItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBuyPrice.DataPropertyName = "VendorItemBuyPrice";
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle12;
             this.VendorItemBuyPrice.HeaderText = "سعر الشراء";
             this.VendorItemBuyPrice.Name = "VendorItemBuyPrice";
             this.VendorItemBuyPrice.ReadOnly = true;
@@ -7482,8 +7426,8 @@
             // 
             this.VendorItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPrice.DataPropertyName = "VendorItemSellPrice";
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle13;
             this.VendorItemSellPrice.HeaderText = "سعر البيع";
             this.VendorItemSellPrice.Name = "VendorItemSellPrice";
             this.VendorItemSellPrice.ReadOnly = true;
@@ -7492,8 +7436,8 @@
             // 
             this.VendorItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPriceTax.DataPropertyName = "VendorItemSellPriceTax";
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle14;
             this.VendorItemSellPriceTax.HeaderText = "سعر البيع مع الضريبه";
             this.VendorItemSellPriceTax.Name = "VendorItemSellPriceTax";
             this.VendorItemSellPriceTax.ReadOnly = true;
@@ -8937,7 +8881,7 @@
             // 
             this.العربيةToolStripMenuItem.CheckOnClick = true;
             this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
-            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.العربيةToolStripMenuItem.Text = "العربية";
             this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
             // 
@@ -8945,7 +8889,7 @@
             // 
             this.englishToolStripMenuItem.CheckOnClick = true;
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.englishToolStripMenuItem.Text = "English";
             this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
             // 
@@ -8955,6 +8899,62 @@
             this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.الخروجToolStripMenuItem.Text = "الخروج";
             this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Item Name";
+            this.dataGridViewTextBoxColumn16.HeaderText = "إسم السلعه";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "Item BarCode";
+            this.dataGridViewTextBoxColumn17.HeaderText = "الباركود";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // Column48
+            // 
+            this.Column48.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column48.DataPropertyName = "Item Type";
+            this.Column48.HeaderText = "صنف الماده";
+            this.Column48.Name = "Column48";
+            this.Column48.ReadOnly = true;
+            // 
+            // Column49
+            // 
+            this.Column49.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column49.DataPropertyName = "Cashier Name";
+            this.Column49.HeaderText = "اسم الكاشير";
+            this.Column49.Name = "Column49";
+            this.Column49.ReadOnly = true;
+            // 
+            // ItemPriceTax
+            // 
+            this.ItemPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemPriceTax.DataPropertyName = "Item Price Tax";
+            this.ItemPriceTax.HeaderText = "سعر القطعة بعد الضريبة";
+            this.ItemPriceTax.Name = "ItemPriceTax";
+            this.ItemPriceTax.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Times Sold";
+            this.dataGridViewTextBoxColumn18.HeaderText = "الكميه المباعه";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Item Profit";
+            this.dataGridViewTextBoxColumn19.HeaderText = "المجموع";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
             // 
             // frmMain
             // 
@@ -9846,13 +9846,6 @@
         public System.Windows.Forms.DataGridViewTextBoxColumn VendorItemBuyPrice;
         public System.Windows.Forms.DataGridViewTextBoxColumn VendorItemSellPrice;
         public System.Windows.Forms.DataGridViewTextBoxColumn VendorItemSellPriceTax;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column48;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column49;
-        public System.Windows.Forms.DataGridViewTextBoxColumn ItemPriceTax;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         public System.Windows.Forms.Label label116;
         public System.Windows.Forms.Label label115;
         public System.Windows.Forms.PictureBox pictureBox35;
@@ -9897,6 +9890,13 @@
         private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column48;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column49;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemPriceTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
     }
 }
 

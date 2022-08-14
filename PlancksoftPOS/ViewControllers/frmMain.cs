@@ -500,37 +500,123 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 Text = "PlancksoftPOS - الشاشه الرئيسيه";
-                label93.Text = "بطاقة عميل F2";
-                label67.Text = "الدفع F1";
-                label68.Text = "الخصومات F4";
-                label69.Text = "فاتوره جديده F3";
-                label2.Text = "فتح الكاش F6";
-                label89.Text = "تعديل السعر F5";
-                label24.Text = "البحث عن المواد F9";
-                label70.Text = "F8 الفواتير السابقه F7";
-                label71.Text = "اسم الكاشير:";
-                label45.Text = "هذه النسخه مرخصه ل";
-                groupBox3.Text = "قائمة المشتريات الحاليه";
-                label112.Text = "0 :عدد الفواتير المعلقه";
-                richTextBox5.Clear();
-                richTextBox5.AppendText("رقم الفاتورة الحالية");
-                richTextBox1.Clear();
-                richTextBox1.AppendText("الباقي السابق");
-                richTextBox2.Clear();
-                richTextBox2.AppendText("المدفوع السابق");
-                richTextBox3.Clear();
-                richTextBox3.AppendText("المجموع السابق");
-                ItemsPendingPurchase.Columns["pendingPurchaseItemName"].HeaderText = "القطعة";
-                ItemsPendingPurchase.Columns["pendingPurchaseItemBarCode"].HeaderText = "الباركود";
-                ItemsPendingPurchase.Columns["pendingPurchaseItemQuantity"].HeaderText = "عدد القطعة";
-                ItemsPendingPurchase.Columns["pendingPurchaseItemPrice"].HeaderText = "سعر القطعة";
-                ItemsPendingPurchase.Columns["pendingPurchaseItemPriceTax"].HeaderText = "سعر القطعة بعد الضريبة";
-                label49.Text = "عدد الحذف";
-                label52.Text = "عدد القطع الجديد";
-                button17.Text = "حذف القطعه من الشراء";
-                button24.Text = "تعديل عدد القطع";
-                label66.Text = "اغلاق الصندوق F12";
-                label65.Text = "فتح الصندوق F11";
+                if (tabControl1.Contains(tabControl1.TabPages["Cash"]))
+                {
+                    tabControl1.TabPages["Cash"].Text = "الكاش";
+                    label93.Text = "بطاقة عميل F2";
+                    label67.Text = "الدفع F1";
+                    label68.Text = "الخصومات F4";
+                    label69.Text = "فاتوره جديده F3";
+                    label2.Text = "فتح الكاش F6";
+                    label89.Text = "تعديل السعر F5";
+                    label24.Text = "البحث عن المواد F9";
+                    label70.Text = "F8 الفواتير السابقه F7";
+                    label71.Text = "اسم الكاشير:";
+                    label45.Text = "هذه النسخه مرخصه ل";
+                    groupBox3.Text = "قائمة المشتريات الحاليه";
+                    label112.Text = "0 :عدد الفواتير المعلقه";
+                    richTextBox5.Clear();
+                    richTextBox5.AppendText("رقم الفاتورة الحالية");
+                    richTextBox1.Clear();
+                    richTextBox1.AppendText("الباقي السابق");
+                    richTextBox2.Clear();
+                    richTextBox2.AppendText("المدفوع السابق");
+                    richTextBox3.Clear();
+                    richTextBox3.AppendText("المجموع السابق");
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemName"].HeaderText = "القطعة";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemBarCode"].HeaderText = "الباركود";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemQuantity"].HeaderText = "عدد القطعة";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemPrice"].HeaderText = "سعر القطعة";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemPriceTax"].HeaderText = "سعر القطعة بعد الضريبة";
+                    label49.Text = "عدد الحذف";
+                    label52.Text = "عدد القطع الجديد";
+                    button17.Text = "حذف القطعه من الشراء";
+                    button24.Text = "تعديل عدد القطع";
+                    label66.Text = "اغلاق الصندوق F12";
+                    label65.Text = "فتح الصندوق F11";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Sales"]))
+                {
+                    tabControl1.TabPages["Sales"].Text = "المبيعات";
+                    if (tabControl4.Contains(tabControl4.TabPages["InvoicesSales"]))
+                    {
+                        tabControl4.TabPages["InvoicesSales"].Text = "المبيعات";
+                        label85.Text = "رقم الغاتورة";
+                        label87.Text = "تاريخ البحث من";
+                        label84.Text = "تاريخ البحث الى";
+                        groupBox12.Text = "لائحة الفواتير";
+                        button26.Text = "مبيعات اليوم";
+                        dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
+                        dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                        dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
+                        dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
+                        dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
+                        dgvBills.Columns["Column5"].HeaderText = "طريقة الدفع";
+                        dgvBills.Columns["Column64"].HeaderText = "التاريخ";
+                        groupBox14.Text = "المواد المباعه بالفاتوره";
+                        button25.Text = "أقل 100 المواد مباعه";
+                        button18.Text = "أكثر 100 المواد مباعه";
+                        dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
+                        dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
+                        dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
+                        dgvBillItems.Columns["Column63"].HeaderText = "العدد من أصل";
+                        dgvBillItems.Columns["Column24"].HeaderText = "السعر";
+                        dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
+                    }
+                    if (tabControl4.Contains(tabControl4.TabPages["EditInvoices"]))
+                    {
+                        tabControl4.TabPages["EditInvoices"].Text = "التعديل على الفواتير";
+                        groupBox30.Text = "لائحة الفواتير";
+                        label13.Text = "رقم الفاتوره";
+                        label11.Text = "اسم الكاشير";
+                        label9.Text = "المبلغ الصافي";
+                        label10.Text = "المبلغ المدفوع";
+                        label12.Text = "المبلغ الباقي";
+                        BillsEditButton.Text = "التعديل على الفاتوره";
+                        dgvBillsEdit.Columns["BillNumber"].HeaderText = "رقم الفاتوره";
+                        dgvBillsEdit.Columns["BillCashierName"].HeaderText = "اسم الكاشير";
+                        dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "المبلغ الصافي";
+                        dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "المبلغ المدفوع";
+                        dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "المبلغ الباقي";
+                        dgvBillsEdit.Columns["BillPaymentType"].HeaderText = "طريقة الدفع";
+                    }
+                    if (tabControl4.Contains(tabControl4.TabPages["TravelingUntravelingSales"]))
+                    {
+                        tabControl4.TabPages["TravelingUntravelingSales"].Text = "المبيعات المرحله و الغير مرحله";
+                        groupBox25.Text = "المبيعات الغير المرحله";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn6"].HeaderText = "رقم الغاتورة";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn7"].HeaderText = "إسم الكاشير";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "المبلغ الصافي";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn9"].HeaderText = "المبلغ المدفوغ";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "المبلغ الباقي";
+                        dgvUnPortedSales.Columns["Column7"].HeaderText = "طريقة الدفع";
+                        dgvUnPortedSales.Columns["TotalUnPorted"].HeaderText = "المجموع";
+                        groupBox26.Text = "المبيعات المرحله";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn11"].HeaderText = "رقم الغاتورة";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn12"].HeaderText = "إسم الكاشير";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "المبلغ الصافي";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn14"].HeaderText = "المبلغ المدفوغ";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "المبلغ الباقي";
+                        dgvPortedSales.Columns["Column28"].HeaderText = "طريقة الدفع";
+                        dgvPortedSales.Columns["TotalPorted"].HeaderText = "المجموع";
+                    }
+                    if (tabControl4.Contains(tabControl4.TabPages["SoldItems"]))
+                    {
+                        tabControl4.TabPages["SoldItems"].Text = "جرد الكميات المباعه";
+                        groupBox28.Text = "البحث";
+                        label37.Text = "اسم الكاشير";
+                        label38.Text = "الصنف";
+                        label5.Text = "تاريخ البحث من";
+                        label3.Text = "تاريخ البحث الى";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn16"].HeaderText = "إسم السلعه";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "الباركود";
+                        dgvItemProfit.Columns["Column48"].HeaderText = "صنف الماده";
+                        dgvItemProfit.Columns["Column49"].HeaderText = "اسم الكاشير";
+                        dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "سعر القطعة بعد الضريبة";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "الكميه المباعه";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "المجموع";
+                    }
+                }
                 خروجToolStripMenuItem1.Text = "خروج";
                 aToolStripMenuItem.Text = "طلب الصيانة";
                 ادارةالمستودعToolStripMenuItem.Text = "إدارة المستودع";
@@ -547,37 +633,123 @@ namespace PlancksoftPOS
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 Text = "Main Window - PlancksoftPOS";
-                label93.Text = "Client Card F2";
-                label67.Text = "Pay F1";
-                label68.Text = "Discounts F4";
-                label69.Text = "New Bill F3";
-                label2.Text = "Drawer F6";
-                label89.Text = "Edit Price F5";
-                label24.Text = "Items Lookup F9";
-                label70.Text = "F8 Previous Bills F7";
-                label71.Text = "Cashier Name:";
-                label45.Text = "This copy is licensed for ";
-                groupBox3.Text = "List of currently pending items";
-                label112.Text = "Number of pending bills: 0";
-                richTextBox5.Clear();
-                richTextBox5.AppendText("Current Bill Number");
-                richTextBox1.Clear();
-                richTextBox1.AppendText("Previous Remainder");
-                richTextBox2.Clear();
-                richTextBox2.AppendText("Previous Paid");
-                richTextBox3.Clear();
-                richTextBox3.AppendText("Previous Total");
-                ItemsPendingPurchase.Columns["pendingPurchaseItemName"].HeaderText = "Item Name";
-                ItemsPendingPurchase.Columns["pendingPurchaseItemBarCode"].HeaderText = "Item Barcode";
-                ItemsPendingPurchase.Columns["pendingPurchaseItemQuantity"].HeaderText = "Item Quantity";
-                ItemsPendingPurchase.Columns["pendingPurchaseItemPrice"].HeaderText = "Item Price";
-                ItemsPendingPurchase.Columns["pendingPurchaseItemPriceTax"].HeaderText = "Item Price after Tax";
-                label49.Text = "Removal Quantity";
-                label52.Text = "New Item Quantity";
-                button17.Text = "Remove item from bill";
-                button24.Text = "Edit Item Quantity";
-                label66.Text = "Close Register F12";
-                label65.Text = "Open Register F11";
+                if (tabControl1.Contains(tabControl1.TabPages["Cash"]))
+                {
+                    tabControl1.TabPages["Cash"].Text = "Cash";
+                    label93.Text = "Client Card F2";
+                    label67.Text = "Pay F1";
+                    label68.Text = "Discounts F4";
+                    label69.Text = "New Bill F3";
+                    label2.Text = "Drawer F6";
+                    label89.Text = "Edit Price F5";
+                    label24.Text = "Items Lookup F9";
+                    label70.Text = "F8 Previous Bills F7";
+                    label71.Text = "Cashier Name:";
+                    label45.Text = "This copy is licensed for ";
+                    groupBox3.Text = "List of currently pending items";
+                    label112.Text = "Number of pending bills: 0";
+                    richTextBox5.Clear();
+                    richTextBox5.AppendText("Current Bill Number");
+                    richTextBox1.Clear();
+                    richTextBox1.AppendText("Previous Remainder");
+                    richTextBox2.Clear();
+                    richTextBox2.AppendText("Previous Paid");
+                    richTextBox3.Clear();
+                    richTextBox3.AppendText("Previous Total");
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemName"].HeaderText = "Item Name";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemBarCode"].HeaderText = "Item Barcode";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemQuantity"].HeaderText = "Item Quantity";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemPrice"].HeaderText = "Item Price";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemPriceTax"].HeaderText = "Item Price after Tax";
+                    label49.Text = "Removal Quantity";
+                    label52.Text = "New Item Quantity";
+                    button17.Text = "Remove item from bill";
+                    button24.Text = "Edit Item Quantity";
+                    label66.Text = "Close Register F12";
+                    label65.Text = "Open Register F11";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Sales"]))
+                {
+                    tabControl1.TabPages["Sales"].Text = "Sales";
+                    if (tabControl4.Contains(tabControl4.TabPages["InvoicesSales"]))
+                    {
+                        tabControl4.TabPages["InvoicesSales"].Text = "Sales";
+                        label85.Text = "Bill ID";
+                        label87.Text = "Search date from";
+                        label84.Text = "Search date to";
+                        groupBox12.Text = "List of Bills";
+                        button26.Text = "Today's Sales";
+                        dgvBills.Columns["Column15"].HeaderText = "Bill ID";
+                        dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                        dgvBills.Columns["Column17"].HeaderText = "Net Total";
+                        dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
+                        dgvBills.Columns["Column19"].HeaderText = "Remainder";
+                        dgvBills.Columns["Column5"].HeaderText = "Payment Method";
+                        dgvBills.Columns["Column64"].HeaderText = "Date";
+                        groupBox14.Text = "Items sold in Bill";
+                        button25.Text = "Least 100 Items Sold";
+                        button18.Text = "Most 100 Items Sold";
+                        dgvBillItems.Columns["Column20"].HeaderText = "Item Name";
+                        dgvBillItems.Columns["Column21"].HeaderText = "Item Barcode";
+                        dgvBillItems.Columns["Column23"].HeaderText = "Sold Quantity";
+                        dgvBillItems.Columns["Column63"].HeaderText = "Original Quantity";
+                        dgvBillItems.Columns["Column24"].HeaderText = "Price";
+                        dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
+                    }
+                    if (tabControl4.Contains(tabControl4.TabPages["EditInvoices"]))
+                    {
+                        tabControl4.TabPages["EditInvoices"].Text = "Edit Invoices";
+                        groupBox30.Text = "List of Bills";
+                        label13.Text = "Bill ID";
+                        label11.Text = "Cashier Name";
+                        label9.Text = "Net Amount";
+                        label10.Text = "Paid Amount";
+                        label12.Text = "Remainder";
+                        BillsEditButton.Text = "Edit Bill";
+                        dgvBillsEdit.Columns["BillNumber"].HeaderText = "Bill ID";
+                        dgvBillsEdit.Columns["BillCashierName"].HeaderText = "Bill Cashier Name";
+                        dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "Net Amount";
+                        dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "Paid Amount";
+                        dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "Remainder";
+                        dgvBillsEdit.Columns["BillPaymentType"].HeaderText = "Payment Type";
+                    }
+                    if (tabControl4.Contains(tabControl4.TabPages["TravelingUntravelingSales"]))
+                    {
+                        tabControl4.TabPages["TravelingUntravelingSales"].Text = "Traveling | Untraveling Sales";
+                        groupBox25.Text = "Untraveling Sales";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn6"].HeaderText = "Bill ID";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn7"].HeaderText = "Cashier Name";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "Net Amount";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn9"].HeaderText = "Paid Amount";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "Remainder";
+                        dgvUnPortedSales.Columns["Column7"].HeaderText = "Payment Method";
+                        dgvUnPortedSales.Columns["TotalUnPorted"].HeaderText = "Total";
+                        groupBox26.Text = "Traveling Sales";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn11"].HeaderText = "Bill ID";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Cashier Name";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "Net Amount";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn14"].HeaderText = "Paid Amount";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "Remainder";
+                        dgvPortedSales.Columns["Column28"].HeaderText = "Payment Method";
+                        dgvPortedSales.Columns["TotalPorted"].HeaderText = "Total";
+                    }
+                    if (tabControl4.Contains(tabControl4.TabPages["SoldItems"]))
+                    {
+                        tabControl4.TabPages["SoldItems"].Text = "Sold Items Review";
+                        groupBox28.Text = "Search";
+                        label37.Text = "Cashier Name";
+                        label38.Text = "Item Type";
+                        label5.Text = "Search Date from";
+                        label3.Text = "Search Date to";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn16"].HeaderText = "Item Name";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "Item Barcode";
+                        dgvItemProfit.Columns["Column48"].HeaderText = "Item Type";
+                        dgvItemProfit.Columns["Column49"].HeaderText = "Cashier Name";
+                        dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "Item Price Tax";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "Sold Quantity";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "Total";
+                    }
+                }
                 خروجToolStripMenuItem1.Text = "Quit";
                 aToolStripMenuItem.Text = "Maintenance Request";
                 ادارةالمستودعToolStripMenuItem.Text = "Warehouse Management";
@@ -2451,6 +2623,27 @@ namespace PlancksoftPOS
                 currencyManager1.ResumeBinding();
             }
             dgvBills.Refresh();
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
+                dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
+                dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
+                dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
+                dgvBills.Columns["Column5"].HeaderText = "طريقة الدفع";
+                dgvBills.Columns["Column64"].HeaderText = "التاريخ";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "Bill ID";
+                dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                dgvBills.Columns["Column17"].HeaderText = "Net Total";
+                dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
+                dgvBills.Columns["Column19"].HeaderText = "Remainder";
+                dgvBills.Columns["Column5"].HeaderText = "Payment Method";
+                dgvBills.Columns["Column64"].HeaderText = "Date";
+            }
         }
 
         public void pictureBox18_Click(object sender, EventArgs e)
@@ -2509,6 +2702,23 @@ namespace PlancksoftPOS
         public void dgvBills_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             dgvBillItems.DataSource = RetrieveBillItems(e.RowIndex);
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
+                dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
+                dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
+                dgvBillItems.Columns["Column63"].HeaderText = "العدد من أصل";
+                dgvBillItems.Columns["Column24"].HeaderText = "السعر";
+                dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
+            } else if (pickedLanguage == LanguageChoice.Languages.English) {
+                dgvBillItems.Columns["Column20"].HeaderText = "Item Name";
+                dgvBillItems.Columns["Column21"].HeaderText = "Item Barcode";
+                dgvBillItems.Columns["Column23"].HeaderText = "Sold Quantity";
+                dgvBillItems.Columns["Column63"].HeaderText = "Original Quantity";
+                dgvBillItems.Columns["Column24"].HeaderText = "Price";
+                dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
+            }
         }
 
         public DataTable RetrieveBillItems(int Index)
@@ -2568,6 +2778,25 @@ namespace PlancksoftPOS
         {
             Tuple<List<Item>, DataTable> mostBoughtItems = Connection.server.RetrieveMostBoughtItems();
             dgvBillItems.DataSource = mostBoughtItems.Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
+                dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
+                dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
+                dgvBillItems.Columns["Column63"].HeaderText = "العدد من أصل";
+                dgvBillItems.Columns["Column24"].HeaderText = "السعر";
+                dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBillItems.Columns["Column20"].HeaderText = "Item Name";
+                dgvBillItems.Columns["Column21"].HeaderText = "Item Barcode";
+                dgvBillItems.Columns["Column23"].HeaderText = "Sold Quantity";
+                dgvBillItems.Columns["Column63"].HeaderText = "Original Quantity";
+                dgvBillItems.Columns["Column24"].HeaderText = "Price";
+                dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
+            }
         }
 
         public void nudBillNumberSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -2575,6 +2804,27 @@ namespace PlancksoftPOS
             Tuple<List<Bill>, DataTable> RetrievedItems;
             RetrievedItems = Connection.server.SearchBills(Convert.ToInt32(nudBillNumberSearch.Value));
             dgvBills.DataSource = RetrievedItems.Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
+                dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
+                dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
+                dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
+                dgvBills.Columns["Column5"].HeaderText = "طريقة الدفع";
+                dgvBills.Columns["Column64"].HeaderText = "التاريخ";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "Bill ID";
+                dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                dgvBills.Columns["Column17"].HeaderText = "Net Total";
+                dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
+                dgvBills.Columns["Column19"].HeaderText = "Remainder";
+                dgvBills.Columns["Column5"].HeaderText = "Payment Method";
+                dgvBills.Columns["Column64"].HeaderText = "Date";
+            }
         }
 
         public void pictureBox19_Click(object sender, EventArgs e)
@@ -2582,12 +2832,52 @@ namespace PlancksoftPOS
             Tuple<List<Bill>, DataTable> RetrievedItems;
             RetrievedItems = Connection.server.SearchBills(Convert.ToInt32(nudBillNumberSearch.Value));
             dgvBills.DataSource = RetrievedItems.Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
+                dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
+                dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
+                dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
+                dgvBills.Columns["Column5"].HeaderText = "طريقة الدفع";
+                dgvBills.Columns["Column64"].HeaderText = "التاريخ";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "Bill ID";
+                dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                dgvBills.Columns["Column17"].HeaderText = "Net Total";
+                dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
+                dgvBills.Columns["Column19"].HeaderText = "Remainder";
+                dgvBills.Columns["Column5"].HeaderText = "Payment Method";
+                dgvBills.Columns["Column64"].HeaderText = "Date";
+            }
         }
 
         public void button25_Click(object sender, EventArgs e)
         {
             Tuple<List<Item>, DataTable> leastBoughtItems = Connection.server.RetrieveLeastBoughtItems();
             dgvBillItems.DataSource = leastBoughtItems.Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
+                dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
+                dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
+                dgvBillItems.Columns["Column63"].HeaderText = "العدد من أصل";
+                dgvBillItems.Columns["Column24"].HeaderText = "السعر";
+                dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBillItems.Columns["Column20"].HeaderText = "Item Name";
+                dgvBillItems.Columns["Column21"].HeaderText = "Item Barcode";
+                dgvBillItems.Columns["Column23"].HeaderText = "Sold Quantity";
+                dgvBillItems.Columns["Column63"].HeaderText = "Original Quantity";
+                dgvBillItems.Columns["Column24"].HeaderText = "Price";
+                dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
+            }
         }
 
         public void button26_Click(object sender, EventArgs e)
@@ -2595,6 +2885,27 @@ namespace PlancksoftPOS
             Tuple<List<Bill>, DataTable> RetrievedItems;
             RetrievedItems = Connection.server.SearchTodayBills(DateTime.Today);
             dgvBills.DataSource = RetrievedItems.Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
+                dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
+                dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
+                dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
+                dgvBills.Columns["Column5"].HeaderText = "طريقة الدفع";
+                dgvBills.Columns["Column64"].HeaderText = "التاريخ";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "Bill ID";
+                dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                dgvBills.Columns["Column17"].HeaderText = "Net Total";
+                dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
+                dgvBills.Columns["Column19"].HeaderText = "Remainder";
+                dgvBills.Columns["Column5"].HeaderText = "Payment Method";
+                dgvBills.Columns["Column64"].HeaderText = "Date";
+            }
         }
 
         public void pictureBox22_Click(object sender, EventArgs e)
@@ -2637,6 +2948,26 @@ namespace PlancksoftPOS
             RetrievedBills.Item2.Rows.Add(0, "", 0, 0, 0, "", total);
             dgvUnPortedSales.DataSource = RetrievedBills.Item2;
             dgvUnPortedSales.Refresh();
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn6"].HeaderText = "رقم الغاتورة";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn7"].HeaderText = "إسم الكاشير";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "المبلغ الصافي";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn9"].HeaderText = "المبلغ المدفوغ";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "المبلغ الباقي";
+                dgvUnPortedSales.Columns["Column7"].HeaderText = "طريقة الدفع";
+                dgvUnPortedSales.Columns["TotalUnPorted"].HeaderText = "المجموع";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn6"].HeaderText = "Bill ID";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn7"].HeaderText = "Cashier Name";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "Net Amount";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn9"].HeaderText = "Paid Amount";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "Remainder";
+                dgvUnPortedSales.Columns["Column7"].HeaderText = "Payment Method";
+                dgvUnPortedSales.Columns["TotalUnPorted"].HeaderText = "Total";
+            }
         }
 
         public void pictureBox6_Click(object sender, EventArgs e)
@@ -2658,6 +2989,26 @@ namespace PlancksoftPOS
             RetrievedBills.Item2.Rows.Add(0, "", 0, 0, 0, "", total);
             dgvPortedSales.DataSource = RetrievedBills.Item2;
             dgvPortedSales.Refresh();
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn11"].HeaderText = "رقم الغاتورة";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn12"].HeaderText = "إسم الكاشير";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "المبلغ الصافي";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn14"].HeaderText = "المبلغ المدفوغ";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "المبلغ الباقي";
+                dgvPortedSales.Columns["Column28"].HeaderText = "طريقة الدفع";
+                dgvPortedSales.Columns["TotalPorted"].HeaderText = "المجموع";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn11"].HeaderText = "Bill ID";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Cashier Name";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "Net Amount";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn14"].HeaderText = "Paid Amount";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "Remainder";
+                dgvPortedSales.Columns["Column28"].HeaderText = "Payment Method";
+                dgvPortedSales.Columns["TotalPorted"].HeaderText = "Total";
+            }
         }
 
         public void pictureBox5_Click(object sender, EventArgs e)
@@ -2999,6 +3350,26 @@ namespace PlancksoftPOS
             }
             else CashierName = "";
             dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(Convert.ToDateTime(dateTimePicker4.Text), Convert.ToDateTime(dateTimePicker3.Text), ItemTypeID, CashierName);
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn16"].HeaderText = "إسم السلعه";
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "الباركود";
+                dgvItemProfit.Columns["Column48"].HeaderText = "صنف الماده";
+                dgvItemProfit.Columns["Column49"].HeaderText = "اسم الكاشير";
+                dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "سعر القطعة بعد الضريبة";
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "الكميه المباعه";
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "المجموع";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn16"].HeaderText = "Item Name";
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "Item Barcode";
+                dgvItemProfit.Columns["Column48"].HeaderText = "Item Type";
+                dgvItemProfit.Columns["Column49"].HeaderText = "Cashier Name";
+                dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "Item Price Tax";
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "Sold Quantity";
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "Total";
+            }
         }
 
         public void tabControl4_SelectedIndexChanged(object sender, EventArgs e)
@@ -3039,6 +3410,24 @@ namespace PlancksoftPOS
                 currencyManager1.ResumeBinding();
             }
             dgvBillsEdit.Refresh();
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBillsEdit.Columns["BillNumber"].HeaderText = "رقم الفاتوره";
+                dgvBillsEdit.Columns["BillCashierName"].HeaderText = "اسم الكاشير";
+                dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "المبلغ الصافي";
+                dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "المبلغ المدفوع";
+                dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "المبلغ الباقي";
+                dgvBillsEdit.Columns["BillPaymentType"].HeaderText = "طريقة الدفع";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBillsEdit.Columns["BillNumber"].HeaderText = "Bill ID";
+                dgvBillsEdit.Columns["BillCashierName"].HeaderText = "Bill Cashier Name";
+                dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "Net Amount";
+                dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "Paid Amount";
+                dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "Remainder";
+                dgvBillsEdit.Columns["BillPaymentType"].HeaderText = "Payment Type";
+            }
         }
 
         public void pictureBox28_Click(object sender, EventArgs e)
@@ -3071,6 +3460,25 @@ namespace PlancksoftPOS
                         currencyManager1.ResumeBinding();
                     }
                     dgvBillsEdit.Refresh();
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        dgvBillsEdit.Columns["BillNumber"].HeaderText = "رقم الفاتوره";
+                        dgvBillsEdit.Columns["BillCashierName"].HeaderText = "اسم الكاشير";
+                        dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "المبلغ الصافي";
+                        dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "المبلغ المدفوع";
+                        dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "المبلغ الباقي";
+                        dgvBillsEdit.Columns["BillPaymentType"].HeaderText = "طريقة الدفع";
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        dgvBillsEdit.Columns["BillNumber"].HeaderText = "Bill ID";
+                        dgvBillsEdit.Columns["BillCashierName"].HeaderText = "Bill Cashier Name";
+                        dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "Net Amount";
+                        dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "Paid Amount";
+                        dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "Remainder";
+                        dgvBillsEdit.Columns["BillPaymentType"].HeaderText = "Payment Type";
+                    }
                 }
             } catch (Exception error)
             {
