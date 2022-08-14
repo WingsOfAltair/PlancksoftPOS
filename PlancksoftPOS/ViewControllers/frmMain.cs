@@ -722,6 +722,195 @@ namespace PlancksoftPOS
                         label27.Text = "المستودعات المضافه";
                     }
                 }
+                if (tabControl1.Contains(tabControl1.TabPages["Expenses"]))
+                {
+                    tabControl1.TabPages["Expenses"].Text = "المصروفات";
+                    if (tabControl5.Contains(tabControl5.TabPages["SearchExpenses"]))
+                    {
+                        tabControl5.TabPages["SearchExpenses"].Text = "البحث عن المصروفات";
+                        label16.Text = "إسم المصروف";
+                        label17.Text = "إسم الموظف";
+                        label15.Text = "تاريخ البحث من";
+                        label14.Text = "تاريخ البحث إلى";
+                        groupBox22.Text = "رأس المال";
+                        dgvExpenses.Columns["Column29"].HeaderText = "رقم المصروف";
+                        dgvExpenses.Columns["Column30"].HeaderText = "إسم المصروف";
+                        dgvExpenses.Columns["Column31"].HeaderText = "تكلفة المصروف";
+                        dgvExpenses.Columns["Column37"].HeaderText = "رمز المستخدم";
+                        dgvExpenses.Columns["Column32"].HeaderText = "تاريخ المصروف";
+                    }
+                    if (tabControl5.Contains(tabControl5.TabPages["AddExpenses"]))
+                    {
+                        tabControl5.TabPages["AddExpenses"].Text = "إضافة مصروف";
+                        label19.Text = "اسم المصروف";
+                        label20.Text = "كمية المصروف";
+                        button2.Text = "إضافة المصروف";
+                        button3.Text = "مسح";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["IncomingOutgoing"]))
+                {
+                    tabControl1.TabPages["IncomingOutgoing"].Text = "الصادر والوارد ورأس المال";
+                    groupBox19.Text = "الصادر";
+                    groupBox20.Text = "الوارد";
+                    groupBox21.Text = "الأرباح";
+                    dgvExports.Columns["Column33"].HeaderText = "التاريخ";
+                    dgvExports.Columns["Column34"].HeaderText = "التكلفه الكامله";
+                    dgvImports.Columns["Column35"].HeaderText = "التاريخ";
+                    dgvImports.Columns["Column36"].HeaderText = "التكلفه الكامله";
+                    dvgCapital.Columns["Column22"].HeaderText = "التاريخ";
+                    dvgCapital.Columns["Column26"].HeaderText = "الربح الصافي";
+                    label115.Text = "صافي الربح";
+                    label116.Text = "رأس المال";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Employees"]))
+                {
+                    tabControl1.TabPages["Employees"].Text = "شؤون الموظفين";
+                    if (tabControl8.Contains(tabControl8.TabPages["EmployeesManagement"]))
+                    {
+                        tabControl8.TabPages["EmployeesManagement"].Text = "إدارة الموظفين";
+                        label52.Text = "تسجيل الموظفين";
+                        label102.Text = "إسم الموظف";
+                        label100.Text = "الراتب";
+                        label104.Text = "رقم هاتف الموظف";
+                        label105.Text = "عنوان الموظف";
+                        button34.Text = "التسجيل";
+                        groupBox49.Text = "جدول الموظفين";
+                        dgvEmployees.Columns["Column54"].HeaderText = "رقم الموظف";
+                        dgvEmployees.Columns["dataGridViewTextBoxColumn50"].HeaderText = "إسم الموظف";
+                        dgvEmployees.Columns["dataGridViewTextBoxColumn53"].HeaderText = "الراتب";
+                        dgvEmployees.Columns["Column62"].HeaderText = "الراتب مع الخصم";
+                        dgvEmployees.Columns["Column56"].HeaderText = "رقم الهاتف";
+                        dgvEmployees.Columns["Column57"].HeaderText = "العنوان";
+                        groupBox50.Text = "االتعديل على الموظفين و الإجازات";
+                        label54.Text = "إسم الموظف";
+                        label92.Text = "الراتب";
+                        label95.Text = "رقم هاتف الموظف";
+                        label99.Text = "عنوان الموظف";
+                        button32.Text = "تحديث  موظف";
+                        button16.Text = "حذف  موظف";
+                        label109.Text = "إسم الموظف";
+                        label106.Text = "عدد الساعات";
+                        label107.Text = "التاريخ";
+                        button37.Text = "إضافة إجازه";
+                        label111.Text = "حسم الراتب";
+                        button35.Text = "إضافة الحسم";
+                    }
+                    if (tabControl8.Contains(tabControl8.TabPages["DaysOff"]))
+                    {
+                        tabControl8.TabPages["DaysOff"].Text = "الإجازات";
+                        groupBox51.Text = "جدول الاجازات اليوميه";
+                        label108.Text = "التاريخ من";
+                        label110.Text = "التاريخ إلى";
+                        button33.Text = "حذف  غياب";
+                        dgvAbsence.Columns["Column58"].HeaderText = "رقم الغياب";
+                        dgvAbsence.Columns["Column59"].HeaderText = "إسم الموظف";
+                        dgvAbsence.Columns["Column60"].HeaderText = "تاريخ الغياب";
+                        dgvAbsence.Columns["Column61"].HeaderText = "ساعات الغياب";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Agents"]))
+                {
+                    tabControl1.TabPages["Agents"].Text = "شؤون العملاء";
+                    if (tabControl3.Contains(tabControl3.TabPages["AgentsDefinitions"]))
+                    {
+                        tabControl3.TabPages["AgentsDefinitions"].Text = "تعريف العملاء";
+                        groupBox17.Text = "تسجيل العملاء";
+                        label82.Text = "إسم العميل";
+                        label83.Text = "رمز العميل";
+                        label18.Text = "رقم تلفون";
+                        label21.Text = "العنوان";
+                        button31.Text = "حفظ العميل";
+                        groupBox15.Text = "جدول العملاء";
+                        dgvCustomers.Columns["Column27"].HeaderText = "إسم العميل";
+                        dgvCustomers.Columns["CustomerIDDelete"].HeaderText = "رمز العميل";
+                        dgvCustomers.Columns["Column38"].HeaderText = "رقم الزبون";
+                        dgvCustomers.Columns["Column39"].HeaderText = "عنوان الزبون";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["AgentsItemsDefinitions"]))
+                    {
+                        tabControl3.TabPages["AgentsItemsDefinitions"].Text = "تعريف مواد العميل";
+                        groupBox23.Text = "جدول المواد";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn1"].HeaderText = "إسم القطعة";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn2"].HeaderText = "باركود القطعه";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn3"].HeaderText = "عدد القطعه";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn4"].HeaderText = "سعر الشراء";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn5"].HeaderText = "سعر القطعه";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn25"].HeaderText = "سعر القطعه بالضريبه";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn26"].HeaderText = "المصنف المفضل";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn27"].HeaderText = "المستودع";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn28"].HeaderText = "تصنيف الماده";
+                        groupBox34.Text = "تعريف مواد العميل";
+                        label32.Text = "إسم العميل";
+                        label31.Text = "رمز العميل";
+                        label81.Text = "سعر الشراء";
+                        label86.Text = "سعر البيع قبل الضريبه";
+                        label88.Text = "سعر البيع بعد الضريبه";
+                        label90.Text = "سعر بيع العميل";
+                        button5.Text = "إختيار العميل";
+                        button4.Text = "إضافة الماده للعميل";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["ImporterDefinitions"]))
+                    {
+                        tabControl3.TabPages["ImporterDefinitions"].Text = "تعريف مورد";
+                        groupBox40.Text = "تسجيل الموردين";
+                        label41.Text = "إسم المورد";
+                        label42.Text = "رمز المورد";
+                        label40.Text = "رقم تلفون";
+                        label39.Text = "العنوان";
+                        button7.Text = "حفظ المورد";
+                        groupBox39.Text = "جدول الموردين";
+                        dgvVendors.Columns["VendorCustomerName"].HeaderText = "إسم المورد";
+                        dgvVendors.Columns["VendorCustomerID"].HeaderText = "رمز المورد";
+                        dgvVendors.Columns["VendorCustomerPhone"].HeaderText = "رقم المورد";
+                        dgvVendors.Columns["VendorCustomerAddress"].HeaderText = "عنوان المورد";
+                        button6.Text = "حذف المورد";
+                        button9.Text = "كشف حساب";
+                        button8.Text = "إضافة فاتوره";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["AddImporterInvoices"]))
+                    {
+                        tabControl3.TabPages["AddImporterInvoices"].Text = "إضافة فاتورة مورد";
+                        groupBox41.Text = "إضافة فاتورة مورد";
+                        label43.Text = "إسم المورد";
+                        label44.Text = "رقم المورد";
+                        button12.Text = "إضافة الفاتورة";
+                        button10.Text = "إختيار ماده";
+                        button11.Text = "حذف ماده";
+                        dgvVendorItemsPick.Columns["VendorItemName"].HeaderText = "إسم المادة";
+                        dgvVendorItemsPick.Columns["VendorItemBarCode"].HeaderText = "باركود المادة";
+                        dgvVendorItemsPick.Columns["VendorItemType"].HeaderText = "صنف المادة";
+                        dgvVendorItemsPick.Columns["VendorItemQuantity"].HeaderText = "عدد الفطع";
+                        dgvVendorItemsPick.Columns["VendorItemBuyPrice"].HeaderText = "سعر الشراء";
+                        dgvVendorItemsPick.Columns["VendorItemSellPrice"].HeaderText = "سعر البيع";
+                        dgvVendorItemsPick.Columns["VendorItemSellPriceTax"].HeaderText = "سعر البيع مع الضريبة";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["ImporterBalanceChecks"]))
+                    {
+                        tabControl3.TabPages["ImporterBalanceChecks"].Text = "كشف حساب مورد";
+                        groupBox43.Text = "لائحة الفواتير";
+                        dgvVendorBills.Columns["dataGridViewTextBoxColumn39"].HeaderText = "رقم الغاتورة";
+                        dgvVendorBills.Columns["dataGridViewTextBoxColumn40"].HeaderText = "إسم الكاشير";
+                        dgvVendorBills.Columns["dataGridViewTextBoxColumn41"].HeaderText = "المبلغ الصافي";
+                        dgvVendorBills.Columns["VendorBillDate"].HeaderText = "التاريخ";
+                        groupBox42.Text = "المواد المشتراه بالفاتوره";
+                        dgvVendorBillItems.Columns["dataGridViewTextBoxColumn34"].HeaderText = "إسم المادة";
+                        dgvVendorBillItems.Columns["dataGridViewTextBoxColumn35"].HeaderText = "باركود الماده";
+                        dgvVendorBillItems.Columns["dataGridViewTextBoxColumn36"].HeaderText = "عدد البيع الشراء";
+                        dgvVendorBillItems.Columns["VendorBillItemBuyPrice"].HeaderText = "سعر الشراء";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Alerts"]))
+                {
+                    tabControl1.TabPages["Alerts"].Text = "التنبيهات";
+                    groupBox37.Text = "التنبيهات";
+                    dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
+                    dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
+                    dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
+                    dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
+                    dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
+                    dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
+                }
                 خروجToolStripMenuItem1.Text = "خروج";
                 aToolStripMenuItem.Text = "طلب الصيانة";
                 ادارةالمستودعToolStripMenuItem.Text = "إدارة المستودع";
@@ -959,6 +1148,195 @@ namespace PlancksoftPOS
                         label26.Text = "Add a new Warehouse";
                         label27.Text = "Added Warehouses";
                     }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Expenses"]))
+                {
+                    tabControl1.TabPages["Expenses"].Text = "Expenses";
+                    if (tabControl5.Contains(tabControl5.TabPages["SearchExpenses"]))
+                    {
+                        tabControl5.TabPages["SearchExpenses"].Text = "Expenses Search";
+                        label16.Text = "Expense Name";
+                        label17.Text = "Employee Name";
+                        label15.Text = "Search Date from";
+                        label14.Text = "Search Date to";
+                        groupBox22.Text = "Capital Amount";
+                        dgvExpenses.Columns["Column29"].HeaderText = "Expense ID";
+                        dgvExpenses.Columns["Column30"].HeaderText = "Expense Name";
+                        dgvExpenses.Columns["Column31"].HeaderText = "Expense Cost";
+                        dgvExpenses.Columns["Column37"].HeaderText = "User ID";
+                        dgvExpenses.Columns["Column32"].HeaderText = "Expense Date";
+                    }
+                    if (tabControl5.Contains(tabControl5.TabPages["AddExpenses"]))
+                    {
+                        tabControl5.TabPages["AddExpenses"].Text = "Add an Expense";
+                        label19.Text = "Expense Name";
+                        label20.Text = "Expense Amount";
+                        button2.Text = "Add Expense";
+                        button3.Text = "Clear";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["IncomingOutgoing"]))
+                {
+                    tabControl1.TabPages["IncomingOutgoing"].Text = "Imports & Exports & Capital";
+                    groupBox19.Text = "Exports";
+                    groupBox20.Text = "Imports";
+                    groupBox21.Text = "Capital Gains";
+                    dgvExports.Columns["Column33"].HeaderText = "Date";
+                    dgvExports.Columns["Column34"].HeaderText = "Total Cost";
+                    dgvImports.Columns["Column35"].HeaderText = "Date";
+                    dgvImports.Columns["Column36"].HeaderText = "Total Cost";
+                    dvgCapital.Columns["Column22"].HeaderText = "Date";
+                    dvgCapital.Columns["Column26"].HeaderText = "Net Profit";
+                    label115.Text = "Net Profit";
+                    label116.Text = "Capital Amount";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Employees"]))
+                {
+                    tabControl1.TabPages["Employees"].Text = "Employees' Affairs";
+                    if (tabControl8.Contains(tabControl1.TabPages["EmployeesManagement"]))
+                    {
+                        tabControl8.TabPages["EmployeesManagement"].Text = "Employees Management";
+                        label52.Text = "Employees Registration";
+                        label102.Text = "Employee Name";
+                        label100.Text = "Salary";
+                        label104.Text = "Employee Phone Number";
+                        label105.Text = "Employee Address";
+                        button34.Text = "Register";
+                        groupBox49.Text = "Employees Grid";
+                        dgvEmployees.Columns["Column54"].HeaderText = "Employee ID";
+                        dgvEmployees.Columns["dataGridViewTextBoxColumn50"].HeaderText = "Employee Name";
+                        dgvEmployees.Columns["dataGridViewTextBoxColumn53"].HeaderText = "Salary";
+                        dgvEmployees.Columns["Column62"].HeaderText = "Salary with Deductions";
+                        dgvEmployees.Columns["Column56"].HeaderText = "Phone Number";
+                        dgvEmployees.Columns["Column57"].HeaderText = "Address";
+                        groupBox50.Text = "Employees & Absences Management";
+                        label54.Text = "Employee Name";
+                        label92.Text = "Salary";
+                        label95.Text = "Employee Phone Number";
+                        label99.Text = "Employee Address";
+                        button32.Text = "Update Employee";
+                        button16.Text = "Delete Employee";
+                        label109.Text = "Employee Name";
+                        label106.Text = "Number of Hours";
+                        label107.Text = "Date";
+                        button37.Text = "Add Absence";
+                        label111.Text = "Deduct from Salary";
+                        button35.Text = "Add Deduction";
+                    }
+                    if (tabControl8.Contains(tabControl1.TabPages["EmployeesManagement"]))
+                    {
+                        tabControl8.TabPages["DaysOff"].Text = "Absences";
+                        groupBox51.Text = "Daily Absences Grid";
+                        label108.Text = "Date from";
+                        label110.Text = "Date to";
+                        button33.Text = "Delete Absence";
+                        dgvAbsence.Columns["Column58"].HeaderText = "Absence ID";
+                        dgvAbsence.Columns["Column59"].HeaderText = "Employee Name";
+                        dgvAbsence.Columns["Column60"].HeaderText = "Absence Date";
+                        dgvAbsence.Columns["Column61"].HeaderText = "Absence Hours";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Agents"]))
+                {
+                    tabControl1.TabPages["Agents"].Text = "Clients' Affairs";
+                    if (tabControl3.Contains(tabControl3.TabPages["AgentsDefinitions"]))
+                    {
+                        tabControl3.TabPages["AgentsDefinitions"].Text = "Clients' Definitions";
+                        groupBox17.Text = "Clients Registration";
+                        label82.Text = "Client Name";
+                        label83.Text = "Client ID";
+                        label18.Text = "Phone Number";
+                        label21.Text = "Address";
+                        button31.Text = "Save Client";
+                        groupBox15.Text = "Clients Grid";
+                        dgvCustomers.Columns["Column27"].HeaderText = "Client Name";
+                        dgvCustomers.Columns["CustomerIDDelete"].HeaderText = "Client ID";
+                        dgvCustomers.Columns["Column38"].HeaderText = "Phone Number";
+                        dgvCustomers.Columns["Column39"].HeaderText = "Client Address";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["AgentsItemsDefinitions"]))
+                    {
+                        tabControl3.TabPages["AgentsItemsDefinitions"].Text = "Client Items Definitions";
+                        groupBox23.Text = "Items Grid";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn1"].HeaderText = "Item Name";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Item Barcode";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn3"].HeaderText = "Item Quantity";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn4"].HeaderText = "Buy Price";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn5"].HeaderText = "Sell Price";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn25"].HeaderText = "Sell Price Tax";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn26"].HeaderText = "Favorite Category";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn27"].HeaderText = "Warehouse";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn28"].HeaderText = "Item Type";
+                        groupBox34.Text = "Client Items Definition";
+                        label32.Text = "Client Name";
+                        label31.Text = "Client ID";
+                        label81.Text = "Buy Price";
+                        label86.Text = "Sell Price";
+                        label88.Text = "Sell Price Tax";
+                        label90.Text = "Client Sell Price";
+                        button5.Text = "Pick Client";
+                        button4.Text = "Add Item to Client";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["ImporterDefinitions"]))
+                    {
+                        tabControl3.TabPages["ImporterDefinitions"].Text = "Importer Definition";
+                        groupBox40.Text = "Importers Registration";
+                        label41.Text = "Importer Name";
+                        label42.Text = "Importer ID";
+                        label40.Text = "Phone Number";
+                        label39.Text = "Address";
+                        button7.Text = "Save Importer";
+                        groupBox39.Text = "Importers Grid";
+                        dgvVendors.Columns["VendorCustomerName"].HeaderText = "Importer Name";
+                        dgvVendors.Columns["VendorCustomerID"].HeaderText = "Importer ID";
+                        dgvVendors.Columns["VendorCustomerPhone"].HeaderText = "Importer Phone Number";
+                        dgvVendors.Columns["VendorCustomerAddress"].HeaderText = "Importer Address";
+                        button6.Text = "Importer Delete";
+                        button9.Text = "Account Summary";
+                        button8.Text = "Add Bill";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["AddImporterInvoices"]))
+                    {
+                        tabControl3.TabPages["AddImporterInvoices"].Text = "Add Importer Bill";
+                        groupBox41.Text = "Add Importer Bill";
+                        label43.Text = "Importer Name";
+                        label44.Text = "Importer ID";
+                        button12.Text = "Add Bill";
+                        button10.Text = "Pick Item";
+                        button11.Text = "Delete Item";
+                        dgvVendorItemsPick.Columns["VendorItemName"].HeaderText = "Item Name";
+                        dgvVendorItemsPick.Columns["VendorItemBarCode"].HeaderText = "Item Barcode";
+                        dgvVendorItemsPick.Columns["VendorItemType"].HeaderText = "Item Type";
+                        dgvVendorItemsPick.Columns["VendorItemQuantity"].HeaderText = "Item Quantity";
+                        dgvVendorItemsPick.Columns["VendorItemBuyPrice"].HeaderText = "Buy Price";
+                        dgvVendorItemsPick.Columns["VendorItemSellPrice"].HeaderText = "Sell Price";
+                        dgvVendorItemsPick.Columns["VendorItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["ImporterBalanceChecks"]))
+                    {
+                        tabControl3.TabPages["ImporterBalanceChecks"].Text = "Importer Account Summary";
+                        groupBox43.Text = "List of Bills";
+                        dgvVendorBills.Columns["dataGridViewTextBoxColumn39"].HeaderText = "Bill ID";
+                        dgvVendorBills.Columns["dataGridViewTextBoxColumn40"].HeaderText = "Cashier Name";
+                        dgvVendorBills.Columns["dataGridViewTextBoxColumn41"].HeaderText = "Net Total";
+                        dgvVendorBills.Columns["VendorBillDate"].HeaderText = "Date";
+                        groupBox42.Text = "Items Included in Bill";
+                        dgvVendorBillItems.Columns["dataGridViewTextBoxColumn34"].HeaderText = "Item Name";
+                        dgvVendorBillItems.Columns["dataGridViewTextBoxColumn35"].HeaderText = "Item Barcode";
+                        dgvVendorBillItems.Columns["dataGridViewTextBoxColumn36"].HeaderText = "Item Buy Sell Quantity";
+                        dgvVendorBillItems.Columns["VendorBillItemBuyPrice"].HeaderText = "Buy Price";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Alerts"]))
+                {
+                    tabControl1.TabPages["Alerts"].Text = "Alerts";
+                    groupBox37.Text = "Alerts";
+                    dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
+                    dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
+                    dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
+                    dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
+                    dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                    dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
                 }
                 خروجToolStripMenuItem1.Text = "Quit";
                 aToolStripMenuItem.Text = "Maintenance Request";
@@ -1774,6 +2152,32 @@ namespace PlancksoftPOS
             Tuple<List<Item>, DataTable> RetrievedItems;
             RetrievedItems = Connection.server.SearchInventoryItems(txtItemNameSearch.Text, nudItemBarCodeSearch.Text);
             DgvInventory.DataSource = RetrievedItems.Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                DgvInventory.Columns["InventoryItemName"].HeaderText = "إسم القطعة";
+                DgvInventory.Columns["ItemID"].HeaderText = "رقم القطعه";
+                DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "باركود القطعه";
+                DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "عدد القطعه";
+                DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "سعر الشراء";
+                DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "سعر القطعة";
+                DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "سعر القطعة بالضريبة";
+                DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "المصنف المفضل";
+                DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "المستودع";
+                DgvInventory.Columns["InventoryItemType"].HeaderText = "تصنيف المادة";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                DgvInventory.Columns["InventoryItemName"].HeaderText = "Item Name";
+                DgvInventory.Columns["ItemID"].HeaderText = "Item ID";
+                DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "Item Barcode";
+                DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "Item Quantity";
+                DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "Item Buy Price";
+                DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "Sell Price";
+                DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "Favorite Category";
+                DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "Warehouse";
+                DgvInventory.Columns["InventoryItemType"].HeaderText = "Item Type";
+            }
         }
 
         public void BtnAddItem_Click(object sender, EventArgs e)
@@ -1915,7 +2319,35 @@ namespace PlancksoftPOS
             Tuple<List<Item>, DataTable> RetrievedItems = Connection.server.RetrieveItems();
             DgvInventory.DataSource = RetrievedItems.Item2;
 
-           for (int i = 0; i < DgvInventory.Columns.Count; i++)
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                DgvInventory.Columns["InventoryItemName"].HeaderText = "إسم القطعة";
+                DgvInventory.Columns["ItemID"].HeaderText = "رقم القطعه";
+                DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "باركود القطعه";
+                DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "عدد القطعه";
+                DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "سعر الشراء";
+                DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "سعر القطعة";
+                DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "سعر القطعة بالضريبة";
+                DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "المصنف المفضل";
+                DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "المستودع";
+                DgvInventory.Columns["InventoryItemType"].HeaderText = "تصنيف المادة";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                DgvInventory.Columns["InventoryItemName"].HeaderText = "Item Name";
+                DgvInventory.Columns["ItemID"].HeaderText = "Item ID";
+                DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "Item Barcode";
+                DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "Item Quantity";
+                DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "Item Buy Price";
+                DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "Sell Price";
+                DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "Favorite Category";
+                DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "Warehouse";
+                DgvInventory.Columns["InventoryItemType"].HeaderText = "Item Type";
+            }
+
+            for (int i = 0; i < DgvInventory.Columns.Count; i++)
             {
                 if (DgvInventory.Columns[i] is DataGridViewImageColumn)
                 {
@@ -2222,6 +2654,24 @@ namespace PlancksoftPOS
                                             MessageBox.Show("قطعه إسم " + item.ItemName + "باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.");
                                     }
                                     dgvAlerts.DataSource = itemsExpirationStock.Item2;
+
+                                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                    {
+                                        dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
+                                        dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
+                                        dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
+                                        dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
+                                        dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
+                                        dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
+                                    } else if (pickedLanguage == LanguageChoice.Languages.English)
+                                    {
+                                        dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
+                                        dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
+                                        dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
+                                        dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
+                                        dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                        dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
+                                    }
                                 }
                             }
                         }
@@ -2562,6 +3012,35 @@ namespace PlancksoftPOS
                 currencyManager1.ResumeBinding();
             }
             DgvInventory.Refresh();
+
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                DgvInventory.Columns["InventoryItemName"].HeaderText = "إسم القطعة";
+                DgvInventory.Columns["ItemID"].HeaderText = "رقم القطعه";
+                DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "باركود القطعه";
+                DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "عدد القطعه";
+                DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "سعر الشراء";
+                DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "سعر القطعة";
+                DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "سعر القطعة بالضريبة";
+                DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "المصنف المفضل";
+                DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "المستودع";
+                DgvInventory.Columns["InventoryItemType"].HeaderText = "تصنيف المادة";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                DgvInventory.Columns["InventoryItemName"].HeaderText = "Item Name";
+                DgvInventory.Columns["ItemID"].HeaderText = "Item ID";
+                DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "Item Barcode";
+                DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "Item Quantity";
+                DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "Item Buy Price";
+                DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "Sell Price";
+                DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "Favorite Category";
+                DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "Warehouse";
+                DgvInventory.Columns["InventoryItemType"].HeaderText = "Item Type";
+            }
+
             nudItemBarCodeSearch.Text = "";
             txtItemNameSearch.Text = "";
         }
@@ -4006,6 +4485,34 @@ namespace PlancksoftPOS
                         currencyManager1.ResumeBinding();
                     }
                     DgvInventory.Refresh();
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        DgvInventory.Columns["InventoryItemName"].HeaderText = "إسم القطعة";
+                        DgvInventory.Columns["ItemID"].HeaderText = "رقم القطعه";
+                        DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "باركود القطعه";
+                        DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "عدد القطعه";
+                        DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "سعر الشراء";
+                        DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "سعر القطعة";
+                        DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "سعر القطعة بالضريبة";
+                        DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "المصنف المفضل";
+                        DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "المستودع";
+                        DgvInventory.Columns["InventoryItemType"].HeaderText = "تصنيف المادة";
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        DgvInventory.Columns["InventoryItemName"].HeaderText = "Item Name";
+                        DgvInventory.Columns["ItemID"].HeaderText = "Item ID";
+                        DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "Item Barcode";
+                        DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "Item Quantity";
+                        DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "Item Buy Price";
+                        DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "Sell Price";
+                        DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                        DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "Favorite Category";
+                        DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "Warehouse";
+                        DgvInventory.Columns["InventoryItemType"].HeaderText = "Item Type";
+                    }
+
                     nudItemBarCodeSearch.Text = "";
                     txtItemNameSearch.Text = "";
                 }
@@ -4094,12 +4601,50 @@ namespace PlancksoftPOS
                             if (itemsExpirationStock.Item2 != null)
                             {
                                 dgvAlerts.DataSource = itemsExpirationStock.Item2;
+
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
+                                    dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
+                                    dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
+                                    dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
+                                    dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
+                                    dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
+                                    dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
+                                    dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
+                                    dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
+                                    dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                    dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
+                                }
                             }
                         }
                         else
                         {
                             DataTable dt = new DataTable();
                             dgvAlerts.DataSource = dt;
+
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
+                                dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
+                                dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
+                                dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
+                                dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
+                                dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
+                                dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
+                                dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
+                                dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
+                                dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
+                            }
                         }
                     }
                     Tuple<List<Item>, DataTable> retreivedCustomerItems = Connection.server.RetrieveItems();
@@ -4297,6 +4842,20 @@ namespace PlancksoftPOS
 
                 dgvCustomers.DataSource = retrievedCustomers.Item2;
 
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    dgvCustomers.Columns["Column27"].HeaderText = "إسم العميل";
+                    dgvCustomers.Columns["CustomerIDDelete"].HeaderText = "رمز العميل";
+                    dgvCustomers.Columns["Column38"].HeaderText = "رقم الزبون";
+                    dgvCustomers.Columns["Column39"].HeaderText = "عنوان الزبون";
+                } else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    dgvCustomers.Columns["Column27"].HeaderText = "Client Name";
+                    dgvCustomers.Columns["CustomerIDDelete"].HeaderText = "Client ID";
+                    dgvCustomers.Columns["Column38"].HeaderText = "Phone Number";
+                    dgvCustomers.Columns["Column39"].HeaderText = "Client Address";
+                }
+
                 foreach (Customer customer in retrievedCustomers.Item1)
                 {
                     customerName.Items.Add(new Items(customer.CustomerName));
@@ -4429,6 +4988,30 @@ namespace PlancksoftPOS
         public void pictureBox40_Click(object sender, EventArgs e)
         {
             DGVCustomerItems.DataSource = Connection.server.RetrieveItems().Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn1"].HeaderText = "إسم القطعة";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn2"].HeaderText = "باركود القطعه";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn3"].HeaderText = "عدد القطعه";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn4"].HeaderText = "سعر الشراء";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn5"].HeaderText = "سعر القطعه";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn25"].HeaderText = "سعر القطعه بالضريبه";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn26"].HeaderText = "المصنف المفضل";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn27"].HeaderText = "المستودع";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn28"].HeaderText = "تصنيف الماده";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn1"].HeaderText = "Item Name";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Item Barcode";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn3"].HeaderText = "Item Quantity";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn4"].HeaderText = "Buy Price";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn5"].HeaderText = "Sell Price";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn25"].HeaderText = "Sell Price Tax";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn26"].HeaderText = "Favorite Category";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn27"].HeaderText = "Warehouse";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn28"].HeaderText = "Item Type";
+            }
         }
 
         public void BuyPrice_Enter_1(object sender, EventArgs e)
@@ -4599,6 +5182,20 @@ namespace PlancksoftPOS
                     currencyManager1.ResumeBinding();
                 }
                 dgvVendorBills.Refresh();
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    dgvVendorBills.Columns["dataGridViewTextBoxColumn39"].HeaderText = "رقم الغاتورة";
+                    dgvVendorBills.Columns["dataGridViewTextBoxColumn40"].HeaderText = "إسم الكاشير";
+                    dgvVendorBills.Columns["dataGridViewTextBoxColumn41"].HeaderText = "المبلغ الصافي";
+                    dgvVendorBills.Columns["VendorBillDate"].HeaderText = "التاريخ";
+                } else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    dgvVendorBills.Columns["dataGridViewTextBoxColumn39"].HeaderText = "Bill ID";
+                    dgvVendorBills.Columns["dataGridViewTextBoxColumn40"].HeaderText = "Cashier Name";
+                    dgvVendorBills.Columns["dataGridViewTextBoxColumn41"].HeaderText = "Net Total";
+                    dgvVendorBills.Columns["VendorBillDate"].HeaderText = "Date";
+                }
             }
             catch (Exception error)
             {
@@ -4677,6 +5274,20 @@ namespace PlancksoftPOS
 
                 dgvVendors.DataSource = retrievedVendors.Item2;
 
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    dgvVendors.Columns["VendorCustomerName"].HeaderText = "إسم المورد";
+                    dgvVendors.Columns["VendorCustomerID"].HeaderText = "رمز المورد";
+                    dgvVendors.Columns["VendorCustomerPhone"].HeaderText = "رقم المورد";
+                    dgvVendors.Columns["VendorCustomerAddress"].HeaderText = "عنوان المورد";
+                } else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    dgvVendors.Columns["VendorCustomerName"].HeaderText = "Importer Name";
+                    dgvVendors.Columns["VendorCustomerID"].HeaderText = "Importer ID";
+                    dgvVendors.Columns["VendorCustomerPhone"].HeaderText = "Importer Phone Number";
+                    dgvVendors.Columns["VendorCustomerAddress"].HeaderText = "Importer Address";
+                }
+
                 foreach (Customer customer in retrievedVendors.Item1)
                 {
                     VendorName.Items.Add(new Items(customer.CustomerName));
@@ -4749,6 +5360,20 @@ namespace PlancksoftPOS
         public void dgvVendorBills_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             dgvVendorBillItems.DataSource = Connection.server.RetrieveVendorBillItems(Convert.ToInt32(dgvVendorBills.Rows[e.RowIndex].Cells[0].Value.ToString())).Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvVendorBillItems.Columns["dataGridViewTextBoxColumn34"].HeaderText = "إسم المادة";
+                dgvVendorBillItems.Columns["dataGridViewTextBoxColumn35"].HeaderText = "باركود الماده";
+                dgvVendorBillItems.Columns["dataGridViewTextBoxColumn36"].HeaderText = "عدد البيع الشراء";
+                dgvVendorBillItems.Columns["VendorBillItemBuyPrice"].HeaderText = "سعر الشراء";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvVendorBillItems.Columns["dataGridViewTextBoxColumn34"].HeaderText = "Item Name";
+                dgvVendorBillItems.Columns["dataGridViewTextBoxColumn35"].HeaderText = "Item Barcode";
+                dgvVendorBillItems.Columns["dataGridViewTextBoxColumn36"].HeaderText = "Item Buy Sell Quantity";
+                dgvVendorBillItems.Columns["VendorBillItemBuyPrice"].HeaderText = "Buy Price";
+            }
         }
 
         public void pictureBox44_Click(object sender, EventArgs e)
@@ -4974,6 +5599,25 @@ namespace PlancksoftPOS
                                             MessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.");
                                     }
                                     dgvAlerts.DataSource = itemsExpirationStock.Item2;
+
+                                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                    {
+                                        dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
+                                        dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
+                                        dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
+                                        dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
+                                        dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
+                                        dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
+                                    }
+                                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                                    {
+                                        dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
+                                        dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
+                                        dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
+                                        dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
+                                        dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                        dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
+                                    }
                                 }
                             }
                         }
@@ -5500,6 +6144,25 @@ namespace PlancksoftPOS
                                                     MessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.");
                                             }
                                             dgvAlerts.DataSource = itemsExpirationStock.Item2;
+
+                                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                            {
+                                                dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
+                                                dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
+                                                dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
+                                                dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
+                                                dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
+                                                dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
+                                            }
+                                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                                            {
+                                                dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
+                                                dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
+                                                dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
+                                                dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
+                                                dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                                dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
+                                            }
                                         }
                                     }
                                 }
@@ -6358,6 +7021,30 @@ namespace PlancksoftPOS
                     int WarehouseID = Connection.server.RetrieveWarehouseID(WarehousesQuantityList.SelectedItem.ToString());
                     RetrievedItems = Connection.server.SearchWarehouseInventoryItems(WarehouseID);
                     dgvWarehouseInventory.DataSource = RetrievedItems.Item2;
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn32"].HeaderText = "إسم القطعة";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn37"].HeaderText = "باركود القطعه";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn38"].HeaderText = "عدد القطعه";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn42"].HeaderText = "سعر الشراء";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn45"].HeaderText = "سعر القطعة";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn46"].HeaderText = "سعر القطعة بالضريبة";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn47"].HeaderText = "المصنف المفضل";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn48"].HeaderText = "المستودع";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn49"].HeaderText = "تصنيف المادة";
+                    } else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn32"].HeaderText = "Item Name";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn37"].HeaderText = "Item Barcode";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn38"].HeaderText = "Item Quantity";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn42"].HeaderText = "Buy Price";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn45"].HeaderText = "Sell Price";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn46"].HeaderText = "Sell Price Tax";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn47"].HeaderText = "Favorite Category";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn48"].HeaderText = "Warehouse";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn49"].HeaderText = "Item Type";
+                    }
                 }
             }
             catch { }
@@ -7072,6 +7759,34 @@ namespace PlancksoftPOS
                     currencyManager1.ResumeBinding();
                 }
                 DgvInventory.Refresh();
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    DgvInventory.Columns["InventoryItemName"].HeaderText = "إسم القطعة";
+                    DgvInventory.Columns["ItemID"].HeaderText = "رقم القطعه";
+                    DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "باركود القطعه";
+                    DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "عدد القطعه";
+                    DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "سعر الشراء";
+                    DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "سعر القطعة";
+                    DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "سعر القطعة بالضريبة";
+                    DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "المصنف المفضل";
+                    DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "المستودع";
+                    DgvInventory.Columns["InventoryItemType"].HeaderText = "تصنيف المادة";
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    DgvInventory.Columns["InventoryItemName"].HeaderText = "Item Name";
+                    DgvInventory.Columns["ItemID"].HeaderText = "Item ID";
+                    DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "Item Barcode";
+                    DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "Item Quantity";
+                    DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "Item Buy Price";
+                    DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "Sell Price";
+                    DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                    DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "Favorite Category";
+                    DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "Warehouse";
+                    DgvInventory.Columns["InventoryItemType"].HeaderText = "Item Type";
+                }
+
                 nudItemBarCodeSearch.Text = "";
                 txtItemNameSearch.Text = "";
             }
