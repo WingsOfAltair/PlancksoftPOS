@@ -4170,7 +4170,7 @@ namespace PlancksoftPOS
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
                 this.Size = new Size(800, 600);
-                printer.PrintDataGridView(DgvInventory);
+                printer.PrintDataGridView(dgvBillItems);
                 this.WindowState = FormWindowState.Maximized;
                 PrintBillNumber = 0;
             }
