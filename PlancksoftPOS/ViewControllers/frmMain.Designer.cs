@@ -26,13 +26,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle372 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle373 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle374 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle375 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle376 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle377 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle378 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ادارةالمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اضافةمادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -218,6 +218,13 @@
             this.pictureBox30 = new System.Windows.Forms.PictureBox();
             this.groupBox27 = new System.Windows.Forms.GroupBox();
             this.dgvItemProfit = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
             this.Inventory = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -226,6 +233,20 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.panel17 = new System.Windows.Forms.Panel();
             this.DgvInventory = new System.Windows.Forms.DataGridView();
+            this.InventoryItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemSellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemSellPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FavoriteCategoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemFavoriteCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryWarehouseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemWarehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemTypeNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemPicture = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel18 = new System.Windows.Forms.Panel();
             this.BtnDeleteItem = new System.Windows.Forms.Button();
             this.BtnAddItem = new System.Windows.Forms.Button();
@@ -608,15 +629,6 @@
             this.UserPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserAuthority = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.adminCheckBox = new System.Windows.Forms.CheckBox();
-            this.BtnRegister = new System.Windows.Forms.Button();
-            this.label72 = new System.Windows.Forms.Label();
-            this.txtFname = new System.Windows.Forms.TextBox();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.txtPWD = new System.Windows.Forms.TextBox();
-            this.txtUID = new System.Windows.Forms.TextBox();
             this.Settings = new System.Windows.Forms.TabPage();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -660,27 +672,6 @@
             this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemSellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemSellPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FavoriteCategoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemFavoriteCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryWarehouseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemWarehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemTypeNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemPicture = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -895,7 +886,6 @@
             this.groupBox35.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            this.groupBox9.SuspendLayout();
             this.Settings.SuspendLayout();
             this.groupBox24.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -3241,6 +3231,62 @@
             this.dgvItemProfit.Size = new System.Drawing.Size(1254, 535);
             this.dgvItemProfit.TabIndex = 34;
             // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn16.DataPropertyName = "Item Name";
+            this.dataGridViewTextBoxColumn16.HeaderText = "إسم السلعه";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn17.DataPropertyName = "Item BarCode";
+            this.dataGridViewTextBoxColumn17.HeaderText = "الباركود";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // Column48
+            // 
+            this.Column48.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column48.DataPropertyName = "Item Type";
+            this.Column48.HeaderText = "صنف الماده";
+            this.Column48.Name = "Column48";
+            this.Column48.ReadOnly = true;
+            // 
+            // Column49
+            // 
+            this.Column49.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column49.DataPropertyName = "Cashier Name";
+            this.Column49.HeaderText = "اسم الكاشير";
+            this.Column49.Name = "Column49";
+            this.Column49.ReadOnly = true;
+            // 
+            // ItemPriceTax
+            // 
+            this.ItemPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemPriceTax.DataPropertyName = "Item Price Tax";
+            this.ItemPriceTax.HeaderText = "سعر القطعة بعد الضريبة";
+            this.ItemPriceTax.Name = "ItemPriceTax";
+            this.ItemPriceTax.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn18.DataPropertyName = "Times Sold";
+            this.dataGridViewTextBoxColumn18.HeaderText = "الكميه المباعه";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Item Profit";
+            this.dataGridViewTextBoxColumn19.HeaderText = "المجموع";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.ReadOnly = true;
+            // 
             // pictureBox29
             // 
             this.pictureBox29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -3364,6 +3410,118 @@
             this.DgvInventory.Size = new System.Drawing.Size(1232, 379);
             this.DgvInventory.TabIndex = 0;
             this.DgvInventory.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvInventory_RowHeaderMouseClick);
+            // 
+            // InventoryItemName
+            // 
+            this.InventoryItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemName.DataPropertyName = "Item Name";
+            this.InventoryItemName.HeaderText = "إسم القطعه";
+            this.InventoryItemName.Name = "InventoryItemName";
+            this.InventoryItemName.ReadOnly = true;
+            // 
+            // ItemID
+            // 
+            this.ItemID.DataPropertyName = "Item ID";
+            this.ItemID.HeaderText = "رقم القطعه";
+            this.ItemID.Name = "ItemID";
+            this.ItemID.ReadOnly = true;
+            this.ItemID.Visible = false;
+            // 
+            // InventoryItemBarCode
+            // 
+            this.InventoryItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemBarCode.DataPropertyName = "Item BarCode";
+            this.InventoryItemBarCode.HeaderText = "باركود القطعه";
+            this.InventoryItemBarCode.Name = "InventoryItemBarCode";
+            this.InventoryItemBarCode.ReadOnly = true;
+            // 
+            // InventoryItemQuantity
+            // 
+            this.InventoryItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemQuantity.DataPropertyName = "Item Quantity";
+            this.InventoryItemQuantity.HeaderText = "عدد القطعه";
+            this.InventoryItemQuantity.Name = "InventoryItemQuantity";
+            this.InventoryItemQuantity.ReadOnly = true;
+            // 
+            // InventoryItemBuyPrice
+            // 
+            this.InventoryItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemBuyPrice.DataPropertyName = "Item Buy Price";
+            this.InventoryItemBuyPrice.HeaderText = "سعر الشراء";
+            this.InventoryItemBuyPrice.Name = "InventoryItemBuyPrice";
+            this.InventoryItemBuyPrice.ReadOnly = true;
+            // 
+            // InventoryItemSellPrice
+            // 
+            this.InventoryItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemSellPrice.DataPropertyName = "Item Price";
+            this.InventoryItemSellPrice.HeaderText = "سعر القطعه";
+            this.InventoryItemSellPrice.Name = "InventoryItemSellPrice";
+            this.InventoryItemSellPrice.ReadOnly = true;
+            // 
+            // InventoryItemSellPriceTax
+            // 
+            this.InventoryItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemSellPriceTax.DataPropertyName = "Item Price Tax";
+            this.InventoryItemSellPriceTax.HeaderText = "سعر القطعه بالضريبه";
+            this.InventoryItemSellPriceTax.Name = "InventoryItemSellPriceTax";
+            this.InventoryItemSellPriceTax.ReadOnly = true;
+            // 
+            // FavoriteCategoryNumber
+            // 
+            this.FavoriteCategoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FavoriteCategoryNumber.DataPropertyName = "Favorite Category Number";
+            this.FavoriteCategoryNumber.HeaderText = "المصنف المفضل رقم";
+            this.FavoriteCategoryNumber.Name = "FavoriteCategoryNumber";
+            this.FavoriteCategoryNumber.ReadOnly = true;
+            this.FavoriteCategoryNumber.Visible = false;
+            // 
+            // InventoryItemFavoriteCategory
+            // 
+            this.InventoryItemFavoriteCategory.DataPropertyName = "Favorite Category";
+            this.InventoryItemFavoriteCategory.HeaderText = "المصنف المفضل";
+            this.InventoryItemFavoriteCategory.Name = "InventoryItemFavoriteCategory";
+            this.InventoryItemFavoriteCategory.ReadOnly = true;
+            // 
+            // InventoryWarehouseID
+            // 
+            this.InventoryWarehouseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryWarehouseID.DataPropertyName = "Warehouse ID";
+            this.InventoryWarehouseID.HeaderText = "المستودع رقم";
+            this.InventoryWarehouseID.Name = "InventoryWarehouseID";
+            this.InventoryWarehouseID.ReadOnly = true;
+            this.InventoryWarehouseID.Visible = false;
+            // 
+            // InventoryItemWarehouse
+            // 
+            this.InventoryItemWarehouse.DataPropertyName = "InventoryItemWarehouse";
+            this.InventoryItemWarehouse.HeaderText = "المستودع";
+            this.InventoryItemWarehouse.Name = "InventoryItemWarehouse";
+            this.InventoryItemWarehouse.ReadOnly = true;
+            // 
+            // InventoryItemTypeNumber
+            // 
+            this.InventoryItemTypeNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemTypeNumber.DataPropertyName = "Item Type";
+            this.InventoryItemTypeNumber.HeaderText = "تصنيف الماده رقم";
+            this.InventoryItemTypeNumber.Name = "InventoryItemTypeNumber";
+            this.InventoryItemTypeNumber.ReadOnly = true;
+            this.InventoryItemTypeNumber.Visible = false;
+            // 
+            // InventoryItemType
+            // 
+            this.InventoryItemType.DataPropertyName = "InventoryItemType";
+            this.InventoryItemType.HeaderText = "تصنيف الماده";
+            this.InventoryItemType.Name = "InventoryItemType";
+            this.InventoryItemType.ReadOnly = true;
+            // 
+            // ItemPicture
+            // 
+            this.ItemPicture.DataPropertyName = "Item Picture";
+            this.ItemPicture.HeaderText = "Item Picture";
+            this.ItemPicture.Name = "ItemPicture";
+            this.ItemPicture.ReadOnly = true;
+            this.ItemPicture.Visible = false;
             // 
             // panel18
             // 
@@ -7264,8 +7422,8 @@
             // 
             this.VendorItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemName.DataPropertyName = "Item Name";
-            dataGridViewCellStyle372.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle372;
+            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle43;
             this.VendorItemName.HeaderText = "اسم الماده";
             this.VendorItemName.Name = "VendorItemName";
             this.VendorItemName.ReadOnly = true;
@@ -7274,8 +7432,8 @@
             // 
             this.VendorItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBarCode.DataPropertyName = "Item BarCode";
-            dataGridViewCellStyle373.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle373;
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle44;
             this.VendorItemBarCode.HeaderText = "باركود الماده";
             this.VendorItemBarCode.Name = "VendorItemBarCode";
             this.VendorItemBarCode.ReadOnly = true;
@@ -7284,8 +7442,8 @@
             // 
             this.VendorItemType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemType.DataPropertyName = "Item Type";
-            dataGridViewCellStyle374.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle374;
+            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle45;
             this.VendorItemType.HeaderText = "صنف الماده";
             this.VendorItemType.Name = "VendorItemType";
             this.VendorItemType.ReadOnly = true;
@@ -7294,8 +7452,8 @@
             // 
             this.VendorItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemQuantity.DataPropertyName = "Item Quantity";
-            dataGridViewCellStyle375.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle375;
+            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle46;
             this.VendorItemQuantity.HeaderText = "عدد القطع";
             this.VendorItemQuantity.Name = "VendorItemQuantity";
             this.VendorItemQuantity.ReadOnly = true;
@@ -7304,8 +7462,8 @@
             // 
             this.VendorItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBuyPrice.DataPropertyName = "VendorItemBuyPrice";
-            dataGridViewCellStyle376.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle376;
+            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle47;
             this.VendorItemBuyPrice.HeaderText = "سعر الشراء";
             this.VendorItemBuyPrice.Name = "VendorItemBuyPrice";
             this.VendorItemBuyPrice.ReadOnly = true;
@@ -7314,8 +7472,8 @@
             // 
             this.VendorItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPrice.DataPropertyName = "VendorItemSellPrice";
-            dataGridViewCellStyle377.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle377;
+            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle48;
             this.VendorItemSellPrice.HeaderText = "سعر البيع";
             this.VendorItemSellPrice.Name = "VendorItemSellPrice";
             this.VendorItemSellPrice.ReadOnly = true;
@@ -7324,8 +7482,8 @@
             // 
             this.VendorItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPriceTax.DataPropertyName = "VendorItemSellPriceTax";
-            dataGridViewCellStyle378.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle378;
+            dataGridViewCellStyle49.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle49;
             this.VendorItemSellPriceTax.HeaderText = "سعر البيع مع الضريبه";
             this.VendorItemSellPriceTax.Name = "VendorItemSellPriceTax";
             this.VendorItemSellPriceTax.ReadOnly = true;
@@ -7828,7 +7986,6 @@
             // 
             this.posUsers.BackColor = System.Drawing.Color.White;
             this.posUsers.Controls.Add(this.groupBox10);
-            this.posUsers.Controls.Add(this.groupBox9);
             this.posUsers.Location = new System.Drawing.Point(4, 34);
             this.posUsers.Name = "posUsers";
             this.posUsers.Size = new System.Drawing.Size(1386, 692);
@@ -7837,23 +7994,23 @@
             // 
             // groupBox10
             // 
-            this.groupBox10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox10.Controls.Add(this.groupBox11);
             this.groupBox10.Controls.Add(this.dgvUsers);
             this.groupBox10.Controls.Add(this.pictureBox16);
             this.groupBox10.ForeColor = System.Drawing.Color.Black;
             this.groupBox10.Location = new System.Drawing.Point(3, 3);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(910, 626);
+            this.groupBox10.Size = new System.Drawing.Size(1380, 681);
             this.groupBox10.TabIndex = 0;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "جدول المستخدمين";
             // 
             // groupBox11
             // 
-            this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox11.Controls.Add(this.groupBox35);
             this.groupBox11.Controls.Add(this.cbAdminOrNotAdd);
             this.groupBox11.Controls.Add(this.label75);
@@ -7866,17 +8023,17 @@
             this.groupBox11.Controls.Add(this.button20);
             this.groupBox11.Controls.Add(this.button22);
             this.groupBox11.ForeColor = System.Drawing.Color.Black;
-            this.groupBox11.Location = new System.Drawing.Point(5, 274);
+            this.groupBox11.Location = new System.Drawing.Point(5, 329);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(905, 407);
+            this.groupBox11.Size = new System.Drawing.Size(1370, 407);
             this.groupBox11.TabIndex = 1;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "االتعديل على المستخدمين";
             // 
             // groupBox35
             // 
-            this.groupBox35.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox35.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox35.Controls.Add(this.openclose_edit);
             this.groupBox35.Controls.Add(this.personnel_edit);
             this.groupBox35.Controls.Add(this.settings_edit);
@@ -7889,29 +8046,31 @@
             this.groupBox35.Controls.Add(this.customer_card_edit);
             this.groupBox35.Location = new System.Drawing.Point(6, 81);
             this.groupBox35.Name = "groupBox35";
-            this.groupBox35.Size = new System.Drawing.Size(794, 271);
+            this.groupBox35.Size = new System.Drawing.Size(1261, 271);
             this.groupBox35.TabIndex = 27;
             this.groupBox35.TabStop = false;
             this.groupBox35.Text = "الصلاحيات";
             // 
             // openclose_edit
             // 
+            this.openclose_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.openclose_edit.AutoSize = true;
             this.openclose_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.openclose_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.openclose_edit.Location = new System.Drawing.Point(326, 50);
+            this.openclose_edit.Location = new System.Drawing.Point(783, 50);
             this.openclose_edit.Name = "openclose_edit";
             this.openclose_edit.Size = new System.Drawing.Size(159, 28);
             this.openclose_edit.TabIndex = 9;
-            this.openclose_edit.Text = "فتح و اغلاق الكاش";
+            this.openclose_edit.Text = "فتح و إغلاق الكاش";
             this.openclose_edit.UseVisualStyleBackColor = true;
             // 
             // personnel_edit
             // 
+            this.personnel_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.personnel_edit.AutoSize = true;
             this.personnel_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.personnel_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.personnel_edit.Location = new System.Drawing.Point(350, 16);
+            this.personnel_edit.Location = new System.Drawing.Point(807, 16);
             this.personnel_edit.Name = "personnel_edit";
             this.personnel_edit.Size = new System.Drawing.Size(135, 28);
             this.personnel_edit.TabIndex = 8;
@@ -7920,22 +8079,24 @@
             // 
             // settings_edit
             // 
+            this.settings_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.settings_edit.AutoSize = true;
             this.settings_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settings_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.settings_edit.Location = new System.Drawing.Point(649, 240);
+            this.settings_edit.Location = new System.Drawing.Point(1106, 240);
             this.settings_edit.Name = "settings_edit";
             this.settings_edit.Size = new System.Drawing.Size(139, 28);
             this.settings_edit.TabIndex = 7;
-            this.settings_edit.Text = "تعديل الاعدادات";
+            this.settings_edit.Text = "تعديل الإعدادات";
             this.settings_edit.UseVisualStyleBackColor = true;
             // 
             // users_edit
             // 
+            this.users_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.users_edit.AutoSize = true;
             this.users_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.users_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.users_edit.Location = new System.Drawing.Point(637, 208);
+            this.users_edit.Location = new System.Drawing.Point(1094, 208);
             this.users_edit.Name = "users_edit";
             this.users_edit.Size = new System.Drawing.Size(151, 28);
             this.users_edit.TabIndex = 6;
@@ -7944,22 +8105,24 @@
             // 
             // expenses_edit
             // 
+            this.expenses_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.expenses_edit.AutoSize = true;
             this.expenses_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expenses_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.expenses_edit.Location = new System.Drawing.Point(650, 174);
+            this.expenses_edit.Location = new System.Drawing.Point(1107, 174);
             this.expenses_edit.Name = "expenses_edit";
             this.expenses_edit.Size = new System.Drawing.Size(138, 28);
             this.expenses_edit.TabIndex = 5;
-            this.expenses_edit.Text = "اضافة مصاريف";
+            this.expenses_edit.Text = "إضافة مصاريف";
             this.expenses_edit.UseVisualStyleBackColor = true;
             // 
             // inventory_edit
             // 
+            this.inventory_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.inventory_edit.AutoSize = true;
             this.inventory_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inventory_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.inventory_edit.Location = new System.Drawing.Point(653, 140);
+            this.inventory_edit.Location = new System.Drawing.Point(1110, 140);
             this.inventory_edit.Name = "inventory_edit";
             this.inventory_edit.Size = new System.Drawing.Size(135, 28);
             this.inventory_edit.TabIndex = 4;
@@ -7968,10 +8131,11 @@
             // 
             // receipt_edit
             // 
+            this.receipt_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.receipt_edit.AutoSize = true;
             this.receipt_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.receipt_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.receipt_edit.Location = new System.Drawing.Point(550, 106);
+            this.receipt_edit.Location = new System.Drawing.Point(1007, 106);
             this.receipt_edit.Name = "receipt_edit";
             this.receipt_edit.Size = new System.Drawing.Size(238, 28);
             this.receipt_edit.TabIndex = 3;
@@ -7980,10 +8144,11 @@
             // 
             // price_edit
             // 
+            this.price_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.price_edit.AutoSize = true;
             this.price_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.price_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.price_edit.Location = new System.Drawing.Point(676, 79);
+            this.price_edit.Location = new System.Drawing.Point(1133, 79);
             this.price_edit.Name = "price_edit";
             this.price_edit.Size = new System.Drawing.Size(112, 28);
             this.price_edit.TabIndex = 2;
@@ -7992,26 +8157,28 @@
             // 
             // discount_edit
             // 
+            this.discount_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.discount_edit.AutoSize = true;
             this.discount_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.discount_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.discount_edit.Location = new System.Drawing.Point(637, 45);
+            this.discount_edit.Location = new System.Drawing.Point(1094, 45);
             this.discount_edit.Name = "discount_edit";
             this.discount_edit.Size = new System.Drawing.Size(151, 28);
             this.discount_edit.TabIndex = 1;
-            this.discount_edit.Text = "اضافة الخصومات";
+            this.discount_edit.Text = "إضافة الخصومات";
             this.discount_edit.UseVisualStyleBackColor = true;
             // 
             // customer_card_edit
             // 
+            this.customer_card_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.customer_card_edit.AutoSize = true;
             this.customer_card_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_card_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.customer_card_edit.Location = new System.Drawing.Point(529, 19);
+            this.customer_card_edit.Location = new System.Drawing.Point(986, 19);
             this.customer_card_edit.Name = "customer_card_edit";
             this.customer_card_edit.Size = new System.Drawing.Size(259, 28);
             this.customer_card_edit.TabIndex = 0;
-            this.customer_card_edit.Text = "اضافة بطاقة عميل و تعديل المواد";
+            this.customer_card_edit.Text = "إضافة بطاقة عميل و تعديل المواد";
             this.customer_card_edit.UseVisualStyleBackColor = true;
             // 
             // cbAdminOrNotAdd
@@ -8020,13 +8187,12 @@
             this.cbAdminOrNotAdd.AutoSize = true;
             this.cbAdminOrNotAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAdminOrNotAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.cbAdminOrNotAdd.Location = new System.Drawing.Point(36, 43);
+            this.cbAdminOrNotAdd.Location = new System.Drawing.Point(483, 47);
             this.cbAdminOrNotAdd.Name = "cbAdminOrNotAdd";
             this.cbAdminOrNotAdd.Size = new System.Drawing.Size(128, 28);
             this.cbAdminOrNotAdd.TabIndex = 3;
             this.cbAdminOrNotAdd.Text = "حساب إداري؟";
             this.cbAdminOrNotAdd.UseVisualStyleBackColor = true;
-            this.cbAdminOrNotAdd.CheckedChanged += new System.EventHandler(this.cbAdminOrNotAdd_CheckedChanged);
             // 
             // label75
             // 
@@ -8034,7 +8200,7 @@
             this.label75.AutoSize = true;
             this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label75.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label75.Location = new System.Drawing.Point(261, 22);
+            this.label75.Location = new System.Drawing.Point(708, 26);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(129, 24);
             this.label75.TabIndex = 26;
@@ -8045,7 +8211,7 @@
             this.txtUserPasswordAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserPasswordAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserPasswordAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtUserPasswordAdd.Location = new System.Drawing.Point(171, 50);
+            this.txtUserPasswordAdd.Location = new System.Drawing.Point(618, 54);
             this.txtUserPasswordAdd.Name = "txtUserPasswordAdd";
             this.txtUserPasswordAdd.PasswordChar = '*';
             this.txtUserPasswordAdd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -8059,7 +8225,7 @@
             this.label76.AutoSize = true;
             this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label76.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label76.Location = new System.Drawing.Point(507, 23);
+            this.label76.Location = new System.Drawing.Point(954, 27);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(104, 24);
             this.label76.TabIndex = 20;
@@ -8070,7 +8236,7 @@
             this.txtUserIDAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserIDAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserIDAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtUserIDAdd.Location = new System.Drawing.Point(392, 50);
+            this.txtUserIDAdd.Location = new System.Drawing.Point(839, 54);
             this.txtUserIDAdd.Name = "txtUserIDAdd";
             this.txtUserIDAdd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtUserIDAdd.Size = new System.Drawing.Size(215, 20);
@@ -8083,18 +8249,18 @@
             this.label77.AutoSize = true;
             this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label77.Location = new System.Drawing.Point(719, 22);
+            this.label77.Location = new System.Drawing.Point(1170, 26);
             this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(105, 24);
+            this.label77.Size = new System.Drawing.Size(99, 24);
             this.label77.TabIndex = 18;
-            this.label77.Text = "اسم المستخدم ";
+            this.label77.Text = "إسم المستخدم";
             // 
             // txtUserNameAdd
             // 
             this.txtUserNameAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserNameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserNameAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtUserNameAdd.Location = new System.Drawing.Point(613, 49);
+            this.txtUserNameAdd.Location = new System.Drawing.Point(1060, 53);
             this.txtUserNameAdd.Name = "txtUserNameAdd";
             this.txtUserNameAdd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtUserNameAdd.Size = new System.Drawing.Size(207, 20);
@@ -8108,11 +8274,11 @@
             this.button19.Enabled = false;
             this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button19.ForeColor = System.Drawing.Color.White;
-            this.button19.Location = new System.Drawing.Point(806, 219);
+            this.button19.Location = new System.Drawing.Point(1271, 187);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(87, 64);
             this.button19.TabIndex = 6;
-            this.button19.Text = "حذف  مستخدم";
+            this.button19.Text = "حذف مستخدم";
             this.button19.UseVisualStyleBackColor = false;
             this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
@@ -8123,11 +8289,11 @@
             this.button20.Enabled = false;
             this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button20.ForeColor = System.Drawing.Color.White;
-            this.button20.Location = new System.Drawing.Point(806, 149);
+            this.button20.Location = new System.Drawing.Point(1271, 117);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(87, 64);
             this.button20.TabIndex = 5;
-            this.button20.Text = "تحديث  مستخدم";
+            this.button20.Text = "تحديث مستخدم";
             this.button20.UseVisualStyleBackColor = false;
             this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
@@ -8137,11 +8303,11 @@
             this.button22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button22.ForeColor = System.Drawing.Color.White;
-            this.button22.Location = new System.Drawing.Point(806, 81);
+            this.button22.Location = new System.Drawing.Point(1271, 49);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(87, 62);
             this.button22.TabIndex = 4;
-            this.button22.Text = "اضافه مستخدم";
+            this.button22.Text = "إضافه مستخدم";
             this.button22.UseVisualStyleBackColor = false;
             this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
@@ -8159,7 +8325,7 @@
             this.UserAuthority});
             this.dgvUsers.Location = new System.Drawing.Point(5, 49);
             this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.Size = new System.Drawing.Size(899, 210);
+            this.dgvUsers.Size = new System.Drawing.Size(1369, 265);
             this.dgvUsers.TabIndex = 0;
             this.dgvUsers.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvUsers_RowHeaderMouseClick);
             // 
@@ -8197,136 +8363,13 @@
             this.pictureBox16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox16.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox16.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox16.Location = new System.Drawing.Point(862, 19);
+            this.pictureBox16.Location = new System.Drawing.Point(1332, 19);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(36, 27);
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox16.TabIndex = 26;
             this.pictureBox16.TabStop = false;
             this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click_1);
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox9.BackColor = System.Drawing.Color.White;
-            this.groupBox9.Controls.Add(this.adminCheckBox);
-            this.groupBox9.Controls.Add(this.BtnRegister);
-            this.groupBox9.Controls.Add(this.label72);
-            this.groupBox9.Controls.Add(this.txtFname);
-            this.groupBox9.Controls.Add(this.label73);
-            this.groupBox9.Controls.Add(this.label74);
-            this.groupBox9.Controls.Add(this.txtPWD);
-            this.groupBox9.Controls.Add(this.txtUID);
-            this.groupBox9.ForeColor = System.Drawing.Color.Black;
-            this.groupBox9.Location = new System.Drawing.Point(919, 3);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(464, 681);
-            this.groupBox9.TabIndex = 0;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "تسجيل المستخدمين";
-            // 
-            // adminCheckBox
-            // 
-            this.adminCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.adminCheckBox.AutoSize = true;
-            this.adminCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.adminCheckBox.Location = new System.Drawing.Point(279, 312);
-            this.adminCheckBox.Name = "adminCheckBox";
-            this.adminCheckBox.Size = new System.Drawing.Size(128, 28);
-            this.adminCheckBox.TabIndex = 3;
-            this.adminCheckBox.Text = "حساب إداري؟";
-            this.adminCheckBox.UseVisualStyleBackColor = true;
-            this.adminCheckBox.CheckedChanged += new System.EventHandler(this.adminCheckBox_CheckedChanged);
-            // 
-            // BtnRegister
-            // 
-            this.BtnRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BtnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRegister.ForeColor = System.Drawing.Color.White;
-            this.BtnRegister.Location = new System.Drawing.Point(44, 346);
-            this.BtnRegister.Name = "BtnRegister";
-            this.BtnRegister.Size = new System.Drawing.Size(394, 49);
-            this.BtnRegister.TabIndex = 4;
-            this.BtnRegister.Text = "التسجيل";
-            this.BtnRegister.UseVisualStyleBackColor = false;
-            this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
-            // 
-            // label72
-            // 
-            this.label72.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label72.AutoSize = true;
-            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label72.Location = new System.Drawing.Point(345, 221);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(99, 24);
-            this.label72.TabIndex = 23;
-            this.label72.Text = "اسم المستخدم";
-            // 
-            // txtFname
-            // 
-            this.txtFname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFname.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtFname.Location = new System.Drawing.Point(44, 248);
-            this.txtFname.Name = "txtFname";
-            this.txtFname.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtFname.Size = new System.Drawing.Size(397, 20);
-            this.txtFname.TabIndex = 2;
-            this.txtFname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFname_KeyPress);
-            // 
-            // label73
-            // 
-            this.label73.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label73.AutoSize = true;
-            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label73.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label73.Location = new System.Drawing.Point(345, 120);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(100, 24);
-            this.label73.TabIndex = 21;
-            this.label73.Text = "الكلمه السريه";
-            // 
-            // label74
-            // 
-            this.label74.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label74.AutoSize = true;
-            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label74.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label74.Location = new System.Drawing.Point(344, 31);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(104, 24);
-            this.label74.TabIndex = 20;
-            this.label74.Text = "رمز المستخدم";
-            // 
-            // txtPWD
-            // 
-            this.txtPWD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPWD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPWD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtPWD.Location = new System.Drawing.Point(44, 147);
-            this.txtPWD.Name = "txtPWD";
-            this.txtPWD.PasswordChar = '*';
-            this.txtPWD.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPWD.Size = new System.Drawing.Size(397, 20);
-            this.txtPWD.TabIndex = 1;
-            this.txtPWD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPWD_KeyPress);
-            // 
-            // txtUID
-            // 
-            this.txtUID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtUID.Location = new System.Drawing.Point(47, 58);
-            this.txtUID.Name = "txtUID";
-            this.txtUID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtUID.Size = new System.Drawing.Size(397, 20);
-            this.txtUID.TabIndex = 0;
-            this.txtUID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUID_KeyPress);
             // 
             // Settings
             // 
@@ -8336,7 +8379,7 @@
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(1386, 692);
             this.Settings.TabIndex = 6;
-            this.Settings.Text = "الااعدادات";
+            this.Settings.Text = "الإعدادات";
             // 
             // groupBox24
             // 
@@ -8359,7 +8402,7 @@
             this.groupBox24.Size = new System.Drawing.Size(236, 689);
             this.groupBox24.TabIndex = 6;
             this.groupBox24.TabStop = false;
-            this.groupBox24.Text = "اعدادات البرمجيه";
+            this.groupBox24.Text = "إعدادات البرمجيه";
             // 
             // groupBox2
             // 
@@ -8410,7 +8453,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 39);
             this.button1.TabIndex = 2;
-            this.button1.Text = "حفظ";
+            this.button1.Text = "حفظ الإعدادات";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -8466,7 +8509,7 @@
             // receiptSpacingnud
             // 
             this.receiptSpacingnud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.receiptSpacingnud.Location = new System.Drawing.Point(35, 219);
+            this.receiptSpacingnud.Location = new System.Drawing.Point(33, 219);
             this.receiptSpacingnud.Maximum = new decimal(new int[] {
             -159383553,
             46653770,
@@ -8478,7 +8521,7 @@
             542101,
             -2147483648});
             this.receiptSpacingnud.Name = "receiptSpacingnud";
-            this.receiptSpacingnud.Size = new System.Drawing.Size(173, 22);
+            this.receiptSpacingnud.Size = new System.Drawing.Size(182, 22);
             this.receiptSpacingnud.TabIndex = 32;
             // 
             // label114
@@ -8545,7 +8588,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 24);
             this.label1.TabIndex = 27;
-            this.label1.Text = "اسم الطابعه";
+            this.label1.Text = "إسم الطابعه";
             // 
             // A
             // 
@@ -8557,7 +8600,7 @@
             this.A.Name = "A";
             this.A.Size = new System.Drawing.Size(84, 24);
             this.A.TabIndex = 3;
-            this.A.Text = "اسم المتجر";
+            this.A.Text = "إسم المتجر";
             // 
             // Retrievals
             // 
@@ -8787,174 +8830,6 @@
             this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.الخروجToolStripMenuItem.Text = "الخروج";
             this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn16.DataPropertyName = "Item Name";
-            this.dataGridViewTextBoxColumn16.HeaderText = "إسم السلعه";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn17.DataPropertyName = "Item BarCode";
-            this.dataGridViewTextBoxColumn17.HeaderText = "الباركود";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // Column48
-            // 
-            this.Column48.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column48.DataPropertyName = "Item Type";
-            this.Column48.HeaderText = "صنف الماده";
-            this.Column48.Name = "Column48";
-            this.Column48.ReadOnly = true;
-            // 
-            // Column49
-            // 
-            this.Column49.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column49.DataPropertyName = "Cashier Name";
-            this.Column49.HeaderText = "اسم الكاشير";
-            this.Column49.Name = "Column49";
-            this.Column49.ReadOnly = true;
-            // 
-            // ItemPriceTax
-            // 
-            this.ItemPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ItemPriceTax.DataPropertyName = "Item Price Tax";
-            this.ItemPriceTax.HeaderText = "سعر القطعة بعد الضريبة";
-            this.ItemPriceTax.Name = "ItemPriceTax";
-            this.ItemPriceTax.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn18.DataPropertyName = "Times Sold";
-            this.dataGridViewTextBoxColumn18.HeaderText = "الكميه المباعه";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Item Profit";
-            this.dataGridViewTextBoxColumn19.HeaderText = "المجموع";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            // 
-            // InventoryItemName
-            // 
-            this.InventoryItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemName.DataPropertyName = "Item Name";
-            this.InventoryItemName.HeaderText = "إسم القطعه";
-            this.InventoryItemName.Name = "InventoryItemName";
-            this.InventoryItemName.ReadOnly = true;
-            // 
-            // ItemID
-            // 
-            this.ItemID.DataPropertyName = "Item ID";
-            this.ItemID.HeaderText = "رقم القطعه";
-            this.ItemID.Name = "ItemID";
-            this.ItemID.ReadOnly = true;
-            this.ItemID.Visible = false;
-            // 
-            // InventoryItemBarCode
-            // 
-            this.InventoryItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemBarCode.DataPropertyName = "Item BarCode";
-            this.InventoryItemBarCode.HeaderText = "باركود القطعه";
-            this.InventoryItemBarCode.Name = "InventoryItemBarCode";
-            this.InventoryItemBarCode.ReadOnly = true;
-            // 
-            // InventoryItemQuantity
-            // 
-            this.InventoryItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemQuantity.DataPropertyName = "Item Quantity";
-            this.InventoryItemQuantity.HeaderText = "عدد القطعه";
-            this.InventoryItemQuantity.Name = "InventoryItemQuantity";
-            this.InventoryItemQuantity.ReadOnly = true;
-            // 
-            // InventoryItemBuyPrice
-            // 
-            this.InventoryItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemBuyPrice.DataPropertyName = "Item Buy Price";
-            this.InventoryItemBuyPrice.HeaderText = "سعر الشراء";
-            this.InventoryItemBuyPrice.Name = "InventoryItemBuyPrice";
-            this.InventoryItemBuyPrice.ReadOnly = true;
-            // 
-            // InventoryItemSellPrice
-            // 
-            this.InventoryItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemSellPrice.DataPropertyName = "Item Price";
-            this.InventoryItemSellPrice.HeaderText = "سعر القطعه";
-            this.InventoryItemSellPrice.Name = "InventoryItemSellPrice";
-            this.InventoryItemSellPrice.ReadOnly = true;
-            // 
-            // InventoryItemSellPriceTax
-            // 
-            this.InventoryItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemSellPriceTax.DataPropertyName = "Item Price Tax";
-            this.InventoryItemSellPriceTax.HeaderText = "سعر القطعه بالضريبه";
-            this.InventoryItemSellPriceTax.Name = "InventoryItemSellPriceTax";
-            this.InventoryItemSellPriceTax.ReadOnly = true;
-            // 
-            // FavoriteCategoryNumber
-            // 
-            this.FavoriteCategoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FavoriteCategoryNumber.DataPropertyName = "Favorite Category Number";
-            this.FavoriteCategoryNumber.HeaderText = "المصنف المفضل رقم";
-            this.FavoriteCategoryNumber.Name = "FavoriteCategoryNumber";
-            this.FavoriteCategoryNumber.ReadOnly = true;
-            this.FavoriteCategoryNumber.Visible = false;
-            // 
-            // InventoryItemFavoriteCategory
-            // 
-            this.InventoryItemFavoriteCategory.DataPropertyName = "Favorite Category";
-            this.InventoryItemFavoriteCategory.HeaderText = "المصنف المفضل";
-            this.InventoryItemFavoriteCategory.Name = "InventoryItemFavoriteCategory";
-            this.InventoryItemFavoriteCategory.ReadOnly = true;
-            // 
-            // InventoryWarehouseID
-            // 
-            this.InventoryWarehouseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryWarehouseID.DataPropertyName = "Warehouse ID";
-            this.InventoryWarehouseID.HeaderText = "المستودع رقم";
-            this.InventoryWarehouseID.Name = "InventoryWarehouseID";
-            this.InventoryWarehouseID.ReadOnly = true;
-            this.InventoryWarehouseID.Visible = false;
-            // 
-            // InventoryItemWarehouse
-            // 
-            this.InventoryItemWarehouse.DataPropertyName = "InventoryItemWarehouse";
-            this.InventoryItemWarehouse.HeaderText = "المستودع";
-            this.InventoryItemWarehouse.Name = "InventoryItemWarehouse";
-            this.InventoryItemWarehouse.ReadOnly = true;
-            // 
-            // InventoryItemTypeNumber
-            // 
-            this.InventoryItemTypeNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemTypeNumber.DataPropertyName = "Item Type";
-            this.InventoryItemTypeNumber.HeaderText = "تصنيف الماده رقم";
-            this.InventoryItemTypeNumber.Name = "InventoryItemTypeNumber";
-            this.InventoryItemTypeNumber.ReadOnly = true;
-            this.InventoryItemTypeNumber.Visible = false;
-            // 
-            // InventoryItemType
-            // 
-            this.InventoryItemType.DataPropertyName = "InventoryItemType";
-            this.InventoryItemType.HeaderText = "تصنيف الماده";
-            this.InventoryItemType.Name = "InventoryItemType";
-            this.InventoryItemType.ReadOnly = true;
-            // 
-            // ItemPicture
-            // 
-            this.ItemPicture.DataPropertyName = "Item Picture";
-            this.ItemPicture.HeaderText = "Item Picture";
-            this.ItemPicture.Name = "ItemPicture";
-            this.ItemPicture.ReadOnly = true;
-            this.ItemPicture.Visible = false;
             // 
             // frmMain
             // 
@@ -9222,8 +9097,6 @@
             this.groupBox35.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
             this.Settings.ResumeLayout(false);
             this.groupBox24.ResumeLayout(false);
             this.groupBox24.PerformLayout();
@@ -9295,15 +9168,6 @@
         public System.Windows.Forms.Label label70;
         public System.Windows.Forms.Label cashierNameLbl;
         public System.Windows.Forms.Label label71;
-        public System.Windows.Forms.GroupBox groupBox9;
-        public System.Windows.Forms.Label label72;
-        public System.Windows.Forms.TextBox txtFname;
-        public System.Windows.Forms.Label label73;
-        public System.Windows.Forms.Label label74;
-        public System.Windows.Forms.TextBox txtPWD;
-        public System.Windows.Forms.TextBox txtUID;
-        public System.Windows.Forms.Button BtnRegister;
-        public System.Windows.Forms.CheckBox adminCheckBox;
         public System.Windows.Forms.GroupBox groupBox10;
         public System.Windows.Forms.DataGridView dgvUsers;
         public System.Windows.Forms.GroupBox groupBox11;

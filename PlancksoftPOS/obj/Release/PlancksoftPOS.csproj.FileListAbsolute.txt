@@ -9,7 +9,6 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\Inte
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.ResolveComReference.cache
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmAuth.resources
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmCloseRegister.resources
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmCustomerCard.resources
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmEditPrice.resources
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmItemLookup.resources
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmItemRefund.resources
@@ -29,3 +28,4 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\Plan
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.CopyComplete
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.exe
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmClientCard.resources

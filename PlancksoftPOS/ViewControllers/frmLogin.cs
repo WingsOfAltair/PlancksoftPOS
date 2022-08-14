@@ -24,6 +24,7 @@ namespace PlancksoftPOS
 
         public LanguageChoice languageChoice = new LanguageChoice();
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
+        public bool closeApp = false;
 
         public class Item
         {
@@ -135,6 +136,7 @@ namespace PlancksoftPOS
                 }
                 if (Decrypt256(Settings.Default.LicenseKey) != GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName))
                 {
+                    PlancksoftPOS.Visible = false;
                     frmLicense frm0 = new frmLicense();
                     frm0.ShowDialog();
                 }
@@ -152,6 +154,7 @@ namespace PlancksoftPOS
                     {
                         if (!Connection.server.CheckAdmin()) // if admin is not registered, open a form to make one.
                         {
+                            PlancksoftPOS.Visible = false;
                             this.Hide();
                             frmRegisterAdmin registerAdmin = new frmRegisterAdmin();
                             registerAdmin.ShowDialog();
@@ -162,6 +165,7 @@ namespace PlancksoftPOS
                             // get list of UIDs from DB.
 
                             RetrieveUsersList();
+                            PlancksoftPOS.Visible = true;
                         }
                     }
                 }

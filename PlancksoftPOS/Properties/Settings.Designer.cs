@@ -85,7 +85,7 @@ namespace PlancksoftPOS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public int pickedLanguage {
             get {
                 return ((int)(this["pickedLanguage"]));
