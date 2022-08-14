@@ -20,10 +20,29 @@ namespace PlancksoftPOS
         public bool paybycash = false;
 
         public DialogResult dialogResult;
+        public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
         public frmPay(decimal totalAmount = 0)
         {
             InitializeComponent();
+
+            frmLogin.pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
+
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+                العربيةToolStripMenuItem.Checked = true;
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+                englishToolStripMenuItem.Checked = true;
+            }
+
+            applyLocalizationOnUI();
+
             textBox2.Text = totalAmount.ToString();
             textBox3.Text = Convert.ToString(this.paidAmount - this.totalAmount);
             textBox1.Select();
@@ -31,6 +50,50 @@ namespace PlancksoftPOS
             if (frmMain.Authority == 1)
             {
                 discountRateNUD.Maximum = 100;
+            }
+        }
+
+        public void applyLocalizationOnUI()
+        {
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                Text = "الدفع";
+                label3.Text = "المبلغ المطلوب";
+                label2.Text = "الباقي";
+                label1.Text = "المبلغ المدفوع";
+                Cash.Text = "دفع كاش";
+                Visa.Text = "دفع Visa";
+                button11.Text = "دفع";
+                button12.Text = "تأجيل الدفع";
+                button13.Text = "اغلاق";
+                button14.Text = "مسح";
+                cbWithDiscount.Text = "مع خصم";
+                اللغةToolStripMenuItem.Text = "اللغة";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "الخروج";
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                Text = "Payment";
+                label3.Text = "Amount Required";
+                label2.Text = "Remainder";
+                label1.Text = "Paid Amount";
+                Cash.Text = "Cash Payment";
+                Visa.Text = "Visa Payment";
+                button11.Text = "Pay";
+                button12.Text = "Postpone Payment";
+                button13.Text = "Close";
+                button14.Text = "Clear";
+                cbWithDiscount.Text = "With Discount";
+                اللغةToolStripMenuItem.Text = "Language";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "Exit";
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
             }
         }
 
@@ -197,6 +260,33 @@ namespace PlancksoftPOS
             decimal discount = Convert.ToDecimal(textBox2.Text) * (discountRateNUD.Value / 100);
             decimal newPrice = Convert.ToDecimal(textBox2.Text) - discount;
             textBox2.Text = newPrice.ToString();
+        }
+
+        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
+            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
+            Settings.Default.Save();
+            englishToolStripMenuItem.Checked = false;
+            العربيةToolStripMenuItem.Checked = true;
+            PlancksoftPOS.Dispose();
+            applyLocalizationOnUI();
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
+            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
+            Settings.Default.Save();
+            englishToolStripMenuItem.Checked = true;
+            العربيةToolStripMenuItem.Checked = false;
+            PlancksoftPOS.Dispose();
+            applyLocalizationOnUI();
         }
     }
 }

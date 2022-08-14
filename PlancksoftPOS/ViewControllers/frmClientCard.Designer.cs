@@ -1,11 +1,7 @@
 ﻿namespace PlancksoftPOS
 {
-    partial class frmCustomerCard
+    partial class frmClientCard
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,11 +24,11 @@
         /// </summary>
         public void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCustomerCard));
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmClientCard));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.itemName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,8 +40,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.customerName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -53,7 +56,6 @@
             this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.itemName);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.dgvCustomers);
             this.groupBox1.Controls.Add(this.button2);
@@ -71,9 +73,9 @@
             // 
             this.itemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.itemName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.itemName.Location = new System.Drawing.Point(311, 52);
+            this.itemName.Location = new System.Drawing.Point(240, 52);
             this.itemName.Name = "itemName";
-            this.itemName.Size = new System.Drawing.Size(204, 20);
+            this.itemName.Size = new System.Drawing.Size(275, 20);
             this.itemName.TabIndex = 2;
             // 
             // label2
@@ -86,19 +88,6 @@
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "اسم الماده";
-            // 
-            // button4
-            // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(240, 12);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(65, 60);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "اضافة عميل";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button3
             // 
@@ -189,9 +178,9 @@
             // 
             this.customerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.customerName.Location = new System.Drawing.Point(311, 16);
+            this.customerName.Location = new System.Drawing.Point(240, 16);
             this.customerName.Name = "customerName";
-            this.customerName.Size = new System.Drawing.Size(204, 20);
+            this.customerName.Size = new System.Drawing.Size(275, 20);
             this.customerName.TabIndex = 1;
             this.customerName.TextChanged += new System.EventHandler(this.customerName_TextChanged);
             // 
@@ -206,7 +195,55 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "اسم العميل";
             // 
-            // frmCustomerCard
+            // Menu
+            // 
+            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.اللغةToolStripMenuItem,
+            this.الخروجToolStripMenuItem});
+            this.Menu.Name = "Menu";
+            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Menu.Size = new System.Drawing.Size(107, 48);
+            // 
+            // اللغةToolStripMenuItem
+            // 
+            this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.العربيةToolStripMenuItem,
+            this.englishToolStripMenuItem});
+            this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
+            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.اللغةToolStripMenuItem.Text = "اللغة";
+            // 
+            // العربيةToolStripMenuItem
+            // 
+            this.العربيةToolStripMenuItem.CheckOnClick = true;
+            this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
+            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.العربيةToolStripMenuItem.Text = "العربية";
+            this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.CheckOnClick = true;
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.englishToolStripMenuItem.Text = "English";
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            // 
+            // الخروجToolStripMenuItem
+            // 
+            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
+            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.الخروجToolStripMenuItem.Text = "الخروج";
+            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
+            // 
+            // PlancksoftPOS
+            // 
+            this.PlancksoftPOS.ContextMenuStrip = this.Menu;
+            this.PlancksoftPOS.Icon = ((System.Drawing.Icon)(resources.GetObject("PlancksoftPOS.Icon")));
+            this.PlancksoftPOS.Text = "PlancksoftPOS";
+            this.PlancksoftPOS.Visible = true;
+            // 
+            // frmClientCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -215,7 +252,7 @@
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "frmCustomerCard";
+            this.Name = "frmClientCard";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.ShowInTaskbar = false;
@@ -224,6 +261,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
+            this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -237,7 +275,6 @@
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.DataGridView dgvCustomers;
         public System.Windows.Forms.Button button3;
-        public System.Windows.Forms.Button button4;
         public System.Windows.Forms.TextBox itemName;
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -245,5 +282,12 @@
         public System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.ContextMenuStrip Menu;
+        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon PlancksoftPOS;
+        private System.ComponentModel.IContainer components;
     }
 }

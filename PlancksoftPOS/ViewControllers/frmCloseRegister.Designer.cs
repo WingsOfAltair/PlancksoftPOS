@@ -2,10 +2,6 @@
 {
     partial class frmCloseRegister
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,6 +24,7 @@
         /// </summary>
         public void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCloseRegister));
             this.button3 = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -37,8 +34,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // button3
@@ -96,7 +100,7 @@
             // 
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.numericUpDown1.Location = new System.Drawing.Point(238, 218);
+            this.numericUpDown1.Location = new System.Drawing.Point(375, 220);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             -559939585,
             902409669,
@@ -112,7 +116,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label1.Location = new System.Drawing.Point(91, 220);
+            this.label1.Location = new System.Drawing.Point(12, 220);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(141, 13);
             this.label1.TabIndex = 22;
@@ -140,6 +144,54 @@
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
+            // Menu
+            // 
+            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.اللغةToolStripMenuItem,
+            this.الخروجToolStripMenuItem});
+            this.Menu.Name = "Menu";
+            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Menu.Size = new System.Drawing.Size(107, 48);
+            // 
+            // اللغةToolStripMenuItem
+            // 
+            this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.العربيةToolStripMenuItem,
+            this.englishToolStripMenuItem});
+            this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
+            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.اللغةToolStripMenuItem.Text = "اللغة";
+            // 
+            // العربيةToolStripMenuItem
+            // 
+            this.العربيةToolStripMenuItem.CheckOnClick = true;
+            this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
+            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.العربيةToolStripMenuItem.Text = "العربية";
+            this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.CheckOnClick = true;
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.englishToolStripMenuItem.Text = "English";
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            // 
+            // الخروجToolStripMenuItem
+            // 
+            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
+            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.الخروجToolStripMenuItem.Text = "الخروج";
+            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
+            // 
+            // PlancksoftPOS
+            // 
+            this.PlancksoftPOS.ContextMenuStrip = this.Menu;
+            this.PlancksoftPOS.Icon = ((System.Drawing.Icon)(resources.GetObject("PlancksoftPOS.Icon")));
+            this.PlancksoftPOS.Text = "PlancksoftPOS";
+            this.PlancksoftPOS.Visible = true;
+            // 
             // frmCloseRegister
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -164,6 +216,7 @@
             this.Text = "اغلق الكاش";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,5 +232,12 @@
         public System.Windows.Forms.NumericUpDown numericUpDown1;
         public System.Windows.Forms.Label label1;
         public System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ContextMenuStrip Menu;
+        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon PlancksoftPOS;
+        private System.ComponentModel.IContainer components;
     }
 }

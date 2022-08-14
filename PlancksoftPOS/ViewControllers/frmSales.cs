@@ -1,4 +1,5 @@
 ﻿using Dependencies;
+using PlancksoftPOS.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,10 +18,82 @@ namespace PlancksoftPOS
         public List<Item> saleItems = new List<Item>();
 
         public DialogResult dialogResult;
+        public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
         public frmSales()
         {
             InitializeComponent();
+
+            frmLogin.pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
+
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+                العربيةToolStripMenuItem.Checked = true;
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+                englishToolStripMenuItem.Checked = true;
+            }
+
+            applyLocalizationOnUI();
+        }
+
+        public void applyLocalizationOnUI()
+        {
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                Text = "Sales";
+                label53.Text = "اسم القطعه";
+                label54.Text = "باركود القطعه";
+                label1.Text = "نسبة الخصم بالمئه (رقم)";
+                label4.Text = "عدد قطع الخصم)";
+                label2.Text = "تاريخ بدء الخصم)";
+                label3.Text = "تاريخ انتهاء الخصم)";
+                button1.Text = "تأكيد الخصم";
+                button2.Text = "اغلاق";
+                button3.Text = "مسح";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn41"].HeaderText = "رقم القطعة";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn1"].HeaderText = "القطعة";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn2"].HeaderText = "باركود القطعة";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn3"].HeaderText = "عدد القطعة";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn4"].HeaderText = "سعر القطعة";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn5"].HeaderText = "سعر القطعه بعد الضريبه";
+                اللغةToolStripMenuItem.Text = "اللغة";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "الخروج";
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                Text = "Discounts";
+                label53.Text = "Item Name";
+                label54.Text = "Item Barcode";
+                label1.Text = "Percentage of Sale";
+                label4.Text = "Quantity of on sale items";
+                label2.Text = "Sale start date";
+                label3.Text = "Sale end date";
+                button1.Text = "Commit Sale";
+                button2.Text = "Close";
+                button3.Text = "Clear";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn41"].HeaderText = "Item ID";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn1"].HeaderText = "Item Name";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Item Barcode";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn3"].HeaderText = "Item Quantity";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn4"].HeaderText = "Item Price";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn5"].HeaderText = "Item Price Tax";
+                اللغةToolStripMenuItem.Text = "Language";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "Exit";
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+            }
         }
 
         public void searchItemName_TextChanged(object sender, EventArgs e)
@@ -30,6 +103,26 @@ namespace PlancksoftPOS
                 Tuple<List<Item>, DataTable> RetrievedItems;
                 RetrievedItems = Connection.server.SearchItems(searchItemName.Text, "", 0);
                 searchItemDGV.DataSource = RetrievedItems.Item2;
+
+
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn41"].HeaderText = "رقم القطعة";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn1"].HeaderText = "القطعة";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn2"].HeaderText = "باركود القطعة";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn3"].HeaderText = "عدد القطعة";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn4"].HeaderText = "سعر القطعة";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn5"].HeaderText = "سعر القطعه بعد الضريبه";
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn41"].HeaderText = "Item ID";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn1"].HeaderText = "Item Name";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Item Barcode";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn3"].HeaderText = "Item Quantity";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn4"].HeaderText = "Item Price";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn5"].HeaderText = "Item Price Tax";
+                }
             }
         }
 
@@ -40,6 +133,26 @@ namespace PlancksoftPOS
                 Tuple<List<Item>, DataTable> RetrievedItems;
                 RetrievedItems = Connection.server.SearchItems("", searchItemBarCode.Text, 0);
                 searchItemDGV.DataSource = RetrievedItems.Item2;
+
+
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn41"].HeaderText = "رقم القطعة";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn1"].HeaderText = "القطعة";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn2"].HeaderText = "باركود القطعة";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn3"].HeaderText = "عدد القطعة";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn4"].HeaderText = "سعر القطعة";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn5"].HeaderText = "سعر القطعه بعد الضريبه";
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn41"].HeaderText = "Item ID";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn1"].HeaderText = "Item Name";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Item Barcode";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn3"].HeaderText = "Item Quantity";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn4"].HeaderText = "Item Price";
+                    searchItemDGV.Columns["dataGridViewTextBoxColumn5"].HeaderText = "Item Price Tax";
+                }
             }
         }
 
@@ -138,6 +251,52 @@ namespace PlancksoftPOS
             searchItemName.Text = "";
             searchItemBarCode.Text = "";
             saleRate.Value = 0;
+
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                searchItemDGV.Columns["dataGridViewTextBoxColumn41"].HeaderText = "رقم القطعة";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn1"].HeaderText = "القطعة";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn2"].HeaderText = "باركود القطعة";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn3"].HeaderText = "عدد القطعة";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn4"].HeaderText = "سعر القطعة";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn5"].HeaderText = "سعر القطعه بعد الضريبه";
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                searchItemDGV.Columns["dataGridViewTextBoxColumn41"].HeaderText = "Item ID";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn1"].HeaderText = "Item Name";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Item Barcode";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn3"].HeaderText = "Item Quantity";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn4"].HeaderText = "Item Price";
+                searchItemDGV.Columns["dataGridViewTextBoxColumn5"].HeaderText = "Item Price Tax";
+            }
+        }
+
+        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
+            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
+            Settings.Default.Save();
+            englishToolStripMenuItem.Checked = false;
+            العربيةToolStripMenuItem.Checked = true;
+            PlancksoftPOS.Dispose();
+            applyLocalizationOnUI();
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
+            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
+            Settings.Default.Save();
+            englishToolStripMenuItem.Checked = true;
+            العربيةToolStripMenuItem.Checked = false;
+            PlancksoftPOS.Dispose();
+            applyLocalizationOnUI();
         }
     }
 }

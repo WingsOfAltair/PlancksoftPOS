@@ -68,6 +68,7 @@ namespace PlancksoftPOS
             TravelingUntravelingSalesTab = null, SoldItemsTab = null, IncomingOutgoingTab = null, SalesTab = null, TaxesTab = null;
 
         public Account userPermissions;
+        public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
         public class Items
         {
@@ -356,6 +357,23 @@ namespace PlancksoftPOS
             {
                 InitializeComponent();
 
+                frmLogin.pickedLanguage = (LanguageChoice.Languages)Properties.Settings.Default.pickedLanguage;
+
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    العربيةToolStripMenuItem.Checked = true;
+                    RightToLeft = RightToLeft.Yes;
+                    RightToLeftLayout = true;
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    englishToolStripMenuItem.Checked = true;
+                    RightToLeft = RightToLeft.No;
+                    RightToLeftLayout = false;
+                }
+
+                applyLocalizationOnUI();
+
                 DataTable dt = Connection.server.RetrieveSystemSettings();
 
                 try
@@ -398,7 +416,13 @@ namespace PlancksoftPOS
 
                 this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                 richTextBox5.ResetText();
-                richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                } else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    richTextBox5.AppendText("Current Bill ID: " + this.CurrentBillNumber);
+                }
 
                 Tuple<List<Customer>, DataTable> retrievedCustomers = Connection.server.GetRetrieveCustomers();
 
@@ -407,8 +431,16 @@ namespace PlancksoftPOS
                 this.PlancksoftPOSName = dt.Rows[0]["SystemName"].ToString();
                 this.shopName.Text = dt.Rows[0]["SystemName"].ToString();
                 this.shopPhone.Text = dt.Rows[0]["SystemPhone"].ToString();
-                this.Text = this.PlancksoftPOSName + " - الشاشه الرئيسيه";
-                label45.Text = " هذه النسخه مرخصه لمتجر " + this.PlancksoftPOSName;
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    this.Text = this.PlancksoftPOSName + " - الشاشه الرئيسيه";
+                    label45.Text = " هذه النسخه مرخصه لمتجر " + this.PlancksoftPOSName;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    this.Text = this.PlancksoftPOSName + " - Main Window";
+                    label45.Text = "This copy is licensed for " + this.PlancksoftPOSName;
+                }
                 this.PrinterName.Text = dt.Rows[0]["SystemPrinterName"].ToString();
                 this.receiptSpacingnud.Value = Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString());
                 this.registerOpen = Properties.Settings.Default.RegisterOpen;
@@ -433,9 +465,17 @@ namespace PlancksoftPOS
                     // get last bill number of today
                     this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                     richTextBox4.ResetText();
-                    richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
                     richTextBox5.ResetText();
-                    richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                        richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        richTextBox4.AppendText("Total Amount: " + this.totalAmount);
+                        richTextBox5.AppendText("Current Bill ID: " + this.CurrentBillNumber);
+                    }
                 }
                 else
                 {
@@ -466,15 +506,1019 @@ namespace PlancksoftPOS
 
                 if (dt.Rows[0]["SystemPhone"].ToString() == "" && dt.Rows[0]["SystemPrinterName"].ToString() == "")
                 {
-                    if (MessageBox.Show(".بعض الاعدادات بدون قيم, الرجاء وضع قيمه لها في الاعدادات " + " اضافة ماده؟ ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        tabControl1.SelectedTab = tabControl1.TabPages["Settings"];
-                        return;
+                        if (MessageBox.Show(".بعض الاعدادات بدون قيم, الرجاء وضع قيمه لها في الاعدادات " + " اضافة ماده؟ ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        {
+                            tabControl1.SelectedTab = tabControl1.TabPages["Settings"];
+                            return;
+                        }
                     }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        if (MessageBox.Show("Some system preferences are not set. Please set the proper values in the settings area." + " Add Item? ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        {
+                            tabControl1.SelectedTab = tabControl1.TabPages["Settings"];
+                            return;
+                        }
+                    }
+                    
                 }
             }
             catch(Exception e)
             { MessageBox.Show(e.ToString()); }
+        }
+
+        public void applyLocalizationOnUI()
+        {
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                Text = "PlancksoftPOS - الشاشه الرئيسيه";
+                if (tabControl1.Contains(tabControl1.TabPages["Cash"]))
+                {
+                    tabControl1.TabPages["Cash"].Text = "الكاش";
+                    label93.Text = "بطاقة عميل F2";
+                    label67.Text = "الدفع F1";
+                    label68.Text = "الخصومات F4";
+                    label69.Text = "فاتوره جديده F3";
+                    label2.Text = "فتح الكاش F6";
+                    label89.Text = "تعديل السعر F5";
+                    label24.Text = "البحث عن المواد F9";
+                    label70.Text = "F8 الفواتير السابقه F7";
+                    label71.Text = "اسم الكاشير:";
+                    label45.Text = "هذه النسخه مرخصه ل";
+                    groupBox3.Text = "قائمة المشتريات الحاليه";
+                    label112.Text = "0 :عدد الفواتير المعلقه";
+                    richTextBox5.Clear();
+                    richTextBox5.AppendText("رقم الفاتورة الحالية");
+                    richTextBox1.Clear();
+                    richTextBox1.AppendText("الباقي السابق");
+                    richTextBox2.Clear();
+                    richTextBox2.AppendText("المدفوع السابق");
+                    richTextBox3.Clear();
+                    richTextBox3.AppendText("المجموع السابق");
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemName"].HeaderText = "القطعة";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemBarCode"].HeaderText = "الباركود";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemQuantity"].HeaderText = "عدد القطعة";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemPrice"].HeaderText = "سعر القطعة";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemPriceTax"].HeaderText = "سعر القطعة بعد الضريبة";
+                    label49.Text = "عدد الحذف";
+                    label52.Text = "عدد القطع الجديد";
+                    button17.Text = "حذف القطعه من الشراء";
+                    button24.Text = "تعديل عدد القطع";
+                    label66.Text = "اغلاق الصندوق F12";
+                    label65.Text = "فتح الصندوق F11";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Sales"]))
+                {
+                    tabControl1.TabPages["Sales"].Text = "المبيعات";
+                    if (tabControl4.Contains(tabControl4.TabPages["InvoicesSales"]))
+                    {
+                        tabControl4.TabPages["InvoicesSales"].Text = "المبيعات";
+                        label85.Text = "رقم الغاتورة";
+                        label87.Text = "تاريخ البحث من";
+                        label84.Text = "تاريخ البحث الى";
+                        groupBox12.Text = "لائحة الفواتير";
+                        button26.Text = "مبيعات اليوم";
+                        dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
+                        dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                        dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
+                        dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
+                        dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
+                        dgvBills.Columns["Column5"].HeaderText = "طريقة الدفع";
+                        dgvBills.Columns["Column64"].HeaderText = "التاريخ";
+                        groupBox14.Text = "المواد المباعه بالفاتوره";
+                        button25.Text = "أقل 100 المواد مباعه";
+                        button18.Text = "أكثر 100 المواد مباعه";
+                        dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
+                        dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
+                        dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
+                        dgvBillItems.Columns["Column63"].HeaderText = "العدد من أصل";
+                        dgvBillItems.Columns["Column24"].HeaderText = "السعر";
+                        dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
+                    }
+                    if (tabControl4.Contains(tabControl4.TabPages["EditInvoices"]))
+                    {
+                        tabControl4.TabPages["EditInvoices"].Text = "التعديل على الفواتير";
+                        groupBox30.Text = "لائحة الفواتير";
+                        label13.Text = "رقم الفاتوره";
+                        label11.Text = "اسم الكاشير";
+                        label9.Text = "المبلغ الصافي";
+                        label10.Text = "المبلغ المدفوع";
+                        label12.Text = "المبلغ الباقي";
+                        BillsEditButton.Text = "التعديل على الفاتوره";
+                        dgvBillsEdit.Columns["BillNumber"].HeaderText = "رقم الفاتوره";
+                        dgvBillsEdit.Columns["BillCashierName"].HeaderText = "اسم الكاشير";
+                        dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "المبلغ الصافي";
+                        dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "المبلغ المدفوع";
+                        dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "المبلغ الباقي";
+                        dgvBillsEdit.Columns["BillPaymentType"].HeaderText = "طريقة الدفع";
+                    }
+                    if (tabControl4.Contains(tabControl4.TabPages["TravelingUntravelingSales"]))
+                    {
+                        tabControl4.TabPages["TravelingUntravelingSales"].Text = "المبيعات المرحله و الغير مرحله";
+                        groupBox25.Text = "المبيعات الغير المرحله";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn6"].HeaderText = "رقم الغاتورة";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn7"].HeaderText = "إسم الكاشير";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "المبلغ الصافي";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn9"].HeaderText = "المبلغ المدفوغ";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "المبلغ الباقي";
+                        dgvUnPortedSales.Columns["Column7"].HeaderText = "طريقة الدفع";
+                        dgvUnPortedSales.Columns["TotalUnPorted"].HeaderText = "المجموع";
+                        groupBox26.Text = "المبيعات المرحله";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn11"].HeaderText = "رقم الغاتورة";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn12"].HeaderText = "إسم الكاشير";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "المبلغ الصافي";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn14"].HeaderText = "المبلغ المدفوغ";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "المبلغ الباقي";
+                        dgvPortedSales.Columns["Column28"].HeaderText = "طريقة الدفع";
+                        dgvPortedSales.Columns["TotalPorted"].HeaderText = "المجموع";
+                    }
+                    if (tabControl4.Contains(tabControl4.TabPages["SoldItems"]))
+                    {
+                        tabControl4.TabPages["SoldItems"].Text = "جرد الكميات المباعه";
+                        groupBox28.Text = "البحث";
+                        label37.Text = "اسم الكاشير";
+                        label38.Text = "الصنف";
+                        label5.Text = "تاريخ البحث من";
+                        label3.Text = "تاريخ البحث الى";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn16"].HeaderText = "إسم السلعه";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "الباركود";
+                        dgvItemProfit.Columns["Column48"].HeaderText = "صنف الماده";
+                        dgvItemProfit.Columns["Column49"].HeaderText = "اسم الكاشير";
+                        dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "سعر القطعة بعد الضريبة";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "الكميه المباعه";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "المجموع";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Inventory"]))
+                {
+                    tabControl1.TabPages["Inventory"].Text = "المستودع";
+                    if (tabControl6.Contains(tabControl6.TabPages["posInventory"]))
+                    {
+                        tabControl6.TabPages["posInventory"].Text = "المستودع";
+                        groupBox7.Text = "البحث عن القطع";
+                        BtnSearchItem.Text = "البحث";
+                        label57.Text = "باركود القطعه";
+                        label58.Text = "إسم القطعه";
+                        label59.Text = "تاريخ البحث من";
+                        label56.Text = "تاريخ البحث إلى";
+                        groupBox8.Text = "مخزون البضائع";
+                        groupBox36.Text = "اضافة و تعديل المواد";
+                        label62.Text = "إسم القطعه";
+                        label61.Text = "باركود القطعه";
+                        label60.Text = "عدد القطعه";
+                        label4.Text = "سعر الشراء";
+                        label55.Text = "سعر بيع القطعه";
+                        label63.Text = "سعر البيع بالضريبه";
+                        label64.Text = "المصنف المفضل";
+                        label35.Text = "تنبيه الكميه";
+                        label36.Text = "تاريخ الإنتاج";
+                        label34.Text = "تاريخ إنتهاء الصلاحيه";
+                        label33.Text = "تاريخ الإدخال";
+                        label28.Text = "تصنيف الماده";
+                        label25.Text = "المستودع";
+                        BtnAddItem.Text = "إضافه قطعه";
+                        BtnUpdateItem.Text = "تحديث قطعه";
+                        BtnDeleteItem.Text = "حذف قطعه";
+                        DgvInventory.Columns["InventoryItemName"].HeaderText = "إسم القطعة";
+                        DgvInventory.Columns["ItemID"].HeaderText = "رقم القطعه";
+                        DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "باركود القطعه";
+                        DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "عدد القطعه";
+                        DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "سعر الشراء";
+                        DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "سعر القطعة";
+                        DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "سعر القطعة بالضريبة";
+                        DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "المصنف المفضل";
+                        DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "المستودع";
+                        DgvInventory.Columns["InventoryItemType"].HeaderText = "تصنيف المادة";
+                    }
+                    if (tabControl6.Contains(tabControl6.TabPages["posInventory"]))
+                    {
+                        tabControl6.TabPages["InventoryQuantify"].Text = "جرد المستودعات";
+                        groupBox45.Text = "البحث عن المستودع";
+                        button13.Text = "البحث";
+                        label47.Text = "المستودع";
+                        groupBox46.Text = "مخزون البضائع في المستودع";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn32"].HeaderText = "إسم القطعة";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn37"].HeaderText = "باركود القطعه";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn38"].HeaderText = "عدد القطعه";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn42"].HeaderText = "سعر الشراء";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn45"].HeaderText = "سعر القطعة";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn46"].HeaderText = "سعر القطعة بالضريبة";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn47"].HeaderText = "المصنف المفضل";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn48"].HeaderText = "المستودع";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn49"].HeaderText = "تصنيف المادة";
+                    }
+                    if (tabControl6.Contains(tabControl6.TabPages["IncomingOutgoingItems"]))
+                    {
+                        tabControl6.TabPages["IncomingOutgoingItems"].Text = "سند إدخال وإخراج";
+                        groupBox48.Text = "اضافة سند إدخال و إخراج";
+                        label53.Text = "إسم القطعه";
+                        label48.Text = "باركود القطعه";
+                        label97.Text = "عدد القطعه";
+                        label103.Text = "المستودع";
+                        label101.Text = "نوع السند";
+                        label94.Text = "تنبيه الكميه";
+                        label79.Text = "تاريخ الإنتاج";
+                        label96.Text = "تاريخ إنتهاء الصلاحيه";
+                        label98.Text = "تاريخ الإدخال";
+                        label46.Text = "سعر الشراء";
+                        button14.Text = "إختيار ماده";
+                        button38.Text = "إضافة ماده";
+                        button36.Text = "حذف ماده";
+                        button15.Text = "اتمام العمليه";
+                        dvgEntryExitItems.Columns["EntryExitItemName"].HeaderText = "إسم المادة";
+                        dvgEntryExitItems.Columns["EntryExitItemBarCode"].HeaderText = "باركود المادة";
+                        dvgEntryExitItems.Columns["EntryExitItemQuantity2"].HeaderText = "عدد القطع";
+                        dvgEntryExitItems.Columns["EntryExitItemWarehouse"].HeaderText = "المستودع";
+                        dvgEntryExitItems.Columns["EntryExitItemVendorItemBuyPrice"].HeaderText = "سعر الشراء";
+                        dvgEntryExitItems.Columns["EntryExitItemWarningQuantity"].HeaderText = "تنبيه الكمية";
+                        dvgEntryExitItems.Columns["EntryExitItemProductionDate"].HeaderText = "تاريخ الإنتاج";
+                        dvgEntryExitItems.Columns["EntryExitItemEndDate"].HeaderText = "تاريخ إنتهاء الصلاحية";
+                        dvgEntryExitItems.Columns["EntryExitItemEntryDate"].HeaderText = "تاريخ الإدخال";
+                    }
+                    if (tabControl6.Contains(tabControl6.TabPages["AddTypes"]))
+                    {
+                        tabControl6.TabPages["AddTypes"].Text = "إضافة صنف";
+                        label29.Text = "إضافة تصنيف مواد جديد";
+                        label30.Text = "أصناف المواد المضافه";
+                    }
+                    if (tabControl6.Contains(tabControl6.TabPages["AddFavorites"]))
+                    {
+                        tabControl6.TabPages["AddFavorites"].Text = "إضافة مجلد مفضلات";
+                        label22.Text = "اضافة مجلد مفضل جديد";
+                        label23.Text = "المفضلات المضافه";
+                    }
+                    if (tabControl6.Contains(tabControl6.TabPages["AddWarehouses"]))
+                    {
+                        tabControl6.TabPages["AddWarehouses"].Text = "إضافة مستودع";
+                        label26.Text = "إضافة مستودع جديد";
+                        label27.Text = "المستودعات المضافه";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Expenses"]))
+                {
+                    tabControl1.TabPages["Expenses"].Text = "المصروفات";
+                    if (tabControl5.Contains(tabControl5.TabPages["SearchExpenses"]))
+                    {
+                        tabControl5.TabPages["SearchExpenses"].Text = "البحث عن المصروفات";
+                        label16.Text = "إسم المصروف";
+                        label17.Text = "إسم الموظف";
+                        label15.Text = "تاريخ البحث من";
+                        label14.Text = "تاريخ البحث إلى";
+                        groupBox22.Text = "رأس المال";
+                        dgvExpenses.Columns["Column29"].HeaderText = "رقم المصروف";
+                        dgvExpenses.Columns["Column30"].HeaderText = "إسم المصروف";
+                        dgvExpenses.Columns["Column31"].HeaderText = "تكلفة المصروف";
+                        dgvExpenses.Columns["Column37"].HeaderText = "رمز المستخدم";
+                        dgvExpenses.Columns["Column32"].HeaderText = "تاريخ المصروف";
+                    }
+                    if (tabControl5.Contains(tabControl5.TabPages["AddExpenses"]))
+                    {
+                        tabControl5.TabPages["AddExpenses"].Text = "إضافة مصروف";
+                        label19.Text = "اسم المصروف";
+                        label20.Text = "كمية المصروف";
+                        button2.Text = "إضافة المصروف";
+                        button3.Text = "مسح";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["IncomingOutgoing"]))
+                {
+                    tabControl1.TabPages["IncomingOutgoing"].Text = "الصادر والوارد ورأس المال";
+                    groupBox19.Text = "الصادر";
+                    groupBox20.Text = "الوارد";
+                    groupBox21.Text = "الأرباح";
+                    dgvExports.Columns["Column33"].HeaderText = "التاريخ";
+                    dgvExports.Columns["Column34"].HeaderText = "التكلفه الكامله";
+                    dgvImports.Columns["Column35"].HeaderText = "التاريخ";
+                    dgvImports.Columns["Column36"].HeaderText = "التكلفه الكامله";
+                    dvgCapital.Columns["Column22"].HeaderText = "التاريخ";
+                    dvgCapital.Columns["Column26"].HeaderText = "الربح الصافي";
+                    label115.Text = "صافي الربح";
+                    label116.Text = "رأس المال";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Employees"]))
+                {
+                    tabControl1.TabPages["Employees"].Text = "شؤون الموظفين";
+                    if (tabControl8.Contains(tabControl8.TabPages["EmployeesManagement"]))
+                    {
+                        tabControl8.TabPages["EmployeesManagement"].Text = "إدارة الموظفين";
+                        label52.Text = "تسجيل الموظفين";
+                        label102.Text = "إسم الموظف";
+                        label100.Text = "الراتب";
+                        label104.Text = "رقم هاتف الموظف";
+                        label105.Text = "عنوان الموظف";
+                        button34.Text = "التسجيل";
+                        groupBox49.Text = "جدول الموظفين";
+                        dgvEmployees.Columns["Column54"].HeaderText = "رقم الموظف";
+                        dgvEmployees.Columns["dataGridViewTextBoxColumn50"].HeaderText = "إسم الموظف";
+                        dgvEmployees.Columns["dataGridViewTextBoxColumn53"].HeaderText = "الراتب";
+                        dgvEmployees.Columns["Column62"].HeaderText = "الراتب مع الخصم";
+                        dgvEmployees.Columns["Column56"].HeaderText = "رقم الهاتف";
+                        dgvEmployees.Columns["Column57"].HeaderText = "العنوان";
+                        groupBox50.Text = "االتعديل على الموظفين و الإجازات";
+                        label54.Text = "إسم الموظف";
+                        label92.Text = "الراتب";
+                        label95.Text = "رقم هاتف الموظف";
+                        label99.Text = "عنوان الموظف";
+                        button32.Text = "تحديث  موظف";
+                        button16.Text = "حذف  موظف";
+                        label109.Text = "إسم الموظف";
+                        label106.Text = "عدد الساعات";
+                        label107.Text = "التاريخ";
+                        button37.Text = "إضافة إجازه";
+                        label111.Text = "حسم الراتب";
+                        button35.Text = "إضافة الحسم";
+                    }
+                    if (tabControl8.Contains(tabControl8.TabPages["DaysOff"]))
+                    {
+                        tabControl8.TabPages["DaysOff"].Text = "الإجازات";
+                        groupBox51.Text = "جدول الاجازات اليوميه";
+                        label108.Text = "التاريخ من";
+                        label110.Text = "التاريخ إلى";
+                        button33.Text = "حذف  غياب";
+                        dgvAbsence.Columns["Column58"].HeaderText = "رقم الغياب";
+                        dgvAbsence.Columns["Column59"].HeaderText = "إسم الموظف";
+                        dgvAbsence.Columns["Column60"].HeaderText = "تاريخ الغياب";
+                        dgvAbsence.Columns["Column61"].HeaderText = "ساعات الغياب";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Agents"]))
+                {
+                    tabControl1.TabPages["Agents"].Text = "شؤون العملاء";
+                    if (tabControl3.Contains(tabControl3.TabPages["AgentsDefinitions"]))
+                    {
+                        tabControl3.TabPages["AgentsDefinitions"].Text = "تعريف العملاء";
+                        groupBox17.Text = "تسجيل العملاء";
+                        label82.Text = "إسم العميل";
+                        label83.Text = "رمز العميل";
+                        label18.Text = "رقم تلفون";
+                        label21.Text = "العنوان";
+                        button31.Text = "حفظ العميل";
+                        groupBox15.Text = "جدول العملاء";
+                        dgvCustomers.Columns["Column27"].HeaderText = "إسم العميل";
+                        dgvCustomers.Columns["CustomerIDDelete"].HeaderText = "رمز العميل";
+                        dgvCustomers.Columns["Column38"].HeaderText = "رقم الزبون";
+                        dgvCustomers.Columns["Column39"].HeaderText = "عنوان الزبون";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["AgentsItemsDefinitions"]))
+                    {
+                        tabControl3.TabPages["AgentsItemsDefinitions"].Text = "تعريف مواد العميل";
+                        groupBox23.Text = "جدول المواد";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn1"].HeaderText = "إسم القطعة";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn2"].HeaderText = "باركود القطعه";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn3"].HeaderText = "عدد القطعه";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn4"].HeaderText = "سعر الشراء";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn5"].HeaderText = "سعر القطعه";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn25"].HeaderText = "سعر القطعه بالضريبه";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn26"].HeaderText = "المصنف المفضل";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn27"].HeaderText = "المستودع";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn28"].HeaderText = "تصنيف الماده";
+                        groupBox34.Text = "تعريف مواد العميل";
+                        label32.Text = "إسم العميل";
+                        label31.Text = "رمز العميل";
+                        label81.Text = "سعر الشراء";
+                        label86.Text = "سعر البيع قبل الضريبه";
+                        label88.Text = "سعر البيع بعد الضريبه";
+                        label90.Text = "سعر بيع العميل";
+                        button5.Text = "إختيار العميل";
+                        button4.Text = "إضافة الماده للعميل";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["ImporterDefinitions"]))
+                    {
+                        tabControl3.TabPages["ImporterDefinitions"].Text = "تعريف مورد";
+                        groupBox40.Text = "تسجيل الموردين";
+                        label41.Text = "إسم المورد";
+                        label42.Text = "رمز المورد";
+                        label40.Text = "رقم تلفون";
+                        label39.Text = "العنوان";
+                        button7.Text = "حفظ المورد";
+                        groupBox39.Text = "جدول الموردين";
+                        dgvVendors.Columns["VendorCustomerName"].HeaderText = "إسم المورد";
+                        dgvVendors.Columns["VendorCustomerID"].HeaderText = "رمز المورد";
+                        dgvVendors.Columns["VendorCustomerPhone"].HeaderText = "رقم المورد";
+                        dgvVendors.Columns["VendorCustomerAddress"].HeaderText = "عنوان المورد";
+                        button6.Text = "حذف المورد";
+                        button9.Text = "كشف حساب";
+                        button8.Text = "إضافة فاتوره";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["AddImporterInvoices"]))
+                    {
+                        tabControl3.TabPages["AddImporterInvoices"].Text = "إضافة فاتورة مورد";
+                        groupBox41.Text = "إضافة فاتورة مورد";
+                        label43.Text = "إسم المورد";
+                        label44.Text = "رقم المورد";
+                        button12.Text = "إضافة الفاتورة";
+                        button10.Text = "إختيار ماده";
+                        button11.Text = "حذف ماده";
+                        dgvVendorItemsPick.Columns["VendorItemName"].HeaderText = "إسم المادة";
+                        dgvVendorItemsPick.Columns["VendorItemBarCode"].HeaderText = "باركود المادة";
+                        dgvVendorItemsPick.Columns["VendorItemType"].HeaderText = "صنف المادة";
+                        dgvVendorItemsPick.Columns["VendorItemQuantity"].HeaderText = "عدد الفطع";
+                        dgvVendorItemsPick.Columns["VendorItemBuyPrice"].HeaderText = "سعر الشراء";
+                        dgvVendorItemsPick.Columns["VendorItemSellPrice"].HeaderText = "سعر البيع";
+                        dgvVendorItemsPick.Columns["VendorItemSellPriceTax"].HeaderText = "سعر البيع مع الضريبة";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["ImporterBalanceChecks"]))
+                    {
+                        tabControl3.TabPages["ImporterBalanceChecks"].Text = "كشف حساب مورد";
+                        groupBox43.Text = "لائحة الفواتير";
+                        dgvVendorBills.Columns["dataGridViewTextBoxColumn39"].HeaderText = "رقم الغاتورة";
+                        dgvVendorBills.Columns["dataGridViewTextBoxColumn40"].HeaderText = "إسم الكاشير";
+                        dgvVendorBills.Columns["dataGridViewTextBoxColumn41"].HeaderText = "المبلغ الصافي";
+                        dgvVendorBills.Columns["VendorBillDate"].HeaderText = "التاريخ";
+                        groupBox42.Text = "المواد المشتراه بالفاتوره";
+                        dgvVendorBillItems.Columns["dataGridViewTextBoxColumn34"].HeaderText = "إسم المادة";
+                        dgvVendorBillItems.Columns["dataGridViewTextBoxColumn35"].HeaderText = "باركود الماده";
+                        dgvVendorBillItems.Columns["dataGridViewTextBoxColumn36"].HeaderText = "عدد البيع الشراء";
+                        dgvVendorBillItems.Columns["VendorBillItemBuyPrice"].HeaderText = "سعر الشراء";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Alerts"]))
+                {
+                    tabControl1.TabPages["Alerts"].Text = "التنبيهات";
+                    groupBox37.Text = "التنبيهات";
+                    dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
+                    dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
+                    dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
+                    dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
+                    dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
+                    dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Taxes"]))
+                {
+                    tabControl1.TabPages["Taxes"].Text = "الضريبه";
+                    if (tabControl7.Contains(tabControl7.TabPages["TAXZReport"]))
+                    {
+                        tabControl7.TabPages["TAXZReport"].Text = "تقرير الضريبه Z";
+                        dgvTaxZReport.Columns["Column50"].HeaderText = "رقم الفاتتوره";
+                        dgvTaxZReport.Columns["Column52"].HeaderText = "قيمة الفاتوره";
+                        dgvTaxZReport.Columns["Column53"].HeaderText = "قيمة الضريبه";
+                        dgvTaxZReport.Columns["Column55"].HeaderText = "إسم الكاشير";
+                        dgvTaxZReport.Columns["Column51"].HeaderText = "التاريخ";
+                        dgvTaxZReport.Columns["TaxTotal"].HeaderText = "مجموع الضريبه";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["posUsers"]))
+                {
+                    tabControl1.TabPages["posUsers"].Text = "المستخدمين";
+                    groupBox10.Text = "جدول المستخدمين";
+                    dgvUsers.Columns["UserName"].HeaderText = "إسم المستخدم";
+                    dgvUsers.Columns["UserID"].HeaderText = "رمز المستخدم";
+                    dgvUsers.Columns["UserPassword"].HeaderText = "كلمة السر";
+                    dgvUsers.Columns["UserAuthority"].HeaderText = "الصلاحيه";
+                    groupBox11.Text = "االتعديل على المستخدمين";
+                    label77.Text = "إسم المستخدم";
+                    label76.Text = "رمز المستخدم";
+                    label75.Text = "كلمة السر الجديده";
+                    cbAdminOrNotAdd.Text = "حساب إداري؟";
+                    button22.Text = "إضافه مستخدم";
+                    button20.Text = "تحديث مستخدم";
+                    button19.Text = "حذف مستخدم";
+                    groupBox35.Text = "الصلاحيات";
+                    customer_card_edit.Text = "إضافة بطاقة عميل و تعديل المواد";
+                    discount_edit.Text = "إضافة الخصومات";
+                    price_edit.Text = "تعديل السعر";
+                    receipt_edit.Text = "تعديل الفواتير و جرد المبيعات";
+                    inventory_edit.Text = "تعديل المستودع";
+                    expenses_edit.Text = "إضافة مصاريف";
+                    users_edit.Text = "تعديل المستخدمين";
+                    settings_edit.Text = "تعديل الإعدادات";
+                    personnel_edit.Text = "تعديل الموظفين";
+                    openclose_edit.Text = "فتح و إغلاق الكاش";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Settings"]))
+                {
+                    tabControl1.TabPages["Settings"].Text = "الإعدادات";
+                    groupBox24.Text = "إعدادات البرمجيه";
+                    A.Text = "إسم المتجر";
+                    label113.Text = "رقم الهاتف";
+                    label1.Text = "إسم الطابعه";
+                    label114.Text = "عدد فراغ الفاتوره";
+                    IncludeLogoReceipt.Text = "تضمين الشعار في الفاتوره";
+                    groupBox18.Text = "الضرائب";
+                    label78.Text = "% نسبة الضريبه بالمئه";
+                    groupBox2.Text = "صورة المتجر";
+                    button29.Text = "إعادة الصورة الأصلية";
+                    button1.Text = "حفظ الإعدادات";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Retrievals"]))
+                {
+                    tabControl1.TabPages["Retrievals"].Text = "المرجعات";
+                    groupBox47.Text = "جدول المرجعات";
+                    dgvReturnedItems.Columns["dataGridViewTextBoxColumn54"].HeaderText = "رقم السند";
+                    dgvReturnedItems.Columns["dataGridViewTextBoxColumn55"].HeaderText = "إسم الكاشير";
+                    dgvReturnedItems.Columns["dataGridViewTextBoxColumn52"].HeaderText = "إسم الماده";
+                    dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "باركود الماده";
+                    dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "عدد القطع المرجعه";
+                }
+                خروجToolStripMenuItem1.Text = "خروج";
+                aToolStripMenuItem.Text = "طلب الصيانة";
+                ادارةالمستودعToolStripMenuItem.Text = "إدارة المستودع";
+                اضافةصنفToolStripMenuItem.Text = "إضافة صنف";
+                اضافةمستودعToolStripMenuItem.Text = "إضافة مجلد مفضلات";
+                اضافةمستودعToolStripMenuItem1.Text = "إضافة مستودع";
+                اللغةToolStripMenuItem.Text = "اللغة";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "الخروج";
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                Text = "Main Window - PlancksoftPOS";
+                if (tabControl1.Contains(tabControl1.TabPages["Cash"]))
+                {
+                    tabControl1.TabPages["Cash"].Text = "Cash";
+                    label93.Text = "Client Card F2";
+                    label67.Text = "Pay F1";
+                    label68.Text = "Discounts F4";
+                    label69.Text = "New Bill F3";
+                    label2.Text = "Drawer F6";
+                    label89.Text = "Edit Price F5";
+                    label24.Text = "Items Lookup F9";
+                    label70.Text = "F8 Previous Bills F7";
+                    label71.Text = "Cashier Name:";
+                    label45.Text = "This copy is licensed for ";
+                    groupBox3.Text = "List of currently pending items";
+                    label112.Text = "Number of pending bills: 0";
+                    richTextBox5.Clear();
+                    richTextBox5.AppendText("Current Bill Number");
+                    richTextBox1.Clear();
+                    richTextBox1.AppendText("Previous Remainder");
+                    richTextBox2.Clear();
+                    richTextBox2.AppendText("Previous Paid");
+                    richTextBox3.Clear();
+                    richTextBox3.AppendText("Previous Total");
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemName"].HeaderText = "Item Name";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemBarCode"].HeaderText = "Item Barcode";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemQuantity"].HeaderText = "Item Quantity";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemPrice"].HeaderText = "Item Price";
+                    ItemsPendingPurchase.Columns["pendingPurchaseItemPriceTax"].HeaderText = "Item Price after Tax";
+                    label49.Text = "Removal Quantity";
+                    label52.Text = "New Item Quantity";
+                    button17.Text = "Remove item from bill";
+                    button24.Text = "Edit Item Quantity";
+                    label66.Text = "Close Register F12";
+                    label65.Text = "Open Register F11";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Sales"]))
+                {
+                    tabControl1.TabPages["Sales"].Text = "Sales";
+                    if (tabControl4.Contains(tabControl4.TabPages["InvoicesSales"]))
+                    {
+                        tabControl4.TabPages["InvoicesSales"].Text = "Sales";
+                        label85.Text = "Bill ID";
+                        label87.Text = "Search date from";
+                        label84.Text = "Search date to";
+                        groupBox12.Text = "List of Bills";
+                        button26.Text = "Today's Sales";
+                        dgvBills.Columns["Column15"].HeaderText = "Bill ID";
+                        dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                        dgvBills.Columns["Column17"].HeaderText = "Net Total";
+                        dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
+                        dgvBills.Columns["Column19"].HeaderText = "Remainder";
+                        dgvBills.Columns["Column5"].HeaderText = "Payment Method";
+                        dgvBills.Columns["Column64"].HeaderText = "Date";
+                        groupBox14.Text = "Items sold in Bill";
+                        button25.Text = "Least 100 Items Sold";
+                        button18.Text = "Most 100 Items Sold";
+                        dgvBillItems.Columns["Column20"].HeaderText = "Item Name";
+                        dgvBillItems.Columns["Column21"].HeaderText = "Item Barcode";
+                        dgvBillItems.Columns["Column23"].HeaderText = "Sold Quantity";
+                        dgvBillItems.Columns["Column63"].HeaderText = "Original Quantity";
+                        dgvBillItems.Columns["Column24"].HeaderText = "Price";
+                        dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
+                    }
+                    if (tabControl4.Contains(tabControl4.TabPages["EditInvoices"]))
+                    {
+                        tabControl4.TabPages["EditInvoices"].Text = "Edit Invoices";
+                        groupBox30.Text = "List of Bills";
+                        label13.Text = "Bill ID";
+                        label11.Text = "Cashier Name";
+                        label9.Text = "Net Amount";
+                        label10.Text = "Paid Amount";
+                        label12.Text = "Remainder";
+                        BillsEditButton.Text = "Edit Bill";
+                        dgvBillsEdit.Columns["BillNumber"].HeaderText = "Bill ID";
+                        dgvBillsEdit.Columns["BillCashierName"].HeaderText = "Bill Cashier Name";
+                        dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "Net Amount";
+                        dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "Paid Amount";
+                        dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "Remainder";
+                        dgvBillsEdit.Columns["BillPaymentType"].HeaderText = "Payment Type";
+                    }
+                    if (tabControl4.Contains(tabControl4.TabPages["TravelingUntravelingSales"]))
+                    {
+                        tabControl4.TabPages["TravelingUntravelingSales"].Text = "Traveling | Untraveling Sales";
+                        groupBox25.Text = "Untraveling Sales";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn6"].HeaderText = "Bill ID";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn7"].HeaderText = "Cashier Name";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "Net Amount";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn9"].HeaderText = "Paid Amount";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "Remainder";
+                        dgvUnPortedSales.Columns["Column7"].HeaderText = "Payment Method";
+                        dgvUnPortedSales.Columns["TotalUnPorted"].HeaderText = "Total";
+                        groupBox26.Text = "Traveling Sales";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn11"].HeaderText = "Bill ID";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn12"].HeaderText = "Cashier Name";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "Net Amount";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn14"].HeaderText = "Paid Amount";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "Remainder";
+                        dgvPortedSales.Columns["Column28"].HeaderText = "Payment Method";
+                        dgvPortedSales.Columns["TotalPorted"].HeaderText = "Total";
+                    }
+                    if (tabControl4.Contains(tabControl4.TabPages["SoldItems"]))
+                    {
+                        tabControl4.TabPages["SoldItems"].Text = "Sold Items Review";
+                        groupBox28.Text = "Search";
+                        label37.Text = "Cashier Name";
+                        label38.Text = "Item Type";
+                        label5.Text = "Search Date from";
+                        label3.Text = "Search Date to";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn16"].HeaderText = "Item Name";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "Item Barcode";
+                        dgvItemProfit.Columns["Column48"].HeaderText = "Item Type";
+                        dgvItemProfit.Columns["Column49"].HeaderText = "Cashier Name";
+                        dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "Item Price Tax";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "Sold Quantity";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "Total";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Inventory"]))
+                {
+                    tabControl1.TabPages["Inventory"].Text = "Warehouse";
+                    if (tabControl6.Contains(tabControl6.TabPages["posInventory"]))
+                    {
+                        tabControl6.TabPages["posInventory"].Text = "Warehouse";
+                        groupBox7.Text = "Search for Items";
+                        BtnSearchItem.Text = "Search";
+                        label57.Text = "Item Barcode";
+                        label58.Text = "Item Name";
+                        label59.Text = "Search Date from";
+                        label56.Text = "Search Date to";
+                        groupBox8.Text = "Items Storage";
+                        groupBox36.Text = "Add & Edit Items";
+                        label62.Text = "Item Name";
+                        label61.Text = "Item Barcode";
+                        label60.Text = "Item Quantity";
+                        label4.Text = "Buy Price";
+                        label55.Text = "Sell Price";
+                        label63.Text = "Sell Price Tax";
+                        label64.Text = "Favorite Category";
+                        label35.Text = "Warning Quantity";
+                        label36.Text = "Production Date";
+                        label34.Text = "Expiration Date";
+                        label33.Text = "Entry Date";
+                        label28.Text = "Item Type";
+                        label25.Text = "Warehouse";
+                        BtnAddItem.Text = "Add Item";
+                        BtnUpdateItem.Text = "Update Item";
+                        BtnDeleteItem.Text = "Delete Item";
+                        DgvInventory.Columns["InventoryItemName"].HeaderText = "Item Name";
+                        DgvInventory.Columns["ItemID"].HeaderText = "Item ID";
+                        DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "Item Barcode";
+                        DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "Item Quantity";
+                        DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "Item Buy Price";
+                        DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "Sell Price";
+                        DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                        DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "Favorite Category";
+                        DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "Warehouse";
+                        DgvInventory.Columns["InventoryItemType"].HeaderText = "Item Type";
+                    }
+                    if (tabControl6.Contains(tabControl6.TabPages["posInventory"]))
+                    {
+                        tabControl6.TabPages["InventoryQuantify"].Text = "Inventory Quantify";
+                        groupBox45.Text = "Search in Warehouse";
+                        button13.Text = "Search";
+                        label47.Text = "Warehouse";
+                        groupBox46.Text = "Items stored in Warehouse";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn32"].HeaderText = "Item Name";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn37"].HeaderText = "Item Barcode";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn38"].HeaderText = "Item Quantity";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn42"].HeaderText = "Buy Price";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn45"].HeaderText = "Sell Price";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn46"].HeaderText = "Sell Price Tax";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn47"].HeaderText = "Favorite Category";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn48"].HeaderText = "Warehouse";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn49"].HeaderText = "Item Type";
+                    }
+                    if (tabControl6.Contains(tabControl6.TabPages["IncomingOutgoingItems"]))
+                    {
+                        tabControl6.TabPages["IncomingOutgoingItems"].Text = "Import Export Form";
+                        groupBox48.Text = "Submit Import Export Form";
+                        label53.Text = "Item Name";
+                        label48.Text = "Item Barcode";
+                        label97.Text = "Item Quantity";
+                        label103.Text = "Warehouse";
+                        label101.Text = "Form Type";
+                        label94.Text = "Warning Quantity";
+                        label79.Text = "Production Date";
+                        label96.Text = "Expiration Date";
+                        label98.Text = "Entry Date";
+                        label46.Text = "Buy Price";
+                        button14.Text = "Pick Item";
+                        button38.Text = "Add Item";
+                        button36.Text = "Delete Item";
+                        button15.Text = "Commit Form";
+                        dvgEntryExitItems.Columns["EntryExitItemName"].HeaderText = "Item Name";
+                        dvgEntryExitItems.Columns["EntryExitItemBarCode"].HeaderText = "Item Barcode";
+                        dvgEntryExitItems.Columns["EntryExitItemQuantity2"].HeaderText = "Item Quantity";
+                        dvgEntryExitItems.Columns["EntryExitItemWarehouse"].HeaderText = "Warehouse";
+                        dvgEntryExitItems.Columns["EntryExitItemVendorItemBuyPrice"].HeaderText = "Buy Price";
+                        dvgEntryExitItems.Columns["EntryExitItemWarningQuantity"].HeaderText = "Warning Quantity";
+                        dvgEntryExitItems.Columns["EntryExitItemProductionDate"].HeaderText = "Production Date";
+                        dvgEntryExitItems.Columns["EntryExitItemEndDate"].HeaderText = "Expiration Date";
+                        dvgEntryExitItems.Columns["EntryExitItemEntryDate"].HeaderText = "Entry Date";
+                    }
+                    if (tabControl6.Contains(tabControl6.TabPages["AddTypes"]))
+                    {
+                        tabControl6.TabPages["AddTypes"].Text = "Add an Item Type";
+                        label29.Text = "Add new Item Type";
+                        label30.Text = "Added Item Types";
+                    }
+                    if (tabControl6.Contains(tabControl6.TabPages["AddFavorites"]))
+                    {
+                        tabControl6.TabPages["AddFavorites"].Text = "Add a Favorite Category";
+                        label22.Text = "Add a new Favorite Category";
+                        label23.Text = "Added Favorite Categories";
+                    }
+                    if (tabControl6.Contains(tabControl6.TabPages["AddWarehouses"]))
+                    {
+                        tabControl6.TabPages["AddWarehouses"].Text = "Add a Warehouse";
+                        label26.Text = "Add a new Warehouse";
+                        label27.Text = "Added Warehouses";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Expenses"]))
+                {
+                    tabControl1.TabPages["Expenses"].Text = "Expenses";
+                    if (tabControl5.Contains(tabControl5.TabPages["SearchExpenses"]))
+                    {
+                        tabControl5.TabPages["SearchExpenses"].Text = "Expenses Search";
+                        label16.Text = "Expense Name";
+                        label17.Text = "Employee Name";
+                        label15.Text = "Search Date from";
+                        label14.Text = "Search Date to";
+                        groupBox22.Text = "Capital Amount";
+                        dgvExpenses.Columns["Column29"].HeaderText = "Expense ID";
+                        dgvExpenses.Columns["Column30"].HeaderText = "Expense Name";
+                        dgvExpenses.Columns["Column31"].HeaderText = "Expense Cost";
+                        dgvExpenses.Columns["Column37"].HeaderText = "User ID";
+                        dgvExpenses.Columns["Column32"].HeaderText = "Expense Date";
+                    }
+                    if (tabControl5.Contains(tabControl5.TabPages["AddExpenses"]))
+                    {
+                        tabControl5.TabPages["AddExpenses"].Text = "Add an Expense";
+                        label19.Text = "Expense Name";
+                        label20.Text = "Expense Amount";
+                        button2.Text = "Add Expense";
+                        button3.Text = "Clear";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["IncomingOutgoing"]))
+                {
+                    tabControl1.TabPages["IncomingOutgoing"].Text = "Imports & Exports & Capital";
+                    groupBox19.Text = "Exports";
+                    groupBox20.Text = "Imports";
+                    groupBox21.Text = "Capital Gains";
+                    dgvExports.Columns["Column33"].HeaderText = "Date";
+                    dgvExports.Columns["Column34"].HeaderText = "Total Cost";
+                    dgvImports.Columns["Column35"].HeaderText = "Date";
+                    dgvImports.Columns["Column36"].HeaderText = "Total Cost";
+                    dvgCapital.Columns["Column22"].HeaderText = "Date";
+                    dvgCapital.Columns["Column26"].HeaderText = "Net Profit";
+                    label115.Text = "Net Profit";
+                    label116.Text = "Capital Amount";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Employees"]))
+                {
+                    tabControl1.TabPages["Employees"].Text = "Employees' Affairs";
+                    if (tabControl8.Contains(tabControl1.TabPages["EmployeesManagement"]))
+                    {
+                        tabControl8.TabPages["EmployeesManagement"].Text = "Employees Management";
+                        label52.Text = "Employees Registration";
+                        label102.Text = "Employee Name";
+                        label100.Text = "Salary";
+                        label104.Text = "Employee Phone Number";
+                        label105.Text = "Employee Address";
+                        button34.Text = "Register";
+                        groupBox49.Text = "Employees Grid";
+                        dgvEmployees.Columns["Column54"].HeaderText = "Employee ID";
+                        dgvEmployees.Columns["dataGridViewTextBoxColumn50"].HeaderText = "Employee Name";
+                        dgvEmployees.Columns["dataGridViewTextBoxColumn53"].HeaderText = "Salary";
+                        dgvEmployees.Columns["Column62"].HeaderText = "Salary with Deductions";
+                        dgvEmployees.Columns["Column56"].HeaderText = "Phone Number";
+                        dgvEmployees.Columns["Column57"].HeaderText = "Address";
+                        groupBox50.Text = "Employees & Absences Management";
+                        label54.Text = "Employee Name";
+                        label92.Text = "Salary";
+                        label95.Text = "Employee Phone Number";
+                        label99.Text = "Employee Address";
+                        button32.Text = "Update Employee";
+                        button16.Text = "Delete Employee";
+                        label109.Text = "Employee Name";
+                        label106.Text = "Number of Hours";
+                        label107.Text = "Date";
+                        button37.Text = "Add Absence";
+                        label111.Text = "Deduct from Salary";
+                        button35.Text = "Add Deduction";
+                    }
+                    if (tabControl8.Contains(tabControl1.TabPages["EmployeesManagement"]))
+                    {
+                        tabControl8.TabPages["DaysOff"].Text = "Absences";
+                        groupBox51.Text = "Daily Absences Grid";
+                        label108.Text = "Date from";
+                        label110.Text = "Date to";
+                        button33.Text = "Delete Absence";
+                        dgvAbsence.Columns["Column58"].HeaderText = "Absence ID";
+                        dgvAbsence.Columns["Column59"].HeaderText = "Employee Name";
+                        dgvAbsence.Columns["Column60"].HeaderText = "Absence Date";
+                        dgvAbsence.Columns["Column61"].HeaderText = "Absence Hours";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Agents"]))
+                {
+                    tabControl1.TabPages["Agents"].Text = "Clients' Affairs";
+                    if (tabControl3.Contains(tabControl3.TabPages["AgentsDefinitions"]))
+                    {
+                        tabControl3.TabPages["AgentsDefinitions"].Text = "Clients' Definitions";
+                        groupBox17.Text = "Clients Registration";
+                        label82.Text = "Client Name";
+                        label83.Text = "Client ID";
+                        label18.Text = "Phone Number";
+                        label21.Text = "Address";
+                        button31.Text = "Save Client";
+                        groupBox15.Text = "Clients Grid";
+                        dgvCustomers.Columns["Column27"].HeaderText = "Client Name";
+                        dgvCustomers.Columns["CustomerIDDelete"].HeaderText = "Client ID";
+                        dgvCustomers.Columns["Column38"].HeaderText = "Phone Number";
+                        dgvCustomers.Columns["Column39"].HeaderText = "Client Address";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["AgentsItemsDefinitions"]))
+                    {
+                        tabControl3.TabPages["AgentsItemsDefinitions"].Text = "Client Items Definitions";
+                        groupBox23.Text = "Items Grid";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn1"].HeaderText = "Item Name";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Item Barcode";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn3"].HeaderText = "Item Quantity";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn4"].HeaderText = "Buy Price";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn5"].HeaderText = "Sell Price";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn25"].HeaderText = "Sell Price Tax";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn26"].HeaderText = "Favorite Category";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn27"].HeaderText = "Warehouse";
+                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn28"].HeaderText = "Item Type";
+                        groupBox34.Text = "Client Items Definition";
+                        label32.Text = "Client Name";
+                        label31.Text = "Client ID";
+                        label81.Text = "Buy Price";
+                        label86.Text = "Sell Price";
+                        label88.Text = "Sell Price Tax";
+                        label90.Text = "Client Sell Price";
+                        button5.Text = "Pick Client";
+                        button4.Text = "Add Item to Client";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["ImporterDefinitions"]))
+                    {
+                        tabControl3.TabPages["ImporterDefinitions"].Text = "Importer Definition";
+                        groupBox40.Text = "Importers Registration";
+                        label41.Text = "Importer Name";
+                        label42.Text = "Importer ID";
+                        label40.Text = "Phone Number";
+                        label39.Text = "Address";
+                        button7.Text = "Save Importer";
+                        groupBox39.Text = "Importers Grid";
+                        dgvVendors.Columns["VendorCustomerName"].HeaderText = "Importer Name";
+                        dgvVendors.Columns["VendorCustomerID"].HeaderText = "Importer ID";
+                        dgvVendors.Columns["VendorCustomerPhone"].HeaderText = "Importer Phone Number";
+                        dgvVendors.Columns["VendorCustomerAddress"].HeaderText = "Importer Address";
+                        button6.Text = "Importer Delete";
+                        button9.Text = "Account Summary";
+                        button8.Text = "Add Bill";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["AddImporterInvoices"]))
+                    {
+                        tabControl3.TabPages["AddImporterInvoices"].Text = "Add Importer Bill";
+                        groupBox41.Text = "Add Importer Bill";
+                        label43.Text = "Importer Name";
+                        label44.Text = "Importer ID";
+                        button12.Text = "Add Bill";
+                        button10.Text = "Pick Item";
+                        button11.Text = "Delete Item";
+                        dgvVendorItemsPick.Columns["VendorItemName"].HeaderText = "Item Name";
+                        dgvVendorItemsPick.Columns["VendorItemBarCode"].HeaderText = "Item Barcode";
+                        dgvVendorItemsPick.Columns["VendorItemType"].HeaderText = "Item Type";
+                        dgvVendorItemsPick.Columns["VendorItemQuantity"].HeaderText = "Item Quantity";
+                        dgvVendorItemsPick.Columns["VendorItemBuyPrice"].HeaderText = "Buy Price";
+                        dgvVendorItemsPick.Columns["VendorItemSellPrice"].HeaderText = "Sell Price";
+                        dgvVendorItemsPick.Columns["VendorItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                    }
+                    if (tabControl3.Contains(tabControl3.TabPages["ImporterBalanceChecks"]))
+                    {
+                        tabControl3.TabPages["ImporterBalanceChecks"].Text = "Importer Account Summary";
+                        groupBox43.Text = "List of Bills";
+                        dgvVendorBills.Columns["dataGridViewTextBoxColumn39"].HeaderText = "Bill ID";
+                        dgvVendorBills.Columns["dataGridViewTextBoxColumn40"].HeaderText = "Cashier Name";
+                        dgvVendorBills.Columns["dataGridViewTextBoxColumn41"].HeaderText = "Net Total";
+                        dgvVendorBills.Columns["VendorBillDate"].HeaderText = "Date";
+                        groupBox42.Text = "Items Included in Bill";
+                        dgvVendorBillItems.Columns["dataGridViewTextBoxColumn34"].HeaderText = "Item Name";
+                        dgvVendorBillItems.Columns["dataGridViewTextBoxColumn35"].HeaderText = "Item Barcode";
+                        dgvVendorBillItems.Columns["dataGridViewTextBoxColumn36"].HeaderText = "Item Buy Sell Quantity";
+                        dgvVendorBillItems.Columns["VendorBillItemBuyPrice"].HeaderText = "Buy Price";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Alerts"]))
+                {
+                    tabControl1.TabPages["Alerts"].Text = "Alerts";
+                    groupBox37.Text = "Alerts";
+                    dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
+                    dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
+                    dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
+                    dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
+                    dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                    dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Taxes"]))
+                {
+                    tabControl1.TabPages["Taxes"].Text = "Taxes";
+                    if (tabControl7.Contains(tabControl7.TabPages["TAXZReport"]))
+                    {
+                        tabControl7.TabPages["TAXZReport"].Text = "Tax Z Report";
+                        dgvTaxZReport.Columns["Column50"].HeaderText = "Bill ID";
+                        dgvTaxZReport.Columns["Column52"].HeaderText = "Bill Total";
+                        dgvTaxZReport.Columns["Column53"].HeaderText = "Tax Amount";
+                        dgvTaxZReport.Columns["Column55"].HeaderText = "Cashier Name";
+                        dgvTaxZReport.Columns["Column51"].HeaderText = "Date";
+                        dgvTaxZReport.Columns["TaxTotal"].HeaderText = "Tax Total";
+                    }
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["posUsers"]))
+                {
+                    tabControl1.TabPages["posUsers"].Text = "Users";
+                    groupBox10.Text = "Users Grid";
+                    dgvUsers.Columns["UserName"].HeaderText = "User Name";
+                    dgvUsers.Columns["UserID"].HeaderText = "User ID";
+                    dgvUsers.Columns["UserPassword"].HeaderText = "Password";
+                    dgvUsers.Columns["UserAuthority"].HeaderText = "Permissions";
+                    groupBox11.Text = "Edit User Accounts";
+                    label77.Text = "User Name";
+                    label76.Text = "User ID";
+                    label75.Text = "New Password";
+                    cbAdminOrNotAdd.Text = "Admin Account?";
+                    button22.Text = "Add User";
+                    button20.Text = "Update User";
+                    button19.Text = "Delete User";
+                    groupBox35.Text = "Permissions";
+                    customer_card_edit.Text = "Add Client Card & Client Items";
+                    discount_edit.Text = "Add Discounts";
+                    price_edit.Text = "Edit Bill Prices";
+                    receipt_edit.Text = "Edit Invoices & Quantify Sales";
+                    inventory_edit.Text = "Edit Inventory";
+                    expenses_edit.Text = "Add Expenses";
+                    users_edit.Text = "Edit Users";
+                    settings_edit.Text = "Edit Settings";
+                    personnel_edit.Text = "Edit Employees";
+                    openclose_edit.Text = "Close & Open Cash Register";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Settings"]))
+                {
+                    tabControl1.TabPages["Settings"].Text = "Settings";
+                    groupBox24.Text = "System Preferences";
+                    A.Text = "Store Name";
+                    label113.Text = "Phone Number";
+                    label1.Text = "Printer Name";
+                    label114.Text = "Blank Spaces in Receipt";
+                    IncludeLogoReceipt.Text = "Include Logo in Receipt";
+                    groupBox18.Text = "Taxes";
+                    label78.Text = "Percentage of Taxes %";
+                    groupBox2.Text = "Store Logo";
+                    button29.Text = "Reset Default Logo";
+                    button1.Text = "Save Preferences";
+                }
+                if (tabControl1.Contains(tabControl1.TabPages["Retrievals"]))
+                {
+                    tabControl1.TabPages["Retrievals"].Text = "Returned Items";
+                    groupBox47.Text = "Returned Items Grid";
+                    dgvReturnedItems.Columns["dataGridViewTextBoxColumn54"].HeaderText = "Return ID";
+                    dgvReturnedItems.Columns["dataGridViewTextBoxColumn55"].HeaderText = "Cashier Name";
+                    dgvReturnedItems.Columns["dataGridViewTextBoxColumn52"].HeaderText = "Item Name";
+                    dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "Item Barcode";
+                    dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "Returned Items Quantity";
+                }
+                خروجToolStripMenuItem1.Text = "Quit";
+                aToolStripMenuItem.Text = "Maintenance Request";
+                ادارةالمستودعToolStripMenuItem.Text = "Warehouse Management";
+                اضافةصنفToolStripMenuItem.Text = "Add Item Type";
+                اضافةمستودعToolStripMenuItem.Text = "Add Favorite Category";
+                اضافةمستودعToolStripMenuItem1.Text = "Add Warehouse";
+                اللغةToolStripMenuItem.Text = "Language";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "Exit";
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+            }
         }
 
         public void DisplayCashierNames()
@@ -502,7 +1546,14 @@ namespace PlancksoftPOS
             flowLayoutPanel3.Controls.Clear();
 
             plusItemTypeLbl = new Label();
-            plusItemTypeLbl.Text = "اضافة صنف مواد جديد";
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                plusItemTypeLbl.Text = "إضافة صنف مواد جديد";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                plusItemTypeLbl.Text = "Add a new Item Type";
+            }
             plusItemTypeLbl.ForeColor = Color.Black;
             plusItemTypeLbl.Font = new Font(plusItemTypeLbl.Font.FontFamily, 14);
             flowLayoutPanel3.Controls.Add(plusItemTypeLbl);
@@ -522,7 +1573,14 @@ namespace PlancksoftPOS
             flowLayoutPanel3.Controls.Add(plusItemTypePB);
 
             ItemTypeLbl = new Label();
-            ItemTypeLbl.Text = "أصناف المواد المضافه";
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                ItemTypeLbl.Text = "أصناف المواد المضافه";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                ItemTypeLbl.Text = "Added Item Types";
+            }
             ItemTypeLbl.ForeColor = Color.Black;
             ItemTypeLbl.Font = new Font(plusItemTypeLbl.Font.FontFamily, 14);
             flowLayoutPanel3.Controls.Add(ItemTypeLbl);
@@ -530,15 +1588,30 @@ namespace PlancksoftPOS
             saveItemTypesBtn = new Button();
             saveItemTypesBtn.Name = "SaveItemTypesButton";
             saveItemTypesBtn.Tag = "SaveItemTypesButton";
-            saveItemTypesBtn.Text = "حفظ التصانيف";
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                saveItemTypesBtn.Text = "حفظ التصانيف";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                saveItemTypesBtn.Text = "Save Item Type";
+            }
             saveItemTypesBtn.Size = new Size(340, 45);
             saveItemTypesBtn.ForeColor = Color.White;
             saveItemTypesBtn.BackColor = Color.FromArgb(59, 89, 152);
             saveItemTypesBtn.Font = new Font(saveItemTypesBtn.Font.FontFamily, 14, FontStyle.Bold);
             saveItemTypesBtn.Click += (sender, e) => { SaveItemTypesHandler(sender, e); };
 
-            ItemType.Items.Add(new ItemTypeCategory("غير مصنف"));
-            comboBox1.Items.Add(new ItemTypeCategory("غير مصنف"));
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                ItemType.Items.Add(new ItemTypeCategory("غير مصنف"));
+                comboBox1.Items.Add(new ItemTypeCategory("غير مصنف"));
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                ItemType.Items.Add(new ItemTypeCategory("Unclassified"));
+                comboBox1.Items.Add(new ItemTypeCategory("Unclassified"));
+            }
 
             int i = 0;
 
@@ -587,7 +1660,14 @@ namespace PlancksoftPOS
             flowLayoutPanel2.Controls.Clear();
 
             plusWarehouseLbl = new Label();
-            plusWarehouseLbl.Text = "اضافة مستودع جديد";
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                plusWarehouseLbl.Text = "اضافة مستودع جديد";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                plusWarehouseLbl.Text = "Add a new Warehouse";
+            }
             plusWarehouseLbl.ForeColor = Color.Black;
             plusWarehouseLbl.Font = new Font(plusWarehouseLbl.Font.FontFamily, 14);
             flowLayoutPanel2.Controls.Add(plusWarehouseLbl);
@@ -607,7 +1687,14 @@ namespace PlancksoftPOS
             flowLayoutPanel2.Controls.Add(plusWarehousePB);
 
             WarehouseLbl = new Label();
-            WarehouseLbl.Text = "المستودعات المضافه";
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                WarehouseLbl.Text = "المستودعات المضافه";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                WarehouseLbl.Text = "Added Warehouses";
+            }
             WarehouseLbl.ForeColor = Color.Black;
             WarehouseLbl.Font = new Font(plusWarehouseLbl.Font.FontFamily, 14);
             flowLayoutPanel2.Controls.Add(WarehouseLbl);
@@ -615,14 +1702,27 @@ namespace PlancksoftPOS
             saveWarehousesBtn = new Button();
             saveWarehousesBtn.Name = "SaveWarehousesButton";
             saveWarehousesBtn.Tag = "SaveWarehousesButton";
-            saveWarehousesBtn.Text = "حفظ المستودعات";
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                saveWarehousesBtn.Text = "حفظ المستودعات";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                saveWarehousesBtn.Text = "Save Warehouse";
+            }
             saveWarehousesBtn.Size = new Size(340, 45);
             saveWarehousesBtn.ForeColor = Color.White;
             saveWarehousesBtn.BackColor = Color.FromArgb(59, 89, 152);
             saveWarehousesBtn.Font = new Font(saveWarehousesBtn.Font.FontFamily, 14, FontStyle.Bold);
             saveWarehousesBtn.Click += (sender, e) => { SaveWarehousesHandler(sender, e); };
-
-            Warehouse.Items.Add(new WarehouseCategory("غير موجود"));
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                Warehouse.Items.Add(new WarehouseCategory("غير موجود"));
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                Warehouse.Items.Add(new WarehouseCategory("Inexistent"));
+            }
             //WarehousesQuantityList.Items.Add(new WarehouseCategory("غير موجود"));
             //WarehouseEntryExitList.Items.Add(new WarehouseCategory("غير موجود"));
 
@@ -675,7 +1775,14 @@ namespace PlancksoftPOS
                 flowLayoutPanels[z].Controls.Clear();
 
             plusFavoriteLbl = new Label();
-            plusFavoriteLbl.Text = "اضافة مجلد مفضل جديد";
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                plusFavoriteLbl.Text = "إضافة مجلد مفضل جديد";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                plusFavoriteLbl.Text = "Add a new Favorite Category";
+            }
             plusFavoriteLbl.ForeColor = Color.Black;
             plusFavoriteLbl.Font = new Font(plusFavoriteLbl.Font.FontFamily, 14);
             flowLayoutPanel1.Controls.Add(plusFavoriteLbl);
@@ -695,7 +1802,14 @@ namespace PlancksoftPOS
             flowLayoutPanel1.Controls.Add(plusFavoritePB);
 
             FavoriteLbl = new Label();
-            FavoriteLbl.Text = "لمفضلات المضافه";
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                FavoriteLbl.Text = "مجلدات المفضلات المضافه";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                FavoriteLbl.Text = "Added Favorite Categories";
+            }
             FavoriteLbl.ForeColor = Color.Black;
             FavoriteLbl.Font = new Font(plusFavoriteLbl.Font.FontFamily, 14);
             flowLayoutPanel1.Controls.Add(FavoriteLbl);
@@ -703,14 +1817,27 @@ namespace PlancksoftPOS
             saveFavoritesBtn = new Button();
             saveFavoritesBtn.Name = "SaveFavoritesButton";
             saveFavoritesBtn.Tag = "SaveFavoritesButton";
-            saveFavoritesBtn.Text = "حفظ المفضلات";
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                saveFavoritesBtn.Text = "حفظ مجلد المفضلات";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                saveFavoritesBtn.Text = "Save Favorite Category";
+            }
             saveFavoritesBtn.Size = new Size(340, 45);
             saveFavoritesBtn.ForeColor = Color.White;
             saveFavoritesBtn.BackColor = Color.FromArgb(59, 89, 152);
             saveFavoritesBtn.Font = new Font(saveFavoritesBtn.Font.FontFamily, 14, FontStyle.Bold);
             saveFavoritesBtn.Click += (sender, e) => { SaveFavoritesHandler(sender, e); };
-
-            FavoriteCategories.Items.Add(new FavoriteCategory("غير مفضله"));
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                FavoriteCategories.Items.Add(new FavoriteCategory("غير مفضله"));
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                FavoriteCategories.Items.Add(new FavoriteCategory("Not Favorited"));
+            }
 
             int i = 0;
 
@@ -798,13 +1925,27 @@ namespace PlancksoftPOS
                 if (deletedItemType)
                 {
                     DisplayItemTypes();
-                    MessageBox.Show(".تم حذف صنف المواد");
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم حذف صنف المواد", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Item Type was deleted.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 DisplayItemTypes();
-                MessageBox.Show(".لم نتمكن من حذف صنف المواد", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من حذف صنف المواد", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to delete Item Type.", Application.ProductName);
+                }
             }
         }
 
@@ -817,13 +1958,27 @@ namespace PlancksoftPOS
                 if (addedItemType)
                 {
                     DisplayItemTypes();
-                    MessageBox.Show(".تمت اضافة أصناف المواد الجديده");
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تمت اضافة أصناف المواد الجديده", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("A new Item Type was added.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 DisplayItemTypes();
-                MessageBox.Show(".لم نتمكن من حفظ أصناف المواد الجديده", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من حفظ أصناف المواد الجديده", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to add new Item Type.", Application.ProductName);
+                }
             }
         }
 
@@ -840,13 +1995,27 @@ namespace PlancksoftPOS
                 if (updatedItemTypes)
                 {
                     DisplayItemTypes();
-                    MessageBox.Show(".تم حفظ أصناف المواد");
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم حفظ أصناف المواد", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Item Types were saved.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 DisplayItemTypes();
-                MessageBox.Show(".لم نتمكن من حفظ أصناف المواد", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من حفظ أصناف المواد", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to save Item Types.", Application.ProductName);
+                }
             }
         }
 
@@ -859,13 +2028,27 @@ namespace PlancksoftPOS
                 if (deletedWarehouse)
                 {
                     DisplayWarehouses();
-                    MessageBox.Show(".تم حذف المستودع");
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم حذف المستودع", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Warehouse was deleted.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 DisplayWarehouses();
-                MessageBox.Show(".لم نتمكن من حذف المستودع", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من حذف المستودع", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to delete Warehouse.", Application.ProductName);
+                }
             }
         }
 
@@ -878,13 +2061,27 @@ namespace PlancksoftPOS
                 if (addedWarehouse)
                 {
                     DisplayWarehouses();
-                    MessageBox.Show(".تمت اضافة المستودع الجديد");
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تمت اضافة المستودع الجديد", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("A new Warehouse was added.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 DisplayWarehouses();
-                MessageBox.Show(".لم نتمكن من حفظ المستودع الجديد", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من حفظ المستودع الجديد", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to add new Warehouse.", Application.ProductName);
+                }
             }
         }
 
@@ -901,13 +2098,27 @@ namespace PlancksoftPOS
                 if (updatedWarehouses)
                 {
                     DisplayWarehouses();
-                    MessageBox.Show(".تم حفظ المستودعات");
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم حفظ المستودعات", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Werehouses was saved.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 DisplayWarehouses();
-                MessageBox.Show(".لم نتمكن من حفظ المستودعات", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من حفظ المستودعات", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to save warehouses.", Application.ProductName);
+                }
             }
         }
 
@@ -990,7 +2201,14 @@ namespace PlancksoftPOS
 
                     ItemsPendingPurchase.Rows[index].Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
                     richTextBox6.ResetText();
-                    richTextBox6.AppendText(" :الباركود " + item.GetItemBarCode());
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        richTextBox6.AppendText(" :الباركود " + item.GetItemBarCode());
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        richTextBox6.AppendText(" Barcode: " + item.GetItemBarCode());
+                    }
                 }
                 calculateStatistics();
                 ApplyDiscountsToPendingItems();
@@ -999,7 +2217,14 @@ namespace PlancksoftPOS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(".لا يمكن اضافة الماده المفضله", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لا يمكن اضافة الماده المفضله", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to add Favorite Item.", Application.ProductName);
+                }
             }
         }
 
@@ -1012,13 +2237,27 @@ namespace PlancksoftPOS
                 if (deletedFavoriteCategory)
                 {
                     DisplayFavorites();
-                    MessageBox.Show(".تم حذف مجلد المفضلات");
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم حذف مجلد المفضلات", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Favorite Category was deleted.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 DisplayFavorites();
-                MessageBox.Show(".لم نتمكن من حذف المفضلات", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من حذف المفضلات", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to delete Favorite Category.", Application.ProductName);
+                }
             }
         }
 
@@ -1031,13 +2270,27 @@ namespace PlancksoftPOS
                 if (addedFavoriteCategory)
                 {
                     DisplayFavorites();
-                    MessageBox.Show(".تمت اضافة مجلد المفضلات الجديده");
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تمت اضافة مجلد المفضلات الجديده", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("A new Favorite Category was added.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 DisplayFavorites();
-                MessageBox.Show(".لم نتمكن من حفظ المفضلات", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من حفظ مجلدات المفضلات", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to save Favorite Categories.", Application.ProductName);
+                }
             }
         }
 
@@ -1054,13 +2307,27 @@ namespace PlancksoftPOS
                 if (updatedFavoriteCategories)
                 {
                     DisplayFavorites();
-                    MessageBox.Show(".تم حفظ المفضلات الجديده");
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم حفظ مجلد المفضلات الجديد", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("A new Favorite Category was saved.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception ex)
             {
                 DisplayFavorites();
-                MessageBox.Show(".لم نتمكن من حفظ المفضلات", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من حفظ مجلدات المفضلات", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to save Favorite Categories.", Application.ProductName);
+                }
             }
         }
 
@@ -1088,7 +2355,14 @@ namespace PlancksoftPOS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(".لم نستطع حذف القطعه", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نستطع حذف القطعه", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to delete Items.", Application.ProductName);
+                }
             }
         }
 
@@ -1104,9 +2378,17 @@ namespace PlancksoftPOS
             }
             
             richTextBox5.ResetText();
-            richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
             richTextBox4.ResetText();
-            richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                richTextBox5.AppendText("Current Bill ID: " + this.CurrentBillNumber);
+                richTextBox4.AppendText("Total: " + this.totalAmount);
+            }
         }
 
         public void خروجToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -1135,7 +2417,14 @@ namespace PlancksoftPOS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(".لم نستطع تعديل أسعار القطعه", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نستطع تعديل أسعار القطعه", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to edit Item price.", Application.ProductName);
+                }
             }
         }
 
@@ -1162,7 +2451,14 @@ namespace PlancksoftPOS
             }
             catch (Exception ex)
             {
-                MessageBox.Show(".لم نستطع تعديل أسعار القطعه", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نستطع تعديل أسعار القطعه", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to edit Item price.", Application.ProductName);
+                }
             }
         }
 
@@ -1276,6 +2572,32 @@ namespace PlancksoftPOS
             Tuple<List<Item>, DataTable> RetrievedItems;
             RetrievedItems = Connection.server.SearchInventoryItems(txtItemNameSearch.Text, nudItemBarCodeSearch.Text);
             DgvInventory.DataSource = RetrievedItems.Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                DgvInventory.Columns["InventoryItemName"].HeaderText = "إسم القطعة";
+                DgvInventory.Columns["ItemID"].HeaderText = "رقم القطعه";
+                DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "باركود القطعه";
+                DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "عدد القطعه";
+                DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "سعر الشراء";
+                DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "سعر القطعة";
+                DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "سعر القطعة بالضريبة";
+                DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "المصنف المفضل";
+                DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "المستودع";
+                DgvInventory.Columns["InventoryItemType"].HeaderText = "تصنيف المادة";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                DgvInventory.Columns["InventoryItemName"].HeaderText = "Item Name";
+                DgvInventory.Columns["ItemID"].HeaderText = "Item ID";
+                DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "Item Barcode";
+                DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "Item Quantity";
+                DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "Item Buy Price";
+                DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "Sell Price";
+                DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "Favorite Category";
+                DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "Warehouse";
+                DgvInventory.Columns["InventoryItemType"].HeaderText = "Item Type";
+            }
         }
 
         public void BtnAddItem_Click(object sender, EventArgs e)
@@ -1332,19 +2654,40 @@ namespace PlancksoftPOS
                     }
                     else
                     {
-                        MessageBox.Show(".لم نتمكن من اضافة الماده الجديده بسبب مشكله في الادخال", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".لم نتمكن من اضافة الماده الجديده بسبب مشكله في المعلومات المدخلة", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("Unable to add new Item because of an issue with filled data.", Application.ProductName);
+                        }
                     }
                     ClearInput();
                     DisplayFavorites();
                 }
                 else
                 {
-                    MessageBox.Show("!الرجاء أدخل المعلومات المطلوبه", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show("!الرجاء أدخل المعلومات المطلوبه", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Please fill required fields!", Application.ProductName);
+                    }
                     ClearInput();
                 }
             } catch (Exception error)
             {
-                MessageBox.Show("!الرجاء أدخل المعلومات المطلوبه", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show("!الرجاء أدخل المعلومات المطلوبه", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Please fill required fields!", Application.ProductName);
+                }
                 ClearInput();
             }
         }
@@ -1417,7 +2760,35 @@ namespace PlancksoftPOS
             Tuple<List<Item>, DataTable> RetrievedItems = Connection.server.RetrieveItems();
             DgvInventory.DataSource = RetrievedItems.Item2;
 
-           for (int i = 0; i < DgvInventory.Columns.Count; i++)
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                DgvInventory.Columns["InventoryItemName"].HeaderText = "إسم القطعة";
+                DgvInventory.Columns["ItemID"].HeaderText = "رقم القطعه";
+                DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "باركود القطعه";
+                DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "عدد القطعه";
+                DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "سعر الشراء";
+                DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "سعر القطعة";
+                DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "سعر القطعة بالضريبة";
+                DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "المصنف المفضل";
+                DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "المستودع";
+                DgvInventory.Columns["InventoryItemType"].HeaderText = "تصنيف المادة";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                DgvInventory.Columns["InventoryItemName"].HeaderText = "Item Name";
+                DgvInventory.Columns["ItemID"].HeaderText = "Item ID";
+                DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "Item Barcode";
+                DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "Item Quantity";
+                DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "Item Buy Price";
+                DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "Sell Price";
+                DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "Favorite Category";
+                DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "Warehouse";
+                DgvInventory.Columns["InventoryItemType"].HeaderText = "Item Type";
+            }
+
+            for (int i = 0; i < DgvInventory.Columns.Count; i++)
             {
                 if (DgvInventory.Columns[i] is DataGridViewImageColumn)
                 {
@@ -1510,19 +2881,40 @@ namespace PlancksoftPOS
                                 }
                                 else
                                 {
-                                    MessageBox.Show(".لم نتمكن من تحديث معلومات الماده بسبب مشكله في المعلومات المدخله", Application.ProductName);
+                                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                    {
+                                        MessageBox.Show(".لم نتمكن من تحديث معلومات الماده بسبب مشكله في المعلومات المدخله", Application.ProductName);
+                                    }
+                                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                                    {
+                                        MessageBox.Show("Unable to update Item details because of an issue with filled data.", Application.ProductName);
+                                    }
                                 }
                                 ClearInput();
                             }
                             else
                             {
-                                MessageBox.Show(".الرجاء اختيار سطر ماده", Application.ProductName);
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MessageBox.Show(".الرجاء اختيار سطر ماده من الجدول", Application.ProductName);
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MessageBox.Show("Please pick an Item Row from the Grid.", Application.ProductName);
+                                }
                                 return;
                             }
                         }
                         else
                         {
-                            MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                MessageBox.Show("Incorrect Password.", Application.ProductName);
+                            }
                             return;
                         }
                     }
@@ -1530,13 +2922,27 @@ namespace PlancksoftPOS
                 }
                 else
                 {
-                    MessageBox.Show(".فقط حساب إداري بامكانه تحديث المواد", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".فقط حساب إداري بامكانه تحديث المواد", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Only Administrators may update Items.", Application.ProductName);
+                    }
                     return;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(".لم نتمكن من تحديث معلومات الماده بسبب مشكله", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من تحديث معلومات الماده بسبب مشكله في إدخال كلمة السر", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to update Item details because of an issue with Password entry.", Application.ProductName);
+                }
                 return;
             }
         }
@@ -1570,7 +2976,14 @@ namespace PlancksoftPOS
                         }
                         else
                         {
-                            MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                MessageBox.Show("Incorrect Password.", Application.ProductName);
+                            }
                             return;
                         }
                     } else
@@ -1579,13 +2992,27 @@ namespace PlancksoftPOS
                     }
                 } else
                 {
-                    MessageBox.Show(".فقط حساب إداري بامكانه حذف المواد", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".فقط حساب إداري بامكانه حذف المواد", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Only Administrators may delete Items.", Application.ProductName);
+                    }
                     return;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show(".لم نتمكن من حذف الماده بسبب مشكله في ادخال كلمة السر", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من حذف الماده بسبب مشكله في إدخال كلمة السر", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to delete Item because of an issue with Password entry.", Application.ProductName);
+                }
             }
         }
 
@@ -1678,7 +3105,14 @@ namespace PlancksoftPOS
         {
             if (ItemsPendingPurchase.Rows[0].IsNewRow)
             {
-                MessageBox.Show(".لا بمكتك دفع فاتوره فارغه", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لا بمكتك دفع فاتوره فارغه", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Cannot pay a blank bill.", Application.ProductName);
+                }
             }
             else
             {
@@ -1721,9 +3155,36 @@ namespace PlancksoftPOS
                                     foreach (Item item in itemsExpirationStock.Item1)
                                     {
                                         if (item.ItemBarCode == itemBarCode)
-                                            MessageBox.Show("قطعه إسم " + item.ItemName + "باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.");
+                                        {
+                                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                            {
+                                                MessageBox.Show("قطعه إسم " + item.ItemName + "باركود " + item.ItemBarCode + "  انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف به للتحذير.");
+                                            }
+                                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                                            {
+                                                MessageBox.Show("Item Name " + item.ItemName + "Barcode " + item.ItemBarCode + " is either expired or has less quantity in storage than defined warning limit.");
+                                            }
+                                        }
                                     }
                                     dgvAlerts.DataSource = itemsExpirationStock.Item2;
+
+                                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                    {
+                                        dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
+                                        dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
+                                        dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
+                                        dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
+                                        dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
+                                        dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
+                                    } else if (pickedLanguage == LanguageChoice.Languages.English)
+                                    {
+                                        dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
+                                        dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
+                                        dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
+                                        dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
+                                        dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                        dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
+                                    }
                                 }
                             }
                         }
@@ -1778,14 +3239,24 @@ namespace PlancksoftPOS
                 this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
 
                 richTextBox5.ResetText();
-                richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                 richTextBox4.ResetText();
                 richTextBox3.ResetText();
-                richTextBox3.AppendText(" :المجموع السابق " + this.totalAmount);
                 richTextBox2.ResetText();
-                richTextBox2.AppendText(" :المدفوع السابق " + this.paidAmount);
                 richTextBox1.ResetText();
-                richTextBox1.AppendText(" :الباقي السابق " + this.remainderAmount);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                    richTextBox3.AppendText(" :المجموع السابق " + this.totalAmount);
+                    richTextBox2.AppendText(" :المدفوع السابق " + this.paidAmount);
+                    richTextBox1.AppendText(" :الباقي السابق " + this.remainderAmount);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    richTextBox5.AppendText(" Current Bill ID: " + this.CurrentBillNumber);
+                    richTextBox3.AppendText(" Previous Total: " + this.totalAmount);
+                    richTextBox2.AppendText(" Previous Paid: " + this.paidAmount);
+                    richTextBox1.AppendText(" Previous Remainder: " + this.remainderAmount);
+                }
 
                 this.saleItems = Connection.server.RetrieveSaleToday(DateTime.Now, 10);
                 ApplyDiscountsToPendingItems();
@@ -1806,7 +3277,14 @@ namespace PlancksoftPOS
                 if (heldBillsCount > 0)
                 {
                     heldBillsCount -= 1;
-                    label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        label112.Text = " Number of pending Bills: " + heldBillsCount.ToString();
+                    }
                 }
             }
         }
@@ -1815,7 +3293,14 @@ namespace PlancksoftPOS
         {
             if (ItemsPendingPurchase.Rows[0].IsNewRow)
             {
-                MessageBox.Show(".لا بمكتك اضافة فاتوره أخرى قبل تعبئة الفاتوره الحاليه", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لا بمكتك اضافة فاتوره أخرى قبل تعبئة الفاتوره الحاليه", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to add a new Bill before filling the current Bill.", Application.ProductName);
+                }
             }
             else
             {
@@ -1849,11 +3334,20 @@ namespace PlancksoftPOS
 
                 richTextBox4.ResetText();
                 richTextBox3.ResetText();
-                richTextBox3.AppendText(" :المجموع السابق " + previousBillsList.Peek().getTotalAmount().ToString());
                 richTextBox2.ResetText();
-                richTextBox2.AppendText(" :المدفوع السابق " + previousBillsList.Peek().getPaidAmount().ToString());
                 richTextBox1.ResetText();
-                richTextBox1.AppendText(" :الباقي السابق " + previousBillsList.Peek().getRemainderAmount().ToString());
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    richTextBox3.AppendText(" :المجموع السابق " + previousBillsList.Peek().getTotalAmount().ToString());
+                    richTextBox2.AppendText(" :المدفوع السابق " + previousBillsList.Peek().getPaidAmount().ToString());
+                    richTextBox1.AppendText(" :الباقي السابق " + previousBillsList.Peek().getRemainderAmount().ToString());
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    richTextBox3.AppendText(" Previous Total: " + previousBillsList.Peek().getTotalAmount().ToString());
+                    richTextBox2.AppendText(" Previous Paid: " + previousBillsList.Peek().getPaidAmount().ToString());
+                    richTextBox1.AppendText(" Previous Remainder: " + previousBillsList.Peek().getRemainderAmount().ToString());
+                }
 
                 ItemsPendingPurchase.Rows.Clear();
                 this.customersaleItems.Clear();
@@ -1863,9 +3357,23 @@ namespace PlancksoftPOS
                 items = null;
                 this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                 richTextBox5.ResetText();
-                richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    richTextBox5.AppendText(" Current Bill ID: " + this.CurrentBillNumber);
+                }
                 heldBillsCount += 1;
-                label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    label112.Text = " Number of Pending Bills: " + heldBillsCount.ToString();
+                }
             }
         }
 
@@ -1917,7 +3425,14 @@ namespace PlancksoftPOS
                 }
                 else
                 {
-                    MessageBox.Show(".لا بوجد شراء غير مكتمل سابق", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لا بوجد شراء غير مكتمل سابق", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("There is no previous pending Bill.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception ex)
@@ -1991,7 +3506,16 @@ namespace PlancksoftPOS
 
                     calculateStatistics();
                 }
-                else { MessageBox.Show(".لا بوجد شراء غير مكتمل سابق", Application.ProductName); }
+                else {
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لا بوجد شراء غير مكتمل سابق", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("There is no previous pending Bill.", Application.ProductName);
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -2030,14 +3554,28 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = "تقرير المستودع";
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = "تقرير المستودع";
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Inventory Report";
+                }
                 printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Footer = "The Report was generated from User: " + this.UID;
+                }
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -2064,6 +3602,35 @@ namespace PlancksoftPOS
                 currencyManager1.ResumeBinding();
             }
             DgvInventory.Refresh();
+
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                DgvInventory.Columns["InventoryItemName"].HeaderText = "إسم القطعة";
+                DgvInventory.Columns["ItemID"].HeaderText = "رقم القطعه";
+                DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "باركود القطعه";
+                DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "عدد القطعه";
+                DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "سعر الشراء";
+                DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "سعر القطعة";
+                DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "سعر القطعة بالضريبة";
+                DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "المصنف المفضل";
+                DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "المستودع";
+                DgvInventory.Columns["InventoryItemType"].HeaderText = "تصنيف المادة";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                DgvInventory.Columns["InventoryItemName"].HeaderText = "Item Name";
+                DgvInventory.Columns["ItemID"].HeaderText = "Item ID";
+                DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "Item Barcode";
+                DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "Item Quantity";
+                DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "Item Buy Price";
+                DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "Sell Price";
+                DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "Favorite Category";
+                DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "Warehouse";
+                DgvInventory.Columns["InventoryItemType"].HeaderText = "Item Type";
+            }
+
             nudItemBarCodeSearch.Text = "";
             txtItemNameSearch.Text = "";
         }
@@ -2123,7 +3690,14 @@ namespace PlancksoftPOS
                         {
                             if (txtUserIDAdd.Text.ToLower().Trim() == "admin")
                             {
-                                MessageBox.Show(".لا يمكن تسجيل رمز المستخدم admin", Application.ProductName);
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MessageBox.Show(".لا يمكن تسجيل رمز المستخدم admin", Application.ProductName);
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MessageBox.Show("Unable Register User ID admin.", Application.ProductName);
+                                }
                                 ClearInput();
                                 return;
                             }
@@ -2150,19 +3724,40 @@ namespace PlancksoftPOS
                             }
                             else
                             {
-                                MessageBox.Show(".لم نتمكن من اضافة المستخدم", Application.ProductName);
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MessageBox.Show(".لم نتمكن من اضافة المستخدم", Application.ProductName);
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MessageBox.Show("Unable to add new User.", Application.ProductName);
+                                }
                             }
                             ClearInput();
                         }
                         else
                         {
-                            MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                MessageBox.Show("Please fill all required data!", Application.ProductName);
+                            }
                             ClearInput();
                         }
                     }
                     else
                     {
-                        MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("Incorrect Password.", Application.ProductName);
+                        }
                         return;
                     }
                 }
@@ -2170,7 +3765,14 @@ namespace PlancksoftPOS
             }
             else
             {
-                MessageBox.Show(".فقط حساب إداري بامكانه إضافة المستخدمين", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".فقط حساب إداري بامكانه إضافة المستخدمين", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Only Administrators may add new User Accounts.", Application.ProductName);
+                }
                 return;
             }
         }
@@ -2189,7 +3791,14 @@ namespace PlancksoftPOS
                         {
                             if (txtUserIDAdd.Text.ToLower().Trim() == "admin" && this.UID != "admin")
                             {
-                                MessageBox.Show(".لا يمكن تسجيل رمز المستخدم للحساب الإداري الرئيسي", Application.ProductName);
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MessageBox.Show(".لا يمكن تسجيل رمز المستخدم لأنه محجوز للحساب الإداري الرئيسي", Application.ProductName);
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MessageBox.Show("admin User ID is reserved for the main Administrator Account.", Application.ProductName);
+                                }
                                 ClearInput();
                                 return;
                             }
@@ -2220,7 +3829,14 @@ namespace PlancksoftPOS
                             }
                             else
                             {
-                                MessageBox.Show(".لا يمكن تحديث المستخدم", Application.ProductName);
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MessageBox.Show(".لا يمكن تحديث المستخدم", Application.ProductName);
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MessageBox.Show("Cannot update User Account.", Application.ProductName);
+                                }
                             }
                             txtUserNameAdd.Text = "";
                             txtUserIDAdd.Text = "";
@@ -2230,7 +3846,14 @@ namespace PlancksoftPOS
                         }
                         else
                         {
-                            MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                MessageBox.Show("Please fill all required data!", Application.ProductName);
+                            }
                             txtUserNameAdd.Text = "";
                             txtUserIDAdd.Text = "";
                             txtUserPasswordAdd.Text = "";
@@ -2240,7 +3863,14 @@ namespace PlancksoftPOS
                     }
                     else
                     {
-                        MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("Incorrect Password.", Application.ProductName);
+                        }
                         return;
                     }
                 }
@@ -2248,7 +3878,14 @@ namespace PlancksoftPOS
             }
             else
             {
-                MessageBox.Show(".فقط حساب إداري بامكانه تعديل المستخدمين", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".فقط حساب إداري بامكانه تعديل المستخدمين", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Only Administrator Accounts may alter User Accounts.", Application.ProductName);
+                }
                 return;
             }
         }
@@ -2267,12 +3904,26 @@ namespace PlancksoftPOS
                         {
                             if (dgvUsers.SelectedRows[0].Cells["UserID"].Value.ToString().ToLower().Trim() == "admin")
                             {
-                                MessageBox.Show(".لا يمكن حذف الحساب الإداري", Application.ProductName);
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MessageBox.Show(".لا يمكن حذف الحساب الإداري", Application.ProductName);
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MessageBox.Show("Unable to delete Administrator Account.", Application.ProductName);
+                                }
                                 return;
                             }
                             if (txtUserIDAdd.Text.ToLower().Trim() == this.UID.ToLower().Trim())
                             {
-                                MessageBox.Show(".لا يمكن حذف الحساب المدخول به حاليا, الرجاء الحذف من حساب إداري أخر", Application.ProductName);
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MessageBox.Show(".لا يمكن حذف الحساب المدخول به حاليا, الرجاء الحذف من حساب إداري أخر", Application.ProductName);
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MessageBox.Show("Unable to delete User Account as it is currently logged in. Please delete it from another Administrator Account.", Application.ProductName);
+                                }
                                 return;
                             }
                             Account newAccount = new Account();
@@ -2285,7 +3936,14 @@ namespace PlancksoftPOS
                             }
                             else
                             {
-                                MessageBox.Show(".لم نتمكن من حذف المستخدم", Application.ProductName);
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MessageBox.Show(".لم نتمكن من حذف المستخدم", Application.ProductName);
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MessageBox.Show("Unable to delete User Account.", Application.ProductName);
+                                }
                             }
                             txtUserNameAdd.Text = "";
                             txtUserIDAdd.Text = "";
@@ -2295,7 +3953,14 @@ namespace PlancksoftPOS
                         }
                         else
                         {
-                            MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                MessageBox.Show("Please fill all required data!", Application.ProductName);
+                            }
                             txtUserNameAdd.Text = "";
                             txtUserIDAdd.Text = "";
                             txtUserPasswordAdd.Text = "";
@@ -2305,7 +3970,14 @@ namespace PlancksoftPOS
                     }
                     else
                     {
-                        MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("Incorrect Password.", Application.ProductName);
+                        }
                         return;
                     }
                 }
@@ -2313,7 +3985,14 @@ namespace PlancksoftPOS
             }
             else
             {
-                MessageBox.Show(".فقط حساب إداري بامكانه تعديل المستخدمين", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".فقط حساب إداري بامكانه تعديل المستخدمين", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Only Administrator Accounts are able to alter User Accounts.", Application.ProductName);
+                }
                 return;
             }
         }
@@ -2335,6 +4014,27 @@ namespace PlancksoftPOS
                 currencyManager1.ResumeBinding();
             }
             dgvBills.Refresh();
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
+                dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
+                dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
+                dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
+                dgvBills.Columns["Column5"].HeaderText = "طريقة الدفع";
+                dgvBills.Columns["Column64"].HeaderText = "التاريخ";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "Bill ID";
+                dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                dgvBills.Columns["Column17"].HeaderText = "Net Total";
+                dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
+                dgvBills.Columns["Column19"].HeaderText = "Remainder";
+                dgvBills.Columns["Column5"].HeaderText = "Payment Method";
+                dgvBills.Columns["Column64"].HeaderText = "Date";
+            }
         }
 
         public void pictureBox18_Click(object sender, EventArgs e)
@@ -2379,7 +4079,14 @@ namespace PlancksoftPOS
                     printCertainReceipt(BillNumber, cashierName, totalAmount, paidAmount, remainderAmount, invoiceDate);
                 } else
                 {
-                    MessageBox.Show("الرجاء إختيار فاتورة.", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show("الرجاء إختيار فاتورة.", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Please pick a Bill.", Application.ProductName);
+                    }
                     return;
                 }
             }
@@ -2393,6 +4100,23 @@ namespace PlancksoftPOS
         public void dgvBills_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             dgvBillItems.DataSource = RetrieveBillItems(e.RowIndex);
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
+                dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
+                dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
+                dgvBillItems.Columns["Column63"].HeaderText = "العدد من أصل";
+                dgvBillItems.Columns["Column24"].HeaderText = "السعر";
+                dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
+            } else if (pickedLanguage == LanguageChoice.Languages.English) {
+                dgvBillItems.Columns["Column20"].HeaderText = "Item Name";
+                dgvBillItems.Columns["Column21"].HeaderText = "Item Barcode";
+                dgvBillItems.Columns["Column23"].HeaderText = "Sold Quantity";
+                dgvBillItems.Columns["Column63"].HeaderText = "Original Quantity";
+                dgvBillItems.Columns["Column24"].HeaderText = "Price";
+                dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
+            }
         }
 
         public DataTable RetrieveBillItems(int Index)
@@ -2425,14 +4149,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = String.Format("{0} تقرير الفاتوره رقم", PrintBillNumber);
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = String.Format("{0} تقرير الفاتوره رقم", PrintBillNumber);
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = String.Format("Invoice Report ID {0}", PrintBillNumber);
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -2452,6 +4185,25 @@ namespace PlancksoftPOS
         {
             Tuple<List<Item>, DataTable> mostBoughtItems = Connection.server.RetrieveMostBoughtItems();
             dgvBillItems.DataSource = mostBoughtItems.Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
+                dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
+                dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
+                dgvBillItems.Columns["Column63"].HeaderText = "العدد من أصل";
+                dgvBillItems.Columns["Column24"].HeaderText = "السعر";
+                dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBillItems.Columns["Column20"].HeaderText = "Item Name";
+                dgvBillItems.Columns["Column21"].HeaderText = "Item Barcode";
+                dgvBillItems.Columns["Column23"].HeaderText = "Sold Quantity";
+                dgvBillItems.Columns["Column63"].HeaderText = "Original Quantity";
+                dgvBillItems.Columns["Column24"].HeaderText = "Price";
+                dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
+            }
         }
 
         public void nudBillNumberSearch_KeyPress(object sender, KeyPressEventArgs e)
@@ -2459,6 +4211,27 @@ namespace PlancksoftPOS
             Tuple<List<Bill>, DataTable> RetrievedItems;
             RetrievedItems = Connection.server.SearchBills(Convert.ToInt32(nudBillNumberSearch.Value));
             dgvBills.DataSource = RetrievedItems.Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
+                dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
+                dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
+                dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
+                dgvBills.Columns["Column5"].HeaderText = "طريقة الدفع";
+                dgvBills.Columns["Column64"].HeaderText = "التاريخ";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "Bill ID";
+                dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                dgvBills.Columns["Column17"].HeaderText = "Net Total";
+                dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
+                dgvBills.Columns["Column19"].HeaderText = "Remainder";
+                dgvBills.Columns["Column5"].HeaderText = "Payment Method";
+                dgvBills.Columns["Column64"].HeaderText = "Date";
+            }
         }
 
         public void pictureBox19_Click(object sender, EventArgs e)
@@ -2466,12 +4239,52 @@ namespace PlancksoftPOS
             Tuple<List<Bill>, DataTable> RetrievedItems;
             RetrievedItems = Connection.server.SearchBills(Convert.ToInt32(nudBillNumberSearch.Value));
             dgvBills.DataSource = RetrievedItems.Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
+                dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
+                dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
+                dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
+                dgvBills.Columns["Column5"].HeaderText = "طريقة الدفع";
+                dgvBills.Columns["Column64"].HeaderText = "التاريخ";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "Bill ID";
+                dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                dgvBills.Columns["Column17"].HeaderText = "Net Total";
+                dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
+                dgvBills.Columns["Column19"].HeaderText = "Remainder";
+                dgvBills.Columns["Column5"].HeaderText = "Payment Method";
+                dgvBills.Columns["Column64"].HeaderText = "Date";
+            }
         }
 
         public void button25_Click(object sender, EventArgs e)
         {
             Tuple<List<Item>, DataTable> leastBoughtItems = Connection.server.RetrieveLeastBoughtItems();
             dgvBillItems.DataSource = leastBoughtItems.Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
+                dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
+                dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
+                dgvBillItems.Columns["Column63"].HeaderText = "العدد من أصل";
+                dgvBillItems.Columns["Column24"].HeaderText = "السعر";
+                dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBillItems.Columns["Column20"].HeaderText = "Item Name";
+                dgvBillItems.Columns["Column21"].HeaderText = "Item Barcode";
+                dgvBillItems.Columns["Column23"].HeaderText = "Sold Quantity";
+                dgvBillItems.Columns["Column63"].HeaderText = "Original Quantity";
+                dgvBillItems.Columns["Column24"].HeaderText = "Price";
+                dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
+            }
         }
 
         public void button26_Click(object sender, EventArgs e)
@@ -2479,6 +4292,27 @@ namespace PlancksoftPOS
             Tuple<List<Bill>, DataTable> RetrievedItems;
             RetrievedItems = Connection.server.SearchTodayBills(DateTime.Today);
             dgvBills.DataSource = RetrievedItems.Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
+                dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
+                dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
+                dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
+                dgvBills.Columns["Column5"].HeaderText = "طريقة الدفع";
+                dgvBills.Columns["Column64"].HeaderText = "التاريخ";
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBills.Columns["Column15"].HeaderText = "Bill ID";
+                dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                dgvBills.Columns["Column17"].HeaderText = "Net Total";
+                dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
+                dgvBills.Columns["Column19"].HeaderText = "Remainder";
+                dgvBills.Columns["Column5"].HeaderText = "Payment Method";
+                dgvBills.Columns["Column64"].HeaderText = "Date";
+            }
         }
 
         public void pictureBox22_Click(object sender, EventArgs e)
@@ -2521,6 +4355,26 @@ namespace PlancksoftPOS
             RetrievedBills.Item2.Rows.Add(0, "", 0, 0, 0, "", total);
             dgvUnPortedSales.DataSource = RetrievedBills.Item2;
             dgvUnPortedSales.Refresh();
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn6"].HeaderText = "رقم الغاتورة";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn7"].HeaderText = "إسم الكاشير";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "المبلغ الصافي";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn9"].HeaderText = "المبلغ المدفوغ";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "المبلغ الباقي";
+                dgvUnPortedSales.Columns["Column7"].HeaderText = "طريقة الدفع";
+                dgvUnPortedSales.Columns["TotalUnPorted"].HeaderText = "المجموع";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn6"].HeaderText = "Bill ID";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn7"].HeaderText = "Cashier Name";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "Net Amount";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn9"].HeaderText = "Paid Amount";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "Remainder";
+                dgvUnPortedSales.Columns["Column7"].HeaderText = "Payment Method";
+                dgvUnPortedSales.Columns["TotalUnPorted"].HeaderText = "Total";
+            }
         }
 
         public void pictureBox6_Click(object sender, EventArgs e)
@@ -2542,6 +4396,26 @@ namespace PlancksoftPOS
             RetrievedBills.Item2.Rows.Add(0, "", 0, 0, 0, "", total);
             dgvPortedSales.DataSource = RetrievedBills.Item2;
             dgvPortedSales.Refresh();
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn11"].HeaderText = "رقم الغاتورة";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn12"].HeaderText = "إسم الكاشير";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "المبلغ الصافي";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn14"].HeaderText = "المبلغ المدفوغ";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "المبلغ الباقي";
+                dgvPortedSales.Columns["Column28"].HeaderText = "طريقة الدفع";
+                dgvPortedSales.Columns["TotalPorted"].HeaderText = "المجموع";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn11"].HeaderText = "Bill ID";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Cashier Name";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "Net Amount";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn14"].HeaderText = "Paid Amount";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "Remainder";
+                dgvPortedSales.Columns["Column28"].HeaderText = "Payment Method";
+                dgvPortedSales.Columns["TotalPorted"].HeaderText = "Total";
+            }
         }
 
         public void pictureBox5_Click(object sender, EventArgs e)
@@ -2558,14 +4432,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = ".تقرير المبيعات الغير مرحله";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = ".تقرير المبيعات الغير مرحله";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Untraveling Sales Report.";
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -2594,14 +4477,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = ".تقرير المبيعات المرحله";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = ".تقرير المبيعات المرحله";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Traveling Sales Report.";
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -2653,7 +4545,14 @@ namespace PlancksoftPOS
                                     row.Cells["pendingPurchaseItemQuantity"].Value = Convert.ToInt32(row.Cells["pendingPurchaseItemQuantity"].Value) + 1;
                                     exists = true;
                                     richTextBox6.ResetText();
-                                    richTextBox6.AppendText(" :الباركود " + item.GetItemBarCode());
+                                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                    {
+                                        richTextBox6.AppendText(" :الباركود " + item.GetItemBarCode());
+                                    }
+                                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                                    {
+                                        richTextBox6.AppendText(" Barcode: " + item.GetItemBarCode());
+                                    }
                                     this.ScannedBarCode = "";
                                     found = true;
                                 }
@@ -2683,7 +4582,14 @@ namespace PlancksoftPOS
 
                         ItemsPendingPurchase.Rows[index].Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
                         richTextBox6.ResetText();
-                        richTextBox6.AppendText(" :الباركود " + item.GetItemBarCode());
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            richTextBox6.AppendText(" :الباركود " + item.GetItemBarCode());
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            richTextBox6.AppendText(" Barcode: " + item.GetItemBarCode());
+                        }
                         this.ScannedBarCode = "";
                         found = true;
                     }
@@ -2703,18 +4609,37 @@ namespace PlancksoftPOS
                     }
                     var wmp = new WindowsMediaPlayer { URL = file };
                     wmp.controls.play();
-                    if (MessageBox.Show(" لا يوجد تعريف للماده في المستودع, هل تريد اضافة الماده؟ " + " اضافة ماده؟ ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
-                        txtItemBarCode.Text = ScannedBarCode;
-                        ScannedBarCode = "";
-                        found = false;
-                        return;
+                        if (MessageBox.Show(" لا يوجد تعريف للماده في المستودع, هل تريد اضافة الماده؟ " + " اضافة ماده؟ ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        {
+                            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+                            txtItemBarCode.Text = ScannedBarCode;
+                            ScannedBarCode = "";
+                            found = false;
+                            return;
+                        }
+                        else
+                        {
+                            found = false;  
+                            return;
+                        }
                     }
-                    else
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        found = false;  
-                        return;
+                        if (MessageBox.Show("Item is not defined in the inventory, would you like to add it?" + " Add Item? ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        {
+                            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+                            txtItemBarCode.Text = ScannedBarCode;
+                            ScannedBarCode = "";
+                            found = false;
+                            return;
+                        }
+                        else
+                        {
+                            found = false;  
+                            return;
+                        }
                     }
                 }
             }
@@ -2727,7 +4652,14 @@ namespace PlancksoftPOS
 
         public void pictureBox2_Click_1(object sender, EventArgs e)
         {
-            MessageBox.Show(String.Format(".+962 79 294 2040 .{0} الرجاء مخاطبة للدعم الفني", Application.CompanyName));
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                MessageBox.Show(String.Format(".+962 79 294 2040 .{0} الرجاء مخاطبة للدعم الفني", Application.CompanyName));
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                MessageBox.Show(String.Format("Please contact Technical Support. {0}. +962 79 14 077 36", Application.CompanyName));
+            }
         }
 
         public void pictureBox3_Click(object sender, EventArgs e)
@@ -2774,14 +4706,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = ".تقرير الصادر";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = ".تقرير الصادر";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Exports Report.";
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -2810,14 +4751,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = ".تقرير الوارد";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = ".تقرير الوارد";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Imports Report.";
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -2846,14 +4796,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = ".تقرير الأرباح";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = ".تقرير الأرباح";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Profits Report.";
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -2883,6 +4842,26 @@ namespace PlancksoftPOS
             }
             else CashierName = "";
             dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(Convert.ToDateTime(dateTimePicker4.Text), Convert.ToDateTime(dateTimePicker3.Text), ItemTypeID, CashierName);
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn16"].HeaderText = "إسم السلعه";
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "الباركود";
+                dgvItemProfit.Columns["Column48"].HeaderText = "صنف الماده";
+                dgvItemProfit.Columns["Column49"].HeaderText = "اسم الكاشير";
+                dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "سعر القطعة بعد الضريبة";
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "الكميه المباعه";
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "المجموع";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn16"].HeaderText = "Item Name";
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "Item Barcode";
+                dgvItemProfit.Columns["Column48"].HeaderText = "Item Type";
+                dgvItemProfit.Columns["Column49"].HeaderText = "Cashier Name";
+                dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "Item Price Tax";
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "Sold Quantity";
+                dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "Total";
+            }
         }
 
         public void tabControl4_SelectedIndexChanged(object sender, EventArgs e)
@@ -2923,6 +4902,24 @@ namespace PlancksoftPOS
                 currencyManager1.ResumeBinding();
             }
             dgvBillsEdit.Refresh();
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvBillsEdit.Columns["BillNumber"].HeaderText = "رقم الفاتوره";
+                dgvBillsEdit.Columns["BillCashierName"].HeaderText = "اسم الكاشير";
+                dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "المبلغ الصافي";
+                dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "المبلغ المدفوع";
+                dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "المبلغ الباقي";
+                dgvBillsEdit.Columns["BillPaymentType"].HeaderText = "طريقة الدفع";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvBillsEdit.Columns["BillNumber"].HeaderText = "Bill ID";
+                dgvBillsEdit.Columns["BillCashierName"].HeaderText = "Bill Cashier Name";
+                dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "Net Amount";
+                dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "Paid Amount";
+                dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "Remainder";
+                dgvBillsEdit.Columns["BillPaymentType"].HeaderText = "Payment Type";
+            }
         }
 
         public void pictureBox28_Click(object sender, EventArgs e)
@@ -2955,6 +4952,25 @@ namespace PlancksoftPOS
                         currencyManager1.ResumeBinding();
                     }
                     dgvBillsEdit.Refresh();
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        dgvBillsEdit.Columns["BillNumber"].HeaderText = "رقم الفاتوره";
+                        dgvBillsEdit.Columns["BillCashierName"].HeaderText = "اسم الكاشير";
+                        dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "المبلغ الصافي";
+                        dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "المبلغ المدفوع";
+                        dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "المبلغ الباقي";
+                        dgvBillsEdit.Columns["BillPaymentType"].HeaderText = "طريقة الدفع";
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        dgvBillsEdit.Columns["BillNumber"].HeaderText = "Bill ID";
+                        dgvBillsEdit.Columns["BillCashierName"].HeaderText = "Bill Cashier Name";
+                        dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "Net Amount";
+                        dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "Paid Amount";
+                        dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "Remainder";
+                        dgvBillsEdit.Columns["BillPaymentType"].HeaderText = "Payment Type";
+                    }
                 }
             } catch (Exception error)
             {
@@ -3013,14 +5029,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = "تقرير المصروفات";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = ".تقرير المصروفات";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Expenses Report.";
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -3044,9 +5069,26 @@ namespace PlancksoftPOS
                     textBox4.Text = "";
                     numericUpDown1.Value = 0;
                     decimal newCapitalAmount = Connection.server.GetCapitalAmount() - CapitalAmountnud.Value;
-                    MessageBox.Show(".تمت اضافة المصروف");
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تمت اضافة المصروف", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+
+                        MessageBox.Show("A new expense was added.", Application.ProductName);
+                    }
                 }
-            } catch(Exception error) { MessageBox.Show(".لم نتمكن من اضافة المصروف"); }
+            } catch(Exception error) {
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من اضافة المصروف", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to add new expense.", Application.ProductName);
+                }
+            }
         }
 
         public void numericUpDown1_Enter(object sender, EventArgs e)
@@ -3155,8 +5197,16 @@ namespace PlancksoftPOS
                     this.PlancksoftPOSName = this.shopName.Text;
                     this.PlancksoftPOSPhone = this.shopPhone.Text;
                     this.printerName = this.PrinterName.Text;
-                    label45.Text = " هذه النسخه مرخصه لمتجر " + this.PlancksoftPOSName;
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        label45.Text = " هذه النسخه مرخصه لمتجر " + this.PlancksoftPOSName;
                     this.Text = this.PlancksoftPOSName + " - الشاشه الرئيسيه";
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        label45.Text = "This copy was licensed for " + this.PlancksoftPOSName;
+                    this.Text = this.PlancksoftPOSName + " - Main Window";
+                    }
                     if (this.IncludeLogoReceipt.Checked)
                     {
                         IncludeLogoInReceipt = true;
@@ -3167,15 +5217,36 @@ namespace PlancksoftPOS
                     }
                     TaxRate = Convert.ToDecimal(nudTaxRate.Value / 100);
                     this.Refresh();
-                    MessageBox.Show(".تم حفظ الاعدادات", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم حفظ الاعدادات", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("System preferences were saved.", Application.ProductName);
+                    }
                 } else
                 {
-                    MessageBox.Show(".لم يتم حفظ الاعدادات", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لم يتم حفظ الاعدادات", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Unable to save new System preferences.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception error)
             {
-                MessageBox.Show(".لم يتم حفظ الاعدادات", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم يتم حفظ الاعدادات", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to save new System preferences.", Application.ProductName);
+                }
             }
         }
 
@@ -3183,16 +5254,6 @@ namespace PlancksoftPOS
         {
             Tuple<List<Item>, DataTable> imports = Connection.server.RetrieveImports();
             dgvImports.DataSource = imports.Item2;
-        }
-
-        public void adminCheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (adminCheckBox.Checked)
-                if (frmMain.Authority != 1)
-                {
-                    adminCheckBox.Checked = false;
-                    MessageBox.Show(".المستخدم الإداري الرئيسي هو الوحيد الذي يمكنه اضافة مستخدم إداري", Application.ProductName);
-                }
         }
 
         public void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -3272,6 +5333,34 @@ namespace PlancksoftPOS
                         currencyManager1.ResumeBinding();
                     }
                     DgvInventory.Refresh();
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        DgvInventory.Columns["InventoryItemName"].HeaderText = "إسم القطعة";
+                        DgvInventory.Columns["ItemID"].HeaderText = "رقم القطعه";
+                        DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "باركود القطعه";
+                        DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "عدد القطعه";
+                        DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "سعر الشراء";
+                        DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "سعر القطعة";
+                        DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "سعر القطعة بالضريبة";
+                        DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "المصنف المفضل";
+                        DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "المستودع";
+                        DgvInventory.Columns["InventoryItemType"].HeaderText = "تصنيف المادة";
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        DgvInventory.Columns["InventoryItemName"].HeaderText = "Item Name";
+                        DgvInventory.Columns["ItemID"].HeaderText = "Item ID";
+                        DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "Item Barcode";
+                        DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "Item Quantity";
+                        DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "Item Buy Price";
+                        DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "Sell Price";
+                        DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                        DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "Favorite Category";
+                        DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "Warehouse";
+                        DgvInventory.Columns["InventoryItemType"].HeaderText = "Item Type";
+                    }
+
                     nudItemBarCodeSearch.Text = "";
                     txtItemNameSearch.Text = "";
                 }
@@ -3360,12 +5449,50 @@ namespace PlancksoftPOS
                             if (itemsExpirationStock.Item2 != null)
                             {
                                 dgvAlerts.DataSource = itemsExpirationStock.Item2;
+
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
+                                    dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
+                                    dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
+                                    dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
+                                    dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
+                                    dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
+                                    dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
+                                    dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
+                                    dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
+                                    dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                    dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
+                                }
                             }
                         }
                         else
                         {
                             DataTable dt = new DataTable();
                             dgvAlerts.DataSource = dt;
+
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
+                                dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
+                                dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
+                                dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
+                                dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
+                                dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
+                                dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
+                                dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
+                                dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
+                                dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
+                            }
                         }
                     }
                     Tuple<List<Item>, DataTable> retreivedCustomerItems = Connection.server.RetrieveItems();
@@ -3387,6 +5514,25 @@ namespace PlancksoftPOS
                     }
                     TaxZReport.Rows.Add(0, 0, 0, "", DateTime.Now, totalTax);
                     dgvTaxZReport.DataSource = TaxZReport;
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        dgvTaxZReport.Columns["Column50"].HeaderText = "رقم الفاتتوره";
+                        dgvTaxZReport.Columns["Column52"].HeaderText = "قيمة الفاتوره";
+                        dgvTaxZReport.Columns["Column53"].HeaderText = "قيمة الضريبه";
+                        dgvTaxZReport.Columns["Column55"].HeaderText = "إسم الكاشير";
+                        dgvTaxZReport.Columns["Column51"].HeaderText = "التاريخ";
+                        dgvTaxZReport.Columns["TaxTotal"].HeaderText = "مجموع الضريبه";
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        dgvTaxZReport.Columns["Column50"].HeaderText = "Bill ID";
+                        dgvTaxZReport.Columns["Column52"].HeaderText = "Bill Total";
+                        dgvTaxZReport.Columns["Column53"].HeaderText = "Tax Amount";
+                        dgvTaxZReport.Columns["Column55"].HeaderText = "Cashier Name";
+                        dgvTaxZReport.Columns["Column51"].HeaderText = "Date";
+                        dgvTaxZReport.Columns["TaxTotal"].HeaderText = "Tax Total";
+                    }
                 }
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["posUsers"])
                 {
@@ -3404,6 +5550,22 @@ namespace PlancksoftPOS
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["Retrievals"])
                 {
                     dgvReturnedItems.DataSource = Connection.server.RetrieveReturnedItems();
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        dgvReturnedItems.Columns["dataGridViewTextBoxColumn54"].HeaderText = "رقم السند";
+                        dgvReturnedItems.Columns["dataGridViewTextBoxColumn55"].HeaderText = "إسم الكاشير";
+                        dgvReturnedItems.Columns["dataGridViewTextBoxColumn52"].HeaderText = "إسم الماده";
+                        dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "باركود الماده";
+                        dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "عدد القطع المرجعه";
+                    } else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        dgvReturnedItems.Columns["dataGridViewTextBoxColumn54"].HeaderText = "Return ID";
+                        dgvReturnedItems.Columns["dataGridViewTextBoxColumn55"].HeaderText = "Cashier Name";
+                        dgvReturnedItems.Columns["dataGridViewTextBoxColumn52"].HeaderText = "Item Name";
+                        dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "Item Barcode";
+                        dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "Returned Items Quantity";
+                    }
                 }
             } catch (Exception error)
             { }
@@ -3444,12 +5606,6 @@ namespace PlancksoftPOS
             }
         }
 
-        public void txtPWD_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (Char)Keys.Enter)
-                BtnRegister.PerformClick();
-        }
-
         public void txtUserPasswordAdd_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar));
@@ -3461,7 +5617,7 @@ namespace PlancksoftPOS
         {
             if (userPermissions.customer_card_edit)
             {
-                frmCustomerCard customerCard = new frmCustomerCard();
+                frmClientCard customerCard = new frmClientCard();
                 customerCard.ShowDialog();
                 if (customerCard.dialogResult == DialogResult.OK)
                 {
@@ -3507,7 +5663,14 @@ namespace PlancksoftPOS
                                         this.totalAmount = this.totalAmount - marginPrice;
                                         item.Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
                                         richTextBox4.ResetText();
-                                        richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                        {
+                                            richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                                        }
+                                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                                        {
+                                            richTextBox4.AppendText(" Total: " + this.totalAmount);
+                                        }
                                     }
                                 }
                             }
@@ -3516,14 +5679,29 @@ namespace PlancksoftPOS
 
                     customerCard.Dispose();
                     if (replaced)
-                        MessageBox.Show(".تعدلت نسبة خصم الأغراض للعميل", Application.ProductName);
-                    else MessageBox.Show(".تم اضافة خصم العميل", Application.ProductName);
+                    {
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".تعدلت نسبة خصم الأغراض للعميل", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("The Discount percentage for Client Items was altered.", Application.ProductName);
+                        }
+                    }
+                    else
+                    {
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".تم اضافة خصم العميل", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("A Client Discount was added.", Application.ProductName);
+                        }
+                    }
 
 
-                }
-                else if (customerCard.dialogResult == DialogResult.None)
-                {
-                    tabControl1.SelectedTab = tabControl1.TabPages["Employees"];
                 }
             }
         }
@@ -3548,11 +5726,25 @@ namespace PlancksoftPOS
                         customerName.Items.Add(new Items(customer.CustomerName));
                     }
 
-                    MessageBox.Show(".تمت اضافة الزبون", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تمت اضافة الزبون", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("A new Client was added.", Application.ProductName);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(".لم نتمكن من اضافة الزبون", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لم نتمكن من اضافة الزبون", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Unable to add new Client.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception error)
@@ -3566,6 +5758,20 @@ namespace PlancksoftPOS
                 Tuple<List<Customer>, DataTable> retrievedCustomers = Connection.server.GetRetrieveCustomers();
 
                 dgvCustomers.DataSource = retrievedCustomers.Item2;
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    dgvCustomers.Columns["Column27"].HeaderText = "إسم العميل";
+                    dgvCustomers.Columns["CustomerIDDelete"].HeaderText = "رمز العميل";
+                    dgvCustomers.Columns["Column38"].HeaderText = "رقم الزبون";
+                    dgvCustomers.Columns["Column39"].HeaderText = "عنوان الزبون";
+                } else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    dgvCustomers.Columns["Column27"].HeaderText = "Client Name";
+                    dgvCustomers.Columns["CustomerIDDelete"].HeaderText = "Client ID";
+                    dgvCustomers.Columns["Column38"].HeaderText = "Phone Number";
+                    dgvCustomers.Columns["Column39"].HeaderText = "Client Address";
+                }
 
                 foreach (Customer customer in retrievedCustomers.Item1)
                 {
@@ -3590,11 +5796,26 @@ namespace PlancksoftPOS
                     {
                         customerName.Items.Remove(new Items(customer.CustomerName));
                     }
-                    MessageBox.Show(".تم حذف العميل", Application.ProductName);
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم حذف العميل", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Client was deleted.", Application.ProductName);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(".لم نستطع حذف العميل", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لم نستطع حذف العميل", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Unable to delete Client.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception error)
@@ -3611,7 +5832,14 @@ namespace PlancksoftPOS
                 {
                     this.totalAmount = editPrice.moneyDeduction;
                     richTextBox4.ResetText();
-                    richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        richTextBox4.AppendText(" Total: " + this.totalAmount);
+                    }
                     if (!this.totalAmount.ToString().Contains("."))
                         richTextBox4.AppendText(".00");
                     if (this.totalAmount.ToString().Contains("."))
@@ -3652,7 +5880,14 @@ namespace PlancksoftPOS
                 }
             } catch(Exception error)
             {
-                MessageBox.Show(".لم نستطع اختيار الزبون", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نستطع اختيار الزبون", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to pick Client.", Application.ProductName);
+                }
             }
         }
 
@@ -3672,7 +5907,14 @@ namespace PlancksoftPOS
                     SellPrice.Value = 0;
                     SellPriceTax.Value = 0;
                     CustomerPrice.Value = 0;
-                    MessageBox.Show(".تمت اضافة الماده للزبون", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تمت اضافة الماده للزبون", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Client Item was added.", Application.ProductName);
+                    }
                 }
                 else
                 {
@@ -3682,7 +5924,14 @@ namespace PlancksoftPOS
                     SellPrice.Value = 0;
                     SellPriceTax.Value = 0;
                     CustomerPrice.Value = 0;
-                    MessageBox.Show(".لم تتم اضافة الماده للزبون", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لم تتم اضافة الماده للزبون", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Client Item was not added.", Application.ProductName);
+                    }
                 }
             } catch(Exception error)
             {
@@ -3692,13 +5941,44 @@ namespace PlancksoftPOS
                 SellPrice.Value = 0;
                 SellPriceTax.Value = 0;
                 CustomerPrice.Value = 0;
-                MessageBox.Show(".لم تتم اضافة الماده للزبون", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم تتم اضافة الماده للزبون", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Client Item was not added.", Application.ProductName);
+                }
             }
         }
 
         public void pictureBox40_Click(object sender, EventArgs e)
         {
             DGVCustomerItems.DataSource = Connection.server.RetrieveItems().Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn1"].HeaderText = "إسم القطعة";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn2"].HeaderText = "باركود القطعه";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn3"].HeaderText = "عدد القطعه";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn4"].HeaderText = "سعر الشراء";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn5"].HeaderText = "سعر القطعه";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn25"].HeaderText = "سعر القطعه بالضريبه";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn26"].HeaderText = "المصنف المفضل";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn27"].HeaderText = "المستودع";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn28"].HeaderText = "تصنيف الماده";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn1"].HeaderText = "Item Name";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Item Barcode";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn3"].HeaderText = "Item Quantity";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn4"].HeaderText = "Buy Price";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn5"].HeaderText = "Sell Price";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn25"].HeaderText = "Sell Price Tax";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn26"].HeaderText = "Favorite Category";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn27"].HeaderText = "Warehouse";
+                DGVCustomerItems.Columns["dataGridViewTextBoxColumn28"].HeaderText = "Item Type";
+            }
         }
 
         public void BuyPrice_Enter_1(object sender, EventArgs e)
@@ -3759,27 +6039,6 @@ namespace PlancksoftPOS
                     e.Cancel = true;
                 if (e.TabPage == SoldItems)
                     e.Cancel = true;
-            }
-        }
-
-        public void cbAdminOrNotAdd_CheckedChanged(object sender, EventArgs e)
-        {
-            if (adminCheckBox.Checked)
-                if (frmMain.Authority != 1)
-                {
-                    adminCheckBox.Checked = false;
-                    MessageBox.Show(".المستخدم الإداري الرئيسي هو الوحيد الذي يمكنه اضافة مستخدم إداري", Application.ProductName);
-                }
-            if (cbAdminOrNotAdd.Checked == true)
-            {
-                customer_card_edit.Checked = true;
-                discount_edit.Checked = true;
-                price_edit.Checked = true;
-                receipt_edit.Checked = true;
-                inventory_edit.Checked = true;
-                expenses_edit.Checked = true;
-                users_edit.Checked = true;
-                settings_edit.Checked = true;
             }
         }
 
@@ -3844,7 +6103,14 @@ namespace PlancksoftPOS
                 numericUpDown3.Value = vendorID;
             } catch (Exception error)
             {
-                MessageBox.Show(".الرجاء اختيار مورد", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".الرجاء اختيار مورد", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Please pick an Importer.", Application.ProductName);
+                }
             }
         }
 
@@ -3869,10 +6135,31 @@ namespace PlancksoftPOS
                     currencyManager1.ResumeBinding();
                 }
                 dgvVendorBills.Refresh();
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    dgvVendorBills.Columns["dataGridViewTextBoxColumn39"].HeaderText = "رقم الغاتورة";
+                    dgvVendorBills.Columns["dataGridViewTextBoxColumn40"].HeaderText = "إسم الكاشير";
+                    dgvVendorBills.Columns["dataGridViewTextBoxColumn41"].HeaderText = "المبلغ الصافي";
+                    dgvVendorBills.Columns["VendorBillDate"].HeaderText = "التاريخ";
+                } else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    dgvVendorBills.Columns["dataGridViewTextBoxColumn39"].HeaderText = "Bill ID";
+                    dgvVendorBills.Columns["dataGridViewTextBoxColumn40"].HeaderText = "Cashier Name";
+                    dgvVendorBills.Columns["dataGridViewTextBoxColumn41"].HeaderText = "Net Total";
+                    dgvVendorBills.Columns["VendorBillDate"].HeaderText = "Date";
+                }
             }
             catch (Exception error)
             {
-                MessageBox.Show(".الرجاء اختيار مورد", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".الرجاء اختيار مورد", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Please pick an Importer.", Application.ProductName);
+                }
             }
         }
 
@@ -3896,12 +6183,25 @@ namespace PlancksoftPOS
                     {
                         VendorName.Items.Add(new Items(customer.CustomerName));
                     }
-
-                    MessageBox.Show(".تمت اضافة المورد", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تمت اضافة المورد", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("A new Importer was added.", Application.ProductName);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(".لم نتمكن من اضافة المورد", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لم نتمكن من اضافة المورد", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Unable to add a new Importer.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception error)
@@ -3922,11 +6222,25 @@ namespace PlancksoftPOS
                     {
                         VendorName.Items.Remove(new Items(customer.CustomerName));
                     }
-                    MessageBox.Show(".تم حذف العميل", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم حذف العميل", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Client was deleted.", Application.ProductName);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(".لم نستطع حذف العميل", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لم نستطع حذف العميل", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Unable to delete Client.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception error)
@@ -3946,6 +6260,20 @@ namespace PlancksoftPOS
                 Tuple<List<Customer>, DataTable> retrievedVendors = Connection.server.GetRetrieveVendors();
 
                 dgvVendors.DataSource = retrievedVendors.Item2;
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    dgvVendors.Columns["VendorCustomerName"].HeaderText = "إسم المورد";
+                    dgvVendors.Columns["VendorCustomerID"].HeaderText = "رمز المورد";
+                    dgvVendors.Columns["VendorCustomerPhone"].HeaderText = "رقم المورد";
+                    dgvVendors.Columns["VendorCustomerAddress"].HeaderText = "عنوان المورد";
+                } else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    dgvVendors.Columns["VendorCustomerName"].HeaderText = "Importer Name";
+                    dgvVendors.Columns["VendorCustomerID"].HeaderText = "Importer ID";
+                    dgvVendors.Columns["VendorCustomerPhone"].HeaderText = "Importer Phone Number";
+                    dgvVendors.Columns["VendorCustomerAddress"].HeaderText = "Importer Address";
+                }
 
                 foreach (Customer customer in retrievedVendors.Item1)
                 {
@@ -3996,12 +6324,26 @@ namespace PlancksoftPOS
                         this.ItemsList = DisplayData();
                         DisplayFavorites();
                         dgvVendorItemsPick.DataSource = new DataTable();
-                        MessageBox.Show(".تمت اضافة الفاتوره للمورد", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".تمت اضافة الفاتوره للمورد", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("A new Importer Bill was added.", Application.ProductName);
+                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show(".الرجاء إختيار مورد", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".الرجاء إختيار مورد", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Please pick an Importer.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception error)
@@ -4019,6 +6361,20 @@ namespace PlancksoftPOS
         public void dgvVendorBills_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             dgvVendorBillItems.DataSource = Connection.server.RetrieveVendorBillItems(Convert.ToInt32(dgvVendorBills.Rows[e.RowIndex].Cells[0].Value.ToString())).Item2;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvVendorBillItems.Columns["dataGridViewTextBoxColumn34"].HeaderText = "إسم المادة";
+                dgvVendorBillItems.Columns["dataGridViewTextBoxColumn35"].HeaderText = "باركود الماده";
+                dgvVendorBillItems.Columns["dataGridViewTextBoxColumn36"].HeaderText = "عدد البيع الشراء";
+                dgvVendorBillItems.Columns["VendorBillItemBuyPrice"].HeaderText = "سعر الشراء";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvVendorBillItems.Columns["dataGridViewTextBoxColumn34"].HeaderText = "Item Name";
+                dgvVendorBillItems.Columns["dataGridViewTextBoxColumn35"].HeaderText = "Item Barcode";
+                dgvVendorBillItems.Columns["dataGridViewTextBoxColumn36"].HeaderText = "Item Buy Sell Quantity";
+                dgvVendorBillItems.Columns["VendorBillItemBuyPrice"].HeaderText = "Buy Price";
+            }
         }
 
         public void pictureBox44_Click(object sender, EventArgs e)
@@ -4035,6 +6391,24 @@ namespace PlancksoftPOS
             }
             TaxZReport.Rows.Add(0, 0, 0, 0, DateTime.Now, totalTax);
             dgvTaxZReport.DataSource = TaxZReport;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                dgvTaxZReport.Columns["Column50"].HeaderText = "رقم الفاتتوره";
+                dgvTaxZReport.Columns["Column52"].HeaderText = "قيمة الفاتوره";
+                dgvTaxZReport.Columns["Column53"].HeaderText = "قيمة الضريبه";
+                dgvTaxZReport.Columns["Column55"].HeaderText = "إسم الكاشير";
+                dgvTaxZReport.Columns["Column51"].HeaderText = "التاريخ";
+                dgvTaxZReport.Columns["TaxTotal"].HeaderText = "مجموع الضريبه";
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                dgvTaxZReport.Columns["Column50"].HeaderText = "Bill ID";
+                dgvTaxZReport.Columns["Column52"].HeaderText = "Bill Total";
+                dgvTaxZReport.Columns["Column53"].HeaderText = "Tax Amount";
+                dgvTaxZReport.Columns["Column55"].HeaderText = "Cashier Name";
+                dgvTaxZReport.Columns["Column51"].HeaderText = "Date";
+                dgvTaxZReport.Columns["TaxTotal"].HeaderText = "Tax Total";
+            }
         }
 
         public void pictureBox46_Click(object sender, EventArgs e)
@@ -4051,14 +6425,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = ".Z تقرير الضريبه";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = ".Z تقرير الضريبه";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Tax Z Report.";
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -4087,14 +6470,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = ".تقرير الفواتير";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = ".تقرير الفواتير";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Bills Report.";
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -4122,7 +6514,14 @@ namespace PlancksoftPOS
                 pendingPurchaseNewQuantity.Value = Convert.ToInt32(ItemsPendingPurchase.Rows[e.RowIndex].Cells[2].Value.ToString());
             } catch (Exception error)
             {
-                MessageBox.Show(".الرجاء اختيار سطر فيه ماده", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".الرجاء اختيار سطر لماده", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Please pick a row of an Item.", Application.ProductName);
+                }
             }
         }
 
@@ -4198,7 +6597,14 @@ namespace PlancksoftPOS
         {
             if (ItemsPendingPurchase.Rows[0].IsNewRow)
             {
-                MessageBox.Show(".لا بمكتك دفع فاتوره فارغه", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لا بمكتك دفع فاتوره فارغه", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("You cannot pay an empty Bill.", Application.ProductName);
+                }
             }
             else
             {
@@ -4241,9 +6647,37 @@ namespace PlancksoftPOS
                                     foreach (Item item in itemsExpirationStock.Item1)
                                     {
                                         if (item.ItemBarCode == itemBarCode)
-                                            MessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.");
+                                        {
+                                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                            {
+                                                MessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.", Application.ProductName);
+                                            }
+                                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                                            {
+                                                MessageBox.Show("Item Barcode " + item.ItemBarCode + " is either expired or has less quantity in inventory than defined warning quantity.", Application.ProductName);
+                                            }
+                                        }
                                     }
                                     dgvAlerts.DataSource = itemsExpirationStock.Item2;
+
+                                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                    {
+                                        dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
+                                        dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
+                                        dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
+                                        dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
+                                        dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
+                                        dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
+                                    }
+                                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                                    {
+                                        dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
+                                        dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
+                                        dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
+                                        dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
+                                        dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                        dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
+                                    }
                                 }
                             }
                         }
@@ -4297,14 +6731,24 @@ namespace PlancksoftPOS
                 this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
 
                 richTextBox5.ResetText();
-                richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                 richTextBox4.ResetText();
                 richTextBox3.ResetText();
-                richTextBox3.AppendText(" :المجموع السابق " + this.totalAmount);
                 richTextBox2.ResetText();
-                richTextBox2.AppendText(" :المدفوع السابق " + this.paidAmount);
                 richTextBox1.ResetText();
-                richTextBox1.AppendText(" :الباقي السابق " + this.remainderAmount);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                    richTextBox3.AppendText(" :المجموع السابق " + this.totalAmount);
+                    richTextBox2.AppendText(" :المدفوع السابق " + this.paidAmount);
+                    richTextBox1.AppendText(" :الباقي السابق " + this.remainderAmount);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    richTextBox5.AppendText(" Current Bill ID: " + this.CurrentBillNumber);
+                    richTextBox3.AppendText(" Previous Total: " + this.totalAmount);
+                    richTextBox2.AppendText(" Previous Paid: " + this.paidAmount);
+                    richTextBox1.AppendText(" Previous Remainder: " + this.remainderAmount);
+                }
 
                 this.saleItems = Connection.server.RetrieveSaleToday(DateTime.Now, 10);
                 ApplyDiscountsToPendingItems();
@@ -4325,7 +6769,14 @@ namespace PlancksoftPOS
                 if (heldBillsCount > 0)
                 {
                     heldBillsCount -= 1;
-                    label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        label112.Text = " Number of Pending Bills: " + heldBillsCount.ToString();
+                    }
                 }
             }
         }
@@ -4334,7 +6785,7 @@ namespace PlancksoftPOS
         {
             if (userPermissions.customer_card_edit)
             {
-                frmCustomerCard customerCard = new frmCustomerCard();
+                frmClientCard customerCard = new frmClientCard();
                 customerCard.ShowDialog();
                 if (customerCard.dialogResult == DialogResult.OK)
                 {
@@ -4380,7 +6831,14 @@ namespace PlancksoftPOS
                                         this.totalAmount = this.totalAmount - marginPrice;
                                         item.Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
                                         richTextBox4.ResetText();
-                                        richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                        {
+                                            richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                                        }
+                                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                                        {
+                                            richTextBox4.AppendText(" Total: " + this.totalAmount);
+                                        }
                                     }
                                 }
                             }
@@ -4389,8 +6847,27 @@ namespace PlancksoftPOS
 
                     customerCard.Dispose();
                     if (replaced)
-                        MessageBox.Show(".تعدلت نسبة خصم الأغراض للعميل", Application.ProductName);
-                    else MessageBox.Show(".تم اضافة خصم العميل", Application.ProductName);
+                    {
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".تعدلت نسبة خصم الأغراض للعميل", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("Client Discount percentage was altered.", Application.ProductName);
+                        }
+                    }
+                    else
+                    {
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".تم اضافة خصم العميل", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("Client Discount was added.", Application.ProductName);
+                        }
+                    }
 
 
                 }
@@ -4430,7 +6907,14 @@ namespace PlancksoftPOS
         {
             if (ItemsPendingPurchase.Rows[0].IsNewRow)
             {
-                MessageBox.Show(".لا بمكتك اضافة فاتوره أخرى قبل تعبئة الفاتوره الحاليه", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لا بمكتك اضافة فاتوره أخرى قبل تعبئة الفاتوره الحاليه", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("You cannot add a new Bill before filling the current Bill.", Application.ProductName);
+                }
             }
             else
             {
@@ -4464,11 +6948,20 @@ namespace PlancksoftPOS
 
                 richTextBox4.ResetText();
                 richTextBox3.ResetText();
-                richTextBox3.AppendText(" :المجموع السابق " + previousBillsList.Peek().getTotalAmount().ToString());
                 richTextBox2.ResetText();
-                richTextBox2.AppendText(" :المدفوع السابق " + previousBillsList.Peek().getPaidAmount().ToString());
                 richTextBox1.ResetText();
-                richTextBox1.AppendText(" :الباقي السابق " + previousBillsList.Peek().getRemainderAmount().ToString());
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    richTextBox3.AppendText(" :المجموع السابق " + previousBillsList.Peek().getTotalAmount().ToString());
+                    richTextBox2.AppendText(" :المدفوع السابق " + previousBillsList.Peek().getPaidAmount().ToString());
+                    richTextBox1.AppendText(" :الباقي السابق " + previousBillsList.Peek().getRemainderAmount().ToString());
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    richTextBox3.AppendText(" Previous Total: " + previousBillsList.Peek().getTotalAmount().ToString());
+                    richTextBox2.AppendText(" Previous Paid: " + previousBillsList.Peek().getPaidAmount().ToString());
+                    richTextBox1.AppendText(" Previous Remainder: " + previousBillsList.Peek().getRemainderAmount().ToString());
+                }
 
                 ItemsPendingPurchase.Rows.Clear();
                 this.customersaleItems.Clear();
@@ -4478,9 +6971,23 @@ namespace PlancksoftPOS
                 items = null;
                 this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                 richTextBox5.ResetText();
-                richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    richTextBox5.AppendText(" Current Bill ID: " + this.CurrentBillNumber);
+                }
                 heldBillsCount += 1;
-                label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    label112.Text = " Number of Pending Bills: " + heldBillsCount.ToString();
+                }
             }
         }
 
@@ -4537,7 +7044,14 @@ namespace PlancksoftPOS
                                             this.totalAmount = this.totalAmount - marginPrice;
                                             item.Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
                                             richTextBox4.ResetText();
-                                            richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                            {
+                                                richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                                            }
+                                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                                            {
+                                                richTextBox4.AppendText(" Total: " + this.totalAmount);
+                                            }
                                         }
                                     }
                                 }
@@ -4546,8 +7060,27 @@ namespace PlancksoftPOS
 
                         frmSales.Dispose();
                         if (replaced)
-                            MessageBox.Show(".تعدلت نسبة خصم الأغراض", Application.ProductName);
-                        else MessageBox.Show(".تم اضافة الخصم", Application.ProductName);
+                        {
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                MessageBox.Show(".تعدلت نسبة خصم الأغراض", Application.ProductName);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                MessageBox.Show("Items Discount percentage was altered.", Application.ProductName);
+                            }
+                        }
+                        else
+                        {
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                MessageBox.Show(".تم اضافة الخصم", Application.ProductName);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                MessageBox.Show("Discount was added.", Application.ProductName);
+                            }
+                        }
                     }
                     else if (frmSales.dialogResult == DialogResult.Cancel)
                     {
@@ -4556,7 +7089,14 @@ namespace PlancksoftPOS
                 }
                 catch (Exception error)
                 {
-                    MessageBox.Show(".لم نتمكن من اضافة الخصم", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لم نتمكن من اضافة الخصم", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Unable to add a Discount.", Application.ProductName);
+                    }
                 }
             }
         }
@@ -4571,7 +7111,14 @@ namespace PlancksoftPOS
                 {
                     this.totalAmount = editPrice.moneyDeduction;
                     richTextBox4.ResetText();
-                    richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        richTextBox4.AppendText(" Total: " + this.totalAmount);
+                    }
                 }
             }
         }
@@ -4693,13 +7240,27 @@ namespace PlancksoftPOS
 
                             ItemsPendingPurchase.Rows[index].Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
                             richTextBox6.ResetText();
-                            richTextBox6.AppendText(" :الباركود " + itemLookup.selectedItem.GetItemBarCode());
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                richTextBox6.AppendText(" :الباركود " + itemLookup.selectedItem.GetItemBarCode());
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                richTextBox6.AppendText(" Barcode: " + itemLookup.selectedItem.GetItemBarCode());
+                            }
                         }
                         calculateStatistics();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(".لا يمكن اضافة الماده", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".لا يمكن اضافة الماده", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("Unable to add Item.", Application.ProductName);
+                        }
                     }
                 }
             }
@@ -4724,7 +7285,14 @@ namespace PlancksoftPOS
                 case Keys.F1:
                     if (ItemsPendingPurchase.Rows[0].IsNewRow)
                     {
-                        MessageBox.Show(".لا بمكتك دفع فاتوره فارغه", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".لا بمكتك دفع فاتوره فارغه", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("You cannot pay an empty Bill.", Application.ProductName);
+                        }
                     }
                     else
                     {
@@ -4767,9 +7335,37 @@ namespace PlancksoftPOS
                                             foreach (Item item in itemsExpirationStock.Item1)
                                             {
                                                 if (item.ItemBarCode == itemBarCode)
-                                                    MessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.");
+                                                {
+                                                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                                    {
+                                                        MessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.");
+                                                    }
+                                                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                                                    {
+                                                        MessageBox.Show("Item Barcode " + item.ItemBarCode + " is expired or has less quantity in inventory than defined warning limit.");
+                                                    }
+                                                }
                                             }
                                             dgvAlerts.DataSource = itemsExpirationStock.Item2;
+
+                                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                            {
+                                                dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
+                                                dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
+                                                dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
+                                                dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
+                                                dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
+                                                dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
+                                            }
+                                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                                            {
+                                                dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
+                                                dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
+                                                dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
+                                                dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
+                                                dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                                dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
+                                            }
                                         }
                                     }
                                 }
@@ -4825,14 +7421,24 @@ namespace PlancksoftPOS
                         this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
 
                         richTextBox5.ResetText();
-                        richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                         richTextBox4.ResetText();
                         richTextBox3.ResetText();
-                        richTextBox3.AppendText(" :المجموع السابق " + this.totalAmount);
                         richTextBox2.ResetText();
-                        richTextBox2.AppendText(" :المدفوع السابق " + this.paidAmount);
                         richTextBox1.ResetText();
-                        richTextBox1.AppendText(" :الباقي السابق " + this.remainderAmount);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                            richTextBox3.AppendText(" :المجموع السابق " + this.totalAmount);
+                            richTextBox2.AppendText(" :المدفوع السابق " + this.paidAmount);
+                            richTextBox1.AppendText(" :الباقي السابق " + this.remainderAmount);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            richTextBox5.AppendText(" Current Bill ID: " + this.CurrentBillNumber);
+                            richTextBox3.AppendText(" Previous Total: " + this.totalAmount);
+                            richTextBox2.AppendText(" Previous Paid: " + this.paidAmount);
+                            richTextBox1.AppendText(" Previous Remainder: " + this.remainderAmount);
+                        }
 
                         this.saleItems = Connection.server.RetrieveSaleToday(DateTime.Now, 10);
                         ApplyDiscountsToPendingItems();
@@ -4853,7 +7459,14 @@ namespace PlancksoftPOS
                         if (heldBillsCount > 0)
                         {
                             heldBillsCount -= 1;
-                            label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                label112.Text = " Number of Pending Bills: " + heldBillsCount.ToString();
+                            }
                         }
                     }
                     break;
@@ -4861,7 +7474,7 @@ namespace PlancksoftPOS
                 case Keys.F2:
                     if (userPermissions.customer_card_edit)
                     {
-                        frmCustomerCard customerCard = new frmCustomerCard();
+                        frmClientCard customerCard = new frmClientCard();
                         customerCard.ShowDialog();
                         if (customerCard.dialogResult == DialogResult.OK)
                         {
@@ -4907,7 +7520,14 @@ namespace PlancksoftPOS
                                                 this.totalAmount = this.totalAmount - marginPrice;
                                                 item.Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
                                                 richTextBox4.ResetText();
-                                                richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                                {
+                                                    richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                                                }
+                                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                                {
+                                                    richTextBox4.AppendText(" Total: " + this.totalAmount);
+                                                }
                                             }
                                         }
                                     }
@@ -4916,8 +7536,27 @@ namespace PlancksoftPOS
 
                             customerCard.Dispose();
                             if (replaced)
-                                MessageBox.Show(".تعدلت نسبة خصم الأغراض للعميل", Application.ProductName);
-                            else MessageBox.Show(".تم اضافة خصم العميل", Application.ProductName);
+                            {
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MessageBox.Show(".تعدلت نسبة خصم الأغراض للعميل", Application.ProductName);
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MessageBox.Show("Client Items Discount was altered.", Application.ProductName);
+                                }
+                            }
+                            else
+                            {
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MessageBox.Show(".تم اضافة خصم العميل", Application.ProductName);
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MessageBox.Show("Client Discount was added.", Application.ProductName);
+                                }
+                            }
 
 
                         }
@@ -4931,7 +7570,14 @@ namespace PlancksoftPOS
                 case Keys.F3:
                     if (ItemsPendingPurchase.Rows[0].IsNewRow)
                     {
-                        MessageBox.Show(".لا بمكتك اضافة فاتوره أخرى قبل تعبئة الفاتوره الحاليه", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".لا بمكتك اضافة فاتوره أخرى قبل تعبئة الفاتوره الحاليه", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("You cannot add a new Bill before filling the current Bill.", Application.ProductName);
+                        }
                     }
                     else
                     {
@@ -4965,11 +7611,20 @@ namespace PlancksoftPOS
 
                         richTextBox4.ResetText();
                         richTextBox3.ResetText();
-                        richTextBox3.AppendText(" :المجموع السابق " + previousBillsList.Peek().getTotalAmount().ToString());
                         richTextBox2.ResetText();
-                        richTextBox2.AppendText(" :المدفوع السابق " + previousBillsList.Peek().getPaidAmount().ToString());
                         richTextBox1.ResetText();
-                        richTextBox1.AppendText(" :الباقي السابق " + previousBillsList.Peek().getRemainderAmount().ToString());
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            richTextBox3.AppendText(" :المجموع السابق " + previousBillsList.Peek().getTotalAmount().ToString());
+                            richTextBox2.AppendText(" :المدفوع السابق " + previousBillsList.Peek().getPaidAmount().ToString());
+                            richTextBox1.AppendText(" :الباقي السابق " + previousBillsList.Peek().getRemainderAmount().ToString());
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            richTextBox3.AppendText(" Previous Total: " + previousBillsList.Peek().getTotalAmount().ToString());
+                            richTextBox2.AppendText(" Previous Paid: " + previousBillsList.Peek().getPaidAmount().ToString());
+                            richTextBox1.AppendText(" Previous Remainder: " + previousBillsList.Peek().getRemainderAmount().ToString());
+                        }
 
                         ItemsPendingPurchase.Rows.Clear();
                         this.customersaleItems.Clear();
@@ -4979,9 +7634,23 @@ namespace PlancksoftPOS
                         items = null;
                         this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                         richTextBox5.ResetText();
-                        richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            richTextBox5.AppendText(" Current Bill ID: " + this.CurrentBillNumber);
+                        }
                         heldBillsCount += 1;
-                        label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            label112.Text = " Number of Pending Bills: " + heldBillsCount.ToString();
+                        }
                     }
                     break;
 
@@ -5038,7 +7707,14 @@ namespace PlancksoftPOS
                                                     this.totalAmount = this.totalAmount - marginPrice;
                                                     item.Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
                                                     richTextBox4.ResetText();
-                                                    richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                                                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                                    {
+                                                        richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                                                    }
+                                                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                                                    {
+                                                        richTextBox4.AppendText(" Total: " + this.totalAmount);
+                                                    }
                                                 }
                                             }
                                         }
@@ -5047,8 +7723,27 @@ namespace PlancksoftPOS
 
                                 frmSales.Dispose();
                                 if (replaced)
-                                    MessageBox.Show(".تعدلت نسبة خصم الأغراض", Application.ProductName);
-                                else MessageBox.Show(".تم اضافة الخصم", Application.ProductName);
+                                {
+                                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                    {
+                                        MessageBox.Show(".تعدلت نسبة خصم الأغراض", Application.ProductName);
+                                    }
+                                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                                    {
+                                        MessageBox.Show("Discount percentage was altered.", Application.ProductName);
+                                    }
+                                }
+                                else
+                                {
+                                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                    {
+                                        MessageBox.Show(".تم اضافة الخصم", Application.ProductName);
+                                    }
+                                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                                    {
+                                        MessageBox.Show("Discount was added.", Application.ProductName);
+                                    }
+                                }
                             }
                             else if (frmSales.dialogResult == DialogResult.Cancel)
                             {
@@ -5057,7 +7752,14 @@ namespace PlancksoftPOS
                         }
                         catch (Exception error)
                         {
-                            MessageBox.Show(".لم نتمكن من اضافة الخصم", Application.ProductName);
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                MessageBox.Show(".لم نتمكن من اضافة الخصم", Application.ProductName);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                MessageBox.Show("Unable to add Discount.", Application.ProductName);
+                            }
                         }
                     }
                     break;
@@ -5071,7 +7773,14 @@ namespace PlancksoftPOS
                         {
                             this.totalAmount = editPrice.moneyDeduction;
                             richTextBox4.ResetText();
-                            richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                richTextBox4.AppendText(" Total: " + this.totalAmount);
+                            }
                         }
                     }
                     break;
@@ -5153,7 +7862,14 @@ namespace PlancksoftPOS
                         }
                         else
                         {
-                            MessageBox.Show(".لا بوجد شراء غير مكتمل سابق", Application.ProductName);
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                MessageBox.Show(".لا بوجد شراء غير مكتمل سابق", Application.ProductName);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                MessageBox.Show("There are no pending Bills.", Application.ProductName);
+                            }
                         }
                     }
                     catch (Exception ex)
@@ -5226,7 +7942,16 @@ namespace PlancksoftPOS
 
                             calculateStatistics();
                         }
-                        else { MessageBox.Show(".لا بوجد شراء غير مكتمل سابق", Application.ProductName); }
+                        else {
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                MessageBox.Show(".لا بوجد شراء غير مكتمل سابق", Application.ProductName);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                MessageBox.Show("There are no pending Bills.", Application.ProductName);
+                            }
+                        }
                     }
                     catch (Exception ex)
                     {
@@ -5336,13 +8061,28 @@ namespace PlancksoftPOS
 
                                     ItemsPendingPurchase.Rows[index].Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
                                     richTextBox6.ResetText();
-                                    richTextBox6.AppendText(" :الباركود " + itemLookup.selectedItem.GetItemBarCode());
+                                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                    {
+                                        richTextBox6.AppendText(" :الباركود " + itemLookup.selectedItem.GetItemBarCode());
+                                    }
+                                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                                    {
+                                        richTextBox6.AppendText(" Barcode: " + itemLookup.selectedItem.GetItemBarCode());
+                                    }
+
                                 }
                                 calculateStatistics();
                             }
                             catch (Exception ex)
                             {
-                                MessageBox.Show(".لا يمكن اضافة الماده", Application.ProductName);
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MessageBox.Show(".لا يمكن اضافة الماده", Application.ProductName);
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MessageBox.Show("Unable to add Item.", Application.ProductName);
+                                }
                             }
                         }
                     }
@@ -5379,10 +8119,20 @@ namespace PlancksoftPOS
                             // get last bill number of today
                             this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                             richTextBox4.ResetText();
-                            richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
                             richTextBox5.ResetText();
-                            richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
-                            MessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), Application.ProductName);
+
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                                richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                                MessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), Application.ProductName);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                richTextBox4.AppendText(" Total: " + this.totalAmount);
+                                richTextBox5.AppendText(" Current Bill ID: " + this.CurrentBillNumber);
+                                MessageBox.Show(String.Format("You have opened the cash register with an amount of {0} JOD.", moneyInRegister), Application.ProductName);
+                            }
                             this.Select();
                         }
                     }
@@ -5444,14 +8194,24 @@ namespace PlancksoftPOS
                                         theImage = Properties.Resources.plancksoft_b_t
                                     };
                                     printer.ImbeddedImageList.Add(logo);
-                                    printer.Title = ".تقرير اغلاق الصندوف";
-                                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+
+                                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                    {
+                                        printer.Title = ".تقرير اغلاق الصندوف";
+                                        printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                                        printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                                    }
+                                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                                    {
+                                        printer.Title = "Register Close Report.";
+                                        printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                                        printer.Footer = "Report was generated from User: " + this.UID + ".";
+                                    }
                                     printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                                     printer.PageNumbers = true;
                                     printer.PageNumberInHeader = false;
                                     printer.PorportionalColumns = true;
                                     printer.HeaderCellAlignment = StringAlignment.Near;
-                                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                                     printer.FooterSpacing = 15;
                                     printer.printDocument.DefaultPageSettings.Landscape = false;
                                     this.WindowState = FormWindowState.Normal;
@@ -5465,7 +8225,14 @@ namespace PlancksoftPOS
                                     MessageBox.Show(ex.Message.ToString(), Application.ProductName);
                                 }
 
-                                MessageBox.Show(".لفد قمت باغلاق الصندوق", Application.ProductName);
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MessageBox.Show(".لفد قمت باغلاق الصندوق", Application.ProductName);
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MessageBox.Show("You have closed the cash register.", Application.ProductName);
+                                }
                             }
                         }
                     }
@@ -5530,14 +8297,23 @@ namespace PlancksoftPOS
                                 theImage = Properties.Resources.plancksoft_b_t
                             };
                             printer.ImbeddedImageList.Add(logo);
-                            printer.Title = ".تقرير اغلاق الصندوف";
-                            printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                printer.Title = ".تقرير اغلاق الصندوف";
+                                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                printer.Title = "Register Close Report.";
+                                printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                                printer.Footer = "Report was generated from User: " + this.UID + ".";
+                            }
                             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                             printer.PageNumbers = true;
                             printer.PageNumberInHeader = false;
                             printer.PorportionalColumns = true;
                             printer.HeaderCellAlignment = StringAlignment.Near;
-                            printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                             printer.FooterSpacing = 15;
                             printer.printDocument.DefaultPageSettings.Landscape = false;
                             this.WindowState = FormWindowState.Normal;
@@ -5551,7 +8327,14 @@ namespace PlancksoftPOS
                             MessageBox.Show(ex.Message.ToString(), Application.ProductName);
                         }
 
-                        MessageBox.Show(".لفد قمت باغلاق الصندوق", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".لفد قمت باغلاق الصندوق", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("You have closed the cash register.", Application.ProductName);
+                        }
                     }
                 }
             }
@@ -5591,25 +8374,21 @@ namespace PlancksoftPOS
                     // get last bill number of today
                     this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                     richTextBox4.ResetText();
-                    richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
                     richTextBox5.ResetText();
-                    richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
-                    MessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                        richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                        MessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), Application.ProductName);
+                    } else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        richTextBox4.AppendText(" Total: " + this.totalAmount);
+                        richTextBox5.AppendText(" Current Bill ID: " + this.CurrentBillNumber);
+                        MessageBox.Show(String.Format("You have opened the cash register with the amount {0} JOD.", moneyInRegister), Application.ProductName);
+                    }
                     this.Select();
                 }
             }
-        }
-
-        public void txtUID_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (Char)Keys.Enter)
-                BtnRegister.PerformClick();
-        }
-
-        public void txtFname_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (Char)Keys.Enter)
-                BtnRegister.PerformClick();
         }
 
         public void txtUserNameAdd_KeyPress(object sender, KeyPressEventArgs e)
@@ -5628,6 +8407,30 @@ namespace PlancksoftPOS
                     int WarehouseID = Connection.server.RetrieveWarehouseID(WarehousesQuantityList.SelectedItem.ToString());
                     RetrievedItems = Connection.server.SearchWarehouseInventoryItems(WarehouseID);
                     dgvWarehouseInventory.DataSource = RetrievedItems.Item2;
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn32"].HeaderText = "إسم القطعة";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn37"].HeaderText = "باركود القطعه";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn38"].HeaderText = "عدد القطعه";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn42"].HeaderText = "سعر الشراء";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn45"].HeaderText = "سعر القطعة";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn46"].HeaderText = "سعر القطعة بالضريبة";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn47"].HeaderText = "المصنف المفضل";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn48"].HeaderText = "المستودع";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn49"].HeaderText = "تصنيف المادة";
+                    } else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn32"].HeaderText = "Item Name";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn37"].HeaderText = "Item Barcode";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn38"].HeaderText = "Item Quantity";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn42"].HeaderText = "Buy Price";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn45"].HeaderText = "Sell Price";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn46"].HeaderText = "Sell Price Tax";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn47"].HeaderText = "Favorite Category";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn48"].HeaderText = "Warehouse";
+                        dgvWarehouseInventory.Columns["dataGridViewTextBoxColumn49"].HeaderText = "Item Type";
+                    }
                 }
             }
             catch { }
@@ -5647,14 +8450,24 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = WarehousesQuantityList.SelectedItem.ToString() + " تقرير جرد المستودع ";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = WarehousesQuantityList.SelectedItem.ToString() + " تقرير جرد المستودع ";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Warehouse Quantify Report: " + WarehousesQuantityList.SelectedItem.ToString();
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -5688,7 +8501,14 @@ namespace PlancksoftPOS
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(".لا يمكن اختيار الماده", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".لا يمكن اختيار الماده", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("Unable to pick Item.", Application.ProductName);
+                        }
                     }
                 }
             }
@@ -5741,16 +8561,37 @@ namespace PlancksoftPOS
                     capital = Connection.server.GetCapitalAmount();
                     CapitalAmountnud.Value = capital;
                     CapitalAmount = capital;
-                    MessageBox.Show(".تم ادخال العمليه", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم ادخال العمليه", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Transaction was submitted.", Application.ProductName);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show(".لم نتمكن من ادخال العمليه", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لم نتمكن من ادخال العمليه", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Unable to submit Transaction.", Application.ProductName);
+                    }
                 }
             }
             catch (Exception error)
             {
-                MessageBox.Show(".لم نتمكن من اتمام العمليه", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من اتمام العمليه", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to commit Transaction.", Application.ProductName);
+                }
             }
         }
 
@@ -5772,7 +8613,14 @@ namespace PlancksoftPOS
         {
             if (frmMain.Authority != 1)
             {
-                MessageBox.Show(".الاضافه فقط من حساب اداري إداري", this.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".الاضافه فقط من حساب إداري", this.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Management can only be done by Administrator Accounts.", this.ProductName);
+                }
                 return;
             }
             if (AddEmployeeName.Text != "" && AddEmployeeSalary.Value != 0)
@@ -5794,10 +8642,28 @@ namespace PlancksoftPOS
                         currencyManager1.ResumeBinding();
                     }
                     dgvEmployees.Refresh();
-                    MessageBox.Show(".تم تسجيل الموظف", Application.ProductName);
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم تسجيل الموظف", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Employee was registered.", Application.ProductName);
+                    }
 
                 }
-                else MessageBox.Show(".لم نتمكن من تسجيل الموظف", Application.ProductName);
+                else
+                {
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لم نتمكن من تسجيل الموظف", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Unable to register Employee.", Application.ProductName);
+                    }
+                }
             }
         }
 
@@ -5823,7 +8689,14 @@ namespace PlancksoftPOS
         {
             if (frmMain.Authority != 1)
             {
-                MessageBox.Show(".التعديل فقط من حساب اداري إداري", this.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".التعديل فقط من حساب إداري", this.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Management can only be done through Administrator Accounts.", this.ProductName);
+                }
                 return;
             }
             if (EmployeeID != 0)
@@ -5843,7 +8716,14 @@ namespace PlancksoftPOS
                 }
                 else
                 {
-                    MessageBox.Show(".لا يمكن حذف الموظف", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لا يمكن حذف الموظف", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Unable to delete Employee.", Application.ProductName);
+                    }
                 }
                 EditEmployeeName.Text = "";
                 EditEmployeeSalary.Value = 0;
@@ -5855,7 +8735,14 @@ namespace PlancksoftPOS
             }
             else
             {
-                MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Please fill all required data!", Application.ProductName);
+                }
                 EditEmployeeName.Text = "";
                 EditEmployeeSalary.Value = 0;
                 EditEmployeePhone.Text = "";
@@ -5890,7 +8777,14 @@ namespace PlancksoftPOS
         {
             if (frmMain.Authority != 1)
             {
-                MessageBox.Show(".الاضافه فقط من حساب اداري إداري", this.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".الإضافه فقط من حساب إداري", this.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Management can only be done through Administrator Accounts.", this.ProductName);
+                }
                 return;
             }
             if (EmployeeID != 0 && AbsenceEmpName.Text != "")
@@ -5914,10 +8808,28 @@ namespace PlancksoftPOS
                             currencyManager1.ResumeBinding();
                         }
                         dgvAbsence.Refresh();
-                        MessageBox.Show(".تم تسجيل الغياب", Application.ProductName);
+
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".تم تسجيل الغياب", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("An absence was recorded.", Application.ProductName);
+                        }
 
                     }
-                    else MessageBox.Show(".لم نتمكن من تسجيل الغياب", Application.ProductName);
+                    else
+                    {
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".لم نتمكن من تسجيل الغياب", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("Unable to record Absence.", Application.ProductName);
+                        }
+                    }
                 } else if (Connection.server.InsertDayOff(EmployeeID, AbsenceDate.Value))
                     {
                     AbsenceEmpName.Text = "";
@@ -5935,7 +8847,14 @@ namespace PlancksoftPOS
                         currencyManager1.ResumeBinding();
                     }
                     dgvAbsence.Refresh();
-                    MessageBox.Show(".تم تسجيل الغياب", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم تسجيل الغياب", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("An Absence was recorded.", Application.ProductName);
+                    }
                 }
             }
         }
@@ -5944,7 +8863,14 @@ namespace PlancksoftPOS
         {
             if (frmMain.Authority != 1)
             {
-                MessageBox.Show(".التعديل فقط من حساب اداري إداري", this.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".التعديل فقط من حساب إداري", this.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Management can only be done through Administrator Accounts.", this.ProductName);
+                }
                 return;
             }
             if (AbsenceID != 0)
@@ -5964,7 +8890,14 @@ namespace PlancksoftPOS
                 }
                 else
                 {
-                    MessageBox.Show(".لا يمكن حذف الغياب", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لا يمكن حذف الغياب", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Unable to delete Absence.", Application.ProductName);
+                    }
                 }
                 AbsenceID = 0;
                 button33.Enabled = false;
@@ -5975,7 +8908,14 @@ namespace PlancksoftPOS
         {
             if (frmMain.Authority != 1)
             {
-                MessageBox.Show(".التعديل فقط من حساب اداري إداري", this.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".التعديل فقط من حساب إداري", this.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Management can only be done through Administrative Accounts.", this.ProductName);
+                }
                 return;
             }
             if (EmployeeID != 0)
@@ -6005,7 +8945,14 @@ namespace PlancksoftPOS
                 }
                 else
                 {
-                    MessageBox.Show(".لا يمكن حذف الغياب", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لا يمكن حذف الغياب", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Unable to delete Absence.", Application.ProductName);
+                    }
                 }
                 AbsenceID = 0;
                 SalaryDeduction.Value = 0;
@@ -6078,7 +9025,14 @@ namespace PlancksoftPOS
             }
             catch (Exception error)
             {
-                MessageBox.Show(".لم نستطيع حذف الماده", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نستطيع حذف الماده", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to delete Item.", Application.ProductName);
+                }
             }
         }
 
@@ -6126,7 +9080,14 @@ namespace PlancksoftPOS
                 if (addedFavoriteCategory)
                 {
                     DisplayFavorites();
-                    MessageBox.Show(".تم حفظ المفضلات الجديده");
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم حفظ مجلد المفضلات الجديد", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("A new Favorite Category was saved.", Application.ProductName);
+                    }
                 }
             }
         }
@@ -6139,7 +9100,14 @@ namespace PlancksoftPOS
                 if (addedWarehouse)
                 {
                     DisplayWarehouses();
-                    MessageBox.Show(".تم حفظ المفضلات الجديده");
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم حفظ المستودع الجديد", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("A new Warehouse was saved.", Application.ProductName);
+                    }
                 }
             }
         }
@@ -6163,14 +9131,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = ".تقرير المواد المرجعه";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = ".تقرير المواد المرجعه";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Returned Items Report.";
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -6185,19 +9162,29 @@ namespace PlancksoftPOS
             }
         }
 
-        public void groupBox30_Enter(object sender, EventArgs e)
+        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             
+            Application.Exit();
         }
 
-        public void groupBox26_Enter(object sender, EventArgs e)
+        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
+            Properties.Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
+            Properties.Settings.Default.Save();
+            englishToolStripMenuItem.Checked = false;
+            العربيةToolStripMenuItem.Checked = true;
+            applyLocalizationOnUI();
         }
 
-        public void groupBox36_Enter(object sender, EventArgs e)
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
+            Properties.Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
+            Properties.Settings.Default.Save();
+            englishToolStripMenuItem.Checked = true;
+            العربيةToolStripMenuItem.Checked = false;
+            applyLocalizationOnUI();
         }
 
         public void pictureBox29_Click(object sender, EventArgs e)
@@ -6214,14 +9201,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = "تقرير جرد الكميات المباعة";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = ".تقرير جرد الكميات المباعة";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Sold Items Quantification Report.";
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -6250,14 +9246,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = "تقرير لائحة الفواتير";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = ".تقرير لائحة الفواتير";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID + ".";
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Bills List Report.";
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -6286,14 +9291,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = ".تقرير الفواتير";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = ".تقرير الفواتير";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Bills Report.";
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -6332,6 +9346,34 @@ namespace PlancksoftPOS
                     currencyManager1.ResumeBinding();
                 }
                 DgvInventory.Refresh();
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    DgvInventory.Columns["InventoryItemName"].HeaderText = "إسم القطعة";
+                    DgvInventory.Columns["ItemID"].HeaderText = "رقم القطعه";
+                    DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "باركود القطعه";
+                    DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "عدد القطعه";
+                    DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "سعر الشراء";
+                    DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "سعر القطعة";
+                    DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "سعر القطعة بالضريبة";
+                    DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "المصنف المفضل";
+                    DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "المستودع";
+                    DgvInventory.Columns["InventoryItemType"].HeaderText = "تصنيف المادة";
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    DgvInventory.Columns["InventoryItemName"].HeaderText = "Item Name";
+                    DgvInventory.Columns["ItemID"].HeaderText = "Item ID";
+                    DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "Item Barcode";
+                    DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "Item Quantity";
+                    DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "Item Buy Price";
+                    DgvInventory.Columns["InventoryItemSellPrice"].HeaderText = "Sell Price";
+                    DgvInventory.Columns["InventoryItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                    DgvInventory.Columns["InventoryItemFavoriteCategory"].HeaderText = "Favorite Category";
+                    DgvInventory.Columns["InventoryItemWarehouse"].HeaderText = "Warehouse";
+                    DgvInventory.Columns["InventoryItemType"].HeaderText = "Item Type";
+                }
+
                 nudItemBarCodeSearch.Text = "";
                 txtItemNameSearch.Text = "";
             }
@@ -6382,7 +9424,14 @@ namespace PlancksoftPOS
         {
             this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
             richTextBox5.ResetText();
-            richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                richTextBox5.AppendText(" Current Bill ID: " + this.CurrentBillNumber);
+            }
         }
 
         private void updateSystem_Tick(object sender, EventArgs e)
@@ -6424,7 +9473,14 @@ namespace PlancksoftPOS
         {
             if (frmMain.Authority != 1)
             {
-                MessageBox.Show(".التعديل فقط من حساب اداري إداري", this.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".التعديل فقط من حساب إداري", this.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Management could only be done through Administrative Accounts.", this.ProductName);
+                }
                 return;
             }
             if (EmployeeID != 0 && EditEmployeeName.Text != "" && EditEmployeeSalary.Value != 0)
@@ -6444,7 +9500,14 @@ namespace PlancksoftPOS
                 }
                 else
                 {
-                    MessageBox.Show(".لا يمكن تحديث الموظف", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لا يمكن تحديث الموظف", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Could not update Employee.", Application.ProductName);
+                    }
                 }
                 EditEmployeeName.Text = "";
                 EditEmployeeSalary.Value = 0;
@@ -6456,7 +9519,14 @@ namespace PlancksoftPOS
             }
             else
             {
-                MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Please fill all required data!", Application.ProductName);
+                }
                 EditEmployeeName.Text = "";
                 EditEmployeeSalary.Value = 0;
                 EditEmployeePhone.Text = "";
@@ -6509,7 +9579,14 @@ namespace PlancksoftPOS
                 }
             } catch (Exception error)
             {
-                MessageBox.Show(".لم نستطيع حذف الماده", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نستطيع حذف الماده", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to delete Item.", Application.ProductName);
+                }
             }
         }
 
@@ -6558,7 +9635,14 @@ namespace PlancksoftPOS
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(".لا يمكن اختيار الماده", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".لا يمكن اختيار الماده", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("Unable to pick Item.", Application.ProductName);
+                        }
                     }
                 }
             }
@@ -6581,14 +9665,23 @@ namespace PlancksoftPOS
                     theImage = Properties.Resources.plancksoft_b_t
                 };
                 printer.ImbeddedImageList.Add(logo);
-                printer.Title = ".تقرير التنبيهات";
-                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    printer.Title = ".تقرير التنبيهات";
+                    printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    printer.Title = "Warnings Report.";
+                    printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                    printer.Footer = "Report was generated from User: " + this.UID + ".";
+                }
                 printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                 printer.PageNumbers = true;
                 printer.PageNumberInHeader = false;
                 printer.PorportionalColumns = true;
                 printer.HeaderCellAlignment = StringAlignment.Near;
-                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                 printer.FooterSpacing = 15;
                 printer.printDocument.DefaultPageSettings.Landscape = false;
                 this.WindowState = FormWindowState.Normal;
@@ -6611,48 +9704,6 @@ namespace PlancksoftPOS
             SellPriceTax.Value = Convert.ToDecimal(DGVCustomerItems.Rows[e.RowIndex].Cells[5].Value.ToString());
         }
 
-        public void BtnRegister_Click(object sender, EventArgs e)
-        {
-            if (txtUID.Text != "" && txtPWD.Text != "" && txtFname.Text != "")
-            {
-                Account newAccount = new Account();
-                newAccount.SetAccountUID(txtUID.Text);
-                newAccount.SetAccountPWD(MD5Encryption.Encrypt(txtPWD.Text, "PlancksoftPOS"));
-                newAccount.SetAccountName(txtFname.Text);
-                newAccount.customer_card_edit = customer_card_edit.Checked;
-                newAccount.discount_edit = discount_edit.Checked;
-                newAccount.price_edit = price_edit.Checked;
-                newAccount.receipt_edit = receipt_edit.Checked;
-                newAccount.inventory_edit = inventory_edit.Checked;
-                newAccount.expenses_add = expenses_edit.Checked;
-                newAccount.users_edit = users_edit.Checked;
-                newAccount.settings_edit = settings_edit.Checked;
-
-                int AdminOrNot = Convert.ToInt32(adminCheckBox.Checked);
-
-                if (Connection.server.Register(newAccount,  this.UID, AdminOrNot))
-                {
-                    MessageBox.Show(".تم تسجيل حساب المستخدم", Application.ProductName);
-                    txtUID.Text = "";
-                    txtPWD.Text = "";
-                    txtFname.Text = "";
-                    adminCheckBox.Checked = false;
-                    DisplayCashierNames();
-                    Users = DisplayUsers();
-                    for (int i = 0; i < dgvUsers.Rows.Count; i++)
-                    {
-                        CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dgvUsers.DataSource];
-                        currencyManager1.SuspendBinding();
-                        dgvUsers.Rows[i].Selected = true;
-                        dgvUsers.Rows[i].Visible = true;
-                        currencyManager1.ResumeBinding();
-                    }
-                    dgvUsers.Refresh();
-                }
-                else MessageBox.Show(".لم نتمكن من تسجيل حساب المستخدم", Application.ProductName);
-            }
-        }
-
         public void pictureBox39_Click(object sender, EventArgs e)
         {
             if (ItemTypeEntry.Text.Trim().Length > 0)
@@ -6665,7 +9716,14 @@ namespace PlancksoftPOS
             }
             else
             {
-                MessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Please enter a valid Address name.", Application.ProductName);
+                }
             }
         }
 
@@ -6755,13 +9813,27 @@ namespace PlancksoftPOS
 
                             ItemsPendingPurchase.Rows[index].Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
                             richTextBox6.ResetText();
-                            richTextBox6.AppendText(" :الباركود " + itemLookup.selectedItem.GetItemBarCode());
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                richTextBox6.AppendText(" :الباركود " + itemLookup.selectedItem.GetItemBarCode());
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                richTextBox6.AppendText(" Barcode: " + itemLookup.selectedItem.GetItemBarCode());
+                            }
                         }
                         calculateStatistics();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(".لا يمكن اضافة الماده", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".لا يمكن اضافة الماده", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("Unable to add Item.", Application.ProductName);
+                        }
                     }
                 }
             }
@@ -6781,7 +9853,14 @@ namespace PlancksoftPOS
                 }
                 else
                 {
-                    MessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Please enter a valid Address name.", Application.ProductName);
+                    }
                 }
             }
         }
@@ -6839,14 +9918,23 @@ namespace PlancksoftPOS
                                 theImage = Properties.Resources.plancksoft_b_t
                             };
                             printer.ImbeddedImageList.Add(logo);
-                            printer.Title = ".تقرير اغلاق الصندوف";
-                            printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                printer.Title = ".تقرير اغلاق الصندوف";
+                                printer.SubTitle = string.Format("التاريخ: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                                printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                printer.Title = "Cash Register Close Report.";
+                                printer.SubTitle = string.Format("Date: {0}", DateTime.Now.Date.ToString("dddd dd/MM/yyyy", new CultureInfo("ar-AE")));
+                                printer.Footer = "Report was generated from User: " + this.UID + ".";
+                            }
                             printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
                             printer.PageNumbers = true;
                             printer.PageNumberInHeader = false;
                             printer.PorportionalColumns = true;
                             printer.HeaderCellAlignment = StringAlignment.Near;
-                            printer.Footer = ".التقرير نتج من المستخدم: " + this.UID;
                             printer.FooterSpacing = 15;
                             printer.printDocument.DefaultPageSettings.Landscape = false;
                             this.WindowState = FormWindowState.Normal;
@@ -6860,7 +9948,14 @@ namespace PlancksoftPOS
                             MessageBox.Show(ex.Message.ToString(), Application.ProductName);
                         }
 
-                        MessageBox.Show(".لفد قمت باغلاق الصندوق", Application.ProductName);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".لفد قمت باغلاق الصندوق", Application.ProductName);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("You have closed the cash register.", Application.ProductName);
+                        }
                     }
                 }
             } catch (Exception error)
@@ -6881,7 +9976,14 @@ namespace PlancksoftPOS
             }
             else
             {
-                MessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Please enter a valid Address name.", Application.ProductName);
+                }
             }
         }
 
@@ -6915,10 +10017,19 @@ namespace PlancksoftPOS
                     // get last bill number of today
                     this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
                     richTextBox4.ResetText();
-                    richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
                     richTextBox5.ResetText();
-                    richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
-                    MessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                        richTextBox5.AppendText(" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                        MessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        richTextBox4.AppendText(" Total: " + this.totalAmount);
+                        richTextBox5.AppendText(" Current Bill ID: " + this.CurrentBillNumber);
+                        MessageBox.Show(String.Format("You have opened the cash register with the amount of {0} JOD.", moneyInRegister), Application.ProductName);
+                    }
                     this.Select();
                 }
             }
@@ -6958,8 +10069,27 @@ namespace PlancksoftPOS
 
                         frmSales.Dispose();
                         if (replaced)
-                            MessageBox.Show(".تعدلت نسبة خصم الأغراض", Application.ProductName);
-                        else MessageBox.Show(".تم اضافة الخصم", Application.ProductName);
+                        {
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                MessageBox.Show(".تعدلت نسبة خصم الأغراض", Application.ProductName);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                MessageBox.Show("Items Discount percentage was altered.", Application.ProductName);
+                            }
+                        }
+                        else
+                        {
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                MessageBox.Show(".تم اضافة الخصم", Application.ProductName);
+                            }
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            {
+                                MessageBox.Show("Discount was added.", Application.ProductName);
+                            }
+                        }
                     }
                     else if (frmSales.dialogResult == DialogResult.Cancel)
                     {
@@ -6968,7 +10098,14 @@ namespace PlancksoftPOS
                 }
                 catch (Exception error)
                 {
-                    MessageBox.Show(".لم نتمكن من اضافة الخصم", Application.ProductName);
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".لم نتمكن من اضافة الخصم", Application.ProductName);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Unable to add Discount.", Application.ProductName);
+                    }
                 }
             }
         }
@@ -7001,7 +10138,14 @@ namespace PlancksoftPOS
                                 }
                                 item.Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
                                 richTextBox4.ResetText();
-                                richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                                }
+                                else if (pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    richTextBox4.AppendText(" Total: " + this.totalAmount);
+                                }
                             }
                         }
                     } else
@@ -7011,7 +10155,14 @@ namespace PlancksoftPOS
                         priceAfterSales = Convert.ToDecimal(Connection.server.SearchInventoryItemsWithBarCode(item.Cells["pendingPurchaseItemBarCode"].Value.ToString()).GetPriceTax());
                         item.Cells["pendingPurchaseItemPriceTax"].Value = priceAfterSales;
                         richTextBox4.ResetText();
-                        richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            richTextBox4.AppendText(" :المجموع كامل " + this.totalAmount);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            richTextBox4.AppendText(" Total: " + this.totalAmount);
+                        }
                     }
                 }
             }
@@ -7032,10 +10183,22 @@ namespace PlancksoftPOS
             {
                 DataTable dt = Connection.server.RetrieveSystemSettings();
 
-                string welcome = "شكرا لزيارتك متجرنا ";
                 string welcome2 = this.PlancksoftPOSName;
-                string InvoiceNo = "" + BillNumber.ToString() + "رقم الفاتورة الحالية ";
-                string cashierNamePrint = cashierName + " :اسم الكاشير";
+                string welcome = "";
+                string InvoiceNo = "";
+                string cashierNamePrint = "";
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    welcome = "شكرا لزيارتك متجرنا ";
+                    InvoiceNo = "" + BillNumber.ToString() + "رقم الفاتورة الحالية ";
+                    cashierNamePrint = cashierName + " :اسم الكاشير";
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    welcome = "Thank you for visiting our store ";
+                    InvoiceNo = "Current Bill Number: " + BillNumber.ToString();
+                    cashierNamePrint = " Cashier Name:" + cashierName;
+                }
                 decimal gross = Convert.ToDecimal(totalAmount);
                 decimal net = Convert.ToDecimal(totalAmount);
                 decimal discount = gross - net;
@@ -7121,7 +10284,14 @@ namespace PlancksoftPOS
                         graphic.DrawString(cashierNamePrint, newfont2, black, (bitm.Width / 3) - cashierNamePrint.Length, startY + offsetY);
                         offsetY = offsetY + lineHeight;
 
-                        graphic.DrawString("  إسم المنتج      " + "               الكمية      " + "          السعر ", newfont2, black, startX + 15, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString("  إسم المنتج      " + "               الكمية      " + "          السعر ", newfont2, black, startX + 15, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("  Price      " + "               Quantity      " + "          Item Name ", newfont2, black, startX + 15, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString("----------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         //PointF pointPname = new PointF(10f, 65f);
@@ -7152,11 +10322,32 @@ namespace PlancksoftPOS
                         }
                         graphic.DrawString("----------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString("الإجمالي :" + gross + "" + "                           " + "الخصم :" + discount + "", newfont2, black, startX + 15, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString("الإجمالي :" + gross + "" + "                           " + "الخصم :" + discount + "", newfont2, black, startX + 15, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("Gross :" + gross + "" + "                           " + "Discount :" + discount + "", newfont2, black, startX + 15, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString("الصافي :" + net + "" + "                         " + "المدفوع :" + amountPaid + "", newfont2, black, startX + 15, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString("الصافي :" + net + "" + "                         " + "المدفوع :" + amountPaid + "", newfont2, black, startX + 15, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("Net :" + net + "" + "                         " + "Paid :" + amountPaid + "", newfont2, black, startX + 15, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString("الباقي :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString("الباقي :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("Remainder :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString("----------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
@@ -7194,7 +10385,14 @@ namespace PlancksoftPOS
             }
             catch (Exception error)
             {
-                MessageBox.Show(".لم نتمكن من طباعة الفاتوره", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من طباعة الفاتوره", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to print Invoice.", Application.ProductName);
+                }
             }
         }
 
@@ -7204,10 +10402,22 @@ namespace PlancksoftPOS
             {
                 DataTable dt = Connection.server.RetrieveSystemSettings();
 
-                string welcome = "شكرا لزيارتك متجرنا ";
                 string welcome2 = this.PlancksoftPOSName;
-                string InvoiceNo = "" + this.CurrentBillNumber.ToString() + "رقم الفاتورة الحالية ";
-                string cashierNamePrint = this.cashierName + " :اسم الكاشير";
+                string welcome = "";
+                string InvoiceNo = "";
+                string cashierNamePrint = "";
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    welcome = "شكرا لزيارتك متجرنا ";
+                    InvoiceNo = "" + CurrentBillNumber.ToString() + "رقم الفاتورة الحالية ";
+                    cashierNamePrint = cashierName + " :اسم الكاشير";
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    welcome = "Thank you for visiting our store ";
+                    InvoiceNo = "Current Bill Number: " + CurrentBillNumber.ToString();
+                    cashierNamePrint = " Cashier Name:" + cashierName;
+                }
                 decimal gross = Convert.ToDecimal(this.totalAmount);
                 decimal net = Convert.ToDecimal(this.totalAmount);
                 decimal discount = gross - net;
@@ -7293,7 +10503,14 @@ namespace PlancksoftPOS
                         graphic.DrawString(cashierNamePrint, newfont2, black, (bitm.Width / 3) - cashierNamePrint.Length, startY + offsetY);
                         offsetY = offsetY + lineHeight;
 
-                        graphic.DrawString("  إسم المنتج      " + "               الكمية      " + "          السعر ", newfont2, black, startX + 15, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString("  إسم المنتج      " + "               الكمية      " + "          السعر ", newfont2, black, startX + 15, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("  Price      " + "               Quantity      " + "          Item Name ", newfont2, black, startX + 15, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString("----------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         //PointF pointPname = new PointF(10f, 65f);
@@ -7324,11 +10541,32 @@ namespace PlancksoftPOS
                         }
                         graphic.DrawString("----------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString("الإجمالي :" + gross + "" + "                           " + "الخصم :" + discount + "", newfont2, black, startX + 15, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString("الإجمالي :" + gross + "" + "                           " + "الخصم :" + discount + "", newfont2, black, startX + 15, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("Gross :" + gross + "" + "                           " + "Discount :" + discount + "", newfont2, black, startX + 15, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString("الصافي :" + net + "" + "                         " + "المدفوع :" + amountPaid + "", newfont2, black, startX + 15, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString("الصافي :" + net + "" + "                         " + "المدفوع :" + amountPaid + "", newfont2, black, startX + 15, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("Net :" + net + "" + "                         " + "Paid :" + amountPaid + "", newfont2, black, startX + 15, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString("الباقي :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString("الباقي :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("Remainder :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString("----------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
@@ -7365,7 +10603,13 @@ namespace PlancksoftPOS
             }
             catch (Exception error)
             {
-                MessageBox.Show(".لم نتمكن من طباعة الفاتوره", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من طباعة الفاتوره", Application.ProductName);
+                } else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to print Invoice.", Application.ProductName);
+                }
             }
         }
 
@@ -7435,21 +10679,70 @@ namespace PlancksoftPOS
                             offsetY = offsetY + lineHeight;
                             offsetY = offsetY + lineHeight;
                         }
-                        graphic.DrawString("تقرير اغلاق الصندوق", newfont2, black, 0, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString(".تقرير اغلاق الصندوق", newfont2, black, 0, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("Cash Close Report.", newfont2, black, 0, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString(this.cashierName + " اسم الكاشير: ", newfont2, black, 0, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString(this.cashierName + " اسم الكاشير: ", newfont2, black, 0, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString(" Cashier Name: " + this.cashierName, newfont2, black, 0, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString(Connection.server.GetLastOpenRegisterDate() + " تاريخ فتح الصندوق ", newfont2, black, 0, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString(Connection.server.GetLastOpenRegisterDate() + " تاريخ فتح الصندوق ", newfont2, black, 0, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("Register Open Date: " + Connection.server.GetLastOpenRegisterDate(), newfont2, black, 0, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString(DateTime.Now.ToShortDateString() + " تاريخ اغلاق الصندوق ", newfont2, black, 0, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString(DateTime.Now.ToShortDateString() + " تاريخ اغلاق الصندوق ", newfont2, black, 0, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("Register Close Date: " + DateTime.Now.ToShortDateString(), newfont2, black, 0, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
                         decimal openRegisterAmount = Connection.server.GetOpenRegisterAmount();
                         decimal totalSalesAmount = Connection.server.GetTotalSalesAmount();
-                        graphic.DrawString(openRegisterAmount.ToString() + " أرضية الكاش ", newfont2, black, 0, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString(openRegisterAmount.ToString() + " أرضية الكاش ", newfont2, black, 0, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("Cash Opening Value: " + openRegisterAmount.ToString(), newfont2, black, 0, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString(totalSalesAmount.ToString() + " مبلغ المبيعات ", newfont2, black, 0, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString(totalSalesAmount.ToString() + " مبلغ المبيعات ", newfont2, black, 0, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("Total Sales Amount: " + totalSalesAmount.ToString(), newfont2, black, 0, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString(Convert.ToDecimal(openRegisterAmount + totalSalesAmount).ToString() + " المجموع الكلي ", newfont2, black, 0, startY + offsetY);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            graphic.DrawString(Convert.ToDecimal(openRegisterAmount + totalSalesAmount).ToString() + " المجموع الكلي ", newfont2, black, 0, startY + offsetY);
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            graphic.DrawString("Total Cash in Register: " + Convert.ToDecimal(openRegisterAmount + totalSalesAmount).ToString(), newfont2, black, 0, startY + offsetY);
+                        }
                         offsetY = offsetY + lineHeight;
                     }
                     finally
@@ -7470,7 +10763,14 @@ namespace PlancksoftPOS
             }
             catch (Exception error)
             {
-                MessageBox.Show(".لم نتمكن من طباعة الفاتوره", Application.ProductName);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من طباعة تقرير غلق الكاش", Application.ProductName);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to print Cash Close Report.", Application.ProductName);
+                }
             }
         }
 

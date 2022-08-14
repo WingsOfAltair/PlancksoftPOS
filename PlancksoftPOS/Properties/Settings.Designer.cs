@@ -82,5 +82,17 @@ namespace PlancksoftPOS.Properties {
                 this["moneyInRegisterInitial"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
+        public int pickedLanguage {
+            get {
+                return ((int)(this["pickedLanguage"]));
+            }
+            set {
+                this["pickedLanguage"] = value;
+            }
+        }
     }
 }

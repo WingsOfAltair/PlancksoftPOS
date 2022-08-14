@@ -2,10 +2,6 @@
 {
     partial class frmPay
     {
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        public System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,6 +24,7 @@
         /// </summary>
         public void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPay));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -54,7 +51,14 @@
             this.cbWithDiscount = new System.Windows.Forms.CheckBox();
             this.label4 = new System.Windows.Forms.Label();
             this.discountRateNUD = new System.Windows.Forms.NumericUpDown();
+            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.discountRateNUD)).BeginInit();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -264,7 +268,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label2.Location = new System.Drawing.Point(358, 17);
+            this.label2.Location = new System.Drawing.Point(235, 17);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 31);
             this.label2.TabIndex = 17;
@@ -275,7 +279,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label3.Location = new System.Drawing.Point(85, 17);
+            this.label3.Location = new System.Drawing.Point(12, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(158, 31);
             this.label3.TabIndex = 18;
@@ -371,6 +375,54 @@
             this.discountRateNUD.TabIndex = 23;
             this.discountRateNUD.ValueChanged += new System.EventHandler(this.discountRateNUD_ValueChanged);
             // 
+            // Menu
+            // 
+            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.اللغةToolStripMenuItem,
+            this.الخروجToolStripMenuItem});
+            this.Menu.Name = "Menu";
+            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Menu.Size = new System.Drawing.Size(107, 48);
+            // 
+            // اللغةToolStripMenuItem
+            // 
+            this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.العربيةToolStripMenuItem,
+            this.englishToolStripMenuItem});
+            this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
+            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.اللغةToolStripMenuItem.Text = "اللغة";
+            // 
+            // العربيةToolStripMenuItem
+            // 
+            this.العربيةToolStripMenuItem.CheckOnClick = true;
+            this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
+            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.العربيةToolStripMenuItem.Text = "العربية";
+            this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.CheckOnClick = true;
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.englishToolStripMenuItem.Text = "English";
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            // 
+            // الخروجToolStripMenuItem
+            // 
+            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
+            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.الخروجToolStripMenuItem.Text = "الخروج";
+            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
+            // 
+            // PlancksoftPOS
+            // 
+            this.PlancksoftPOS.ContextMenuStrip = this.Menu;
+            this.PlancksoftPOS.Icon = ((System.Drawing.Icon)(resources.GetObject("PlancksoftPOS.Icon")));
+            this.PlancksoftPOS.Text = "PlancksoftPOS";
+            this.PlancksoftPOS.Visible = true;
+            // 
             // frmPay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,8 +462,9 @@
             this.RightToLeftLayout = true;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "الدفع بالكاش";
+            this.Text = "الدفع";
             ((System.ComponentModel.ISupportInitialize)(this.discountRateNUD)).EndInit();
+            this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -443,5 +496,12 @@
         public System.Windows.Forms.CheckBox cbWithDiscount;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.NumericUpDown discountRateNUD;
+        private System.Windows.Forms.ContextMenuStrip Menu;
+        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon PlancksoftPOS;
+        private System.ComponentModel.IContainer components;
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Dependencies;
+using PlancksoftPOS.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +19,7 @@ namespace PlancksoftPOS
         public DialogResult dialogResult = new DialogResult();
         public Item selectedItem = new Item();
         string UID;
+        public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
         public class ItemTypeCategory
         {
@@ -36,6 +38,24 @@ namespace PlancksoftPOS
         public frmItemLookup(SortedList<int, string> itemtypes, string UID)
         {
             InitializeComponent();
+
+            frmLogin.pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
+
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+                العربيةToolStripMenuItem.Checked = true;
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+                englishToolStripMenuItem.Checked = true;
+            }
+
+            applyLocalizationOnUI();
+
             this.UID = UID;
 
             foreach(KeyValuePair<int, string> itemType in itemtypes)
@@ -46,10 +66,106 @@ namespace PlancksoftPOS
             DGVItemsLookup.DataSource = Connection.server.SearchItems("", "", 0);
         }
 
+        public void applyLocalizationOnUI()
+        {
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                Text = "البحث عن المواد";
+                label1.Text = "اسم الماده";
+                label2.Text = "باركود الماده";
+                label3.Text = "تصنيف الماده";
+                label4.Text = "عدد القطع";
+                button2.Text = "مسح";
+                button1.Text = "البحث";
+                button3.Text = "الخروج";
+                DGVItemsLookup.Columns["ItemID"].HeaderText = "رقم القطعه";
+                DGVItemsLookup.Columns["ItemName"].HeaderText = "اسم القطعه";
+                DGVItemsLookup.Columns["ItemBarCode"].HeaderText = "باركود القطعه";
+                DGVItemsLookup.Columns["ItemQuantity"].HeaderText = "عدد القطعه";
+                DGVItemsLookup.Columns["ItemBuyPrice"].HeaderText = "سعر الشراء";
+                DGVItemsLookup.Columns["ItemPrice"].HeaderText = "سعر البيع";
+                DGVItemsLookup.Columns["ItemPriceTax"].HeaderText = "سعر البيع مع الضريبه";
+                DGVItemsLookup.Columns["WarehouseID"].HeaderText = "رقم المستودع";
+                DGVItemsLookup.Columns["Warehouse"].HeaderText = "المستودع";
+                DGVItemsLookup.Columns["ItemType"].HeaderText = "رقم تصنيف الماده";
+                DGVItemsLookup.Columns["ItemTypeName"].HeaderText = "تصنيف الماده";
+                DGVItemsLookup.Columns["FavoriteCategory"].HeaderText = "رقم المجلد المفضل";
+                DGVItemsLookup.Columns["FavoriteCategoryName"].HeaderText = "المجلد المفضل";
+                اللغةToolStripMenuItem.Text = "اللغة";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "الخروج";
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                Text = "Items Lookup";
+                label1.Text = "Item Name";
+                label2.Text = "Item Barcode";
+                label3.Text = "Item Type";
+                label4.Text = "Item Amount";
+                button2.Text = "Clear";
+                button1.Text = "Search";
+                button3.Text = "Close";
+                DGVItemsLookup.Columns["ItemID"].HeaderText = "Item ID";
+                DGVItemsLookup.Columns["ItemName"].HeaderText = "Item Name";
+                DGVItemsLookup.Columns["ItemBarCode"].HeaderText = "Item Barcode";
+                DGVItemsLookup.Columns["ItemQuantity"].HeaderText = "Item Quantity";
+                DGVItemsLookup.Columns["ItemBuyPrice"].HeaderText = "Item Buy Price";
+                DGVItemsLookup.Columns["ItemPrice"].HeaderText = "Item Price";
+                DGVItemsLookup.Columns["ItemPriceTax"].HeaderText = "Item Price Tax";
+                DGVItemsLookup.Columns["WarehouseID"].HeaderText = "Warehouse ID";
+                DGVItemsLookup.Columns["Warehouse"].HeaderText = "Warehouse";
+                DGVItemsLookup.Columns["ItemType"].HeaderText = "Item Type ID";
+                DGVItemsLookup.Columns["ItemTypeName"].HeaderText = "Item Type";
+                DGVItemsLookup.Columns["FavoriteCategory"].HeaderText = "Favorite Category ID";
+                DGVItemsLookup.Columns["FavoriteCategoryName"].HeaderText = "Favorite Category";
+                اللغةToolStripMenuItem.Text = "Language";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                الخروجToolStripMenuItem.Text = "Exit";
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+            }
+        }
+
         public void button2_Click(object sender, EventArgs e)
         {
             ItemNametxt.Text = "";
             ItemBarCodetxt.Text = "";
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                DGVItemsLookup.Columns["ItemID"].HeaderText = "رقم القطعه";
+                DGVItemsLookup.Columns["ItemName"].HeaderText = "اسم القطعه";
+                DGVItemsLookup.Columns["ItemBarCode"].HeaderText = "باركود القطعه";
+                DGVItemsLookup.Columns["ItemQuantity"].HeaderText = "عدد القطعه";
+                DGVItemsLookup.Columns["ItemBuyPrice"].HeaderText = "سعر الشراء";
+                DGVItemsLookup.Columns["ItemPrice"].HeaderText = "سعر البيع";
+                DGVItemsLookup.Columns["ItemPriceTax"].HeaderText = "سعر البيع مع الضريبه";
+                DGVItemsLookup.Columns["WarehouseID"].HeaderText = "رقم المستودع";
+                DGVItemsLookup.Columns["Warehouse"].HeaderText = "المستودع";
+                DGVItemsLookup.Columns["ItemType"].HeaderText = "رقم تصنيف الماده";
+                DGVItemsLookup.Columns["ItemTypeName"].HeaderText = "تصنيف الماده";
+                DGVItemsLookup.Columns["FavoriteCategory"].HeaderText = "رقم المجلد المفضل";
+                DGVItemsLookup.Columns["FavoriteCategoryName"].HeaderText = "المجلد المفضل";
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                DGVItemsLookup.Columns["ItemID"].HeaderText = "Item ID";
+                DGVItemsLookup.Columns["ItemName"].HeaderText = "Item Name";
+                DGVItemsLookup.Columns["ItemBarCode"].HeaderText = "Item Barcode";
+                DGVItemsLookup.Columns["ItemQuantity"].HeaderText = "Item Quantity";
+                DGVItemsLookup.Columns["ItemBuyPrice"].HeaderText = "Item Buy Price";
+                DGVItemsLookup.Columns["ItemPrice"].HeaderText = "Item Price";
+                DGVItemsLookup.Columns["ItemPriceTax"].HeaderText = "Item Price Tax";
+                DGVItemsLookup.Columns["WarehouseID"].HeaderText = "Warehouse ID";
+                DGVItemsLookup.Columns["Warehouse"].HeaderText = "Warehouse";
+                DGVItemsLookup.Columns["ItemType"].HeaderText = "Item Type ID";
+                DGVItemsLookup.Columns["ItemTypeName"].HeaderText = "Item Type";
+                DGVItemsLookup.Columns["FavoriteCategory"].HeaderText = "Favorite Category ID";
+                DGVItemsLookup.Columns["FavoriteCategoryName"].HeaderText = "Favorite Category";
+            }
         }
 
         public void button1_Click(object sender, EventArgs e)
@@ -59,6 +175,40 @@ namespace PlancksoftPOS
                 ItemTypeID = Connection.server.RetrieveItemTypeID(comboBox1.SelectedItem.ToString());
             else ItemTypeID = 0;
             DGVItemsLookup.DataSource = Connection.server.SearchItems(ItemNametxt.Text, ItemBarCodetxt.Text, ItemTypeID).Item2;
+
+
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                DGVItemsLookup.Columns["ItemID"].HeaderText = "رقم القطعه";
+                DGVItemsLookup.Columns["ItemName"].HeaderText = "اسم القطعه";
+                DGVItemsLookup.Columns["ItemBarCode"].HeaderText = "باركود القطعه";
+                DGVItemsLookup.Columns["ItemQuantity"].HeaderText = "عدد القطعه";
+                DGVItemsLookup.Columns["ItemBuyPrice"].HeaderText = "سعر الشراء";
+                DGVItemsLookup.Columns["ItemPrice"].HeaderText = "سعر البيع";
+                DGVItemsLookup.Columns["ItemPriceTax"].HeaderText = "سعر البيع مع الضريبه";
+                DGVItemsLookup.Columns["WarehouseID"].HeaderText = "رقم المستودع";
+                DGVItemsLookup.Columns["Warehouse"].HeaderText = "المستودع";
+                DGVItemsLookup.Columns["ItemType"].HeaderText = "رقم تصنيف الماده";
+                DGVItemsLookup.Columns["ItemTypeName"].HeaderText = "تصنيف الماده";
+                DGVItemsLookup.Columns["FavoriteCategory"].HeaderText = "رقم المجلد المفضل";
+                DGVItemsLookup.Columns["FavoriteCategoryName"].HeaderText = "المجلد المفضل";
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                DGVItemsLookup.Columns["ItemID"].HeaderText = "Item ID";
+                DGVItemsLookup.Columns["ItemName"].HeaderText = "Item Name";
+                DGVItemsLookup.Columns["ItemBarCode"].HeaderText = "Item Barcode";
+                DGVItemsLookup.Columns["ItemQuantity"].HeaderText = "Item Quantity";
+                DGVItemsLookup.Columns["ItemBuyPrice"].HeaderText = "Item Buy Price";
+                DGVItemsLookup.Columns["ItemPrice"].HeaderText = "Item Price";
+                DGVItemsLookup.Columns["ItemPriceTax"].HeaderText = "Item Price Tax";
+                DGVItemsLookup.Columns["WarehouseID"].HeaderText = "Warehouse ID";
+                DGVItemsLookup.Columns["Warehouse"].HeaderText = "Warehouse";
+                DGVItemsLookup.Columns["ItemType"].HeaderText = "Item Type ID";
+                DGVItemsLookup.Columns["ItemTypeName"].HeaderText = "Item Type";
+                DGVItemsLookup.Columns["FavoriteCategory"].HeaderText = "Favorite Category ID";
+                DGVItemsLookup.Columns["FavoriteCategoryName"].HeaderText = "Favorite Category";
+            }
         }
 
         public void button3_Click(object sender, EventArgs e)
@@ -155,6 +305,33 @@ namespace PlancksoftPOS
                 this.WindowState = FormWindowState.Maximized;
                 MessageBox.Show(ex.Message.ToString(), Application.ProductName);
             }
+        }
+
+        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
+            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
+            Settings.Default.Save();
+            englishToolStripMenuItem.Checked = false;
+            العربيةToolStripMenuItem.Checked = true;
+            PlancksoftPOS.Dispose();
+            applyLocalizationOnUI();
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
+            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
+            Settings.Default.Save();
+            englishToolStripMenuItem.Checked = true;
+            العربيةToolStripMenuItem.Checked = false;
+            PlancksoftPOS.Dispose();
+            applyLocalizationOnUI();
         }
     }
 }

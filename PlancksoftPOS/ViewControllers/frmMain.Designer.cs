@@ -26,13 +26,13 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ادارةالمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اضافةمادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -629,15 +629,6 @@
             this.UserPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserAuthority = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.adminCheckBox = new System.Windows.Forms.CheckBox();
-            this.BtnRegister = new System.Windows.Forms.Button();
-            this.label72 = new System.Windows.Forms.Label();
-            this.txtFname = new System.Windows.Forms.TextBox();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.txtPWD = new System.Windows.Forms.TextBox();
-            this.txtUID = new System.Windows.Forms.TextBox();
             this.Settings = new System.Windows.Forms.TabPage();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -675,6 +666,12 @@
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             this.lastBillNumberUpdaterTimer = new System.Windows.Forms.Timer(this.components);
             this.updateSystem = new System.Windows.Forms.Timer(this.components);
+            this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
+            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -889,7 +886,6 @@
             this.groupBox35.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
-            this.groupBox9.SuspendLayout();
             this.Settings.SuspendLayout();
             this.groupBox24.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -903,6 +899,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -929,34 +926,34 @@
             this.ادارةالمستودعToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.ادارةالمستودعToolStripMenuItem.Name = "ادارةالمستودعToolStripMenuItem";
             this.ادارةالمستودعToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
-            this.ادارةالمستودعToolStripMenuItem.Text = "ادارة المستودع";
+            this.ادارةالمستودعToolStripMenuItem.Text = "إدارة المستودع";
             // 
             // اضافةمادهToolStripMenuItem
             // 
             this.اضافةمادهToolStripMenuItem.Name = "اضافةمادهToolStripMenuItem";
             this.اضافةمادهToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.اضافةمادهToolStripMenuItem.Text = "اضافة ماده";
+            this.اضافةمادهToolStripMenuItem.Text = "إضافة ماده";
             this.اضافةمادهToolStripMenuItem.Click += new System.EventHandler(this.اضافةمادهToolStripMenuItem_Click);
             // 
             // اضافةصنفToolStripMenuItem
             // 
             this.اضافةصنفToolStripMenuItem.Name = "اضافةصنفToolStripMenuItem";
             this.اضافةصنفToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.اضافةصنفToolStripMenuItem.Text = "اضافة صنف";
+            this.اضافةصنفToolStripMenuItem.Text = "إضافة صنف";
             this.اضافةصنفToolStripMenuItem.Click += new System.EventHandler(this.اضافةصنفToolStripMenuItem_Click);
             // 
             // اضافةمستودعToolStripMenuItem
             // 
             this.اضافةمستودعToolStripMenuItem.Name = "اضافةمستودعToolStripMenuItem";
             this.اضافةمستودعToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.اضافةمستودعToolStripMenuItem.Text = "اضافة مجلد مفضلات";
+            this.اضافةمستودعToolStripMenuItem.Text = "إضافة مجلد مفضلات";
             this.اضافةمستودعToolStripMenuItem.Click += new System.EventHandler(this.اضافةمستودعToolStripMenuItem_Click);
             // 
             // اضافةمستودعToolStripMenuItem1
             // 
             this.اضافةمستودعToolStripMenuItem1.Name = "اضافةمستودعToolStripMenuItem1";
             this.اضافةمستودعToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
-            this.اضافةمستودعToolStripMenuItem1.Text = "اضافة مستودع";
+            this.اضافةمستودعToolStripMenuItem1.Text = "إضافة مستودع";
             this.اضافةمستودعToolStripMenuItem1.Click += new System.EventHandler(this.اضافةمستودعToolStripMenuItem1_Click);
             // 
             // aToolStripMenuItem
@@ -1089,6 +1086,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
+            this.panel3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.panel3.Size = new System.Drawing.Size(359, 123);
             this.panel3.TabIndex = 38;
             // 
@@ -1098,7 +1096,7 @@
             this.openRegisterBtn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.openRegisterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.openRegisterBtn.Image = ((System.Drawing.Image)(resources.GetObject("openRegisterBtn.Image")));
-            this.openRegisterBtn.Location = new System.Drawing.Point(35, 13);
+            this.openRegisterBtn.Location = new System.Drawing.Point(13, 13);
             this.openRegisterBtn.Name = "openRegisterBtn";
             this.openRegisterBtn.Size = new System.Drawing.Size(100, 69);
             this.openRegisterBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1113,7 +1111,7 @@
             this.closeRegisterBtn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.closeRegisterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeRegisterBtn.Image = ((System.Drawing.Image)(resources.GetObject("closeRegisterBtn.Image")));
-            this.closeRegisterBtn.Location = new System.Drawing.Point(221, 13);
+            this.closeRegisterBtn.Location = new System.Drawing.Point(200, 13);
             this.closeRegisterBtn.Name = "closeRegisterBtn";
             this.closeRegisterBtn.Size = new System.Drawing.Size(100, 69);
             this.closeRegisterBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1126,11 +1124,11 @@
             this.label65.AutoSize = true;
             this.label65.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.label65.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label65.ForeColor = System.Drawing.Color.White;
             this.label65.Location = new System.Drawing.Point(3, 85);
             this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(159, 25);
+            this.label65.Size = new System.Drawing.Size(123, 20);
             this.label65.TabIndex = 36;
             this.label65.Text = "فتح الصندوق F11";
             this.label65.Click += new System.EventHandler(this.label65_Click);
@@ -1141,11 +1139,11 @@
             this.label66.AutoSize = true;
             this.label66.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.label66.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label66.ForeColor = System.Drawing.Color.White;
-            this.label66.Location = new System.Drawing.Point(182, 85);
+            this.label66.Location = new System.Drawing.Point(180, 85);
             this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(179, 25);
+            this.label66.Size = new System.Drawing.Size(138, 20);
             this.label66.TabIndex = 37;
             this.label66.Text = "اغلاق الصندوق F12";
             this.label66.Click += new System.EventHandler(this.label66_Click);
@@ -1187,6 +1185,7 @@
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox4.Location = new System.Drawing.Point(1109, 18);
             this.groupBox4.Name = "groupBox4";
+            this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox4.Size = new System.Drawing.Size(268, 665);
             this.groupBox4.TabIndex = 44;
             // 
@@ -1223,11 +1222,11 @@
             this.label93.AutoSize = true;
             this.label93.BackColor = System.Drawing.Color.Transparent;
             this.label93.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label93.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.label93.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label93.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label93.Location = new System.Drawing.Point(138, 104);
+            this.label93.Location = new System.Drawing.Point(146, 104);
             this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(127, 25);
+            this.label93.Size = new System.Drawing.Size(119, 24);
             this.label93.TabIndex = 39;
             this.label93.Text = "بطاقة عميل F2";
             this.label93.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label93_MouseClick);
@@ -1237,11 +1236,11 @@
             this.label67.AutoSize = true;
             this.label67.BackColor = System.Drawing.Color.Transparent;
             this.label67.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label67.Location = new System.Drawing.Point(48, 104);
+            this.label67.Location = new System.Drawing.Point(67, 104);
             this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(84, 25);
+            this.label67.Size = new System.Drawing.Size(73, 24);
             this.label67.TabIndex = 34;
             this.label67.Text = "الدفع F1";
             this.label67.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label67_MouseClick);
@@ -1252,7 +1251,7 @@
             this.pictureBox11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox11.Image = global::PlancksoftPOS.Properties.Resources.discount;
-            this.pictureBox11.Location = new System.Drawing.Point(141, 132);
+            this.pictureBox11.Location = new System.Drawing.Point(141, 131);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(124, 98);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1266,7 +1265,7 @@
             this.pictureBox12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(11, 132);
+            this.pictureBox12.Location = new System.Drawing.Point(11, 131);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(124, 98);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1278,11 +1277,11 @@
             // 
             this.label68.AutoSize = true;
             this.label68.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label68.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label68.Location = new System.Drawing.Point(143, 233);
+            this.label68.Location = new System.Drawing.Point(150, 232);
             this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(122, 25);
+            this.label68.Size = new System.Drawing.Size(115, 24);
             this.label68.TabIndex = 35;
             this.label68.Text = "الخصومات F4";
             this.label68.Click += new System.EventHandler(this.label68_Click);
@@ -1294,7 +1293,7 @@
             this.label69.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label69.Location = new System.Drawing.Point(12, 233);
+            this.label69.Location = new System.Drawing.Point(19, 232);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(125, 24);
             this.label69.TabIndex = 36;
@@ -1308,7 +1307,7 @@
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(141, 261);
+            this.pictureBox3.Location = new System.Drawing.Point(141, 259);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(124, 98);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1322,7 +1321,7 @@
             this.pictureBox26.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox26.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox26.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox26.Image")));
-            this.pictureBox26.Location = new System.Drawing.Point(11, 261);
+            this.pictureBox26.Location = new System.Drawing.Point(11, 259);
             this.pictureBox26.Name = "pictureBox26";
             this.pictureBox26.Size = new System.Drawing.Size(124, 98);
             this.pictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1334,11 +1333,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label2.Location = new System.Drawing.Point(150, 362);
+            this.label2.Location = new System.Drawing.Point(156, 360);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(115, 25);
+            this.label2.Size = new System.Drawing.Size(109, 24);
             this.label2.TabIndex = 43;
             this.label2.Text = "فتح الكاش F6";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -1348,11 +1347,11 @@
             // 
             this.label89.AutoSize = true;
             this.label89.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold);
+            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold);
             this.label89.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label89.Location = new System.Drawing.Point(13, 362);
+            this.label89.Location = new System.Drawing.Point(27, 360);
             this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(131, 25);
+            this.label89.Size = new System.Drawing.Size(123, 24);
             this.label89.TabIndex = 41;
             this.label89.Text = "تعديل السعر F5";
             this.label89.Click += new System.EventHandler(this.label89_Click);
@@ -1362,7 +1361,7 @@
             // 
             this.panel1.Controls.Add(this.pictureBox37);
             this.panel1.Controls.Add(this.label24);
-            this.panel1.Location = new System.Drawing.Point(11, 390);
+            this.panel1.Location = new System.Drawing.Point(11, 387);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(254, 127);
             this.panel1.TabIndex = 46;
@@ -1403,7 +1402,7 @@
             this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox14.Image = global::PlancksoftPOS.Properties.Resources.rightarrow;
-            this.pictureBox14.Location = new System.Drawing.Point(195, 523);
+            this.pictureBox14.Location = new System.Drawing.Point(195, 520);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(70, 98);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1417,7 +1416,7 @@
             this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox13.Image = global::PlancksoftPOS.Properties.Resources.leftarrow;
-            this.pictureBox13.Location = new System.Drawing.Point(110, 523);
+            this.pictureBox13.Location = new System.Drawing.Point(110, 520);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(79, 99);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1431,7 +1430,7 @@
             this.label70.Cursor = System.Windows.Forms.Cursors.Default;
             this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label70.Location = new System.Drawing.Point(125, 625);
+            this.label70.Location = new System.Drawing.Point(125, 622);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(140, 16);
             this.label70.TabIndex = 37;
@@ -2323,7 +2322,6 @@
             this.groupBox30.TabIndex = 0;
             this.groupBox30.TabStop = false;
             this.groupBox30.Text = "لائحة الفواتير";
-            this.groupBox30.Enter += new System.EventHandler(this.groupBox30_Enter);
             // 
             // panel12
             // 
@@ -2430,7 +2428,7 @@
             this.BillsEditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.BillsEditButton.Enabled = false;
             this.BillsEditButton.ForeColor = System.Drawing.Color.White;
-            this.BillsEditButton.Location = new System.Drawing.Point(1121, 3);
+            this.BillsEditButton.Location = new System.Drawing.Point(345, 3);
             this.BillsEditButton.Name = "BillsEditButton";
             this.BillsEditButton.Size = new System.Drawing.Size(142, 81);
             this.BillsEditButton.TabIndex = 5;
@@ -2443,7 +2441,7 @@
             this.BillsCashierName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BillsCashierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsCashierName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsCashierName.Location = new System.Drawing.Point(771, 46);
+            this.BillsCashierName.Location = new System.Drawing.Point(919, 46);
             this.BillsCashierName.Name = "BillsCashierName";
             this.BillsCashierName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BillsCashierName.Size = new System.Drawing.Size(202, 20);
@@ -2455,7 +2453,7 @@
             this.BillEditNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BillEditNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillEditNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillEditNumber.Location = new System.Drawing.Point(979, 46);
+            this.BillEditNumber.Location = new System.Drawing.Point(1127, 46);
             this.BillEditNumber.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2478,7 +2476,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label11.Location = new System.Drawing.Point(828, 8);
+            this.label11.Location = new System.Drawing.Point(976, 8);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(89, 24);
             this.label11.TabIndex = 36;
@@ -2490,7 +2488,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label13.Location = new System.Drawing.Point(1002, 8);
+            this.label13.Location = new System.Drawing.Point(1150, 8);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 24);
             this.label13.TabIndex = 46;
@@ -2502,7 +2500,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label9.Location = new System.Drawing.Point(645, 8);
+            this.label9.Location = new System.Drawing.Point(793, 8);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(105, 24);
             this.label9.TabIndex = 39;
@@ -2514,7 +2512,7 @@
             this.BillsRemainderAmount.DecimalPlaces = 2;
             this.BillsRemainderAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsRemainderAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsRemainderAmount.Location = new System.Drawing.Point(345, 46);
+            this.BillsRemainderAmount.Location = new System.Drawing.Point(493, 46);
             this.BillsRemainderAmount.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2536,7 +2534,7 @@
             this.BillsTotalAmount.DecimalPlaces = 2;
             this.BillsTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsTotalAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsTotalAmount.Location = new System.Drawing.Point(629, 46);
+            this.BillsTotalAmount.Location = new System.Drawing.Point(777, 46);
             this.BillsTotalAmount.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2558,7 +2556,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label12.Location = new System.Drawing.Point(366, 8);
+            this.label12.Location = new System.Drawing.Point(514, 8);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(94, 24);
             this.label12.TabIndex = 44;
@@ -2570,7 +2568,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label10.Location = new System.Drawing.Point(502, 8);
+            this.label10.Location = new System.Drawing.Point(650, 8);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(106, 24);
             this.label10.TabIndex = 42;
@@ -2582,7 +2580,7 @@
             this.BillsPaidAmount.DecimalPlaces = 2;
             this.BillsPaidAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsPaidAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsPaidAmount.Location = new System.Drawing.Point(487, 46);
+            this.BillsPaidAmount.Location = new System.Drawing.Point(635, 46);
             this.BillsPaidAmount.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2768,7 +2766,6 @@
             this.groupBox26.TabIndex = 1;
             this.groupBox26.TabStop = false;
             this.groupBox26.Text = "المبيعات المرحله";
-            this.groupBox26.Enter += new System.EventHandler(this.groupBox26_Enter);
             // 
             // panel16
             // 
@@ -3238,7 +3235,7 @@
             // 
             this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn16.DataPropertyName = "Item Name";
-            this.dataGridViewTextBoxColumn16.HeaderText = "اسم السلعه";
+            this.dataGridViewTextBoxColumn16.HeaderText = "إسم السلعه";
             this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
             this.dataGridViewTextBoxColumn16.ReadOnly = true;
             // 
@@ -3418,7 +3415,7 @@
             // 
             this.InventoryItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.InventoryItemName.DataPropertyName = "Item Name";
-            this.InventoryItemName.HeaderText = "اسم القطعه";
+            this.InventoryItemName.HeaderText = "إسم القطعه";
             this.InventoryItemName.Name = "InventoryItemName";
             this.InventoryItemName.ReadOnly = true;
             // 
@@ -3546,11 +3543,11 @@
             this.BtnDeleteItem.Enabled = false;
             this.BtnDeleteItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnDeleteItem.ForeColor = System.Drawing.Color.White;
-            this.BtnDeleteItem.Location = new System.Drawing.Point(16, 100);
+            this.BtnDeleteItem.Location = new System.Drawing.Point(18, 143);
             this.BtnDeleteItem.Name = "BtnDeleteItem";
-            this.BtnDeleteItem.Size = new System.Drawing.Size(87, 34);
+            this.BtnDeleteItem.Size = new System.Drawing.Size(87, 60);
             this.BtnDeleteItem.TabIndex = 9;
-            this.BtnDeleteItem.Text = "حذف  قطعه";
+            this.BtnDeleteItem.Text = "حذف قطعه";
             this.BtnDeleteItem.UseVisualStyleBackColor = false;
             this.BtnDeleteItem.Click += new System.EventHandler(this.BtnDeleteItem_Click);
             // 
@@ -3562,9 +3559,9 @@
             this.BtnAddItem.ForeColor = System.Drawing.Color.White;
             this.BtnAddItem.Location = new System.Drawing.Point(16, 8);
             this.BtnAddItem.Name = "BtnAddItem";
-            this.BtnAddItem.Size = new System.Drawing.Size(87, 41);
+            this.BtnAddItem.Size = new System.Drawing.Size(87, 63);
             this.BtnAddItem.TabIndex = 7;
-            this.BtnAddItem.Text = "اضافه قطعه";
+            this.BtnAddItem.Text = "إضافه قطعه";
             this.BtnAddItem.UseVisualStyleBackColor = false;
             this.BtnAddItem.Click += new System.EventHandler(this.BtnAddItem_Click);
             // 
@@ -3575,11 +3572,11 @@
             this.BtnUpdateItem.Enabled = false;
             this.BtnUpdateItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnUpdateItem.ForeColor = System.Drawing.Color.White;
-            this.BtnUpdateItem.Location = new System.Drawing.Point(16, 55);
+            this.BtnUpdateItem.Location = new System.Drawing.Point(17, 77);
             this.BtnUpdateItem.Name = "BtnUpdateItem";
-            this.BtnUpdateItem.Size = new System.Drawing.Size(87, 39);
+            this.BtnUpdateItem.Size = new System.Drawing.Size(87, 60);
             this.BtnUpdateItem.TabIndex = 8;
-            this.BtnUpdateItem.Text = "تحديث  قطعه";
+            this.BtnUpdateItem.Text = "تحديث قطعه";
             this.BtnUpdateItem.UseVisualStyleBackColor = false;
             this.BtnUpdateItem.Click += new System.EventHandler(this.BtnUpdateItem_Click);
             // 
@@ -3588,7 +3585,7 @@
             this.BtnPrint.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.BtnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnPrint.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.BtnPrint.Location = new System.Drawing.Point(25, 208);
+            this.BtnPrint.Location = new System.Drawing.Point(25, 275);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(72, 62);
             this.BtnPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -3601,7 +3598,7 @@
             this.pictureBox99.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox99.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox99.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox99.Location = new System.Drawing.Point(25, 140);
+            this.pictureBox99.Location = new System.Drawing.Point(25, 207);
             this.pictureBox99.Name = "pictureBox99";
             this.pictureBox99.Size = new System.Drawing.Size(72, 62);
             this.pictureBox99.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -3645,7 +3642,6 @@
             this.groupBox36.TabIndex = 46;
             this.groupBox36.TabStop = false;
             this.groupBox36.Text = "اضافة و تعديل المواد";
-            this.groupBox36.Enter += new System.EventHandler(this.groupBox36_Enter);
             // 
             // ItemType
             // 
@@ -3681,7 +3677,7 @@
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(99, 24);
             this.label36.TabIndex = 45;
-            this.label36.Text = "تاريخ الانتاج";
+            this.label36.Text = "تاريخ الإنتاج";
             // 
             // QuantityWarning
             // 
@@ -3750,7 +3746,7 @@
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(83, 24);
             this.label62.TabIndex = 7;
-            this.label62.Text = "اسم القطعه";
+            this.label62.Text = "إسم القطعه";
             // 
             // txtItemBarCode
             // 
@@ -3797,7 +3793,7 @@
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(163, 24);
             this.label34.TabIndex = 41;
-            this.label34.Text = "تاريخ انتهاء الصلاحيه";
+            this.label34.Text = "تاريخ إنتهاء الصلاحيه";
             // 
             // label60
             // 
@@ -3845,7 +3841,7 @@
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(104, 24);
             this.label33.TabIndex = 39;
-            this.label33.Text = "تاريخ الادخال";
+            this.label33.Text = "تاريخ الإدخال";
             // 
             // label55
             // 
@@ -3950,9 +3946,9 @@
             this.label64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.label64.Location = new System.Drawing.Point(267, 26);
             this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(131, 24);
+            this.label64.Size = new System.Drawing.Size(125, 24);
             this.label64.TabIndex = 23;
-            this.label64.Text = " المصنف المفضل";
+            this.label64.Text = "المصنف المفضل";
             // 
             // label25
             // 
@@ -4086,7 +4082,7 @@
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(124, 24);
             this.label56.TabIndex = 23;
-            this.label56.Text = "تاريخ البحث الى";
+            this.label56.Text = "تاريخ البحث إلى";
             this.label56.Visible = false;
             // 
             // label57
@@ -4111,7 +4107,7 @@
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(83, 24);
             this.label58.TabIndex = 7;
-            this.label58.Text = "اسم القطعه";
+            this.label58.Text = "إسم القطعه";
             // 
             // dtpSearch1
             // 
@@ -4368,7 +4364,7 @@
             this.IncomingOutgoingItems.Name = "IncomingOutgoingItems";
             this.IncomingOutgoingItems.Size = new System.Drawing.Size(1372, 633);
             this.IncomingOutgoingItems.TabIndex = 5;
-            this.IncomingOutgoingItems.Text = "سند ادخال و اخراج";
+            this.IncomingOutgoingItems.Text = "سند إدخال و إخراج";
             this.IncomingOutgoingItems.UseVisualStyleBackColor = true;
             // 
             // groupBox48
@@ -4404,7 +4400,7 @@
             this.groupBox48.Size = new System.Drawing.Size(1372, 633);
             this.groupBox48.TabIndex = 48;
             this.groupBox48.TabStop = false;
-            this.groupBox48.Text = "اضافة سند ادخال و اخراج";
+            this.groupBox48.Text = "اضافة سند إدخال و إخراج";
             // 
             // button38
             // 
@@ -4416,7 +4412,7 @@
             this.button38.Name = "button38";
             this.button38.Size = new System.Drawing.Size(137, 46);
             this.button38.TabIndex = 51;
-            this.button38.Text = "اضافة ماده";
+            this.button38.Text = "إضافة ماده";
             this.button38.UseVisualStyleBackColor = false;
             this.button38.Click += new System.EventHandler(this.button38_Click);
             // 
@@ -4430,7 +4426,7 @@
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(137, 46);
             this.button14.TabIndex = 17;
-            this.button14.Text = "اختيار ماده";
+            this.button14.Text = "إختيار ماده";
             this.button14.UseVisualStyleBackColor = false;
             this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
@@ -4625,11 +4621,11 @@
             this.EntryExitType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryExitType.FormattingEnabled = true;
             this.EntryExitType.Items.AddRange(new object[] {
-            "ادخال",
-            "اخراج"});
-            this.EntryExitType.Location = new System.Drawing.Point(531, 51);
+            "ادخال Import",
+            "اخراج Export"});
+            this.EntryExitType.Location = new System.Drawing.Point(441, 51);
             this.EntryExitType.Name = "EntryExitType";
-            this.EntryExitType.Size = new System.Drawing.Size(137, 21);
+            this.EntryExitType.Size = new System.Drawing.Size(227, 21);
             this.EntryExitType.TabIndex = 11;
             // 
             // label53
@@ -4642,7 +4638,7 @@
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(83, 24);
             this.label53.TabIndex = 7;
-            this.label53.Text = "اسم القطعه";
+            this.label53.Text = "إسم القطعه";
             // 
             // WarehouseEntryExitItemBarCode
             // 
@@ -4698,7 +4694,7 @@
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(99, 24);
             this.label79.TabIndex = 45;
-            this.label79.Text = "تاريخ الانتاج";
+            this.label79.Text = "تاريخ الإنتاج";
             // 
             // EntryExitWarningQuantity
             // 
@@ -4767,7 +4763,7 @@
             this.label96.Name = "label96";
             this.label96.Size = new System.Drawing.Size(163, 24);
             this.label96.TabIndex = 41;
-            this.label96.Text = "تاريخ انتهاء الصلاحيه";
+            this.label96.Text = "تاريخ إنتهاء الصلاحيه";
             // 
             // label97
             // 
@@ -4812,7 +4808,7 @@
             this.label98.Name = "label98";
             this.label98.Size = new System.Drawing.Size(104, 24);
             this.label98.TabIndex = 39;
-            this.label98.Text = "تاريخ الادخال";
+            this.label98.Text = "تاريخ الإدخال";
             // 
             // label101
             // 
@@ -4835,7 +4831,7 @@
             this.AddTypes.Padding = new System.Windows.Forms.Padding(3);
             this.AddTypes.Size = new System.Drawing.Size(1372, 633);
             this.AddTypes.TabIndex = 1;
-            this.AddTypes.Text = "اضافة صنف";
+            this.AddTypes.Text = "إضافة صنف";
             // 
             // flowLayoutPanel3
             // 
@@ -4863,7 +4859,7 @@
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(180, 24);
             this.label29.TabIndex = 10;
-            this.label29.Text = "اضافة تصنيف مواد جديد";
+            this.label29.Text = "إضافة تصنيف مواد جديد";
             // 
             // ItemTypeEntry
             // 
@@ -4907,7 +4903,7 @@
             this.AddFavorites.Name = "AddFavorites";
             this.AddFavorites.Size = new System.Drawing.Size(1372, 633);
             this.AddFavorites.TabIndex = 2;
-            this.AddFavorites.Text = "اضافة مجلد مفضلات";
+            this.AddFavorites.Text = "إضافة مجلد مفضلات";
             // 
             // flowLayoutPanel1
             // 
@@ -4979,7 +4975,7 @@
             this.AddWarehouses.Name = "AddWarehouses";
             this.AddWarehouses.Size = new System.Drawing.Size(1372, 633);
             this.AddWarehouses.TabIndex = 3;
-            this.AddWarehouses.Text = "اضافة مستودع";
+            this.AddWarehouses.Text = "إضافة مستودع";
             // 
             // flowLayoutPanel2
             // 
@@ -5007,7 +5003,7 @@
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(146, 24);
             this.label26.TabIndex = 10;
-            this.label26.Text = "اضافة مستودع جديد";
+            this.label26.Text = "إضافة مستودع جديد";
             // 
             // WarehouseEntry
             // 
@@ -5229,7 +5225,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(94, 24);
             this.label17.TabIndex = 34;
-            this.label17.Text = "اسم الموظف";
+            this.label17.Text = "إسم الموظف";
             // 
             // textBox1
             // 
@@ -5251,7 +5247,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(109, 24);
             this.label16.TabIndex = 32;
-            this.label16.Text = "اسم المصروف";
+            this.label16.Text = "إسم المصروف";
             // 
             // dateTimePicker7
             // 
@@ -5278,7 +5274,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(124, 24);
             this.label14.TabIndex = 30;
-            this.label14.Text = "تاريخ البحث الى";
+            this.label14.Text = "تاريخ البحث إلى";
             this.label14.Visible = false;
             // 
             // dateTimePicker8
@@ -5331,7 +5327,7 @@
             this.AddExpenses.Padding = new System.Windows.Forms.Padding(3);
             this.AddExpenses.Size = new System.Drawing.Size(1378, 654);
             this.AddExpenses.TabIndex = 1;
-            this.AddExpenses.Text = "اضافة مصروف";
+            this.AddExpenses.Text = "إضافة مصروف";
             // 
             // groupBox33
             // 
@@ -5374,7 +5370,7 @@
             this.button3.ForeColor = System.Drawing.Color.White;
             this.button3.Location = new System.Drawing.Point(1143, 155);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(102, 38);
+            this.button3.Size = new System.Drawing.Size(102, 59);
             this.button3.TabIndex = 47;
             this.button3.Text = "مسح";
             this.button3.UseVisualStyleBackColor = false;
@@ -5388,9 +5384,9 @@
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Location = new System.Drawing.Point(1262, 155);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(96, 38);
+            this.button2.Size = new System.Drawing.Size(96, 59);
             this.button2.TabIndex = 46;
-            this.button2.Text = "اضافة المصروف";
+            this.button2.Text = "إضافة المصروف";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -5746,7 +5742,7 @@
             this.EmployeesManagement.Padding = new System.Windows.Forms.Padding(3);
             this.EmployeesManagement.Size = new System.Drawing.Size(1378, 654);
             this.EmployeesManagement.TabIndex = 0;
-            this.EmployeesManagement.Text = "ادارة الموظفين";
+            this.EmployeesManagement.Text = "إدارة الموظفين";
             this.EmployeesManagement.UseVisualStyleBackColor = true;
             // 
             // groupBox49
@@ -5792,7 +5788,7 @@
             this.groupBox50.Size = new System.Drawing.Size(905, 361);
             this.groupBox50.TabIndex = 1;
             this.groupBox50.TabStop = false;
-            this.groupBox50.Text = "االتعديل على الموظفين و الاجازات";
+            this.groupBox50.Text = "االتعديل على الموظفين و الإجازات";
             // 
             // button35
             // 
@@ -5805,7 +5801,7 @@
             this.button35.Name = "button35";
             this.button35.Size = new System.Drawing.Size(206, 54);
             this.button35.TabIndex = 41;
-            this.button35.Text = "اضافة الحسم";
+            this.button35.Text = "إضافة الحسم";
             this.button35.UseVisualStyleBackColor = false;
             this.button35.Click += new System.EventHandler(this.button35_Click);
             // 
@@ -5896,7 +5892,7 @@
             this.button37.Name = "button37";
             this.button37.Size = new System.Drawing.Size(206, 64);
             this.button37.TabIndex = 32;
-            this.button37.Text = "اضافة اجازه";
+            this.button37.Text = "إضافة إجازه";
             this.button37.UseVisualStyleBackColor = false;
             this.button37.Click += new System.EventHandler(this.button37_Click);
             // 
@@ -5910,7 +5906,7 @@
             this.label109.Name = "label109";
             this.label109.Size = new System.Drawing.Size(94, 24);
             this.label109.TabIndex = 31;
-            this.label109.Text = "اسم الموظف";
+            this.label109.Text = "إسم الموظف";
             // 
             // AbsenceEmpName
             // 
@@ -6009,7 +6005,7 @@
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(94, 24);
             this.label54.TabIndex = 22;
-            this.label54.Text = "اسم الموظف";
+            this.label54.Text = "إسم الموظف";
             // 
             // EditEmployeeName
             // 
@@ -6248,7 +6244,7 @@
             this.label102.Name = "label102";
             this.label102.Size = new System.Drawing.Size(94, 24);
             this.label102.TabIndex = 20;
-            this.label102.Text = "اسم الموظف";
+            this.label102.Text = "إسم الموظف";
             // 
             // AddEmployeeName
             // 
@@ -6268,7 +6264,7 @@
             this.DaysOff.Name = "DaysOff";
             this.DaysOff.Size = new System.Drawing.Size(1378, 654);
             this.DaysOff.TabIndex = 1;
-            this.DaysOff.Text = "الاجازات";
+            this.DaysOff.Text = "الإجازات";
             this.DaysOff.UseVisualStyleBackColor = true;
             // 
             // groupBox51
@@ -6323,7 +6319,7 @@
             this.label110.Name = "label110";
             this.label110.Size = new System.Drawing.Size(86, 24);
             this.label110.TabIndex = 33;
-            this.label110.Text = "التاريخ الى";
+            this.label110.Text = "التاريخ إلى";
             // 
             // AbsenceFrom
             // 
@@ -6593,7 +6589,7 @@
             this.CustomerAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.CustomerAddress.Location = new System.Drawing.Point(21, 227);
             this.CustomerAddress.Name = "CustomerAddress";
-            this.CustomerAddress.Size = new System.Drawing.Size(395, 20);
+            this.CustomerAddress.Size = new System.Drawing.Size(424, 20);
             this.CustomerAddress.TabIndex = 7;
             this.CustomerAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CustomerAddress_KeyPress);
             // 
@@ -6605,7 +6601,7 @@
             this.CustomerPhone.Location = new System.Drawing.Point(21, 165);
             this.CustomerPhone.MaxLength = 10;
             this.CustomerPhone.Name = "CustomerPhone";
-            this.CustomerPhone.Size = new System.Drawing.Size(395, 20);
+            this.CustomerPhone.Size = new System.Drawing.Size(424, 20);
             this.CustomerPhone.TabIndex = 6;
             this.CustomerPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CustomerPhone_KeyPress);
             // 
@@ -6641,7 +6637,7 @@
             this.customerName.FormattingEnabled = true;
             this.customerName.Location = new System.Drawing.Point(21, 43);
             this.customerName.Name = "customerName";
-            this.customerName.Size = new System.Drawing.Size(395, 21);
+            this.customerName.Size = new System.Drawing.Size(424, 21);
             this.customerName.TabIndex = 0;
             this.customerName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.customerName_KeyPress);
             // 
@@ -6657,7 +6653,7 @@
             0,
             0});
             this.customerID.Name = "customerID";
-            this.customerID.Size = new System.Drawing.Size(395, 20);
+            this.customerID.Size = new System.Drawing.Size(424, 20);
             this.customerID.TabIndex = 1;
             this.customerID.Enter += new System.EventHandler(this.customerID_Enter);
             this.customerID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.customerID_KeyPress);
@@ -6672,7 +6668,7 @@
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(395, 35);
             this.button31.TabIndex = 8;
-            this.button31.Text = "حفظ";
+            this.button31.Text = "حفظ العميل";
             this.button31.UseVisualStyleBackColor = false;
             this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
@@ -6686,7 +6682,7 @@
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(82, 24);
             this.label82.TabIndex = 21;
-            this.label82.Text = "اسم العميل";
+            this.label82.Text = "إسم العميل";
             // 
             // label83
             // 
@@ -6744,7 +6740,7 @@
             this.textBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.textBox7.Location = new System.Drawing.Point(933, 42);
+            this.textBox7.Location = new System.Drawing.Point(966, 45);
             this.textBox7.Name = "textBox7";
             this.textBox7.ReadOnly = true;
             this.textBox7.Size = new System.Drawing.Size(393, 20);
@@ -6755,7 +6751,7 @@
             this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.numericUpDown2.Location = new System.Drawing.Point(929, 99);
+            this.numericUpDown2.Location = new System.Drawing.Point(962, 99);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             1241513983,
             370409800,
@@ -6788,7 +6784,7 @@
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(82, 24);
             this.label32.TabIndex = 56;
-            this.label32.Text = "اسم العميل";
+            this.label32.Text = "إسم العميل";
             // 
             // button5
             // 
@@ -6800,7 +6796,7 @@
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(397, 49);
             this.button5.TabIndex = 53;
-            this.button5.Text = "اختيار العميل";
+            this.button5.Text = "إختيار العميل";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
@@ -6810,11 +6806,11 @@
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(470, 123);
+            this.button4.Location = new System.Drawing.Point(505, 123);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(397, 49);
             this.button4.TabIndex = 52;
-            this.button4.Text = "اضافة الماده للعميل";
+            this.button4.Text = "إضافة الماده للعميل";
             this.button4.UseVisualStyleBackColor = false;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -6824,7 +6820,7 @@
             this.CustomerPrice.DecimalPlaces = 2;
             this.CustomerPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.CustomerPrice.Location = new System.Drawing.Point(15, 99);
+            this.CustomerPrice.Location = new System.Drawing.Point(52, 99);
             this.CustomerPrice.Maximum = new decimal(new int[] {
             1661992959,
             1808227885,
@@ -6853,7 +6849,7 @@
             this.SellPriceTax.DecimalPlaces = 2;
             this.SellPriceTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SellPriceTax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.SellPriceTax.Location = new System.Drawing.Point(17, 46);
+            this.SellPriceTax.Location = new System.Drawing.Point(52, 46);
             this.SellPriceTax.Maximum = new decimal(new int[] {
             -1304428545,
             434162106,
@@ -6882,7 +6878,7 @@
             this.SellPrice.DecimalPlaces = 2;
             this.SellPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SellPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.SellPrice.Location = new System.Drawing.Point(470, 99);
+            this.SellPrice.Location = new System.Drawing.Point(505, 97);
             this.SellPrice.Maximum = new decimal(new int[] {
             1241513983,
             370409800,
@@ -6899,7 +6895,7 @@
             this.BuyPrice.DecimalPlaces = 2;
             this.BuyPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BuyPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BuyPrice.Location = new System.Drawing.Point(468, 43);
+            this.BuyPrice.Location = new System.Drawing.Point(505, 43);
             this.BuyPrice.Maximum = new decimal(new int[] {
             -469762049,
             -590869294,
@@ -7127,7 +7123,7 @@
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(370, 37);
             this.button8.TabIndex = 1;
-            this.button8.Text = "اضافة فاتوره";
+            this.button8.Text = "إضافة فاتوره";
             this.button8.UseVisualStyleBackColor = false;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
@@ -7237,7 +7233,7 @@
             this.VendorAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.VendorAddress.Location = new System.Drawing.Point(21, 227);
             this.VendorAddress.Name = "VendorAddress";
-            this.VendorAddress.Size = new System.Drawing.Size(395, 22);
+            this.VendorAddress.Size = new System.Drawing.Size(422, 22);
             this.VendorAddress.TabIndex = 7;
             this.VendorAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VendorAddress_KeyPress);
             // 
@@ -7247,7 +7243,7 @@
             this.VendorPhone.Location = new System.Drawing.Point(21, 165);
             this.VendorPhone.MaxLength = 10;
             this.VendorPhone.Name = "VendorPhone";
-            this.VendorPhone.Size = new System.Drawing.Size(395, 22);
+            this.VendorPhone.Size = new System.Drawing.Size(422, 22);
             this.VendorPhone.TabIndex = 6;
             this.VendorPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VendorPhone_KeyPress);
             // 
@@ -7283,7 +7279,7 @@
             this.VendorName.FormattingEnabled = true;
             this.VendorName.Location = new System.Drawing.Point(21, 43);
             this.VendorName.Name = "VendorName";
-            this.VendorName.Size = new System.Drawing.Size(395, 24);
+            this.VendorName.Size = new System.Drawing.Size(422, 24);
             this.VendorName.TabIndex = 0;
             this.VendorName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VendorName_KeyPress);
             // 
@@ -7297,7 +7293,7 @@
             0,
             0});
             this.VendorID.Name = "VendorID";
-            this.VendorID.Size = new System.Drawing.Size(395, 22);
+            this.VendorID.Size = new System.Drawing.Size(422, 22);
             this.VendorID.TabIndex = 1;
             this.VendorID.Enter += new System.EventHandler(this.VendorID_Enter);
             this.VendorID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.VendorID_KeyPress);
@@ -7312,7 +7308,7 @@
             this.button7.Name = "button7";
             this.button7.Size = new System.Drawing.Size(395, 35);
             this.button7.TabIndex = 8;
-            this.button7.Text = "حفظ";
+            this.button7.Text = "حفظ المورد";
             this.button7.UseVisualStyleBackColor = false;
             this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
@@ -7327,7 +7323,7 @@
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(73, 24);
             this.label41.TabIndex = 21;
-            this.label41.Text = "اسم المورد";
+            this.label41.Text = "إسم المورد";
             // 
             // label42
             // 
@@ -7351,7 +7347,7 @@
             this.AddImporterInvoices.Padding = new System.Windows.Forms.Padding(3);
             this.AddImporterInvoices.Size = new System.Drawing.Size(1378, 654);
             this.AddImporterInvoices.TabIndex = 3;
-            this.AddImporterInvoices.Text = "اضافة فاتوره مورد";
+            this.AddImporterInvoices.Text = "إضافة فاتوره مورد";
             // 
             // groupBox41
             // 
@@ -7365,13 +7361,13 @@
             this.groupBox41.Controls.Add(this.textBox8);
             this.groupBox41.Controls.Add(this.label43);
             this.groupBox41.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox41.ForeColor = System.Drawing.Color.White;
+            this.groupBox41.ForeColor = System.Drawing.Color.Black;
             this.groupBox41.Location = new System.Drawing.Point(3, 3);
             this.groupBox41.Name = "groupBox41";
             this.groupBox41.Size = new System.Drawing.Size(1372, 648);
             this.groupBox41.TabIndex = 0;
             this.groupBox41.TabStop = false;
-            this.groupBox41.Text = "اضافة فاتورة مورد";
+            this.groupBox41.Text = "إضافة فاتورة مورد";
             // 
             // button12
             // 
@@ -7379,11 +7375,11 @@
             this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(695, 29);
+            this.button12.Location = new System.Drawing.Point(728, 23);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(110, 46);
             this.button12.TabIndex = 9;
-            this.button12.Text = "اضافة الفاتوره";
+            this.button12.Text = "إضافة الفاتورة";
             this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
@@ -7393,7 +7389,7 @@
             this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(1215, 139);
+            this.button11.Location = new System.Drawing.Point(1248, 139);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(110, 46);
             this.button11.TabIndex = 8;
@@ -7419,15 +7415,15 @@
             this.dgvVendorItemsPick.Location = new System.Drawing.Point(6, 87);
             this.dgvVendorItemsPick.Name = "dgvVendorItemsPick";
             this.dgvVendorItemsPick.ReadOnly = true;
-            this.dgvVendorItemsPick.Size = new System.Drawing.Size(1203, 555);
+            this.dgvVendorItemsPick.Size = new System.Drawing.Size(1236, 555);
             this.dgvVendorItemsPick.TabIndex = 7;
             // 
             // VendorItemName
             // 
             this.VendorItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemName.DataPropertyName = "Item Name";
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle43;
             this.VendorItemName.HeaderText = "اسم الماده";
             this.VendorItemName.Name = "VendorItemName";
             this.VendorItemName.ReadOnly = true;
@@ -7436,8 +7432,8 @@
             // 
             this.VendorItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBarCode.DataPropertyName = "Item BarCode";
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle44;
             this.VendorItemBarCode.HeaderText = "باركود الماده";
             this.VendorItemBarCode.Name = "VendorItemBarCode";
             this.VendorItemBarCode.ReadOnly = true;
@@ -7446,8 +7442,8 @@
             // 
             this.VendorItemType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemType.DataPropertyName = "Item Type";
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle45;
             this.VendorItemType.HeaderText = "صنف الماده";
             this.VendorItemType.Name = "VendorItemType";
             this.VendorItemType.ReadOnly = true;
@@ -7456,8 +7452,8 @@
             // 
             this.VendorItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemQuantity.DataPropertyName = "Item Quantity";
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle46;
             this.VendorItemQuantity.HeaderText = "عدد القطع";
             this.VendorItemQuantity.Name = "VendorItemQuantity";
             this.VendorItemQuantity.ReadOnly = true;
@@ -7466,8 +7462,8 @@
             // 
             this.VendorItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBuyPrice.DataPropertyName = "VendorItemBuyPrice";
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle47;
             this.VendorItemBuyPrice.HeaderText = "سعر الشراء";
             this.VendorItemBuyPrice.Name = "VendorItemBuyPrice";
             this.VendorItemBuyPrice.ReadOnly = true;
@@ -7476,8 +7472,8 @@
             // 
             this.VendorItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPrice.DataPropertyName = "VendorItemSellPrice";
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle48;
             this.VendorItemSellPrice.HeaderText = "سعر البيع";
             this.VendorItemSellPrice.Name = "VendorItemSellPrice";
             this.VendorItemSellPrice.ReadOnly = true;
@@ -7486,8 +7482,8 @@
             // 
             this.VendorItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPriceTax.DataPropertyName = "VendorItemSellPriceTax";
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle49.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle49;
             this.VendorItemSellPriceTax.HeaderText = "سعر البيع مع الضريبه";
             this.VendorItemSellPriceTax.Name = "VendorItemSellPriceTax";
             this.VendorItemSellPriceTax.ReadOnly = true;
@@ -7498,11 +7494,11 @@
             this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(1215, 87);
+            this.button10.Location = new System.Drawing.Point(1248, 87);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(110, 46);
             this.button10.TabIndex = 6;
-            this.button10.Text = "اختيار ماده";
+            this.button10.Text = "إختيار ماده";
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
@@ -7511,7 +7507,7 @@
             this.numericUpDown3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.numericUpDown3.Location = new System.Drawing.Point(811, 43);
+            this.numericUpDown3.Location = new System.Drawing.Point(844, 49);
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.ReadOnly = true;
             this.numericUpDown3.Size = new System.Drawing.Size(217, 20);
@@ -7523,7 +7519,7 @@
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label44.Location = new System.Drawing.Point(949, 16);
+            this.label44.Location = new System.Drawing.Point(982, 22);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(83, 24);
             this.label44.TabIndex = 2;
@@ -7534,7 +7530,7 @@
             this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.textBox8.Location = new System.Drawing.Point(1054, 43);
+            this.textBox8.Location = new System.Drawing.Point(1087, 49);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(271, 20);
@@ -7545,12 +7541,12 @@
             this.label43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.ForeColor = System.Drawing.Color.White;
-            this.label43.Location = new System.Drawing.Point(1246, 16);
+            this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.label43.Location = new System.Drawing.Point(1279, 22);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(83, 24);
             this.label43.TabIndex = 0;
-            this.label43.Text = "اسم المورد";
+            this.label43.Text = "إسم المورد";
             // 
             // ImporterBalanceChecks
             // 
@@ -7990,7 +7986,6 @@
             // 
             this.posUsers.BackColor = System.Drawing.Color.White;
             this.posUsers.Controls.Add(this.groupBox10);
-            this.posUsers.Controls.Add(this.groupBox9);
             this.posUsers.Location = new System.Drawing.Point(4, 34);
             this.posUsers.Name = "posUsers";
             this.posUsers.Size = new System.Drawing.Size(1386, 692);
@@ -7999,23 +7994,23 @@
             // 
             // groupBox10
             // 
-            this.groupBox10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox10.Controls.Add(this.groupBox11);
             this.groupBox10.Controls.Add(this.dgvUsers);
             this.groupBox10.Controls.Add(this.pictureBox16);
             this.groupBox10.ForeColor = System.Drawing.Color.Black;
             this.groupBox10.Location = new System.Drawing.Point(3, 3);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(910, 626);
+            this.groupBox10.Size = new System.Drawing.Size(1380, 681);
             this.groupBox10.TabIndex = 0;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "جدول المستخدمين";
             // 
             // groupBox11
             // 
-            this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox11.Controls.Add(this.groupBox35);
             this.groupBox11.Controls.Add(this.cbAdminOrNotAdd);
             this.groupBox11.Controls.Add(this.label75);
@@ -8028,17 +8023,17 @@
             this.groupBox11.Controls.Add(this.button20);
             this.groupBox11.Controls.Add(this.button22);
             this.groupBox11.ForeColor = System.Drawing.Color.Black;
-            this.groupBox11.Location = new System.Drawing.Point(5, 274);
+            this.groupBox11.Location = new System.Drawing.Point(5, 329);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(905, 407);
+            this.groupBox11.Size = new System.Drawing.Size(1370, 407);
             this.groupBox11.TabIndex = 1;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "االتعديل على المستخدمين";
             // 
             // groupBox35
             // 
-            this.groupBox35.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox35.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox35.Controls.Add(this.openclose_edit);
             this.groupBox35.Controls.Add(this.personnel_edit);
             this.groupBox35.Controls.Add(this.settings_edit);
@@ -8051,29 +8046,31 @@
             this.groupBox35.Controls.Add(this.customer_card_edit);
             this.groupBox35.Location = new System.Drawing.Point(6, 81);
             this.groupBox35.Name = "groupBox35";
-            this.groupBox35.Size = new System.Drawing.Size(794, 271);
+            this.groupBox35.Size = new System.Drawing.Size(1261, 271);
             this.groupBox35.TabIndex = 27;
             this.groupBox35.TabStop = false;
             this.groupBox35.Text = "الصلاحيات";
             // 
             // openclose_edit
             // 
+            this.openclose_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.openclose_edit.AutoSize = true;
             this.openclose_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.openclose_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.openclose_edit.Location = new System.Drawing.Point(326, 50);
+            this.openclose_edit.Location = new System.Drawing.Point(783, 50);
             this.openclose_edit.Name = "openclose_edit";
             this.openclose_edit.Size = new System.Drawing.Size(159, 28);
             this.openclose_edit.TabIndex = 9;
-            this.openclose_edit.Text = "فتح و اغلاق الكاش";
+            this.openclose_edit.Text = "فتح و إغلاق الكاش";
             this.openclose_edit.UseVisualStyleBackColor = true;
             // 
             // personnel_edit
             // 
+            this.personnel_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.personnel_edit.AutoSize = true;
             this.personnel_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.personnel_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.personnel_edit.Location = new System.Drawing.Point(350, 16);
+            this.personnel_edit.Location = new System.Drawing.Point(807, 16);
             this.personnel_edit.Name = "personnel_edit";
             this.personnel_edit.Size = new System.Drawing.Size(135, 28);
             this.personnel_edit.TabIndex = 8;
@@ -8082,22 +8079,24 @@
             // 
             // settings_edit
             // 
+            this.settings_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.settings_edit.AutoSize = true;
             this.settings_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settings_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.settings_edit.Location = new System.Drawing.Point(649, 240);
+            this.settings_edit.Location = new System.Drawing.Point(1106, 240);
             this.settings_edit.Name = "settings_edit";
             this.settings_edit.Size = new System.Drawing.Size(139, 28);
             this.settings_edit.TabIndex = 7;
-            this.settings_edit.Text = "تعديل الاعدادات";
+            this.settings_edit.Text = "تعديل الإعدادات";
             this.settings_edit.UseVisualStyleBackColor = true;
             // 
             // users_edit
             // 
+            this.users_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.users_edit.AutoSize = true;
             this.users_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.users_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.users_edit.Location = new System.Drawing.Point(637, 208);
+            this.users_edit.Location = new System.Drawing.Point(1094, 208);
             this.users_edit.Name = "users_edit";
             this.users_edit.Size = new System.Drawing.Size(151, 28);
             this.users_edit.TabIndex = 6;
@@ -8106,22 +8105,24 @@
             // 
             // expenses_edit
             // 
+            this.expenses_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.expenses_edit.AutoSize = true;
             this.expenses_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expenses_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.expenses_edit.Location = new System.Drawing.Point(650, 174);
+            this.expenses_edit.Location = new System.Drawing.Point(1107, 174);
             this.expenses_edit.Name = "expenses_edit";
             this.expenses_edit.Size = new System.Drawing.Size(138, 28);
             this.expenses_edit.TabIndex = 5;
-            this.expenses_edit.Text = "اضافة مصاريف";
+            this.expenses_edit.Text = "إضافة مصاريف";
             this.expenses_edit.UseVisualStyleBackColor = true;
             // 
             // inventory_edit
             // 
+            this.inventory_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.inventory_edit.AutoSize = true;
             this.inventory_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inventory_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.inventory_edit.Location = new System.Drawing.Point(653, 140);
+            this.inventory_edit.Location = new System.Drawing.Point(1110, 140);
             this.inventory_edit.Name = "inventory_edit";
             this.inventory_edit.Size = new System.Drawing.Size(135, 28);
             this.inventory_edit.TabIndex = 4;
@@ -8130,10 +8131,11 @@
             // 
             // receipt_edit
             // 
+            this.receipt_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.receipt_edit.AutoSize = true;
             this.receipt_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.receipt_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.receipt_edit.Location = new System.Drawing.Point(550, 106);
+            this.receipt_edit.Location = new System.Drawing.Point(1007, 106);
             this.receipt_edit.Name = "receipt_edit";
             this.receipt_edit.Size = new System.Drawing.Size(238, 28);
             this.receipt_edit.TabIndex = 3;
@@ -8142,10 +8144,11 @@
             // 
             // price_edit
             // 
+            this.price_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.price_edit.AutoSize = true;
             this.price_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.price_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.price_edit.Location = new System.Drawing.Point(676, 79);
+            this.price_edit.Location = new System.Drawing.Point(1133, 79);
             this.price_edit.Name = "price_edit";
             this.price_edit.Size = new System.Drawing.Size(112, 28);
             this.price_edit.TabIndex = 2;
@@ -8154,26 +8157,28 @@
             // 
             // discount_edit
             // 
+            this.discount_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.discount_edit.AutoSize = true;
             this.discount_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.discount_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.discount_edit.Location = new System.Drawing.Point(637, 45);
+            this.discount_edit.Location = new System.Drawing.Point(1094, 45);
             this.discount_edit.Name = "discount_edit";
             this.discount_edit.Size = new System.Drawing.Size(151, 28);
             this.discount_edit.TabIndex = 1;
-            this.discount_edit.Text = "اضافة الخصومات";
+            this.discount_edit.Text = "إضافة الخصومات";
             this.discount_edit.UseVisualStyleBackColor = true;
             // 
             // customer_card_edit
             // 
+            this.customer_card_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.customer_card_edit.AutoSize = true;
             this.customer_card_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_card_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.customer_card_edit.Location = new System.Drawing.Point(529, 19);
+            this.customer_card_edit.Location = new System.Drawing.Point(986, 19);
             this.customer_card_edit.Name = "customer_card_edit";
             this.customer_card_edit.Size = new System.Drawing.Size(259, 28);
             this.customer_card_edit.TabIndex = 0;
-            this.customer_card_edit.Text = "اضافة بطاقة عميل و تعديل المواد";
+            this.customer_card_edit.Text = "إضافة بطاقة عميل و تعديل المواد";
             this.customer_card_edit.UseVisualStyleBackColor = true;
             // 
             // cbAdminOrNotAdd
@@ -8182,13 +8187,12 @@
             this.cbAdminOrNotAdd.AutoSize = true;
             this.cbAdminOrNotAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAdminOrNotAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.cbAdminOrNotAdd.Location = new System.Drawing.Point(36, 43);
+            this.cbAdminOrNotAdd.Location = new System.Drawing.Point(483, 47);
             this.cbAdminOrNotAdd.Name = "cbAdminOrNotAdd";
             this.cbAdminOrNotAdd.Size = new System.Drawing.Size(128, 28);
             this.cbAdminOrNotAdd.TabIndex = 3;
             this.cbAdminOrNotAdd.Text = "حساب إداري؟";
             this.cbAdminOrNotAdd.UseVisualStyleBackColor = true;
-            this.cbAdminOrNotAdd.CheckedChanged += new System.EventHandler(this.cbAdminOrNotAdd_CheckedChanged);
             // 
             // label75
             // 
@@ -8196,7 +8200,7 @@
             this.label75.AutoSize = true;
             this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label75.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label75.Location = new System.Drawing.Point(261, 22);
+            this.label75.Location = new System.Drawing.Point(708, 26);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(129, 24);
             this.label75.TabIndex = 26;
@@ -8207,7 +8211,7 @@
             this.txtUserPasswordAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserPasswordAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserPasswordAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtUserPasswordAdd.Location = new System.Drawing.Point(171, 50);
+            this.txtUserPasswordAdd.Location = new System.Drawing.Point(618, 54);
             this.txtUserPasswordAdd.Name = "txtUserPasswordAdd";
             this.txtUserPasswordAdd.PasswordChar = '*';
             this.txtUserPasswordAdd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -8221,7 +8225,7 @@
             this.label76.AutoSize = true;
             this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label76.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label76.Location = new System.Drawing.Point(507, 23);
+            this.label76.Location = new System.Drawing.Point(954, 27);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(104, 24);
             this.label76.TabIndex = 20;
@@ -8232,7 +8236,7 @@
             this.txtUserIDAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserIDAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserIDAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtUserIDAdd.Location = new System.Drawing.Point(392, 50);
+            this.txtUserIDAdd.Location = new System.Drawing.Point(839, 54);
             this.txtUserIDAdd.Name = "txtUserIDAdd";
             this.txtUserIDAdd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtUserIDAdd.Size = new System.Drawing.Size(215, 20);
@@ -8245,18 +8249,18 @@
             this.label77.AutoSize = true;
             this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label77.Location = new System.Drawing.Point(719, 22);
+            this.label77.Location = new System.Drawing.Point(1170, 26);
             this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(105, 24);
+            this.label77.Size = new System.Drawing.Size(99, 24);
             this.label77.TabIndex = 18;
-            this.label77.Text = "اسم المستخدم ";
+            this.label77.Text = "إسم المستخدم";
             // 
             // txtUserNameAdd
             // 
             this.txtUserNameAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserNameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserNameAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtUserNameAdd.Location = new System.Drawing.Point(613, 49);
+            this.txtUserNameAdd.Location = new System.Drawing.Point(1060, 53);
             this.txtUserNameAdd.Name = "txtUserNameAdd";
             this.txtUserNameAdd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtUserNameAdd.Size = new System.Drawing.Size(207, 20);
@@ -8270,11 +8274,11 @@
             this.button19.Enabled = false;
             this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button19.ForeColor = System.Drawing.Color.White;
-            this.button19.Location = new System.Drawing.Point(806, 219);
+            this.button19.Location = new System.Drawing.Point(1271, 187);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(87, 64);
             this.button19.TabIndex = 6;
-            this.button19.Text = "حذف  مستخدم";
+            this.button19.Text = "حذف مستخدم";
             this.button19.UseVisualStyleBackColor = false;
             this.button19.Click += new System.EventHandler(this.button19_Click);
             // 
@@ -8285,11 +8289,11 @@
             this.button20.Enabled = false;
             this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button20.ForeColor = System.Drawing.Color.White;
-            this.button20.Location = new System.Drawing.Point(806, 149);
+            this.button20.Location = new System.Drawing.Point(1271, 117);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(87, 64);
             this.button20.TabIndex = 5;
-            this.button20.Text = "تحديث  مستخدم";
+            this.button20.Text = "تحديث مستخدم";
             this.button20.UseVisualStyleBackColor = false;
             this.button20.Click += new System.EventHandler(this.button20_Click);
             // 
@@ -8299,11 +8303,11 @@
             this.button22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button22.ForeColor = System.Drawing.Color.White;
-            this.button22.Location = new System.Drawing.Point(806, 81);
+            this.button22.Location = new System.Drawing.Point(1271, 49);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(87, 62);
             this.button22.TabIndex = 4;
-            this.button22.Text = "اضافه مستخدم";
+            this.button22.Text = "إضافه مستخدم";
             this.button22.UseVisualStyleBackColor = false;
             this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
@@ -8321,7 +8325,7 @@
             this.UserAuthority});
             this.dgvUsers.Location = new System.Drawing.Point(5, 49);
             this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.Size = new System.Drawing.Size(899, 210);
+            this.dgvUsers.Size = new System.Drawing.Size(1369, 265);
             this.dgvUsers.TabIndex = 0;
             this.dgvUsers.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvUsers_RowHeaderMouseClick);
             // 
@@ -8359,136 +8363,13 @@
             this.pictureBox16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox16.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox16.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox16.Location = new System.Drawing.Point(862, 19);
+            this.pictureBox16.Location = new System.Drawing.Point(1332, 19);
             this.pictureBox16.Name = "pictureBox16";
             this.pictureBox16.Size = new System.Drawing.Size(36, 27);
             this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox16.TabIndex = 26;
             this.pictureBox16.TabStop = false;
             this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click_1);
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox9.BackColor = System.Drawing.Color.White;
-            this.groupBox9.Controls.Add(this.adminCheckBox);
-            this.groupBox9.Controls.Add(this.BtnRegister);
-            this.groupBox9.Controls.Add(this.label72);
-            this.groupBox9.Controls.Add(this.txtFname);
-            this.groupBox9.Controls.Add(this.label73);
-            this.groupBox9.Controls.Add(this.label74);
-            this.groupBox9.Controls.Add(this.txtPWD);
-            this.groupBox9.Controls.Add(this.txtUID);
-            this.groupBox9.ForeColor = System.Drawing.Color.Black;
-            this.groupBox9.Location = new System.Drawing.Point(919, 3);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(464, 681);
-            this.groupBox9.TabIndex = 0;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "تسجيل المستخدمين";
-            // 
-            // adminCheckBox
-            // 
-            this.adminCheckBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.adminCheckBox.AutoSize = true;
-            this.adminCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.adminCheckBox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.adminCheckBox.Location = new System.Drawing.Point(279, 312);
-            this.adminCheckBox.Name = "adminCheckBox";
-            this.adminCheckBox.Size = new System.Drawing.Size(128, 28);
-            this.adminCheckBox.TabIndex = 3;
-            this.adminCheckBox.Text = "حساب إداري؟";
-            this.adminCheckBox.UseVisualStyleBackColor = true;
-            this.adminCheckBox.CheckedChanged += new System.EventHandler(this.adminCheckBox_CheckedChanged);
-            // 
-            // BtnRegister
-            // 
-            this.BtnRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BtnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRegister.ForeColor = System.Drawing.Color.White;
-            this.BtnRegister.Location = new System.Drawing.Point(44, 346);
-            this.BtnRegister.Name = "BtnRegister";
-            this.BtnRegister.Size = new System.Drawing.Size(394, 49);
-            this.BtnRegister.TabIndex = 4;
-            this.BtnRegister.Text = "التسجيل";
-            this.BtnRegister.UseVisualStyleBackColor = false;
-            this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
-            // 
-            // label72
-            // 
-            this.label72.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label72.AutoSize = true;
-            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label72.Location = new System.Drawing.Point(345, 221);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(99, 24);
-            this.label72.TabIndex = 23;
-            this.label72.Text = "اسم المستخدم";
-            // 
-            // txtFname
-            // 
-            this.txtFname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFname.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtFname.Location = new System.Drawing.Point(44, 248);
-            this.txtFname.Name = "txtFname";
-            this.txtFname.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtFname.Size = new System.Drawing.Size(397, 20);
-            this.txtFname.TabIndex = 2;
-            this.txtFname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFname_KeyPress);
-            // 
-            // label73
-            // 
-            this.label73.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label73.AutoSize = true;
-            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label73.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label73.Location = new System.Drawing.Point(345, 120);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(100, 24);
-            this.label73.TabIndex = 21;
-            this.label73.Text = "الكلمه السريه";
-            // 
-            // label74
-            // 
-            this.label74.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label74.AutoSize = true;
-            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label74.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label74.Location = new System.Drawing.Point(344, 31);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(104, 24);
-            this.label74.TabIndex = 20;
-            this.label74.Text = "رمز المستخدم";
-            // 
-            // txtPWD
-            // 
-            this.txtPWD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPWD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPWD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtPWD.Location = new System.Drawing.Point(44, 147);
-            this.txtPWD.Name = "txtPWD";
-            this.txtPWD.PasswordChar = '*';
-            this.txtPWD.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPWD.Size = new System.Drawing.Size(397, 20);
-            this.txtPWD.TabIndex = 1;
-            this.txtPWD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPWD_KeyPress);
-            // 
-            // txtUID
-            // 
-            this.txtUID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtUID.Location = new System.Drawing.Point(47, 58);
-            this.txtUID.Name = "txtUID";
-            this.txtUID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtUID.Size = new System.Drawing.Size(397, 20);
-            this.txtUID.TabIndex = 0;
-            this.txtUID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUID_KeyPress);
             // 
             // Settings
             // 
@@ -8498,7 +8379,7 @@
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(1386, 692);
             this.Settings.TabIndex = 6;
-            this.Settings.Text = "الااعدادات";
+            this.Settings.Text = "الإعدادات";
             // 
             // groupBox24
             // 
@@ -8521,7 +8402,7 @@
             this.groupBox24.Size = new System.Drawing.Size(236, 689);
             this.groupBox24.TabIndex = 6;
             this.groupBox24.TabStop = false;
-            this.groupBox24.Text = "اعدادات البرمجيه";
+            this.groupBox24.Text = "إعدادات البرمجيه";
             // 
             // groupBox2
             // 
@@ -8572,7 +8453,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 39);
             this.button1.TabIndex = 2;
-            this.button1.Text = "حفظ";
+            this.button1.Text = "حفظ الإعدادات";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -8628,7 +8509,7 @@
             // receiptSpacingnud
             // 
             this.receiptSpacingnud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.receiptSpacingnud.Location = new System.Drawing.Point(35, 219);
+            this.receiptSpacingnud.Location = new System.Drawing.Point(33, 219);
             this.receiptSpacingnud.Maximum = new decimal(new int[] {
             -159383553,
             46653770,
@@ -8640,7 +8521,7 @@
             542101,
             -2147483648});
             this.receiptSpacingnud.Name = "receiptSpacingnud";
-            this.receiptSpacingnud.Size = new System.Drawing.Size(173, 22);
+            this.receiptSpacingnud.Size = new System.Drawing.Size(182, 22);
             this.receiptSpacingnud.TabIndex = 32;
             // 
             // label114
@@ -8707,7 +8588,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 24);
             this.label1.TabIndex = 27;
-            this.label1.Text = "اسم الطابعه";
+            this.label1.Text = "إسم الطابعه";
             // 
             // A
             // 
@@ -8719,7 +8600,7 @@
             this.A.Name = "A";
             this.A.Size = new System.Drawing.Size(84, 24);
             this.A.TabIndex = 3;
-            this.A.Text = "اسم المتجر";
+            this.A.Text = "إسم المتجر";
             // 
             // Retrievals
             // 
@@ -8901,6 +8782,54 @@
             this.updateSystem.Enabled = true;
             this.updateSystem.Interval = 60000;
             this.updateSystem.Tick += new System.EventHandler(this.updateSystem_Tick);
+            // 
+            // PlancksoftPOS
+            // 
+            this.PlancksoftPOS.ContextMenuStrip = this.Menu;
+            this.PlancksoftPOS.Icon = ((System.Drawing.Icon)(resources.GetObject("PlancksoftPOS.Icon")));
+            this.PlancksoftPOS.Text = "PlancksoftPOS";
+            this.PlancksoftPOS.Visible = true;
+            // 
+            // Menu
+            // 
+            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.اللغةToolStripMenuItem,
+            this.الخروجToolStripMenuItem});
+            this.Menu.Name = "Menu";
+            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Menu.Size = new System.Drawing.Size(107, 48);
+            // 
+            // اللغةToolStripMenuItem
+            // 
+            this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.العربيةToolStripMenuItem,
+            this.englishToolStripMenuItem});
+            this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
+            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.اللغةToolStripMenuItem.Text = "اللغة";
+            // 
+            // العربيةToolStripMenuItem
+            // 
+            this.العربيةToolStripMenuItem.CheckOnClick = true;
+            this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
+            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.العربيةToolStripMenuItem.Text = "العربية";
+            this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.CheckOnClick = true;
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.englishToolStripMenuItem.Text = "English";
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            // 
+            // الخروجToolStripMenuItem
+            // 
+            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
+            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.الخروجToolStripMenuItem.Text = "الخروج";
+            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
             // 
             // frmMain
             // 
@@ -9168,8 +9097,6 @@
             this.groupBox35.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
             this.Settings.ResumeLayout(false);
             this.groupBox24.ResumeLayout(false);
             this.groupBox24.PerformLayout();
@@ -9186,6 +9113,7 @@
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -9240,15 +9168,6 @@
         public System.Windows.Forms.Label label70;
         public System.Windows.Forms.Label cashierNameLbl;
         public System.Windows.Forms.Label label71;
-        public System.Windows.Forms.GroupBox groupBox9;
-        public System.Windows.Forms.Label label72;
-        public System.Windows.Forms.TextBox txtFname;
-        public System.Windows.Forms.Label label73;
-        public System.Windows.Forms.Label label74;
-        public System.Windows.Forms.TextBox txtPWD;
-        public System.Windows.Forms.TextBox txtUID;
-        public System.Windows.Forms.Button BtnRegister;
-        public System.Windows.Forms.CheckBox adminCheckBox;
         public System.Windows.Forms.GroupBox groupBox10;
         public System.Windows.Forms.DataGridView dgvUsers;
         public System.Windows.Forms.GroupBox groupBox11;
@@ -9791,13 +9710,6 @@
         public System.Windows.Forms.DataGridViewTextBoxColumn VendorItemBuyPrice;
         public System.Windows.Forms.DataGridViewTextBoxColumn VendorItemSellPrice;
         public System.Windows.Forms.DataGridViewTextBoxColumn VendorItemSellPriceTax;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column48;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column49;
-        public System.Windows.Forms.DataGridViewTextBoxColumn ItemPriceTax;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         public System.Windows.Forms.Label label116;
         public System.Windows.Forms.Label label115;
         public System.Windows.Forms.PictureBox pictureBox35;
@@ -9822,6 +9734,19 @@
         private System.Windows.Forms.Timer lastBillNumberUpdaterTimer;
         private System.Windows.Forms.Timer updateSystem;
         private System.Windows.Forms.CheckBox IncludeLogoReceipt;
+        private System.Windows.Forms.NotifyIcon PlancksoftPOS;
+        private System.Windows.Forms.ContextMenuStrip Menu;
+        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column48;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column49;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ItemPriceTax;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemBarCode;
