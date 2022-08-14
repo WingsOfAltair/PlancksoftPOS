@@ -1,0 +1,6 @@
+C:\Users\basha\source\repos\Supermarket License Generator\Supermarket License Generator\bin\Debug\Supermarket.exe.config
+C:\Users\basha\source\repos\Supermarket License Generator\Supermarket License Generator\bin\Debug\Supermarket.exe
+C:\Users\basha\source\repos\Supermarket License Generator\Supermarket License Generator\bin\Debug\Supermarket.pdb
+C:\Users\basha\source\repos\Supermarket License Generator\Supermarket License Generator\obj\Debug\Supermarket.csproj.CoreCompileInputs.cache
+C:\Users\basha\source\repos\Supermarket License Generator\Supermarket License Generator\obj\Debug\Supermarket.exe
+C:\Users\basha\source\repos\Supermarket License Generator\Supermarket License Generator\obj\Debug\Supermarket.pdb

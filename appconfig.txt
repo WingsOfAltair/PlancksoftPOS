@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<configuration>
+    <configSections>
+        <sectionGroup name="userSettings" type="System.Configuration.UserSettingsGroup, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+            <section name="NeatVibezPOS.Properties.Settings" type="System.Configuration.ClientSettingsSection, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" allowExeDefinition="MachineToLocalUser" requirePermission="false"/>
+        </sectionGroup>
+    </configSections>
+    <userSettings>
+        <NeatVibezPOS.Properties.Settings>
+            <setting name="RegisterOpen" serializeAs="String">
+                <value>False</value>
+            </setting>
+            <setting name="LicenseKey" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="LicenseExpiration" serializeAs="String">
+                <value />
+            </setting>
+            <setting name="moneyInRegister" serializeAs="String">
+                <value>0</value>
+            </setting>
+            <setting name="moneyInRegisterInitial" serializeAs="String">
+                <value>0</value>
+            </setting>
+        </NeatVibezPOS.Properties.Settings>
+    </userSettings>
+<startup><supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.8"/></startup>
+    <system.serviceModel>
+        <bindings>
+            <basicHttpBinding>
+                <binding name="BasicHttpBinding_INeatVibez_Server" maxBufferPoolSize="2147483647"
+                    maxReceivedMessageSize="2147483647" />
+            </basicHttpBinding>
+        </bindings>
+        <client>
+            <endpoint address="http://192.168.1.39/NeatVibezPOS_Server/NeatVibez Server.svc"
+                binding="basicHttpBinding" bindingConfiguration="BasicHttpBinding_INeatVibez_Server"
+                contract="NeatVibez_Server.INeatVibez_Server" name="BasicHttpBinding_INeatVibez_Server" />
+        </client>
+    </system.serviceModel>
+</configuration>

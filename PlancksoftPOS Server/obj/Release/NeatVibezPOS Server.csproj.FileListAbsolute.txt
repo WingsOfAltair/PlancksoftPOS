@@ -1,0 +1,12 @@
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\bin\NeatVibezPOS Server.dll.config
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\bin\NeatVibezPOS Server.dll
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\bin\NeatVibezPOS Server.pdb
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\bin\DataAccessLayer.dll
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\bin\DataAccessLayer.pdb
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\obj\Release\NeatVibezPOS Server.csproj.AssemblyReference.cache
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\obj\Release\NeatVibezPOS Server.csproj.CoreCompileInputs.cache
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\obj\Release\NeatVibezPOS Server.csproj.CopyComplete
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\obj\Release\NeatVibezPOS Server.dll
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\obj\Release\NeatVibezPOS Server.pdb
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\bin\Dependencies.dll
+C:\Users\basha\Desktop\NeatVibezPOS\NeatVibezPOS Server\bin\Dependencies.pdb

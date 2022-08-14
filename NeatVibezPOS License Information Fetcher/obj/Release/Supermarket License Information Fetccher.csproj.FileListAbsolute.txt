@@ -1,7 +1,0 @@
-D:\Projects\Supermarket\Supermarket License Information Fetccher\bin\Release\Supermarket License Information Fetccher.exe.config
-D:\Projects\Supermarket\Supermarket License Information Fetccher\bin\Release\Supermarket License Information Fetccher.exe
-D:\Projects\Supermarket\Supermarket License Information Fetccher\bin\Release\Supermarket License Information Fetccher.pdb
-D:\Projects\Supermarket\Supermarket License Information Fetccher\obj\Release\Supermarket License Information Fetccher.csprojAssemblyReference.cache
-D:\Projects\Supermarket\Supermarket License Information Fetccher\obj\Release\Supermarket License Information Fetccher.csproj.CoreCompileInputs.cache
-D:\Projects\Supermarket\Supermarket License Information Fetccher\obj\Release\Supermarket License Information Fetccher.exe
-D:\Projects\Supermarket\Supermarket License Information Fetccher\obj\Release\Supermarket License Information Fetccher.pdb
