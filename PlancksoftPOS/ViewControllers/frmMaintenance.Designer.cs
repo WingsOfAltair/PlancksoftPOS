@@ -62,7 +62,7 @@ namespace PlancksoftPOS
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(629, 48);
+            this.button1.Location = new System.Drawing.Point(631, 118);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 48);
             this.button1.TabIndex = 4;
@@ -85,7 +85,7 @@ namespace PlancksoftPOS
             // 
             this.label3.AutoSize = true;
             this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Location = new System.Drawing.Point(295, 107);
+            this.label3.Location = new System.Drawing.Point(33, 96);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label3.Size = new System.Drawing.Size(178, 24);
@@ -97,7 +97,7 @@ namespace PlancksoftPOS
             // 
             this.label2.AutoSize = true;
             this.label2.ForeColor = System.Drawing.Color.Khaki;
-            this.label2.Location = new System.Drawing.Point(184, 72);
+            this.label2.Location = new System.Drawing.Point(37, 72);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(382, 24);
@@ -109,7 +109,7 @@ namespace PlancksoftPOS
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.Color.Khaki;
-            this.label1.Location = new System.Drawing.Point(161, 48);
+            this.label1.Location = new System.Drawing.Point(14, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(418, 24);
             this.label1.TabIndex = 0;
@@ -138,7 +138,7 @@ namespace PlancksoftPOS
             // 
             this.العربيةToolStripMenuItem.CheckOnClick = true;
             this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
-            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.العربيةToolStripMenuItem.Text = "العربية";
             this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
             // 
@@ -146,7 +146,7 @@ namespace PlancksoftPOS
             // 
             this.englishToolStripMenuItem.CheckOnClick = true;
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.englishToolStripMenuItem.Text = "English";
             this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
             // 
