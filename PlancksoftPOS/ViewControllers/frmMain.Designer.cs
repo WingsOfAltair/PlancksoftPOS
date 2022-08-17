@@ -25,14 +25,14 @@
         public void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ادارةالمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اضافةمادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,29 +50,18 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pnlOpenCloseCash = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.openRegisterBtn = new System.Windows.Forms.PictureBox();
-            this.closeRegisterBtn = new System.Windows.Forms.PictureBox();
             this.label65 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.groupBox4 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox25 = new System.Windows.Forms.PictureBox();
-            this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.label93 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
-            this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.pictureBox12 = new System.Windows.Forms.PictureBox();
             this.label68 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox26 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label89 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox37 = new System.Windows.Forms.PictureBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.pictureBox14 = new System.Windows.Forms.PictureBox();
-            this.pictureBox13 = new System.Windows.Forms.PictureBox();
             this.label70 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.pendingPurchaseNewPriceTax = new System.Windows.Forms.NumericUpDown();
@@ -104,7 +93,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label71 = new System.Windows.Forms.Label();
             this.dateTimeLbl = new System.Windows.Forms.Label();
-            this.picLogo = new System.Windows.Forms.PictureBox();
             this.label45 = new System.Windows.Forms.Label();
             this.cashierNameLbl = new System.Windows.Forms.Label();
             this.Sales = new System.Windows.Forms.TabPage();
@@ -121,7 +109,6 @@
             this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new System.Windows.Forms.Panel();
             this.button25 = new System.Windows.Forms.Button();
-            this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.button18 = new System.Windows.Forms.Button();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.panel7 = new System.Windows.Forms.Panel();
@@ -134,9 +121,7 @@
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.pictureBox17 = new System.Windows.Forms.PictureBox();
             this.button26 = new System.Windows.Forms.Button();
-            this.pictureBox18 = new System.Windows.Forms.PictureBox();
             this.groupBox13 = new System.Windows.Forms.GroupBox();
             this.nudBillNumberSearch = new System.Windows.Forms.NumericUpDown();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -144,7 +129,6 @@
             this.label85 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label87 = new System.Windows.Forms.Label();
-            this.pictureBox19 = new System.Windows.Forms.PictureBox();
             this.EditInvoices = new System.Windows.Forms.TabPage();
             this.groupBox30 = new System.Windows.Forms.GroupBox();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -168,8 +152,6 @@
             this.label10 = new System.Windows.Forms.Label();
             this.BillsPaidAmount = new System.Windows.Forms.NumericUpDown();
             this.panel10 = new System.Windows.Forms.Panel();
-            this.pictureBox32 = new System.Windows.Forms.PictureBox();
-            this.pictureBox31 = new System.Windows.Forms.PictureBox();
             this.groupBox29 = new System.Windows.Forms.GroupBox();
             this.nudBillNumberEdit = new System.Windows.Forms.NumericUpDown();
             this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
@@ -177,7 +159,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.pictureBox28 = new System.Windows.Forms.PictureBox();
             this.TravelingUntravelingSales = new System.Windows.Forms.TabPage();
             this.groupBox26 = new System.Windows.Forms.GroupBox();
             this.panel16 = new System.Windows.Forms.Panel();
@@ -190,8 +171,6 @@
             this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalPorted = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.groupBox25 = new System.Windows.Forms.GroupBox();
             this.panel14 = new System.Windows.Forms.Panel();
             this.dgvUnPortedSales = new System.Windows.Forms.DataGridView();
@@ -203,8 +182,6 @@
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalUnPorted = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel13 = new System.Windows.Forms.Panel();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.SoldItems = new System.Windows.Forms.TabPage();
             this.groupBox28 = new System.Windows.Forms.GroupBox();
             this.label38 = new System.Windows.Forms.Label();
@@ -215,7 +192,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox30 = new System.Windows.Forms.PictureBox();
             this.groupBox27 = new System.Windows.Forms.GroupBox();
             this.dgvItemProfit = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -225,7 +201,6 @@
             this.ItemPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox29 = new System.Windows.Forms.PictureBox();
             this.Inventory = new System.Windows.Forms.TabPage();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.tabControl6 = new System.Windows.Forms.TabControl();
@@ -251,8 +226,6 @@
             this.BtnDeleteItem = new System.Windows.Forms.Button();
             this.BtnAddItem = new System.Windows.Forms.Button();
             this.BtnUpdateItem = new System.Windows.Forms.Button();
-            this.BtnPrint = new System.Windows.Forms.PictureBox();
-            this.pictureBox99 = new System.Windows.Forms.PictureBox();
             this.groupBox36 = new System.Windows.Forms.GroupBox();
             this.ItemType = new System.Windows.Forms.ComboBox();
             this.ProductionDate = new System.Windows.Forms.DateTimePicker();
@@ -279,7 +252,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.FavoriteCategories = new System.Windows.Forms.ComboBox();
             this.nudItemBuyPrice = new System.Windows.Forms.NumericUpDown();
-            this.PBAddProfilePicture = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.nudItemBarCodeSearch = new System.Windows.Forms.TextBox();
@@ -297,7 +269,6 @@
             this.label47 = new System.Windows.Forms.Label();
             this.button13 = new System.Windows.Forms.Button();
             this.groupBox46 = new System.Windows.Forms.GroupBox();
-            this.pictureBox47 = new System.Windows.Forms.PictureBox();
             this.dgvWarehouseInventory = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -349,24 +320,20 @@
             this.label29 = new System.Windows.Forms.Label();
             this.ItemTypeEntry = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.pictureBox39 = new System.Windows.Forms.PictureBox();
             this.AddFavorites = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.label22 = new System.Windows.Forms.Label();
             this.FavoriteCategoryEntry = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.pictureBox36 = new System.Windows.Forms.PictureBox();
             this.AddWarehouses = new System.Windows.Forms.TabPage();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.label26 = new System.Windows.Forms.Label();
             this.WarehouseEntry = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.pictureBox38 = new System.Windows.Forms.PictureBox();
             this.Expenses = new System.Windows.Forms.TabPage();
             this.tabControl5 = new System.Windows.Forms.TabControl();
             this.SearchExpenses = new System.Windows.Forms.TabPage();
             this.groupBox31 = new System.Windows.Forms.GroupBox();
-            this.pictureBox34 = new System.Windows.Forms.PictureBox();
             this.dgvExpenses = new System.Windows.Forms.DataGridView();
             this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -383,7 +350,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.dateTimePicker8 = new System.Windows.Forms.DateTimePicker();
             this.label15 = new System.Windows.Forms.Label();
-            this.pictureBox33 = new System.Windows.Forms.PictureBox();
             this.AddExpenses = new System.Windows.Forms.TabPage();
             this.groupBox33 = new System.Windows.Forms.GroupBox();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
@@ -401,17 +367,11 @@
             this.dvgCapital = new System.Windows.Forms.DataGridView();
             this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox27 = new System.Windows.Forms.PictureBox();
-            this.pictureBox24 = new System.Windows.Forms.PictureBox();
             this.groupBox20 = new System.Windows.Forms.GroupBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.pictureBox23 = new System.Windows.Forms.PictureBox();
             this.dgvImports = new System.Windows.Forms.DataGridView();
             this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox22 = new System.Windows.Forms.PictureBox();
             this.dgvExports = new System.Windows.Forms.DataGridView();
             this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -447,7 +407,6 @@
             this.Column62 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBox52 = new System.Windows.Forms.GroupBox();
             this.label105 = new System.Windows.Forms.Label();
             this.AddEmployeeAddress = new System.Windows.Forms.TextBox();
@@ -470,8 +429,6 @@
             this.Column59 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column60 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column61 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox48 = new System.Windows.Forms.PictureBox();
-            this.pictureBox43 = new System.Windows.Forms.PictureBox();
             this.Agents = new System.Windows.Forms.TabPage();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.AgentsDefinitions = new System.Windows.Forms.TabPage();
@@ -483,7 +440,6 @@
             this.CustomerIDDelete = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.CustomerAddress = new System.Windows.Forms.TextBox();
             this.CustomerPhone = new System.Windows.Forms.TextBox();
@@ -511,7 +467,6 @@
             this.label86 = new System.Windows.Forms.Label();
             this.label81 = new System.Windows.Forms.Label();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
-            this.pictureBox40 = new System.Windows.Forms.PictureBox();
             this.DGVCustomerItems = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -533,7 +488,6 @@
             this.VendorCustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VendorCustomerPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VendorCustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox42 = new System.Windows.Forms.PictureBox();
             this.groupBox40 = new System.Windows.Forms.GroupBox();
             this.VendorAddress = new System.Windows.Forms.TextBox();
             this.VendorPhone = new System.Windows.Forms.TextBox();
@@ -563,7 +517,6 @@
             this.label43 = new System.Windows.Forms.Label();
             this.ImporterBalanceChecks = new System.Windows.Forms.TabPage();
             this.groupBox42 = new System.Windows.Forms.GroupBox();
-            this.pictureBox35 = new System.Windows.Forms.PictureBox();
             this.dgvVendorBillItems = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -575,7 +528,6 @@
             this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VendorBillDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox45 = new System.Windows.Forms.PictureBox();
             this.Alerts = new System.Windows.Forms.TabPage();
             this.groupBox37 = new System.Windows.Forms.GroupBox();
             this.dgvAlerts = new System.Windows.Forms.DataGridView();
@@ -585,13 +537,10 @@
             this.Column45 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column47 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox41 = new System.Windows.Forms.PictureBox();
             this.Taxes = new System.Windows.Forms.TabPage();
             this.tabControl7 = new System.Windows.Forms.TabControl();
             this.TaxZReport = new System.Windows.Forms.TabPage();
             this.groupBox44 = new System.Windows.Forms.GroupBox();
-            this.pictureBox46 = new System.Windows.Forms.PictureBox();
-            this.pictureBox44 = new System.Windows.Forms.PictureBox();
             this.dgvTaxZReport = new System.Windows.Forms.DataGridView();
             this.Column50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -628,12 +577,10 @@
             this.UserID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserPassword = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UserAuthority = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.Settings = new System.Windows.Forms.TabPage();
             this.groupBox24 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button29 = new System.Windows.Forms.Button();
-            this.picLogoStore = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.nudTaxRate = new System.Windows.Forms.NumericUpDown();
@@ -655,11 +602,9 @@
             this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pictureBox49 = new System.Windows.Forms.PictureBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button27 = new System.Windows.Forms.Button();
             this.button21 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.timeDateTimer = new System.Windows.Forms.Timer(this.components);
             this.itemBarCodeEntryTimer = new System.Windows.Forms.Timer(this.components);
@@ -672,6 +617,61 @@
             this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.openRegisterBtn = new System.Windows.Forms.PictureBox();
+            this.closeRegisterBtn = new System.Windows.Forms.PictureBox();
+            this.pictureBox25 = new System.Windows.Forms.PictureBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox26 = new System.Windows.Forms.PictureBox();
+            this.pictureBox37 = new System.Windows.Forms.PictureBox();
+            this.pictureBox14 = new System.Windows.Forms.PictureBox();
+            this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.picLogo = new System.Windows.Forms.PictureBox();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.pictureBox32 = new System.Windows.Forms.PictureBox();
+            this.pictureBox31 = new System.Windows.Forms.PictureBox();
+            this.pictureBox28 = new System.Windows.Forms.PictureBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox30 = new System.Windows.Forms.PictureBox();
+            this.pictureBox29 = new System.Windows.Forms.PictureBox();
+            this.BtnPrint = new System.Windows.Forms.PictureBox();
+            this.pictureBox99 = new System.Windows.Forms.PictureBox();
+            this.PBAddProfilePicture = new System.Windows.Forms.PictureBox();
+            this.pictureBox47 = new System.Windows.Forms.PictureBox();
+            this.pictureBox39 = new System.Windows.Forms.PictureBox();
+            this.pictureBox36 = new System.Windows.Forms.PictureBox();
+            this.pictureBox38 = new System.Windows.Forms.PictureBox();
+            this.pictureBox34 = new System.Windows.Forms.PictureBox();
+            this.pictureBox33 = new System.Windows.Forms.PictureBox();
+            this.pictureBox27 = new System.Windows.Forms.PictureBox();
+            this.pictureBox24 = new System.Windows.Forms.PictureBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.pictureBox23 = new System.Windows.Forms.PictureBox();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.pictureBox22 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pictureBox48 = new System.Windows.Forms.PictureBox();
+            this.pictureBox43 = new System.Windows.Forms.PictureBox();
+            this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            this.pictureBox40 = new System.Windows.Forms.PictureBox();
+            this.pictureBox42 = new System.Windows.Forms.PictureBox();
+            this.pictureBox35 = new System.Windows.Forms.PictureBox();
+            this.pictureBox45 = new System.Windows.Forms.PictureBox();
+            this.pictureBox41 = new System.Windows.Forms.PictureBox();
+            this.pictureBox46 = new System.Windows.Forms.PictureBox();
+            this.pictureBox44 = new System.Windows.Forms.PictureBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.picLogoStore = new System.Windows.Forms.PictureBox();
+            this.pictureBox49 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -679,19 +679,8 @@
             this.groupBox1.SuspendLayout();
             this.pnlOpenCloseCash.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.openRegisterBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeRegisterBtn)).BeginInit();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pendingPurchaseNewPriceTax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pendingPurchaseNewPrice)).BeginInit();
             this.groupBox3.SuspendLayout();
@@ -701,7 +690,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pendingPurchaseNewQuantity)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.Sales.SuspendLayout();
             this.tabControl4.SuspendLayout();
             this.InvoicesSales.SuspendLayout();
@@ -709,16 +697,12 @@
             this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillItems)).BeginInit();
             this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             this.groupBox12.SuspendLayout();
             this.panel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
             this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
             this.groupBox13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudBillNumberSearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
             this.EditInvoices.SuspendLayout();
             this.groupBox30.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -729,30 +713,21 @@
             ((System.ComponentModel.ISupportInitialize)(this.BillsTotalAmount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BillsPaidAmount)).BeginInit();
             this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
             this.groupBox29.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudBillNumberEdit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
             this.TravelingUntravelingSales.SuspendLayout();
             this.groupBox26.SuspendLayout();
             this.panel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPortedSales)).BeginInit();
             this.panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             this.groupBox25.SuspendLayout();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnPortedSales)).BeginInit();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SoldItems.SuspendLayout();
             this.groupBox28.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
             this.groupBox27.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemProfit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
             this.Inventory.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.tabControl6.SuspendLayout();
@@ -761,20 +736,16 @@
             this.panel17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvInventory)).BeginInit();
             this.panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnPrint)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox99)).BeginInit();
             this.groupBox36.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QuantityWarning)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudItemQuantity)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuditemPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuditemPriceTax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudItemBuyPrice)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBAddProfilePicture)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.InventoryQuantify.SuspendLayout();
             this.groupBox45.SuspendLayout();
             this.groupBox46.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox47)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWarehouseInventory)).BeginInit();
             this.IncomingOutgoingItems.SuspendLayout();
             this.groupBox48.SuspendLayout();
@@ -784,37 +755,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.EntryExitItemQuantity)).BeginInit();
             this.AddTypes.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).BeginInit();
             this.AddFavorites.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).BeginInit();
             this.AddWarehouses.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).BeginInit();
             this.Expenses.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.SearchExpenses.SuspendLayout();
             this.groupBox31.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpenses)).BeginInit();
             this.groupBox22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CapitalAmountnud)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
             this.AddExpenses.SuspendLayout();
             this.groupBox33.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.IncomingOutgoing.SuspendLayout();
             this.groupBox21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCapital)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
             this.groupBox20.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImports)).BeginInit();
             this.groupBox19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExports)).BeginInit();
             this.Employees.SuspendLayout();
             this.tabControl8.SuspendLayout();
@@ -824,21 +784,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.SalaryDeduction)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditEmployeeSalary)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox52.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddEmployeeSalary)).BeginInit();
             this.DaysOff.SuspendLayout();
             this.groupBox51.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbsence)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox48)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).BeginInit();
             this.Agents.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.AgentsDefinitions.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.groupBox16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             this.groupBox17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerID)).BeginInit();
             this.AgentsItemsDefinitions.SuspendLayout();
@@ -849,13 +805,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.SellPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BuyPrice)).BeginInit();
             this.groupBox23.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCustomerItems)).BeginInit();
             this.ImporterDefinitions.SuspendLayout();
             this.groupBox39.SuspendLayout();
             this.groupBox38.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendors)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).BeginInit();
             this.groupBox40.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VendorID)).BeginInit();
             this.AddImporterInvoices.SuspendLayout();
@@ -864,42 +818,88 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.ImporterBalanceChecks.SuspendLayout();
             this.groupBox42.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendorBillItems)).BeginInit();
             this.groupBox43.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendorBills)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox45)).BeginInit();
             this.Alerts.SuspendLayout();
             this.groupBox37.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlerts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox41)).BeginInit();
             this.Taxes.SuspendLayout();
             this.tabControl7.SuspendLayout();
             this.TaxZReport.SuspendLayout();
             this.groupBox44.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox46)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxZReport)).BeginInit();
             this.posUsers.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox35.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.Settings.SuspendLayout();
             this.groupBox24.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogoStore)).BeginInit();
             this.groupBox18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTaxRate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.receiptSpacingnud)).BeginInit();
             this.Retrievals.SuspendLayout();
             this.groupBox47.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnedItems)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).BeginInit();
             this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openRegisterBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeRegisterBtn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnPrint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox99)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBAddProfilePicture)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox47)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox48)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox45)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox41)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox46)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoStore)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -912,7 +912,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.menuStrip1.Size = new System.Drawing.Size(1394, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1386, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -993,7 +993,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1394, 730);
+            this.tabControl1.Size = new System.Drawing.Size(1386, 730);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
@@ -1007,7 +1007,7 @@
             this.Cash.Location = new System.Drawing.Point(4, 34);
             this.Cash.Name = "Cash";
             this.Cash.Padding = new System.Windows.Forms.Padding(3);
-            this.Cash.Size = new System.Drawing.Size(1386, 692);
+            this.Cash.Size = new System.Drawing.Size(1378, 692);
             this.Cash.TabIndex = 0;
             this.Cash.Text = "الكاش";
             this.Cash.UseVisualStyleBackColor = true;
@@ -1062,7 +1062,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1380, 686);
+            this.groupBox1.Size = new System.Drawing.Size(1372, 686);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -1074,7 +1074,7 @@
             this.pnlOpenCloseCash.Controls.Add(this.tabControl2);
             this.pnlOpenCloseCash.Location = new System.Drawing.Point(6, 21);
             this.pnlOpenCloseCash.Name = "pnlOpenCloseCash";
-            this.pnlOpenCloseCash.Size = new System.Drawing.Size(359, 659);
+            this.pnlOpenCloseCash.Size = new System.Drawing.Size(487, 659);
             this.pnlOpenCloseCash.TabIndex = 45;
             // 
             // panel3
@@ -1087,37 +1087,8 @@
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
             this.panel3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.panel3.Size = new System.Drawing.Size(359, 123);
+            this.panel3.Size = new System.Drawing.Size(487, 123);
             this.panel3.TabIndex = 38;
-            // 
-            // openRegisterBtn
-            // 
-            this.openRegisterBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.openRegisterBtn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.openRegisterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.openRegisterBtn.Image = ((System.Drawing.Image)(resources.GetObject("openRegisterBtn.Image")));
-            this.openRegisterBtn.Location = new System.Drawing.Point(13, 13);
-            this.openRegisterBtn.Name = "openRegisterBtn";
-            this.openRegisterBtn.Size = new System.Drawing.Size(100, 69);
-            this.openRegisterBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.openRegisterBtn.TabIndex = 34;
-            this.openRegisterBtn.TabStop = false;
-            this.openRegisterBtn.Click += new System.EventHandler(this.pictureBox15_Click);
-            // 
-            // closeRegisterBtn
-            // 
-            this.closeRegisterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeRegisterBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.closeRegisterBtn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.closeRegisterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.closeRegisterBtn.Image = ((System.Drawing.Image)(resources.GetObject("closeRegisterBtn.Image")));
-            this.closeRegisterBtn.Location = new System.Drawing.Point(200, 13);
-            this.closeRegisterBtn.Name = "closeRegisterBtn";
-            this.closeRegisterBtn.Size = new System.Drawing.Size(100, 69);
-            this.closeRegisterBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.closeRegisterBtn.TabIndex = 35;
-            this.closeRegisterBtn.TabStop = false;
-            this.closeRegisterBtn.Click += new System.EventHandler(this.pictureBox16_Click);
             // 
             // label65
             // 
@@ -1141,7 +1112,7 @@
             this.label66.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label66.ForeColor = System.Drawing.Color.White;
-            this.label66.Location = new System.Drawing.Point(180, 85);
+            this.label66.Location = new System.Drawing.Point(346, 85);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(138, 20);
             this.label66.TabIndex = 37;
@@ -1161,7 +1132,7 @@
             this.tabControl2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tabControl2.RightToLeftLayout = true;
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(353, 524);
+            this.tabControl2.Size = new System.Drawing.Size(481, 524);
             this.tabControl2.TabIndex = 0;
             // 
             // groupBox4
@@ -1183,39 +1154,11 @@
             this.groupBox4.Controls.Add(this.pictureBox13);
             this.groupBox4.Controls.Add(this.label70);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBox4.Location = new System.Drawing.Point(1109, 18);
+            this.groupBox4.Location = new System.Drawing.Point(1101, 18);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox4.Size = new System.Drawing.Size(268, 665);
             this.groupBox4.TabIndex = 44;
-            // 
-            // pictureBox25
-            // 
-            this.pictureBox25.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox25.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox25.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox25.Image")));
-            this.pictureBox25.Location = new System.Drawing.Point(141, 3);
-            this.pictureBox25.Name = "pictureBox25";
-            this.pictureBox25.Size = new System.Drawing.Size(124, 98);
-            this.pictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox25.TabIndex = 38;
-            this.pictureBox25.TabStop = false;
-            this.pictureBox25.Click += new System.EventHandler(this.pictureBox25_Click);
-            // 
-            // pictureBox10
-            // 
-            this.pictureBox10.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
-            this.pictureBox10.Location = new System.Drawing.Point(11, 3);
-            this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(124, 98);
-            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox10.TabIndex = 29;
-            this.pictureBox10.TabStop = false;
-            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
             // 
             // label93
             // 
@@ -1245,34 +1188,6 @@
             this.label67.Text = "الدفع F1";
             this.label67.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label67_MouseClick);
             // 
-            // pictureBox11
-            // 
-            this.pictureBox11.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox11.Image = global::PlancksoftPOS.Properties.Resources.discount;
-            this.pictureBox11.Location = new System.Drawing.Point(141, 131);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(124, 98);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 30;
-            this.pictureBox11.TabStop = false;
-            this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
-            // 
-            // pictureBox12
-            // 
-            this.pictureBox12.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(11, 131);
-            this.pictureBox12.Name = "pictureBox12";
-            this.pictureBox12.Size = new System.Drawing.Size(124, 98);
-            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox12.TabIndex = 31;
-            this.pictureBox12.TabStop = false;
-            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
-            // 
             // label68
             // 
             this.label68.AutoSize = true;
@@ -1300,34 +1215,6 @@
             this.label69.Text = "فاتوره جديده F3";
             this.label69.Click += new System.EventHandler(this.label69_Click);
             this.label69.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label69_MouseClick);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(141, 259);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(124, 98);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 42;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            // 
-            // pictureBox26
-            // 
-            this.pictureBox26.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox26.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox26.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox26.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox26.Image")));
-            this.pictureBox26.Location = new System.Drawing.Point(11, 259);
-            this.pictureBox26.Name = "pictureBox26";
-            this.pictureBox26.Size = new System.Drawing.Size(124, 98);
-            this.pictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox26.TabIndex = 40;
-            this.pictureBox26.TabStop = false;
-            this.pictureBox26.Click += new System.EventHandler(this.pictureBox26_Click);
             // 
             // label2
             // 
@@ -1366,21 +1253,6 @@
             this.panel1.Size = new System.Drawing.Size(254, 127);
             this.panel1.TabIndex = 46;
             // 
-            // pictureBox37
-            // 
-            this.pictureBox37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox37.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox37.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox37.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox37.Image = global::PlancksoftPOS.Properties.Resources.itemsearch;
-            this.pictureBox37.Location = new System.Drawing.Point(125, 3);
-            this.pictureBox37.Name = "pictureBox37";
-            this.pictureBox37.Size = new System.Drawing.Size(124, 98);
-            this.pictureBox37.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox37.TabIndex = 44;
-            this.pictureBox37.TabStop = false;
-            this.pictureBox37.Click += new System.EventHandler(this.pictureBox37_Click);
-            // 
             // label24
             // 
             this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1395,34 +1267,6 @@
             this.label24.Text = "البحث عن المواد F9";
             this.label24.Click += new System.EventHandler(this.label24_Click);
             this.label24.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label24_MouseClick);
-            // 
-            // pictureBox14
-            // 
-            this.pictureBox14.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox14.Image = global::PlancksoftPOS.Properties.Resources.rightarrow;
-            this.pictureBox14.Location = new System.Drawing.Point(195, 520);
-            this.pictureBox14.Name = "pictureBox14";
-            this.pictureBox14.Size = new System.Drawing.Size(70, 98);
-            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox14.TabIndex = 33;
-            this.pictureBox14.TabStop = false;
-            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
-            // 
-            // pictureBox13
-            // 
-            this.pictureBox13.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox13.Image = global::PlancksoftPOS.Properties.Resources.leftarrow;
-            this.pictureBox13.Location = new System.Drawing.Point(110, 520);
-            this.pictureBox13.Name = "pictureBox13";
-            this.pictureBox13.Size = new System.Drawing.Size(79, 99);
-            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox13.TabIndex = 32;
-            this.pictureBox13.TabStop = false;
-            this.pictureBox13.Click += new System.EventHandler(this.pictureBox13_Click);
             // 
             // label70
             // 
@@ -1498,9 +1342,9 @@
             this.groupBox3.Controls.Add(this.panel4);
             this.groupBox3.Enabled = false;
             this.groupBox3.ForeColor = System.Drawing.Color.Black;
-            this.groupBox3.Location = new System.Drawing.Point(371, 117);
+            this.groupBox3.Location = new System.Drawing.Point(496, 117);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(732, 566);
+            this.groupBox3.Size = new System.Drawing.Size(599, 566);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "قائمة المشتريات الحاليه";
@@ -1520,7 +1364,7 @@
             this.ItemsPendingPurchase.Location = new System.Drawing.Point(3, 128);
             this.ItemsPendingPurchase.Name = "ItemsPendingPurchase";
             this.ItemsPendingPurchase.ReadOnly = true;
-            this.ItemsPendingPurchase.Size = new System.Drawing.Size(726, 313);
+            this.ItemsPendingPurchase.Size = new System.Drawing.Size(593, 313);
             this.ItemsPendingPurchase.TabIndex = 20;
             this.ItemsPendingPurchase.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.ItemsPendingPurchase_RowHeaderMouseClick);
             this.ItemsPendingPurchase.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.ItemsPendingPurchase_RowsAdded);
@@ -1574,7 +1418,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel5.Location = new System.Drawing.Point(3, 441);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(726, 122);
+            this.panel5.Size = new System.Drawing.Size(593, 122);
             this.panel5.TabIndex = 45;
             // 
             // richTextBox4
@@ -1582,10 +1426,10 @@
             this.richTextBox4.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.richTextBox4.Location = new System.Drawing.Point(25, 59);
+            this.richTextBox4.Location = new System.Drawing.Point(0, 59);
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.ReadOnly = true;
-            this.richTextBox4.Size = new System.Drawing.Size(221, 60);
+            this.richTextBox4.Size = new System.Drawing.Size(158, 60);
             this.richTextBox4.TabIndex = 27;
             this.richTextBox4.Text = "";
             // 
@@ -1595,7 +1439,7 @@
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label52.Location = new System.Drawing.Point(613, 77);
+            this.label52.Location = new System.Drawing.Point(480, 77);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(108, 20);
             this.label52.TabIndex = 36;
@@ -1607,7 +1451,7 @@
             this.label49.AutoSize = true;
             this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label49.Location = new System.Drawing.Point(648, 29);
+            this.label49.Location = new System.Drawing.Point(515, 29);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(73, 20);
             this.label49.TabIndex = 23;
@@ -1619,7 +1463,7 @@
             this.button24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button24.ForeColor = System.Drawing.Color.White;
-            this.button24.Location = new System.Drawing.Point(338, 65);
+            this.button24.Location = new System.Drawing.Point(205, 65);
             this.button24.Name = "button24";
             this.button24.Size = new System.Drawing.Size(143, 42);
             this.button24.TabIndex = 3;
@@ -1632,10 +1476,10 @@
             this.richTextBox6.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.richTextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.richTextBox6.Location = new System.Drawing.Point(25, 6);
+            this.richTextBox6.Location = new System.Drawing.Point(3, 6);
             this.richTextBox6.Name = "richTextBox6";
             this.richTextBox6.ReadOnly = true;
-            this.richTextBox6.Size = new System.Drawing.Size(221, 47);
+            this.richTextBox6.Size = new System.Drawing.Size(158, 47);
             this.richTextBox6.TabIndex = 38;
             this.richTextBox6.Text = "";
             // 
@@ -1644,7 +1488,7 @@
             this.pendingPurchaseRemovalQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pendingPurchaseRemovalQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pendingPurchaseRemovalQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.pendingPurchaseRemovalQuantity.Location = new System.Drawing.Point(487, 32);
+            this.pendingPurchaseRemovalQuantity.Location = new System.Drawing.Point(354, 32);
             this.pendingPurchaseRemovalQuantity.Maximum = new decimal(new int[] {
             1241513983,
             370409800,
@@ -1663,7 +1507,7 @@
             this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button17.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button17.ForeColor = System.Drawing.Color.White;
-            this.button17.Location = new System.Drawing.Point(338, 18);
+            this.button17.Location = new System.Drawing.Point(205, 18);
             this.button17.Name = "button17";
             this.button17.Size = new System.Drawing.Size(143, 42);
             this.button17.TabIndex = 2;
@@ -1676,7 +1520,7 @@
             this.pendingPurchaseNewQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pendingPurchaseNewQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pendingPurchaseNewQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.pendingPurchaseNewQuantity.Location = new System.Drawing.Point(487, 77);
+            this.pendingPurchaseNewQuantity.Location = new System.Drawing.Point(354, 77);
             this.pendingPurchaseNewQuantity.Maximum = new decimal(new int[] {
             1241513983,
             370409800,
@@ -1699,7 +1543,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(3, 18);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(726, 110);
+            this.panel4.Size = new System.Drawing.Size(593, 110);
             this.panel4.TabIndex = 44;
             // 
             // label112
@@ -1708,7 +1552,7 @@
             this.label112.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.label112.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label112.ForeColor = System.Drawing.Color.White;
-            this.label112.Location = new System.Drawing.Point(206, 8);
+            this.label112.Location = new System.Drawing.Point(244, 0);
             this.label112.Name = "label112";
             this.label112.Size = new System.Drawing.Size(147, 20);
             this.label112.TabIndex = 43;
@@ -1719,10 +1563,10 @@
             this.richTextBox2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.richTextBox2.Location = new System.Drawing.Point(167, 36);
+            this.richTextBox2.Location = new System.Drawing.Point(123, 36);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.ReadOnly = true;
-            this.richTextBox2.Size = new System.Drawing.Size(127, 61);
+            this.richTextBox2.Size = new System.Drawing.Size(111, 61);
             this.richTextBox2.TabIndex = 25;
             this.richTextBox2.Text = "المدفوع السابق";
             // 
@@ -1732,10 +1576,10 @@
             this.richTextBox5.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.richTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.richTextBox5.Location = new System.Drawing.Point(500, 36);
+            this.richTextBox5.Location = new System.Drawing.Point(435, 36);
             this.richTextBox5.Name = "richTextBox5";
             this.richTextBox5.ReadOnly = true;
-            this.richTextBox5.Size = new System.Drawing.Size(211, 61);
+            this.richTextBox5.Size = new System.Drawing.Size(143, 61);
             this.richTextBox5.TabIndex = 37;
             this.richTextBox5.Text = "رقم الفاتورة الحالية";
             // 
@@ -1744,10 +1588,10 @@
             this.richTextBox1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.richTextBox1.Location = new System.Drawing.Point(317, 36);
+            this.richTextBox1.Location = new System.Drawing.Point(240, 36);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(127, 61);
+            this.richTextBox1.Size = new System.Drawing.Size(99, 61);
             this.richTextBox1.TabIndex = 24;
             this.richTextBox1.Text = "الباقي السابق";
             // 
@@ -1756,10 +1600,10 @@
             this.richTextBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.richTextBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.richTextBox3.Location = new System.Drawing.Point(17, 36);
+            this.richTextBox3.Location = new System.Drawing.Point(3, 36);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.ReadOnly = true;
-            this.richTextBox3.Size = new System.Drawing.Size(127, 61);
+            this.richTextBox3.Size = new System.Drawing.Size(114, 61);
             this.richTextBox3.TabIndex = 26;
             this.richTextBox3.Text = "المجموع السابق";
             // 
@@ -1772,9 +1616,9 @@
             this.panel2.Controls.Add(this.picLogo);
             this.panel2.Controls.Add(this.label45);
             this.panel2.Controls.Add(this.cashierNameLbl);
-            this.panel2.Location = new System.Drawing.Point(371, 21);
+            this.panel2.Location = new System.Drawing.Point(496, 21);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(732, 98);
+            this.panel2.Size = new System.Drawing.Size(599, 98);
             this.panel2.TabIndex = 46;
             // 
             // label71
@@ -1783,7 +1627,7 @@
             this.label71.AutoSize = true;
             this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label71.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label71.Location = new System.Drawing.Point(651, 17);
+            this.label71.Location = new System.Drawing.Point(518, 17);
             this.label71.Name = "label71";
             this.label71.Size = new System.Drawing.Size(77, 13);
             this.label71.TabIndex = 38;
@@ -1800,20 +1644,6 @@
             this.dateTimeLbl.Size = new System.Drawing.Size(114, 20);
             this.dateTimeLbl.TabIndex = 0;
             this.dateTimeLbl.Text = "%date time%";
-            // 
-            // picLogo
-            // 
-            this.picLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.picLogo.BackColor = System.Drawing.Color.Transparent;
-            this.picLogo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picLogo.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
-            this.picLogo.Location = new System.Drawing.Point(267, 2);
-            this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(190, 98);
-            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLogo.TabIndex = 41;
-            this.picLogo.TabStop = false;
-            this.picLogo.Click += new System.EventHandler(this.pictureBox35_Click);
             // 
             // label45
             // 
@@ -1833,7 +1663,7 @@
             this.cashierNameLbl.AutoSize = true;
             this.cashierNameLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cashierNameLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.cashierNameLbl.Location = new System.Drawing.Point(518, 42);
+            this.cashierNameLbl.Location = new System.Drawing.Point(455, 42);
             this.cashierNameLbl.Name = "cashierNameLbl";
             this.cashierNameLbl.Size = new System.Drawing.Size(135, 18);
             this.cashierNameLbl.TabIndex = 39;
@@ -1845,7 +1675,7 @@
             this.Sales.Location = new System.Drawing.Point(4, 34);
             this.Sales.Name = "Sales";
             this.Sales.Padding = new System.Windows.Forms.Padding(3);
-            this.Sales.Size = new System.Drawing.Size(1386, 692);
+            this.Sales.Size = new System.Drawing.Size(1378, 692);
             this.Sales.TabIndex = 1;
             this.Sales.Text = "المبيعات";
             this.Sales.UseVisualStyleBackColor = true;
@@ -1862,7 +1692,7 @@
             this.tabControl4.Name = "tabControl4";
             this.tabControl4.RightToLeftLayout = true;
             this.tabControl4.SelectedIndex = 0;
-            this.tabControl4.Size = new System.Drawing.Size(1380, 686);
+            this.tabControl4.Size = new System.Drawing.Size(1372, 686);
             this.tabControl4.TabIndex = 0;
             this.tabControl4.SelectedIndexChanged += new System.EventHandler(this.tabControl4_SelectedIndexChanged);
             this.tabControl4.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl4_Selecting);
@@ -1876,7 +1706,7 @@
             this.InvoicesSales.Location = new System.Drawing.Point(4, 34);
             this.InvoicesSales.Name = "InvoicesSales";
             this.InvoicesSales.Padding = new System.Windows.Forms.Padding(3);
-            this.InvoicesSales.Size = new System.Drawing.Size(1372, 648);
+            this.InvoicesSales.Size = new System.Drawing.Size(1364, 648);
             this.InvoicesSales.TabIndex = 0;
             this.InvoicesSales.Text = "المبيعات";
             // 
@@ -1891,7 +1721,7 @@
             this.groupBox14.ForeColor = System.Drawing.Color.Black;
             this.groupBox14.Location = new System.Drawing.Point(3, 365);
             this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(1366, 287);
+            this.groupBox14.Size = new System.Drawing.Size(1358, 287);
             this.groupBox14.TabIndex = 2;
             this.groupBox14.TabStop = false;
             this.groupBox14.Text = "المواد المباعه بالفاتوره";
@@ -1904,7 +1734,7 @@
             this.panel9.Controls.Add(this.dgvBillItems);
             this.panel9.Location = new System.Drawing.Point(3, 18);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1249, 266);
+            this.panel9.Size = new System.Drawing.Size(1241, 266);
             this.panel9.TabIndex = 32;
             // 
             // dgvBillItems
@@ -1928,7 +1758,7 @@
             this.dgvBillItems.Name = "dgvBillItems";
             this.dgvBillItems.ReadOnly = true;
             this.dgvBillItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvBillItems.Size = new System.Drawing.Size(1260, 266);
+            this.dgvBillItems.Size = new System.Drawing.Size(1252, 266);
             this.dgvBillItems.TabIndex = 29;
             // 
             // Column20
@@ -1985,7 +1815,7 @@
             this.panel8.Controls.Add(this.pictureBox20);
             this.panel8.Controls.Add(this.button18);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel8.Location = new System.Drawing.Point(1241, 18);
+            this.panel8.Location = new System.Drawing.Point(1233, 18);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(122, 266);
             this.panel8.TabIndex = 31;
@@ -2002,19 +1832,6 @@
             this.button25.Text = "أقل 100 المواد مباعه";
             this.button25.UseVisualStyleBackColor = false;
             this.button25.Click += new System.EventHandler(this.button25_Click);
-            // 
-            // pictureBox20
-            // 
-            this.pictureBox20.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox20.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox20.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox20.Location = new System.Drawing.Point(26, 7);
-            this.pictureBox20.Name = "pictureBox20";
-            this.pictureBox20.Size = new System.Drawing.Size(86, 66);
-            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox20.TabIndex = 30;
-            this.pictureBox20.TabStop = false;
-            this.pictureBox20.Click += new System.EventHandler(this.pictureBox20_Click);
             // 
             // button18
             // 
@@ -2038,7 +1855,7 @@
             this.groupBox12.ForeColor = System.Drawing.Color.Black;
             this.groupBox12.Location = new System.Drawing.Point(3, 90);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(1366, 275);
+            this.groupBox12.Size = new System.Drawing.Size(1358, 275);
             this.groupBox12.TabIndex = 1;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "لائحة الفواتير";
@@ -2049,7 +1866,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 18);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(1249, 254);
+            this.panel7.Size = new System.Drawing.Size(1241, 254);
             this.panel7.TabIndex = 32;
             // 
             // dgvBills
@@ -2074,7 +1891,7 @@
             this.dgvBills.Name = "dgvBills";
             this.dgvBills.ReadOnly = true;
             this.dgvBills.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvBills.Size = new System.Drawing.Size(1249, 251);
+            this.dgvBills.Size = new System.Drawing.Size(1241, 251);
             this.dgvBills.TabIndex = 28;
             this.dgvBills.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvBills_RowHeaderMouseClick);
             // 
@@ -2140,23 +1957,10 @@
             this.panel6.Controls.Add(this.button26);
             this.panel6.Controls.Add(this.pictureBox18);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel6.Location = new System.Drawing.Point(1252, 18);
+            this.panel6.Location = new System.Drawing.Point(1244, 18);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(111, 254);
             this.panel6.TabIndex = 31;
-            // 
-            // pictureBox17
-            // 
-            this.pictureBox17.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox17.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox17.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox17.Location = new System.Drawing.Point(18, 8);
-            this.pictureBox17.Name = "pictureBox17";
-            this.pictureBox17.Size = new System.Drawing.Size(68, 51);
-            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox17.TabIndex = 30;
-            this.pictureBox17.TabStop = false;
-            this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
             // 
             // button26
             // 
@@ -2170,19 +1974,6 @@
             this.button26.Text = "مبيعات اليوم";
             this.button26.UseVisualStyleBackColor = false;
             this.button26.Click += new System.EventHandler(this.button26_Click);
-            // 
-            // pictureBox18
-            // 
-            this.pictureBox18.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox18.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox18.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox18.Location = new System.Drawing.Point(15, 65);
-            this.pictureBox18.Name = "pictureBox18";
-            this.pictureBox18.Size = new System.Drawing.Size(75, 76);
-            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox18.TabIndex = 29;
-            this.pictureBox18.TabStop = false;
-            this.pictureBox18.Click += new System.EventHandler(this.pictureBox18_Click);
             // 
             // groupBox13
             // 
@@ -2198,7 +1989,7 @@
             this.groupBox13.ForeColor = System.Drawing.Color.White;
             this.groupBox13.Location = new System.Drawing.Point(3, 3);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Size = new System.Drawing.Size(1366, 87);
+            this.groupBox13.Size = new System.Drawing.Size(1358, 87);
             this.groupBox13.TabIndex = 0;
             this.groupBox13.TabStop = false;
             this.groupBox13.Text = "بحث الفواتير";
@@ -2208,7 +1999,7 @@
             this.nudBillNumberSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nudBillNumberSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudBillNumberSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.nudBillNumberSearch.Location = new System.Drawing.Point(1127, 47);
+            this.nudBillNumberSearch.Location = new System.Drawing.Point(1119, 47);
             this.nudBillNumberSearch.Name = "nudBillNumberSearch";
             this.nudBillNumberSearch.Size = new System.Drawing.Size(167, 20);
             this.nudBillNumberSearch.TabIndex = 0;
@@ -2221,7 +2012,7 @@
             this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(715, 47);
+            this.dateTimePicker1.Location = new System.Drawing.Point(707, 47);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePicker1.RightToLeftLayout = true;
@@ -2235,7 +2026,7 @@
             this.label84.AutoSize = true;
             this.label84.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label84.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label84.Location = new System.Drawing.Point(753, 16);
+            this.label84.Location = new System.Drawing.Point(745, 16);
             this.label84.Name = "label84";
             this.label84.Size = new System.Drawing.Size(124, 24);
             this.label84.TabIndex = 30;
@@ -2248,7 +2039,7 @@
             this.label85.AutoSize = true;
             this.label85.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label85.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label85.Location = new System.Drawing.Point(1165, 16);
+            this.label85.Location = new System.Drawing.Point(1157, 16);
             this.label85.Name = "label85";
             this.label85.Size = new System.Drawing.Size(91, 24);
             this.label85.TabIndex = 28;
@@ -2261,7 +2052,7 @@
             this.dateTimePicker2.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker2.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(921, 47);
+            this.dateTimePicker2.Location = new System.Drawing.Point(913, 47);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePicker2.RightToLeftLayout = true;
@@ -2275,26 +2066,12 @@
             this.label87.AutoSize = true;
             this.label87.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label87.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label87.Location = new System.Drawing.Point(961, 16);
+            this.label87.Location = new System.Drawing.Point(953, 16);
             this.label87.Name = "label87";
             this.label87.Size = new System.Drawing.Size(121, 24);
             this.label87.TabIndex = 29;
             this.label87.Text = "تاريخ البحث من";
             this.label87.Visible = false;
-            // 
-            // pictureBox19
-            // 
-            this.pictureBox19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox19.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox19.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox19.Image = global::PlancksoftPOS.Properties.Resources.search;
-            this.pictureBox19.Location = new System.Drawing.Point(1300, 28);
-            this.pictureBox19.Name = "pictureBox19";
-            this.pictureBox19.Size = new System.Drawing.Size(47, 39);
-            this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox19.TabIndex = 31;
-            this.pictureBox19.TabStop = false;
-            this.pictureBox19.Click += new System.EventHandler(this.pictureBox19_Click);
             // 
             // EditInvoices
             // 
@@ -2303,7 +2080,7 @@
             this.EditInvoices.Location = new System.Drawing.Point(4, 34);
             this.EditInvoices.Name = "EditInvoices";
             this.EditInvoices.Padding = new System.Windows.Forms.Padding(3);
-            this.EditInvoices.Size = new System.Drawing.Size(1372, 648);
+            this.EditInvoices.Size = new System.Drawing.Size(1364, 648);
             this.EditInvoices.TabIndex = 3;
             this.EditInvoices.Text = "التعديل على الفواتير";
             this.EditInvoices.UseVisualStyleBackColor = true;
@@ -2318,7 +2095,7 @@
             this.groupBox30.ForeColor = System.Drawing.Color.Black;
             this.groupBox30.Location = new System.Drawing.Point(3, 3);
             this.groupBox30.Name = "groupBox30";
-            this.groupBox30.Size = new System.Drawing.Size(1366, 642);
+            this.groupBox30.Size = new System.Drawing.Size(1358, 642);
             this.groupBox30.TabIndex = 0;
             this.groupBox30.TabStop = false;
             this.groupBox30.Text = "لائحة الفواتير";
@@ -2329,7 +2106,7 @@
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(3, 103);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(1269, 536);
+            this.panel12.Size = new System.Drawing.Size(1261, 536);
             this.panel12.TabIndex = 49;
             // 
             // dgvBillsEdit
@@ -2351,7 +2128,7 @@
             this.dgvBillsEdit.Name = "dgvBillsEdit";
             this.dgvBillsEdit.ReadOnly = true;
             this.dgvBillsEdit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvBillsEdit.Size = new System.Drawing.Size(1269, 536);
+            this.dgvBillsEdit.Size = new System.Drawing.Size(1261, 536);
             this.dgvBillsEdit.TabIndex = 28;
             this.dgvBillsEdit.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvBillsEdit_RowHeaderMouseClick);
             // 
@@ -2419,7 +2196,7 @@
             this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel11.Location = new System.Drawing.Point(3, 18);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(1269, 85);
+            this.panel11.Size = new System.Drawing.Size(1261, 85);
             this.panel11.TabIndex = 48;
             // 
             // BillsEditButton
@@ -2428,7 +2205,7 @@
             this.BillsEditButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.BillsEditButton.Enabled = false;
             this.BillsEditButton.ForeColor = System.Drawing.Color.White;
-            this.BillsEditButton.Location = new System.Drawing.Point(345, 3);
+            this.BillsEditButton.Location = new System.Drawing.Point(337, 3);
             this.BillsEditButton.Name = "BillsEditButton";
             this.BillsEditButton.Size = new System.Drawing.Size(142, 81);
             this.BillsEditButton.TabIndex = 5;
@@ -2441,7 +2218,7 @@
             this.BillsCashierName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BillsCashierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsCashierName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsCashierName.Location = new System.Drawing.Point(919, 46);
+            this.BillsCashierName.Location = new System.Drawing.Point(911, 46);
             this.BillsCashierName.Name = "BillsCashierName";
             this.BillsCashierName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.BillsCashierName.Size = new System.Drawing.Size(202, 20);
@@ -2453,7 +2230,7 @@
             this.BillEditNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BillEditNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillEditNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillEditNumber.Location = new System.Drawing.Point(1127, 46);
+            this.BillEditNumber.Location = new System.Drawing.Point(1119, 46);
             this.BillEditNumber.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2476,7 +2253,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label11.Location = new System.Drawing.Point(976, 8);
+            this.label11.Location = new System.Drawing.Point(968, 8);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(89, 24);
             this.label11.TabIndex = 36;
@@ -2488,7 +2265,7 @@
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label13.Location = new System.Drawing.Point(1150, 8);
+            this.label13.Location = new System.Drawing.Point(1142, 8);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(91, 24);
             this.label13.TabIndex = 46;
@@ -2500,7 +2277,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label9.Location = new System.Drawing.Point(793, 8);
+            this.label9.Location = new System.Drawing.Point(785, 8);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(105, 24);
             this.label9.TabIndex = 39;
@@ -2512,7 +2289,7 @@
             this.BillsRemainderAmount.DecimalPlaces = 2;
             this.BillsRemainderAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsRemainderAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsRemainderAmount.Location = new System.Drawing.Point(493, 46);
+            this.BillsRemainderAmount.Location = new System.Drawing.Point(485, 46);
             this.BillsRemainderAmount.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2534,7 +2311,7 @@
             this.BillsTotalAmount.DecimalPlaces = 2;
             this.BillsTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsTotalAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsTotalAmount.Location = new System.Drawing.Point(777, 46);
+            this.BillsTotalAmount.Location = new System.Drawing.Point(769, 46);
             this.BillsTotalAmount.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2556,7 +2333,7 @@
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label12.Location = new System.Drawing.Point(514, 8);
+            this.label12.Location = new System.Drawing.Point(506, 8);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(94, 24);
             this.label12.TabIndex = 44;
@@ -2568,7 +2345,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label10.Location = new System.Drawing.Point(650, 8);
+            this.label10.Location = new System.Drawing.Point(642, 8);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(106, 24);
             this.label10.TabIndex = 42;
@@ -2580,7 +2357,7 @@
             this.BillsPaidAmount.DecimalPlaces = 2;
             this.BillsPaidAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsPaidAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsPaidAmount.Location = new System.Drawing.Point(635, 46);
+            this.BillsPaidAmount.Location = new System.Drawing.Point(627, 46);
             this.BillsPaidAmount.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2601,36 +2378,10 @@
             this.panel10.Controls.Add(this.pictureBox32);
             this.panel10.Controls.Add(this.pictureBox31);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(1272, 18);
+            this.panel10.Location = new System.Drawing.Point(1264, 18);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(91, 621);
             this.panel10.TabIndex = 47;
-            // 
-            // pictureBox32
-            // 
-            this.pictureBox32.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox32.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox32.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox32.Location = new System.Drawing.Point(4, 150);
-            this.pictureBox32.Name = "pictureBox32";
-            this.pictureBox32.Size = new System.Drawing.Size(84, 79);
-            this.pictureBox32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox32.TabIndex = 29;
-            this.pictureBox32.TabStop = false;
-            this.pictureBox32.Click += new System.EventHandler(this.pictureBox32_Click);
-            // 
-            // pictureBox31
-            // 
-            this.pictureBox31.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox31.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox31.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox31.Location = new System.Drawing.Point(4, 85);
-            this.pictureBox31.Name = "pictureBox31";
-            this.pictureBox31.Size = new System.Drawing.Size(84, 59);
-            this.pictureBox31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox31.TabIndex = 30;
-            this.pictureBox31.TabStop = false;
-            this.pictureBox31.Click += new System.EventHandler(this.pictureBox31_Click);
             // 
             // groupBox29
             // 
@@ -2726,27 +2477,13 @@
             this.label8.Text = "تاريخ البحث من";
             this.label8.Visible = false;
             // 
-            // pictureBox28
-            // 
-            this.pictureBox28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox28.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox28.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox28.Image = global::PlancksoftPOS.Properties.Resources.search;
-            this.pictureBox28.Location = new System.Drawing.Point(674, 19);
-            this.pictureBox28.Name = "pictureBox28";
-            this.pictureBox28.Size = new System.Drawing.Size(47, 39);
-            this.pictureBox28.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox28.TabIndex = 31;
-            this.pictureBox28.TabStop = false;
-            this.pictureBox28.Click += new System.EventHandler(this.pictureBox28_Click);
-            // 
             // TravelingUntravelingSales
             // 
             this.TravelingUntravelingSales.Controls.Add(this.groupBox26);
             this.TravelingUntravelingSales.Controls.Add(this.groupBox25);
             this.TravelingUntravelingSales.Location = new System.Drawing.Point(4, 34);
             this.TravelingUntravelingSales.Name = "TravelingUntravelingSales";
-            this.TravelingUntravelingSales.Size = new System.Drawing.Size(1372, 648);
+            this.TravelingUntravelingSales.Size = new System.Drawing.Size(1364, 648);
             this.TravelingUntravelingSales.TabIndex = 1;
             this.TravelingUntravelingSales.Text = "المبيعات المرحله و الغير مرحله";
             this.TravelingUntravelingSales.UseVisualStyleBackColor = true;
@@ -2870,34 +2607,6 @@
             this.panel15.Size = new System.Drawing.Size(104, 375);
             this.panel15.TabIndex = 34;
             // 
-            // pictureBox6
-            // 
-            this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox6.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox6.Location = new System.Drawing.Point(9, 18);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(83, 72);
-            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox6.TabIndex = 33;
-            this.pictureBox6.TabStop = false;
-            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox7.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox7.Location = new System.Drawing.Point(9, 96);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(83, 72);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 32;
-            this.pictureBox7.TabStop = false;
-            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
-            // 
             // groupBox25
             // 
             this.groupBox25.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -3017,34 +2726,6 @@
             this.panel13.Size = new System.Drawing.Size(107, 342);
             this.panel13.TabIndex = 34;
             // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox5.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox5.Location = new System.Drawing.Point(12, 104);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(83, 76);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 32;
-            this.pictureBox5.TabStop = false;
-            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox4.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox4.Location = new System.Drawing.Point(12, 26);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(83, 72);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 33;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            // 
             // SoldItems
             // 
             this.SoldItems.BackColor = System.Drawing.Color.White;
@@ -3053,7 +2734,7 @@
             this.SoldItems.Location = new System.Drawing.Point(4, 34);
             this.SoldItems.Name = "SoldItems";
             this.SoldItems.Padding = new System.Windows.Forms.Padding(3);
-            this.SoldItems.Size = new System.Drawing.Size(1372, 648);
+            this.SoldItems.Size = new System.Drawing.Size(1364, 648);
             this.SoldItems.TabIndex = 2;
             this.SoldItems.Text = "جرد الكميات المباعه";
             // 
@@ -3073,7 +2754,7 @@
             this.groupBox28.ForeColor = System.Drawing.Color.Black;
             this.groupBox28.Location = new System.Drawing.Point(3, 3);
             this.groupBox28.Name = "groupBox28";
-            this.groupBox28.Size = new System.Drawing.Size(1366, 87);
+            this.groupBox28.Size = new System.Drawing.Size(1358, 87);
             this.groupBox28.TabIndex = 0;
             this.groupBox28.TabStop = false;
             this.groupBox28.Text = "البحث";
@@ -3084,7 +2765,7 @@
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label38.Location = new System.Drawing.Point(1026, 9);
+            this.label38.Location = new System.Drawing.Point(1018, 9);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(59, 24);
             this.label38.TabIndex = 36;
@@ -3097,7 +2778,7 @@
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(1087, 36);
+            this.comboBox2.Location = new System.Drawing.Point(1079, 36);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(213, 21);
             this.comboBox2.TabIndex = 35;
@@ -3108,7 +2789,7 @@
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label37.Location = new System.Drawing.Point(1215, 9);
+            this.label37.Location = new System.Drawing.Point(1207, 9);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(89, 24);
             this.label37.TabIndex = 34;
@@ -3121,7 +2802,7 @@
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(868, 36);
+            this.comboBox1.Location = new System.Drawing.Point(860, 36);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(213, 21);
             this.comboBox1.TabIndex = 33;
@@ -3133,7 +2814,7 @@
             this.dateTimePicker3.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker3.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker3.Location = new System.Drawing.Point(456, 37);
+            this.dateTimePicker3.Location = new System.Drawing.Point(448, 37);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePicker3.RightToLeftLayout = true;
@@ -3146,7 +2827,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label3.Location = new System.Drawing.Point(536, 10);
+            this.label3.Location = new System.Drawing.Point(528, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 24);
             this.label3.TabIndex = 30;
@@ -3159,7 +2840,7 @@
             this.dateTimePicker4.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker4.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker4.Location = new System.Drawing.Point(662, 37);
+            this.dateTimePicker4.Location = new System.Drawing.Point(654, 37);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePicker4.RightToLeftLayout = true;
@@ -3172,25 +2853,11 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label5.Location = new System.Drawing.Point(745, 10);
+            this.label5.Location = new System.Drawing.Point(737, 10);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 24);
             this.label5.TabIndex = 29;
             this.label5.Text = "تاريخ البحث من";
-            // 
-            // pictureBox30
-            // 
-            this.pictureBox30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox30.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox30.Image = global::PlancksoftPOS.Properties.Resources.search;
-            this.pictureBox30.Location = new System.Drawing.Point(1313, 21);
-            this.pictureBox30.Name = "pictureBox30";
-            this.pictureBox30.Size = new System.Drawing.Size(47, 39);
-            this.pictureBox30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox30.TabIndex = 31;
-            this.pictureBox30.TabStop = false;
-            this.pictureBox30.Click += new System.EventHandler(this.pictureBox30_Click);
             // 
             // groupBox27
             // 
@@ -3287,26 +2954,12 @@
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             this.dataGridViewTextBoxColumn19.ReadOnly = true;
             // 
-            // pictureBox29
-            // 
-            this.pictureBox29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox29.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox29.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox29.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox29.Location = new System.Drawing.Point(1267, 20);
-            this.pictureBox29.Name = "pictureBox29";
-            this.pictureBox29.Size = new System.Drawing.Size(101, 102);
-            this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox29.TabIndex = 32;
-            this.pictureBox29.TabStop = false;
-            this.pictureBox29.Click += new System.EventHandler(this.pictureBox29_Click);
-            // 
             // Inventory
             // 
             this.Inventory.Controls.Add(this.groupBox6);
             this.Inventory.Location = new System.Drawing.Point(4, 34);
             this.Inventory.Name = "Inventory";
-            this.Inventory.Size = new System.Drawing.Size(1386, 692);
+            this.Inventory.Size = new System.Drawing.Size(1378, 692);
             this.Inventory.TabIndex = 2;
             this.Inventory.Text = "المستودع";
             this.Inventory.UseVisualStyleBackColor = true;
@@ -3317,7 +2970,7 @@
             this.groupBox6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox6.Location = new System.Drawing.Point(0, 0);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(1386, 692);
+            this.groupBox6.Size = new System.Drawing.Size(1378, 692);
             this.groupBox6.TabIndex = 0;
             this.groupBox6.TabStop = false;
             // 
@@ -3335,7 +2988,7 @@
             this.tabControl6.Name = "tabControl6";
             this.tabControl6.RightToLeftLayout = true;
             this.tabControl6.SelectedIndex = 0;
-            this.tabControl6.Size = new System.Drawing.Size(1380, 671);
+            this.tabControl6.Size = new System.Drawing.Size(1372, 671);
             this.tabControl6.TabIndex = 0;
             // 
             // posInventory
@@ -3345,7 +2998,7 @@
             this.posInventory.Location = new System.Drawing.Point(4, 34);
             this.posInventory.Name = "posInventory";
             this.posInventory.Padding = new System.Windows.Forms.Padding(3);
-            this.posInventory.Size = new System.Drawing.Size(1372, 633);
+            this.posInventory.Size = new System.Drawing.Size(1364, 633);
             this.posInventory.TabIndex = 0;
             this.posInventory.Text = "المستودع";
             this.posInventory.UseVisualStyleBackColor = true;
@@ -3362,7 +3015,7 @@
             this.groupBox8.Location = new System.Drawing.Point(3, 82);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox8.Size = new System.Drawing.Size(1366, 548);
+            this.groupBox8.Size = new System.Drawing.Size(1358, 548);
             this.groupBox8.TabIndex = 20;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "مخزون البضائع";
@@ -3375,7 +3028,7 @@
             this.panel17.Controls.Add(this.DgvInventory);
             this.panel17.Location = new System.Drawing.Point(3, 181);
             this.panel17.Name = "panel17";
-            this.panel17.Size = new System.Drawing.Size(1235, 361);
+            this.panel17.Size = new System.Drawing.Size(1227, 361);
             this.panel17.TabIndex = 47;
             // 
             // DgvInventory
@@ -3407,7 +3060,7 @@
             this.DgvInventory.Name = "DgvInventory";
             this.DgvInventory.ReadOnly = true;
             this.DgvInventory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.DgvInventory.Size = new System.Drawing.Size(1232, 379);
+            this.DgvInventory.Size = new System.Drawing.Size(1224, 379);
             this.DgvInventory.TabIndex = 0;
             this.DgvInventory.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvInventory_RowHeaderMouseClick);
             // 
@@ -3531,7 +3184,7 @@
             this.panel18.Controls.Add(this.BtnPrint);
             this.panel18.Controls.Add(this.pictureBox99);
             this.panel18.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel18.Location = new System.Drawing.Point(1244, 181);
+            this.panel18.Location = new System.Drawing.Point(1236, 181);
             this.panel18.Name = "panel18";
             this.panel18.Size = new System.Drawing.Size(119, 364);
             this.panel18.TabIndex = 48;
@@ -3580,34 +3233,16 @@
             this.BtnUpdateItem.UseVisualStyleBackColor = false;
             this.BtnUpdateItem.Click += new System.EventHandler(this.BtnUpdateItem_Click);
             // 
-            // BtnPrint
-            // 
-            this.BtnPrint.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.BtnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnPrint.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.BtnPrint.Location = new System.Drawing.Point(25, 275);
-            this.BtnPrint.Name = "BtnPrint";
-            this.BtnPrint.Size = new System.Drawing.Size(72, 62);
-            this.BtnPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BtnPrint.TabIndex = 24;
-            this.BtnPrint.TabStop = false;
-            this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
-            // 
-            // pictureBox99
-            // 
-            this.pictureBox99.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox99.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox99.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox99.Location = new System.Drawing.Point(25, 207);
-            this.pictureBox99.Name = "pictureBox99";
-            this.pictureBox99.Size = new System.Drawing.Size(72, 62);
-            this.pictureBox99.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox99.TabIndex = 25;
-            this.pictureBox99.TabStop = false;
-            this.pictureBox99.Click += new System.EventHandler(this.pictureBox99_Click);
-            // 
             // groupBox36
             // 
+            this.groupBox36.Controls.Add(this.label55);
+            this.groupBox36.Controls.Add(this.nuditemPrice);
+            this.groupBox36.Controls.Add(this.label63);
+            this.groupBox36.Controls.Add(this.nuditemPriceTax);
+            this.groupBox36.Controls.Add(this.label64);
+            this.groupBox36.Controls.Add(this.FavoriteCategories);
+            this.groupBox36.Controls.Add(this.nudItemBuyPrice);
+            this.groupBox36.Controls.Add(this.label4);
             this.groupBox36.Controls.Add(this.ItemType);
             this.groupBox36.Controls.Add(this.ProductionDate);
             this.groupBox36.Controls.Add(this.label36);
@@ -3623,22 +3258,14 @@
             this.groupBox36.Controls.Add(this.label60);
             this.groupBox36.Controls.Add(this.nudItemQuantity);
             this.groupBox36.Controls.Add(this.label33);
-            this.groupBox36.Controls.Add(this.label55);
-            this.groupBox36.Controls.Add(this.nuditemPrice);
-            this.groupBox36.Controls.Add(this.label63);
             this.groupBox36.Controls.Add(this.label28);
-            this.groupBox36.Controls.Add(this.nuditemPriceTax);
             this.groupBox36.Controls.Add(this.Warehouse);
-            this.groupBox36.Controls.Add(this.label64);
             this.groupBox36.Controls.Add(this.label25);
-            this.groupBox36.Controls.Add(this.FavoriteCategories);
-            this.groupBox36.Controls.Add(this.nudItemBuyPrice);
             this.groupBox36.Controls.Add(this.PBAddProfilePicture);
-            this.groupBox36.Controls.Add(this.label4);
             this.groupBox36.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox36.Location = new System.Drawing.Point(3, 18);
             this.groupBox36.Name = "groupBox36";
-            this.groupBox36.Size = new System.Drawing.Size(1360, 163);
+            this.groupBox36.Size = new System.Drawing.Size(1352, 163);
             this.groupBox36.TabIndex = 46;
             this.groupBox36.TabStop = false;
             this.groupBox36.Text = "اضافة و تعديل المواد";
@@ -3650,7 +3277,7 @@
             this.ItemType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.ItemType.FormattingEnabled = true;
-            this.ItemType.Location = new System.Drawing.Point(377, 129);
+            this.ItemType.Location = new System.Drawing.Point(302, 50);
             this.ItemType.Name = "ItemType";
             this.ItemType.Size = new System.Drawing.Size(137, 21);
             this.ItemType.TabIndex = 11;
@@ -3662,9 +3289,9 @@
             this.ProductionDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.ProductionDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.ProductionDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProductionDate.Location = new System.Drawing.Point(933, 129);
+            this.ProductionDate.Location = new System.Drawing.Point(1020, 130);
             this.ProductionDate.Name = "ProductionDate";
-            this.ProductionDate.Size = new System.Drawing.Size(199, 20);
+            this.ProductionDate.Size = new System.Drawing.Size(172, 20);
             this.ProductionDate.TabIndex = 8;
             // 
             // label36
@@ -3673,7 +3300,7 @@
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label36.Location = new System.Drawing.Point(1032, 90);
+            this.label36.Location = new System.Drawing.Point(1093, 107);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(99, 24);
             this.label36.TabIndex = 45;
@@ -3684,7 +3311,7 @@
             this.QuantityWarning.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.QuantityWarning.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.QuantityWarning.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.QuantityWarning.Location = new System.Drawing.Point(1139, 129);
+            this.QuantityWarning.Location = new System.Drawing.Point(1198, 129);
             this.QuantityWarning.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -3697,7 +3324,7 @@
             -2147483648});
             this.QuantityWarning.Name = "QuantityWarning";
             this.QuantityWarning.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.QuantityWarning.Size = new System.Drawing.Size(207, 20);
+            this.QuantityWarning.Size = new System.Drawing.Size(140, 20);
             this.QuantityWarning.TabIndex = 7;
             this.QuantityWarning.Enter += new System.EventHandler(this.QuantityWarning_Enter_1);
             // 
@@ -3708,9 +3335,9 @@
             this.ExpirationDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.ExpirationDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.ExpirationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExpirationDate.Location = new System.Drawing.Point(727, 129);
+            this.ExpirationDate.Location = new System.Drawing.Point(840, 130);
             this.ExpirationDate.Name = "ExpirationDate";
-            this.ExpirationDate.Size = new System.Drawing.Size(199, 20);
+            this.ExpirationDate.Size = new System.Drawing.Size(174, 20);
             this.ExpirationDate.TabIndex = 9;
             // 
             // txtItemName
@@ -3718,10 +3345,10 @@
             this.txtItemName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtItemName.Location = new System.Drawing.Point(1142, 50);
+            this.txtItemName.Location = new System.Drawing.Point(1149, 50);
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtItemName.Size = new System.Drawing.Size(207, 20);
+            this.txtItemName.Size = new System.Drawing.Size(192, 20);
             this.txtItemName.TabIndex = 0;
             // 
             // EntryDate
@@ -3731,9 +3358,9 @@
             this.EntryDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EntryDate.Location = new System.Drawing.Point(521, 129);
+            this.EntryDate.Location = new System.Drawing.Point(661, 129);
             this.EntryDate.Name = "EntryDate";
-            this.EntryDate.Size = new System.Drawing.Size(199, 20);
+            this.EntryDate.Size = new System.Drawing.Size(173, 20);
             this.EntryDate.TabIndex = 10;
             // 
             // label62
@@ -3742,7 +3369,7 @@
             this.label62.AutoSize = true;
             this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label62.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label62.Location = new System.Drawing.Point(1266, 25);
+            this.label62.Location = new System.Drawing.Point(1258, 25);
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(83, 24);
             this.label62.TabIndex = 7;
@@ -3753,10 +3380,10 @@
             this.txtItemBarCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtItemBarCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemBarCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtItemBarCode.Location = new System.Drawing.Point(922, 50);
+            this.txtItemBarCode.Location = new System.Drawing.Point(994, 50);
             this.txtItemBarCode.Name = "txtItemBarCode";
             this.txtItemBarCode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtItemBarCode.Size = new System.Drawing.Size(214, 20);
+            this.txtItemBarCode.Size = new System.Drawing.Size(149, 20);
             this.txtItemBarCode.TabIndex = 1;
             // 
             // label35
@@ -3765,7 +3392,7 @@
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label35.Location = new System.Drawing.Point(1258, 90);
+            this.label35.Location = new System.Drawing.Point(1249, 102);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(88, 24);
             this.label35.TabIndex = 43;
@@ -3777,7 +3404,7 @@
             this.label61.AutoSize = true;
             this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label61.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label61.Location = new System.Drawing.Point(1031, 22);
+            this.label61.Location = new System.Drawing.Point(1042, 22);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(105, 24);
             this.label61.TabIndex = 9;
@@ -3789,7 +3416,7 @@
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label34.Location = new System.Drawing.Point(763, 90);
+            this.label34.Location = new System.Drawing.Point(855, 103);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(163, 24);
             this.label34.TabIndex = 41;
@@ -3801,11 +3428,12 @@
             this.label60.AutoSize = true;
             this.label60.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label60.Location = new System.Drawing.Point(835, 22);
+            this.label60.Location = new System.Drawing.Point(907, 21);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(85, 24);
             this.label60.TabIndex = 11;
             this.label60.Text = "عدد القطعه";
+            this.label60.Visible = false;
             // 
             // nudItemQuantity
             // 
@@ -3813,7 +3441,7 @@
             this.nudItemQuantity.Enabled = false;
             this.nudItemQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudItemQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.nudItemQuantity.Location = new System.Drawing.Point(806, 51);
+            this.nudItemQuantity.Location = new System.Drawing.Point(878, 50);
             this.nudItemQuantity.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -3829,6 +3457,7 @@
             this.nudItemQuantity.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.nudItemQuantity.Size = new System.Drawing.Size(110, 20);
             this.nudItemQuantity.TabIndex = 2;
+            this.nudItemQuantity.Visible = false;
             this.nudItemQuantity.Enter += new System.EventHandler(this.nudItemQuantity_Enter);
             // 
             // label33
@@ -3837,7 +3466,7 @@
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label33.Location = new System.Drawing.Point(616, 90);
+            this.label33.Location = new System.Drawing.Point(730, 107);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(104, 24);
             this.label33.TabIndex = 39;
@@ -3849,7 +3478,7 @@
             this.label55.AutoSize = true;
             this.label55.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label55.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label55.Location = new System.Drawing.Point(554, 25);
+            this.label55.Location = new System.Drawing.Point(746, 22);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(117, 24);
             this.label55.TabIndex = 18;
@@ -3861,7 +3490,7 @@
             this.nuditemPrice.DecimalPlaces = 2;
             this.nuditemPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nuditemPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.nuditemPrice.Location = new System.Drawing.Point(534, 52);
+            this.nuditemPrice.Location = new System.Drawing.Point(726, 49);
             this.nuditemPrice.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -3885,7 +3514,7 @@
             this.label63.AutoSize = true;
             this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label63.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label63.Location = new System.Drawing.Point(393, 24);
+            this.label63.Location = new System.Drawing.Point(585, 21);
             this.label63.Name = "label63";
             this.label63.Size = new System.Drawing.Size(146, 24);
             this.label63.TabIndex = 20;
@@ -3897,7 +3526,7 @@
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label28.Location = new System.Drawing.Point(411, 90);
+            this.label28.Location = new System.Drawing.Point(336, 25);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(103, 24);
             this.label28.TabIndex = 37;
@@ -3909,7 +3538,7 @@
             this.nuditemPriceTax.DecimalPlaces = 2;
             this.nuditemPriceTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nuditemPriceTax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.nuditemPriceTax.Location = new System.Drawing.Point(398, 52);
+            this.nuditemPriceTax.Location = new System.Drawing.Point(590, 49);
             this.nuditemPriceTax.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -3933,7 +3562,7 @@
             this.Warehouse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Warehouse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.Warehouse.FormattingEnabled = true;
-            this.Warehouse.Location = new System.Drawing.Point(233, 129);
+            this.Warehouse.Location = new System.Drawing.Point(518, 128);
             this.Warehouse.Name = "Warehouse";
             this.Warehouse.Size = new System.Drawing.Size(137, 21);
             this.Warehouse.TabIndex = 12;
@@ -3944,7 +3573,7 @@
             this.label64.AutoSize = true;
             this.label64.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label64.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label64.Location = new System.Drawing.Point(267, 26);
+            this.label64.Location = new System.Drawing.Point(459, 23);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(125, 24);
             this.label64.TabIndex = 23;
@@ -3956,7 +3585,7 @@
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label25.Location = new System.Drawing.Point(298, 90);
+            this.label25.Location = new System.Drawing.Point(587, 101);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(72, 24);
             this.label25.TabIndex = 35;
@@ -3969,7 +3598,7 @@
             this.FavoriteCategories.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FavoriteCategories.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.FavoriteCategories.FormattingEnabled = true;
-            this.FavoriteCategories.Location = new System.Drawing.Point(253, 52);
+            this.FavoriteCategories.Location = new System.Drawing.Point(445, 49);
             this.FavoriteCategories.Name = "FavoriteCategories";
             this.FavoriteCategories.Size = new System.Drawing.Size(137, 21);
             this.FavoriteCategories.TabIndex = 6;
@@ -3980,7 +3609,7 @@
             this.nudItemBuyPrice.DecimalPlaces = 2;
             this.nudItemBuyPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudItemBuyPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.nudItemBuyPrice.Location = new System.Drawing.Point(670, 52);
+            this.nudItemBuyPrice.Location = new System.Drawing.Point(862, 49);
             this.nudItemBuyPrice.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -3997,28 +3626,13 @@
             this.nudItemBuyPrice.TabIndex = 3;
             this.nudItemBuyPrice.Enter += new System.EventHandler(this.nudItemBuyPrice_Enter);
             // 
-            // PBAddProfilePicture
-            // 
-            this.PBAddProfilePicture.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.PBAddProfilePicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.PBAddProfilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PBAddProfilePicture.Image = global::PlancksoftPOS.Properties.Resources.fruiticon;
-            this.PBAddProfilePicture.Location = new System.Drawing.Point(31, 22);
-            this.PBAddProfilePicture.Name = "PBAddProfilePicture";
-            this.PBAddProfilePicture.Size = new System.Drawing.Size(206, 109);
-            this.PBAddProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PBAddProfilePicture.TabIndex = 31;
-            this.PBAddProfilePicture.TabStop = false;
-            this.PBAddProfilePicture.Click += new System.EventHandler(this.PBAddProfilePicture_Click);
-            // 
             // label4
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label4.Location = new System.Drawing.Point(714, 25);
+            this.label4.Location = new System.Drawing.Point(906, 22);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(90, 24);
             this.label4.TabIndex = 33;
@@ -4042,7 +3656,7 @@
             this.groupBox7.Location = new System.Drawing.Point(3, 3);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox7.Size = new System.Drawing.Size(1366, 79);
+            this.groupBox7.Size = new System.Drawing.Size(1358, 79);
             this.groupBox7.TabIndex = 21;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "البحث عن القطع";
@@ -4052,7 +3666,7 @@
             this.nudItemBarCodeSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nudItemBarCodeSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudItemBarCodeSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.nudItemBarCodeSearch.Location = new System.Drawing.Point(1071, 46);
+            this.nudItemBarCodeSearch.Location = new System.Drawing.Point(1063, 46);
             this.nudItemBarCodeSearch.Name = "nudItemBarCodeSearch";
             this.nudItemBarCodeSearch.Size = new System.Drawing.Size(167, 20);
             this.nudItemBarCodeSearch.TabIndex = 0;
@@ -4064,7 +3678,7 @@
             this.dtpSearch2.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dtpSearch2.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dtpSearch2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpSearch2.Location = new System.Drawing.Point(214, 46);
+            this.dtpSearch2.Location = new System.Drawing.Point(206, 46);
             this.dtpSearch2.Name = "dtpSearch2";
             this.dtpSearch2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dtpSearch2.RightToLeftLayout = true;
@@ -4078,7 +3692,7 @@
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label56.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label56.Location = new System.Drawing.Point(256, 20);
+            this.label56.Location = new System.Drawing.Point(248, 20);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(124, 24);
             this.label56.TabIndex = 23;
@@ -4091,7 +3705,7 @@
             this.label57.AutoSize = true;
             this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label57.Location = new System.Drawing.Point(1102, 20);
+            this.label57.Location = new System.Drawing.Point(1094, 20);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(105, 24);
             this.label57.TabIndex = 16;
@@ -4103,7 +3717,7 @@
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label58.Location = new System.Drawing.Point(818, 20);
+            this.label58.Location = new System.Drawing.Point(810, 20);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(83, 24);
             this.label58.TabIndex = 7;
@@ -4116,7 +3730,7 @@
             this.dtpSearch1.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dtpSearch1.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dtpSearch1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpSearch1.Location = new System.Drawing.Point(428, 46);
+            this.dtpSearch1.Location = new System.Drawing.Point(420, 46);
             this.dtpSearch1.Name = "dtpSearch1";
             this.dtpSearch1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dtpSearch1.RightToLeftLayout = true;
@@ -4129,7 +3743,7 @@
             this.txtItemNameSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtItemNameSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemNameSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtItemNameSearch.Location = new System.Drawing.Point(651, 46);
+            this.txtItemNameSearch.Location = new System.Drawing.Point(643, 46);
             this.txtItemNameSearch.Name = "txtItemNameSearch";
             this.txtItemNameSearch.Size = new System.Drawing.Size(416, 20);
             this.txtItemNameSearch.TabIndex = 1;
@@ -4140,7 +3754,7 @@
             this.label59.AutoSize = true;
             this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label59.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label59.Location = new System.Drawing.Point(476, 20);
+            this.label59.Location = new System.Drawing.Point(468, 20);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(121, 24);
             this.label59.TabIndex = 18;
@@ -4153,7 +3767,7 @@
             this.BtnSearchItem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.BtnSearchItem.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSearchItem.ForeColor = System.Drawing.Color.White;
-            this.BtnSearchItem.Location = new System.Drawing.Point(1244, 21);
+            this.BtnSearchItem.Location = new System.Drawing.Point(1236, 21);
             this.BtnSearchItem.Name = "BtnSearchItem";
             this.BtnSearchItem.Size = new System.Drawing.Size(113, 51);
             this.BtnSearchItem.TabIndex = 4;
@@ -4167,7 +3781,7 @@
             this.InventoryQuantify.Controls.Add(this.groupBox46);
             this.InventoryQuantify.Location = new System.Drawing.Point(4, 34);
             this.InventoryQuantify.Name = "InventoryQuantify";
-            this.InventoryQuantify.Size = new System.Drawing.Size(1372, 633);
+            this.InventoryQuantify.Size = new System.Drawing.Size(1364, 633);
             this.InventoryQuantify.TabIndex = 4;
             this.InventoryQuantify.Text = "جرد المستودعات";
             this.InventoryQuantify.UseVisualStyleBackColor = true;
@@ -4243,20 +3857,6 @@
             this.groupBox46.TabIndex = 22;
             this.groupBox46.TabStop = false;
             this.groupBox46.Text = "مخزون البضائع في المستودع";
-            // 
-            // pictureBox47
-            // 
-            this.pictureBox47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox47.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox47.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox47.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox47.Location = new System.Drawing.Point(1272, 21);
-            this.pictureBox47.Name = "pictureBox47";
-            this.pictureBox47.Size = new System.Drawing.Size(85, 66);
-            this.pictureBox47.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox47.TabIndex = 24;
-            this.pictureBox47.TabStop = false;
-            this.pictureBox47.Click += new System.EventHandler(this.pictureBox47_Click);
             // 
             // dgvWarehouseInventory
             // 
@@ -4362,7 +3962,7 @@
             this.IncomingOutgoingItems.Controls.Add(this.groupBox48);
             this.IncomingOutgoingItems.Location = new System.Drawing.Point(4, 34);
             this.IncomingOutgoingItems.Name = "IncomingOutgoingItems";
-            this.IncomingOutgoingItems.Size = new System.Drawing.Size(1372, 633);
+            this.IncomingOutgoingItems.Size = new System.Drawing.Size(1364, 633);
             this.IncomingOutgoingItems.TabIndex = 5;
             this.IncomingOutgoingItems.Text = "سند إدخال و إخراج";
             this.IncomingOutgoingItems.UseVisualStyleBackColor = true;
@@ -4397,7 +3997,7 @@
             this.groupBox48.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox48.Location = new System.Drawing.Point(0, 0);
             this.groupBox48.Name = "groupBox48";
-            this.groupBox48.Size = new System.Drawing.Size(1372, 633);
+            this.groupBox48.Size = new System.Drawing.Size(1364, 633);
             this.groupBox48.TabIndex = 48;
             this.groupBox48.TabStop = false;
             this.groupBox48.Text = "اضافة سند إدخال و إخراج";
@@ -4408,7 +4008,7 @@
             this.button38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button38.ForeColor = System.Drawing.Color.White;
-            this.button38.Location = new System.Drawing.Point(1223, 196);
+            this.button38.Location = new System.Drawing.Point(1215, 196);
             this.button38.Name = "button38";
             this.button38.Size = new System.Drawing.Size(137, 46);
             this.button38.TabIndex = 51;
@@ -4422,7 +4022,7 @@
             this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button14.ForeColor = System.Drawing.Color.White;
-            this.button14.Location = new System.Drawing.Point(1223, 144);
+            this.button14.Location = new System.Drawing.Point(1215, 144);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(137, 46);
             this.button14.TabIndex = 17;
@@ -4436,7 +4036,7 @@
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label46.Location = new System.Drawing.Point(465, 78);
+            this.label46.Location = new System.Drawing.Point(457, 78);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(90, 24);
             this.label46.TabIndex = 49;
@@ -4449,7 +4049,7 @@
             this.button36.Enabled = false;
             this.button36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button36.ForeColor = System.Drawing.Color.White;
-            this.button36.Location = new System.Drawing.Point(1223, 248);
+            this.button36.Location = new System.Drawing.Point(1215, 248);
             this.button36.Name = "button36";
             this.button36.Size = new System.Drawing.Size(137, 46);
             this.button36.TabIndex = 50;
@@ -4463,7 +4063,7 @@
             this.EntryExitItemBuyPrice.DecimalPlaces = 2;
             this.EntryExitItemBuyPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EntryExitItemBuyPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.EntryExitItemBuyPrice.Location = new System.Drawing.Point(441, 105);
+            this.EntryExitItemBuyPrice.Location = new System.Drawing.Point(433, 105);
             this.EntryExitItemBuyPrice.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -4499,7 +4099,7 @@
             this.dvgEntryExitItems.Location = new System.Drawing.Point(6, 140);
             this.dvgEntryExitItems.Name = "dvgEntryExitItems";
             this.dvgEntryExitItems.ReadOnly = true;
-            this.dvgEntryExitItems.Size = new System.Drawing.Size(1215, 487);
+            this.dvgEntryExitItems.Size = new System.Drawing.Size(1207, 487);
             this.dvgEntryExitItems.TabIndex = 49;
             this.dvgEntryExitItems.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dvgEntryExitItems_RowHeaderMouseClick);
             // 
@@ -4582,7 +4182,7 @@
             this.WarehouseEntryExitList.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarehouseEntryExitList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.WarehouseEntryExitList.FormattingEnabled = true;
-            this.WarehouseEntryExitList.Location = new System.Drawing.Point(674, 51);
+            this.WarehouseEntryExitList.Location = new System.Drawing.Point(666, 51);
             this.WarehouseEntryExitList.Name = "WarehouseEntryExitList";
             this.WarehouseEntryExitList.Size = new System.Drawing.Size(137, 21);
             this.WarehouseEntryExitList.TabIndex = 46;
@@ -4593,7 +4193,7 @@
             this.label103.AutoSize = true;
             this.label103.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label103.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label103.Location = new System.Drawing.Point(743, 24);
+            this.label103.Location = new System.Drawing.Point(735, 24);
             this.label103.Name = "label103";
             this.label103.Size = new System.Drawing.Size(72, 24);
             this.label103.TabIndex = 47;
@@ -4605,7 +4205,7 @@
             this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button15.ForeColor = System.Drawing.Color.White;
-            this.button15.Location = new System.Drawing.Point(1223, 300);
+            this.button15.Location = new System.Drawing.Point(1215, 300);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(137, 46);
             this.button15.TabIndex = 18;
@@ -4623,7 +4223,7 @@
             this.EntryExitType.Items.AddRange(new object[] {
             "ادخال Import",
             "اخراج Export"});
-            this.EntryExitType.Location = new System.Drawing.Point(441, 51);
+            this.EntryExitType.Location = new System.Drawing.Point(433, 51);
             this.EntryExitType.Name = "EntryExitType";
             this.EntryExitType.Size = new System.Drawing.Size(227, 21);
             this.EntryExitType.TabIndex = 11;
@@ -4634,7 +4234,7 @@
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label53.Location = new System.Drawing.Point(1284, 23);
+            this.label53.Location = new System.Drawing.Point(1276, 23);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(83, 24);
             this.label53.TabIndex = 7;
@@ -4645,7 +4245,7 @@
             this.WarehouseEntryExitItemBarCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.WarehouseEntryExitItemBarCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarehouseEntryExitItemBarCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.WarehouseEntryExitItemBarCode.Location = new System.Drawing.Point(934, 51);
+            this.WarehouseEntryExitItemBarCode.Location = new System.Drawing.Point(926, 51);
             this.WarehouseEntryExitItemBarCode.Name = "WarehouseEntryExitItemBarCode";
             this.WarehouseEntryExitItemBarCode.Size = new System.Drawing.Size(215, 20);
             this.WarehouseEntryExitItemBarCode.TabIndex = 0;
@@ -4655,7 +4255,7 @@
             this.WarehouseEntryExitItemName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.WarehouseEntryExitItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarehouseEntryExitItemName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.WarehouseEntryExitItemName.Location = new System.Drawing.Point(1155, 50);
+            this.WarehouseEntryExitItemName.Location = new System.Drawing.Point(1147, 50);
             this.WarehouseEntryExitItemName.Name = "WarehouseEntryExitItemName";
             this.WarehouseEntryExitItemName.Size = new System.Drawing.Size(212, 20);
             this.WarehouseEntryExitItemName.TabIndex = 1;
@@ -4667,7 +4267,7 @@
             this.EntryExitProductionDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryExitProductionDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryExitProductionDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EntryExitProductionDate.Location = new System.Drawing.Point(967, 105);
+            this.EntryExitProductionDate.Location = new System.Drawing.Point(959, 105);
             this.EntryExitProductionDate.Name = "EntryExitProductionDate";
             this.EntryExitProductionDate.Size = new System.Drawing.Size(199, 20);
             this.EntryExitProductionDate.TabIndex = 8;
@@ -4678,7 +4278,7 @@
             this.label48.AutoSize = true;
             this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label48.Location = new System.Drawing.Point(1044, 25);
+            this.label48.Location = new System.Drawing.Point(1036, 25);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(105, 24);
             this.label48.TabIndex = 16;
@@ -4690,7 +4290,7 @@
             this.label79.AutoSize = true;
             this.label79.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label79.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label79.Location = new System.Drawing.Point(1071, 74);
+            this.label79.Location = new System.Drawing.Point(1063, 74);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(99, 24);
             this.label79.TabIndex = 45;
@@ -4701,7 +4301,7 @@
             this.EntryExitWarningQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EntryExitWarningQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EntryExitWarningQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.EntryExitWarningQuantity.Location = new System.Drawing.Point(1172, 105);
+            this.EntryExitWarningQuantity.Location = new System.Drawing.Point(1164, 105);
             this.EntryExitWarningQuantity.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -4724,7 +4324,7 @@
             this.EntryExitExpirationDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryExitExpirationDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryExitExpirationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EntryExitExpirationDate.Location = new System.Drawing.Point(762, 105);
+            this.EntryExitExpirationDate.Location = new System.Drawing.Point(754, 105);
             this.EntryExitExpirationDate.Name = "EntryExitExpirationDate";
             this.EntryExitExpirationDate.Size = new System.Drawing.Size(199, 20);
             this.EntryExitExpirationDate.TabIndex = 9;
@@ -4736,7 +4336,7 @@
             this.EntryExitEntryDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryExitEntryDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryExitEntryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EntryExitEntryDate.Location = new System.Drawing.Point(557, 105);
+            this.EntryExitEntryDate.Location = new System.Drawing.Point(549, 105);
             this.EntryExitEntryDate.Name = "EntryExitEntryDate";
             this.EntryExitEntryDate.Size = new System.Drawing.Size(199, 20);
             this.EntryExitEntryDate.TabIndex = 10;
@@ -4747,7 +4347,7 @@
             this.label94.AutoSize = true;
             this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label94.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label94.Location = new System.Drawing.Point(1276, 73);
+            this.label94.Location = new System.Drawing.Point(1268, 73);
             this.label94.Name = "label94";
             this.label94.Size = new System.Drawing.Size(88, 24);
             this.label94.TabIndex = 43;
@@ -4759,7 +4359,7 @@
             this.label96.AutoSize = true;
             this.label96.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label96.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label96.Location = new System.Drawing.Point(802, 75);
+            this.label96.Location = new System.Drawing.Point(794, 75);
             this.label96.Name = "label96";
             this.label96.Size = new System.Drawing.Size(163, 24);
             this.label96.TabIndex = 41;
@@ -4771,7 +4371,7 @@
             this.label97.AutoSize = true;
             this.label97.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label97.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label97.Location = new System.Drawing.Point(846, 25);
+            this.label97.Location = new System.Drawing.Point(838, 25);
             this.label97.Name = "label97";
             this.label97.Size = new System.Drawing.Size(85, 24);
             this.label97.TabIndex = 11;
@@ -4782,7 +4382,7 @@
             this.EntryExitItemQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EntryExitItemQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EntryExitItemQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.EntryExitItemQuantity.Location = new System.Drawing.Point(817, 52);
+            this.EntryExitItemQuantity.Location = new System.Drawing.Point(809, 52);
             this.EntryExitItemQuantity.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -4804,7 +4404,7 @@
             this.label98.AutoSize = true;
             this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label98.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label98.Location = new System.Drawing.Point(656, 78);
+            this.label98.Location = new System.Drawing.Point(648, 78);
             this.label98.Name = "label98";
             this.label98.Size = new System.Drawing.Size(104, 24);
             this.label98.TabIndex = 39;
@@ -4816,7 +4416,7 @@
             this.label101.AutoSize = true;
             this.label101.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label101.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label101.Location = new System.Drawing.Point(596, 25);
+            this.label101.Location = new System.Drawing.Point(588, 25);
             this.label101.Name = "label101";
             this.label101.Size = new System.Drawing.Size(76, 24);
             this.label101.TabIndex = 37;
@@ -4829,7 +4429,7 @@
             this.AddTypes.Location = new System.Drawing.Point(4, 34);
             this.AddTypes.Name = "AddTypes";
             this.AddTypes.Padding = new System.Windows.Forms.Padding(3);
-            this.AddTypes.Size = new System.Drawing.Size(1372, 633);
+            this.AddTypes.Size = new System.Drawing.Size(1364, 633);
             this.AddTypes.TabIndex = 1;
             this.AddTypes.Text = "إضافة صنف";
             // 
@@ -4846,7 +4446,7 @@
             this.flowLayoutPanel3.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1366, 627);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1358, 627);
             this.flowLayoutPanel3.TabIndex = 0;
             this.flowLayoutPanel3.WrapContents = false;
             // 
@@ -4855,7 +4455,7 @@
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label29.Location = new System.Drawing.Point(1179, 0);
+            this.label29.Location = new System.Drawing.Point(1171, 0);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(180, 24);
             this.label29.TabIndex = 10;
@@ -4865,7 +4465,7 @@
             // 
             this.ItemTypeEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemTypeEntry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.ItemTypeEntry.Location = new System.Drawing.Point(1008, 27);
+            this.ItemTypeEntry.Location = new System.Drawing.Point(1000, 27);
             this.ItemTypeEntry.Name = "ItemTypeEntry";
             this.ItemTypeEntry.Size = new System.Drawing.Size(351, 20);
             this.ItemTypeEntry.TabIndex = 0;
@@ -4876,24 +4476,11 @@
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label30.Location = new System.Drawing.Point(1195, 50);
+            this.label30.Location = new System.Drawing.Point(1187, 50);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(164, 24);
             this.label30.TabIndex = 11;
             this.label30.Text = "أصناف المواد المضافه";
-            // 
-            // pictureBox39
-            // 
-            this.pictureBox39.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox39.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox39.Image = global::PlancksoftPOS.Properties.Resources.plus;
-            this.pictureBox39.Location = new System.Drawing.Point(1291, 77);
-            this.pictureBox39.Name = "pictureBox39";
-            this.pictureBox39.Size = new System.Drawing.Size(68, 49);
-            this.pictureBox39.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox39.TabIndex = 0;
-            this.pictureBox39.TabStop = false;
-            this.pictureBox39.Click += new System.EventHandler(this.pictureBox39_Click);
             // 
             // AddFavorites
             // 
@@ -4901,7 +4488,7 @@
             this.AddFavorites.Controls.Add(this.flowLayoutPanel1);
             this.AddFavorites.Location = new System.Drawing.Point(4, 34);
             this.AddFavorites.Name = "AddFavorites";
-            this.AddFavorites.Size = new System.Drawing.Size(1372, 633);
+            this.AddFavorites.Size = new System.Drawing.Size(1364, 633);
             this.AddFavorites.TabIndex = 2;
             this.AddFavorites.Text = "إضافة مجلد مفضلات";
             // 
@@ -4918,7 +4505,7 @@
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1372, 633);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1364, 633);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -4927,7 +4514,7 @@
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label22.Location = new System.Drawing.Point(1192, 0);
+            this.label22.Location = new System.Drawing.Point(1184, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(173, 24);
             this.label22.TabIndex = 10;
@@ -4937,7 +4524,7 @@
             // 
             this.FavoriteCategoryEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FavoriteCategoryEntry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.FavoriteCategoryEntry.Location = new System.Drawing.Point(1014, 27);
+            this.FavoriteCategoryEntry.Location = new System.Drawing.Point(1006, 27);
             this.FavoriteCategoryEntry.Name = "FavoriteCategoryEntry";
             this.FavoriteCategoryEntry.Size = new System.Drawing.Size(351, 20);
             this.FavoriteCategoryEntry.TabIndex = 0;
@@ -4948,24 +4535,11 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label23.Location = new System.Drawing.Point(1227, 50);
+            this.label23.Location = new System.Drawing.Point(1219, 50);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(138, 24);
             this.label23.TabIndex = 11;
             this.label23.Text = "المفضلات المضافه";
-            // 
-            // pictureBox36
-            // 
-            this.pictureBox36.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox36.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox36.Image = global::PlancksoftPOS.Properties.Resources.plus;
-            this.pictureBox36.Location = new System.Drawing.Point(1297, 77);
-            this.pictureBox36.Name = "pictureBox36";
-            this.pictureBox36.Size = new System.Drawing.Size(68, 49);
-            this.pictureBox36.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox36.TabIndex = 0;
-            this.pictureBox36.TabStop = false;
-            this.pictureBox36.Click += new System.EventHandler(this.pictureBox36_Click);
             // 
             // AddWarehouses
             // 
@@ -4973,7 +4547,7 @@
             this.AddWarehouses.Controls.Add(this.flowLayoutPanel2);
             this.AddWarehouses.Location = new System.Drawing.Point(4, 34);
             this.AddWarehouses.Name = "AddWarehouses";
-            this.AddWarehouses.Size = new System.Drawing.Size(1372, 633);
+            this.AddWarehouses.Size = new System.Drawing.Size(1364, 633);
             this.AddWarehouses.TabIndex = 3;
             this.AddWarehouses.Text = "إضافة مستودع";
             // 
@@ -4990,7 +4564,7 @@
             this.flowLayoutPanel2.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1372, 633);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1364, 633);
             this.flowLayoutPanel2.TabIndex = 0;
             this.flowLayoutPanel2.WrapContents = false;
             // 
@@ -4999,7 +4573,7 @@
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label26.Location = new System.Drawing.Point(1219, 0);
+            this.label26.Location = new System.Drawing.Point(1211, 0);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(146, 24);
             this.label26.TabIndex = 10;
@@ -5009,7 +4583,7 @@
             // 
             this.WarehouseEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarehouseEntry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.WarehouseEntry.Location = new System.Drawing.Point(1014, 27);
+            this.WarehouseEntry.Location = new System.Drawing.Point(1006, 27);
             this.WarehouseEntry.Name = "WarehouseEntry";
             this.WarehouseEntry.Size = new System.Drawing.Size(351, 20);
             this.WarehouseEntry.TabIndex = 0;
@@ -5020,31 +4594,18 @@
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label27.Location = new System.Drawing.Point(1213, 50);
+            this.label27.Location = new System.Drawing.Point(1205, 50);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(152, 24);
             this.label27.TabIndex = 11;
             this.label27.Text = "المستودعات المضافه";
-            // 
-            // pictureBox38
-            // 
-            this.pictureBox38.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox38.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox38.Image = global::PlancksoftPOS.Properties.Resources.plus;
-            this.pictureBox38.Location = new System.Drawing.Point(1297, 77);
-            this.pictureBox38.Name = "pictureBox38";
-            this.pictureBox38.Size = new System.Drawing.Size(68, 49);
-            this.pictureBox38.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox38.TabIndex = 0;
-            this.pictureBox38.TabStop = false;
-            this.pictureBox38.Click += new System.EventHandler(this.pictureBox38_Click);
             // 
             // Expenses
             // 
             this.Expenses.Controls.Add(this.tabControl5);
             this.Expenses.Location = new System.Drawing.Point(4, 34);
             this.Expenses.Name = "Expenses";
-            this.Expenses.Size = new System.Drawing.Size(1386, 692);
+            this.Expenses.Size = new System.Drawing.Size(1378, 692);
             this.Expenses.TabIndex = 3;
             this.Expenses.Text = "المصروفات";
             this.Expenses.UseVisualStyleBackColor = true;
@@ -5059,7 +4620,7 @@
             this.tabControl5.Name = "tabControl5";
             this.tabControl5.RightToLeftLayout = true;
             this.tabControl5.SelectedIndex = 0;
-            this.tabControl5.Size = new System.Drawing.Size(1386, 692);
+            this.tabControl5.Size = new System.Drawing.Size(1378, 692);
             this.tabControl5.TabIndex = 0;
             // 
             // SearchExpenses
@@ -5069,7 +4630,7 @@
             this.SearchExpenses.Location = new System.Drawing.Point(4, 34);
             this.SearchExpenses.Name = "SearchExpenses";
             this.SearchExpenses.Padding = new System.Windows.Forms.Padding(3);
-            this.SearchExpenses.Size = new System.Drawing.Size(1378, 654);
+            this.SearchExpenses.Size = new System.Drawing.Size(1370, 654);
             this.SearchExpenses.TabIndex = 0;
             this.SearchExpenses.Text = "البحث عن المصروفات";
             // 
@@ -5091,23 +4652,9 @@
             this.groupBox31.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox31.Location = new System.Drawing.Point(3, 3);
             this.groupBox31.Name = "groupBox31";
-            this.groupBox31.Size = new System.Drawing.Size(1372, 648);
+            this.groupBox31.Size = new System.Drawing.Size(1364, 648);
             this.groupBox31.TabIndex = 0;
             this.groupBox31.TabStop = false;
-            // 
-            // pictureBox34
-            // 
-            this.pictureBox34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox34.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox34.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox34.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox34.Location = new System.Drawing.Point(1267, 85);
-            this.pictureBox34.Name = "pictureBox34";
-            this.pictureBox34.Size = new System.Drawing.Size(102, 116);
-            this.pictureBox34.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox34.TabIndex = 32;
-            this.pictureBox34.TabStop = false;
-            this.pictureBox34.Click += new System.EventHandler(this.pictureBox34_Click);
             // 
             // dgvExpenses
             // 
@@ -5129,7 +4676,7 @@
             this.dgvExpenses.Name = "dgvExpenses";
             this.dgvExpenses.ReadOnly = true;
             this.dgvExpenses.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvExpenses.Size = new System.Drawing.Size(1255, 557);
+            this.dgvExpenses.Size = new System.Drawing.Size(1247, 557);
             this.dgvExpenses.TabIndex = 34;
             // 
             // Column29
@@ -5177,7 +4724,7 @@
             this.groupBox22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox22.Controls.Add(this.CapitalAmountnud);
             this.groupBox22.ForeColor = System.Drawing.Color.Black;
-            this.groupBox22.Location = new System.Drawing.Point(203, 3);
+            this.groupBox22.Location = new System.Drawing.Point(195, 3);
             this.groupBox22.Name = "groupBox22";
             this.groupBox22.Size = new System.Drawing.Size(192, 84);
             this.groupBox22.TabIndex = 35;
@@ -5210,7 +4757,7 @@
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.textBox2.Location = new System.Drawing.Point(824, 61);
+            this.textBox2.Location = new System.Drawing.Point(816, 61);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(221, 20);
             this.textBox2.TabIndex = 1;
@@ -5221,7 +4768,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label17.Location = new System.Drawing.Point(951, 34);
+            this.label17.Location = new System.Drawing.Point(943, 34);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(94, 24);
             this.label17.TabIndex = 34;
@@ -5232,7 +4779,7 @@
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.textBox1.Location = new System.Drawing.Point(1051, 61);
+            this.textBox1.Location = new System.Drawing.Point(1043, 61);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(221, 20);
             this.textBox1.TabIndex = 0;
@@ -5243,7 +4790,7 @@
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label16.Location = new System.Drawing.Point(1163, 34);
+            this.label16.Location = new System.Drawing.Point(1155, 34);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(109, 24);
             this.label16.TabIndex = 32;
@@ -5257,7 +4804,7 @@
             this.dateTimePicker7.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker7.CustomFormat = "";
             this.dateTimePicker7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker7.Location = new System.Drawing.Point(401, 60);
+            this.dateTimePicker7.Location = new System.Drawing.Point(393, 60);
             this.dateTimePicker7.Name = "dateTimePicker7";
             this.dateTimePicker7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePicker7.RightToLeftLayout = true;
@@ -5270,7 +4817,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label14.Location = new System.Drawing.Point(481, 34);
+            this.label14.Location = new System.Drawing.Point(473, 34);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(124, 24);
             this.label14.TabIndex = 30;
@@ -5284,7 +4831,7 @@
             this.dateTimePicker8.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker8.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker8.Location = new System.Drawing.Point(607, 61);
+            this.dateTimePicker8.Location = new System.Drawing.Point(599, 61);
             this.dateTimePicker8.Name = "dateTimePicker8";
             this.dateTimePicker8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePicker8.RightToLeftLayout = true;
@@ -5297,26 +4844,12 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label15.Location = new System.Drawing.Point(690, 34);
+            this.label15.Location = new System.Drawing.Point(682, 34);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(121, 24);
             this.label15.TabIndex = 29;
             this.label15.Text = "تاريخ البحث من";
             this.label15.Visible = false;
-            // 
-            // pictureBox33
-            // 
-            this.pictureBox33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox33.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox33.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox33.Image = global::PlancksoftPOS.Properties.Resources.search;
-            this.pictureBox33.Location = new System.Drawing.Point(1278, 41);
-            this.pictureBox33.Name = "pictureBox33";
-            this.pictureBox33.Size = new System.Drawing.Size(47, 39);
-            this.pictureBox33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox33.TabIndex = 31;
-            this.pictureBox33.TabStop = false;
-            this.pictureBox33.Click += new System.EventHandler(this.pictureBox33_Click);
             // 
             // AddExpenses
             // 
@@ -5325,7 +4858,7 @@
             this.AddExpenses.Location = new System.Drawing.Point(4, 34);
             this.AddExpenses.Name = "AddExpenses";
             this.AddExpenses.Padding = new System.Windows.Forms.Padding(3);
-            this.AddExpenses.Size = new System.Drawing.Size(1378, 654);
+            this.AddExpenses.Size = new System.Drawing.Size(1370, 654);
             this.AddExpenses.TabIndex = 1;
             this.AddExpenses.Text = "إضافة مصروف";
             // 
@@ -5340,7 +4873,7 @@
             this.groupBox33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox33.Location = new System.Drawing.Point(3, 3);
             this.groupBox33.Name = "groupBox33";
-            this.groupBox33.Size = new System.Drawing.Size(1372, 648);
+            this.groupBox33.Size = new System.Drawing.Size(1364, 648);
             this.groupBox33.TabIndex = 0;
             this.groupBox33.TabStop = false;
             // 
@@ -5350,7 +4883,7 @@
             this.numericUpDown1.DecimalPlaces = 2;
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.numericUpDown1.Location = new System.Drawing.Point(1141, 107);
+            this.numericUpDown1.Location = new System.Drawing.Point(1133, 107);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -5368,7 +4901,7 @@
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(1143, 155);
+            this.button3.Location = new System.Drawing.Point(1135, 155);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(102, 59);
             this.button3.TabIndex = 47;
@@ -5382,7 +4915,7 @@
             this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(1262, 155);
+            this.button2.Location = new System.Drawing.Point(1254, 155);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(96, 59);
             this.button2.TabIndex = 46;
@@ -5396,7 +4929,7 @@
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label20.Location = new System.Drawing.Point(1246, 80);
+            this.label20.Location = new System.Drawing.Point(1238, 80);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(116, 24);
             this.label20.TabIndex = 44;
@@ -5407,7 +4940,7 @@
             this.textBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.textBox4.Location = new System.Drawing.Point(1141, 41);
+            this.textBox4.Location = new System.Drawing.Point(1133, 41);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(221, 20);
             this.textBox4.TabIndex = 0;
@@ -5419,7 +4952,7 @@
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label19.Location = new System.Drawing.Point(1257, 14);
+            this.label19.Location = new System.Drawing.Point(1249, 14);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(109, 24);
             this.label19.TabIndex = 40;
@@ -5433,7 +4966,7 @@
             this.IncomingOutgoing.Controls.Add(this.groupBox19);
             this.IncomingOutgoing.Location = new System.Drawing.Point(4, 34);
             this.IncomingOutgoing.Name = "IncomingOutgoing";
-            this.IncomingOutgoing.Size = new System.Drawing.Size(1386, 692);
+            this.IncomingOutgoing.Size = new System.Drawing.Size(1378, 692);
             this.IncomingOutgoing.TabIndex = 7;
             this.IncomingOutgoing.Text = "الصادر و الوارد و رأس المال";
             // 
@@ -5453,7 +4986,7 @@
             this.groupBox21.ForeColor = System.Drawing.Color.Black;
             this.groupBox21.Location = new System.Drawing.Point(3, 372);
             this.groupBox21.Name = "groupBox21";
-            this.groupBox21.Size = new System.Drawing.Size(1383, 317);
+            this.groupBox21.Size = new System.Drawing.Size(1375, 317);
             this.groupBox21.TabIndex = 2;
             this.groupBox21.TabStop = false;
             this.groupBox21.Text = "الأرباح";
@@ -5462,7 +4995,7 @@
             // 
             this.label116.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label116.AutoSize = true;
-            this.label116.Location = new System.Drawing.Point(1306, 279);
+            this.label116.Location = new System.Drawing.Point(1298, 279);
             this.label116.Name = "label116";
             this.label116.Size = new System.Drawing.Size(68, 16);
             this.label116.TabIndex = 32;
@@ -5472,7 +5005,7 @@
             // 
             this.label115.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label115.AutoSize = true;
-            this.label115.Location = new System.Drawing.Point(1300, 237);
+            this.label115.Location = new System.Drawing.Point(1292, 237);
             this.label115.Name = "label115";
             this.label115.Size = new System.Drawing.Size(76, 16);
             this.label115.TabIndex = 31;
@@ -5482,7 +5015,7 @@
             // 
             this.label91.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(1255, 301);
+            this.label91.Location = new System.Drawing.Point(1247, 301);
             this.label91.Name = "label91";
             this.label91.Size = new System.Drawing.Size(0, 16);
             this.label91.TabIndex = 30;
@@ -5491,7 +5024,7 @@
             // 
             this.label80.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(1255, 260);
+            this.label80.Location = new System.Drawing.Point(1247, 260);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(0, 16);
             this.label80.TabIndex = 28;
@@ -5509,7 +5042,7 @@
             this.dvgCapital.Location = new System.Drawing.Point(0, 6);
             this.dvgCapital.Name = "dvgCapital";
             this.dvgCapital.ReadOnly = true;
-            this.dvgCapital.Size = new System.Drawing.Size(1249, 308);
+            this.dvgCapital.Size = new System.Drawing.Size(1241, 308);
             this.dvgCapital.TabIndex = 0;
             // 
             // Column22
@@ -5528,34 +5061,6 @@
             this.Column26.Name = "Column26";
             this.Column26.ReadOnly = true;
             // 
-            // pictureBox27
-            // 
-            this.pictureBox27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox27.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox27.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox27.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox27.Location = new System.Drawing.Point(1255, 140);
-            this.pictureBox27.Name = "pictureBox27";
-            this.pictureBox27.Size = new System.Drawing.Size(104, 94);
-            this.pictureBox27.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox27.TabIndex = 29;
-            this.pictureBox27.TabStop = false;
-            this.pictureBox27.Click += new System.EventHandler(this.pictureBox27_Click);
-            // 
-            // pictureBox24
-            // 
-            this.pictureBox24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox24.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox24.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox24.Location = new System.Drawing.Point(1255, 21);
-            this.pictureBox24.Name = "pictureBox24";
-            this.pictureBox24.Size = new System.Drawing.Size(104, 91);
-            this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox24.TabIndex = 26;
-            this.pictureBox24.TabStop = false;
-            this.pictureBox24.Click += new System.EventHandler(this.pictureBox24_Click);
-            // 
             // groupBox20
             // 
             this.groupBox20.BackColor = System.Drawing.Color.White;
@@ -5569,38 +5074,6 @@
             this.groupBox20.TabIndex = 0;
             this.groupBox20.TabStop = false;
             this.groupBox20.Text = "الوارد";
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox9.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox9.Location = new System.Drawing.Point(465, 10);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(130, 49);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 28;
-            this.pictureBox9.TabStop = false;
-            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
-            // 
-            // pictureBox23
-            // 
-            this.pictureBox23.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox23.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox23.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox23.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox23.Location = new System.Drawing.Point(601, 19);
-            this.pictureBox23.Name = "pictureBox23";
-            this.pictureBox23.Size = new System.Drawing.Size(53, 39);
-            this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox23.TabIndex = 27;
-            this.pictureBox23.TabStop = false;
-            this.pictureBox23.Click += new System.EventHandler(this.pictureBox23_Click);
             // 
             // dgvImports
             // 
@@ -5645,38 +5118,10 @@
             this.groupBox19.ForeColor = System.Drawing.Color.Black;
             this.groupBox19.Location = new System.Drawing.Point(669, 3);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(717, 363);
+            this.groupBox19.Size = new System.Drawing.Size(709, 363);
             this.groupBox19.TabIndex = 1;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "الصادر";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox8.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox8.Location = new System.Drawing.Point(501, 10);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(116, 49);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 27;
-            this.pictureBox8.TabStop = false;
-            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
-            // 
-            // pictureBox22
-            // 
-            this.pictureBox22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox22.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox22.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox22.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox22.Location = new System.Drawing.Point(629, 19);
-            this.pictureBox22.Name = "pictureBox22";
-            this.pictureBox22.Size = new System.Drawing.Size(85, 39);
-            this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox22.TabIndex = 26;
-            this.pictureBox22.TabStop = false;
-            this.pictureBox22.Click += new System.EventHandler(this.pictureBox22_Click);
             // 
             // dgvExports
             // 
@@ -5691,7 +5136,7 @@
             this.dgvExports.Location = new System.Drawing.Point(6, 60);
             this.dgvExports.Name = "dgvExports";
             this.dgvExports.ReadOnly = true;
-            this.dgvExports.Size = new System.Drawing.Size(708, 297);
+            this.dgvExports.Size = new System.Drawing.Size(700, 297);
             this.dgvExports.TabIndex = 0;
             // 
             // Column33
@@ -5715,7 +5160,7 @@
             this.Employees.Controls.Add(this.tabControl8);
             this.Employees.Location = new System.Drawing.Point(4, 34);
             this.Employees.Name = "Employees";
-            this.Employees.Size = new System.Drawing.Size(1386, 692);
+            this.Employees.Size = new System.Drawing.Size(1378, 692);
             this.Employees.TabIndex = 10;
             this.Employees.Text = "شؤون الموظفين";
             this.Employees.UseVisualStyleBackColor = true;
@@ -5730,7 +5175,7 @@
             this.tabControl8.Name = "tabControl8";
             this.tabControl8.RightToLeftLayout = true;
             this.tabControl8.SelectedIndex = 0;
-            this.tabControl8.Size = new System.Drawing.Size(1386, 692);
+            this.tabControl8.Size = new System.Drawing.Size(1378, 692);
             this.tabControl8.TabIndex = 1;
             // 
             // EmployeesManagement
@@ -5740,7 +5185,7 @@
             this.EmployeesManagement.Location = new System.Drawing.Point(4, 34);
             this.EmployeesManagement.Name = "EmployeesManagement";
             this.EmployeesManagement.Padding = new System.Windows.Forms.Padding(3);
-            this.EmployeesManagement.Size = new System.Drawing.Size(1378, 654);
+            this.EmployeesManagement.Size = new System.Drawing.Size(1370, 654);
             this.EmployeesManagement.TabIndex = 0;
             this.EmployeesManagement.Text = "إدارة الموظفين";
             this.EmployeesManagement.UseVisualStyleBackColor = true;
@@ -6107,19 +5552,6 @@
             this.Column57.HeaderText = "العنوان";
             this.Column57.Name = "Column57";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox2.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox2.Location = new System.Drawing.Point(862, 19);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(36, 27);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 26;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-            // 
             // groupBox52
             // 
             this.groupBox52.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -6138,7 +5570,7 @@
             this.groupBox52.ForeColor = System.Drawing.Color.Black;
             this.groupBox52.Location = new System.Drawing.Point(916, 0);
             this.groupBox52.Name = "groupBox52";
-            this.groupBox52.Size = new System.Drawing.Size(463, 313);
+            this.groupBox52.Size = new System.Drawing.Size(455, 313);
             this.groupBox52.TabIndex = 2;
             this.groupBox52.TabStop = false;
             this.groupBox52.Text = "تسجيل الموظفين";
@@ -6149,7 +5581,7 @@
             this.label105.AutoSize = true;
             this.label105.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label105.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label105.Location = new System.Drawing.Point(331, 207);
+            this.label105.Location = new System.Drawing.Point(323, 207);
             this.label105.Name = "label105";
             this.label105.Size = new System.Drawing.Size(113, 24);
             this.label105.TabIndex = 26;
@@ -6160,7 +5592,7 @@
             this.AddEmployeeAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddEmployeeAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddEmployeeAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.AddEmployeeAddress.Location = new System.Drawing.Point(46, 234);
+            this.AddEmployeeAddress.Location = new System.Drawing.Point(38, 234);
             this.AddEmployeeAddress.Name = "AddEmployeeAddress";
             this.AddEmployeeAddress.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AddEmployeeAddress.Size = new System.Drawing.Size(397, 20);
@@ -6172,7 +5604,7 @@
             this.label104.AutoSize = true;
             this.label104.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label104.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label104.Location = new System.Drawing.Point(307, 148);
+            this.label104.Location = new System.Drawing.Point(299, 148);
             this.label104.Name = "label104";
             this.label104.Size = new System.Drawing.Size(137, 24);
             this.label104.TabIndex = 24;
@@ -6183,7 +5615,7 @@
             this.AddEmployeePhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddEmployeePhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddEmployeePhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.AddEmployeePhone.Location = new System.Drawing.Point(46, 175);
+            this.AddEmployeePhone.Location = new System.Drawing.Point(38, 175);
             this.AddEmployeePhone.Name = "AddEmployeePhone";
             this.AddEmployeePhone.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AddEmployeePhone.Size = new System.Drawing.Size(397, 20);
@@ -6193,7 +5625,7 @@
             // 
             this.AddEmployeeSalary.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddEmployeeSalary.DecimalPlaces = 2;
-            this.AddEmployeeSalary.Location = new System.Drawing.Point(49, 123);
+            this.AddEmployeeSalary.Location = new System.Drawing.Point(41, 123);
             this.AddEmployeeSalary.Maximum = new decimal(new int[] {
             -159383553,
             46653770,
@@ -6214,7 +5646,7 @@
             this.button34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button34.ForeColor = System.Drawing.Color.White;
-            this.button34.Location = new System.Drawing.Point(43, 271);
+            this.button34.Location = new System.Drawing.Point(35, 271);
             this.button34.Name = "button34";
             this.button34.Size = new System.Drawing.Size(400, 49);
             this.button34.TabIndex = 4;
@@ -6228,7 +5660,7 @@
             this.label100.AutoSize = true;
             this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label100.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label100.Location = new System.Drawing.Point(391, 88);
+            this.label100.Location = new System.Drawing.Point(383, 88);
             this.label100.Name = "label100";
             this.label100.Size = new System.Drawing.Size(56, 24);
             this.label100.TabIndex = 21;
@@ -6240,7 +5672,7 @@
             this.label102.AutoSize = true;
             this.label102.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label102.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label102.Location = new System.Drawing.Point(350, 31);
+            this.label102.Location = new System.Drawing.Point(342, 31);
             this.label102.Name = "label102";
             this.label102.Size = new System.Drawing.Size(94, 24);
             this.label102.TabIndex = 20;
@@ -6251,7 +5683,7 @@
             this.AddEmployeeName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddEmployeeName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddEmployeeName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.AddEmployeeName.Location = new System.Drawing.Point(46, 58);
+            this.AddEmployeeName.Location = new System.Drawing.Point(38, 58);
             this.AddEmployeeName.Name = "AddEmployeeName";
             this.AddEmployeeName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.AddEmployeeName.Size = new System.Drawing.Size(397, 20);
@@ -6262,7 +5694,7 @@
             this.DaysOff.Controls.Add(this.groupBox51);
             this.DaysOff.Location = new System.Drawing.Point(4, 34);
             this.DaysOff.Name = "DaysOff";
-            this.DaysOff.Size = new System.Drawing.Size(1378, 654);
+            this.DaysOff.Size = new System.Drawing.Size(1370, 654);
             this.DaysOff.TabIndex = 1;
             this.DaysOff.Text = "الإجازات";
             this.DaysOff.UseVisualStyleBackColor = true;
@@ -6281,7 +5713,7 @@
             this.groupBox51.ForeColor = System.Drawing.Color.Black;
             this.groupBox51.Location = new System.Drawing.Point(0, 0);
             this.groupBox51.Name = "groupBox51";
-            this.groupBox51.Size = new System.Drawing.Size(1378, 654);
+            this.groupBox51.Size = new System.Drawing.Size(1370, 654);
             this.groupBox51.TabIndex = 2;
             this.groupBox51.TabStop = false;
             this.groupBox51.Text = "جدول الاجازات اليوميه";
@@ -6293,7 +5725,7 @@
             this.button33.Enabled = false;
             this.button33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button33.ForeColor = System.Drawing.Color.White;
-            this.button33.Location = new System.Drawing.Point(783, 43);
+            this.button33.Location = new System.Drawing.Point(775, 43);
             this.button33.Name = "button33";
             this.button33.Size = new System.Drawing.Size(87, 32);
             this.button33.TabIndex = 35;
@@ -6304,7 +5736,7 @@
             // AbsenceTo
             // 
             this.AbsenceTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AbsenceTo.Location = new System.Drawing.Point(867, 43);
+            this.AbsenceTo.Location = new System.Drawing.Point(859, 43);
             this.AbsenceTo.Name = "AbsenceTo";
             this.AbsenceTo.Size = new System.Drawing.Size(200, 22);
             this.AbsenceTo.TabIndex = 34;
@@ -6315,7 +5747,7 @@
             this.label110.AutoSize = true;
             this.label110.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label110.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label110.Location = new System.Drawing.Point(993, 16);
+            this.label110.Location = new System.Drawing.Point(985, 16);
             this.label110.Name = "label110";
             this.label110.Size = new System.Drawing.Size(86, 24);
             this.label110.TabIndex = 33;
@@ -6324,7 +5756,7 @@
             // AbsenceFrom
             // 
             this.AbsenceFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AbsenceFrom.Location = new System.Drawing.Point(1073, 43);
+            this.AbsenceFrom.Location = new System.Drawing.Point(1065, 43);
             this.AbsenceFrom.Name = "AbsenceFrom";
             this.AbsenceFrom.Size = new System.Drawing.Size(200, 22);
             this.AbsenceFrom.TabIndex = 31;
@@ -6335,7 +5767,7 @@
             this.label108.AutoSize = true;
             this.label108.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label108.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label108.Location = new System.Drawing.Point(1203, 16);
+            this.label108.Location = new System.Drawing.Point(1195, 16);
             this.label108.Name = "label108";
             this.label108.Size = new System.Drawing.Size(83, 24);
             this.label108.TabIndex = 30;
@@ -6355,7 +5787,7 @@
             this.Column61});
             this.dgvAbsence.Location = new System.Drawing.Point(6, 81);
             this.dgvAbsence.Name = "dgvAbsence";
-            this.dgvAbsence.Size = new System.Drawing.Size(1358, 568);
+            this.dgvAbsence.Size = new System.Drawing.Size(1350, 568);
             this.dgvAbsence.TabIndex = 0;
             this.dgvAbsence.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAbsence_RowHeaderMouseClick);
             // 
@@ -6387,40 +5819,12 @@
             this.Column61.HeaderText = "ساعات الغياب";
             this.Column61.Name = "Column61";
             // 
-            // pictureBox48
-            // 
-            this.pictureBox48.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox48.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox48.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox48.Image = global::PlancksoftPOS.Properties.Resources.search;
-            this.pictureBox48.Location = new System.Drawing.Point(1289, 36);
-            this.pictureBox48.Name = "pictureBox48";
-            this.pictureBox48.Size = new System.Drawing.Size(32, 27);
-            this.pictureBox48.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox48.TabIndex = 32;
-            this.pictureBox48.TabStop = false;
-            this.pictureBox48.Click += new System.EventHandler(this.pictureBox48_Click);
-            // 
-            // pictureBox43
-            // 
-            this.pictureBox43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox43.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox43.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox43.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox43.Location = new System.Drawing.Point(1327, 36);
-            this.pictureBox43.Name = "pictureBox43";
-            this.pictureBox43.Size = new System.Drawing.Size(36, 27);
-            this.pictureBox43.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox43.TabIndex = 26;
-            this.pictureBox43.TabStop = false;
-            this.pictureBox43.Click += new System.EventHandler(this.pictureBox43_Click);
-            // 
             // Agents
             // 
             this.Agents.Controls.Add(this.tabControl3);
             this.Agents.Location = new System.Drawing.Point(4, 34);
             this.Agents.Name = "Agents";
-            this.Agents.Size = new System.Drawing.Size(1386, 692);
+            this.Agents.Size = new System.Drawing.Size(1378, 692);
             this.Agents.TabIndex = 4;
             this.Agents.Text = "شؤون العملاء";
             this.Agents.UseVisualStyleBackColor = true;
@@ -6438,7 +5842,7 @@
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.RightToLeftLayout = true;
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(1386, 692);
+            this.tabControl3.Size = new System.Drawing.Size(1378, 692);
             this.tabControl3.TabIndex = 0;
             this.tabControl3.SelectedIndexChanged += new System.EventHandler(this.tabControl3_SelectedIndexChanged);
             this.tabControl3.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl3_Selecting);
@@ -6451,7 +5855,7 @@
             this.AgentsDefinitions.Location = new System.Drawing.Point(4, 34);
             this.AgentsDefinitions.Name = "AgentsDefinitions";
             this.AgentsDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.AgentsDefinitions.Size = new System.Drawing.Size(1378, 654);
+            this.AgentsDefinitions.Size = new System.Drawing.Size(1370, 654);
             this.AgentsDefinitions.TabIndex = 0;
             this.AgentsDefinitions.Text = "تعريف العملاء";
             // 
@@ -6545,20 +5949,6 @@
             this.Column39.Name = "Column39";
             this.Column39.ReadOnly = true;
             // 
-            // pictureBox21
-            // 
-            this.pictureBox21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox21.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox21.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox21.Location = new System.Drawing.Point(862, 19);
-            this.pictureBox21.Name = "pictureBox21";
-            this.pictureBox21.Size = new System.Drawing.Size(36, 27);
-            this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox21.TabIndex = 26;
-            this.pictureBox21.TabStop = false;
-            this.pictureBox21.Click += new System.EventHandler(this.pictureBox21_Click);
-            // 
             // groupBox17
             // 
             this.groupBox17.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -6577,7 +5967,7 @@
             this.groupBox17.ForeColor = System.Drawing.Color.Black;
             this.groupBox17.Location = new System.Drawing.Point(916, 5);
             this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(456, 637);
+            this.groupBox17.Size = new System.Drawing.Size(448, 637);
             this.groupBox17.TabIndex = 4;
             this.groupBox17.TabStop = false;
             this.groupBox17.Text = "تسجيل العملاء";
@@ -6587,7 +5977,7 @@
             this.CustomerAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomerAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.CustomerAddress.Location = new System.Drawing.Point(21, 227);
+            this.CustomerAddress.Location = new System.Drawing.Point(13, 227);
             this.CustomerAddress.Name = "CustomerAddress";
             this.CustomerAddress.Size = new System.Drawing.Size(424, 20);
             this.CustomerAddress.TabIndex = 7;
@@ -6598,7 +5988,7 @@
             this.CustomerPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomerPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CustomerPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.CustomerPhone.Location = new System.Drawing.Point(21, 165);
+            this.CustomerPhone.Location = new System.Drawing.Point(13, 165);
             this.CustomerPhone.MaxLength = 10;
             this.CustomerPhone.Name = "CustomerPhone";
             this.CustomerPhone.Size = new System.Drawing.Size(424, 20);
@@ -6611,7 +6001,7 @@
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label21.Location = new System.Drawing.Point(390, 200);
+            this.label21.Location = new System.Drawing.Point(382, 200);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(59, 24);
             this.label21.TabIndex = 39;
@@ -6623,7 +6013,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label18.Location = new System.Drawing.Point(373, 138);
+            this.label18.Location = new System.Drawing.Point(365, 138);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(76, 24);
             this.label18.TabIndex = 37;
@@ -6635,7 +6025,7 @@
             this.customerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.customerName.FormattingEnabled = true;
-            this.customerName.Location = new System.Drawing.Point(21, 43);
+            this.customerName.Location = new System.Drawing.Point(13, 43);
             this.customerName.Name = "customerName";
             this.customerName.Size = new System.Drawing.Size(424, 21);
             this.customerName.TabIndex = 0;
@@ -6646,7 +6036,7 @@
             this.customerID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.customerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customerID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.customerID.Location = new System.Drawing.Point(21, 107);
+            this.customerID.Location = new System.Drawing.Point(13, 107);
             this.customerID.Maximum = new decimal(new int[] {
             -1486618625,
             232830643,
@@ -6664,7 +6054,7 @@
             this.button31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button31.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button31.ForeColor = System.Drawing.Color.White;
-            this.button31.Location = new System.Drawing.Point(21, 253);
+            this.button31.Location = new System.Drawing.Point(13, 253);
             this.button31.Name = "button31";
             this.button31.Size = new System.Drawing.Size(395, 35);
             this.button31.TabIndex = 8;
@@ -6678,7 +6068,7 @@
             this.label82.AutoSize = true;
             this.label82.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label82.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label82.Location = new System.Drawing.Point(367, 16);
+            this.label82.Location = new System.Drawing.Point(359, 16);
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(82, 24);
             this.label82.TabIndex = 21;
@@ -6690,7 +6080,7 @@
             this.label83.AutoSize = true;
             this.label83.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label83.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label83.Location = new System.Drawing.Point(362, 80);
+            this.label83.Location = new System.Drawing.Point(354, 80);
             this.label83.Name = "label83";
             this.label83.Size = new System.Drawing.Size(87, 24);
             this.label83.TabIndex = 20;
@@ -6704,7 +6094,7 @@
             this.AgentsItemsDefinitions.Location = new System.Drawing.Point(4, 34);
             this.AgentsItemsDefinitions.Name = "AgentsItemsDefinitions";
             this.AgentsItemsDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.AgentsItemsDefinitions.Size = new System.Drawing.Size(1378, 654);
+            this.AgentsItemsDefinitions.Size = new System.Drawing.Size(1370, 654);
             this.AgentsItemsDefinitions.TabIndex = 1;
             this.AgentsItemsDefinitions.Text = "تعريف مواد العميل";
             // 
@@ -6944,20 +6334,6 @@
             this.groupBox23.TabStop = false;
             this.groupBox23.Text = "جدول المواد";
             // 
-            // pictureBox40
-            // 
-            this.pictureBox40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox40.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox40.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox40.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox40.Location = new System.Drawing.Point(1330, 21);
-            this.pictureBox40.Name = "pictureBox40";
-            this.pictureBox40.Size = new System.Drawing.Size(36, 27);
-            this.pictureBox40.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox40.TabIndex = 27;
-            this.pictureBox40.TabStop = false;
-            this.pictureBox40.Click += new System.EventHandler(this.pictureBox40_Click);
-            // 
             // DGVCustomerItems
             // 
             this.DGVCustomerItems.AllowUserToAddRows = false;
@@ -7066,7 +6442,7 @@
             this.ImporterDefinitions.Location = new System.Drawing.Point(4, 34);
             this.ImporterDefinitions.Name = "ImporterDefinitions";
             this.ImporterDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.ImporterDefinitions.Size = new System.Drawing.Size(1378, 654);
+            this.ImporterDefinitions.Size = new System.Drawing.Size(1370, 654);
             this.ImporterDefinitions.TabIndex = 2;
             this.ImporterDefinitions.Text = "تعريف مورد";
             // 
@@ -7190,20 +6566,6 @@
             this.VendorCustomerAddress.HeaderText = "عنوان المورد";
             this.VendorCustomerAddress.Name = "VendorCustomerAddress";
             this.VendorCustomerAddress.ReadOnly = true;
-            // 
-            // pictureBox42
-            // 
-            this.pictureBox42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox42.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox42.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox42.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox42.Location = new System.Drawing.Point(862, 19);
-            this.pictureBox42.Name = "pictureBox42";
-            this.pictureBox42.Size = new System.Drawing.Size(36, 27);
-            this.pictureBox42.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox42.TabIndex = 26;
-            this.pictureBox42.TabStop = false;
-            this.pictureBox42.Click += new System.EventHandler(this.pictureBox42_Click);
             // 
             // groupBox40
             // 
@@ -7345,7 +6707,7 @@
             this.AddImporterInvoices.Location = new System.Drawing.Point(4, 34);
             this.AddImporterInvoices.Name = "AddImporterInvoices";
             this.AddImporterInvoices.Padding = new System.Windows.Forms.Padding(3);
-            this.AddImporterInvoices.Size = new System.Drawing.Size(1378, 654);
+            this.AddImporterInvoices.Size = new System.Drawing.Size(1370, 654);
             this.AddImporterInvoices.TabIndex = 3;
             this.AddImporterInvoices.Text = "إضافة فاتوره مورد";
             // 
@@ -7364,7 +6726,7 @@
             this.groupBox41.ForeColor = System.Drawing.Color.Black;
             this.groupBox41.Location = new System.Drawing.Point(3, 3);
             this.groupBox41.Name = "groupBox41";
-            this.groupBox41.Size = new System.Drawing.Size(1372, 648);
+            this.groupBox41.Size = new System.Drawing.Size(1364, 648);
             this.groupBox41.TabIndex = 0;
             this.groupBox41.TabStop = false;
             this.groupBox41.Text = "إضافة فاتورة مورد";
@@ -7375,7 +6737,7 @@
             this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(728, 23);
+            this.button12.Location = new System.Drawing.Point(720, 23);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(110, 46);
             this.button12.TabIndex = 9;
@@ -7389,7 +6751,7 @@
             this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(1248, 139);
+            this.button11.Location = new System.Drawing.Point(1240, 139);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(110, 46);
             this.button11.TabIndex = 8;
@@ -7415,15 +6777,15 @@
             this.dgvVendorItemsPick.Location = new System.Drawing.Point(6, 87);
             this.dgvVendorItemsPick.Name = "dgvVendorItemsPick";
             this.dgvVendorItemsPick.ReadOnly = true;
-            this.dgvVendorItemsPick.Size = new System.Drawing.Size(1236, 555);
+            this.dgvVendorItemsPick.Size = new System.Drawing.Size(1228, 555);
             this.dgvVendorItemsPick.TabIndex = 7;
             // 
             // VendorItemName
             // 
             this.VendorItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemName.DataPropertyName = "Item Name";
-            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle29;
             this.VendorItemName.HeaderText = "اسم الماده";
             this.VendorItemName.Name = "VendorItemName";
             this.VendorItemName.ReadOnly = true;
@@ -7432,8 +6794,8 @@
             // 
             this.VendorItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBarCode.DataPropertyName = "Item BarCode";
-            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle30;
             this.VendorItemBarCode.HeaderText = "باركود الماده";
             this.VendorItemBarCode.Name = "VendorItemBarCode";
             this.VendorItemBarCode.ReadOnly = true;
@@ -7442,8 +6804,8 @@
             // 
             this.VendorItemType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemType.DataPropertyName = "Item Type";
-            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle31;
             this.VendorItemType.HeaderText = "صنف الماده";
             this.VendorItemType.Name = "VendorItemType";
             this.VendorItemType.ReadOnly = true;
@@ -7452,8 +6814,8 @@
             // 
             this.VendorItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemQuantity.DataPropertyName = "Item Quantity";
-            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle32;
             this.VendorItemQuantity.HeaderText = "عدد القطع";
             this.VendorItemQuantity.Name = "VendorItemQuantity";
             this.VendorItemQuantity.ReadOnly = true;
@@ -7462,8 +6824,8 @@
             // 
             this.VendorItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBuyPrice.DataPropertyName = "VendorItemBuyPrice";
-            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle33;
             this.VendorItemBuyPrice.HeaderText = "سعر الشراء";
             this.VendorItemBuyPrice.Name = "VendorItemBuyPrice";
             this.VendorItemBuyPrice.ReadOnly = true;
@@ -7472,8 +6834,8 @@
             // 
             this.VendorItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPrice.DataPropertyName = "VendorItemSellPrice";
-            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle34;
             this.VendorItemSellPrice.HeaderText = "سعر البيع";
             this.VendorItemSellPrice.Name = "VendorItemSellPrice";
             this.VendorItemSellPrice.ReadOnly = true;
@@ -7482,8 +6844,8 @@
             // 
             this.VendorItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPriceTax.DataPropertyName = "VendorItemSellPriceTax";
-            dataGridViewCellStyle49.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle35;
             this.VendorItemSellPriceTax.HeaderText = "سعر البيع مع الضريبه";
             this.VendorItemSellPriceTax.Name = "VendorItemSellPriceTax";
             this.VendorItemSellPriceTax.ReadOnly = true;
@@ -7494,7 +6856,7 @@
             this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(1248, 87);
+            this.button10.Location = new System.Drawing.Point(1240, 87);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(110, 46);
             this.button10.TabIndex = 6;
@@ -7507,7 +6869,7 @@
             this.numericUpDown3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.numericUpDown3.Location = new System.Drawing.Point(844, 49);
+            this.numericUpDown3.Location = new System.Drawing.Point(836, 49);
             this.numericUpDown3.Name = "numericUpDown3";
             this.numericUpDown3.ReadOnly = true;
             this.numericUpDown3.Size = new System.Drawing.Size(217, 20);
@@ -7519,7 +6881,7 @@
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label44.Location = new System.Drawing.Point(982, 22);
+            this.label44.Location = new System.Drawing.Point(974, 22);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(83, 24);
             this.label44.TabIndex = 2;
@@ -7530,7 +6892,7 @@
             this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.textBox8.Location = new System.Drawing.Point(1087, 49);
+            this.textBox8.Location = new System.Drawing.Point(1079, 49);
             this.textBox8.Name = "textBox8";
             this.textBox8.ReadOnly = true;
             this.textBox8.Size = new System.Drawing.Size(271, 20);
@@ -7542,7 +6904,7 @@
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label43.Location = new System.Drawing.Point(1279, 22);
+            this.label43.Location = new System.Drawing.Point(1271, 22);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(83, 24);
             this.label43.TabIndex = 0;
@@ -7556,7 +6918,7 @@
             this.ImporterBalanceChecks.Location = new System.Drawing.Point(4, 34);
             this.ImporterBalanceChecks.Name = "ImporterBalanceChecks";
             this.ImporterBalanceChecks.Padding = new System.Windows.Forms.Padding(3);
-            this.ImporterBalanceChecks.Size = new System.Drawing.Size(1378, 654);
+            this.ImporterBalanceChecks.Size = new System.Drawing.Size(1370, 654);
             this.ImporterBalanceChecks.TabIndex = 4;
             this.ImporterBalanceChecks.Text = "كشف حساب مورد";
             // 
@@ -7575,20 +6937,6 @@
             this.groupBox42.TabIndex = 3;
             this.groupBox42.TabStop = false;
             this.groupBox42.Text = "المواد المشتراه بالفاتوره";
-            // 
-            // pictureBox35
-            // 
-            this.pictureBox35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox35.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox35.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox35.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox35.Location = new System.Drawing.Point(1270, 19);
-            this.pictureBox35.Name = "pictureBox35";
-            this.pictureBox35.Size = new System.Drawing.Size(100, 66);
-            this.pictureBox35.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox35.TabIndex = 31;
-            this.pictureBox35.TabStop = false;
-            this.pictureBox35.Click += new System.EventHandler(this.pictureBox35_Click_1);
             // 
             // dgvVendorBillItems
             // 
@@ -7714,20 +7062,6 @@
             this.VendorBillDate.Name = "VendorBillDate";
             this.VendorBillDate.ReadOnly = true;
             // 
-            // pictureBox45
-            // 
-            this.pictureBox45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox45.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox45.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox45.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox45.Location = new System.Drawing.Point(1267, 21);
-            this.pictureBox45.Name = "pictureBox45";
-            this.pictureBox45.Size = new System.Drawing.Size(98, 91);
-            this.pictureBox45.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox45.TabIndex = 29;
-            this.pictureBox45.TabStop = false;
-            this.pictureBox45.Click += new System.EventHandler(this.pictureBox45_Click);
-            // 
             // Alerts
             // 
             this.Alerts.BackColor = System.Drawing.Color.White;
@@ -7735,7 +7069,7 @@
             this.Alerts.Location = new System.Drawing.Point(4, 34);
             this.Alerts.Name = "Alerts";
             this.Alerts.Padding = new System.Windows.Forms.Padding(3);
-            this.Alerts.Size = new System.Drawing.Size(1386, 692);
+            this.Alerts.Size = new System.Drawing.Size(1378, 692);
             this.Alerts.TabIndex = 8;
             this.Alerts.Text = "التنبيهات";
             // 
@@ -7747,7 +7081,7 @@
             this.groupBox37.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox37.Location = new System.Drawing.Point(3, 3);
             this.groupBox37.Name = "groupBox37";
-            this.groupBox37.Size = new System.Drawing.Size(1380, 686);
+            this.groupBox37.Size = new System.Drawing.Size(1372, 686);
             this.groupBox37.TabIndex = 2;
             this.groupBox37.TabStop = false;
             this.groupBox37.Text = "التنبيهات";
@@ -7773,7 +7107,7 @@
             this.dgvAlerts.Name = "dgvAlerts";
             this.dgvAlerts.ReadOnly = true;
             this.dgvAlerts.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvAlerts.Size = new System.Drawing.Size(1269, 660);
+            this.dgvAlerts.Size = new System.Drawing.Size(1261, 660);
             this.dgvAlerts.TabIndex = 34;
             // 
             // Column42
@@ -7824,20 +7158,6 @@
             this.Column47.Name = "Column47";
             this.Column47.ReadOnly = true;
             // 
-            // pictureBox41
-            // 
-            this.pictureBox41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox41.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox41.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox41.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox41.Location = new System.Drawing.Point(1281, 20);
-            this.pictureBox41.Name = "pictureBox41";
-            this.pictureBox41.Size = new System.Drawing.Size(96, 99);
-            this.pictureBox41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox41.TabIndex = 32;
-            this.pictureBox41.TabStop = false;
-            this.pictureBox41.Click += new System.EventHandler(this.pictureBox41_Click);
-            // 
             // Taxes
             // 
             this.Taxes.BackColor = System.Drawing.Color.White;
@@ -7845,7 +7165,7 @@
             this.Taxes.Location = new System.Drawing.Point(4, 34);
             this.Taxes.Name = "Taxes";
             this.Taxes.Padding = new System.Windows.Forms.Padding(3);
-            this.Taxes.Size = new System.Drawing.Size(1386, 692);
+            this.Taxes.Size = new System.Drawing.Size(1378, 692);
             this.Taxes.TabIndex = 9;
             this.Taxes.Text = "الضريبه";
             // 
@@ -7858,7 +7178,7 @@
             this.tabControl7.Name = "tabControl7";
             this.tabControl7.RightToLeftLayout = true;
             this.tabControl7.SelectedIndex = 0;
-            this.tabControl7.Size = new System.Drawing.Size(1380, 686);
+            this.tabControl7.Size = new System.Drawing.Size(1372, 686);
             this.tabControl7.TabIndex = 0;
             // 
             // TaxZReport
@@ -7868,7 +7188,7 @@
             this.TaxZReport.Location = new System.Drawing.Point(4, 34);
             this.TaxZReport.Name = "TaxZReport";
             this.TaxZReport.Padding = new System.Windows.Forms.Padding(3);
-            this.TaxZReport.Size = new System.Drawing.Size(1372, 648);
+            this.TaxZReport.Size = new System.Drawing.Size(1364, 648);
             this.TaxZReport.TabIndex = 0;
             this.TaxZReport.Text = "تقرير الضريبه Z";
             // 
@@ -7882,37 +7202,9 @@
             this.groupBox44.Location = new System.Drawing.Point(3, 3);
             this.groupBox44.Name = "groupBox44";
             this.groupBox44.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox44.Size = new System.Drawing.Size(1366, 642);
+            this.groupBox44.Size = new System.Drawing.Size(1358, 642);
             this.groupBox44.TabIndex = 1;
             this.groupBox44.TabStop = false;
-            // 
-            // pictureBox46
-            // 
-            this.pictureBox46.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox46.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox46.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox46.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox46.Location = new System.Drawing.Point(1217, 8);
-            this.pictureBox46.Name = "pictureBox46";
-            this.pictureBox46.Size = new System.Drawing.Size(78, 40);
-            this.pictureBox46.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox46.TabIndex = 33;
-            this.pictureBox46.TabStop = false;
-            this.pictureBox46.Click += new System.EventHandler(this.pictureBox46_Click);
-            // 
-            // pictureBox44
-            // 
-            this.pictureBox44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox44.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox44.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox44.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox44.Location = new System.Drawing.Point(1301, 8);
-            this.pictureBox44.Name = "pictureBox44";
-            this.pictureBox44.Size = new System.Drawing.Size(59, 40);
-            this.pictureBox44.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox44.TabIndex = 27;
-            this.pictureBox44.TabStop = false;
-            this.pictureBox44.Click += new System.EventHandler(this.pictureBox44_Click);
             // 
             // dgvTaxZReport
             // 
@@ -7931,7 +7223,7 @@
             this.dgvTaxZReport.Location = new System.Drawing.Point(0, 48);
             this.dgvTaxZReport.Name = "dgvTaxZReport";
             this.dgvTaxZReport.ReadOnly = true;
-            this.dgvTaxZReport.Size = new System.Drawing.Size(1360, 588);
+            this.dgvTaxZReport.Size = new System.Drawing.Size(1352, 588);
             this.dgvTaxZReport.TabIndex = 0;
             // 
             // Column50
@@ -7988,7 +7280,7 @@
             this.posUsers.Controls.Add(this.groupBox10);
             this.posUsers.Location = new System.Drawing.Point(4, 34);
             this.posUsers.Name = "posUsers";
-            this.posUsers.Size = new System.Drawing.Size(1386, 692);
+            this.posUsers.Size = new System.Drawing.Size(1378, 692);
             this.posUsers.TabIndex = 5;
             this.posUsers.Text = "المستخدمين";
             // 
@@ -8002,7 +7294,7 @@
             this.groupBox10.ForeColor = System.Drawing.Color.Black;
             this.groupBox10.Location = new System.Drawing.Point(3, 3);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(1380, 681);
+            this.groupBox10.Size = new System.Drawing.Size(1372, 681);
             this.groupBox10.TabIndex = 0;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "جدول المستخدمين";
@@ -8025,7 +7317,7 @@
             this.groupBox11.ForeColor = System.Drawing.Color.Black;
             this.groupBox11.Location = new System.Drawing.Point(5, 329);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(1370, 407);
+            this.groupBox11.Size = new System.Drawing.Size(1362, 407);
             this.groupBox11.TabIndex = 1;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "االتعديل على المستخدمين";
@@ -8046,7 +7338,7 @@
             this.groupBox35.Controls.Add(this.customer_card_edit);
             this.groupBox35.Location = new System.Drawing.Point(6, 81);
             this.groupBox35.Name = "groupBox35";
-            this.groupBox35.Size = new System.Drawing.Size(1261, 271);
+            this.groupBox35.Size = new System.Drawing.Size(1253, 271);
             this.groupBox35.TabIndex = 27;
             this.groupBox35.TabStop = false;
             this.groupBox35.Text = "الصلاحيات";
@@ -8057,7 +7349,7 @@
             this.openclose_edit.AutoSize = true;
             this.openclose_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.openclose_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.openclose_edit.Location = new System.Drawing.Point(783, 50);
+            this.openclose_edit.Location = new System.Drawing.Point(775, 50);
             this.openclose_edit.Name = "openclose_edit";
             this.openclose_edit.Size = new System.Drawing.Size(159, 28);
             this.openclose_edit.TabIndex = 9;
@@ -8070,7 +7362,7 @@
             this.personnel_edit.AutoSize = true;
             this.personnel_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.personnel_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.personnel_edit.Location = new System.Drawing.Point(807, 16);
+            this.personnel_edit.Location = new System.Drawing.Point(799, 16);
             this.personnel_edit.Name = "personnel_edit";
             this.personnel_edit.Size = new System.Drawing.Size(135, 28);
             this.personnel_edit.TabIndex = 8;
@@ -8083,7 +7375,7 @@
             this.settings_edit.AutoSize = true;
             this.settings_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settings_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.settings_edit.Location = new System.Drawing.Point(1106, 240);
+            this.settings_edit.Location = new System.Drawing.Point(1098, 240);
             this.settings_edit.Name = "settings_edit";
             this.settings_edit.Size = new System.Drawing.Size(139, 28);
             this.settings_edit.TabIndex = 7;
@@ -8096,7 +7388,7 @@
             this.users_edit.AutoSize = true;
             this.users_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.users_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.users_edit.Location = new System.Drawing.Point(1094, 208);
+            this.users_edit.Location = new System.Drawing.Point(1086, 208);
             this.users_edit.Name = "users_edit";
             this.users_edit.Size = new System.Drawing.Size(151, 28);
             this.users_edit.TabIndex = 6;
@@ -8109,7 +7401,7 @@
             this.expenses_edit.AutoSize = true;
             this.expenses_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expenses_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.expenses_edit.Location = new System.Drawing.Point(1107, 174);
+            this.expenses_edit.Location = new System.Drawing.Point(1099, 174);
             this.expenses_edit.Name = "expenses_edit";
             this.expenses_edit.Size = new System.Drawing.Size(138, 28);
             this.expenses_edit.TabIndex = 5;
@@ -8122,7 +7414,7 @@
             this.inventory_edit.AutoSize = true;
             this.inventory_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.inventory_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.inventory_edit.Location = new System.Drawing.Point(1110, 140);
+            this.inventory_edit.Location = new System.Drawing.Point(1102, 140);
             this.inventory_edit.Name = "inventory_edit";
             this.inventory_edit.Size = new System.Drawing.Size(135, 28);
             this.inventory_edit.TabIndex = 4;
@@ -8135,7 +7427,7 @@
             this.receipt_edit.AutoSize = true;
             this.receipt_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.receipt_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.receipt_edit.Location = new System.Drawing.Point(1007, 106);
+            this.receipt_edit.Location = new System.Drawing.Point(999, 106);
             this.receipt_edit.Name = "receipt_edit";
             this.receipt_edit.Size = new System.Drawing.Size(238, 28);
             this.receipt_edit.TabIndex = 3;
@@ -8148,7 +7440,7 @@
             this.price_edit.AutoSize = true;
             this.price_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.price_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.price_edit.Location = new System.Drawing.Point(1133, 79);
+            this.price_edit.Location = new System.Drawing.Point(1125, 79);
             this.price_edit.Name = "price_edit";
             this.price_edit.Size = new System.Drawing.Size(112, 28);
             this.price_edit.TabIndex = 2;
@@ -8161,7 +7453,7 @@
             this.discount_edit.AutoSize = true;
             this.discount_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.discount_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.discount_edit.Location = new System.Drawing.Point(1094, 45);
+            this.discount_edit.Location = new System.Drawing.Point(1086, 45);
             this.discount_edit.Name = "discount_edit";
             this.discount_edit.Size = new System.Drawing.Size(151, 28);
             this.discount_edit.TabIndex = 1;
@@ -8174,7 +7466,7 @@
             this.customer_card_edit.AutoSize = true;
             this.customer_card_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.customer_card_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.customer_card_edit.Location = new System.Drawing.Point(986, 19);
+            this.customer_card_edit.Location = new System.Drawing.Point(978, 19);
             this.customer_card_edit.Name = "customer_card_edit";
             this.customer_card_edit.Size = new System.Drawing.Size(259, 28);
             this.customer_card_edit.TabIndex = 0;
@@ -8187,7 +7479,7 @@
             this.cbAdminOrNotAdd.AutoSize = true;
             this.cbAdminOrNotAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbAdminOrNotAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.cbAdminOrNotAdd.Location = new System.Drawing.Point(483, 47);
+            this.cbAdminOrNotAdd.Location = new System.Drawing.Point(475, 47);
             this.cbAdminOrNotAdd.Name = "cbAdminOrNotAdd";
             this.cbAdminOrNotAdd.Size = new System.Drawing.Size(128, 28);
             this.cbAdminOrNotAdd.TabIndex = 3;
@@ -8200,7 +7492,7 @@
             this.label75.AutoSize = true;
             this.label75.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label75.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label75.Location = new System.Drawing.Point(708, 26);
+            this.label75.Location = new System.Drawing.Point(700, 26);
             this.label75.Name = "label75";
             this.label75.Size = new System.Drawing.Size(129, 24);
             this.label75.TabIndex = 26;
@@ -8211,7 +7503,7 @@
             this.txtUserPasswordAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserPasswordAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserPasswordAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtUserPasswordAdd.Location = new System.Drawing.Point(618, 54);
+            this.txtUserPasswordAdd.Location = new System.Drawing.Point(610, 54);
             this.txtUserPasswordAdd.Name = "txtUserPasswordAdd";
             this.txtUserPasswordAdd.PasswordChar = '*';
             this.txtUserPasswordAdd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -8225,7 +7517,7 @@
             this.label76.AutoSize = true;
             this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label76.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label76.Location = new System.Drawing.Point(954, 27);
+            this.label76.Location = new System.Drawing.Point(946, 27);
             this.label76.Name = "label76";
             this.label76.Size = new System.Drawing.Size(104, 24);
             this.label76.TabIndex = 20;
@@ -8236,7 +7528,7 @@
             this.txtUserIDAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserIDAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserIDAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtUserIDAdd.Location = new System.Drawing.Point(839, 54);
+            this.txtUserIDAdd.Location = new System.Drawing.Point(831, 54);
             this.txtUserIDAdd.Name = "txtUserIDAdd";
             this.txtUserIDAdd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtUserIDAdd.Size = new System.Drawing.Size(215, 20);
@@ -8249,7 +7541,7 @@
             this.label77.AutoSize = true;
             this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label77.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label77.Location = new System.Drawing.Point(1170, 26);
+            this.label77.Location = new System.Drawing.Point(1162, 26);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(99, 24);
             this.label77.TabIndex = 18;
@@ -8260,7 +7552,7 @@
             this.txtUserNameAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtUserNameAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUserNameAdd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtUserNameAdd.Location = new System.Drawing.Point(1060, 53);
+            this.txtUserNameAdd.Location = new System.Drawing.Point(1052, 53);
             this.txtUserNameAdd.Name = "txtUserNameAdd";
             this.txtUserNameAdd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtUserNameAdd.Size = new System.Drawing.Size(207, 20);
@@ -8274,7 +7566,7 @@
             this.button19.Enabled = false;
             this.button19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button19.ForeColor = System.Drawing.Color.White;
-            this.button19.Location = new System.Drawing.Point(1271, 187);
+            this.button19.Location = new System.Drawing.Point(1263, 187);
             this.button19.Name = "button19";
             this.button19.Size = new System.Drawing.Size(87, 64);
             this.button19.TabIndex = 6;
@@ -8289,7 +7581,7 @@
             this.button20.Enabled = false;
             this.button20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button20.ForeColor = System.Drawing.Color.White;
-            this.button20.Location = new System.Drawing.Point(1271, 117);
+            this.button20.Location = new System.Drawing.Point(1263, 117);
             this.button20.Name = "button20";
             this.button20.Size = new System.Drawing.Size(87, 64);
             this.button20.TabIndex = 5;
@@ -8303,7 +7595,7 @@
             this.button22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button22.ForeColor = System.Drawing.Color.White;
-            this.button22.Location = new System.Drawing.Point(1271, 49);
+            this.button22.Location = new System.Drawing.Point(1263, 49);
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(87, 62);
             this.button22.TabIndex = 4;
@@ -8325,7 +7617,7 @@
             this.UserAuthority});
             this.dgvUsers.Location = new System.Drawing.Point(5, 49);
             this.dgvUsers.Name = "dgvUsers";
-            this.dgvUsers.Size = new System.Drawing.Size(1369, 265);
+            this.dgvUsers.Size = new System.Drawing.Size(1361, 265);
             this.dgvUsers.TabIndex = 0;
             this.dgvUsers.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvUsers_RowHeaderMouseClick);
             // 
@@ -8357,27 +7649,13 @@
             this.UserAuthority.HeaderText = "الصلاحيه";
             this.UserAuthority.Name = "UserAuthority";
             // 
-            // pictureBox16
-            // 
-            this.pictureBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox16.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox16.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox16.Location = new System.Drawing.Point(1332, 19);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(36, 27);
-            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox16.TabIndex = 26;
-            this.pictureBox16.TabStop = false;
-            this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click_1);
-            // 
             // Settings
             // 
             this.Settings.BackColor = System.Drawing.Color.White;
             this.Settings.Controls.Add(this.groupBox24);
             this.Settings.Location = new System.Drawing.Point(4, 34);
             this.Settings.Name = "Settings";
-            this.Settings.Size = new System.Drawing.Size(1386, 692);
+            this.Settings.Size = new System.Drawing.Size(1378, 692);
             this.Settings.TabIndex = 6;
             this.Settings.Text = "الإعدادات";
             // 
@@ -8397,7 +7675,7 @@
             this.groupBox24.Controls.Add(this.label1);
             this.groupBox24.Controls.Add(this.A);
             this.groupBox24.ForeColor = System.Drawing.Color.Black;
-            this.groupBox24.Location = new System.Drawing.Point(1147, 3);
+            this.groupBox24.Location = new System.Drawing.Point(1139, 3);
             this.groupBox24.Name = "groupBox24";
             this.groupBox24.Size = new System.Drawing.Size(236, 689);
             this.groupBox24.TabIndex = 6;
@@ -8429,19 +7707,6 @@
             this.button29.Text = "إعادة الصورة الأصلية";
             this.button29.UseVisualStyleBackColor = false;
             this.button29.Click += new System.EventHandler(this.button29_Click);
-            // 
-            // picLogoStore
-            // 
-            this.picLogoStore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picLogoStore.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.picLogoStore.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
-            this.picLogoStore.Location = new System.Drawing.Point(3, 62);
-            this.picLogoStore.Name = "picLogoStore";
-            this.picLogoStore.Size = new System.Drawing.Size(230, 190);
-            this.picLogoStore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picLogoStore.TabIndex = 0;
-            this.picLogoStore.TabStop = false;
-            this.picLogoStore.Click += new System.EventHandler(this.picLogoStore_Click);
             // 
             // button1
             // 
@@ -8607,7 +7872,7 @@
             this.Retrievals.Controls.Add(this.groupBox47);
             this.Retrievals.Location = new System.Drawing.Point(4, 34);
             this.Retrievals.Name = "Retrievals";
-            this.Retrievals.Size = new System.Drawing.Size(1386, 692);
+            this.Retrievals.Size = new System.Drawing.Size(1378, 692);
             this.Retrievals.TabIndex = 11;
             this.Retrievals.Text = "المرجعات";
             this.Retrievals.UseVisualStyleBackColor = true;
@@ -8620,7 +7885,7 @@
             this.groupBox47.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox47.Location = new System.Drawing.Point(0, 0);
             this.groupBox47.Name = "groupBox47";
-            this.groupBox47.Size = new System.Drawing.Size(1386, 692);
+            this.groupBox47.Size = new System.Drawing.Size(1378, 692);
             this.groupBox47.TabIndex = 3;
             this.groupBox47.TabStop = false;
             this.groupBox47.Text = "جدول المرجعات";
@@ -8645,7 +7910,7 @@
             this.dgvReturnedItems.Name = "dgvReturnedItems";
             this.dgvReturnedItems.ReadOnly = true;
             this.dgvReturnedItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvReturnedItems.Size = new System.Drawing.Size(1275, 669);
+            this.dgvReturnedItems.Size = new System.Drawing.Size(1267, 669);
             this.dgvReturnedItems.TabIndex = 34;
             // 
             // dataGridViewTextBoxColumn54
@@ -8688,20 +7953,6 @@
             this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
             this.dataGridViewTextBoxColumn57.ReadOnly = true;
             // 
-            // pictureBox49
-            // 
-            this.pictureBox49.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox49.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox49.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox49.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox49.Location = new System.Drawing.Point(1288, 21);
-            this.pictureBox49.Name = "pictureBox49";
-            this.pictureBox49.Size = new System.Drawing.Size(95, 105);
-            this.pictureBox49.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox49.TabIndex = 32;
-            this.pictureBox49.TabStop = false;
-            this.pictureBox49.Click += new System.EventHandler(this.pictureBox49_Click);
-            // 
             // groupBox5
             // 
             this.groupBox5.BackColor = System.Drawing.Color.White;
@@ -8741,16 +7992,6 @@
             this.button21.Text = "عدم طباعة الفاتوره";
             this.button21.UseVisualStyleBackColor = false;
             this.button21.Click += new System.EventHandler(this.button21_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(354, 623);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // printDocument1
             // 
@@ -8831,12 +8072,772 @@
             this.الخروجToolStripMenuItem.Text = "الخروج";
             this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(0, 16);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(354, 623);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 22;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // openRegisterBtn
+            // 
+            this.openRegisterBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.openRegisterBtn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.openRegisterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.openRegisterBtn.Image = ((System.Drawing.Image)(resources.GetObject("openRegisterBtn.Image")));
+            this.openRegisterBtn.Location = new System.Drawing.Point(13, 13);
+            this.openRegisterBtn.Name = "openRegisterBtn";
+            this.openRegisterBtn.Size = new System.Drawing.Size(100, 69);
+            this.openRegisterBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.openRegisterBtn.TabIndex = 34;
+            this.openRegisterBtn.TabStop = false;
+            this.openRegisterBtn.Click += new System.EventHandler(this.pictureBox15_Click);
+            // 
+            // closeRegisterBtn
+            // 
+            this.closeRegisterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeRegisterBtn.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.closeRegisterBtn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.closeRegisterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeRegisterBtn.Image = ((System.Drawing.Image)(resources.GetObject("closeRegisterBtn.Image")));
+            this.closeRegisterBtn.Location = new System.Drawing.Point(384, 13);
+            this.closeRegisterBtn.Name = "closeRegisterBtn";
+            this.closeRegisterBtn.Size = new System.Drawing.Size(100, 69);
+            this.closeRegisterBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closeRegisterBtn.TabIndex = 35;
+            this.closeRegisterBtn.TabStop = false;
+            this.closeRegisterBtn.Click += new System.EventHandler(this.pictureBox16_Click);
+            // 
+            // pictureBox25
+            // 
+            this.pictureBox25.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox25.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox25.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox25.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox25.Image")));
+            this.pictureBox25.Location = new System.Drawing.Point(141, 3);
+            this.pictureBox25.Name = "pictureBox25";
+            this.pictureBox25.Size = new System.Drawing.Size(124, 98);
+            this.pictureBox25.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox25.TabIndex = 38;
+            this.pictureBox25.TabStop = false;
+            this.pictureBox25.Click += new System.EventHandler(this.pictureBox25_Click);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox10.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox10.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox10.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox10.Image")));
+            this.pictureBox10.Location = new System.Drawing.Point(11, 3);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(124, 98);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 29;
+            this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox11.Image = global::PlancksoftPOS.Properties.Resources.discount;
+            this.pictureBox11.Location = new System.Drawing.Point(141, 131);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(124, 98);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 30;
+            this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.pictureBox11_Click);
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
+            this.pictureBox12.Location = new System.Drawing.Point(11, 131);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(124, 98);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 31;
+            this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(141, 259);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(124, 98);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 42;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            // 
+            // pictureBox26
+            // 
+            this.pictureBox26.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox26.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox26.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox26.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox26.Image")));
+            this.pictureBox26.Location = new System.Drawing.Point(11, 259);
+            this.pictureBox26.Name = "pictureBox26";
+            this.pictureBox26.Size = new System.Drawing.Size(124, 98);
+            this.pictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox26.TabIndex = 40;
+            this.pictureBox26.TabStop = false;
+            this.pictureBox26.Click += new System.EventHandler(this.pictureBox26_Click);
+            // 
+            // pictureBox37
+            // 
+            this.pictureBox37.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox37.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox37.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox37.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox37.Image = global::PlancksoftPOS.Properties.Resources.itemsearch;
+            this.pictureBox37.Location = new System.Drawing.Point(125, 3);
+            this.pictureBox37.Name = "pictureBox37";
+            this.pictureBox37.Size = new System.Drawing.Size(124, 98);
+            this.pictureBox37.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox37.TabIndex = 44;
+            this.pictureBox37.TabStop = false;
+            this.pictureBox37.Click += new System.EventHandler(this.pictureBox37_Click);
+            // 
+            // pictureBox14
+            // 
+            this.pictureBox14.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox14.Image = global::PlancksoftPOS.Properties.Resources.rightarrow;
+            this.pictureBox14.Location = new System.Drawing.Point(195, 520);
+            this.pictureBox14.Name = "pictureBox14";
+            this.pictureBox14.Size = new System.Drawing.Size(70, 98);
+            this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox14.TabIndex = 33;
+            this.pictureBox14.TabStop = false;
+            this.pictureBox14.Click += new System.EventHandler(this.pictureBox14_Click);
+            // 
+            // pictureBox13
+            // 
+            this.pictureBox13.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox13.Image = global::PlancksoftPOS.Properties.Resources.leftarrow;
+            this.pictureBox13.Location = new System.Drawing.Point(110, 520);
+            this.pictureBox13.Name = "pictureBox13";
+            this.pictureBox13.Size = new System.Drawing.Size(79, 99);
+            this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox13.TabIndex = 32;
+            this.pictureBox13.TabStop = false;
+            this.pictureBox13.Click += new System.EventHandler(this.pictureBox13_Click);
+            // 
+            // picLogo
+            // 
+            this.picLogo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.picLogo.BackColor = System.Drawing.Color.Transparent;
+            this.picLogo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picLogo.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
+            this.picLogo.Location = new System.Drawing.Point(200, 2);
+            this.picLogo.Name = "picLogo";
+            this.picLogo.Size = new System.Drawing.Size(190, 98);
+            this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogo.TabIndex = 41;
+            this.picLogo.TabStop = false;
+            this.picLogo.Click += new System.EventHandler(this.pictureBox35_Click);
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox20.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox20.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox20.Location = new System.Drawing.Point(26, 7);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(86, 66);
+            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox20.TabIndex = 30;
+            this.pictureBox20.TabStop = false;
+            this.pictureBox20.Click += new System.EventHandler(this.pictureBox20_Click);
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox17.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox17.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox17.Location = new System.Drawing.Point(18, 8);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(68, 51);
+            this.pictureBox17.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox17.TabIndex = 30;
+            this.pictureBox17.TabStop = false;
+            this.pictureBox17.Click += new System.EventHandler(this.pictureBox17_Click);
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox18.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox18.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox18.Location = new System.Drawing.Point(15, 65);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(75, 76);
+            this.pictureBox18.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox18.TabIndex = 29;
+            this.pictureBox18.TabStop = false;
+            this.pictureBox18.Click += new System.EventHandler(this.pictureBox18_Click);
+            // 
+            // pictureBox19
+            // 
+            this.pictureBox19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox19.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox19.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox19.Image = global::PlancksoftPOS.Properties.Resources.search;
+            this.pictureBox19.Location = new System.Drawing.Point(1292, 28);
+            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.Size = new System.Drawing.Size(47, 39);
+            this.pictureBox19.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox19.TabIndex = 31;
+            this.pictureBox19.TabStop = false;
+            this.pictureBox19.Click += new System.EventHandler(this.pictureBox19_Click);
+            // 
+            // pictureBox32
+            // 
+            this.pictureBox32.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox32.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox32.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox32.Location = new System.Drawing.Point(4, 150);
+            this.pictureBox32.Name = "pictureBox32";
+            this.pictureBox32.Size = new System.Drawing.Size(84, 79);
+            this.pictureBox32.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox32.TabIndex = 29;
+            this.pictureBox32.TabStop = false;
+            this.pictureBox32.Click += new System.EventHandler(this.pictureBox32_Click);
+            // 
+            // pictureBox31
+            // 
+            this.pictureBox31.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox31.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox31.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox31.Location = new System.Drawing.Point(4, 85);
+            this.pictureBox31.Name = "pictureBox31";
+            this.pictureBox31.Size = new System.Drawing.Size(84, 59);
+            this.pictureBox31.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox31.TabIndex = 30;
+            this.pictureBox31.TabStop = false;
+            this.pictureBox31.Click += new System.EventHandler(this.pictureBox31_Click);
+            // 
+            // pictureBox28
+            // 
+            this.pictureBox28.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox28.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox28.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox28.Image = global::PlancksoftPOS.Properties.Resources.search;
+            this.pictureBox28.Location = new System.Drawing.Point(674, 19);
+            this.pictureBox28.Name = "pictureBox28";
+            this.pictureBox28.Size = new System.Drawing.Size(47, 39);
+            this.pictureBox28.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox28.TabIndex = 31;
+            this.pictureBox28.TabStop = false;
+            this.pictureBox28.Click += new System.EventHandler(this.pictureBox28_Click);
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox6.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox6.Location = new System.Drawing.Point(9, 18);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(83, 72);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox6.TabIndex = 33;
+            this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox7.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox7.Location = new System.Drawing.Point(9, 96);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(83, 72);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 32;
+            this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox5.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox5.Location = new System.Drawing.Point(12, 104);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(83, 76);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 32;
+            this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox4.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox4.Location = new System.Drawing.Point(12, 26);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(83, 72);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 33;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // pictureBox30
+            // 
+            this.pictureBox30.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox30.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox30.Image = global::PlancksoftPOS.Properties.Resources.search;
+            this.pictureBox30.Location = new System.Drawing.Point(1305, 21);
+            this.pictureBox30.Name = "pictureBox30";
+            this.pictureBox30.Size = new System.Drawing.Size(47, 39);
+            this.pictureBox30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox30.TabIndex = 31;
+            this.pictureBox30.TabStop = false;
+            this.pictureBox30.Click += new System.EventHandler(this.pictureBox30_Click);
+            // 
+            // pictureBox29
+            // 
+            this.pictureBox29.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox29.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox29.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox29.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox29.Location = new System.Drawing.Point(1267, 20);
+            this.pictureBox29.Name = "pictureBox29";
+            this.pictureBox29.Size = new System.Drawing.Size(101, 102);
+            this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox29.TabIndex = 32;
+            this.pictureBox29.TabStop = false;
+            this.pictureBox29.Click += new System.EventHandler(this.pictureBox29_Click);
+            // 
+            // BtnPrint
+            // 
+            this.BtnPrint.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.BtnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnPrint.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.BtnPrint.Location = new System.Drawing.Point(25, 275);
+            this.BtnPrint.Name = "BtnPrint";
+            this.BtnPrint.Size = new System.Drawing.Size(72, 62);
+            this.BtnPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BtnPrint.TabIndex = 24;
+            this.BtnPrint.TabStop = false;
+            this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
+            // 
+            // pictureBox99
+            // 
+            this.pictureBox99.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox99.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox99.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox99.Location = new System.Drawing.Point(25, 207);
+            this.pictureBox99.Name = "pictureBox99";
+            this.pictureBox99.Size = new System.Drawing.Size(72, 62);
+            this.pictureBox99.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox99.TabIndex = 25;
+            this.pictureBox99.TabStop = false;
+            this.pictureBox99.Click += new System.EventHandler(this.pictureBox99_Click);
+            // 
+            // PBAddProfilePicture
+            // 
+            this.PBAddProfilePicture.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PBAddProfilePicture.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.PBAddProfilePicture.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PBAddProfilePicture.Image = global::PlancksoftPOS.Properties.Resources.istockphoto_1166351637_612x612;
+            this.PBAddProfilePicture.Location = new System.Drawing.Point(432, 79);
+            this.PBAddProfilePicture.Name = "PBAddProfilePicture";
+            this.PBAddProfilePicture.Size = new System.Drawing.Size(80, 71);
+            this.PBAddProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBAddProfilePicture.TabIndex = 31;
+            this.PBAddProfilePicture.TabStop = false;
+            this.PBAddProfilePicture.Click += new System.EventHandler(this.PBAddProfilePicture_Click);
+            // 
+            // pictureBox47
+            // 
+            this.pictureBox47.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox47.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox47.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox47.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox47.Location = new System.Drawing.Point(1272, 21);
+            this.pictureBox47.Name = "pictureBox47";
+            this.pictureBox47.Size = new System.Drawing.Size(85, 66);
+            this.pictureBox47.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox47.TabIndex = 24;
+            this.pictureBox47.TabStop = false;
+            this.pictureBox47.Click += new System.EventHandler(this.pictureBox47_Click);
+            // 
+            // pictureBox39
+            // 
+            this.pictureBox39.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox39.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox39.Image = global::PlancksoftPOS.Properties.Resources.plus;
+            this.pictureBox39.Location = new System.Drawing.Point(1283, 77);
+            this.pictureBox39.Name = "pictureBox39";
+            this.pictureBox39.Size = new System.Drawing.Size(68, 49);
+            this.pictureBox39.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox39.TabIndex = 0;
+            this.pictureBox39.TabStop = false;
+            this.pictureBox39.Click += new System.EventHandler(this.pictureBox39_Click);
+            // 
+            // pictureBox36
+            // 
+            this.pictureBox36.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox36.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox36.Image = global::PlancksoftPOS.Properties.Resources.plus;
+            this.pictureBox36.Location = new System.Drawing.Point(1289, 77);
+            this.pictureBox36.Name = "pictureBox36";
+            this.pictureBox36.Size = new System.Drawing.Size(68, 49);
+            this.pictureBox36.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox36.TabIndex = 0;
+            this.pictureBox36.TabStop = false;
+            this.pictureBox36.Click += new System.EventHandler(this.pictureBox36_Click);
+            // 
+            // pictureBox38
+            // 
+            this.pictureBox38.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox38.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox38.Image = global::PlancksoftPOS.Properties.Resources.plus;
+            this.pictureBox38.Location = new System.Drawing.Point(1289, 77);
+            this.pictureBox38.Name = "pictureBox38";
+            this.pictureBox38.Size = new System.Drawing.Size(68, 49);
+            this.pictureBox38.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox38.TabIndex = 0;
+            this.pictureBox38.TabStop = false;
+            this.pictureBox38.Click += new System.EventHandler(this.pictureBox38_Click);
+            // 
+            // pictureBox34
+            // 
+            this.pictureBox34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox34.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox34.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox34.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox34.Location = new System.Drawing.Point(1259, 85);
+            this.pictureBox34.Name = "pictureBox34";
+            this.pictureBox34.Size = new System.Drawing.Size(102, 116);
+            this.pictureBox34.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox34.TabIndex = 32;
+            this.pictureBox34.TabStop = false;
+            this.pictureBox34.Click += new System.EventHandler(this.pictureBox34_Click);
+            // 
+            // pictureBox33
+            // 
+            this.pictureBox33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox33.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox33.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox33.Image = global::PlancksoftPOS.Properties.Resources.search;
+            this.pictureBox33.Location = new System.Drawing.Point(1270, 41);
+            this.pictureBox33.Name = "pictureBox33";
+            this.pictureBox33.Size = new System.Drawing.Size(47, 39);
+            this.pictureBox33.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox33.TabIndex = 31;
+            this.pictureBox33.TabStop = false;
+            this.pictureBox33.Click += new System.EventHandler(this.pictureBox33_Click);
+            // 
+            // pictureBox27
+            // 
+            this.pictureBox27.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox27.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox27.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox27.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox27.Location = new System.Drawing.Point(1247, 140);
+            this.pictureBox27.Name = "pictureBox27";
+            this.pictureBox27.Size = new System.Drawing.Size(104, 94);
+            this.pictureBox27.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox27.TabIndex = 29;
+            this.pictureBox27.TabStop = false;
+            this.pictureBox27.Click += new System.EventHandler(this.pictureBox27_Click);
+            // 
+            // pictureBox24
+            // 
+            this.pictureBox24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox24.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox24.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox24.Location = new System.Drawing.Point(1247, 21);
+            this.pictureBox24.Name = "pictureBox24";
+            this.pictureBox24.Size = new System.Drawing.Size(104, 91);
+            this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox24.TabIndex = 26;
+            this.pictureBox24.TabStop = false;
+            this.pictureBox24.Click += new System.EventHandler(this.pictureBox24_Click);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox9.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox9.Location = new System.Drawing.Point(465, 10);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(130, 49);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 28;
+            this.pictureBox9.TabStop = false;
+            this.pictureBox9.Click += new System.EventHandler(this.pictureBox9_Click);
+            // 
+            // pictureBox23
+            // 
+            this.pictureBox23.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox23.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox23.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox23.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox23.Location = new System.Drawing.Point(601, 19);
+            this.pictureBox23.Name = "pictureBox23";
+            this.pictureBox23.Size = new System.Drawing.Size(53, 39);
+            this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox23.TabIndex = 27;
+            this.pictureBox23.TabStop = false;
+            this.pictureBox23.Click += new System.EventHandler(this.pictureBox23_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox8.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox8.Location = new System.Drawing.Point(493, 10);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(116, 49);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 27;
+            this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
+            // 
+            // pictureBox22
+            // 
+            this.pictureBox22.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox22.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox22.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox22.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox22.Location = new System.Drawing.Point(621, 19);
+            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.Size = new System.Drawing.Size(85, 39);
+            this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox22.TabIndex = 26;
+            this.pictureBox22.TabStop = false;
+            this.pictureBox22.Click += new System.EventHandler(this.pictureBox22_Click);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox2.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox2.Location = new System.Drawing.Point(862, 19);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(36, 27);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 26;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox48
+            // 
+            this.pictureBox48.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox48.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox48.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox48.Image = global::PlancksoftPOS.Properties.Resources.search;
+            this.pictureBox48.Location = new System.Drawing.Point(1281, 36);
+            this.pictureBox48.Name = "pictureBox48";
+            this.pictureBox48.Size = new System.Drawing.Size(32, 27);
+            this.pictureBox48.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox48.TabIndex = 32;
+            this.pictureBox48.TabStop = false;
+            this.pictureBox48.Click += new System.EventHandler(this.pictureBox48_Click);
+            // 
+            // pictureBox43
+            // 
+            this.pictureBox43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox43.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox43.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox43.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox43.Location = new System.Drawing.Point(1319, 36);
+            this.pictureBox43.Name = "pictureBox43";
+            this.pictureBox43.Size = new System.Drawing.Size(36, 27);
+            this.pictureBox43.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox43.TabIndex = 26;
+            this.pictureBox43.TabStop = false;
+            this.pictureBox43.Click += new System.EventHandler(this.pictureBox43_Click);
+            // 
+            // pictureBox21
+            // 
+            this.pictureBox21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox21.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox21.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox21.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox21.Location = new System.Drawing.Point(862, 19);
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.Size = new System.Drawing.Size(36, 27);
+            this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox21.TabIndex = 26;
+            this.pictureBox21.TabStop = false;
+            this.pictureBox21.Click += new System.EventHandler(this.pictureBox21_Click);
+            // 
+            // pictureBox40
+            // 
+            this.pictureBox40.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox40.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox40.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox40.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox40.Location = new System.Drawing.Point(1330, 21);
+            this.pictureBox40.Name = "pictureBox40";
+            this.pictureBox40.Size = new System.Drawing.Size(36, 27);
+            this.pictureBox40.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox40.TabIndex = 27;
+            this.pictureBox40.TabStop = false;
+            this.pictureBox40.Click += new System.EventHandler(this.pictureBox40_Click);
+            // 
+            // pictureBox42
+            // 
+            this.pictureBox42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox42.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox42.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox42.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox42.Location = new System.Drawing.Point(862, 19);
+            this.pictureBox42.Name = "pictureBox42";
+            this.pictureBox42.Size = new System.Drawing.Size(36, 27);
+            this.pictureBox42.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox42.TabIndex = 26;
+            this.pictureBox42.TabStop = false;
+            this.pictureBox42.Click += new System.EventHandler(this.pictureBox42_Click);
+            // 
+            // pictureBox35
+            // 
+            this.pictureBox35.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox35.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox35.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox35.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox35.Location = new System.Drawing.Point(1270, 19);
+            this.pictureBox35.Name = "pictureBox35";
+            this.pictureBox35.Size = new System.Drawing.Size(100, 66);
+            this.pictureBox35.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox35.TabIndex = 31;
+            this.pictureBox35.TabStop = false;
+            this.pictureBox35.Click += new System.EventHandler(this.pictureBox35_Click_1);
+            // 
+            // pictureBox45
+            // 
+            this.pictureBox45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox45.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox45.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox45.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox45.Location = new System.Drawing.Point(1267, 21);
+            this.pictureBox45.Name = "pictureBox45";
+            this.pictureBox45.Size = new System.Drawing.Size(98, 91);
+            this.pictureBox45.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox45.TabIndex = 29;
+            this.pictureBox45.TabStop = false;
+            this.pictureBox45.Click += new System.EventHandler(this.pictureBox45_Click);
+            // 
+            // pictureBox41
+            // 
+            this.pictureBox41.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox41.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox41.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox41.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox41.Location = new System.Drawing.Point(1273, 20);
+            this.pictureBox41.Name = "pictureBox41";
+            this.pictureBox41.Size = new System.Drawing.Size(96, 99);
+            this.pictureBox41.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox41.TabIndex = 32;
+            this.pictureBox41.TabStop = false;
+            this.pictureBox41.Click += new System.EventHandler(this.pictureBox41_Click);
+            // 
+            // pictureBox46
+            // 
+            this.pictureBox46.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox46.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox46.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox46.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox46.Location = new System.Drawing.Point(1209, 8);
+            this.pictureBox46.Name = "pictureBox46";
+            this.pictureBox46.Size = new System.Drawing.Size(78, 40);
+            this.pictureBox46.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox46.TabIndex = 33;
+            this.pictureBox46.TabStop = false;
+            this.pictureBox46.Click += new System.EventHandler(this.pictureBox46_Click);
+            // 
+            // pictureBox44
+            // 
+            this.pictureBox44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox44.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox44.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox44.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox44.Location = new System.Drawing.Point(1293, 8);
+            this.pictureBox44.Name = "pictureBox44";
+            this.pictureBox44.Size = new System.Drawing.Size(59, 40);
+            this.pictureBox44.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox44.TabIndex = 27;
+            this.pictureBox44.TabStop = false;
+            this.pictureBox44.Click += new System.EventHandler(this.pictureBox44_Click);
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox16.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox16.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox16.Image = global::PlancksoftPOS.Properties.Resources.refresh;
+            this.pictureBox16.Location = new System.Drawing.Point(1324, 19);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(36, 27);
+            this.pictureBox16.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox16.TabIndex = 26;
+            this.pictureBox16.TabStop = false;
+            this.pictureBox16.Click += new System.EventHandler(this.pictureBox16_Click_1);
+            // 
+            // picLogoStore
+            // 
+            this.picLogoStore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picLogoStore.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.picLogoStore.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
+            this.picLogoStore.Location = new System.Drawing.Point(3, 62);
+            this.picLogoStore.Name = "picLogoStore";
+            this.picLogoStore.Size = new System.Drawing.Size(230, 190);
+            this.picLogoStore.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picLogoStore.TabIndex = 0;
+            this.picLogoStore.TabStop = false;
+            this.picLogoStore.Click += new System.EventHandler(this.picLogoStore_Click);
+            // 
+            // pictureBox49
+            // 
+            this.pictureBox49.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox49.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox49.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.pictureBox49.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.pictureBox49.Location = new System.Drawing.Point(1280, 21);
+            this.pictureBox49.Name = "pictureBox49";
+            this.pictureBox49.Size = new System.Drawing.Size(95, 105);
+            this.pictureBox49.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox49.TabIndex = 32;
+            this.pictureBox49.TabStop = false;
+            this.pictureBox49.Click += new System.EventHandler(this.pictureBox49_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.ClientSize = new System.Drawing.Size(1394, 754);
+            this.ClientSize = new System.Drawing.Size(1386, 754);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.tabControl1);
@@ -8862,21 +8863,10 @@
             this.pnlOpenCloseCash.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.openRegisterBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.closeRegisterBtn)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pendingPurchaseNewPriceTax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pendingPurchaseNewPrice)).EndInit();
             this.groupBox3.ResumeLayout(false);
@@ -8889,7 +8879,6 @@
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
             this.Sales.ResumeLayout(false);
             this.tabControl4.ResumeLayout(false);
             this.InvoicesSales.ResumeLayout(false);
@@ -8897,17 +8886,13 @@
             this.panel9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBillItems)).EndInit();
             this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             this.groupBox12.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).EndInit();
             this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
             this.groupBox13.ResumeLayout(false);
             this.groupBox13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudBillNumberSearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
             this.EditInvoices.ResumeLayout(false);
             this.groupBox30.ResumeLayout(false);
             this.panel12.ResumeLayout(false);
@@ -8919,32 +8904,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.BillsTotalAmount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BillsPaidAmount)).EndInit();
             this.panel10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
             this.groupBox29.ResumeLayout(false);
             this.groupBox29.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudBillNumberEdit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
             this.TravelingUntravelingSales.ResumeLayout(false);
             this.groupBox26.ResumeLayout(false);
             this.panel16.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPortedSales)).EndInit();
             this.panel15.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             this.groupBox25.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUnPortedSales)).EndInit();
             this.panel13.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.SoldItems.ResumeLayout(false);
             this.groupBox28.ResumeLayout(false);
             this.groupBox28.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
             this.groupBox27.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItemProfit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
             this.Inventory.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.tabControl6.ResumeLayout(false);
@@ -8953,8 +8929,6 @@
             this.panel17.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DgvInventory)).EndInit();
             this.panel18.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BtnPrint)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox99)).EndInit();
             this.groupBox36.ResumeLayout(false);
             this.groupBox36.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QuantityWarning)).EndInit();
@@ -8962,14 +8936,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.nuditemPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nuditemPriceTax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudItemBuyPrice)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PBAddProfilePicture)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.InventoryQuantify.ResumeLayout(false);
             this.groupBox45.ResumeLayout(false);
             this.groupBox45.PerformLayout();
             this.groupBox46.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox47)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWarehouseInventory)).EndInit();
             this.IncomingOutgoingItems.ResumeLayout(false);
             this.groupBox48.ResumeLayout(false);
@@ -8981,25 +8953,20 @@
             this.AddTypes.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).EndInit();
             this.AddFavorites.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).EndInit();
             this.AddWarehouses.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).EndInit();
             this.Expenses.ResumeLayout(false);
             this.tabControl5.ResumeLayout(false);
             this.SearchExpenses.ResumeLayout(false);
             this.groupBox31.ResumeLayout(false);
             this.groupBox31.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExpenses)).EndInit();
             this.groupBox22.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.CapitalAmountnud)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
             this.AddExpenses.ResumeLayout(false);
             this.groupBox33.ResumeLayout(false);
             this.groupBox33.PerformLayout();
@@ -9008,15 +8975,9 @@
             this.groupBox21.ResumeLayout(false);
             this.groupBox21.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dvgCapital)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
             this.groupBox20.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvImports)).EndInit();
             this.groupBox19.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvExports)).EndInit();
             this.Employees.ResumeLayout(false);
             this.tabControl8.ResumeLayout(false);
@@ -9027,7 +8988,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.SalaryDeduction)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EditEmployeeSalary)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmployees)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox52.ResumeLayout(false);
             this.groupBox52.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AddEmployeeSalary)).EndInit();
@@ -9035,15 +8995,12 @@
             this.groupBox51.ResumeLayout(false);
             this.groupBox51.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAbsence)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox48)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).EndInit();
             this.Agents.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.AgentsDefinitions.ResumeLayout(false);
             this.groupBox15.ResumeLayout(false);
             this.groupBox16.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             this.groupBox17.ResumeLayout(false);
             this.groupBox17.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.customerID)).EndInit();
@@ -9056,13 +9013,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.SellPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BuyPrice)).EndInit();
             this.groupBox23.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCustomerItems)).EndInit();
             this.ImporterDefinitions.ResumeLayout(false);
             this.groupBox39.ResumeLayout(false);
             this.groupBox38.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendors)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).EndInit();
             this.groupBox40.ResumeLayout(false);
             this.groupBox40.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VendorID)).EndInit();
@@ -9073,21 +9028,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ImporterBalanceChecks.ResumeLayout(false);
             this.groupBox42.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendorBillItems)).EndInit();
             this.groupBox43.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvVendorBills)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox45)).EndInit();
             this.Alerts.ResumeLayout(false);
             this.groupBox37.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAlerts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox41)).EndInit();
             this.Taxes.ResumeLayout(false);
             this.tabControl7.ResumeLayout(false);
             this.TaxZReport.ResumeLayout(false);
             this.groupBox44.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox46)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxZReport)).EndInit();
             this.posUsers.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
@@ -9096,12 +9046,10 @@
             this.groupBox35.ResumeLayout(false);
             this.groupBox35.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.Settings.ResumeLayout(false);
             this.groupBox24.ResumeLayout(false);
             this.groupBox24.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picLogoStore)).EndInit();
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudTaxRate)).EndInit();
@@ -9109,11 +9057,64 @@
             this.Retrievals.ResumeLayout(false);
             this.groupBox47.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnedItems)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Menu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.openRegisterBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.closeRegisterBtn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox32)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox31)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox28)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox30)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox29)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnPrint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox99)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBAddProfilePicture)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox47)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox34)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox33)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox27)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox24)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox23)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox48)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox43)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox45)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox41)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox46)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picLogoStore)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

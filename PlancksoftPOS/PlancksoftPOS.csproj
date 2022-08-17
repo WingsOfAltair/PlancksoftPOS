@@ -344,9 +344,6 @@
     <None Include="Resources\customercard.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\fruiticon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\itemsearch.png" />
   </ItemGroup>
   <ItemGroup>
@@ -412,6 +409,7 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Resources\plancksoft_b_t.png" />
+    <None Include="Resources\istockphoto-1166351637-612x612.jpg" />
     <Content Include="Resources\pos.ico" />
     <None Include="Resources\point-of-sale.jpg" />
     <None Include="Resources\beep.mp3" />

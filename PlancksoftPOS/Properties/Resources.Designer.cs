@@ -123,9 +123,9 @@ namespace PlancksoftPOS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap fruiticon {
+        internal static System.Drawing.Bitmap istockphoto_1166351637_612x612 {
             get {
-                object obj = ResourceManager.GetObject("fruiticon", resourceCulture);
+                object obj = ResourceManager.GetObject("istockphoto-1166351637-612x612", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

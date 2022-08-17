@@ -344,8 +344,15 @@ namespace PlancksoftPOS
             }
             else
             {
-                openRegisterBtn.Enabled = true;
-                closeRegisterBtn.Enabled = true;
+                if (registerOpen)
+                {
+                    openRegisterBtn.Enabled = false;
+                    closeRegisterBtn.Enabled = true;
+                } else
+                {
+                    openRegisterBtn.Enabled = true;
+                    closeRegisterBtn.Enabled = false;
+                }
                 label65.Enabled = true;
                 label66.Enabled = true;
             }
@@ -803,7 +810,7 @@ namespace PlancksoftPOS
                     if (tabControl8.Contains(tabControl8.TabPages["EmployeesManagement"]))
                     {
                         tabControl8.TabPages["EmployeesManagement"].Text = "إدارة الموظفين";
-                        label52.Text = "تسجيل الموظفين";
+                        groupBox52.Text = "تسجيل الموظفين";
                         label102.Text = "إسم الموظف";
                         label100.Text = "الراتب";
                         label104.Text = "رقم هاتف الموظف";
@@ -1877,7 +1884,7 @@ namespace PlancksoftPOS
             {
                 int key = favorite.Key;
                 flowLayoutPanels.Add(new FlowLayoutPanel());
-                flowLayoutPanels[i].Size = new Size(359, 659);
+                flowLayoutPanels[i].Size = new Size(481, 524);
                 flowLayoutPanels[i].Location = new Point(0, 1);
                 flowLayoutPanels[i].FlowDirection = FlowDirection.TopDown;
                 flowLayoutPanels[i].AutoScroll = true;
@@ -1906,8 +1913,8 @@ namespace PlancksoftPOS
                             btn.UseCompatibleTextRendering = true;
                             btn.BackColor = Color.FromArgb(59, 89, 152); ;
                             btn.ForeColor = Color.White;
-                            btn.Height = 135;
-                            btn.Width = 135;
+                            btn.Height = 100;
+                            btn.Width = 100;
                             btn.Click += (sender, e) => { AddFavoriteItemHandler(sender, e, favoriteItem); };
                             flowLayoutPanels[y].Controls.Add(btn);
                         }
@@ -10207,7 +10214,7 @@ namespace PlancksoftPOS
                 string InvoiceDate = invoiceDate.ToString();
 
                 int lineHeight = 20;
-                int height = 20;
+                int height = 220;
 
                 for (int i = 0; i < dgvBillItems.Rows.Count; i++)
                 {
@@ -10232,8 +10239,8 @@ namespace PlancksoftPOS
                     try
                     {
                         //Font newfont = new Font("Arial Black", 8);
-                        newfont2 = new Font("Calibri", 11, FontStyle.Bold);
-                        itemFont = new Font("Calibri", 11, FontStyle.Bold);
+                        newfont2 = new Font("Calibri", 9, FontStyle.Bold);
+                        itemFont = new Font("Calibri", 9, FontStyle.Bold);
 
                         black = new SolidBrush(Color.Black);
                         white = new SolidBrush(Color.White);
@@ -10248,6 +10255,15 @@ namespace PlancksoftPOS
                         graphic.DrawString(welcome2, newfont2, black, (bitm.Width / 3) - (welcome.Length + 5), startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(welcome, newfont2, black, (bitm.Width / 3) - (welcome.Length + 10), startY + offsetY);
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
                         offsetY = offsetY + lineHeight;
                         if (IncludeLogoInReceipt)
                         {
@@ -10270,10 +10286,6 @@ namespace PlancksoftPOS
                             }
 
                             offsetY = offsetY + lineHeight;
-                            offsetY = offsetY + lineHeight;
-                            offsetY = offsetY + lineHeight;
-                            offsetY = offsetY + lineHeight;
-                            offsetY = offsetY + lineHeight;
                         }
                         graphic.DrawString(InvoiceNo, newfont2, black, (bitm.Width / 3) - InvoiceNo.Length, startY + offsetY);
                         offsetY = offsetY + lineHeight;
@@ -10293,7 +10305,7 @@ namespace PlancksoftPOS
                             graphic.DrawString("  Price      " + "               Quantity      " + "          Item Name ", newfont2, black, startX + 15, startY + offsetY);
                         }
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString("----------------------------------------------------------", newfont2, black, startX, startY + offsetY);
+                        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         //PointF pointPname = new PointF(10f, 65f);
                         //PointF pointBar = new PointF(10f, 65f);
 
@@ -10320,7 +10332,7 @@ namespace PlancksoftPOS
                                 offsetY = offsetY + lineHeight;
                             }
                         }
-                        graphic.DrawString("----------------------------------------------------------", newfont2, black, startX, startY + offsetY);
+                        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
@@ -10349,7 +10361,7 @@ namespace PlancksoftPOS
                             graphic.DrawString("Remainder :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
                         }
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString("----------------------------------------------------------", newfont2, black, startX, startY + offsetY);
+                        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
                     }
                     finally
@@ -10426,7 +10438,7 @@ namespace PlancksoftPOS
                 string InvoiceDate = DateTime.Now.ToString();
 
                 int lineHeight = 20;
-                int height = 20;
+                int height = 220;
 
                 for (int i = 0; i < ItemsPendingPurchase.Rows.Count; i++)
                 {
@@ -10451,8 +10463,8 @@ namespace PlancksoftPOS
                     try
                     {
                         //Font newfont = new Font("Arial Black", 8);
-                        newfont2 = new Font("Calibri", 11, FontStyle.Bold);
-                        itemFont = new Font("Calibri", 11, FontStyle.Bold);
+                        newfont2 = new Font("Calibri", 9, FontStyle.Bold);
+                        itemFont = new Font("Calibri", 9, FontStyle.Bold);
 
                         black = new SolidBrush(Color.Black);
                         white = new SolidBrush(Color.White);
@@ -10467,6 +10479,15 @@ namespace PlancksoftPOS
                         graphic.DrawString(welcome2, newfont2, black, (bitm.Width / 3) - (welcome.Length + 5), startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(welcome, newfont2, black, (bitm.Width / 3) - (welcome.Length + 10), startY + offsetY);
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
                         offsetY = offsetY + lineHeight;
                         if (IncludeLogoInReceipt)
                         {
@@ -10489,10 +10510,6 @@ namespace PlancksoftPOS
                             }
 
                             offsetY = offsetY + lineHeight;
-                            offsetY = offsetY + lineHeight;
-                            offsetY = offsetY + lineHeight;
-                            offsetY = offsetY + lineHeight;
-                            offsetY = offsetY + lineHeight;
                         }
                         graphic.DrawString(InvoiceNo, newfont2, black, (bitm.Width / 3) - InvoiceNo.Length, startY + offsetY);
                         offsetY = offsetY + lineHeight;
@@ -10512,7 +10529,7 @@ namespace PlancksoftPOS
                             graphic.DrawString("  Price      " + "               Quantity      " + "          Item Name ", newfont2, black, startX + 15, startY + offsetY);
                         }
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString("----------------------------------------------------------", newfont2, black, startX, startY + offsetY);
+                        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         //PointF pointPname = new PointF(10f, 65f);
                         //PointF pointBar = new PointF(10f, 65f);
 
