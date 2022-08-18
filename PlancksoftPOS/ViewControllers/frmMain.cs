@@ -10249,20 +10249,22 @@ namespace PlancksoftPOS
 
 
                         offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
                         graphic.FillRectangle(white, 0, 0, bitm.Width, bitm.Height);
                         graphic.DrawString(this.shopPhone.Text, newfont2, black, (bitm.Width / 2) - Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString()), startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(welcome2, newfont2, black, (bitm.Width / 3) - (welcome.Length + 5), startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(welcome, newfont2, black, (bitm.Width / 3) - (welcome.Length + 10), startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
                         offsetY = offsetY + lineHeight;
                         offsetY = offsetY + lineHeight;
                         if (IncludeLogoInReceipt)
@@ -10273,16 +10275,16 @@ namespace PlancksoftPOS
                                 {
                                     StoreLogo = (Byte[])(dt.Rows[0]["SystemLogo"]);
                                     var stream = new MemoryStream(StoreLogo);
-                                    graphic.DrawImage(ResizeImage(new Bitmap(stream), 150, 150), (bitm.Width / 2) - 150, 0);
+                                    graphic.DrawImage(ResizeImage(new Bitmap(stream), 150, 150), (bitm.Width / 2) - 75, 0);
                                 }
                                 else
                                 {
-                                    graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 150, 0);
+                                    graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 75, 0);
                                 }
                             }
                             catch (Exception err)
                             {
-                                graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 150, 0);
+                                graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 75, 0);
                             }
 
                             offsetY = offsetY + lineHeight;
@@ -10473,20 +10475,22 @@ namespace PlancksoftPOS
 
 
                         offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
                         graphic.FillRectangle(white, 0, 0, bitm.Width, bitm.Height);
                         graphic.DrawString(this.shopPhone.Text, newfont2, black, (bitm.Width / 2) - Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString()), startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(welcome2, newfont2, black, (bitm.Width / 3) - (welcome.Length + 5), startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString(welcome, newfont2, black, (bitm.Width / 3) - (welcome.Length + 10), startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
                         offsetY = offsetY + lineHeight;
                         offsetY = offsetY + lineHeight;
                         if (IncludeLogoInReceipt)
@@ -10497,16 +10501,16 @@ namespace PlancksoftPOS
                                 {
                                     StoreLogo = (Byte[])(dt.Rows[0]["SystemLogo"]);
                                     var stream = new MemoryStream(StoreLogo);
-                                    graphic.DrawImage(ResizeImage(new Bitmap(stream), 150, 150), (bitm.Width / 2) - 150, 0);
+                                    graphic.DrawImage(ResizeImage(new Bitmap(stream), 150, 150), (bitm.Width / 2) - 75, 0);
                                 }
                                 else
                                 {
-                                    graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 150, 0);
+                                    graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 75, 0);
                                 }
                             }
                             catch (Exception err)
                             {
-                                graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 150, 0);
+                                graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 75, 0);
                             }
 
                             offsetY = offsetY + lineHeight;
