@@ -1173,7 +1173,7 @@ namespace PlancksoftPOS
                         label55.Text = "Sell Price";
                         label63.Text = "Sell Price Tax";
                         label64.Text = "Favorite Category";
-                        label35.Text = "Warning Quantity";
+                        label35.Text = "Warning Limit";
                         label36.Text = "Production Date";
                         label34.Text = "Expiration Date";
                         label33.Text = "Entry Date";
@@ -1219,7 +1219,7 @@ namespace PlancksoftPOS
                         label97.Text = "Item Quantity";
                         label103.Text = "Warehouse";
                         label101.Text = "Form Type";
-                        label94.Text = "Warning Quantity";
+                        label94.Text = "Warning Limit";
                         label79.Text = "Production Date";
                         label96.Text = "Expiration Date";
                         label98.Text = "Entry Date";
@@ -1233,7 +1233,7 @@ namespace PlancksoftPOS
                         dvgEntryExitItems.Columns["EntryExitItemQuantity2"].HeaderText = "Item Quantity";
                         dvgEntryExitItems.Columns["EntryExitItemWarehouse"].HeaderText = "Warehouse";
                         dvgEntryExitItems.Columns["EntryExitItemVendorItemBuyPrice"].HeaderText = "Buy Price";
-                        dvgEntryExitItems.Columns["EntryExitItemWarningQuantity"].HeaderText = "Warning Quantity";
+                        dvgEntryExitItems.Columns["EntryExitItemWarningQuantity"].HeaderText = "Warning Limit";
                         dvgEntryExitItems.Columns["EntryExitItemProductionDate"].HeaderText = "Production Date";
                         dvgEntryExitItems.Columns["EntryExitItemEndDate"].HeaderText = "Expiration Date";
                         dvgEntryExitItems.Columns["EntryExitItemEntryDate"].HeaderText = "Entry Date";
@@ -1443,7 +1443,7 @@ namespace PlancksoftPOS
                     dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
                     dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
                     dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
-                    dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                    dgvAlerts.Columns["Column46"].HeaderText = "Warning Limit";
                     dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
                 }
                 if (tabControl1.Contains(tabControl1.TabPages["Taxes"]))
@@ -3189,7 +3189,7 @@ namespace PlancksoftPOS
                                         dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
                                         dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
                                         dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
-                                        dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                        dgvAlerts.Columns["Column46"].HeaderText = "Warning Limit";
                                         dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
                                     }
                                 }
@@ -5472,7 +5472,7 @@ namespace PlancksoftPOS
                                     dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
                                     dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
                                     dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
-                                    dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                    dgvAlerts.Columns["Column46"].HeaderText = "Warning Limit";
                                     dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
                                 }
                             }
@@ -5497,7 +5497,7 @@ namespace PlancksoftPOS
                                 dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
                                 dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
                                 dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
-                                dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                dgvAlerts.Columns["Column46"].HeaderText = "Warning Limit";
                                 dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
                             }
                         }
@@ -6661,7 +6661,7 @@ namespace PlancksoftPOS
                                             }
                                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                             {
-                                                MessageBox.Show("Item Barcode " + item.ItemBarCode + " is either expired or has less quantity in inventory than defined warning quantity.", Application.ProductName);
+                                                MessageBox.Show("Item Barcode " + item.ItemBarCode + " is either expired or has less quantity in inventory than defined warning limit.", Application.ProductName);
                                             }
                                         }
                                     }
@@ -6682,7 +6682,7 @@ namespace PlancksoftPOS
                                         dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
                                         dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
                                         dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
-                                        dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                        dgvAlerts.Columns["Column46"].HeaderText = "Warning Limit";
                                         dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
                                     }
                                 }
@@ -7370,7 +7370,7 @@ namespace PlancksoftPOS
                                                 dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
                                                 dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
                                                 dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
-                                                dgvAlerts.Columns["Column46"].HeaderText = "Warning Quantity";
+                                                dgvAlerts.Columns["Column46"].HeaderText = "Warning Limit";
                                                 dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
                                             }
                                         }
