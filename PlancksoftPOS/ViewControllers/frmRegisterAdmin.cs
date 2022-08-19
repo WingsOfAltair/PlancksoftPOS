@@ -94,7 +94,13 @@ namespace PlancksoftPOS
 
                 if (Connection.server.RegisterAdmin(newAccount))
                 {
-                    MessageBox.Show(".تم تسجيل الحساب الاداري");
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم تسجيل الحساب الاداري", Application.ProductName);
+                    } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("The Administrative Account was registered.", Application.ProductName);
+                    }
                     this.Hide();
                     Application.OpenForms[0].Show();
                     this.Close();
