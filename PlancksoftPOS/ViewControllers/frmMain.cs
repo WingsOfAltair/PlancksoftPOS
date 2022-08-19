@@ -2577,13 +2577,12 @@ namespace PlancksoftPOS
         public void BtnSearchItem_Click(object sender, EventArgs e)
         {
             Tuple<List<Item>, DataTable> RetrievedItems;
-            RetrievedItems = Connection.server.SearchInventoryItems(txtItemNameSearch.Text, nudItemBarCodeSearch.Text);
+            RetrievedItems = Connection.server.SearchInventoryItems(txtItemNameSearch.Text, nudItemBarCodeSearch.Text, (int)frmLogin.pickedLanguage);
             DgvInventory.DataSource = RetrievedItems.Item2;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 DgvInventory.Columns["InventoryItemName"].HeaderText = "إسم القطعة";
-                DgvInventory.Columns["ItemID"].HeaderText = "رقم القطعه";
                 DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "باركود القطعه";
                 DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "عدد القطعه";
                 DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "سعر الشراء";
@@ -2595,7 +2594,6 @@ namespace PlancksoftPOS
             } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 DgvInventory.Columns["InventoryItemName"].HeaderText = "Item Name";
-                DgvInventory.Columns["ItemID"].HeaderText = "Item ID";
                 DgvInventory.Columns["InventoryItemBarCode"].HeaderText = "Item Barcode";
                 DgvInventory.Columns["InventoryItemQuantity"].HeaderText = "Item Quantity";
                 DgvInventory.Columns["InventoryItemBuyPrice"].HeaderText = "Item Buy Price";
@@ -2764,7 +2762,7 @@ namespace PlancksoftPOS
 
         public List<Item> DisplayData()
         {
-            Tuple<List<Item>, DataTable> RetrievedItems = Connection.server.RetrieveItems();
+            Tuple<List<Item>, DataTable> RetrievedItems = Connection.server.RetrieveItems((int)frmLogin.pickedLanguage);
             DgvInventory.DataSource = RetrievedItems.Item2;
 
 
@@ -3051,9 +3049,9 @@ namespace PlancksoftPOS
                 nuditemPrice.Value = Convert.ToDecimal(DgvInventory.Rows[e.RowIndex].Cells["InventoryItemSellPrice"].Value.ToString());
                 decimal Tax = TaxRate * nuditemPrice.Value;
                 nuditemPriceTax.Value = nuditemPrice.Value + Tax;
-                FavoriteCategories.SelectedIndex = FavoriteCategories.FindStringExact(Connection.server.RetrieveFavoriteCategoryName(Convert.ToInt32(DgvInventory.Rows[e.RowIndex].Cells["FavoriteCategoryNumber"].Value.ToString())));
-                Warehouse.SelectedIndex = Warehouse.FindStringExact(Connection.server.RetrieveWarehouseName(Convert.ToInt32(DgvInventory.Rows[e.RowIndex].Cells["InventoryWarehouseID"].Value.ToString())));
-                ItemType.SelectedIndex = ItemType.FindStringExact(Connection.server.RetrieveItemTypeName(Convert.ToInt32(DgvInventory.Rows[e.RowIndex].Cells["InventoryItemTypeNumber"].Value.ToString())));
+                FavoriteCategories.SelectedIndex = FavoriteCategories.FindStringExact(Connection.server.RetrieveFavoriteCategoryName(Convert.ToInt32(DgvInventory.Rows[e.RowIndex].Cells["FavoriteCategoryNumber"].Value.ToString()), (int)frmLogin.pickedLanguage));
+                Warehouse.SelectedIndex = Warehouse.FindStringExact(Connection.server.RetrieveWarehouseName(Convert.ToInt32(DgvInventory.Rows[e.RowIndex].Cells["InventoryWarehouseID"].Value.ToString()), (int)frmLogin.pickedLanguage));
+                ItemType.SelectedIndex = ItemType.FindStringExact(Connection.server.RetrieveItemTypeName(Convert.ToInt32(DgvInventory.Rows[e.RowIndex].Cells["InventoryItemTypeNumber"].Value.ToString()), (int)frmLogin.pickedLanguage));
 
 
                 if (!Convert.IsDBNull(DgvInventory.Rows[e.RowIndex].Cells["ItemPicture"].Value))
@@ -5502,7 +5500,7 @@ namespace PlancksoftPOS
                             }
                         }
                     }
-                    Tuple<List<Item>, DataTable> retreivedCustomerItems = Connection.server.RetrieveItems();
+                    Tuple<List<Item>, DataTable> retreivedCustomerItems = Connection.server.RetrieveItems((int)frmLogin.pickedLanguage);
                     DGVCustomerItems.DataSource = retreivedCustomerItems.Item2;
                 }
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["Taxes"])
@@ -5961,7 +5959,7 @@ namespace PlancksoftPOS
 
         public void pictureBox40_Click(object sender, EventArgs e)
         {
-            DGVCustomerItems.DataSource = Connection.server.RetrieveItems().Item2;
+            DGVCustomerItems.DataSource = Connection.server.RetrieveItems((int)frmLogin.pickedLanguage).Item2;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
@@ -6058,7 +6056,7 @@ namespace PlancksoftPOS
         {
             if (tabControl3.SelectedTab == tabControl3.TabPages["AgentsDefinitions"])
             {
-                Tuple<List<Item>, DataTable> retreivedCustomerItems = Connection.server.RetrieveItems();
+                Tuple<List<Item>, DataTable> retreivedCustomerItems = Connection.server.RetrieveItems((int)frmLogin.pickedLanguage);
                 DGVCustomerItems.DataSource = retreivedCustomerItems.Item2;
             } else if (tabControl3.SelectedTab == tabControl3.TabPages["AgentsItemsDefinitions"])
             {
@@ -9628,7 +9626,7 @@ namespace PlancksoftPOS
                             dgvVendorItemsPick.Rows[index].Cells["VendorItemBarCode"].Value = itemLookup.selectedItem.GetItemBarCode();
                             if (itemLookup.selectedItem.GetItemTypeeID() != 0)
                             {
-                                dgvVendorItemsPick.Rows[index].Cells["VendorItemType"].Value = Connection.server.RetrieveItemTypeName(itemLookup.selectedItem.GetItemTypeeID());
+                                dgvVendorItemsPick.Rows[index].Cells["VendorItemType"].Value = Connection.server.RetrieveItemTypeName(itemLookup.selectedItem.GetItemTypeeID(), (int)frmLogin.pickedLanguage);
                             }
                             else
                             {

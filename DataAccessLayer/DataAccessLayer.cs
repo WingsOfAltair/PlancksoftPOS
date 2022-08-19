@@ -86,7 +86,7 @@ namespace DataAccessLayer
             }
         }
 
-        public string RetrieveItemTypeName(int ItemTypeIndex)
+        public string RetrieveItemTypeName(int ItemTypeIndex, int locale)
         {
             try
             {
@@ -110,7 +110,14 @@ namespace DataAccessLayer
                 }
                 if (Name == "")
                 {
-                    Name = "غير مصنف";
+                    if ((LanguageChoice.Languages)locale == LanguageChoice.Languages.Arabic)
+                    {
+                        Name = "غير مصنف";
+                    }
+                    else if ((LanguageChoice.Languages)locale == LanguageChoice.Languages.English)
+                    {
+                        Name = "Unclassified";
+                    }
                 }
                 return Name;
             }
@@ -120,7 +127,7 @@ namespace DataAccessLayer
             }
         }
 
-        public string RetrieveWarehouseName(int WarehouseIndex)
+        public string RetrieveWarehouseName(int WarehouseIndex, int locale)
         {
             try
             {
@@ -144,7 +151,14 @@ namespace DataAccessLayer
                 }
                 if (Name == "")
                 {
-                    Name = "غير موجود";
+                    if ((LanguageChoice.Languages)locale == LanguageChoice.Languages.Arabic)
+                    {
+                        Name = "غير موجود";
+                    }
+                    else if ((LanguageChoice.Languages)locale == LanguageChoice.Languages.English)
+                    {
+                        Name = "Inexistent";
+                    }
                 }
                 return Name;
             }
@@ -154,7 +168,7 @@ namespace DataAccessLayer
             }
         }
 
-        public string RetrieveFavoriteCategoryName(int CategoryIndex)
+        public string RetrieveFavoriteCategoryName(int CategoryIndex, int locale)
         {
             try
             {
@@ -178,7 +192,13 @@ namespace DataAccessLayer
                 }
                 if (Name == "")
                 {
-                    Name = "غير مفضله";
+                    if ((LanguageChoice.Languages)locale == LanguageChoice.Languages.Arabic)
+                    {
+                        Name = "غير مفضله";
+                    } else if ((LanguageChoice.Languages)locale == LanguageChoice.Languages.English)
+                    {
+                        Name = "Not Favorited";
+                    }
                 }
                 return Name;
             }
@@ -884,7 +904,7 @@ namespace DataAccessLayer
             }
         }
 
-        public Tuple<List<Item>, DataTable> SearchInventoryItems(string ItemName = "", string ItemBarCode = "")
+        public Tuple<List<Item>, DataTable> SearchInventoryItems(string ItemName = "", string ItemBarCode = "", int locale = 1)
         {
             try
             {
@@ -899,6 +919,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@ItemName", ItemName);
                 if (ItemBarCode != "")
                     cmd.Parameters.AddWithValue("@ItemBarCode", ItemBarCode);
+                cmd.Parameters.AddWithValue("@Locale", locale);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -907,6 +928,7 @@ namespace DataAccessLayer
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item item = new Item();
+                    item.SetID(Convert.ToInt32(Item["Item ID"].ToString()));
                     item.SetName(Item["Item Name"].ToString());
                     item.SetBarCode(Item["Item BarCode"].ToString());
                     item.SetQuantity(Convert.ToInt32(Item["Item Quantity"].ToString()));
@@ -1416,7 +1438,7 @@ namespace DataAccessLayer
             }
         }
 
-        public Tuple<List<Item>, DataTable> RetrieveItems()
+        public Tuple<List<Item>, DataTable> RetrieveItems(int locale)
         {
             try
             {
@@ -1426,6 +1448,7 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                cmd.Parameters.AddWithValue("@Locale", locale);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);

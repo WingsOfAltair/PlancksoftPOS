@@ -16,11 +16,11 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, int SystemIncludeLogoInReceipt, decimal SystemTax);
         [OperationContract]
-        string RetrieveItemTypeName(int ItemTypeIndex);
+        string RetrieveItemTypeName(int ItemTypeIndex, int locale);
         [OperationContract]
-        string RetrieveWarehouseName(int WarehouseIndex);
+        string RetrieveWarehouseName(int WarehouseIndex, int locale);
         [OperationContract]
-        string RetrieveFavoriteCategoryName(int CategoryIndex);
+        string RetrieveFavoriteCategoryName(int CategoryIndex, int locale);
         [OperationContract]
         List<string> RetrieveCashierNames();
         [OperationContract]
@@ -66,7 +66,7 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         Tuple<List<Item>, DataTable> SearchWarehouseInventoryItems(int WarehouseID);
         [OperationContract]
-        Tuple<List<Item>, DataTable> SearchInventoryItems(string ItemName = "", string ItemBarCode = "");
+        Tuple<List<Item>, DataTable> SearchInventoryItems(string ItemName = "", string ItemBarCode = "", int locale = 1);
         [OperationContract]
         Item SearchInventoryItemsWithBarCode(string ItemBarCode = "");
         [OperationContract]
@@ -98,7 +98,7 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         Item RetrieveItemsQuantityDates(string ItemBarCode);
         [OperationContract]
-        Tuple<List<Item>, DataTable> RetrieveItems();
+        Tuple<List<Item>, DataTable> RetrieveItems(int locale);
         [OperationContract]
         DataTable RetrieveEmployees();
         [OperationContract]

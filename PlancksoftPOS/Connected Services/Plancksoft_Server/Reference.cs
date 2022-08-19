@@ -34,22 +34,22 @@ namespace PlancksoftPOS.Plancksoft_Server {
         System.Threading.Tasks.Task<bool> UpdateSystemSettingsAsync(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, int SystemIncludeLogoInReceipt, decimal SystemTax);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemTypeName", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemTypeNameResponse")]
-        string RetrieveItemTypeName(int ItemTypeIndex);
+        string RetrieveItemTypeName(int ItemTypeIndex, int locale);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemTypeName", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemTypeNameResponse")]
-        System.Threading.Tasks.Task<string> RetrieveItemTypeNameAsync(int ItemTypeIndex);
+        System.Threading.Tasks.Task<string> RetrieveItemTypeNameAsync(int ItemTypeIndex, int locale);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveWarehouseName", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveWarehouseNameResponse")]
-        string RetrieveWarehouseName(int WarehouseIndex);
+        string RetrieveWarehouseName(int WarehouseIndex, int locale);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveWarehouseName", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveWarehouseNameResponse")]
-        System.Threading.Tasks.Task<string> RetrieveWarehouseNameAsync(int WarehouseIndex);
+        System.Threading.Tasks.Task<string> RetrieveWarehouseNameAsync(int WarehouseIndex, int locale);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveFavoriteCategoryName", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveFavoriteCategoryNameResponse")]
-        string RetrieveFavoriteCategoryName(int CategoryIndex);
+        string RetrieveFavoriteCategoryName(int CategoryIndex, int locale);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveFavoriteCategoryName", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveFavoriteCategoryNameResponse")]
-        System.Threading.Tasks.Task<string> RetrieveFavoriteCategoryNameAsync(int CategoryIndex);
+        System.Threading.Tasks.Task<string> RetrieveFavoriteCategoryNameAsync(int CategoryIndex, int locale);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveCashierNames", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveCashierNamesResponse")]
         System.Collections.Generic.List<string> RetrieveCashierNames();
@@ -184,10 +184,10 @@ namespace PlancksoftPOS.Plancksoft_Server {
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> SearchWarehouseInventoryItemsAsync(int WarehouseID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchInventoryItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchInventoryItemsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchInventoryItems(string ItemName, string ItemBarCode);
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchInventoryItems(string ItemName, string ItemBarCode, int locale);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchInventoryItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchInventoryItemsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> SearchInventoryItemsAsync(string ItemName, string ItemBarCode);
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> SearchInventoryItemsAsync(string ItemName, string ItemBarCode, int locale);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchInventoryItemsWithBarCode", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchInventoryItemsWithBarCodeResponse")]
         Dependencies.Item SearchInventoryItemsWithBarCode(string ItemBarCode);
@@ -280,10 +280,10 @@ namespace PlancksoftPOS.Plancksoft_Server {
         System.Threading.Tasks.Task<Dependencies.Item> RetrieveItemsQuantityDatesAsync(string ItemBarCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveItems();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveItems(int locale);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveItemsAsync();
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveItemsAsync(int locale);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveEmployees", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveEmployeesResponse")]
         System.Data.DataTable RetrieveEmployees();
@@ -693,28 +693,28 @@ namespace PlancksoftPOS.Plancksoft_Server {
             return base.Channel.UpdateSystemSettingsAsync(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemPrinterName, SystemIncludeLogoInReceipt, SystemTax);
         }
         
-        public string RetrieveItemTypeName(int ItemTypeIndex) {
-            return base.Channel.RetrieveItemTypeName(ItemTypeIndex);
+        public string RetrieveItemTypeName(int ItemTypeIndex, int locale) {
+            return base.Channel.RetrieveItemTypeName(ItemTypeIndex, locale);
         }
         
-        public System.Threading.Tasks.Task<string> RetrieveItemTypeNameAsync(int ItemTypeIndex) {
-            return base.Channel.RetrieveItemTypeNameAsync(ItemTypeIndex);
+        public System.Threading.Tasks.Task<string> RetrieveItemTypeNameAsync(int ItemTypeIndex, int locale) {
+            return base.Channel.RetrieveItemTypeNameAsync(ItemTypeIndex, locale);
         }
         
-        public string RetrieveWarehouseName(int WarehouseIndex) {
-            return base.Channel.RetrieveWarehouseName(WarehouseIndex);
+        public string RetrieveWarehouseName(int WarehouseIndex, int locale) {
+            return base.Channel.RetrieveWarehouseName(WarehouseIndex, locale);
         }
         
-        public System.Threading.Tasks.Task<string> RetrieveWarehouseNameAsync(int WarehouseIndex) {
-            return base.Channel.RetrieveWarehouseNameAsync(WarehouseIndex);
+        public System.Threading.Tasks.Task<string> RetrieveWarehouseNameAsync(int WarehouseIndex, int locale) {
+            return base.Channel.RetrieveWarehouseNameAsync(WarehouseIndex, locale);
         }
         
-        public string RetrieveFavoriteCategoryName(int CategoryIndex) {
-            return base.Channel.RetrieveFavoriteCategoryName(CategoryIndex);
+        public string RetrieveFavoriteCategoryName(int CategoryIndex, int locale) {
+            return base.Channel.RetrieveFavoriteCategoryName(CategoryIndex, locale);
         }
         
-        public System.Threading.Tasks.Task<string> RetrieveFavoriteCategoryNameAsync(int CategoryIndex) {
-            return base.Channel.RetrieveFavoriteCategoryNameAsync(CategoryIndex);
+        public System.Threading.Tasks.Task<string> RetrieveFavoriteCategoryNameAsync(int CategoryIndex, int locale) {
+            return base.Channel.RetrieveFavoriteCategoryNameAsync(CategoryIndex, locale);
         }
         
         public System.Collections.Generic.List<string> RetrieveCashierNames() {
@@ -893,12 +893,12 @@ namespace PlancksoftPOS.Plancksoft_Server {
             return base.Channel.SearchWarehouseInventoryItemsAsync(WarehouseID);
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchInventoryItems(string ItemName, string ItemBarCode) {
-            return base.Channel.SearchInventoryItems(ItemName, ItemBarCode);
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchInventoryItems(string ItemName, string ItemBarCode, int locale) {
+            return base.Channel.SearchInventoryItems(ItemName, ItemBarCode, locale);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> SearchInventoryItemsAsync(string ItemName, string ItemBarCode) {
-            return base.Channel.SearchInventoryItemsAsync(ItemName, ItemBarCode);
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> SearchInventoryItemsAsync(string ItemName, string ItemBarCode, int locale) {
+            return base.Channel.SearchInventoryItemsAsync(ItemName, ItemBarCode, locale);
         }
         
         public Dependencies.Item SearchInventoryItemsWithBarCode(string ItemBarCode) {
@@ -1021,12 +1021,12 @@ namespace PlancksoftPOS.Plancksoft_Server {
             return base.Channel.RetrieveItemsQuantityDatesAsync(ItemBarCode);
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveItems() {
-            return base.Channel.RetrieveItems();
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveItems(int locale) {
+            return base.Channel.RetrieveItems(locale);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveItemsAsync() {
-            return base.Channel.RetrieveItemsAsync();
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveItemsAsync(int locale) {
+            return base.Channel.RetrieveItemsAsync(locale);
         }
         
         public System.Data.DataTable RetrieveEmployees() {

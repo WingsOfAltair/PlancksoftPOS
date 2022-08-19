@@ -20,17 +20,17 @@ namespace PlancksoftPOS_Server
         {
             return DAL.UpdateSystemSettings(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemPrinterName, SystemIncludeLogoInReceipt, SystemTax);
         }
-        public string RetrieveItemTypeName(int ItemTypeIndex)
+        public string RetrieveItemTypeName(int ItemTypeIndex, int locale)
         {
-            return DAL.RetrieveItemTypeName(ItemTypeIndex);
+            return DAL.RetrieveItemTypeName(ItemTypeIndex, locale);
         }
-        public string RetrieveWarehouseName(int WarehouseIndex)
+        public string RetrieveWarehouseName(int WarehouseIndex, int locale)
         {
-            return DAL.RetrieveWarehouseName(WarehouseIndex);
+            return DAL.RetrieveWarehouseName(WarehouseIndex, locale);
         }
-        public string RetrieveFavoriteCategoryName(int CategoryIndex)
+        public string RetrieveFavoriteCategoryName(int CategoryIndex, int locale)
         {
-            return DAL.RetrieveFavoriteCategoryName(CategoryIndex);
+            return DAL.RetrieveFavoriteCategoryName(CategoryIndex, locale);
         }
         public List<string> RetrieveCashierNames()
         {
@@ -119,9 +119,9 @@ namespace PlancksoftPOS_Server
         public Tuple<List<Item>, DataTable> SearchWarehouseInventoryItems(int WarehouseID) { 
             return DAL.SearchWarehouseInventoryItems(WarehouseID);
         }
-        public Tuple<List<Item>, DataTable> SearchInventoryItems(string ItemName = "", string ItemBarCode = "")
+        public Tuple<List<Item>, DataTable> SearchInventoryItems(string ItemName = "", string ItemBarCode = "", int locale = 1)
         {
-            return DAL.SearchInventoryItems(ItemName, ItemBarCode);
+            return DAL.SearchInventoryItems(ItemName, ItemBarCode, locale);
         }
         public Item SearchInventoryItemsWithBarCode(string ItemBarCode = "")
         {
@@ -183,9 +183,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveItemsQuantityDates(ItemBarCode);
         }
-        public Tuple<List<Item>, DataTable> RetrieveItems()
+        public Tuple<List<Item>, DataTable> RetrieveItems(int locale)
         {
-            return DAL.RetrieveItems();
+            return DAL.RetrieveItems(locale);
         }
         public DataTable RetrieveEmployees()
         {

@@ -63,6 +63,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ItemTypeIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="locale" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -77,6 +78,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="WarehouseIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="locale" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -91,6 +93,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="CategoryIndex" type="xs:int" />
+        <xs:element minOccurs="0" name="locale" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -418,6 +421,7 @@
       <xs:sequence>
         <xs:element minOccurs="0" name="ItemName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="ItemBarCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="locale" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -632,7 +636,9 @@
   </xs:element>
   <xs:element name="RetrieveItems">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="locale" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RetrieveItemsResponse">
