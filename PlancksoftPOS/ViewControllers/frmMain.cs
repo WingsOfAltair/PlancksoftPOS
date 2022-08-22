@@ -58,7 +58,7 @@ namespace PlancksoftPOS
         TextBox AddFavorite;
         TextBox AddPrinter;
         List<TextBox> FavoriteNamestxt = new List<TextBox>();
-        List<TextBox> PrintersNamestxt = new List<TextBox>();
+        List<TreeView> PrintersNamesTV = new List<TreeView>();
         PictureBox plusFavoritePB, minusFavoritePB;
         PictureBox plusPrinterPB, minusPrinterPB;
         Label plusFavoriteLbl, FavoriteLbl;
@@ -69,6 +69,7 @@ namespace PlancksoftPOS
         Button saveFavoritesBtn;
         Button savePrintersBtn;
         byte[] StoreLogo = null;
+        List<ContextMenu> PrintersMenus = null;
 
         TabPage AgentsTab = null, InventoryTab = null, ExpensesTab = null, posUsersTab = null, SettingsTab = null, EmployeesTab = null, EditInvoicesTab = null,
             TravelingUntravelingSalesTab = null, SoldItemsTab = null, IncomingOutgoingTab = null, SalesTab = null, TaxesTab = null;
@@ -2410,7 +2411,7 @@ namespace PlancksoftPOS
                 int i = 0;
                 foreach(KeyValuePair<int, string> printer in printers)
                 {
-                    updatedPrinters = Connection.server.UpdatePrinters(Convert.ToInt32(PrintersNamestxt[i].Tag), PrintersNamestxt[i++].Text);
+                    updatedPrinters = Connection.server.UpdatePrinters(Convert.ToInt32(PrintersNamesTV[i].Tag), PrintersNamesTV[i++].Text);
                 }
                 if (updatedPrinters)
                 {
@@ -2502,6 +2503,7 @@ namespace PlancksoftPOS
         public void DisplayPrinters()
         {
             printers.Clear();
+            PrintersNamesTV.Clear();
 
             frmMain.PrintersList = Connection.server.RetrievePrinters();
 
@@ -2569,7 +2571,13 @@ namespace PlancksoftPOS
             savePrintersBtn.Font = new Font(savePrintersBtn.Font.FontFamily, 14, FontStyle.Bold);
             savePrintersBtn.Click += (sender, e) => { SavePrintersHandler(sender, e); };
 
-            int i = 0;
+            int PrinterCount = 0;
+
+            List<MenuItem> addItemTypeToPrinterList = new List<MenuItem>();
+            List<MenuItem> deleteItemTypeFromPrinterList = new List<MenuItem>();
+            List<TreeView> printerListTree = new List<TreeView>();
+            PrintersMenus = new List<ContextMenu>();
+
 
             foreach (KeyValuePair<int, string> printer in this.printers)
             {
@@ -2583,16 +2591,99 @@ namespace PlancksoftPOS
                 minusPrinterPB.Click += (sender, e) => { DeletePrintersHandler(sender, e, printer.Key); };
                 flowLayoutPanel4.Controls.Add(minusPrinterPB);
 
-                TextBox tempPrintertxt = new TextBox();
-                tempPrintertxt.Name = printer.Value;
-                tempPrintertxt.Text = printer.Value;
-                tempPrintertxt.Tag = printer.Key;
-                tempPrintertxt.Size = new Size(340, 20);
-                PrintersNamestxt.Add(tempPrintertxt);
-                flowLayoutPanel4.Controls.Add(tempPrintertxt);
+                Label tempLabel = new Label();
+                tempLabel.Text = printer.Value;
+                tempLabel.ForeColor = Color.White;
+                tempLabel.BackColor = Color.FromArgb(59, 89, 152);
+                tempLabel.Font = new Font(tempLabel.Font.FontFamily, 14, FontStyle.Bold);
+                TreeView tempTreeView = new TreeView();
+                tempTreeView.Name = printer.Value;
+                tempTreeView.Text = printer.Value;
+                tempTreeView.Tag = printer.Key;
+                TreeNode t = new TreeNode();
+                t.Text = "Kitchen 1";
+                t.Tag = "1";
+                tempTreeView.Nodes.Add(t);
+                TreeNode t2 = new TreeNode();
+                t2.Text = "Kitchen 2";
+                t2.Tag = "2";
+                tempTreeView.Nodes.Add(t2);
+                ContextMenu printerMenu = new ContextMenu();
+
+                MenuItem addItemTypeToPrinter = null;
+                MenuItem deleteItemTypeFromPrinter = null;
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    addItemTypeToPrinter = new MenuItem(PrinterCount.ToString() + "إضافة صنف مواد للطابعة");
+                    deleteItemTypeFromPrinter = new MenuItem(PrinterCount.ToString() + "حذف صنف مواد من الطابعة");
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    addItemTypeToPrinter = new MenuItem(PrinterCount.ToString() + "Add Item Type to Printer");
+                    deleteItemTypeFromPrinter = new MenuItem(PrinterCount.ToString() + "Delete Item Type from Printer");
+                }
+                addItemTypeToPrinter.Click += (sender, e) => { addItemTypePrinter_Click(sender, e, PrinterCount); };
+                deleteItemTypeFromPrinter.Click += (sender, e) => { deleteItemTypePrinter_Click(sender, e, PrinterCount); };
+                addItemTypeToPrinterList.Add(addItemTypeToPrinter);
+                deleteItemTypeFromPrinterList.Add(deleteItemTypeFromPrinter);
+                printerMenu.MenuItems.Add(addItemTypeToPrinterList[PrinterCount]);
+                printerMenu.MenuItems.Add(deleteItemTypeFromPrinterList[PrinterCount]);
+                PrintersMenus.Add(printerMenu);
+                tempTreeView.ContextMenu = PrintersMenus[PrinterCount];
+                printerListTree.Add(tempTreeView);
+                PrintersNamesTV.Add(printerListTree[PrinterCount]);
+                flowLayoutPanel4.Controls.Add(tempLabel);
+                flowLayoutPanel4.Controls.Add(PrintersNamesTV[PrinterCount]);
+                PrinterCount++;
             }
 
             flowLayoutPanel4.Controls.Add(savePrintersBtn);
+        }
+
+        void addItemTypePrinter_Click(object sender, EventArgs e, int PrinterIndex)
+        {
+            PrinterIndex = 0;
+            foreach(TreeView tv in PrintersNamesTV)
+            {
+                if (tv.Focused)
+                {
+                    foreach (TreeNode tn in tv.Nodes)
+                    {
+                        if (tv.SelectedNode != null)
+                        {
+                            MessageBox.Show("Printer: " + PrinterIndex.ToString() + ", Item Type ID: " + PrintersNamesTV[PrinterIndex].SelectedNode.Tag);
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    PrinterIndex++;
+                }
+            }
+        }
+
+        void deleteItemTypePrinter_Click(object sender, EventArgs e, int PrinterIndex)
+        {
+            PrinterIndex = 0;
+            foreach (TreeView tv in PrintersNamesTV)
+            {
+                if (tv.Focused)
+                {
+                    foreach (TreeNode tn in tv.Nodes)
+                    {
+                        if (tv.SelectedNode != null)
+                        {
+                            MessageBox.Show("Printer: " + PrinterIndex.ToString() + ", Item Type ID: " + PrintersNamesTV[PrinterIndex].SelectedNode.Tag);
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    PrinterIndex++;
+                }
+            }
         }
 
         public void خروجToolStripMenuItem1_Click(object sender, EventArgs e)

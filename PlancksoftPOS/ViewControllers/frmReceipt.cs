@@ -17,7 +17,11 @@ namespace PlancksoftPOS
         {
             InitializeComponent();
             connection = new Connection();
+            this.Height = receiptImage.Height;
+            this.Width = receiptImage.Width;
             this.pbReceipt.Image = receiptImage;
+            this.pbReceipt.Height = receiptImage.Height;
+            this.pbReceipt.Width = receiptImage.Width;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -32,13 +36,13 @@ namespace PlancksoftPOS
 
         private void frmReceipt_Load(object sender, EventArgs e)
         {
-            frmMain.PrintersList = connection.server.RetrievePrinters();
+            //frmMain.PrintersList = connection.server.RetrievePrinters();
             
-            foreach (Dependencies.Printer printer in frmMain.PrintersList)
-            {
-                printDocument1.PrinterSettings.PrinterName = printer.Name;
-                printDocument1.Print();
-            }
+            //foreach (Dependencies.Printer printer in frmMain.PrintersList)
+            //{
+            //    printDocument1.PrinterSettings.PrinterName = printer.Name;
+            //    printDocument1.Print();
+            //}
         }
     }
 }
