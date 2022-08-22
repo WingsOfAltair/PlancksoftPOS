@@ -28,10 +28,10 @@ namespace PlancksoftPOS.Plancksoft_Server {
         System.Threading.Tasks.Task<System.Data.DataTable> RetrieveSystemSettingsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateSystemSettings", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateSystemSettingsResponse")]
-        bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, int SystemIncludeLogoInReceipt, decimal SystemTax);
+        bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, string SystemPrinterName2, string SystemPrinterName3, int SystemIncludeLogoInReceipt, decimal SystemTax);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateSystemSettings", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateSystemSettingsResponse")]
-        System.Threading.Tasks.Task<bool> UpdateSystemSettingsAsync(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, int SystemIncludeLogoInReceipt, decimal SystemTax);
+        System.Threading.Tasks.Task<bool> UpdateSystemSettingsAsync(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, string SystemPrinterName2, string SystemPrinterName3, int SystemIncludeLogoInReceipt, decimal SystemTax);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemTypeName", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemTypeNameResponse")]
         string RetrieveItemTypeName(int ItemTypeIndex, int locale);
@@ -685,12 +685,12 @@ namespace PlancksoftPOS.Plancksoft_Server {
             return base.Channel.RetrieveSystemSettingsAsync();
         }
         
-        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, int SystemIncludeLogoInReceipt, decimal SystemTax) {
-            return base.Channel.UpdateSystemSettings(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemPrinterName, SystemIncludeLogoInReceipt, SystemTax);
+        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, string SystemPrinterName2, string SystemPrinterName3, int SystemIncludeLogoInReceipt, decimal SystemTax) {
+            return base.Channel.UpdateSystemSettings(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemPrinterName, SystemPrinterName2, SystemPrinterName3, SystemIncludeLogoInReceipt, SystemTax);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateSystemSettingsAsync(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, int SystemIncludeLogoInReceipt, decimal SystemTax) {
-            return base.Channel.UpdateSystemSettingsAsync(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemPrinterName, SystemIncludeLogoInReceipt, SystemTax);
+        public System.Threading.Tasks.Task<bool> UpdateSystemSettingsAsync(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, string SystemPrinterName2, string SystemPrinterName3, int SystemIncludeLogoInReceipt, decimal SystemTax) {
+            return base.Channel.UpdateSystemSettingsAsync(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemPrinterName, SystemPrinterName2, SystemPrinterName3, SystemIncludeLogoInReceipt, SystemTax);
         }
         
         public string RetrieveItemTypeName(int ItemTypeIndex, int locale) {

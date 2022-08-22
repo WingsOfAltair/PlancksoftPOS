@@ -10,7 +10,6 @@ using System.IO;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Text.RegularExpressions;
-using RawDataPrint;
 using WMPLib;
 using System.Text;
 using System.IO.Ports;
@@ -24,7 +23,7 @@ namespace PlancksoftPOS
         public Connection Connection = new Connection();
         public int ID = 0, CurrentBillNumber = 0, CurrentVendorBillNumber = 0, customerItemID = 0, heldBillsCount = 0, EmployeeID = 0, AbsenceID = 0;
         public static int Authority = 0;
-        public string CurrentItemBarcode = "", BarCode = "", cashierName = "Developer Mode", UID, PWD, PlancksoftPOSName, PlancksoftPOSPhone, printerName;
+        public string CurrentItemBarcode = "", BarCode = "", cashierName = "Developer Mode", UID, PWD, PlancksoftPOSName, PlancksoftPOSPhone, printerName, printerName2, printerName3;
         public Tuple<List<Item>, DataTable> FavoriteItems;
         public Stack<Bill> previousBillsList = new Stack<Bill>();
         public Stack<Bill> nextBillsList = new Stack<Bill>();
@@ -162,6 +161,8 @@ namespace PlancksoftPOS
             this.Text = this.PlancksoftPOSName + " - الشاشه الرئيسيه";
             label45.Text = " هذه النسخه مرخصه لمتجر " + this.PlancksoftPOSName;
             this.PrinterName.Text = dt.Rows[0]["SystemPrinterName"].ToString();
+            this.PrinterName2.Text = dt.Rows[0]["SystemPrinterName2"].ToString();
+            this.PrinterName3.Text = dt.Rows[0]["SystemPrinterName3"].ToString();
             this.receiptSpacingnud.Value = Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString());
             this.registerOpen = Properties.Settings.Default.RegisterOpen;
             this.IncludeLogoReceipt.Checked = Convert.ToBoolean(Convert.ToInt32(dt.Rows[0]["SystemIncludeLogoInReceipt"].ToString()));
@@ -449,6 +450,8 @@ namespace PlancksoftPOS
                     label45.Text = "This copy is licensed for " + this.PlancksoftPOSName;
                 }
                 this.PrinterName.Text = dt.Rows[0]["SystemPrinterName"].ToString();
+                this.PrinterName2.Text = dt.Rows[0]["SystemPrinterName2"].ToString();
+                this.PrinterName3.Text = dt.Rows[0]["SystemPrinterName3"].ToString();
                 this.receiptSpacingnud.Value = Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString());
                 this.registerOpen = Properties.Settings.Default.RegisterOpen;
                 this.IncludeLogoReceipt.Checked = Convert.ToBoolean(Convert.ToInt32(dt.Rows[0]["SystemIncludeLogoInReceipt"].ToString()));
@@ -1301,13 +1304,13 @@ namespace PlancksoftPOS
                 if (tabControl1.Contains(tabControl1.TabPages["Employees"]))
                 {
                     tabControl1.TabPages["Employees"].Text = "Employees' Affairs";
-                    if (tabControl8.Contains(tabControl1.TabPages["EmployeesManagement"]))
+                    if (tabControl8.Contains(tabControl8.TabPages["EmployeesManagement"]))
                     {
                         tabControl8.TabPages["EmployeesManagement"].Text = "Employees Management";
-                        label52.Text = "Employees Registration";
+                        groupBox52.Text = "Employees Registration";
                         label102.Text = "Employee Name";
                         label100.Text = "Salary";
-                        label104.Text = "Employee Phone Number";
+                        label104.Text = "Employee Phone";
                         label105.Text = "Employee Address";
                         button34.Text = "Register";
                         groupBox49.Text = "Employees Grid";
@@ -1320,7 +1323,7 @@ namespace PlancksoftPOS
                         groupBox50.Text = "Employees & Absences Management";
                         label54.Text = "Employee Name";
                         label92.Text = "Salary";
-                        label95.Text = "Employee Phone Number";
+                        label95.Text = "Employee Phone";
                         label99.Text = "Employee Address";
                         button32.Text = "Update Employee";
                         button16.Text = "Delete Employee";
@@ -1331,7 +1334,7 @@ namespace PlancksoftPOS
                         label111.Text = "Deduct from Salary";
                         button35.Text = "Add Deduction";
                     }
-                    if (tabControl8.Contains(tabControl1.TabPages["EmployeesManagement"]))
+                    if (tabControl8.Contains(tabControl8.TabPages["DaysOff"]))
                     {
                         tabControl8.TabPages["DaysOff"].Text = "Absences";
                         groupBox51.Text = "Daily Absences Grid";
@@ -1725,10 +1728,12 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 Warehouse.Items.Add(new WarehouseCategory("غير موجود"));
+                WarehouseEntryExitList.Items.Add(new WarehouseCategory("غير موجود"));
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 Warehouse.Items.Add(new WarehouseCategory("Inexistent"));
+                WarehouseEntryExitList.Items.Add(new WarehouseCategory("Inexistent"));
             }
             //WarehousesQuantityList.Items.Add(new WarehouseCategory("غير موجود"));
             //WarehouseEntryExitList.Items.Add(new WarehouseCategory("غير موجود"));
@@ -2469,108 +2474,8 @@ namespace PlancksoftPOS
             }
         }
 
-        public void button21_Click(object sender, EventArgs e)
-        {
-            groupBox5.Visible = false;
-            tabControl1.Select();
-            tabControl1.Focus();
-            this.ActiveControl = tabControl1;
-            return;
-            try
-            {
-                DataTable dt = Connection.server.RetrieveSystemSettings();
-                LPrinter MyPrinter = new LPrinter(); // creates the printer object
-                MyPrinter.PrinterName = "\\\\" + Environment.MachineName + "\\" + dt.Rows[0]["SystemPrinterName"].ToString();
-                MyPrinter.Print("");
-                printDocument2.Print();
-
-
-                try
-                {
-                    System.IO.Directory.Delete(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts", true);
-                }
-                catch (Exception error) { }
-
-                /*string output = Convert.ToChar(29) + "V" + Convert.ToChar(65) + Convert.ToChar(0);
-                RawPrinterHelper.SendStringToPrinter(this.printerName, output);
-                */
-
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(e.ToString(), Application.ProductName);
-            }
-
-        }
-
         public void searchItemDGV_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-
-        }
-
-        public void button27_Click(object sender, EventArgs e)
-        {
-            /*
-            PrintDocument printDocument1 = new PrintDocument();
-            printDocument1.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
-            printDocument1.Print();
-            */
-            
-            /*string welcome = "شكرا لزيارتك متجرنا " + PlancksoftPOSName + ".";
-            string InvoiceNo = this.CurrentBillNumber.ToString();
-            decimal gross = Convert.ToInt32(this.totalAmount);
-            decimal net = Convert.ToInt32(this.totalAmount);
-            decimal discount = gross - net;
-            decimal amountPaid = this.paidAmount;
-            decimal remainder = this.remainderAmount;
-            string InvoiceDate = DateTime.Now.ToString();
-
-            LPrinter MyPrinter = new LPrinter(); // creates the printer object
-                                                 //MyPrinter.ChoosePrinter();// let user choose the printer device
-
-            // alternatively:
-            MyPrinter.PrinterName = "\\\\" + Environment.MachineName + "\\" + Settings.Default.PrinterName;
-            // uses a specific named printer
-
-            MyPrinter.Open("Receipt"); // opens and tells the spooler the document title
-            MyPrinter.Print("" + InvoiceNo + "رقم الفاتورة الحالية ");
-            MyPrinter.Print("" + InvoiceDate + "");
-            MyPrinter.Print("إسم المنتج                " + "              السعر " + "               الكمية      ");
-            MyPrinter.Print("----------------------------------------------------------");
-            for (int i = 0; i < ItemsPendingPurchase.Rows.Count; i++)
-            {
-                if (!ItemsPendingPurchase.Rows[i].IsNewRow)
-                {
-                    int ii = 1;
-                    ii++;
-
-                    MyPrinter.Print(" " + ItemsPendingPurchase.Rows[i].Cells[2].Value + "              " + ItemsPendingPurchase.Rows[i].Cells[4].Value + "" + ItemsPendingPurchase.Rows[i].Cells[0].Value + "");
-                }
-            }
-            MyPrinter.Print("--------------------------------------------------------");
-            MyPrinter.Print("الإجمالي :" + gross + "");
-            MyPrinter.Print("الخصم :" + discount + "");
-            MyPrinter.Print("الصافي :" + net + "");
-            MyPrinter.Print("المدفوع :" + amountPaid + "");
-            MyPrinter.Print("الباقي :" + remainder + "");
-            MyPrinter.Print("---------------------------------------------------------");
-            MyPrinter.Print("" + welcome + "");
-            */
-
-            groupBox5.Hide();
-            groupBox5.Location = new Point(1400, 1400);
-            printDocument1.Print();
-
-
-            try
-            {
-                System.IO.Directory.Delete(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts", true);
-            }
-            catch (Exception error) { }
-
-            tabControl1.Select();
-            tabControl1.Focus();
-            this.ActiveControl = tabControl1;
 
         }
 
@@ -4671,26 +4576,7 @@ namespace PlancksoftPOS
         {
             try
             {
-
-                /*LPrinter MyPrinter = new LPrinter(); // creates the printer object
-                MyPrinter.PrinterName = "\\\\" + Environment.MachineName + "\\" + Properties.Settings.Default.PrinterName;
-                MyPrinter.Print("");*/
                 printDocument2.Print();
-
-                Encoding enc = Encoding.Unicode;
-                SerialPort sp = new SerialPort();
-                sp.PortName = "COM2";
-
-                sp.Encoding = enc;
-                sp.BaudRate = 38400;
-                sp.Parity = System.IO.Ports.Parity.None;
-                sp.DataBits = 8;
-                sp.StopBits = System.IO.Ports.StopBits.One;
-                sp.DtrEnable = true;
-                sp.Open();
-                sp.Write(char.ConvertFromUtf32(28699) + char.ConvertFromUtf32(9472) + char.ConvertFromUtf32(3365));
-                sp.Close();
-
             } catch(Exception error)
             {
                 MessageBox.Show(e.ToString(), Application.ProductName);
@@ -5197,11 +5083,15 @@ namespace PlancksoftPOS
         {
             try
             {
-                if (Connection.server.UpdateSystemSettings(this.shopName.Text, StoreLogo, this.shopPhone.Text, Convert.ToInt32(this.receiptSpacingnud.Value), this.PrinterName.Text, Convert.ToInt32(this.IncludeLogoReceipt.Checked), nudTaxRate.Value))
+                if (Connection.server.UpdateSystemSettings(this.shopName.Text, StoreLogo, this.shopPhone.Text,
+                    Convert.ToInt32(this.receiptSpacingnud.Value), this.PrinterName.Text, this.PrinterName2.Text, this.PrinterName3.Text,
+                    Convert.ToInt32(this.IncludeLogoReceipt.Checked), nudTaxRate.Value))
                 {
                     this.PlancksoftPOSName = this.shopName.Text;
                     this.PlancksoftPOSPhone = this.shopPhone.Text;
                     this.printerName = this.PrinterName.Text;
+                    this.printerName2 = this.PrinterName2.Text;
+                    this.printerName3 = this.PrinterName3.Text;
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
                         label45.Text = " هذه النسخه مرخصه لمتجر " + this.PlancksoftPOSName;
@@ -7132,26 +7022,7 @@ namespace PlancksoftPOS
         {
             try
             {
-
-                /*LPrinter MyPrinter = new LPrinter(); // creates the printer object
-                MyPrinter.PrinterName = "\\\\" + Environment.MachineName + "\\" + Properties.Settings.Default.PrinterName;
-                MyPrinter.Print("");
-                printDocument2.Print();*/
-
-                Encoding enc = Encoding.Unicode;
-                SerialPort sp = new SerialPort();
-                sp.PortName = "COM2";
-
-                sp.Encoding = enc;
-                sp.BaudRate = 38400;
-                sp.Parity = System.IO.Ports.Parity.None;
-                sp.DataBits = 8;
-                sp.StopBits = System.IO.Ports.StopBits.One;
-                sp.DtrEnable = true;
-                sp.Open();
-                sp.Write(char.ConvertFromUtf32(28699) + char.ConvertFromUtf32(9472) + char.ConvertFromUtf32(3365));
-                sp.Close();
-
+                printDocument2.Print();
             }
             catch (Exception error)
             {
@@ -7793,26 +7664,7 @@ namespace PlancksoftPOS
                 case Keys.F6:
                     try
                     {
-
-                        /*LPrinter MyPrinter = new LPrinter(); // creates the printer object
-                        MyPrinter.PrinterName = "\\\\" + Environment.MachineName + "\\" + Properties.Settings.Default.PrinterName;
-                        MyPrinter.Print("");
-                        printDocument2.Print();*/
-
-                        Encoding enc = Encoding.Unicode;
-                        SerialPort sp = new SerialPort();
-                        sp.PortName = "COM2";
-
-                        sp.Encoding = enc;
-                        sp.BaudRate = 38400;
-                        sp.Parity = System.IO.Ports.Parity.None;
-                        sp.DataBits = 8;
-                        sp.StopBits = System.IO.Ports.StopBits.One;
-                        sp.DtrEnable = true;
-                        sp.Open();
-                        sp.Write(char.ConvertFromUtf32(28699) + char.ConvertFromUtf32(9472) + char.ConvertFromUtf32(3365));
-                        sp.Close();
-
+                        printDocument2.Print();
                     }
                     catch (Exception error)
                     {
@@ -8502,6 +8354,8 @@ namespace PlancksoftPOS
                         {
                             WarehouseEntryExitItemBarCode.Text = itemLookup.selectedItem.GetItemBarCode();
                             WarehouseEntryExitItemName.Text = itemLookup.selectedItem.GetName();
+                            WarehouseEntryExitList.SelectedIndex = WarehouseEntryExitList.FindStringExact(Connection.server.RetrieveWarehouseName(Convert.ToInt32(itemLookup.selectedItem.Warehouse_ID), (int)frmLogin.pickedLanguage));
+                            EntryExitItemBuyPrice.Value = itemLookup.selectedItem.ItemBuyPrice;
                         }
                     }
                     catch (Exception ex)
@@ -10173,15 +10027,6 @@ namespace PlancksoftPOS
             }
         }
 
-        public void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            e.Graphics.DrawImage(pictureBox1.Image, 0, 0);
-            try
-            {
-                System.IO.Directory.Delete(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts", true);
-            } catch(Exception error) { }
-        }
-
         public void printCertainReceipt(int BillNumber, string cashierName, decimal totalAmount, decimal paidAmount, decimal remainderAmount, DateTime invoiceDate)
         {
             try
@@ -10260,9 +10105,9 @@ namespace PlancksoftPOS
                         graphic.FillRectangle(white, 0, 0, bitm.Width, bitm.Height);
                         graphic.DrawString(this.shopPhone.Text, newfont2, black, (bitm.Width / 2) - Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString()), startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString(welcome2, newfont2, black, (bitm.Width / 3) - (welcome.Length + 5), startY + offsetY);
+                        graphic.DrawString(welcome2, newfont2, black, (bitm.Width / 2) - (welcome2.Length + 5), startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString(welcome, newfont2, black, (bitm.Width / 3) - (welcome.Length + 10), startY + offsetY);
+                        graphic.DrawString(welcome, newfont2, black, (bitm.Width / 2) - (welcome.Length + 10), startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         offsetY = offsetY + lineHeight;
                         if (IncludeLogoInReceipt)
@@ -10287,13 +10132,16 @@ namespace PlancksoftPOS
 
                             offsetY = offsetY + lineHeight;
                         }
-                        graphic.DrawString(InvoiceNo, newfont2, black, (bitm.Width / 3) - InvoiceNo.Length, startY + offsetY);
+                        graphic.DrawString(InvoiceNo, newfont2, black, (bitm.Width / 2) - InvoiceNo.Length, startY + offsetY);
                         offsetY = offsetY + lineHeight;
 
                         //PointF pointPrice = new PointF(15f, 45f);
-                        graphic.DrawString("" + InvoiceDate + "", newfont2, black, (bitm.Width / 3) - (InvoiceDate.Length + 7), startY + offsetY);
+                        graphic.DrawString("" + InvoiceDate + "", newfont2, black, (bitm.Width / 2) - (InvoiceDate.Length + 7), startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString(cashierNamePrint, newfont2, black, (bitm.Width / 3) - cashierNamePrint.Length, startY + offsetY);
+                        graphic.DrawString(cashierNamePrint, newfont2, black, (bitm.Width / 2) - cashierNamePrint.Length, startY + offsetY);
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
                         offsetY = offsetY + lineHeight;
 
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -10370,11 +10218,9 @@ namespace PlancksoftPOS
                         white.Dispose();
                         itemFont.Dispose();
                         newfont2.Dispose();
-                        button21.Select();
-                        button21.Focus();
-                        this.ActiveControl = button21;
-                        groupBox5.Location = new Point(this.Width / 3, 0);
-                        groupBox5.Visible = true;
+                        
+                        frmReceipt receipt = new frmReceipt(bitm);
+                        receipt.ShowDialog();
                     }
                 }
 
@@ -10388,7 +10234,6 @@ namespace PlancksoftPOS
                         }
                         catch (Exception error) { }
                         bitm.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\Receipt " + this.CurrentBillNumber.ToString() + ".jpeg", ImageFormat.Jpeg);
-                        pictureBox1.Image = bitm;
                     }
                     catch (Exception error)
                     {
@@ -10486,9 +10331,9 @@ namespace PlancksoftPOS
                         graphic.FillRectangle(white, 0, 0, bitm.Width, bitm.Height);
                         graphic.DrawString(this.shopPhone.Text, newfont2, black, (bitm.Width / 2) - Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString()), startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString(welcome2, newfont2, black, (bitm.Width / 3) - (welcome.Length + 5), startY + offsetY);
+                        graphic.DrawString(welcome2, newfont2, black, (bitm.Width / 2) - (welcome2.Length + 5), startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString(welcome, newfont2, black, (bitm.Width / 3) - (welcome.Length + 10), startY + offsetY);
+                        graphic.DrawString(welcome, newfont2, black, (bitm.Width / 2) - (welcome.Length + 10), startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         offsetY = offsetY + lineHeight;
                         if (IncludeLogoInReceipt)
@@ -10513,13 +10358,16 @@ namespace PlancksoftPOS
 
                             offsetY = offsetY + lineHeight;
                         }
-                        graphic.DrawString(InvoiceNo, newfont2, black, (bitm.Width / 3) - InvoiceNo.Length, startY + offsetY);
+                        graphic.DrawString(InvoiceNo, newfont2, black, (bitm.Width / 2) - InvoiceNo.Length, startY + offsetY);
                         offsetY = offsetY + lineHeight;
 
                         //PointF pointPrice = new PointF(15f, 45f);
-                        graphic.DrawString("" + InvoiceDate + "", newfont2, black, (bitm.Width / 3) - (InvoiceDate.Length + 7), startY + offsetY);
+                        graphic.DrawString("" + InvoiceDate + "", newfont2, black, (bitm.Width / 2) - (InvoiceDate.Length + 7), startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString(cashierNamePrint, newfont2, black, (bitm.Width / 3) - cashierNamePrint.Length, startY + offsetY);
+                        graphic.DrawString(cashierNamePrint, newfont2, black, (bitm.Width / 2) - cashierNamePrint.Length, startY + offsetY);
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
+                        offsetY = offsetY + lineHeight;
                         offsetY = offsetY + lineHeight;
 
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -10558,7 +10406,7 @@ namespace PlancksoftPOS
                                 offsetY = offsetY + lineHeight;
                             }
                         }
-                        graphic.DrawString("----------------------------------------------------------", newfont2, black, startX, startY + offsetY);
+                        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
@@ -10587,7 +10435,7 @@ namespace PlancksoftPOS
                             graphic.DrawString("Remainder :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
                         }
                         offsetY = offsetY + lineHeight;
-                        graphic.DrawString("----------------------------------------------------------", newfont2, black, startX, startY + offsetY);
+                        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
                     }
                     finally
@@ -10596,11 +10444,8 @@ namespace PlancksoftPOS
                         white.Dispose();
                         itemFont.Dispose();
                         newfont2.Dispose();
-                        button21.Select();
-                        button21.Focus();
-                        this.ActiveControl = button21;
-                        groupBox5.Location = new Point(this.Width / 3, 0);
-                        groupBox5.Visible = true;
+                        frmReceipt receipt = new frmReceipt(bitm);
+                        receipt.ShowDialog();
                     }
                 }
 
@@ -10613,7 +10458,6 @@ namespace PlancksoftPOS
                             System.IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts");
                         } catch(Exception error) { }
                         bitm.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\Receipt " + this.CurrentBillNumber.ToString() + ".jpeg", ImageFormat.Jpeg);
-                        pictureBox1.Image = bitm;
                     }
                     catch (Exception error)
                     {
@@ -10763,6 +10607,8 @@ namespace PlancksoftPOS
                             graphic.DrawString("Total Cash in Register: " + Convert.ToDecimal(openRegisterAmount + totalSalesAmount).ToString(), newfont2, black, 0, startY + offsetY);
                         }
                         offsetY = offsetY + lineHeight;
+                        frmReceipt receipt = new frmReceipt(bitm);
+                        receipt.ShowDialog();
                     }
                     finally
                     {
@@ -10776,8 +10622,6 @@ namespace PlancksoftPOS
                 using (MemoryStream Mmst = new MemoryStream())
                 {
                     bitm.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Cash Close Report.jpeg", ImageFormat.Jpeg);
-                    pictureBox1.Image = bitm;
-                    printDocument1.Print();
                 }
             }
             catch (Exception error)

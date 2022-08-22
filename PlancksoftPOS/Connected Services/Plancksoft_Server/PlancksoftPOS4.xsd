@@ -47,6 +47,8 @@
         <xs:element minOccurs="0" name="SystemPhone" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="SystemReceiptBlankSpaces" type="xs:int" />
         <xs:element minOccurs="0" name="SystemPrinterName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SystemPrinterName2" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SystemPrinterName3" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="SystemIncludeLogoInReceipt" type="xs:int" />
         <xs:element minOccurs="0" name="SystemTax" type="xs:decimal" />
       </xs:sequence>

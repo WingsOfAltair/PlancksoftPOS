@@ -656,10 +656,6 @@
             this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox49 = new System.Windows.Forms.PictureBox();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.timeDateTimer = new System.Windows.Forms.Timer(this.components);
             this.itemBarCodeEntryTimer = new System.Windows.Forms.Timer(this.components);
@@ -672,6 +668,12 @@
             this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label72 = new System.Windows.Forms.Label();
+            this.PrinterName2 = new System.Windows.Forms.TextBox();
+            this.label73 = new System.Windows.Forms.Label();
+            this.PrinterName3 = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -897,9 +899,9 @@
             this.groupBox47.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnedItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).BeginInit();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Menu.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -1096,7 +1098,7 @@
             this.openRegisterBtn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.openRegisterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.openRegisterBtn.Image = ((System.Drawing.Image)(resources.GetObject("openRegisterBtn.Image")));
-            this.openRegisterBtn.Location = new System.Drawing.Point(13, 13);
+            this.openRegisterBtn.Location = new System.Drawing.Point(20, 13);
             this.openRegisterBtn.Name = "openRegisterBtn";
             this.openRegisterBtn.Size = new System.Drawing.Size(100, 69);
             this.openRegisterBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1111,7 +1113,7 @@
             this.closeRegisterBtn.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.closeRegisterBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.closeRegisterBtn.Image = ((System.Drawing.Image)(resources.GetObject("closeRegisterBtn.Image")));
-            this.closeRegisterBtn.Location = new System.Drawing.Point(384, 13);
+            this.closeRegisterBtn.Location = new System.Drawing.Point(359, 13);
             this.closeRegisterBtn.Name = "closeRegisterBtn";
             this.closeRegisterBtn.Size = new System.Drawing.Size(100, 69);
             this.closeRegisterBtn.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1126,7 +1128,7 @@
             this.label65.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label65.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label65.ForeColor = System.Drawing.Color.White;
-            this.label65.Location = new System.Drawing.Point(3, 85);
+            this.label65.Location = new System.Drawing.Point(7, 85);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(123, 20);
             this.label65.TabIndex = 36;
@@ -1141,7 +1143,7 @@
             this.label66.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.label66.ForeColor = System.Drawing.Color.White;
-            this.label66.Location = new System.Drawing.Point(346, 85);
+            this.label66.Location = new System.Drawing.Point(335, 85);
             this.label66.Name = "label66";
             this.label66.Size = new System.Drawing.Size(138, 20);
             this.label66.TabIndex = 37;
@@ -8376,6 +8378,7 @@
             // 
             this.Settings.BackColor = System.Drawing.Color.White;
             this.Settings.Controls.Add(this.groupBox24);
+            this.Settings.Controls.Add(this.button1);
             this.Settings.Location = new System.Drawing.Point(4, 34);
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(1378, 692);
@@ -8385,22 +8388,14 @@
             // groupBox24
             // 
             this.groupBox24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox24.Controls.Add(this.groupBox9);
+            this.groupBox24.Controls.Add(this.groupBox5);
             this.groupBox24.Controls.Add(this.groupBox2);
-            this.groupBox24.Controls.Add(this.button1);
             this.groupBox24.Controls.Add(this.groupBox18);
-            this.groupBox24.Controls.Add(this.IncludeLogoReceipt);
-            this.groupBox24.Controls.Add(this.receiptSpacingnud);
-            this.groupBox24.Controls.Add(this.label114);
-            this.groupBox24.Controls.Add(this.shopPhone);
-            this.groupBox24.Controls.Add(this.label113);
-            this.groupBox24.Controls.Add(this.shopName);
-            this.groupBox24.Controls.Add(this.PrinterName);
-            this.groupBox24.Controls.Add(this.label1);
-            this.groupBox24.Controls.Add(this.A);
             this.groupBox24.ForeColor = System.Drawing.Color.Black;
-            this.groupBox24.Location = new System.Drawing.Point(1139, 3);
+            this.groupBox24.Location = new System.Drawing.Point(879, 3);
             this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(236, 689);
+            this.groupBox24.Size = new System.Drawing.Size(496, 689);
             this.groupBox24.TabIndex = 6;
             this.groupBox24.TabStop = false;
             this.groupBox24.Text = "إعدادات البرمجيه";
@@ -8410,7 +8405,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.button29);
             this.groupBox2.Controls.Add(this.picLogoStore);
-            this.groupBox2.Location = new System.Drawing.Point(0, 386);
+            this.groupBox2.Location = new System.Drawing.Point(260, 249);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(236, 255);
             this.groupBox2.TabIndex = 33;
@@ -8446,11 +8441,10 @@
             // 
             // button1
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(35, 642);
+            this.button1.Location = new System.Drawing.Point(8, 645);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 39);
             this.button1.TabIndex = 2;
@@ -8464,7 +8458,7 @@
             this.groupBox18.Controls.Add(this.nudTaxRate);
             this.groupBox18.Controls.Add(this.label78);
             this.groupBox18.ForeColor = System.Drawing.Color.Black;
-            this.groupBox18.Location = new System.Drawing.Point(0, 296);
+            this.groupBox18.Location = new System.Drawing.Point(260, 153);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Size = new System.Drawing.Size(236, 90);
             this.groupBox18.TabIndex = 0;
@@ -8499,7 +8493,7 @@
             this.IncludeLogoReceipt.AutoSize = true;
             this.IncludeLogoReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.IncludeLogoReceipt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.IncludeLogoReceipt.Location = new System.Drawing.Point(15, 262);
+            this.IncludeLogoReceipt.Location = new System.Drawing.Point(12, 243);
             this.IncludeLogoReceipt.Name = "IncludeLogoReceipt";
             this.IncludeLogoReceipt.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.IncludeLogoReceipt.Size = new System.Drawing.Size(209, 28);
@@ -8510,7 +8504,7 @@
             // receiptSpacingnud
             // 
             this.receiptSpacingnud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.receiptSpacingnud.Location = new System.Drawing.Point(33, 219);
+            this.receiptSpacingnud.Location = new System.Drawing.Point(32, 200);
             this.receiptSpacingnud.Maximum = new decimal(new int[] {
             -159383553,
             46653770,
@@ -8531,7 +8525,7 @@
             this.label114.AutoSize = true;
             this.label114.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label114.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label114.Location = new System.Drawing.Point(70, 192);
+            this.label114.Location = new System.Drawing.Point(69, 173);
             this.label114.Name = "label114";
             this.label114.Size = new System.Drawing.Size(131, 24);
             this.label114.TabIndex = 31;
@@ -8542,7 +8536,7 @@
             this.shopPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.shopPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shopPhone.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.shopPhone.Location = new System.Drawing.Point(35, 100);
+            this.shopPhone.Location = new System.Drawing.Point(19, 100);
             this.shopPhone.Name = "shopPhone";
             this.shopPhone.Size = new System.Drawing.Size(180, 20);
             this.shopPhone.TabIndex = 28;
@@ -8553,7 +8547,7 @@
             this.label113.AutoSize = true;
             this.label113.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label113.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label113.Location = new System.Drawing.Point(93, 73);
+            this.label113.Location = new System.Drawing.Point(77, 73);
             this.label113.Name = "label113";
             this.label113.Size = new System.Drawing.Size(84, 24);
             this.label113.TabIndex = 29;
@@ -8564,7 +8558,7 @@
             this.shopName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.shopName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shopName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.shopName.Location = new System.Drawing.Point(35, 43);
+            this.shopName.Location = new System.Drawing.Point(19, 43);
             this.shopName.Name = "shopName";
             this.shopName.Size = new System.Drawing.Size(180, 20);
             this.shopName.TabIndex = 0;
@@ -8574,7 +8568,7 @@
             this.PrinterName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PrinterName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PrinterName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.PrinterName.Location = new System.Drawing.Point(33, 160);
+            this.PrinterName.Location = new System.Drawing.Point(22, 45);
             this.PrinterName.Name = "PrinterName";
             this.PrinterName.Size = new System.Drawing.Size(180, 20);
             this.PrinterName.TabIndex = 1;
@@ -8585,11 +8579,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label1.Location = new System.Drawing.Point(89, 133);
+            this.label1.Location = new System.Drawing.Point(78, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(88, 24);
+            this.label1.Size = new System.Drawing.Size(105, 24);
             this.label1.TabIndex = 27;
-            this.label1.Text = "إسم الطابعه";
+            this.label1.Text = "إسم الطابعه 1";
             // 
             // A
             // 
@@ -8597,7 +8591,7 @@
             this.A.AutoSize = true;
             this.A.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.A.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.A.Location = new System.Drawing.Point(93, 16);
+            this.A.Location = new System.Drawing.Point(77, 16);
             this.A.Name = "A";
             this.A.Size = new System.Drawing.Size(84, 24);
             this.A.TabIndex = 3;
@@ -8703,60 +8697,6 @@
             this.pictureBox49.TabStop = false;
             this.pictureBox49.Click += new System.EventHandler(this.pictureBox49_Click);
             // 
-            // groupBox5
-            // 
-            this.groupBox5.BackColor = System.Drawing.Color.White;
-            this.groupBox5.Controls.Add(this.button27);
-            this.groupBox5.Controls.Add(this.button21);
-            this.groupBox5.Controls.Add(this.pictureBox1);
-            this.groupBox5.Location = new System.Drawing.Point(215, -800);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(354, 683);
-            this.groupBox5.TabIndex = 39;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Receipt";
-            this.groupBox5.Visible = false;
-            // 
-            // button27
-            // 
-            this.button27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button27.ForeColor = System.Drawing.Color.White;
-            this.button27.Location = new System.Drawing.Point(15, 646);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(138, 38);
-            this.button27.TabIndex = 24;
-            this.button27.Text = "طباعة الفاتوره";
-            this.button27.UseVisualStyleBackColor = false;
-            this.button27.Click += new System.EventHandler(this.button27_Click);
-            // 
-            // button21
-            // 
-            this.button21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button21.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button21.ForeColor = System.Drawing.Color.White;
-            this.button21.Location = new System.Drawing.Point(159, 645);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(184, 38);
-            this.button21.TabIndex = 23;
-            this.button21.Text = "عدم طباعة الفاتوره";
-            this.button21.UseVisualStyleBackColor = false;
-            this.button21.Click += new System.EventHandler(this.button21_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 16);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(354, 623);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // printDocument1
-            // 
-            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
-            // 
             // timeDateTimer
             // 
             this.timeDateTimer.Enabled = true;
@@ -8832,6 +8772,85 @@
             this.الخروجToolStripMenuItem.Text = "الخروج";
             this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox5.Controls.Add(this.label73);
+            this.groupBox5.Controls.Add(this.PrinterName3);
+            this.groupBox5.Controls.Add(this.label72);
+            this.groupBox5.Controls.Add(this.PrinterName2);
+            this.groupBox5.Controls.Add(this.label1);
+            this.groupBox5.Controls.Add(this.PrinterName);
+            this.groupBox5.Controls.Add(this.label114);
+            this.groupBox5.Controls.Add(this.receiptSpacingnud);
+            this.groupBox5.Controls.Add(this.IncludeLogoReceipt);
+            this.groupBox5.ForeColor = System.Drawing.Color.Black;
+            this.groupBox5.Location = new System.Drawing.Point(16, 21);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(236, 284);
+            this.groupBox5.TabIndex = 34;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "الطباعة";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox9.Controls.Add(this.shopPhone);
+            this.groupBox9.Controls.Add(this.A);
+            this.groupBox9.Controls.Add(this.shopName);
+            this.groupBox9.Controls.Add(this.label113);
+            this.groupBox9.ForeColor = System.Drawing.Color.Black;
+            this.groupBox9.Location = new System.Drawing.Point(260, 21);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(233, 126);
+            this.groupBox9.TabIndex = 35;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "الإعدادات الأساسية";
+            // 
+            // label72
+            // 
+            this.label72.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label72.AutoSize = true;
+            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.label72.Location = new System.Drawing.Point(78, 73);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(105, 24);
+            this.label72.TabIndex = 35;
+            this.label72.Text = "إسم الطابعه 2";
+            // 
+            // PrinterName2
+            // 
+            this.PrinterName2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PrinterName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrinterName2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.PrinterName2.Location = new System.Drawing.Point(22, 100);
+            this.PrinterName2.Name = "PrinterName2";
+            this.PrinterName2.Size = new System.Drawing.Size(180, 20);
+            this.PrinterName2.TabIndex = 34;
+            // 
+            // label73
+            // 
+            this.label73.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label73.AutoSize = true;
+            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label73.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.label73.Location = new System.Drawing.Point(78, 123);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(105, 24);
+            this.label73.TabIndex = 37;
+            this.label73.Text = "إسم الطابعه 3";
+            // 
+            // PrinterName3
+            // 
+            this.PrinterName3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PrinterName3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrinterName3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.PrinterName3.Location = new System.Drawing.Point(22, 150);
+            this.PrinterName3.Name = "PrinterName3";
+            this.PrinterName3.Size = new System.Drawing.Size(180, 20);
+            this.PrinterName3.TabIndex = 36;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8839,7 +8858,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.ClientSize = new System.Drawing.Size(1386, 754);
             this.ControlBox = false;
-            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -9100,7 +9118,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.Settings.ResumeLayout(false);
             this.groupBox24.ResumeLayout(false);
-            this.groupBox24.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picLogoStore)).EndInit();
             this.groupBox18.ResumeLayout(false);
@@ -9111,10 +9128,11 @@
             this.groupBox47.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnedItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).EndInit();
+            this.Menu.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.Menu.ResumeLayout(false);
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -9148,9 +9166,6 @@
         public System.Windows.Forms.Label label52;
         public System.Windows.Forms.NumericUpDown pendingPurchaseNewQuantity;
         public System.Windows.Forms.Button button24;
-        public System.Windows.Forms.GroupBox groupBox5;
-        public System.Windows.Forms.Button button27;
-        public System.Windows.Forms.Button button21;
         public System.Drawing.Printing.PrintDocument printDocument1;
         public System.Windows.Forms.GroupBox groupBox6;
         public System.Windows.Forms.Timer timeDateTimer;
@@ -9254,7 +9269,6 @@
         public System.Windows.Forms.Label label2;
         public System.Windows.Forms.PictureBox pictureBox3;
         public System.Windows.Forms.TabControl tabControl2;
-        public System.Windows.Forms.PictureBox pictureBox1;
         public System.Windows.Forms.PictureBox pictureBox27;
         public System.Windows.Forms.PictureBox pictureBox9;
         public System.Windows.Forms.PictureBox pictureBox8;
@@ -9762,6 +9776,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemTypeNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemPicture;
+        public System.Windows.Forms.GroupBox groupBox9;
+        public System.Windows.Forms.GroupBox groupBox5;
+        public System.Windows.Forms.Label label72;
+        public System.Windows.Forms.TextBox PrinterName2;
+        public System.Windows.Forms.Label label73;
+        public System.Windows.Forms.TextBox PrinterName3;
     }
 }
 

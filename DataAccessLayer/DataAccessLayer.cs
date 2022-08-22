@@ -55,7 +55,7 @@ namespace DataAccessLayer
             }
         }
 
-        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, int SystemIncludeLogoInReceipt, decimal SystemTax)
+        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, string SystemPrinterName2, string SystemPrinterName3, int SystemIncludeLogoInReceipt, decimal SystemTax)
         {
             try
             {
@@ -68,6 +68,8 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@SystemPhone    ", SystemPhone);
                     cmd.Parameters.AddWithValue("@SystemReceiptBlankSpaces    ", SystemReceiptBlankSpaces);
                     cmd.Parameters.AddWithValue("@SystemPrinterName    ", SystemPrinterName);
+                    cmd.Parameters.AddWithValue("@SystemPrinterName2    ", SystemPrinterName2);
+                    cmd.Parameters.AddWithValue("@SystemPrinterName3    ", SystemPrinterName3);
                     cmd.Parameters.AddWithValue("@SystemIncludeLogoInReceipt    ", SystemIncludeLogoInReceipt);
                     cmd.Parameters.AddWithValue("@SystemTax    ", SystemTax);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;

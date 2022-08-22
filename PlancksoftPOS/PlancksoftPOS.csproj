@@ -196,6 +196,12 @@
     <Compile Include="ViewControllers\frmPay.Designer.cs">
       <DependentUpon>frmPay.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewControllers\frmReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmReceipt.Designer.cs">
+      <DependentUpon>frmReceipt.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewControllers\frmRegisterAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -255,6 +261,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmPickCustomer.resx">
       <DependentUpon>frmPickCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewControllers\frmReceipt.resx">
+      <DependentUpon>frmReceipt.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmRegisterAdmin.resx">
       <DependentUpon>frmRegisterAdmin.cs</DependentUpon>
