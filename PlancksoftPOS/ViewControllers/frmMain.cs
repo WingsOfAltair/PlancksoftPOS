@@ -1001,15 +1001,19 @@ namespace PlancksoftPOS
                 {
                     tabControl1.TabPages["Settings"].Text = "الإعدادات";
                     groupBox24.Text = "إعدادات البرمجيه";
+                    groupBox9.Text = "الإعدادات الأساسية";
                     A.Text = "إسم المتجر";
                     label113.Text = "رقم الهاتف";
-                    label1.Text = "إسم الطابعه";
-                    label114.Text = "عدد فراغ الفاتوره";
-                    IncludeLogoReceipt.Text = "تضمين الشعار في الفاتوره";
                     groupBox18.Text = "الضرائب";
                     label78.Text = "% نسبة الضريبه بالمئه";
                     groupBox2.Text = "صورة المتجر";
                     button29.Text = "إعادة الصورة الأصلية";
+                    groupBox5.Text = "الطابعات";
+                    label1.Text = "إسم الطابعه 1";
+                    label72.Text = "إسم الطابعه 2";
+                    label73.Text = "إسم الطابعه 3";
+                    label114.Text = "عدد فراغ الفاتوره";
+                    IncludeLogoReceipt.Text = "تضمين الشعار في الفاتوره";
                     button1.Text = "حفظ الإعدادات";
                 }
                 if (tabControl1.Contains(tabControl1.TabPages["Retrievals"]))
@@ -1495,15 +1499,19 @@ namespace PlancksoftPOS
                 {
                     tabControl1.TabPages["Settings"].Text = "Settings";
                     groupBox24.Text = "System Preferences";
+                    groupBox9.Text = "Fundamental Settings";
                     A.Text = "Store Name";
                     label113.Text = "Phone Number";
-                    label1.Text = "Printer Name";
-                    label114.Text = "Blank Spaces in Receipt";
-                    IncludeLogoReceipt.Text = "Include Logo in Receipt";
                     groupBox18.Text = "Taxes";
                     label78.Text = "Percentage of Taxes %";
                     groupBox2.Text = "Store Logo";
                     button29.Text = "Reset Default Logo";
+                    groupBox5.Text = "Printers";
+                    label1.Text = "Printer Name 1";
+                    label72.Text = "Printer Name 2";
+                    label73.Text = "Printer Name 3";
+                    label114.Text = "Blank Spaces in Receipt";
+                    IncludeLogoReceipt.Text = "Include Logo in Receipt";
                     button1.Text = "Save Preferences";
                 }
                 if (tabControl1.Contains(tabControl1.TabPages["Retrievals"]))
