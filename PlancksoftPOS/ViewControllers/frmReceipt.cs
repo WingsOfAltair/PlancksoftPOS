@@ -32,23 +32,11 @@ namespace PlancksoftPOS
 
         private void frmReceipt_Load(object sender, EventArgs e)
         {
-            DataTable printerNames = connection.server.RetrieveSystemSettings();
-            string printer1 = printerNames.Rows[0]["SystemPrinterName"].ToString();
-            string printer2 = printerNames.Rows[0]["SystemPrinterName2"].ToString();
-            string printer3 = printerNames.Rows[0]["SystemPrinterName3"].ToString();
-            if (printer1 != "")
+            frmMain.PrintersList = connection.server.RetrievePrinters();
+            
+            foreach (Dependencies.Printer printer in frmMain.PrintersList)
             {
-                printDocument1.PrinterSettings.PrinterName = printerNames.Rows[0]["SystemPrinterName"].ToString();
-                printDocument1.Print();
-            }
-            if (printer2 != "")
-            {
-                printDocument1.PrinterSettings.PrinterName = printerNames.Rows[0]["SystemPrinterName2"].ToString();
-                printDocument1.Print();
-            }
-            if (printer3 != "")
-            {
-                printDocument1.PrinterSettings.PrinterName = printerNames.Rows[0]["SystemPrinterName3"].ToString();
+                printDocument1.PrinterSettings.PrinterName = printer.Name;
                 printDocument1.Print();
             }
         }

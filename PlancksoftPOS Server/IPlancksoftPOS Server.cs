@@ -14,7 +14,7 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         DataTable RetrieveSystemSettings();
         [OperationContract]
-        bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, string SystemPrinterName2, string SystemPrinterName3, int SystemIncludeLogoInReceipt, decimal SystemTax);
+        bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax);
         [OperationContract]
         string RetrieveItemTypeName(int ItemTypeIndex, int locale);
         [OperationContract]
@@ -36,6 +36,8 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         List<Category> RetrieveFavoriteCategories();
         [OperationContract]
+        List<Printer> RetrievePrinters();
+        [OperationContract]
         DataTable RetrieveLoginLogoutInfo(DateTime Date);
         [OperationContract]
         Tuple<List<Account>, DataTable> RetrieveUsersList();
@@ -55,6 +57,8 @@ namespace PlancksoftPOS_Server
         Tuple<bool, string, bool> Login(Account AccountToLogin);
         [OperationContract]
         bool Register(Account AccountToRegister, string UID, int AdminOrNot);
+        [OperationContract]
+        bool DeletePrinter(int printerID);
         [OperationContract]
         bool DeleteFavoriteItem(string ItemBarCode);
         [OperationContract]
@@ -148,11 +152,15 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool UpdateFavoriteCategories(int FavoriteCategoryID, string FavoriteCategory);
         [OperationContract]
+        bool UpdatePrinters(int printerID, string printerName);
+        [OperationContract]
         bool InsertItemType(string ItemTypeName);
         [OperationContract]
         bool InsertWarehouse(string WarehouseName);
         [OperationContract]
         bool InsertFavoriteCategory(string FavoriteCategory);
+        [OperationContract]
+        bool InsertPrinter(string printerName);
         [OperationContract]
         bool DeletesCustomer(string CustomerID);
         [OperationContract]

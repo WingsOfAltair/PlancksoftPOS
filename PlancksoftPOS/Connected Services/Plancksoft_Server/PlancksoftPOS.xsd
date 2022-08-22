@@ -39,6 +39,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Category" nillable="true" type="tns:Category" />
+  <xs:complexType name="ArrayOfPrinter">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Printer" nillable="true" type="tns:Printer" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfPrinter" nillable="true" type="tns:ArrayOfPrinter" />
+  <xs:complexType name="Printer">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Printer" nillable="true" type="tns:Printer" />
   <xs:complexType name="ArrayOfAccount">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Account" nillable="true" type="tns:Account" />

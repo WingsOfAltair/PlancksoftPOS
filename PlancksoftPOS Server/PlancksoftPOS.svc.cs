@@ -16,9 +16,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveSystemSettings();
         }
-        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, string SystemPrinterName2, string SystemPrinterName3, int SystemIncludeLogoInReceipt, decimal SystemTax)
+        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax)
         {
-            return DAL.UpdateSystemSettings(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemPrinterName, SystemPrinterName2, SystemPrinterName3, SystemIncludeLogoInReceipt, SystemTax);
+            return DAL.UpdateSystemSettings(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemIncludeLogoInReceipt, SystemTax);
         }
         public string RetrieveItemTypeName(int ItemTypeIndex, int locale)
         {
@@ -59,6 +59,10 @@ namespace PlancksoftPOS_Server
         public List<Category> RetrieveFavoriteCategories()
         {
             return DAL.RetrieveFavoriteCategories();
+        }
+        public List<Printer> RetrievePrinters()
+        {
+            return DAL.RetrievePrinters();
         }
         public DataTable RetrieveLoginLogoutInfo(DateTime Date)
         {
@@ -103,6 +107,10 @@ namespace PlancksoftPOS_Server
         public bool DeleteFavoriteItem(string ItemBarCode)
         {
             return DAL.DeleteFavoriteItem(ItemBarCode);
+        }
+        public bool DeletePrinter(int printerID)
+        {
+            return DAL.DeletePrinter(printerID);
         }
         public bool AddFavoriteItem(string ItemName, string ItemBarCode, int ItemQuantity, decimal ItemPrice, decimal ItemPriceTax, decimal Category, DateTime Date)
         {
@@ -283,6 +291,10 @@ namespace PlancksoftPOS_Server
         {
             return DAL.UpdateFavoriteCategories(FavoriteCategoryID, FavoriteCategory);
         }
+        public bool UpdatePrinters(int printerID, string printerName)
+        {
+            return DAL.UpdatePrinters(printerID, printerName);
+        }
         public bool InsertItemType(string ItemTypeName)
         {
             return DAL.InsertItemType(ItemTypeName);
@@ -294,6 +306,10 @@ namespace PlancksoftPOS_Server
         public bool InsertFavoriteCategory(string FavoriteCategory)
         {
             return DAL.InsertFavoriteCategory(FavoriteCategory);
+        }
+        public bool InsertPrinter(string printerName)
+        {
+            return DAL.InsertPrinter(printerName);
         }
         public bool DeletesCustomer(string CustomerID)
         {

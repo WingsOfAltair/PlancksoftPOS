@@ -33,6 +33,7 @@ namespace PlancksoftPOS
         public List<Item> DISCOUNT_ITEMS = new List<Item>();
         public List<Item> ItemsList, retrievedFavoriteItems;
         public List<Account> Users;
+        public static List<Printer> PrintersList = new List<Printer>();
         public List<Category> Categories = new List<Category>();
         public List<ItemType> ItemTypesList = new List<ItemType>();
         public List<Warehouse> WarehousesList = new List<Warehouse>();
@@ -42,6 +43,7 @@ namespace PlancksoftPOS
         public SortedList<int, string> itemtypes = new SortedList<int, string>();
         public SortedList<int, string> warehouses = new SortedList<int, string>();
         public SortedList<int, string> favorites = new SortedList<int, string>();
+        public SortedList<int, string> printers = new SortedList<int, string>();
         public string ScannedBarCode = "";
         public bool timerstarted = false, registerOpen = false, IncludeLogoInReceipt = false;
         decimal capital, taxRate;
@@ -54,13 +56,18 @@ namespace PlancksoftPOS
         PictureBox plusWarehousePB, minusWarehousePB;
         Label plusWarehouseLbl, WarehouseLbl;
         TextBox AddFavorite;
+        TextBox AddPrinter;
         List<TextBox> FavoriteNamestxt = new List<TextBox>();
+        List<TextBox> PrintersNamestxt = new List<TextBox>();
         PictureBox plusFavoritePB, minusFavoritePB;
+        PictureBox plusPrinterPB, minusPrinterPB;
         Label plusFavoriteLbl, FavoriteLbl;
+        Label plusPrinterLbl, PrinterLbl;
         List<FlowLayoutPanel> flowLayoutPanels = new List<FlowLayoutPanel>();
         Button saveItemTypesBtn;
         Button saveWarehousesBtn;
         Button saveFavoritesBtn;
+        Button savePrintersBtn;
         byte[] StoreLogo = null;
 
         TabPage AgentsTab = null, InventoryTab = null, ExpensesTab = null, posUsersTab = null, SettingsTab = null, EmployeesTab = null, EditInvoicesTab = null,
@@ -160,9 +167,6 @@ namespace PlancksoftPOS
             this.shopPhone.Text = dt.Rows[0]["SystemPhone"].ToString();
             this.Text = this.PlancksoftPOSName + " - الشاشه الرئيسيه";
             label45.Text = " هذه النسخه مرخصه لمتجر " + this.PlancksoftPOSName;
-            this.PrinterName.Text = dt.Rows[0]["SystemPrinterName"].ToString();
-            this.PrinterName2.Text = dt.Rows[0]["SystemPrinterName2"].ToString();
-            this.PrinterName3.Text = dt.Rows[0]["SystemPrinterName3"].ToString();
             this.receiptSpacingnud.Value = Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString());
             this.registerOpen = Properties.Settings.Default.RegisterOpen;
             this.IncludeLogoReceipt.Checked = Convert.ToBoolean(Convert.ToInt32(dt.Rows[0]["SystemIncludeLogoInReceipt"].ToString()));
@@ -449,9 +453,6 @@ namespace PlancksoftPOS
                     this.Text = this.PlancksoftPOSName + " - Main Window";
                     label45.Text = "This copy is licensed for " + this.PlancksoftPOSName;
                 }
-                this.PrinterName.Text = dt.Rows[0]["SystemPrinterName"].ToString();
-                this.PrinterName2.Text = dt.Rows[0]["SystemPrinterName2"].ToString();
-                this.PrinterName3.Text = dt.Rows[0]["SystemPrinterName3"].ToString();
                 this.receiptSpacingnud.Value = Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString());
                 this.registerOpen = Properties.Settings.Default.RegisterOpen;
                 this.IncludeLogoReceipt.Checked = Convert.ToBoolean(Convert.ToInt32(dt.Rows[0]["SystemIncludeLogoInReceipt"].ToString()));
@@ -512,9 +513,11 @@ namespace PlancksoftPOS
                 }
                 DisplayFavorites();
 
+                DisplayPrinters();
+
                 this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
 
-                if (dt.Rows[0]["SystemPhone"].ToString() == "" && dt.Rows[0]["SystemPrinterName"].ToString() == "")
+                if (dt.Rows[0]["SystemPhone"].ToString() == "")
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
@@ -1000,21 +1003,26 @@ namespace PlancksoftPOS
                 if (tabControl1.Contains(tabControl1.TabPages["Settings"]))
                 {
                     tabControl1.TabPages["Settings"].Text = "الإعدادات";
-                    groupBox24.Text = "إعدادات البرمجيه";
-                    groupBox9.Text = "الإعدادات الأساسية";
-                    A.Text = "إسم المتجر";
-                    label113.Text = "رقم الهاتف";
-                    groupBox18.Text = "الضرائب";
-                    label78.Text = "% نسبة الضريبه بالمئه";
-                    groupBox2.Text = "صورة المتجر";
-                    button29.Text = "إعادة الصورة الأصلية";
-                    groupBox5.Text = "الطابعات";
-                    label1.Text = "إسم الطابعه 1";
-                    label72.Text = "إسم الطابعه 2";
-                    label73.Text = "إسم الطابعه 3";
-                    label114.Text = "عدد فراغ الفاتوره";
-                    IncludeLogoReceipt.Text = "تضمين الشعار في الفاتوره";
-                    button1.Text = "حفظ الإعدادات";
+                    if (tabControl9.Contains(tabControl9.TabPages["posSettings"]))
+                    {
+                        tabControl9.TabPages["posSettings"].Text = "إعدادات البرمجية";
+                        groupBox24.Text = "إعدادات البرمجيه";
+                        groupBox9.Text = "الإعدادات الأساسية";
+                        A.Text = "إسم المتجر";
+                        label113.Text = "رقم الهاتف";
+                        groupBox18.Text = "الضرائب";
+                        label78.Text = "% نسبة الضريبه بالمئه";
+                        groupBox2.Text = "صورة المتجر";
+                        button29.Text = "إعادة الصورة الأصلية";
+                        groupBox5.Text = "الطابعات";
+                        label114.Text = "عدد فراغ الفاتوره";
+                        IncludeLogoReceipt.Text = "تضمين الشعار في الفاتوره";
+                        button1.Text = "حفظ الإعدادات";
+                    }
+                    if (tabControl9.Contains(tabControl9.TabPages["printersSettings"]))
+                    {
+                        tabControl9.TabPages["printersSettings"].Text = "الطابعات";
+                    }
                 }
                 if (tabControl1.Contains(tabControl1.TabPages["Retrievals"]))
                 {
@@ -1026,6 +1034,7 @@ namespace PlancksoftPOS
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "باركود الماده";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "عدد القطع المرجعه";
                 }
+                DisplayPrinters();
                 خروجToolStripMenuItem1.Text = "خروج";
                 aToolStripMenuItem.Text = "طلب الصيانة";
                 ادارةالمستودعToolStripMenuItem.Text = "إدارة المستودع";
@@ -1498,21 +1507,26 @@ namespace PlancksoftPOS
                 if (tabControl1.Contains(tabControl1.TabPages["Settings"]))
                 {
                     tabControl1.TabPages["Settings"].Text = "Settings";
-                    groupBox24.Text = "System Preferences";
-                    groupBox9.Text = "Fundamental Settings";
-                    A.Text = "Store Name";
-                    label113.Text = "Phone Number";
-                    groupBox18.Text = "Taxes";
-                    label78.Text = "Percentage of Taxes %";
-                    groupBox2.Text = "Store Logo";
-                    button29.Text = "Reset Default Logo";
-                    groupBox5.Text = "Printers";
-                    label1.Text = "Printer Name 1";
-                    label72.Text = "Printer Name 2";
-                    label73.Text = "Printer Name 3";
-                    label114.Text = "Blank Spaces in Receipt";
-                    IncludeLogoReceipt.Text = "Include Logo in Receipt";
-                    button1.Text = "Save Preferences";
+                    if (tabControl9.Contains(tabControl9.TabPages["posSettings"]))
+                    {
+                        tabControl9.TabPages["posSettings"].Text = "System Preferences";
+                        groupBox24.Text = "System Preferences";
+                        groupBox9.Text = "Fundamental Settings";
+                        A.Text = "Store Name";
+                        label113.Text = "Phone Number";
+                        groupBox18.Text = "Taxes";
+                        label78.Text = "Percentage of Taxes %";
+                        groupBox2.Text = "Store Logo";
+                        button29.Text = "Reset Default Logo";
+                        groupBox5.Text = "Printers";
+                        label114.Text = "Blank Spaces in Receipt";
+                        IncludeLogoReceipt.Text = "Include Logo in Receipt";
+                        button1.Text = "Save Preferences";
+                    }
+                    if (tabControl9.Contains(tabControl9.TabPages["printersSettings"]))
+                    {
+                        tabControl9.TabPages["printersSettings"].Text = "Printers";
+                    }
                 }
                 if (tabControl1.Contains(tabControl1.TabPages["Retrievals"]))
                 {
@@ -1524,6 +1538,7 @@ namespace PlancksoftPOS
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "Item Barcode";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "Returned Items Quantity";
                 }
+                DisplayPrinters();
                 خروجToolStripMenuItem1.Text = "Quit";
                 aToolStripMenuItem.Text = "Maintenance Request";
                 ادارةالمستودعToolStripMenuItem.Text = "Warehouse Management";
@@ -2146,34 +2161,6 @@ namespace PlancksoftPOS
         {
             try
             {
-                //List<Item> quantity_items = Connection.server.RetrieveItemsQuantity(item.GetItemBarCode());
-
-                /*foreach (Item quantity_item in quantity_items)
-                {
-                    if (quantity_item.GetItemBarCode() == item.ItemBarCode)
-                    {
-                        if (quantity_item.GetQuantity() < 1)
-                        {
-                            var file = $"{Path.GetTempPath()}temp.mp3";
-                            if (!File.Exists(file))
-                            {
-                                using (Stream output = new FileStream(file, FileMode.Create))
-                                {
-                                    output.Write(Properties.Resources.beep, 0, Properties.Resources.beep.Length);
-                                }
-                            }
-                            var wmp = new WindowsMediaPlayer { URL = file };
-                            wmp.controls.play();
-                            if (MessageBox.Show(" .لا يمكن شراء الماده بسبب نفاذ الكميه " + " اضافة ماده؟ ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
-                            {
-                                tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
-                                return;
-                            }
-                            //else return;
-                        }
-                    }
-                }*/
-
                 int y = 0;
                 bool exists = false;
                 foreach (DataGridViewRow row in ItemsPendingPurchase.Rows)
@@ -2280,6 +2267,38 @@ namespace PlancksoftPOS
                 }
             }
         }
+        void DeletePrintersHandler(object sender, EventArgs e, int Index)
+        {
+            try
+            {
+                bool deletedPrinter = false;
+                deletedPrinter = Connection.server.DeletePrinter(Index);
+                if (deletedPrinter)
+                {
+                    DisplayPrinters();
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم حذف الطابعة", Application.ProductName);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Printer was deleted.", Application.ProductName);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayPrinters();
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من حذف الطابعة", Application.ProductName);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to delete Printer.", Application.ProductName);
+                }
+            }
+        }
 
         void AddFavoritesHandler(object sender, EventArgs e)
         {
@@ -2297,6 +2316,39 @@ namespace PlancksoftPOS
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
                         MessageBox.Show("A new Favorite Category was added.", Application.ProductName);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayFavorites();
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من حفظ مجلدات المفضلات", Application.ProductName);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to save Favorite Categories.", Application.ProductName);
+                }
+            }
+        }
+
+        void AddPrintersHandler(object sender, EventArgs e)
+        {
+            try
+            {
+                bool addedPrinter = false;
+                addedPrinter = Connection.server.InsertPrinter(AddPrinter.Text);
+                if (addedPrinter)
+                {
+                    DisplayPrinters();
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تمت اضافة الطابعة الجديده", Application.ProductName);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("A new Printer was added.", Application.ProductName);
                     }
                 }
             }
@@ -2347,6 +2399,42 @@ namespace PlancksoftPOS
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
                     MessageBox.Show("Unable to save Favorite Categories.", Application.ProductName);
+                }
+            }
+        }
+        void SavePrintersHandler(object sender, EventArgs e)
+        {
+            try
+            {
+                bool updatedPrinters = false;
+                int i = 0;
+                foreach(KeyValuePair<int, string> printer in printers)
+                {
+                    updatedPrinters = Connection.server.UpdatePrinters(Convert.ToInt32(PrintersNamestxt[i].Tag), PrintersNamestxt[i++].Text);
+                }
+                if (updatedPrinters)
+                {
+                    DisplayPrinters();
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".تم حفظ الطابعات الجديدة", Application.ProductName);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("All new Printers were saved.", Application.ProductName);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                DisplayFavorites();
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نتمكن من حفظ الطابعات", Application.ProductName);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to save Printers.", Application.ProductName);
                 }
             }
         }
@@ -2409,6 +2497,102 @@ namespace PlancksoftPOS
                 richTextBox5.AppendText("Current Bill ID: " + this.CurrentBillNumber);
                 richTextBox4.AppendText("Total: " + this.totalAmount);
             }
+        }
+
+        public void DisplayPrinters()
+        {
+            printers.Clear();
+
+            frmMain.PrintersList = Connection.server.RetrievePrinters();
+
+            foreach (Printer printer in frmMain.PrintersList)
+            {
+                this.printers.Add(printer.ID, printer.Name);
+            }
+
+            flowLayoutPanel4.Controls.Clear();
+
+            plusPrinterLbl = new Label();
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                plusPrinterLbl.Text = "إضافة طابعة جديدة";
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                plusPrinterLbl.Text = "Add a new Printer";
+            }
+            plusPrinterLbl.ForeColor = Color.Black;
+            plusPrinterLbl.Font = new Font(plusPrinterLbl.Font.FontFamily, 14);
+            flowLayoutPanel4.Controls.Add(plusPrinterLbl);
+
+            AddPrinter = new TextBox();
+            AddPrinter.Text = "";
+            AddPrinter.Size = new Size(351, 20);
+            flowLayoutPanel4.Controls.Add(AddPrinter);
+
+            plusPrinterPB = new PictureBox();
+            plusPrinterPB.Image = Resources.plus;
+            plusPrinterPB.BorderStyle = BorderStyle.Fixed3D;
+            plusPrinterPB.Cursor = Cursors.Hand;
+            plusPrinterPB.BackColor = Color.FromArgb(59, 89, 152);
+            plusPrinterPB.SizeMode = PictureBoxSizeMode.StretchImage;
+            plusPrinterPB.Click += (sender, e) => { AddPrintersHandler(sender, e); };
+            flowLayoutPanel4.Controls.Add(plusPrinterPB);
+
+            PrinterLbl = new Label();
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                PrinterLbl.Text = "الطابعات المضافه";
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                PrinterLbl.Text = "Added Printers";
+            }
+            PrinterLbl.ForeColor = Color.Black;
+            PrinterLbl.Font = new Font(plusPrinterLbl.Font.FontFamily, 14);
+            flowLayoutPanel4.Controls.Add(PrinterLbl);
+
+            savePrintersBtn = new Button();
+            savePrintersBtn.Name = "SavePrintersButton";
+            savePrintersBtn.Tag = "SavePrintersButton";
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                savePrintersBtn.Text = "حفظ الطابعات";
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                savePrintersBtn.Text = "Save Printers";
+            }
+            savePrintersBtn.Size = new Size(340, 45);
+            savePrintersBtn.ForeColor = Color.White;
+            savePrintersBtn.BackColor = Color.FromArgb(59, 89, 152);
+            savePrintersBtn.Font = new Font(savePrintersBtn.Font.FontFamily, 14, FontStyle.Bold);
+            savePrintersBtn.Click += (sender, e) => { SavePrintersHandler(sender, e); };
+
+            int i = 0;
+
+            foreach (KeyValuePair<int, string> printer in this.printers)
+            {
+                minusPrinterPB = new PictureBox();
+                minusPrinterPB.Image = Resources.minus;
+                minusPrinterPB.Size = new Size(50, 50);
+                minusPrinterPB.BorderStyle = BorderStyle.Fixed3D;
+                minusPrinterPB.Cursor = Cursors.Hand;
+                minusPrinterPB.BackColor = Color.FromArgb(59, 89, 152);
+                minusPrinterPB.SizeMode = PictureBoxSizeMode.StretchImage;
+                minusPrinterPB.Click += (sender, e) => { DeletePrintersHandler(sender, e, printer.Key); };
+                flowLayoutPanel4.Controls.Add(minusPrinterPB);
+
+                TextBox tempPrintertxt = new TextBox();
+                tempPrintertxt.Name = printer.Value;
+                tempPrintertxt.Text = printer.Value;
+                tempPrintertxt.Tag = printer.Key;
+                tempPrintertxt.Size = new Size(340, 20);
+                PrintersNamestxt.Add(tempPrintertxt);
+                flowLayoutPanel4.Controls.Add(tempPrintertxt);
+            }
+
+            flowLayoutPanel4.Controls.Add(savePrintersBtn);
         }
 
         public void خروجToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -5092,14 +5276,11 @@ namespace PlancksoftPOS
             try
             {
                 if (Connection.server.UpdateSystemSettings(this.shopName.Text, StoreLogo, this.shopPhone.Text,
-                    Convert.ToInt32(this.receiptSpacingnud.Value), this.PrinterName.Text, this.PrinterName2.Text, this.PrinterName3.Text,
+                    Convert.ToInt32(this.receiptSpacingnud.Value),
                     Convert.ToInt32(this.IncludeLogoReceipt.Checked), nudTaxRate.Value))
                 {
                     this.PlancksoftPOSName = this.shopName.Text;
                     this.PlancksoftPOSPhone = this.shopPhone.Text;
-                    this.printerName = this.PrinterName.Text;
-                    this.printerName2 = this.PrinterName2.Text;
-                    this.printerName3 = this.PrinterName3.Text;
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
                         label45.Text = " هذه النسخه مرخصه لمتجر " + this.PlancksoftPOSName;
@@ -9305,6 +9486,7 @@ namespace PlancksoftPOS
         {
             applyAuthorityPermissions();
             refreshSettings();
+            DisplayPrinters();
             DisplayItemTypes();
             DisplayFavoriteItems();
             DisplayWarehouses();

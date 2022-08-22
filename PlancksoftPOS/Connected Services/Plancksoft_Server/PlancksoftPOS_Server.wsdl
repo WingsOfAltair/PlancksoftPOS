@@ -88,6 +88,12 @@
   <wsdl:message name="IPlancksoftPOS_Server_RetrieveFavoriteCategories_OutputMessage">
     <wsdl:part name="parameters" element="tns:RetrieveFavoriteCategoriesResponse" />
   </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrievePrinters_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePrinters" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrievePrinters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePrintersResponse" />
+  </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_RetrieveLoginLogoutInfo_InputMessage">
     <wsdl:part name="parameters" element="tns:RetrieveLoginLogoutInfo" />
   </wsdl:message>
@@ -147,6 +153,12 @@
   </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_Register_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_DeletePrinter_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePrinter" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_DeletePrinter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePrinterResponse" />
   </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_DeleteFavoriteItem_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteFavoriteItem" />
@@ -424,6 +436,12 @@
   <wsdl:message name="IPlancksoftPOS_Server_UpdateFavoriteCategories_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateFavoriteCategoriesResponse" />
   </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdatePrinters_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePrinters" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdatePrinters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePrintersResponse" />
+  </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_InsertItemType_InputMessage">
     <wsdl:part name="parameters" element="tns:InsertItemType" />
   </wsdl:message>
@@ -441,6 +459,12 @@
   </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_InsertFavoriteCategory_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertFavoriteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_InsertPrinter_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPrinter" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_InsertPrinter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPrinterResponse" />
   </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_DeletesCustomer_InputMessage">
     <wsdl:part name="parameters" element="tns:DeletesCustomer" />
@@ -687,6 +711,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveFavoriteCategories" message="tns:IPlancksoftPOS_Server_RetrieveFavoriteCategories_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveFavoriteCategoriesResponse" message="tns:IPlancksoftPOS_Server_RetrieveFavoriteCategories_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RetrievePrinters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrievePrinters" message="tns:IPlancksoftPOS_Server_RetrievePrinters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrievePrintersResponse" message="tns:IPlancksoftPOS_Server_RetrievePrinters_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RetrieveLoginLogoutInfo">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLoginLogoutInfo" message="tns:IPlancksoftPOS_Server_RetrieveLoginLogoutInfo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLoginLogoutInfoResponse" message="tns:IPlancksoftPOS_Server_RetrieveLoginLogoutInfo_OutputMessage" />
@@ -726,6 +754,10 @@
     <wsdl:operation name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/Register" message="tns:IPlancksoftPOS_Server_Register_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RegisterResponse" message="tns:IPlancksoftPOS_Server_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrinter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeletePrinter" message="tns:IPlancksoftPOS_Server_DeletePrinter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeletePrinterResponse" message="tns:IPlancksoftPOS_Server_DeletePrinter_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeleteFavoriteItem">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteFavoriteItem" message="tns:IPlancksoftPOS_Server_DeleteFavoriteItem_InputMessage" />
@@ -911,6 +943,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateFavoriteCategories" message="tns:IPlancksoftPOS_Server_UpdateFavoriteCategories_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateFavoriteCategoriesResponse" message="tns:IPlancksoftPOS_Server_UpdateFavoriteCategories_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="UpdatePrinters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrinters" message="tns:IPlancksoftPOS_Server_UpdatePrinters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrintersResponse" message="tns:IPlancksoftPOS_Server_UpdatePrinters_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="InsertItemType">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/InsertItemType" message="tns:IPlancksoftPOS_Server_InsertItemType_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/InsertItemTypeResponse" message="tns:IPlancksoftPOS_Server_InsertItemType_OutputMessage" />
@@ -922,6 +958,10 @@
     <wsdl:operation name="InsertFavoriteCategory">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/InsertFavoriteCategory" message="tns:IPlancksoftPOS_Server_InsertFavoriteCategory_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/InsertFavoriteCategoryResponse" message="tns:IPlancksoftPOS_Server_InsertFavoriteCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertPrinter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/InsertPrinter" message="tns:IPlancksoftPOS_Server_InsertPrinter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/InsertPrinterResponse" message="tns:IPlancksoftPOS_Server_InsertPrinter_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeletesCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeletesCustomer" message="tns:IPlancksoftPOS_Server_DeletesCustomer_InputMessage" />
@@ -1171,6 +1211,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RetrievePrinters">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrievePrinters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RetrieveLoginLogoutInfo">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLoginLogoutInfo" style="document" />
       <wsdl:input>
@@ -1254,6 +1303,15 @@
     </wsdl:operation>
     <wsdl:operation name="Register">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrinter">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/DeletePrinter" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1675,6 +1733,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="UpdatePrinters">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrinters" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="InsertItemType">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/InsertItemType" style="document" />
       <wsdl:input>
@@ -1695,6 +1762,15 @@
     </wsdl:operation>
     <wsdl:operation name="InsertFavoriteCategory">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/InsertFavoriteCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertPrinter">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/InsertPrinter" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

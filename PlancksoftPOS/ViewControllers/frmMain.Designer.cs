@@ -637,12 +637,6 @@
             this.shopName = new System.Windows.Forms.TextBox();
             this.label113 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label73 = new System.Windows.Forms.Label();
-            this.PrinterName3 = new System.Windows.Forms.TextBox();
-            this.label72 = new System.Windows.Forms.Label();
-            this.PrinterName2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PrinterName = new System.Windows.Forms.TextBox();
             this.label114 = new System.Windows.Forms.Label();
             this.receiptSpacingnud = new System.Windows.Forms.NumericUpDown();
             this.IncludeLogoReceipt = new System.Windows.Forms.CheckBox();
@@ -674,6 +668,10 @@
             this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabControl9 = new System.Windows.Forms.TabControl();
+            this.posSettings = new System.Windows.Forms.TabPage();
+            this.printersSettings = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -902,6 +900,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnedItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).BeginInit();
             this.Menu.SuspendLayout();
+            this.tabControl9.SuspendLayout();
+            this.posSettings.SuspendLayout();
+            this.printersSettings.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -8377,8 +8378,7 @@
             // Settings
             // 
             this.Settings.BackColor = System.Drawing.Color.White;
-            this.Settings.Controls.Add(this.groupBox24);
-            this.Settings.Controls.Add(this.button1);
+            this.Settings.Controls.Add(this.tabControl9);
             this.Settings.Location = new System.Drawing.Point(4, 34);
             this.Settings.Name = "Settings";
             this.Settings.Size = new System.Drawing.Size(1378, 692);
@@ -8387,15 +8387,17 @@
             // 
             // groupBox24
             // 
-            this.groupBox24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox24.Controls.Add(this.groupBox9);
+            this.groupBox24.Controls.Add(this.button1);
             this.groupBox24.Controls.Add(this.groupBox5);
             this.groupBox24.Controls.Add(this.groupBox2);
             this.groupBox24.Controls.Add(this.groupBox18);
+            this.groupBox24.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox24.ForeColor = System.Drawing.Color.Black;
-            this.groupBox24.Location = new System.Drawing.Point(879, 3);
+            this.groupBox24.Location = new System.Drawing.Point(3, 3);
             this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(496, 689);
+            this.groupBox24.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox24.Size = new System.Drawing.Size(1364, 657);
             this.groupBox24.TabIndex = 6;
             this.groupBox24.TabStop = false;
             this.groupBox24.Text = "إعدادات البرمجيه";
@@ -8408,7 +8410,7 @@
             this.groupBox9.Controls.Add(this.shopName);
             this.groupBox9.Controls.Add(this.label113);
             this.groupBox9.ForeColor = System.Drawing.Color.Black;
-            this.groupBox9.Location = new System.Drawing.Point(260, 21);
+            this.groupBox9.Location = new System.Drawing.Point(1128, 21);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(233, 126);
             this.groupBox9.TabIndex = 35;
@@ -8462,88 +8464,16 @@
             // groupBox5
             // 
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox5.Controls.Add(this.label73);
-            this.groupBox5.Controls.Add(this.PrinterName3);
-            this.groupBox5.Controls.Add(this.label72);
-            this.groupBox5.Controls.Add(this.PrinterName2);
-            this.groupBox5.Controls.Add(this.label1);
-            this.groupBox5.Controls.Add(this.PrinterName);
             this.groupBox5.Controls.Add(this.label114);
             this.groupBox5.Controls.Add(this.receiptSpacingnud);
             this.groupBox5.Controls.Add(this.IncludeLogoReceipt);
             this.groupBox5.ForeColor = System.Drawing.Color.Black;
-            this.groupBox5.Location = new System.Drawing.Point(16, 21);
+            this.groupBox5.Location = new System.Drawing.Point(1128, 247);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(236, 284);
+            this.groupBox5.Size = new System.Drawing.Size(236, 126);
             this.groupBox5.TabIndex = 34;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "الطابعات";
-            // 
-            // label73
-            // 
-            this.label73.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label73.AutoSize = true;
-            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label73.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label73.Location = new System.Drawing.Point(78, 123);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(105, 24);
-            this.label73.TabIndex = 37;
-            this.label73.Text = "إسم الطابعه 3";
-            // 
-            // PrinterName3
-            // 
-            this.PrinterName3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PrinterName3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrinterName3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.PrinterName3.Location = new System.Drawing.Point(22, 150);
-            this.PrinterName3.Name = "PrinterName3";
-            this.PrinterName3.Size = new System.Drawing.Size(180, 20);
-            this.PrinterName3.TabIndex = 36;
-            // 
-            // label72
-            // 
-            this.label72.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label72.AutoSize = true;
-            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label72.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label72.Location = new System.Drawing.Point(78, 73);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(105, 24);
-            this.label72.TabIndex = 35;
-            this.label72.Text = "إسم الطابعه 2";
-            // 
-            // PrinterName2
-            // 
-            this.PrinterName2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PrinterName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrinterName2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.PrinterName2.Location = new System.Drawing.Point(22, 100);
-            this.PrinterName2.Name = "PrinterName2";
-            this.PrinterName2.Size = new System.Drawing.Size(180, 20);
-            this.PrinterName2.TabIndex = 34;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label1.Location = new System.Drawing.Point(78, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 24);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "إسم الطابعه 1";
-            // 
-            // PrinterName
-            // 
-            this.PrinterName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PrinterName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PrinterName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.PrinterName.Location = new System.Drawing.Point(22, 45);
-            this.PrinterName.Name = "PrinterName";
-            this.PrinterName.Size = new System.Drawing.Size(180, 20);
-            this.PrinterName.TabIndex = 1;
             // 
             // label114
             // 
@@ -8551,7 +8481,7 @@
             this.label114.AutoSize = true;
             this.label114.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label114.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label114.Location = new System.Drawing.Point(6, 173);
+            this.label114.Location = new System.Drawing.Point(6, 18);
             this.label114.Name = "label114";
             this.label114.Size = new System.Drawing.Size(131, 24);
             this.label114.TabIndex = 31;
@@ -8560,7 +8490,7 @@
             // receiptSpacingnud
             // 
             this.receiptSpacingnud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.receiptSpacingnud.Location = new System.Drawing.Point(32, 200);
+            this.receiptSpacingnud.Location = new System.Drawing.Point(32, 45);
             this.receiptSpacingnud.Maximum = new decimal(new int[] {
             -159383553,
             46653770,
@@ -8580,7 +8510,7 @@
             this.IncludeLogoReceipt.AutoSize = true;
             this.IncludeLogoReceipt.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold);
             this.IncludeLogoReceipt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.IncludeLogoReceipt.Location = new System.Drawing.Point(12, 243);
+            this.IncludeLogoReceipt.Location = new System.Drawing.Point(12, 88);
             this.IncludeLogoReceipt.Name = "IncludeLogoReceipt";
             this.IncludeLogoReceipt.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.IncludeLogoReceipt.Size = new System.Drawing.Size(209, 28);
@@ -8593,7 +8523,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.button29);
             this.groupBox2.Controls.Add(this.picLogoStore);
-            this.groupBox2.Location = new System.Drawing.Point(260, 249);
+            this.groupBox2.Location = new System.Drawing.Point(1128, 379);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(236, 255);
             this.groupBox2.TabIndex = 33;
@@ -8633,7 +8563,7 @@
             this.groupBox18.Controls.Add(this.nudTaxRate);
             this.groupBox18.Controls.Add(this.label78);
             this.groupBox18.ForeColor = System.Drawing.Color.Black;
-            this.groupBox18.Location = new System.Drawing.Point(260, 153);
+            this.groupBox18.Location = new System.Drawing.Point(1128, 153);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Size = new System.Drawing.Size(236, 90);
             this.groupBox18.TabIndex = 0;
@@ -8665,10 +8595,11 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(8, 645);
+            this.button1.Location = new System.Drawing.Point(0, 598);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(173, 39);
             this.button1.TabIndex = 2;
@@ -8850,6 +8781,49 @@
             this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.الخروجToolStripMenuItem.Text = "الخروج";
             this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
+            // 
+            // tabControl9
+            // 
+            this.tabControl9.Controls.Add(this.posSettings);
+            this.tabControl9.Controls.Add(this.printersSettings);
+            this.tabControl9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl9.Location = new System.Drawing.Point(0, 0);
+            this.tabControl9.Name = "tabControl9";
+            this.tabControl9.RightToLeftLayout = true;
+            this.tabControl9.SelectedIndex = 0;
+            this.tabControl9.Size = new System.Drawing.Size(1378, 692);
+            this.tabControl9.TabIndex = 7;
+            // 
+            // posSettings
+            // 
+            this.posSettings.Controls.Add(this.groupBox24);
+            this.posSettings.Location = new System.Drawing.Point(4, 25);
+            this.posSettings.Name = "posSettings";
+            this.posSettings.Padding = new System.Windows.Forms.Padding(3);
+            this.posSettings.Size = new System.Drawing.Size(1370, 663);
+            this.posSettings.TabIndex = 0;
+            this.posSettings.Text = "إعدادات البرمجية";
+            this.posSettings.UseVisualStyleBackColor = true;
+            // 
+            // printersSettings
+            // 
+            this.printersSettings.Controls.Add(this.flowLayoutPanel4);
+            this.printersSettings.Location = new System.Drawing.Point(4, 25);
+            this.printersSettings.Name = "printersSettings";
+            this.printersSettings.Padding = new System.Windows.Forms.Padding(3);
+            this.printersSettings.Size = new System.Drawing.Size(1370, 663);
+            this.printersSettings.TabIndex = 1;
+            this.printersSettings.Text = "الطابعات";
+            this.printersSettings.UseVisualStyleBackColor = true;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(1364, 657);
+            this.flowLayoutPanel4.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -9133,6 +9107,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnedItems)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).EndInit();
             this.Menu.ResumeLayout(false);
+            this.tabControl9.ResumeLayout(false);
+            this.posSettings.ResumeLayout(false);
+            this.printersSettings.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -9236,8 +9213,6 @@
         public System.Windows.Forms.RichTextBox richTextBox6;
         public System.Windows.Forms.TextBox shopName;
         public System.Windows.Forms.GroupBox groupBox24;
-        public System.Windows.Forms.TextBox PrinterName;
-        public System.Windows.Forms.Label label1;
         public System.Windows.Forms.Button button1;
         public System.Windows.Forms.Label A;
         public System.Windows.Forms.TabControl tabControl4;
@@ -9778,10 +9753,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemPicture;
         public System.Windows.Forms.GroupBox groupBox9;
         public System.Windows.Forms.GroupBox groupBox5;
-        public System.Windows.Forms.Label label72;
-        public System.Windows.Forms.TextBox PrinterName2;
-        public System.Windows.Forms.Label label73;
-        public System.Windows.Forms.TextBox PrinterName3;
+        private System.Windows.Forms.TabControl tabControl9;
+        private System.Windows.Forms.TabPage posSettings;
+        private System.Windows.Forms.TabPage printersSettings;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
     }
 }
 

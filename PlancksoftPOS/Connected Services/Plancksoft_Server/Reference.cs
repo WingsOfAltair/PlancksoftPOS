@@ -28,10 +28,10 @@ namespace PlancksoftPOS.Plancksoft_Server {
         System.Threading.Tasks.Task<System.Data.DataTable> RetrieveSystemSettingsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateSystemSettings", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateSystemSettingsResponse")]
-        bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, string SystemPrinterName2, string SystemPrinterName3, int SystemIncludeLogoInReceipt, decimal SystemTax);
+        bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateSystemSettings", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateSystemSettingsResponse")]
-        System.Threading.Tasks.Task<bool> UpdateSystemSettingsAsync(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, string SystemPrinterName2, string SystemPrinterName3, int SystemIncludeLogoInReceipt, decimal SystemTax);
+        System.Threading.Tasks.Task<bool> UpdateSystemSettingsAsync(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemTypeName", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemTypeNameResponse")]
         string RetrieveItemTypeName(int ItemTypeIndex, int locale);
@@ -93,6 +93,12 @@ namespace PlancksoftPOS.Plancksoft_Server {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveFavoriteCategories", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveFavoriteCategoriesResponse")]
         System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Category>> RetrieveFavoriteCategoriesAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrievePrinters", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrievePrintersResponse")]
+        System.Collections.Generic.List<Dependencies.Printer> RetrievePrinters();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrievePrinters", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrievePrintersResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Printer>> RetrievePrintersAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLoginLogoutInfo", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLoginLogoutInfoResponse")]
         System.Data.DataTable RetrieveLoginLogoutInfo(System.DateTime Date);
         
@@ -152,6 +158,12 @@ namespace PlancksoftPOS.Plancksoft_Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/Register", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RegisterResponse")]
         System.Threading.Tasks.Task<bool> RegisterAsync(Dependencies.Account AccountToRegister, string UID, int AdminOrNot);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeletePrinter", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeletePrinterResponse")]
+        bool DeletePrinter(int printerID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeletePrinter", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeletePrinterResponse")]
+        System.Threading.Tasks.Task<bool> DeletePrinterAsync(int printerID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteFavoriteItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteFavoriteItemResponse")]
         bool DeleteFavoriteItem(string ItemBarCode);
@@ -429,6 +441,12 @@ namespace PlancksoftPOS.Plancksoft_Server {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateFavoriteCategories", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateFavoriteCategoriesResponse")]
         System.Threading.Tasks.Task<bool> UpdateFavoriteCategoriesAsync(int FavoriteCategoryID, string FavoriteCategory);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrinters", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrintersResponse")]
+        bool UpdatePrinters(int printerID, string printerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrinters", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrintersResponse")]
+        System.Threading.Tasks.Task<bool> UpdatePrintersAsync(int printerID, string printerName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/InsertItemType", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/InsertItemTypeResponse")]
         bool InsertItemType(string ItemTypeName);
         
@@ -446,6 +464,12 @@ namespace PlancksoftPOS.Plancksoft_Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/InsertFavoriteCategory", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/InsertFavoriteCategoryResponse")]
         System.Threading.Tasks.Task<bool> InsertFavoriteCategoryAsync(string FavoriteCategory);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/InsertPrinter", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/InsertPrinterResponse")]
+        bool InsertPrinter(string printerName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/InsertPrinter", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/InsertPrinterResponse")]
+        System.Threading.Tasks.Task<bool> InsertPrinterAsync(string printerName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeletesCustomer", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeletesCustomerResponse")]
         bool DeletesCustomer(string CustomerID);
@@ -685,12 +709,12 @@ namespace PlancksoftPOS.Plancksoft_Server {
             return base.Channel.RetrieveSystemSettingsAsync();
         }
         
-        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, string SystemPrinterName2, string SystemPrinterName3, int SystemIncludeLogoInReceipt, decimal SystemTax) {
-            return base.Channel.UpdateSystemSettings(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemPrinterName, SystemPrinterName2, SystemPrinterName3, SystemIncludeLogoInReceipt, SystemTax);
+        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax) {
+            return base.Channel.UpdateSystemSettings(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemIncludeLogoInReceipt, SystemTax);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdateSystemSettingsAsync(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, string SystemPrinterName, string SystemPrinterName2, string SystemPrinterName3, int SystemIncludeLogoInReceipt, decimal SystemTax) {
-            return base.Channel.UpdateSystemSettingsAsync(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemPrinterName, SystemPrinterName2, SystemPrinterName3, SystemIncludeLogoInReceipt, SystemTax);
+        public System.Threading.Tasks.Task<bool> UpdateSystemSettingsAsync(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax) {
+            return base.Channel.UpdateSystemSettingsAsync(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemIncludeLogoInReceipt, SystemTax);
         }
         
         public string RetrieveItemTypeName(int ItemTypeIndex, int locale) {
@@ -773,6 +797,14 @@ namespace PlancksoftPOS.Plancksoft_Server {
             return base.Channel.RetrieveFavoriteCategoriesAsync();
         }
         
+        public System.Collections.Generic.List<Dependencies.Printer> RetrievePrinters() {
+            return base.Channel.RetrievePrinters();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Printer>> RetrievePrintersAsync() {
+            return base.Channel.RetrievePrintersAsync();
+        }
+        
         public System.Data.DataTable RetrieveLoginLogoutInfo(System.DateTime Date) {
             return base.Channel.RetrieveLoginLogoutInfo(Date);
         }
@@ -851,6 +883,14 @@ namespace PlancksoftPOS.Plancksoft_Server {
         
         public System.Threading.Tasks.Task<bool> RegisterAsync(Dependencies.Account AccountToRegister, string UID, int AdminOrNot) {
             return base.Channel.RegisterAsync(AccountToRegister, UID, AdminOrNot);
+        }
+        
+        public bool DeletePrinter(int printerID) {
+            return base.Channel.DeletePrinter(printerID);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeletePrinterAsync(int printerID) {
+            return base.Channel.DeletePrinterAsync(printerID);
         }
         
         public bool DeleteFavoriteItem(string ItemBarCode) {
@@ -1221,6 +1261,14 @@ namespace PlancksoftPOS.Plancksoft_Server {
             return base.Channel.UpdateFavoriteCategoriesAsync(FavoriteCategoryID, FavoriteCategory);
         }
         
+        public bool UpdatePrinters(int printerID, string printerName) {
+            return base.Channel.UpdatePrinters(printerID, printerName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdatePrintersAsync(int printerID, string printerName) {
+            return base.Channel.UpdatePrintersAsync(printerID, printerName);
+        }
+        
         public bool InsertItemType(string ItemTypeName) {
             return base.Channel.InsertItemType(ItemTypeName);
         }
@@ -1243,6 +1291,14 @@ namespace PlancksoftPOS.Plancksoft_Server {
         
         public System.Threading.Tasks.Task<bool> InsertFavoriteCategoryAsync(string FavoriteCategory) {
             return base.Channel.InsertFavoriteCategoryAsync(FavoriteCategory);
+        }
+        
+        public bool InsertPrinter(string printerName) {
+            return base.Channel.InsertPrinter(printerName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> InsertPrinterAsync(string printerName) {
+            return base.Channel.InsertPrinterAsync(printerName);
         }
         
         public bool DeletesCustomer(string CustomerID) {

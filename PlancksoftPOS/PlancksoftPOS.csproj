@@ -310,6 +310,7 @@
     <None Include="Properties\DataSources\Dependencies.Customer.datasource" />
     <None Include="Properties\DataSources\Dependencies.Item.datasource" />
     <None Include="Properties\DataSources\Dependencies.ItemType.datasource" />
+    <None Include="Properties\DataSources\Dependencies.Printer.datasource" />
     <None Include="Properties\DataSources\Dependencies.Warehouse.datasource" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
