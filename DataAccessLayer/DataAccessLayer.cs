@@ -353,6 +353,33 @@ namespace DataAccessLayer
             }
         }
 
+        public List<ItemType> RetrievePrinterItemTypes(int printerID)
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrievePrinterItemTypes", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@printerID", printerID);
+                adapter.SelectCommand = cmd;
+                List<ItemType> ItemTypes = new List<ItemType>();
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                foreach (DataRow ItemType in dt.Rows)
+                {
+                    ItemTypes.Add(new ItemType(Convert.ToInt32(ItemType["ItemType ID"].ToString()), ItemType["ItemType Name"].ToString()));
+                }
+                return ItemTypes;
+            }
+            catch (Exception ex)
+            {
+                List<ItemType> ItemTypes = new List<ItemType>();
+                return ItemTypes;
+            }
+        }
+
         public List<Warehouse> RetrieveWarehouses()
         {
             try
@@ -407,7 +434,7 @@ namespace DataAccessLayer
             }
         }
 
-        public List<Printer> RetrievePrinters()
+        public List<Printer> RetrievePrinters(string machineName)
         {
             try
             {
@@ -416,7 +443,7 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-
+                cmd.Parameters.AddWithValue("@machineName", machineName);
                 adapter.SelectCommand = cmd;
                 List<Printer> Printers = new List<Printer>();
                 DataTable dt = new DataTable();
@@ -806,7 +833,59 @@ namespace DataAccessLayer
             }
         }
 
-        public bool DeletePrinter(int printerID)
+        public bool AddPrinterItemType(int printerID, int itemTypeID)
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("AddPrinterItemType", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@printer_id", printerID);
+                cmd.Parameters.AddWithValue("@itemType_id", itemTypeID);
+                cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                if (connection != null && connection.State == ConnectionState.Closed)
+                    connection.Open();
+                cmd.ExecuteNonQuery();
+                Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                connection.Close();
+                return Convert.ToBoolean(Status);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool DeletePrinterItemType(int printerID, int itemTypeID)
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("DeletePrinterItemType", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@printer_id", printerID);
+                cmd.Parameters.AddWithValue("@itemType_id", itemTypeID);
+                cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                if (connection != null && connection.State == ConnectionState.Closed)
+                    connection.Open();
+                cmd.ExecuteNonQuery();
+                Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                connection.Close();
+                return Convert.ToBoolean(Status);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public bool DeletePrinter(string machineName, int printerID)
         {
             try
             {
@@ -816,6 +895,7 @@ namespace DataAccessLayer
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.AddWithValue("@printer_id", printerID);
+                cmd.Parameters.AddWithValue("@machine_name", machineName);
                 cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                 if (connection != null && connection.State == ConnectionState.Closed)
@@ -2349,7 +2429,7 @@ namespace DataAccessLayer
             }
         }
 
-        public bool InsertPrinter(string printerName)
+        public bool InsertPrinter(string machineName, string printerName)
         {
             try
             {
@@ -2357,6 +2437,7 @@ namespace DataAccessLayer
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
+                    cmd.Parameters.AddWithValue("@MachineName", machineName);
                     cmd.Parameters.AddWithValue("@PrinterName", printerName);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -3397,6 +3478,7 @@ namespace DataAccessLayer
                     item.SetBuyPrice(Convert.ToDecimal(Item["Item Buy Price"].ToString()));
                     item.SetPrice(Convert.ToDecimal(Item["Item Price"].ToString()));
                     item.SetPriceTax(Convert.ToDecimal(Item["Item Price Tax"].ToString()));
+                    item.SetItemTypeID(Convert.ToInt32(Item["Item Type"].ToString()));
                     Items.Add(item);
                 }
                 return Tuple.Create(Items, dt);

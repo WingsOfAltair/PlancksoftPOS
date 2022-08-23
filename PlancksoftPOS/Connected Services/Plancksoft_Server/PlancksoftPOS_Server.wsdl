@@ -70,6 +70,12 @@
   <wsdl:message name="IPlancksoftPOS_Server_RetrieveFavoriteCategoryID_OutputMessage">
     <wsdl:part name="parameters" element="tns:RetrieveFavoriteCategoryIDResponse" />
   </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrievePrinterItemTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePrinterItemTypes" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrievePrinterItemTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePrinterItemTypesResponse" />
+  </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_RetrieveItemTypes_InputMessage">
     <wsdl:part name="parameters" element="tns:RetrieveItemTypes" />
   </wsdl:message>
@@ -153,6 +159,18 @@
   </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_Register_OutputMessage">
     <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_AddPrinterItemType_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPrinterItemType" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_AddPrinterItemType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPrinterItemTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_DeletePrinterItemType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePrinterItemType" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_DeletePrinterItemType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePrinterItemTypeResponse" />
   </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_DeletePrinter_InputMessage">
     <wsdl:part name="parameters" element="tns:DeletePrinter" />
@@ -699,6 +717,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveFavoriteCategoryID" message="tns:IPlancksoftPOS_Server_RetrieveFavoriteCategoryID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveFavoriteCategoryIDResponse" message="tns:IPlancksoftPOS_Server_RetrieveFavoriteCategoryID_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RetrievePrinterItemTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrievePrinterItemTypes" message="tns:IPlancksoftPOS_Server_RetrievePrinterItemTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrievePrinterItemTypesResponse" message="tns:IPlancksoftPOS_Server_RetrievePrinterItemTypes_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RetrieveItemTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemTypes" message="tns:IPlancksoftPOS_Server_RetrieveItemTypes_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemTypesResponse" message="tns:IPlancksoftPOS_Server_RetrieveItemTypes_OutputMessage" />
@@ -754,6 +776,14 @@
     <wsdl:operation name="Register">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/Register" message="tns:IPlancksoftPOS_Server_Register_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RegisterResponse" message="tns:IPlancksoftPOS_Server_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPrinterItemType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddPrinterItemType" message="tns:IPlancksoftPOS_Server_AddPrinterItemType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddPrinterItemTypeResponse" message="tns:IPlancksoftPOS_Server_AddPrinterItemType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrinterItemType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeletePrinterItemType" message="tns:IPlancksoftPOS_Server_DeletePrinterItemType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeletePrinterItemTypeResponse" message="tns:IPlancksoftPOS_Server_DeletePrinterItemType_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="DeletePrinter">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeletePrinter" message="tns:IPlancksoftPOS_Server_DeletePrinter_InputMessage" />
@@ -1184,6 +1214,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RetrievePrinterItemTypes">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrievePrinterItemTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RetrieveItemTypes">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemTypes" style="document" />
       <wsdl:input>
@@ -1303,6 +1342,24 @@
     </wsdl:operation>
     <wsdl:operation name="Register">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddPrinterItemType">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/AddPrinterItemType" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrinterItemType">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/DeletePrinterItemType" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

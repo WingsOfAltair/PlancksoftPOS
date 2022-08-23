@@ -2273,7 +2273,7 @@ namespace PlancksoftPOS
             try
             {
                 bool deletedPrinter = false;
-                deletedPrinter = Connection.server.DeletePrinter(Index);
+                deletedPrinter = Connection.server.DeletePrinter(Environment.MachineName, Index);
                 if (deletedPrinter)
                 {
                     DisplayPrinters();
@@ -2339,7 +2339,7 @@ namespace PlancksoftPOS
             try
             {
                 bool addedPrinter = false;
-                addedPrinter = Connection.server.InsertPrinter(AddPrinter.Text);
+                addedPrinter = Connection.server.InsertPrinter(Environment.MachineName, AddPrinter.Text);
                 if (addedPrinter)
                 {
                     DisplayPrinters();
@@ -2505,7 +2505,7 @@ namespace PlancksoftPOS
             printers.Clear();
             PrintersNamesTV.Clear();
 
-            frmMain.PrintersList = Connection.server.RetrievePrinters();
+            frmMain.PrintersList = Connection.server.RetrievePrinters(Environment.MachineName);
 
             foreach (Printer printer in frmMain.PrintersList)
             {
@@ -2600,27 +2600,28 @@ namespace PlancksoftPOS
                 tempTreeView.Name = printer.Value;
                 tempTreeView.Text = printer.Value;
                 tempTreeView.Tag = printer.Key;
-                TreeNode t = new TreeNode();
-                t.Text = "Kitchen 1";
-                t.Tag = "1";
-                tempTreeView.Nodes.Add(t);
-                TreeNode t2 = new TreeNode();
-                t2.Text = "Kitchen 2";
-                t2.Tag = "2";
-                tempTreeView.Nodes.Add(t2);
+                List<ItemType> itemTypes = Connection.server.RetrievePrinterItemTypes(printer.Key);
+                foreach (ItemType itemType in itemTypes)
+                {
+                    TreeNode tNode = new TreeNode();
+                    tNode.Name = itemType.Name;
+                    tNode.Text = itemType.Name;
+                    tNode.Tag = itemType.ID;
+                    tempTreeView.Nodes.Add(tNode);
+                }
                 ContextMenu printerMenu = new ContextMenu();
 
                 MenuItem addItemTypeToPrinter = null;
                 MenuItem deleteItemTypeFromPrinter = null;
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    addItemTypeToPrinter = new MenuItem(PrinterCount.ToString() + "إضافة صنف مواد للطابعة");
-                    deleteItemTypeFromPrinter = new MenuItem(PrinterCount.ToString() + "حذف صنف مواد من الطابعة");
+                    addItemTypeToPrinter = new MenuItem("إضافة صنف مواد للطابعة");
+                    deleteItemTypeFromPrinter = new MenuItem("حذف صنف مواد من الطابعة");
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    addItemTypeToPrinter = new MenuItem(PrinterCount.ToString() + "Add Item Type to Printer");
-                    deleteItemTypeFromPrinter = new MenuItem(PrinterCount.ToString() + "Delete Item Type from Printer");
+                    addItemTypeToPrinter = new MenuItem("Add Item Type to Printer");
+                    deleteItemTypeFromPrinter = new MenuItem("Delete Item Type from Printer");
                 }
                 addItemTypeToPrinter.Click += (sender, e) => { addItemTypePrinter_Click(sender, e, PrinterCount); };
                 deleteItemTypeFromPrinter.Click += (sender, e) => { deleteItemTypePrinter_Click(sender, e, PrinterCount); };
@@ -2647,14 +2648,20 @@ namespace PlancksoftPOS
             {
                 if (tv.Focused)
                 {
-                    foreach (TreeNode tn in tv.Nodes)
+                    frmAddPrinter addPrinter = new frmAddPrinter(this.itemtypes);
+                    DialogResult result = addPrinter.ShowDialog();
+                    if (result == DialogResult.OK)
                     {
-                        if (tv.SelectedNode != null)
+                        string itemTypeName = addPrinter.itemTypeName;
+                        addPrinter.Dispose();
+                        int printerID = (int)PrintersNamesTV[PrinterIndex].Tag;
+                        int itemTypeID = Connection.server.RetrieveItemTypeID(itemTypeName);
+                        if (Connection.server.AddPrinterItemType(printerID, itemTypeID))
                         {
-                            MessageBox.Show("Printer: " + PrinterIndex.ToString() + ", Item Type ID: " + PrintersNamesTV[PrinterIndex].SelectedNode.Tag);
-                            break;
+                            DisplayPrinters();
                         }
                     }
+                    break;
                 }
                 else
                 {
@@ -2665,23 +2672,21 @@ namespace PlancksoftPOS
 
         void deleteItemTypePrinter_Click(object sender, EventArgs e, int PrinterIndex)
         {
-            PrinterIndex = 0;
-            foreach (TreeView tv in PrintersNamesTV)
+            for (int PI = 0; PI < PrintersNamesTV.Count; PI++)
             {
-                if (tv.Focused)
+                if (PrintersNamesTV[PI].Focused)
                 {
-                    foreach (TreeNode tn in tv.Nodes)
+                    foreach (TreeNode tn in PrintersNamesTV[PI].Nodes)
                     {
-                        if (tv.SelectedNode != null)
+                        if (PrintersNamesTV[PI].SelectedNode != null)
                         {
-                            MessageBox.Show("Printer: " + PrinterIndex.ToString() + ", Item Type ID: " + PrintersNamesTV[PrinterIndex].SelectedNode.Tag);
+                            if (Connection.server.DeletePrinterItemType((int)PrintersNamesTV[PI].Tag, (int)PrintersNamesTV[PI].SelectedNode.Tag))
+                            {
+                                DisplayPrinters();
+                            }
                             break;
                         }
                     }
-                }
-                else
-                {
-                    PrinterIndex++;
                 }
             }
         }
@@ -3157,7 +3162,7 @@ namespace PlancksoftPOS
                             {
                                 if (row.Selected == true)
                                 {
-                                    if (Connection.server.DeleteItem(row.Cells[1].Value.ToString()))
+                                    if (Connection.server.DeleteItem(row.Cells[2].Value.ToString()))
                                     {
                                         deletedCount++;
                                     }
@@ -10440,12 +10445,17 @@ namespace PlancksoftPOS
 
                         offsetY = offsetY + lineHeight;
 
+
+                        List<Item> itemsInBill = new List<Item>();
+
                         for (int i = 0; i < dgvBillItems.Rows.Count; i++)
                         {
                             if (!dgvBillItems.Rows[i].IsNewRow)
                             {
                                 int ii = 1;
                                 ii++;
+                                Item SearchedItem = Connection.server.SearchItems(dgvBillItems.Rows[i].Cells[0].Value.ToString(), "", 0).Item1[0];
+                                itemsInBill.Add(SearchedItem);
                                 string itemString = " " + dgvBillItems.Rows[i].Cells[0].Value + "               " + dgvBillItems.Rows[i].Cells[2].Value + "                    " + dgvBillItems.Rows[i].Cells[5].Value + "";
                                 if (IsRtl(itemString))
                                 {
@@ -10492,6 +10502,8 @@ namespace PlancksoftPOS
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
+                        frmReceipt receipt = new frmReceipt(bitm, itemsInBill, true);
+                        receipt.ShowDialog();
                     }
                     finally
                     {
@@ -10499,9 +10511,6 @@ namespace PlancksoftPOS
                         white.Dispose();
                         itemFont.Dispose();
                         newfont2.Dispose();
-                        
-                        frmReceipt receipt = new frmReceipt(bitm);
-                        receipt.ShowDialog();
                     }
                 }
 
@@ -10666,12 +10675,15 @@ namespace PlancksoftPOS
 
                         offsetY = offsetY + lineHeight;
 
+                        List<Item> itemsInBill = new List<Item>();
                         for (int i = 0; i < ItemsPendingPurchase.Rows.Count; i++)
                         {
                             if (!ItemsPendingPurchase.Rows[i].IsNewRow)
                             {
                                 int ii = 1;
                                 ii++;
+                                Item SearchedItem = Connection.server.SearchItems(ItemsPendingPurchase.Rows[i].Cells[0].Value.ToString(), "", 0).Item1[0];
+                                itemsInBill.Add(SearchedItem);
                                 string itemString = " " + ItemsPendingPurchase.Rows[i].Cells[0].Value + "               " + ItemsPendingPurchase.Rows[i].Cells[2].Value + "                    " + ItemsPendingPurchase.Rows[i].Cells[4].Value + "";
                                 if (IsRtl(itemString))
                                 {
@@ -10718,6 +10730,8 @@ namespace PlancksoftPOS
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
+                        frmReceipt receipt = new frmReceipt(bitm, itemsInBill, true);
+                        receipt.ShowDialog();
                     }
                     finally
                     {
@@ -10725,8 +10739,6 @@ namespace PlancksoftPOS
                         white.Dispose();
                         itemFont.Dispose();
                         newfont2.Dispose();
-                        frmReceipt receipt = new frmReceipt(bitm);
-                        receipt.ShowDialog();
                     }
                 }
 
@@ -10888,7 +10900,7 @@ namespace PlancksoftPOS
                             graphic.DrawString("Total Cash in Register: " + Convert.ToDecimal(openRegisterAmount + totalSalesAmount).ToString(), newfont2, black, 0, startY + offsetY);
                         }
                         offsetY = offsetY + lineHeight;
-                        frmReceipt receipt = new frmReceipt(bitm);
+                        frmReceipt receipt = new frmReceipt(bitm, new List<Item>(), false);
                         receipt.ShowDialog();
                     }
                     finally

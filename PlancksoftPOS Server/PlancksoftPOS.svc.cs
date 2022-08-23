@@ -52,6 +52,10 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveItemTypes();
         }
+        public List<ItemType> RetrievePrinterItemTypes(int printerID)
+        {
+            return DAL.RetrievePrinterItemTypes(printerID);
+        }
         public List<Warehouse> RetrieveWarehouses()
         {
             return DAL.RetrieveWarehouses();
@@ -60,9 +64,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveFavoriteCategories();
         }
-        public List<Printer> RetrievePrinters()
+        public List<Printer> RetrievePrinters(string machineName)
         {
-            return DAL.RetrievePrinters();
+            return DAL.RetrievePrinters(machineName);
         }
         public DataTable RetrieveLoginLogoutInfo(DateTime Date)
         {
@@ -108,9 +112,17 @@ namespace PlancksoftPOS_Server
         {
             return DAL.DeleteFavoriteItem(ItemBarCode);
         }
-        public bool DeletePrinter(int printerID)
+        public bool AddPrinterItemType(int printerID, int itemTypeID)
         {
-            return DAL.DeletePrinter(printerID);
+            return DAL.AddPrinterItemType(printerID, itemTypeID);
+        }
+        public bool DeletePrinterItemType(int printerID, int itemTypeID)
+        {
+            return DAL.DeletePrinterItemType(printerID, itemTypeID);
+        }
+        public bool DeletePrinter(string machineName, int printerID)
+        {
+            return DAL.DeletePrinter(machineName, printerID);
         }
         public bool AddFavoriteItem(string ItemName, string ItemBarCode, int ItemQuantity, decimal ItemPrice, decimal ItemPriceTax, decimal Category, DateTime Date)
         {
@@ -307,9 +319,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.InsertFavoriteCategory(FavoriteCategory);
         }
-        public bool InsertPrinter(string printerName)
+        public bool InsertPrinter(string machineName, string printerName)
         {
-            return DAL.InsertPrinter(printerName);
+            return DAL.InsertPrinter(machineName, printerName);
         }
         public bool DeletesCustomer(string CustomerID)
         {

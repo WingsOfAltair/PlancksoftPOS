@@ -38,6 +38,7 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\Planck
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmClientCard.resources
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmEditPrice.resources
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmItemLookup.resources
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmAddPrinter.resources
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmItemRefund.resources
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmLicense.resources
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmLogin.resources

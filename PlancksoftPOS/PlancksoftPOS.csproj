@@ -116,6 +116,12 @@
     <Compile Include="ViewControllers\frmAuth.Designer.cs">
       <DependentUpon>frmAuth.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewControllers\frmAddPrinter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmAddPrinter.Designer.cs">
+      <DependentUpon>frmAddPrinter.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewControllers\frmItemRefund.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +240,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmItemLookup.resx">
       <DependentUpon>frmItemLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewControllers\frmAddPrinter.resx">
+      <DependentUpon>frmAddPrinter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmItemRefund.resx">
       <DependentUpon>frmItemRefund.cs</DependentUpon>
@@ -358,12 +367,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\leftarrow.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Logo.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Logo.PNG" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\minus.png" />

@@ -30,13 +30,15 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         int RetrieveFavoriteCategoryID(string CategoryName);
         [OperationContract]
+        List<ItemType> RetrievePrinterItemTypes(int printerID);
+        [OperationContract]
         List<ItemType> RetrieveItemTypes();
         [OperationContract]
         List<Warehouse> RetrieveWarehouses();
         [OperationContract]
         List<Category> RetrieveFavoriteCategories();
         [OperationContract]
-        List<Printer> RetrievePrinters();
+        List<Printer> RetrievePrinters(string machineName);
         [OperationContract]
         DataTable RetrieveLoginLogoutInfo(DateTime Date);
         [OperationContract]
@@ -58,7 +60,11 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool Register(Account AccountToRegister, string UID, int AdminOrNot);
         [OperationContract]
-        bool DeletePrinter(int printerID);
+        bool AddPrinterItemType(int printerID, int itemTypeID);
+        [OperationContract]
+        bool DeletePrinterItemType(int printerID, int itemTypeID);
+        [OperationContract]
+        bool DeletePrinter(string machineName, int printerID);
         [OperationContract]
         bool DeleteFavoriteItem(string ItemBarCode);
         [OperationContract]
@@ -160,7 +166,7 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool InsertFavoriteCategory(string FavoriteCategory);
         [OperationContract]
-        bool InsertPrinter(string printerName);
+        bool InsertPrinter(string machineName, string printerName);
         [OperationContract]
         bool DeletesCustomer(string CustomerID);
         [OperationContract]
