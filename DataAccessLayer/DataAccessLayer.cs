@@ -1769,7 +1769,7 @@ namespace DataAccessLayer
             }
         }
 
-        public DataTable RetrieveBillItemsProfit(DateTime Date1, DateTime Date2, int ItemTypeID, string CashierName)
+        public DataTable RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName)
         {
             try
             {
@@ -3321,7 +3321,7 @@ namespace DataAccessLayer
             }
         }
 
-        public Tuple<List<Bill>, DataTable> SearchBills(int BillNumber = 0)
+        public Tuple<List<Bill>, DataTable> SearchBills(string dateFrom, string dateTo, int BillNumber = 0)
         {
             try
             {
@@ -3334,6 +3334,10 @@ namespace DataAccessLayer
 
                 if (BillNumber != 0)
                     cmd.Parameters.AddWithValue("@BillNumber", BillNumber);
+                if (dateFrom != "")
+                    cmd.Parameters.AddWithValue("@DateFrom", dateFrom);
+                if (dateTo != "")
+                    cmd.Parameters.AddWithValue("@DateTo", dateTo);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);

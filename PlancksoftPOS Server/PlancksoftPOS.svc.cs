@@ -223,7 +223,7 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveBillItems(BillNumber);
         }
-        public DataTable RetrieveBillItemsProfit(DateTime Date1, DateTime Date2, int ItemTypeID, string CashierName)
+        public DataTable RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName)
         {
             return DAL.RetrieveBillItemsProfit(Date1, Date2, ItemTypeID, CashierName);
         }
@@ -423,9 +423,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.SearchTodayBills(Date);
         }
-        public Tuple<List<Bill>, DataTable> SearchBills(int BillNumber = 0)
+        public Tuple<List<Bill>, DataTable> SearchBills(string dateFrom, string dateTo, int BillNumber = 0)
         {
-            return DAL.SearchBills(BillNumber);
+            return DAL.SearchBills(dateFrom, dateTo, BillNumber);
         }
         public int GetItemQuantity(string ItemBarCode = "")
         {

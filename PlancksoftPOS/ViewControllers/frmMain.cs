@@ -592,6 +592,7 @@ namespace PlancksoftPOS
                         label85.Text = "رقم الغاتورة";
                         label87.Text = "تاريخ البحث من";
                         label84.Text = "تاريخ البحث الى";
+                        cbSalesDateSearch.Text = "بحث تاريخ";
                         groupBox12.Text = "لائحة الفواتير";
                         button26.Text = "مبيعات اليوم";
                         dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
@@ -1096,6 +1097,7 @@ namespace PlancksoftPOS
                         label85.Text = "Bill ID";
                         label87.Text = "Search date from";
                         label84.Text = "Search date to";
+                        cbSalesDateSearch.Text = "Date Search";
                         groupBox12.Text = "List of Bills";
                         button26.Text = "Today's Sales";
                         dgvBills.Columns["Column15"].HeaderText = "Bill ID";
@@ -4407,7 +4409,12 @@ namespace PlancksoftPOS
         public void nudBillNumberSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
             Tuple<List<Bill>, DataTable> RetrievedItems;
-            RetrievedItems = Connection.server.SearchBills(Convert.ToInt32(nudBillNumberSearch.Value));
+            string dateFrom = dateTimePicker2.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+            string dateTo = dateTimePicker1.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
+            if (cbSalesDateSearch.Checked)
+                RetrievedItems = Connection.server.SearchBills(dateFrom, dateTo, Convert.ToInt32(nudBillNumberSearch.Value));
+            else
+                RetrievedItems = Connection.server.SearchBills("", "", Convert.ToInt32(nudBillNumberSearch.Value));
             dgvBills.DataSource = RetrievedItems.Item2;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -4435,7 +4442,12 @@ namespace PlancksoftPOS
         public void pictureBox19_Click(object sender, EventArgs e)
         {
             Tuple<List<Bill>, DataTable> RetrievedItems;
-            RetrievedItems = Connection.server.SearchBills(Convert.ToInt32(nudBillNumberSearch.Value));
+            string dateFrom = dateTimePicker2.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+            string dateTo = dateTimePicker1.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
+            if (cbSalesDateSearch.Checked)
+                RetrievedItems = Connection.server.SearchBills(dateFrom, dateTo, Convert.ToInt32(nudBillNumberSearch.Value));
+            else
+                RetrievedItems = Connection.server.SearchBills("", "", Convert.ToInt32(nudBillNumberSearch.Value));
             dgvBills.DataSource = RetrievedItems.Item2;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -5020,7 +5032,11 @@ namespace PlancksoftPOS
                 CashierName = comboBox2.SelectedItem.ToString();
             }
             else CashierName = "";
-            dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(Convert.ToDateTime(dateTimePicker4.Text), Convert.ToDateTime(dateTimePicker3.Text), ItemTypeID, CashierName);
+
+            string dateFrom = dateTimePicker4.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+            string dateTo = dateTimePicker3.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
+
+            dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(dateFrom, dateTo, ItemTypeID, CashierName);
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
@@ -5066,7 +5082,10 @@ namespace PlancksoftPOS
             {
                 CashierName = comboBox1.SelectedItem.ToString();
             }
-            dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(Convert.ToDateTime(dateTimePicker4.Value), Convert.ToDateTime(dateTimePicker3.Value), ItemTypeID, CashierName);
+            string dateFrom = dateTimePicker4.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+            string dateTo = dateTimePicker3.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
+
+            dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(dateFrom, dateTo, ItemTypeID, CashierName);
         }
 
         public void pictureBox31_Click(object sender, EventArgs e)
@@ -5104,7 +5123,7 @@ namespace PlancksoftPOS
         public void pictureBox28_Click(object sender, EventArgs e)
         {
             Tuple<List<Bill>, DataTable> RetrievedItems;
-            RetrievedItems = Connection.server.SearchBills(Convert.ToInt32(nudBillNumberEdit.Value));
+            RetrievedItems = Connection.server.SearchBills("", "", Convert.ToInt32(nudBillNumberEdit.Value));
             dgvBillsEdit.DataSource = RetrievedItems.Item2;
         }
 
@@ -5499,7 +5518,10 @@ namespace PlancksoftPOS
                     {
                         CashierName = comboBox2.SelectedItem.ToString();
                     }
-                    dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(Convert.ToDateTime(dateTimePicker4.Text), Convert.ToDateTime(dateTimePicker3.Text), ItemTypeID, CashierName);
+                    string dateFrom = dateTimePicker4.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+                    string dateTo = dateTimePicker3.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
+
+                    dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(dateFrom, dateTo, ItemTypeID, CashierName);
                 }
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["Inventory"])
                 {

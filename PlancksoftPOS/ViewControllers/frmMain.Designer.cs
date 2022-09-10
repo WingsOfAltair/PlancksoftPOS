@@ -672,6 +672,8 @@
             this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbSalesDateSearch = new System.Windows.Forms.CheckBox();
+            this.cbQuantifyDateSearch = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -2190,6 +2192,7 @@
             // groupBox13
             // 
             this.groupBox13.BackColor = System.Drawing.Color.White;
+            this.groupBox13.Controls.Add(this.cbSalesDateSearch);
             this.groupBox13.Controls.Add(this.nudBillNumberSearch);
             this.groupBox13.Controls.Add(this.dateTimePicker1);
             this.groupBox13.Controls.Add(this.label84);
@@ -3063,6 +3066,7 @@
             // groupBox28
             // 
             this.groupBox28.BackColor = System.Drawing.Color.White;
+            this.groupBox28.Controls.Add(this.cbQuantifyDateSearch);
             this.groupBox28.Controls.Add(this.label38);
             this.groupBox28.Controls.Add(this.comboBox2);
             this.groupBox28.Controls.Add(this.label37);
@@ -8825,6 +8829,28 @@
             this.الخروجToolStripMenuItem.Text = "الخروج";
             this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
             // 
+            // cbSalesDateSearch
+            // 
+            this.cbSalesDateSearch.AutoSize = true;
+            this.cbSalesDateSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.cbSalesDateSearch.Location = new System.Drawing.Point(600, 47);
+            this.cbSalesDateSearch.Name = "cbSalesDateSearch";
+            this.cbSalesDateSearch.Size = new System.Drawing.Size(87, 20);
+            this.cbSalesDateSearch.TabIndex = 32;
+            this.cbSalesDateSearch.Text = "بحث تاريخ";
+            this.cbSalesDateSearch.UseVisualStyleBackColor = true;
+            // 
+            // cbQuantifyDateSearch
+            // 
+            this.cbQuantifyDateSearch.AutoSize = true;
+            this.cbQuantifyDateSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.cbQuantifyDateSearch.Location = new System.Drawing.Point(355, 36);
+            this.cbQuantifyDateSearch.Name = "cbQuantifyDateSearch";
+            this.cbQuantifyDateSearch.Size = new System.Drawing.Size(87, 20);
+            this.cbQuantifyDateSearch.TabIndex = 37;
+            this.cbQuantifyDateSearch.Text = "بحث تاريخ";
+            this.cbQuantifyDateSearch.UseVisualStyleBackColor = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9757,6 +9783,8 @@
         private System.Windows.Forms.TabPage posSettings;
         private System.Windows.Forms.TabPage printersSettings;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.CheckBox cbSalesDateSearch;
+        private System.Windows.Forms.CheckBox cbQuantifyDateSearch;
     }
 }
 

@@ -118,7 +118,7 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         Tuple<List<Item>, DataTable> RetrieveBillItems(int BillNumber);
         [OperationContract]
-        DataTable RetrieveBillItemsProfit(DateTime Date1, DateTime Date2, int ItemTypeID, string CashierName);
+        DataTable RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName);
         [OperationContract]
         DataTable RetrieveReturnedItems();
         [OperationContract]
@@ -218,7 +218,7 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         Tuple<List<Bill>, DataTable> SearchTodayBills(DateTime Date);
         [OperationContract]
-        Tuple<List<Bill>, DataTable> SearchBills(int BillNumber = 0);
+        Tuple<List<Bill>, DataTable> SearchBills(string dateFrom, string dateTo, int BillNumber = 0);
         [OperationContract]
         int GetItemQuantity(string ItemBarCode = "");
         [OperationContract]

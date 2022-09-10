@@ -340,10 +340,10 @@ namespace PlancksoftPOS.Plancksoft_Server {
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveBillItemsAsync(int BillNumber);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItemsProfit", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItemsProfitResponse")]
-        System.Data.DataTable RetrieveBillItemsProfit(System.DateTime Date1, System.DateTime Date2, int ItemTypeID, string CashierName);
+        System.Data.DataTable RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItemsProfit", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItemsProfitResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> RetrieveBillItemsProfitAsync(System.DateTime Date1, System.DateTime Date2, int ItemTypeID, string CashierName);
+        System.Threading.Tasks.Task<System.Data.DataTable> RetrieveBillItemsProfitAsync(string Date1, string Date2, int ItemTypeID, string CashierName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveReturnedItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveReturnedItemsResponse")]
         System.Data.DataTable RetrieveReturnedItems();
@@ -642,10 +642,10 @@ namespace PlancksoftPOS.Plancksoft_Server {
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> SearchTodayBillsAsync(System.DateTime Date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchBills(int BillNumber);
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchBills(string dateFrom, string dateTo, int BillNumber);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchBillsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> SearchBillsAsync(int BillNumber);
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> SearchBillsAsync(string dateFrom, string dateTo, int BillNumber);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantityResponse")]
         int GetItemQuantity(string ItemBarCode);
@@ -1143,11 +1143,11 @@ namespace PlancksoftPOS.Plancksoft_Server {
             return base.Channel.RetrieveBillItemsAsync(BillNumber);
         }
         
-        public System.Data.DataTable RetrieveBillItemsProfit(System.DateTime Date1, System.DateTime Date2, int ItemTypeID, string CashierName) {
+        public System.Data.DataTable RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName) {
             return base.Channel.RetrieveBillItemsProfit(Date1, Date2, ItemTypeID, CashierName);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> RetrieveBillItemsProfitAsync(System.DateTime Date1, System.DateTime Date2, int ItemTypeID, string CashierName) {
+        public System.Threading.Tasks.Task<System.Data.DataTable> RetrieveBillItemsProfitAsync(string Date1, string Date2, int ItemTypeID, string CashierName) {
             return base.Channel.RetrieveBillItemsProfitAsync(Date1, Date2, ItemTypeID, CashierName);
         }
         
@@ -1543,12 +1543,12 @@ namespace PlancksoftPOS.Plancksoft_Server {
             return base.Channel.SearchTodayBillsAsync(Date);
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchBills(int BillNumber) {
-            return base.Channel.SearchBills(BillNumber);
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchBills(string dateFrom, string dateTo, int BillNumber) {
+            return base.Channel.SearchBills(dateFrom, dateTo, BillNumber);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> SearchBillsAsync(int BillNumber) {
-            return base.Channel.SearchBillsAsync(BillNumber);
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> SearchBillsAsync(string dateFrom, string dateTo, int BillNumber) {
+            return base.Channel.SearchBillsAsync(dateFrom, dateTo, BillNumber);
         }
         
         public int GetItemQuantity(string ItemBarCode) {

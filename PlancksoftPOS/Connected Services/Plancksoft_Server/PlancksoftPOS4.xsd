@@ -787,8 +787,8 @@
   <xs:element name="RetrieveBillItemsProfit">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Date1" type="xs:dateTime" />
-        <xs:element minOccurs="0" name="Date2" type="xs:dateTime" />
+        <xs:element minOccurs="0" name="Date1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Date2" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="ItemTypeID" type="xs:int" />
         <xs:element minOccurs="0" name="CashierName" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -1535,6 +1535,8 @@
   <xs:element name="SearchBills">
     <xs:complexType>
       <xs:sequence>
+        <xs:element minOccurs="0" name="dateFrom" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="dateTo" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="BillNumber" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
