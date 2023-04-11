@@ -25,3 +25,12 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\obj\Debug\Data
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\PlancksoftPOS\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+C:\PlancksoftPOS\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+C:\PlancksoftPOS\DataAccessLayer\bin\Debug\Dependencies.dll
+C:\PlancksoftPOS\DataAccessLayer\bin\Debug\Dependencies.pdb
+C:\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+C:\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
+C:\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+C:\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

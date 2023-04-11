@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Data;
 using PlancksoftPOS.Properties;
 using System.Collections.Generic;
-using PlancksoftPOS.Plancksoft_Server;
+using PlancksoftPOS.PlancksoftPOS_Server;
 
 namespace PlancksoftPOS
 {

@@ -90,7 +90,7 @@ namespace PlancksoftPOS
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label3.Size = new System.Drawing.Size(178, 24);
             this.label3.TabIndex = 2;
-            this.label3.Text = "+962 79 14 077 36";
+            this.label3.Text = "+962 77 64 721 66";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label2

@@ -14,3 +14,11 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Generato
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\PlancksoftPOS License Generator.csproj.CoreCompileInputs.cache
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\PlancksoftPOS License Key Generator.exe
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\PlancksoftPOS License Key Generator.pdb
+C:\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\bin\Debug\PlancksoftPOS License Key Generator.exe.config
+C:\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\bin\Debug\PlancksoftPOS License Key Generator.exe
+C:\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\bin\Debug\PlancksoftPOS License Key Generator.pdb
+C:\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\PlancksoftPOS License Generator.csproj.AssemblyReference.cache
+C:\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\PlancksoftPOS License Generator.csproj.SuggestedBindingRedirects.cache
+C:\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\PlancksoftPOS License Generator.csproj.CoreCompileInputs.cache
+C:\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\PlancksoftPOS License Key Generator.exe
+C:\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\PlancksoftPOS License Key Generator.pdb

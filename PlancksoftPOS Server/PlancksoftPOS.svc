@@ -1,1 +1,1 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="PlancksoftPOS_Server.NeatVibez_Server" CodeBehind="PlancksoftPOS.svc.cs" %>
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="PlancksoftPOS_Server.PlancksoftPOS_Server" CodeBehind="PlancksoftPOS.svc.cs" %>

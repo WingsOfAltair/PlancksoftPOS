@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PlancksoftPOS.Plancksoft_Server {
+namespace PlancksoftPOS.PlancksoftPOS_Server {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Plancksoft_Server.IPlancksoftPOS_Server")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PlancksoftPOS_Server.IPlancksoftPOS_Server")]
     public interface IPlancksoftPOS_Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/CheckConnection", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/CheckConnectionResponse")]
@@ -685,12 +685,12 @@ namespace PlancksoftPOS.Plancksoft_Server {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IPlancksoftPOS_ServerChannel : PlancksoftPOS.Plancksoft_Server.IPlancksoftPOS_Server, System.ServiceModel.IClientChannel {
+    public interface IPlancksoftPOS_ServerChannel : PlancksoftPOS.PlancksoftPOS_Server.IPlancksoftPOS_Server, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PlancksoftPOS_ServerClient : System.ServiceModel.ClientBase<PlancksoftPOS.Plancksoft_Server.IPlancksoftPOS_Server>, PlancksoftPOS.Plancksoft_Server.IPlancksoftPOS_Server {
+    public partial class PlancksoftPOS_ServerClient : System.ServiceModel.ClientBase<PlancksoftPOS.PlancksoftPOS_Server.IPlancksoftPOS_Server>, PlancksoftPOS.PlancksoftPOS_Server.IPlancksoftPOS_Server {
         
         public PlancksoftPOS_ServerClient() {
         }
