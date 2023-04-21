@@ -64,3 +64,5 @@ C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.CoreCompileInput
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.CopyComplete
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.exe
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.pdb
+C:\PlancksoftPOS\PlancksoftPOS\bin\Release\ESCPOS_NET.dll
+C:\PlancksoftPOS\PlancksoftPOS\bin\Release\ESCPOS_NET.pdb

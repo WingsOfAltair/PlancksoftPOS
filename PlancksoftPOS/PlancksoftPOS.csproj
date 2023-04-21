@@ -84,6 +84,9 @@
     <ApplicationIcon>Resources\pos.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ESCPOS_NET">
+      <HintPath>..\..\Users\basha\OneDrive\Desktop\ESC-POS-.NET\ESCPOS_NET\bin\Debug\netstandard2.0\ESCPOS_NET.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -104,6 +107,10 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="GDI+\AmbianceTheme.cs" />
+    <Compile Include="GDI+\FusionTheme.cs">
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>

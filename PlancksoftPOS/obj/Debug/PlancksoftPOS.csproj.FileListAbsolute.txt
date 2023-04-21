@@ -95,3 +95,5 @@ C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.csproj.CoreCompileInputs.
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.csproj.CopyComplete
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.exe
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.pdb
+C:\PlancksoftPOS\PlancksoftPOS\bin\Debug\ESCPOS_NET.dll
+C:\PlancksoftPOS\PlancksoftPOS\bin\Debug\ESCPOS_NET.pdb
