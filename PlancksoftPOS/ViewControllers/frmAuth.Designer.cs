@@ -2,6 +2,10 @@
 {
     partial class frmAuth
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -22,116 +26,111 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        public void InitializeComponent()
+        private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAuth));
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
-            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Menu.SuspendLayout();
+            this.btnSubmit = new MaterialSkin.Controls.MaterialButton();
+            this.btnCancel = new MaterialSkin.Controls.MaterialButton();
+            this.txtAccountPassword = new MaterialSkin.Controls.MaterialTextBox2();
             this.SuspendLayout();
             // 
-            // textBox1
+            // btnSubmit
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.PasswordChar = '*';
-            this.textBox1.Size = new System.Drawing.Size(481, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.btnSubmit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSubmit.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnSubmit.Depth = 0;
+            this.btnSubmit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnSubmit.HighEmphasis = true;
+            this.btnSubmit.Icon = null;
+            this.btnSubmit.Location = new System.Drawing.Point(3, 173);
+            this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnSubmit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnSubmit.Name = "btnSubmit";
+            this.btnSubmit.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnSubmit.Size = new System.Drawing.Size(691, 36);
+            this.btnSubmit.TabIndex = 1;
+            this.btnSubmit.Text = "إتمام";
+            this.btnSubmit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnSubmit.UseAccentColor = false;
+            this.btnSubmit.UseVisualStyleBackColor = true;
+            this.btnSubmit.Click += new System.EventHandler(this.btnSubmit_Click);
             // 
-            // button1
+            // btnCancel
             // 
-            this.button1.Location = new System.Drawing.Point(12, 38);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(234, 47);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "اتمام";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCancel.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnCancel.Depth = 0;
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnCancel.HighEmphasis = true;
+            this.btnCancel.Icon = null;
+            this.btnCancel.Location = new System.Drawing.Point(3, 209);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnCancel.Size = new System.Drawing.Size(691, 36);
+            this.btnCancel.TabIndex = 2;
+            this.btnCancel.Text = "إغلاق";
+            this.btnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnCancel.UseAccentColor = false;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // button2
+            // txtAccountPassword
             // 
-            this.button2.Location = new System.Drawing.Point(252, 38);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(241, 47);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "اغلاق";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // PlancksoftPOS
-            // 
-            this.PlancksoftPOS.ContextMenuStrip = this.Menu;
-            this.PlancksoftPOS.Icon = ((System.Drawing.Icon)(resources.GetObject("PlancksoftPOS.Icon")));
-            this.PlancksoftPOS.Text = "PlancksoftPOS";
-            this.PlancksoftPOS.Visible = true;
-            // 
-            // Menu
-            // 
-            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.اللغةToolStripMenuItem,
-            this.الخروجToolStripMenuItem});
-            this.Menu.Name = "Menu";
-            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Menu.Size = new System.Drawing.Size(107, 48);
-            // 
-            // اللغةToolStripMenuItem
-            // 
-            this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.العربيةToolStripMenuItem,
-            this.englishToolStripMenuItem});
-            this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
-            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.اللغةToolStripMenuItem.Text = "اللغة";
-            // 
-            // العربيةToolStripMenuItem
-            // 
-            this.العربيةToolStripMenuItem.CheckOnClick = true;
-            this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
-            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.العربيةToolStripMenuItem.Text = "العربية";
-            this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
-            // 
-            // englishToolStripMenuItem
-            // 
-            this.englishToolStripMenuItem.CheckOnClick = true;
-            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.englishToolStripMenuItem.Text = "English";
-            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
-            // 
-            // الخروجToolStripMenuItem
-            // 
-            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
-            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.الخروجToolStripMenuItem.Text = "الخروج";
-            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
+            this.txtAccountPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAccountPassword.AnimateReadOnly = false;
+            this.txtAccountPassword.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtAccountPassword.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtAccountPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtAccountPassword.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtAccountPassword.Depth = 0;
+            this.txtAccountPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtAccountPassword.HideSelection = true;
+            this.txtAccountPassword.Hint = "****";
+            this.txtAccountPassword.LeadingIcon = global::PlancksoftPOS.Properties.Resources.password;
+            this.txtAccountPassword.Location = new System.Drawing.Point(6, 67);
+            this.txtAccountPassword.MaxLength = 32767;
+            this.txtAccountPassword.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtAccountPassword.Name = "txtAccountPassword";
+            this.txtAccountPassword.PasswordChar = '●';
+            this.txtAccountPassword.PrefixSuffixText = null;
+            this.txtAccountPassword.ReadOnly = false;
+            this.txtAccountPassword.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtAccountPassword.SelectedText = "";
+            this.txtAccountPassword.SelectionLength = 0;
+            this.txtAccountPassword.SelectionStart = 0;
+            this.txtAccountPassword.ShortcutsEnabled = true;
+            this.txtAccountPassword.Size = new System.Drawing.Size(669, 48);
+            this.txtAccountPassword.TabIndex = 0;
+            this.txtAccountPassword.TabStop = false;
+            this.txtAccountPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAccountPassword.TrailingIcon = null;
+            this.txtAccountPassword.UseSystemPasswordChar = true;
             // 
             // frmAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(505, 97);
-            this.ControlBox = false;
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.ClientSize = new System.Drawing.Size(697, 248);
+            this.Controls.Add(this.btnSubmit);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.txtAccountPassword);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAuth";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ادخل كلمة السر للحساب";
-            this.Menu.ResumeLayout(false);
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "أدخل كلمة السر للحساب";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,15 +138,8 @@
 
         #endregion
 
-        public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Button button2;
-        private System.Windows.Forms.NotifyIcon PlancksoftPOS;
-        private System.ComponentModel.IContainer components;
-        private System.Windows.Forms.ContextMenuStrip Menu;
-        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
+        private MaterialSkin.Controls.MaterialButton btnSubmit;
+        private MaterialSkin.Controls.MaterialButton btnCancel;
+        private MaterialSkin.Controls.MaterialTextBox2 txtAccountPassword;
     }
 }

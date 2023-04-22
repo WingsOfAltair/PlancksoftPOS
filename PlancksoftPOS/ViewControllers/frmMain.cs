@@ -20,6 +20,7 @@ namespace PlancksoftPOS
 
     public partial class frmMain : Form
     {
+        public Form openedForm = null;
         public Connection Connection = new Connection();
         public int ID = 0, CurrentBillNumber = 0, CurrentVendorBillNumber = 0, customerItemID = 0, heldBillsCount = 0, EmployeeID = 0, AbsenceID = 0;
         public static int Authority = 0;
@@ -2651,6 +2652,7 @@ namespace PlancksoftPOS
                 if (tv.Focused)
                 {
                     frmAddPrinter addPrinter = new frmAddPrinter(this.itemtypes);
+                    openedForm = addPrinter;
                     DialogResult result = addPrinter.ShowDialog();
                     if (result == DialogResult.OK)
                     {
@@ -3026,6 +3028,7 @@ namespace PlancksoftPOS
                 if (Authority == 1)
                 {
                     frmAuth frmAuth = new frmAuth();
+                    openedForm = frmAuth;
                     frmAuth.ShowDialog();
                     if (frmAuth.dialogResult == DialogResult.OK)
                     {
@@ -3154,6 +3157,7 @@ namespace PlancksoftPOS
                 if (Authority == 1)
                 {
                     frmAuth frmAuth = new frmAuth();
+                    openedForm = frmAuth;
                     frmAuth.ShowDialog();
                     if (frmAuth.dialogResult == DialogResult.OK)
                     {
@@ -3317,6 +3321,7 @@ namespace PlancksoftPOS
             else
             {
                 frmPay frmPayCash = new frmPay(this.totalAmount);
+                openedForm = frmPayCash;
                 frmPayCash.ShowDialog(this);
 
                 if (frmPayCash.dialogResult == DialogResult.OK)
@@ -3881,6 +3886,7 @@ namespace PlancksoftPOS
             if (Authority == 1)
             {
                 frmAuth frmAuth = new frmAuth();
+                openedForm = frmAuth;
                 frmAuth.ShowDialog();
                 if (frmAuth.dialogResult == DialogResult.OK)
                 {
@@ -3982,6 +3988,7 @@ namespace PlancksoftPOS
             if (Authority == 1)
             {
                 frmAuth frmAuth = new frmAuth();
+                openedForm = frmAuth;
                 frmAuth.ShowDialog();
                 if (frmAuth.dialogResult == DialogResult.OK)
                 {
@@ -4095,6 +4102,7 @@ namespace PlancksoftPOS
             if (Authority == 1)
             {
                 frmAuth frmAuth = new frmAuth();
+                openedForm = frmAuth;
                 frmAuth.ShowDialog();
                 if (frmAuth.dialogResult == DialogResult.OK)
                 {
@@ -5313,6 +5321,7 @@ namespace PlancksoftPOS
         public void pictureBox35_Click(object sender, EventArgs e)
         {
             frmMaintenance frmMaintenance = new frmMaintenance();
+            openedForm = frmMaintenance;
             frmMaintenance.ShowDialog();
         }
 
@@ -5820,6 +5829,7 @@ namespace PlancksoftPOS
             if (userPermissions.customer_card_edit)
             {
                 frmClientCard customerCard = new frmClientCard();
+                openedForm = customerCard;
                 customerCard.ShowDialog();
                 if (customerCard.dialogResult == DialogResult.OK)
                 {
@@ -6029,6 +6039,7 @@ namespace PlancksoftPOS
             if (userPermissions.price_edit)
             {
                 frmEditPrice editPrice = new frmEditPrice();
+                openedForm = editPrice;
                 editPrice.ShowDialog();
                 if (editPrice.dialogResult == DialogResult.OK)
                 {
@@ -6071,6 +6082,7 @@ namespace PlancksoftPOS
             try
             {
                 frmPickCustomerLookup pickCustomer = new frmPickCustomerLookup();
+                openedForm = pickCustomer;
                 pickCustomer.ShowDialog();
 
                 if (pickCustomer.pickedCustomer.CustomerName != null)
@@ -6811,6 +6823,7 @@ namespace PlancksoftPOS
             else
             {
                 frmPay frmPayCash = new frmPay(this.totalAmount);
+                openedForm = frmPayCash;
                 frmPayCash.ShowDialog(this);
 
                 if (frmPayCash.dialogResult == DialogResult.OK)
@@ -6988,6 +7001,7 @@ namespace PlancksoftPOS
             if (userPermissions.customer_card_edit)
             {
                 frmClientCard customerCard = new frmClientCard();
+                openedForm = customerCard;
                 customerCard.ShowDialog();
                 if (customerCard.dialogResult == DialogResult.OK)
                 {
@@ -7200,6 +7214,7 @@ namespace PlancksoftPOS
                 try
                 {
                     frmSales frmSales = new frmSales();
+                    openedForm = frmSales;
                     frmSales.ShowDialog(this);
 
                     if (frmSales.dialogResult == DialogResult.OK)
@@ -7308,6 +7323,7 @@ namespace PlancksoftPOS
             if (userPermissions.price_edit)
             {
                 frmEditPrice editPrice = new frmEditPrice();
+                openedForm = editPrice;
                 editPrice.ShowDialog();
                 if (editPrice.dialogResult == DialogResult.OK)
                 {
@@ -7342,7 +7358,7 @@ namespace PlancksoftPOS
             try
             {
                 frmItemLookup itemLookup = new frmItemLookup(this.itemtypes, this.UID);
-
+                openedForm = itemLookup;
                 itemLookup.ShowDialog(this);
                 if (itemLookup.dialogResult == DialogResult.OK)
                 {
@@ -7457,6 +7473,7 @@ namespace PlancksoftPOS
             if (e.Modifiers == Keys.Control && e.KeyCode == Keys.F1)
             {
                 frmItemRefund frmItemRefund = new frmItemRefund(itemtypes, this.UID);
+                openedForm = frmItemRefund;
                 frmItemRefund.ShowDialog();
                 capital = Connection.server.GetCapitalAmount();
                 CapitalAmountnud.Value = capital;
@@ -7480,6 +7497,7 @@ namespace PlancksoftPOS
                     else
                     {
                         frmPay frmPayCash = new frmPay(this.totalAmount);
+                        openedForm = frmPayCash;
                         frmPayCash.ShowDialog(this);
 
                         if (frmPayCash.dialogResult == DialogResult.OK)
@@ -7658,6 +7676,7 @@ namespace PlancksoftPOS
                     if (userPermissions.customer_card_edit)
                     {
                         frmClientCard customerCard = new frmClientCard();
+                        openedForm = customerCard;
                         customerCard.ShowDialog();
                         if (customerCard.dialogResult == DialogResult.OK)
                         {
@@ -7843,6 +7862,7 @@ namespace PlancksoftPOS
                         try
                         {
                             frmSales frmSales = new frmSales();
+                            openedForm = frmSales;
                             frmSales.ShowDialog(this);
 
                             if (frmSales.dialogResult == DialogResult.OK)
@@ -7951,6 +7971,7 @@ namespace PlancksoftPOS
                     if (userPermissions.price_edit)
                     {
                         frmEditPrice editPrice = new frmEditPrice();
+                        openedForm = editPrice;
                         editPrice.ShowDialog();
                         if (editPrice.dialogResult == DialogResult.OK)
                         {
@@ -8144,7 +8165,7 @@ namespace PlancksoftPOS
                     try
                     {
                         frmItemLookup itemLookup = new frmItemLookup(this.itemtypes, this.UID);
-
+                        openedForm = itemLookup;
                         itemLookup.ShowDialog(this);
                         if (itemLookup.dialogResult == DialogResult.OK)
                         {
@@ -8259,7 +8280,7 @@ namespace PlancksoftPOS
                         return;
 
                     frmOpenRegister openRegister = new frmOpenRegister(this.cashierName);
-
+                    openedForm = openRegister;
                     openRegister.ShowDialog(this);
                     if (openRegister.dialogResult == DialogResult.OK)
                     {
@@ -8312,7 +8333,7 @@ namespace PlancksoftPOS
                             return;
 
                         frmCloseRegister closeRegister = new frmCloseRegister(this.cashierName, Connection.server.GetOpenRegisterAmount());
-
+                        openedForm = closeRegister;
                         closeRegister.ShowDialog(this);
                         if (closeRegister.dialogResult == DialogResult.OK)
                         {
@@ -8416,7 +8437,7 @@ namespace PlancksoftPOS
             try
             {
                 frmCloseRegister closeRegister = new frmCloseRegister(this.cashierName, Connection.server.GetOpenRegisterAmount());
-
+                openedForm = closeRegister;
                 closeRegister.ShowDialog(this);
                 if (closeRegister.dialogResult == DialogResult.OK)
                 {
@@ -8514,7 +8535,7 @@ namespace PlancksoftPOS
                 return;
 
             frmOpenRegister openRegister = new frmOpenRegister(this.cashierName);
-
+            openedForm = openRegister;
             openRegister.ShowDialog(this);
             if (openRegister.dialogResult == DialogResult.OK)
             {
@@ -8651,7 +8672,7 @@ namespace PlancksoftPOS
             try
             {
                 frmItemLookup itemLookup = new frmItemLookup(this.itemtypes, this.UID);
-
+                openedForm = itemLookup;
                 itemLookup.ShowDialog(this);
                 if (itemLookup.dialogResult == DialogResult.OK)
                 {
@@ -9335,22 +9356,34 @@ namespace PlancksoftPOS
 
         private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
-            Properties.Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
-            Properties.Settings.Default.Save();
-            englishToolStripMenuItem.Checked = false;
-            العربيةToolStripMenuItem.Checked = true;
-            applyLocalizationOnUI();
+            try
+            {
+                frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
+                Properties.Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
+                Properties.Settings.Default.Save();
+                englishToolStripMenuItem.Checked = false;
+                العربيةToolStripMenuItem.Checked = true;
+                applyLocalizationOnUI();
+                openedForm.Close();
+                openedForm.ShowDialog();
+            }
+            catch(Exception err) { }
         }
 
         private void englishToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
-            Properties.Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
-            Properties.Settings.Default.Save();
-            englishToolStripMenuItem.Checked = true;
-            العربيةToolStripMenuItem.Checked = false;
-            applyLocalizationOnUI();
+            try
+            {
+                frmLogin.pickedLanguage = LanguageChoice.Languages.English;
+                Properties.Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
+                Properties.Settings.Default.Save();
+                englishToolStripMenuItem.Checked = true;
+                العربيةToolStripMenuItem.Checked = false;
+                applyLocalizationOnUI();
+                openedForm.Close();
+                openedForm.ShowDialog();
+            }
+            catch (Exception err) { }
         }
 
         public void pictureBox29_Click(object sender, EventArgs e)
@@ -9762,7 +9795,7 @@ namespace PlancksoftPOS
             try
             {
                 frmItemLookup itemLookup = new frmItemLookup(this.itemtypes, this.UID);
-
+                openedForm = itemLookup;
                 itemLookup.ShowDialog(this);
                 if (itemLookup.dialogResult == DialogResult.OK)
                 {
@@ -9899,7 +9932,7 @@ namespace PlancksoftPOS
             try
             {
                 frmItemLookup itemLookup = new frmItemLookup(this.itemtypes, this.UID);
-
+                openedForm = itemLookup;
                 itemLookup.ShowDialog(this);
                 if (itemLookup.dialogResult == DialogResult.OK)
                 {
@@ -10040,7 +10073,7 @@ namespace PlancksoftPOS
             try
             {
                 frmCloseRegister closeRegister = new frmCloseRegister(this.cashierName, Connection.server.GetOpenRegisterAmount());
-
+                openedForm = closeRegister;
                 closeRegister.ShowDialog(this);
                 if (closeRegister.dialogResult == DialogResult.OK)
                 {
@@ -10160,7 +10193,7 @@ namespace PlancksoftPOS
                 return;
 
             frmOpenRegister openRegister = new frmOpenRegister(this.cashierName);
-
+            openedForm = openRegister;
             openRegister.ShowDialog(this);
             if (openRegister.dialogResult == DialogResult.OK)
             {
@@ -10209,6 +10242,7 @@ namespace PlancksoftPOS
                 try
                 {
                     frmSales frmSales = new frmSales();
+                    openedForm = frmSales;
                     frmSales.ShowDialog(this);
 
                     if (frmSales.dialogResult == DialogResult.OK)
@@ -10525,6 +10559,7 @@ namespace PlancksoftPOS
                         graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         frmReceipt receipt = new frmReceipt(bitm, itemsInBill, true);
+                        openedForm = receipt;
                         receipt.ShowDialog();
                     }
                     finally
@@ -10753,6 +10788,7 @@ namespace PlancksoftPOS
                         graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
                         frmReceipt receipt = new frmReceipt(bitm, itemsInBill, true);
+                        openedForm = receipt;
                         receipt.ShowDialog();
                     }
                     finally
@@ -10923,6 +10959,7 @@ namespace PlancksoftPOS
                         }
                         offsetY = offsetY + lineHeight;
                         frmReceipt receipt = new frmReceipt(bitm, new List<Item>(), false);
+                        openedForm = receipt;
                         receipt.ShowDialog();
                     }
                     finally
@@ -10985,6 +11022,7 @@ namespace PlancksoftPOS
         public void aToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmMaintenance frmMaintenance = new frmMaintenance();
+            openedForm = frmMaintenance;
             frmMaintenance.ShowDialog();
         }
 

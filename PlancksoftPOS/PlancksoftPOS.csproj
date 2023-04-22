@@ -84,13 +84,46 @@
     <ApplicationIcon>Resources\pos.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="ESCPOS_NET">
-      <HintPath>..\..\Users\basha\OneDrive\Desktop\ESC-POS-.NET\ESCPOS_NET\bin\Debug\netstandard2.0\ESCPOS_NET.dll</HintPath>
+    <Reference Include="MaterialSkin">
+      <HintPath>..\packages\MaterialSkin.2.RTL.2.3.1.1\lib\net48\MaterialSkin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.6.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Logging, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Logging.5.6.0\lib\net461\Microsoft.IdentityModel.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.IdentityModel.Tokens, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.IdentityModel.Tokens.5.6.0\lib\net461\Microsoft.IdentityModel.Tokens.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.TeamFoundation.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Services.Client.16.205.1\lib\net462\Microsoft.TeamFoundation.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.Common, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Services.Client.16.205.1\lib\net462\Microsoft.VisualStudio.Services.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.Services.WebApi, Version=16.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.VisualStudio.Services.Client.16.205.1\lib\net462\Microsoft.VisualStudio.Services.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.IdentityModel.Tokens.Jwt, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IdentityModel.Tokens.Jwt.5.6.0\lib\net461\System.IdentityModel.Tokens.Jwt.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -102,32 +135,47 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ThemeSchemeChoice.cs" />
     <Compile Include="Classes\LanguageChoice.cs" />
     <Compile Include="Connected Services\Plancksoft_Server\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="GDI+\AmbianceTheme.cs" />
-    <Compile Include="GDI+\FusionTheme.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ViewControllers\frmAuth.cs">
+    <Compile Include="ViewControllers\frmEditPrice.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewControllers\frmAuth.Designer.cs">
-      <DependentUpon>frmAuth.cs</DependentUpon>
+    <Compile Include="ViewControllers\frmEditPrice.Designer.cs">
+      <DependentUpon>frmEditPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\frmCloseRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmCloseRegister.Designer.cs">
+      <DependentUpon>frmCloseRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\frmClientCard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmClientCard.Designer.cs">
+      <DependentUpon>frmClientCard.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewControllers\frmAddPrinter.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViewControllers\frmAddPrinter.Designer.cs">
       <DependentUpon>frmAddPrinter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\frmAuth.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmAuth.Designer.cs">
+      <DependentUpon>frmAuth.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewControllers\frmItemRefund.cs">
       <SubType>Form</SubType>
@@ -155,24 +203,6 @@
     </Compile>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Classes\DGVPrinter.cs" />
-    <Compile Include="ViewControllers\frmCloseRegister.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewControllers\frmCloseRegister.Designer.cs">
-      <DependentUpon>frmCloseRegister.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\frmClientCard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewControllers\frmClientCard.Designer.cs">
-      <DependentUpon>frmClientCard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\frmEditPrice.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewControllers\frmEditPrice.Designer.cs">
-      <DependentUpon>frmEditPrice.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewControllers\frmItemLookup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -233,8 +263,8 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\RawPrinterHelper.cs" />
-    <EmbeddedResource Include="ViewControllers\frmAuth.resx">
-      <DependentUpon>frmAuth.cs</DependentUpon>
+    <EmbeddedResource Include="ViewControllers\frmEditPrice.resx">
+      <DependentUpon>frmEditPrice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmCloseRegister.resx">
       <DependentUpon>frmCloseRegister.cs</DependentUpon>
@@ -242,14 +272,14 @@
     <EmbeddedResource Include="ViewControllers\frmClientCard.resx">
       <DependentUpon>frmClientCard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewControllers\frmEditPrice.resx">
-      <DependentUpon>frmEditPrice.cs</DependentUpon>
+    <EmbeddedResource Include="ViewControllers\frmAddPrinter.resx">
+      <DependentUpon>frmAddPrinter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewControllers\frmAuth.resx">
+      <DependentUpon>frmAuth.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmItemLookup.resx">
       <DependentUpon>frmItemLookup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewControllers\frmAddPrinter.resx">
-      <DependentUpon>frmAddPrinter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmItemRefund.resx">
       <DependentUpon>frmItemRefund.cs</DependentUpon>
@@ -312,6 +342,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS_Server.wsdl" />
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\DataAccessLayer.Account.datasource" />
     <None Include="Properties\DataSources\DataAccessLayer.Bill.datasource" />
@@ -430,6 +461,7 @@
     </None>
     <None Include="Resources\plancksoft_b_t.png" />
     <None Include="Resources\istockphoto-1166351637-612x612.jpg" />
+    <None Include="Resources\password.png" />
     <Content Include="Resources\pos.ico" />
     <None Include="Resources\point-of-sale.jpg" />
     <None Include="Resources\beep.mp3" />

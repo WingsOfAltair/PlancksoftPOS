@@ -23,6 +23,7 @@ namespace PlancksoftPOS
         public Mutex _mutex;
 
         public LanguageChoice languageChoice = new LanguageChoice();
+        public ThemeSchemeChoice.ThemeScheme themeSchemeChoice = new ThemeSchemeChoice.ThemeScheme();
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
         public bool closeApp = false;
 
@@ -95,6 +96,7 @@ namespace PlancksoftPOS
             InitializeComponent();
 
             pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
+            themeSchemeChoice = (ThemeSchemeChoice.ThemeScheme)Settings.Default.pickedThemeScheme;
 
             if (pickedLanguage == LanguageChoice.Languages.Arabic)
             {

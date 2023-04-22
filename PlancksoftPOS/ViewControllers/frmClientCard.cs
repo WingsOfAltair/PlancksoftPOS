@@ -1,5 +1,5 @@
-﻿using Dependencies;
-using PlancksoftPOS.Properties;
+﻿using MaterialSkin.Controls;
+using MaterialSkin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,10 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dependencies;
+using PlancksoftPOS.Properties;
+using System.Reflection.Emit;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 
 namespace PlancksoftPOS
 {
-    public partial class frmClientCard : Form
+    public partial class frmClientCard : MaterialForm
     {
         Connection Connection = new Connection();
         public Customer customer = new Customer();
@@ -20,10 +24,11 @@ namespace PlancksoftPOS
         public List<Item> saleItems = new List<Item>();
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
-
         public frmClientCard()
         {
             InitializeComponent();
+
+            Program.materialSkinManager.AddFormToManage(this);
 
             frmLogin.pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
 
@@ -31,13 +36,11 @@ namespace PlancksoftPOS
             {
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
-                العربيةToolStripMenuItem.Checked = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
-                englishToolStripMenuItem.Checked = true;
             }
 
             applyLocalizationOnUI();
@@ -48,50 +51,58 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 Text = "شاشة بطاقة العميل";
-                groupBox1.Text = "البحث عن العميل";
-                label1.Text = "اسم العميل";
-                label2.Text = "اسم الماده";
-                button3.Text = "مسح";
-                button1.Text = "بحث";
-                button2.Text = "خروج";
+                lblClientName.Text = "اسم العميل";
+                lblItemName.Text = "اسم الماده";
+                btnClear.Text = "مسح";
+                btnSearch.Text = "بحث";
+                btnClose.Text = "خروج";
                 dgvCustomers.Columns["Column1"].HeaderText = "اسم العميل";
                 dgvCustomers.Columns["Column2"].HeaderText = "رمز العميل";
                 dgvCustomers.Columns["Column3"].HeaderText = "اسم الماده";
                 dgvCustomers.Columns["Column4"].HeaderText = "سعر العميل";
                 dgvCustomers.Columns["Column5"].HeaderText = "باركود الماده";
-                اللغةToolStripMenuItem.Text = "اللغة";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "الخروج";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 Text = "Client Card Module";
-                groupBox1.Text = "Client Search";
-                label1.Text = "Client Name";
-                label2.Text = "Item Name";
-                button3.Text = "Clear";
-                button1.Text = "Search";
-                button2.Text = "Close";
+                lblClientName.Text = "Client Name";
+                lblItemName.Text = "Item Name";
+                btnClear.Text = "Clear";
+                btnSearch.Text = "Search";
+                btnClose.Text = "Close";
                 dgvCustomers.Columns["Column1"].HeaderText = "Client Name";
                 dgvCustomers.Columns["Column2"].HeaderText = "Client ID";
                 dgvCustomers.Columns["Column3"].HeaderText = "Item Name";
                 dgvCustomers.Columns["Column4"].HeaderText = "Client Price";
                 dgvCustomers.Columns["Column5"].HeaderText = "Item Barcode";
-                اللغةToolStripMenuItem.Text = "Language";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "Exit";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
         }
 
-        public void button1_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            DataTable RetrievedCustomers = Connection.server.SearchCustomers(customerName.Text, "", itemName.Text);
+            txtClientName.Text = "";
+            txtItemName.Text = "";
+        }
+
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (txtClientName.Text == "")
+            {
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MaterialMessageBox.Show(".الرجاء إدخال إسم عميل", false, FlexibleMaterialForm.ButtonsPosition.Center, RightToLeft.Yes);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MaterialMessageBox.Show("Please enter a valid client name.", false, FlexibleMaterialForm.ButtonsPosition.Center, RightToLeft.No);
+                }
+                return;
+            }
+            DataTable RetrievedCustomers = Connection.server.SearchCustomers(txtClientName.Text, txtClientID.Text, txtItemName.Text);
             dgvCustomers.DataSource = RetrievedCustomers;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -112,7 +123,13 @@ namespace PlancksoftPOS
             }
         }
 
-        public void dgvCustomers_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            dialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void dgvCustomers_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
@@ -170,54 +187,10 @@ namespace PlancksoftPOS
             }
         }
 
-        public void button2_Click(object sender, EventArgs e)
+        private void txtClientName_TextChanged(object sender, EventArgs e)
         {
-            dialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        public void customerName_TextChanged(object sender, EventArgs e)
-        {
-            DataTable RetrievedCustomers = Connection.server.SearchCustomers(customerName.Text, "", "");
+            DataTable RetrievedCustomers = Connection.server.SearchCustomers(txtClientName.Text, "", "");
             dgvCustomers.DataSource = RetrievedCustomers;
-        }
-
-        public void button3_Click(object sender, EventArgs e)
-        {
-            customerName.Text = "";
-        }
-
-        public void button4_Click(object sender, EventArgs e)
-        {
-            dialogResult = DialogResult.None;
-            this.Close();
-        }
-
-        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
-            Settings.Default.Save();
-            englishToolStripMenuItem.Checked = false;
-            العربيةToolStripMenuItem.Checked = true;
-            PlancksoftPOS.Dispose();
-            applyLocalizationOnUI();
-        }
-
-        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
-            Settings.Default.Save();
-            englishToolStripMenuItem.Checked = true;
-            العربيةToolStripMenuItem.Checked = false;
-            PlancksoftPOS.Dispose();
-            applyLocalizationOnUI();
         }
     }
 }

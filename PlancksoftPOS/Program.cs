@@ -1,11 +1,8 @@
-﻿using PlancksoftPOS.Properties;
+﻿using MaterialSkin;
+using PlancksoftPOS.Properties;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PlancksoftPOS
@@ -16,9 +13,13 @@ namespace PlancksoftPOS
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
         static extern bool SetForegroundWindow(IntPtr hWnd);
+        
+        static public MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
+
         [STAThread]
         static void Main()
         {
@@ -26,6 +27,18 @@ namespace PlancksoftPOS
                 Application.Exit();
             else
             {
+                materialSkinManager = MaterialSkinManager.Instance;
+                materialSkinManager.EnforceBackcolorOnAllComponents = true;
+
+                if ((ThemeSchemeChoice.ThemeScheme)Settings.Default.pickedThemeScheme == ThemeSchemeChoice.ThemeScheme.Dark)
+                {
+                    Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.WHITE);
+                }
+                else
+                {
+                    Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+                }
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new frmLogin());

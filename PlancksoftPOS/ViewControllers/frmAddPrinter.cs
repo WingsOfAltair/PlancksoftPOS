@@ -1,4 +1,5 @@
-﻿using PlancksoftPOS.Properties;
+﻿using MaterialSkin.Controls;
+using MaterialSkin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,17 +9,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dependencies;
+using PlancksoftPOS.Properties;
+using System.Reflection.Emit;
 
 namespace PlancksoftPOS
 {
-    public partial class frmAddPrinter : Form
+    public partial class frmAddPrinter : MaterialForm
     {
         SortedList<int, string> itemTypes;
         public string itemTypeName;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
+
         public frmAddPrinter(SortedList<int, string> itemtypes)
         {
             InitializeComponent();
+
+            Program.materialSkinManager.AddFormToManage(this);
 
             this.itemTypes = itemtypes;
             foreach (KeyValuePair<int, string> item in itemtypes)
@@ -32,13 +39,11 @@ namespace PlancksoftPOS
             {
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
-                العربيةToolStripMenuItem.Checked = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
-                englishToolStripMenuItem.Checked = true;
             }
 
             applyLocalizationOnUI();
@@ -49,68 +54,39 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 Text = "إضافة صنف مواد لطابعة";
-                label71.Text = "أصناف المواد";
-                button1.Text = "إضافة صتف";
-                button3.Text = "الغاء";
-                اللغةToolStripMenuItem.Text = "اللغة";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "الخروج";
+                lblItemTypes.Text = "أصناف المواد";
+                btnCancel.Text = "إضافة صتف";
+                btnAddItemType.Text = "الغاء";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 Text = "ِAdd an Item Type to Printer";
-                label71.Text = "Item Types";
-                button1.Text = "Add Type";
-                button3.Text = "Close";
-                اللغةToolStripMenuItem.Text = "Language";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "Exit";
+                lblItemTypes.Text = "Item Types";
+                btnCancel.Text = "Add Type";
+                btnAddItemType.Text = "Close";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
         }
 
-        public void button3_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-            this.Close();
-        }
-
-        public void button1_Click(object sender, EventArgs e)
+        private void btnAddItemType_Click(object sender, EventArgs e)
         {
             this.itemTypeName = this.cbItemTypes.SelectedItem.ToString();
             DialogResult = DialogResult.OK;
         }
 
-        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            DialogResult = DialogResult.Cancel;
+            Program.materialSkinManager.RemoveFormToManage(this);
+            this.Close();
         }
 
-        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
+        private void frmAddPrinter_FormClosed(object sender, FormClosedEventArgs e)
         {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
-            Settings.Default.Save();
-            englishToolStripMenuItem.Checked = false;
-            العربيةToolStripMenuItem.Checked = true;
-            PlancksoftPOS.Dispose();
-            applyLocalizationOnUI();
-        }
-
-        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
-            Settings.Default.Save();
-            englishToolStripMenuItem.Checked = true;
-            العربيةToolStripMenuItem.Checked = false;
-            PlancksoftPOS.Dispose();
-            applyLocalizationOnUI();
+            Program.materialSkinManager.RemoveFormToManage(this);
         }
     }
 }
