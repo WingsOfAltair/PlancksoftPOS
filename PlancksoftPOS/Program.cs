@@ -38,6 +38,7 @@ namespace PlancksoftPOS
                 else
                 {
                     Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
                 }
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);

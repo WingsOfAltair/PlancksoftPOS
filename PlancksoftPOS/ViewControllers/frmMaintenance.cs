@@ -70,7 +70,7 @@ namespace PlancksoftPOS
 
         private void btnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
         }
     }
 }

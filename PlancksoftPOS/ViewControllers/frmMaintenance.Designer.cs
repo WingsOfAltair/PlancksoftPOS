@@ -81,9 +81,9 @@
             // 
             this.pbPlancksoft.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pbPlancksoft.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
-            this.pbPlancksoft.Location = new System.Drawing.Point(3, 198);
+            this.pbPlancksoft.Location = new System.Drawing.Point(3, 237);
             this.pbPlancksoft.Name = "pbPlancksoft";
-            this.pbPlancksoft.Size = new System.Drawing.Size(658, 328);
+            this.pbPlancksoft.Size = new System.Drawing.Size(674, 328);
             this.pbPlancksoft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPlancksoft.TabIndex = 4;
             this.pbPlancksoft.TabStop = false;
@@ -96,12 +96,12 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(3, 162);
+            this.btnClose.Location = new System.Drawing.Point(3, 201);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
             this.btnClose.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnClose.Size = new System.Drawing.Size(658, 36);
+            this.btnClose.Size = new System.Drawing.Size(674, 36);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "إغلاق";
             this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -113,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(664, 529);
+            this.ClientSize = new System.Drawing.Size(680, 568);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pbPlancksoft);
             this.Controls.Add(this.lblContactNumber);

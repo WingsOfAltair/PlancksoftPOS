@@ -14,11 +14,13 @@ using WMPLib;
 using System.Text;
 using System.IO.Ports;
 using Dependencies;
+using MaterialSkin.Controls;
+using MaterialSkin;
 
 namespace PlancksoftPOS
 {
 
-    public partial class frmMain : Form
+    public partial class frmMain : MaterialForm
     {
         public Form openedForm = null;
         public Connection Connection = new Connection();
@@ -51,7 +53,7 @@ namespace PlancksoftPOS
         TextBox AddItemType;
         List<TextBox> ItemTypeNamestxt = new List<TextBox>();
         PictureBox plusItemTypePB, minusItemTypePB;
-        Label plusItemTypeLbl, ItemTypeLbl;
+        System.Windows.Forms.Label plusItemTypeLbl, ItemTypeLbl;
         TextBox AddWarehouse;
         List<TextBox> WarehouseNamestxt = new List<TextBox>();
         PictureBox plusWarehousePB, minusWarehousePB;
@@ -136,6 +138,18 @@ namespace PlancksoftPOS
 
         public void refreshSettings()
         {
+            if (Properties.Settings.Default.pickedThemeScheme == (int)ThemeSchemeChoice.ThemeScheme.Dark)
+            {
+                switchThemeScheme.Checked = Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark));
+                Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+                Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.WHITE);
+            }
+            else
+            {
+                switchThemeScheme.Checked = Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Light));
+                Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+                Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
+            }
             DataTable dt = Connection.server.RetrieveSystemSettings();
 
             try
@@ -387,6 +401,18 @@ namespace PlancksoftPOS
                 }
 
                 applyLocalizationOnUI();
+
+                if (Properties.Settings.Default.pickedThemeScheme == (int)ThemeSchemeChoice.ThemeScheme.Dark)
+                {
+                    Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.WHITE);
+                    switchThemeScheme.Checked = true;
+                } else
+                {
+                    Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
+                    switchThemeScheme.Checked = false;
+                }
 
                 DataTable dt = Connection.server.RetrieveSystemSettings();
 
@@ -5424,6 +5450,22 @@ namespace PlancksoftPOS
                         IncludeLogoInReceipt = false;
                     }
                     TaxRate = Convert.ToDecimal(nudTaxRate.Value / 100);
+
+                    if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
+                    {
+                        Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+                        Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.WHITE);
+                        Properties.Settings.Default.pickedThemeScheme = 1;
+                        Properties.Settings.Default.Save();
+                    }
+                    else
+                    {
+                        Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+                        Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
+                        Properties.Settings.Default.pickedThemeScheme = 0;
+                        Properties.Settings.Default.Save();
+                    }
+
                     this.Refresh();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
@@ -9257,6 +9299,11 @@ namespace PlancksoftPOS
         {
             QuantityWarning.Select(0, QuantityWarning.Value.ToString().Length);
             pendingPurchaseRemovalQuantity.Focus();
+        }
+
+        private void switchThemeScheme_CheckedChanged(object sender, EventArgs e)
+        {
+            
         }
 
         public void textBox3_KeyPress(object sender, KeyPressEventArgs e)

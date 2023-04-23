@@ -58,7 +58,7 @@
             this.picLogo.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
             this.picLogo.Location = new System.Drawing.Point(3, 64);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(343, 158);
+            this.picLogo.Size = new System.Drawing.Size(359, 158);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 42;
             this.picLogo.TabStop = false;
@@ -72,7 +72,7 @@
             this.txtUID.FormattingEnabled = true;
             this.txtUID.Location = new System.Drawing.Point(3, 222);
             this.txtUID.Name = "txtUID";
-            this.txtUID.Size = new System.Drawing.Size(343, 21);
+            this.txtUID.Size = new System.Drawing.Size(359, 21);
             this.txtUID.TabIndex = 44;
             // 
             // txtPassword
@@ -99,7 +99,7 @@
             this.txtPassword.SelectionLength = 0;
             this.txtPassword.SelectionStart = 0;
             this.txtPassword.ShortcutsEnabled = true;
-            this.txtPassword.Size = new System.Drawing.Size(343, 48);
+            this.txtPassword.Size = new System.Drawing.Size(359, 48);
             this.txtPassword.TabIndex = 48;
             this.txtPassword.TabStop = false;
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -334,12 +334,12 @@
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnExit.HighEmphasis = true;
             this.btnExit.Icon = null;
-            this.btnExit.Location = new System.Drawing.Point(3, 592);
+            this.btnExit.Location = new System.Drawing.Point(3, 560);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnExit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnExit.Name = "btnExit";
             this.btnExit.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnExit.Size = new System.Drawing.Size(343, 36);
+            this.btnExit.Size = new System.Drawing.Size(359, 36);
             this.btnExit.TabIndex = 63;
             this.btnExit.Text = "الخروج";
             this.btnExit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -355,12 +355,12 @@
             this.btnLogin.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnLogin.HighEmphasis = true;
             this.btnLogin.Icon = null;
-            this.btnLogin.Location = new System.Drawing.Point(3, 556);
+            this.btnLogin.Location = new System.Drawing.Point(3, 524);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnLogin.Size = new System.Drawing.Size(343, 36);
+            this.btnLogin.Size = new System.Drawing.Size(359, 36);
             this.btnLogin.TabIndex = 64;
             this.btnLogin.Text = "تسجيل الدخول";
             this.btnLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -379,7 +379,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(349, 631);
+            this.ClientSize = new System.Drawing.Size(365, 599);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnClear);
