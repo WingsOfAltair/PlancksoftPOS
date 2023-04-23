@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReceipt));
             this.pbReceipt = new System.Windows.Forms.PictureBox();
-            this.btnClose = new System.Windows.Forms.Button();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.btnPickCustomer = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.pbReceipt)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,22 +44,30 @@
             this.pbReceipt.TabIndex = 0;
             this.pbReceipt.TabStop = false;
             // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnClose.ForeColor = System.Drawing.Color.White;
-            this.btnClose.Location = new System.Drawing.Point(103, 0);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(144, 44);
-            this.btnClose.TabIndex = 1;
-            this.btnClose.Text = "X";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // btnPickCustomer
+            // 
+            this.btnPickCustomer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnPickCustomer.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnPickCustomer.Depth = 0;
+            this.btnPickCustomer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPickCustomer.HighEmphasis = true;
+            this.btnPickCustomer.Icon = null;
+            this.btnPickCustomer.Location = new System.Drawing.Point(0, 0);
+            this.btnPickCustomer.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnPickCustomer.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnPickCustomer.Name = "btnPickCustomer";
+            this.btnPickCustomer.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnPickCustomer.Size = new System.Drawing.Size(348, 36);
+            this.btnPickCustomer.TabIndex = 75;
+            this.btnPickCustomer.Text = "X";
+            this.btnPickCustomer.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnPickCustomer.UseAccentColor = false;
+            this.btnPickCustomer.UseVisualStyleBackColor = true;
+            this.btnPickCustomer.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmReceipt
             // 
@@ -67,7 +75,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 1050);
             this.ControlBox = false;
-            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnPickCustomer);
             this.Controls.Add(this.pbReceipt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -79,12 +87,13 @@
             this.Load += new System.EventHandler(this.frmReceipt_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbReceipt)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Button btnClose;
         internal System.Windows.Forms.PictureBox pbReceipt;
         private System.Drawing.Printing.PrintDocument printDocument1;
+        private MaterialSkin.Controls.MaterialButton btnPickCustomer;
     }
 }

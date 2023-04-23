@@ -206,7 +206,7 @@
             this.txtItemName.SelectionLength = 0;
             this.txtItemName.SelectionStart = 0;
             this.txtItemName.ShortcutsEnabled = true;
-            this.txtItemName.Size = new System.Drawing.Size(282, 48);
+            this.txtItemName.Size = new System.Drawing.Size(252, 48);
             this.txtItemName.TabIndex = 10;
             this.txtItemName.TabStop = false;
             this.txtItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -239,7 +239,7 @@
             this.txtItemBarcode.SelectionLength = 0;
             this.txtItemBarcode.SelectionStart = 0;
             this.txtItemBarcode.ShortcutsEnabled = true;
-            this.txtItemBarcode.Size = new System.Drawing.Size(282, 48);
+            this.txtItemBarcode.Size = new System.Drawing.Size(252, 48);
             this.txtItemBarcode.TabIndex = 12;
             this.txtItemBarcode.TabStop = false;
             this.txtItemBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -269,7 +269,7 @@
             this.lblItemQuantity.Depth = 0;
             this.lblItemQuantity.Enabled = false;
             this.lblItemQuantity.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblItemQuantity.Location = new System.Drawing.Point(793, 450);
+            this.lblItemQuantity.Location = new System.Drawing.Point(763, 450);
             this.lblItemQuantity.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemQuantity.Name = "lblItemQuantity";
             this.lblItemQuantity.Size = new System.Drawing.Size(63, 17);
@@ -358,7 +358,7 @@
             this.cbItemType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbItemType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.cbItemType.FormattingEnabled = true;
-            this.cbItemType.Location = new System.Drawing.Point(550, 492);
+            this.cbItemType.Location = new System.Drawing.Point(520, 492);
             this.cbItemType.Name = "cbItemType";
             this.cbItemType.Size = new System.Drawing.Size(184, 21);
             this.cbItemType.TabIndex = 28;
@@ -370,7 +370,7 @@
             this.lblItemType.AutoSize = true;
             this.lblItemType.Depth = 0;
             this.lblItemType.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblItemType.Location = new System.Drawing.Point(608, 450);
+            this.lblItemType.Location = new System.Drawing.Point(578, 450);
             this.lblItemType.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemType.Name = "lblItemType";
             this.lblItemType.Size = new System.Drawing.Size(84, 17);
@@ -382,7 +382,7 @@
             // 
             this.nudItemQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nudItemQuantity.Enabled = false;
-            this.nudItemQuantity.Location = new System.Drawing.Point(766, 493);
+            this.nudItemQuantity.Location = new System.Drawing.Point(736, 493);
             this.nudItemQuantity.Maximum = new decimal(new int[] {
             1569325055,
             23283064,
@@ -398,7 +398,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1260, 603);
+            this.ClientSize = new System.Drawing.Size(1230, 525);
             this.Controls.Add(this.nudItemQuantity);
             this.Controls.Add(this.lblItemType);
             this.Controls.Add(this.cbItemType);

@@ -1,5 +1,5 @@
-﻿using Dependencies;
-using PlancksoftPOS.Properties;
+﻿using MaterialSkin.Controls;
+using MaterialSkin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,10 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dependencies;
+using PlancksoftPOS.Properties;
+using System.Reflection.Emit;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+using System.Globalization;
 
 namespace PlancksoftPOS
 {
-    public partial class frmPickCustomerLookup : Form
+    public partial class frmPickCustomerLookup : MaterialForm
     {
         Connection Connection = new Connection();
         public Customer pickedCustomer = new Customer();
@@ -24,19 +31,19 @@ namespace PlancksoftPOS
         {
             InitializeComponent();
 
+            Program.materialSkinManager.AddFormToManage(this);
+
             frmLogin.pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
-                العربيةToolStripMenuItem.Checked = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
-                englishToolStripMenuItem.Checked = true;
             }
 
             applyLocalizationOnUI();
@@ -50,65 +57,75 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 Text = "اختيار الزبون";
-                groupBox1.Text = "جدول الزبائن";
-                label1.Text = "اسم الزبون";
-                label2.Text = "رمز الزبون";
-                button3.Text = "مسح";
-                button1.Text = "اختيار الزبون";
-                button2.Text = "اغلاق";
+                lblCustomerName.Text = "اسم الزبون";
+                lblCustomerID.Text = "رمز الزبون";
+                btnPickCustomer.Text = "اختيار الزبون";
+                btnClose.Text = "اغلاق";
+                btnClear.Text = "مسح";
                 DGVCustomers.Columns["Column1"].HeaderText = "اسم الزبون";
                 DGVCustomers.Columns["Column2"].HeaderText = "رقم الزبون";
-                اللغةToolStripMenuItem.Text = "اللغة";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "الخروج";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                Text = "Client Picker";
-                groupBox1.Text = "Clients Grid";
-                label1.Text = "Client Name";
-                label2.Text = "Client ID";
-                button3.Text = "Clear";
-                button1.Text = "Pick Client";
-                button2.Text = "Close";
+                Text = "Customer Picker";
+                lblCustomerName.Text = "Customer Name";
+                lblCustomerID.Text = "Customer ID";
+                btnPickCustomer.Text = "Pick Customer";
+                btnClose.Text = "Close";
+                btnClear.Text = "Clear";
                 DGVCustomers.Columns["Column1"].HeaderText = "Client Name";
                 DGVCustomers.Columns["Column2"].HeaderText = "Client ID";
-                اللغةToolStripMenuItem.Text = "Language";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "Exit";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
         }
 
-        public void button1_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            if (!DGVCustomers.Rows[this.ID].IsNewRow) {
+            this.dialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void btnPickCustomer_Click(object sender, EventArgs e)
+        {
+            if (!DGVCustomers.Rows[this.ID].IsNewRow)
+            {
                 pickedCustomer.CustomerID = Convert.ToInt32(DGVCustomers.Rows[this.ID].Cells[0].Value.ToString());
                 pickedCustomer.CustomerName = DGVCustomers.Rows[this.ID].Cells[1].Value.ToString();
 
                 dialogResult = DialogResult.OK;
                 this.Close();
-            } else
+            }
+            else
             {
                 MessageBox.Show(".يجب عليك اختيار زبون من فضلك", Application.ProductName);
                 return;
             }
         }
 
-        public void button2_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            this.dialogResult = DialogResult.Cancel;
-            this.Close();
+            txtCustomerName.Text = "";
+            txtCustomerID.Text = "";
+
+
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                DGVCustomers.Columns["Column1"].HeaderText = "اسم الزبون";
+                DGVCustomers.Columns["Column2"].HeaderText = "رقم الزبون";
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                DGVCustomers.Columns["Column1"].HeaderText = "Client Name";
+                DGVCustomers.Columns["Column2"].HeaderText = "Client ID";
+            }
         }
 
-        public void textBox1_TextChanged(object sender, EventArgs e)
+        private void txtCustomerName_TextChanged(object sender, EventArgs e)
         {
-            DataTable RetrievedCustomers = Connection.server.SearchCustomers(textBox1.Text, "", "");
+            DataTable RetrievedCustomers = Connection.server.SearchCustomers(txtCustomerName.Text, "", "");
             DGVCustomers.DataSource = RetrievedCustomers;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -123,9 +140,9 @@ namespace PlancksoftPOS
             }
         }
 
-        public void textBox2_TextChanged(object sender, EventArgs e)
+        private void txtCustomerID_TextChanged(object sender, EventArgs e)
         {
-            DataTable RetrievedCustomers = Connection.server.SearchCustomers("", textBox2.Text, "");
+            DataTable RetrievedCustomers = Connection.server.SearchCustomers("", txtCustomerID.Text, "");
             DGVCustomers.DataSource = RetrievedCustomers;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -140,66 +157,21 @@ namespace PlancksoftPOS
             }
         }
 
-        public void button3_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "";
-            textBox2.Text = "";
-
-
-            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-            {
-                DGVCustomers.Columns["Column1"].HeaderText = "اسم الزبون";
-                DGVCustomers.Columns["Column2"].HeaderText = "رقم الزبون";
-            }
-            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-            {
-                DGVCustomers.Columns["Column1"].HeaderText = "Client Name";
-                DGVCustomers.Columns["Column2"].HeaderText = "Client ID";
-            }
-        }
-
-        public void DGVCustomers_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void DGVCustomers_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.ID = e.RowIndex;
         }
 
-        public void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtCustomerName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
-                button1.PerformClick();
+                btnPickCustomer.PerformClick();
         }
 
-        public void textBox2_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtCustomerID_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
-                button1.PerformClick();
-        }
-
-        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
-            Settings.Default.Save();
-            englishToolStripMenuItem.Checked = false;
-            العربيةToolStripMenuItem.Checked = true;
-            PlancksoftPOS.Dispose();
-            applyLocalizationOnUI();
-        }
-
-        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
-            Settings.Default.Save();
-            englishToolStripMenuItem.Checked = true;
-            العربيةToolStripMenuItem.Checked = false;
-            PlancksoftPOS.Dispose();
-            applyLocalizationOnUI();
+                btnPickCustomer.PerformClick();
         }
     }
 }
