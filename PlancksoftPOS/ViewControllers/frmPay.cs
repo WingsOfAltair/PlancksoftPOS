@@ -1,4 +1,5 @@
-﻿using PlancksoftPOS.Properties;
+﻿using MaterialSkin.Controls;
+using MaterialSkin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,11 +9,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dependencies;
+using PlancksoftPOS.Properties;
+using System.Reflection.Emit;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Security.Policy;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace PlancksoftPOS
 {
-    public partial class frmPay : Form
+    public partial class frmPay : MaterialForm
     {
+        public decimal originalTotal = 0;
         public decimal totalAmount = 0;
         public decimal moneyPaid = 0;
         public decimal paidAmount = 0;
@@ -26,30 +35,31 @@ namespace PlancksoftPOS
         {
             InitializeComponent();
 
+            Program.materialSkinManager.AddFormToManage(this);
+
             frmLogin.pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
-                العربيةToolStripMenuItem.Checked = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
-                englishToolStripMenuItem.Checked = true;
             }
 
             applyLocalizationOnUI();
 
-            textBox2.Text = totalAmount.ToString();
-            textBox3.Text = Convert.ToString(this.paidAmount - this.totalAmount);
-            textBox1.Select();
+            originalTotal = totalAmount;
+            txtRequiredAmount.Text = totalAmount.ToString();
+            txtRemainderAmount.Text = Convert.ToString(this.paidAmount - this.totalAmount);
+            txtPaidAmount.Select();
 
             if (frmMain.Authority == 1)
             {
-                discountRateNUD.Maximum = 100;
+                nudDiscountRate.Maximum = 100;
             }
         }
 
@@ -58,235 +68,200 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 Text = "الدفع";
-                label3.Text = "المبلغ المطلوب";
-                label2.Text = "الباقي";
-                label1.Text = "المبلغ المدفوع";
-                Cash.Text = "دفع كاش";
-                Visa.Text = "دفع Visa";
-                button11.Text = "دفع";
-                button12.Text = "تأجيل الدفع";
-                button13.Text = "اغلاق";
-                button14.Text = "مسح";
+                lblRequiredAmount.Text = "المبلغ المطلوب";
+                lblRemainderAmount.Text = "الباقي";
+                lblPaidAmount.Text = "المبلغ المدفوع";
+                rbCash.Text = "دفع كاش";
+                rbVisa.Text = "دفع Visa";
+                btnPay.Text = "دفع";
+                btnDelayPayment.Text = "تأجيل الدفع";
+                btnCancel.Text = "اغلاق";
+                btnClear.Text = "مسح";
                 cbWithDiscount.Text = "مع خصم";
-                اللغةToolStripMenuItem.Text = "اللغة";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "الخروج";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 Text = "Payment";
-                label3.Text = "Amount Required";
-                label2.Text = "Remainder";
-                label1.Text = "Paid Amount";
-                Cash.Text = "Cash Payment";
-                Visa.Text = "Visa Payment";
-                button11.Text = "Pay";
-                button12.Text = "Postpone Payment";
-                button13.Text = "Close";
-                button14.Text = "Clear";
+                lblRequiredAmount.Text = "Amount Required";
+                lblRemainderAmount.Text = "Remainder";
+                lblPaidAmount.Text = "Paid Amount";
+                rbCash.Text = "Cash Payment";
+                rbVisa.Text = "Visa Payment";
+                btnPay.Text = "Pay";
+                btnDelayPayment.Text = "Postpone Payment";
+                btnCancel.Text = "Close";
+                btnClear.Text = "Clear";
                 cbWithDiscount.Text = "With Discount";
-                اللغةToolStripMenuItem.Text = "Language";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "Exit";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
         }
 
-        public void button13_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             this.dialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        public void button12_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtPaidAmount.Text = "";
+            txtRemainderAmount.Text = "";
+            nudDiscountRate.Value = 0;
+        }
+
+        private void btn9_Click(object sender, EventArgs e)
+        {
+            txtPaidAmount.Text += "9";
+            txtPaidAmount.SelectionStart = txtPaidAmount.Text.Length;
+            txtPaidAmount.SelectionLength = 0;
+            txtPaidAmount.Select();
+        }
+
+        private void btn8_Click(object sender, EventArgs e)
+        {
+            txtPaidAmount.Text += "8";
+            txtPaidAmount.SelectionStart = txtPaidAmount.Text.Length;
+            txtPaidAmount.SelectionLength = 0;
+            txtPaidAmount.Select();
+        }
+
+        private void btn7_Click(object sender, EventArgs e)
+        {
+            txtPaidAmount.Text += "7";
+            txtPaidAmount.SelectionStart = txtPaidAmount.Text.Length;
+            txtPaidAmount.SelectionLength = 0;
+            txtPaidAmount.Select();
+        }
+
+        private void btn6_Click(object sender, EventArgs e)
+        {
+            txtPaidAmount.Text += "6";
+            txtPaidAmount.SelectionStart = txtPaidAmount.Text.Length;
+            txtPaidAmount.SelectionLength = 0;
+            txtPaidAmount.Select();
+        }
+
+        private void btn5_Click(object sender, EventArgs e)
+        {
+            txtPaidAmount.Text += "5";
+            txtPaidAmount.SelectionStart = txtPaidAmount.Text.Length;
+            txtPaidAmount.SelectionLength = 0;
+            txtPaidAmount.Select();
+        }
+
+        private void btn4_Click(object sender, EventArgs e)
+        {
+            txtPaidAmount.Text += "4";
+            txtPaidAmount.SelectionStart = txtPaidAmount.Text.Length;
+            txtPaidAmount.SelectionLength = 0;
+            txtPaidAmount.Select();
+        }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            txtPaidAmount.Text += "3";
+            txtPaidAmount.SelectionStart = txtPaidAmount.Text.Length;
+            txtPaidAmount.SelectionLength = 0;
+            txtPaidAmount.Select();
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            txtPaidAmount.Text += "2";
+            txtPaidAmount.SelectionStart = txtPaidAmount.Text.Length;
+            txtPaidAmount.SelectionLength = 0;
+            txtPaidAmount.Select();
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            txtPaidAmount.Text += "1";
+            txtPaidAmount.SelectionStart = txtPaidAmount.Text.Length;
+            txtPaidAmount.SelectionLength = 0;
+            txtPaidAmount.Select();
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+            txtPaidAmount.Text += "0";
+            txtPaidAmount.SelectionStart = txtPaidAmount.Text.Length;
+            txtPaidAmount.SelectionLength = 0;
+            txtPaidAmount.Select();
+        }
+
+        private void btnDecimal_Click(object sender, EventArgs e)
+        {
+            txtPaidAmount.Text += ".";
+            txtPaidAmount.SelectionStart = txtPaidAmount.Text.Length;
+            txtPaidAmount.SelectionLength = 0;
+            txtPaidAmount.Select();
+        }
+
+        private void btnPay_Click(object sender, EventArgs e)
+        {
+            if (rbCash.Checked)
+                this.paybycash = true;
+            else this.paybycash = false;
+            this.moneyPaid = Convert.ToDecimal(txtPaidAmount.Text);
+            this.dialogResult = DialogResult.OK;
+            this.Close();
+        }
+
+        private void btnDelayPayment_Click(object sender, EventArgs e)
         {
             this.moneyPaid = 0;
             this.dialogResult = DialogResult.Ignore;
             this.Close();
         }
 
-        public void button11_Click(object sender, EventArgs e)
-        {
-            if (Cash.Checked)
-                this.paybycash = true;
-            else this.paybycash = false;
-            this.moneyPaid = Convert.ToDecimal(textBox1.Text);
-            this.dialogResult = DialogResult.OK;
-            this.Close();
-        }
-
-        public void textBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
-            {
-                e.Handled = true;
-            }
-
-            // only allow one decimal point
-            if (e.KeyChar == '.' && textBox1.Text.IndexOf('.') > -1)
-            {
-                e.Handled = true;
-            }
-
-            base.OnKeyPress(e);
-            if (e.KeyChar == (Char)Keys.Enter)
-            {
-                button11.PerformClick();
-                dialogResult = DialogResult.OK;
-            } else if (e.KeyChar == (Char)Keys.Escape)
-            {
-                dialogResult = DialogResult.Cancel;
-                this.Close();
-            }
-        }
-
-        public void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                this.totalAmount = Convert.ToDecimal(textBox2.Text);
-                this.paidAmount = Convert.ToDecimal(textBox1.Text);
-                this.remainderAmount = this.paidAmount - this.totalAmount;
-                textBox2.Text = this.totalAmount.ToString();
-                textBox3.Text = this.remainderAmount.ToString();
-            } catch(Exception error) { }
-        }
-
-        public void button10_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "0";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button1_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "1";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button2_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "2";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button3_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "3";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button4_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "4";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button5_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "5";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button6_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "6";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button7_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "7";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button8_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "8";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button9_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "9";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button14_Click(object sender, EventArgs e)
-        {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-        }
-
-        public void cbWithDiscount_CheckedChanged(object sender, EventArgs e)
+        private void cbWithDiscount_CheckedChanged(object sender, EventArgs e)
         {
             if (cbWithDiscount.Checked)
             {
-                discountRateNUD.Enabled = true;
-            } else
-            {
-                discountRateNUD.Enabled = false;
+                nudDiscountRate.Enabled = true;
             }
+            else
+            {
+                nudDiscountRate.Enabled = false;
+            }
+            nudDiscountRate.Value = 0;
+            txtRequiredAmount.Text = originalTotal.ToString();
         }
 
-        public void discountRateNUD_ValueChanged(object sender, EventArgs e)
+        private void txtPaidAmount_TextChanged(object sender, EventArgs e)
         {
-            decimal discount = Convert.ToDecimal(textBox2.Text) * (discountRateNUD.Value / 100);
-            decimal newPrice = Convert.ToDecimal(textBox2.Text) - discount;
-            textBox2.Text = newPrice.ToString();
+            try
+            {
+                this.totalAmount = Convert.ToDecimal(txtRequiredAmount.Text);
+                this.paidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                this.remainderAmount = this.paidAmount - this.totalAmount;
+                txtRequiredAmount.Text = this.totalAmount.ToString();
+                txtRemainderAmount.Text = this.remainderAmount.ToString();
+            }
+            catch (Exception error) { }
         }
 
-        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
+        private void nudDiscountRate_ValueChanged(object sender, EventArgs e)
         {
-            Application.Exit();
+            decimal discount = Convert.ToDecimal(txtRequiredAmount.Text) * (nudDiscountRate.Value / 100);
+            decimal newPrice = Convert.ToDecimal(txtRequiredAmount.Text) - discount;
+            txtRequiredAmount.Text = newPrice.ToString();
         }
 
-        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
+        private void txtRequiredAmount_TextChanged(object sender, EventArgs e)
         {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
-            Settings.Default.Save();
-            englishToolStripMenuItem.Checked = false;
-            العربيةToolStripMenuItem.Checked = true;
-            PlancksoftPOS.Dispose();
-            applyLocalizationOnUI();
-        }
-
-        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
-            Settings.Default.Save();
-            englishToolStripMenuItem.Checked = true;
-            العربيةToolStripMenuItem.Checked = false;
-            PlancksoftPOS.Dispose();
-            applyLocalizationOnUI();
+            try
+            {
+                this.totalAmount = Convert.ToDecimal(txtRequiredAmount.Text);
+                this.paidAmount = Convert.ToDecimal(txtPaidAmount.Text);
+                this.remainderAmount = this.paidAmount - this.totalAmount;
+                txtRequiredAmount.Text = this.totalAmount.ToString();
+                txtRemainderAmount.Text = this.remainderAmount.ToString();
+            }
+            catch (Exception error) { }
         }
     }
 }
