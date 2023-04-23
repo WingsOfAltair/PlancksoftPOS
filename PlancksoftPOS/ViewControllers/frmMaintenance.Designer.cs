@@ -1,8 +1,11 @@
-﻿
-namespace PlancksoftPOS
+﻿namespace PlancksoftPOS
 {
     partial class frmMaintenance
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -23,185 +26,124 @@ namespace PlancksoftPOS
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        public void InitializeComponent()
+        private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMaintenance));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.Menu.SuspendLayout();
+            this.lblPlancksoft1 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblPlancksoft2 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblContactNumber = new MaterialSkin.Controls.MaterialLabel();
+            this.pbPlancksoft = new System.Windows.Forms.PictureBox();
+            this.btnClose = new MaterialSkin.Controls.MaterialButton();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlancksoft)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // lblPlancksoft1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.SteelBlue;
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(756, 465);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "عن البرمجية";
+            this.lblPlancksoft1.AutoSize = true;
+            this.lblPlancksoft1.Depth = 0;
+            this.lblPlancksoft1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblPlancksoft1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblPlancksoft1.Location = new System.Drawing.Point(3, 64);
+            this.lblPlancksoft1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblPlancksoft1.Name = "lblPlancksoft1";
+            this.lblPlancksoft1.Size = new System.Drawing.Size(362, 17);
+            this.lblPlancksoft1.TabIndex = 0;
+            this.lblPlancksoft1.Text = " Plancksoft تم تصميم و برمجة هذا النظام من قبل مؤسسة";
             // 
-            // button1
+            // lblPlancksoft2
             // 
-            this.button1.Location = new System.Drawing.Point(631, 118);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 48);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "إغلاق";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.lblPlancksoft2.AutoSize = true;
+            this.lblPlancksoft2.Depth = 0;
+            this.lblPlancksoft2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblPlancksoft2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblPlancksoft2.Location = new System.Drawing.Point(3, 81);
+            this.lblPlancksoft2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblPlancksoft2.Name = "lblPlancksoft2";
+            this.lblPlancksoft2.Size = new System.Drawing.Size(308, 17);
+            this.lblPlancksoft2.TabIndex = 1;
+            this.lblPlancksoft2.Text = " :للإستفسارات والصيانة, الرجاء الإتصال بالرقم التالي";
             // 
-            // pictureBox1
+            // lblContactNumber
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pictureBox1.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 134);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(750, 328);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.lblContactNumber.AutoSize = true;
+            this.lblContactNumber.Depth = 0;
+            this.lblContactNumber.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblContactNumber.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblContactNumber.Location = new System.Drawing.Point(3, 98);
+            this.lblContactNumber.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblContactNumber.Name = "lblContactNumber";
+            this.lblContactNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblContactNumber.Size = new System.Drawing.Size(119, 17);
+            this.lblContactNumber.TabIndex = 2;
+            this.lblContactNumber.Text = "+962 77 64 721 66";
             // 
-            // label3
+            // pbPlancksoft
             // 
-            this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.label3.Location = new System.Drawing.Point(33, 96);
-            this.label3.Name = "label3";
-            this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(178, 24);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "+962 77 64 721 66";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.pbPlancksoft.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pbPlancksoft.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
+            this.pbPlancksoft.Location = new System.Drawing.Point(3, 198);
+            this.pbPlancksoft.Name = "pbPlancksoft";
+            this.pbPlancksoft.Size = new System.Drawing.Size(658, 328);
+            this.pbPlancksoft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPlancksoft.TabIndex = 4;
+            this.pbPlancksoft.TabStop = false;
             // 
-            // label2
+            // btnClose
             // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.Khaki;
-            this.label2.Location = new System.Drawing.Point(37, 72);
-            this.label2.Name = "label2";
-            this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.label2.Size = new System.Drawing.Size(382, 24);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "للإستفسارات والصيانة, الرجاء الإتصال بالرقم التالي: ";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.Color.Khaki;
-            this.label1.Location = new System.Drawing.Point(14, 48);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(418, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "تم تصميم و برمجة هذا النظام من قبل مؤسسة Plancksoft";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // Menu
-            // 
-            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.اللغةToolStripMenuItem,
-            this.الخروجToolStripMenuItem});
-            this.Menu.Name = "Menu";
-            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Menu.Size = new System.Drawing.Size(107, 48);
-            // 
-            // اللغةToolStripMenuItem
-            // 
-            this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.العربيةToolStripMenuItem,
-            this.englishToolStripMenuItem});
-            this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
-            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.اللغةToolStripMenuItem.Text = "اللغة";
-            // 
-            // العربيةToolStripMenuItem
-            // 
-            this.العربيةToolStripMenuItem.CheckOnClick = true;
-            this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
-            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.العربيةToolStripMenuItem.Text = "العربية";
-            this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
-            // 
-            // englishToolStripMenuItem
-            // 
-            this.englishToolStripMenuItem.CheckOnClick = true;
-            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.englishToolStripMenuItem.Text = "English";
-            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
-            // 
-            // الخروجToolStripMenuItem
-            // 
-            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
-            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.الخروجToolStripMenuItem.Text = "الخروج";
-            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
-            // 
-            // PlancksoftPOS
-            // 
-            this.PlancksoftPOS.ContextMenuStrip = this.Menu;
-            this.PlancksoftPOS.Icon = ((System.Drawing.Icon)(resources.GetObject("PlancksoftPOS.Icon")));
-            this.PlancksoftPOS.Text = "PlancksoftPOS";
-            this.PlancksoftPOS.Visible = true;
+            this.btnClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnClose.Depth = 0;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnClose.HighEmphasis = true;
+            this.btnClose.Icon = null;
+            this.btnClose.Location = new System.Drawing.Point(3, 162);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnClose.Size = new System.Drawing.Size(658, 36);
+            this.btnClose.TabIndex = 5;
+            this.btnClose.Text = "إغلاق";
+            this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClose.UseAccentColor = false;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmMaintenance
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 24F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(756, 465);
-            this.Controls.Add(this.groupBox1);
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.ClientSize = new System.Drawing.Size(664, 529);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.pbPlancksoft);
+            this.Controls.Add(this.lblContactNumber);
+            this.Controls.Add(this.lblPlancksoft2);
+            this.Controls.Add(this.lblPlancksoft1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(6);
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmMaintenance";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "طلب الصيانة";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.Menu.ResumeLayout(false);
+            this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "عن البرمجية";
+            ((System.ComponentModel.ISupportInitialize)(this.pbPlancksoft)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        public System.Windows.Forms.GroupBox groupBox1;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.PictureBox pictureBox1;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ContextMenuStrip Menu;
-        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
-        private System.Windows.Forms.NotifyIcon PlancksoftPOS;
-        private System.ComponentModel.IContainer components;
+        private MaterialSkin.Controls.MaterialLabel lblPlancksoft1;
+        private MaterialSkin.Controls.MaterialLabel lblPlancksoft2;
+        private MaterialSkin.Controls.MaterialLabel lblContactNumber;
+        public System.Windows.Forms.PictureBox pbPlancksoft;
+        private MaterialSkin.Controls.MaterialButton btnClose;
     }
 }

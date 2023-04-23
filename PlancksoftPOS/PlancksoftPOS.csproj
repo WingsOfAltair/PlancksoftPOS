@@ -147,6 +147,42 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="ViewControllers\frmOpenRegister.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmOpenRegister.Designer.cs">
+      <DependentUpon>frmOpenRegister.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\frmMaintenance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmMaintenance.Designer.cs">
+      <DependentUpon>frmMaintenance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\frmLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmLicense.Designer.cs">
+      <DependentUpon>frmLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\frmItemRefund.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmItemRefund.Designer.cs">
+      <DependentUpon>frmItemRefund.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\frmItemLookup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmItemLookup.Designer.cs">
+      <DependentUpon>frmItemLookup.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewControllers\frmEditPrice.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -177,18 +213,6 @@
     <Compile Include="ViewControllers\frmAuth.Designer.cs">
       <DependentUpon>frmAuth.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewControllers\frmItemRefund.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewControllers\frmItemRefund.Designer.cs">
-      <DependentUpon>frmItemRefund.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\frmMaintenance.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewControllers\frmMaintenance.Designer.cs">
-      <DependentUpon>frmMaintenance.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewControllers\frmPickCustomerLookup.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,35 +227,11 @@
     </Compile>
     <Compile Include="Classes\Connection.cs" />
     <Compile Include="Classes\DGVPrinter.cs" />
-    <Compile Include="ViewControllers\frmItemLookup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewControllers\frmItemLookup.Designer.cs">
-      <DependentUpon>frmItemLookup.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\frmLicense.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewControllers\frmLicense.Designer.cs">
-      <DependentUpon>frmLicense.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\frmLogin.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewControllers\frmLogin.Designer.cs">
-      <DependentUpon>frmLogin.cs</DependentUpon>
-    </Compile>
     <Compile Include="ViewControllers\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ViewControllers\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ViewControllers\frmOpenRegister.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ViewControllers\frmOpenRegister.Designer.cs">
-      <DependentUpon>frmOpenRegister.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewControllers\frmPay.cs">
       <SubType>Form</SubType>
@@ -263,6 +263,24 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\RawPrinterHelper.cs" />
+    <EmbeddedResource Include="ViewControllers\frmOpenRegister.resx">
+      <DependentUpon>frmOpenRegister.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewControllers\frmMaintenance.resx">
+      <DependentUpon>frmMaintenance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewControllers\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewControllers\frmLicense.resx">
+      <DependentUpon>frmLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewControllers\frmItemRefund.resx">
+      <DependentUpon>frmItemRefund.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewControllers\frmItemLookup.resx">
+      <DependentUpon>frmItemLookup.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmEditPrice.resx">
       <DependentUpon>frmEditPrice.cs</DependentUpon>
     </EmbeddedResource>
@@ -278,26 +296,8 @@
     <EmbeddedResource Include="ViewControllers\frmAuth.resx">
       <DependentUpon>frmAuth.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewControllers\frmItemLookup.resx">
-      <DependentUpon>frmItemLookup.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewControllers\frmItemRefund.resx">
-      <DependentUpon>frmItemRefund.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewControllers\frmLicense.resx">
-      <DependentUpon>frmLicense.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewControllers\frmLogin.resx">
-      <DependentUpon>frmLogin.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewControllers\frmMaintenance.resx">
-      <DependentUpon>frmMaintenance.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ViewControllers\frmOpenRegister.resx">
-      <DependentUpon>frmOpenRegister.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmPay.resx">
       <DependentUpon>frmPay.cs</DependentUpon>

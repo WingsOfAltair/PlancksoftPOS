@@ -43,12 +43,11 @@
             // 
             // lblCashierName
             // 
-            this.lblCashierName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCashierName.AutoSize = true;
             this.lblCashierName.Depth = 0;
+            this.lblCashierName.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblCashierName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblCashierName.Location = new System.Drawing.Point(282, 76);
+            this.lblCashierName.Location = new System.Drawing.Point(3, 64);
             this.lblCashierName.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCashierName.Name = "lblCashierName";
             this.lblCashierName.Size = new System.Drawing.Size(109, 17);
@@ -65,7 +64,7 @@
             this.rtbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.rtbDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.rtbDescription.LeaveOnEnterKey = true;
-            this.rtbDescription.Location = new System.Drawing.Point(41, 96);
+            this.rtbDescription.Location = new System.Drawing.Point(6, 96);
             this.rtbDescription.MouseState = MaterialSkin.MouseState.HOVER;
             this.rtbDescription.Name = "rtbDescription";
             this.rtbDescription.ReadOnly = true;
@@ -76,7 +75,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::PlancksoftPOS.Properties.Resources.cashregister;
-            this.pictureBox1.Location = new System.Drawing.Point(397, 96);
+            this.pictureBox1.Location = new System.Drawing.Point(496, 96);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(259, 177);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -89,7 +88,7 @@
             this.lblEnterMoneyAmountInCash.AutoSize = true;
             this.lblEnterMoneyAmountInCash.Depth = 0;
             this.lblEnterMoneyAmountInCash.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblEnterMoneyAmountInCash.Location = new System.Drawing.Point(38, 286);
+            this.lblEnterMoneyAmountInCash.Location = new System.Drawing.Point(6, 284);
             this.lblEnterMoneyAmountInCash.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblEnterMoneyAmountInCash.Name = "lblEnterMoneyAmountInCash";
             this.lblEnterMoneyAmountInCash.Size = new System.Drawing.Size(148, 17);
@@ -99,18 +98,16 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.numericUpDown1.Location = new System.Drawing.Point(334, 284);
+            this.numericUpDown1.Location = new System.Drawing.Point(496, 284);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             -559939585,
             902409669,
             54,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(354, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(256, 20);
             this.numericUpDown1.TabIndex = 0;
             this.numericUpDown1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown1_KeyPress);
             // 
@@ -122,12 +119,12 @@
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnCancel.HighEmphasis = true;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(3, 424);
+            this.btnCancel.Location = new System.Drawing.Point(3, 421);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnCancel.Size = new System.Drawing.Size(688, 36);
+            this.btnCancel.Size = new System.Drawing.Size(752, 36);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "إغلاق";
             this.btnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -143,12 +140,12 @@
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSubmit.HighEmphasis = true;
             this.btnSubmit.Icon = null;
-            this.btnSubmit.Location = new System.Drawing.Point(3, 388);
+            this.btnSubmit.Location = new System.Drawing.Point(3, 385);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSubmit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnSubmit.Size = new System.Drawing.Size(688, 36);
+            this.btnSubmit.Size = new System.Drawing.Size(752, 36);
             this.btnSubmit.TabIndex = 2;
             this.btnSubmit.Text = "إتمام";
             this.btnSubmit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -164,12 +161,12 @@
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(3, 352);
+            this.btnClear.Location = new System.Drawing.Point(3, 349);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
             this.btnClear.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnClear.Size = new System.Drawing.Size(688, 36);
+            this.btnClear.Size = new System.Drawing.Size(752, 36);
             this.btnClear.TabIndex = 1;
             this.btnClear.Text = "مسح";
             this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -181,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(694, 463);
+            this.ClientSize = new System.Drawing.Size(758, 460);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnCancel);

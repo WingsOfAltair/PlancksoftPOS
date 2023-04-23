@@ -52,8 +52,9 @@
             // 
             this.lblEnterAmount.AutoSize = true;
             this.lblEnterAmount.Depth = 0;
+            this.lblEnterAmount.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblEnterAmount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblEnterAmount.Location = new System.Drawing.Point(223, 73);
+            this.lblEnterAmount.Location = new System.Drawing.Point(3, 64);
             this.lblEnterAmount.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblEnterAmount.Name = "lblEnterAmount";
             this.lblEnterAmount.Size = new System.Drawing.Size(80, 17);
@@ -69,10 +70,11 @@
             this.txtAmount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.txtAmount.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.txtAmount.Depth = 0;
+            this.txtAmount.Dock = System.Windows.Forms.DockStyle.Top;
             this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtAmount.HideSelection = true;
             this.txtAmount.LeadingIcon = null;
-            this.txtAmount.Location = new System.Drawing.Point(6, 97);
+            this.txtAmount.Location = new System.Drawing.Point(3, 81);
             this.txtAmount.MaxLength = 32767;
             this.txtAmount.MouseState = MaterialSkin.MouseState.OUT;
             this.txtAmount.Name = "txtAmount";
@@ -84,23 +86,22 @@
             this.txtAmount.SelectionLength = 0;
             this.txtAmount.SelectionStart = 0;
             this.txtAmount.ShortcutsEnabled = true;
-            this.txtAmount.Size = new System.Drawing.Size(555, 48);
+            this.txtAmount.Size = new System.Drawing.Size(412, 48);
             this.txtAmount.TabIndex = 41;
             this.txtAmount.TabStop = false;
-            this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtAmount.TrailingIcon = null;
             this.txtAmount.UseSystemPasswordChar = false;
             // 
             // btnEditPrice
             // 
-            this.btnEditPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditPrice.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnEditPrice.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnEditPrice.Depth = 0;
             this.btnEditPrice.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnEditPrice.HighEmphasis = true;
             this.btnEditPrice.Icon = null;
-            this.btnEditPrice.Location = new System.Drawing.Point(382, 343);
+            this.btnEditPrice.Location = new System.Drawing.Point(303, 341);
             this.btnEditPrice.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEditPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEditPrice.Name = "btnEditPrice";
@@ -137,7 +138,7 @@
             this.btn9.Depth = 0;
             this.btn9.HighEmphasis = true;
             this.btn9.Icon = null;
-            this.btn9.Location = new System.Drawing.Point(141, 154);
+            this.btn9.Location = new System.Drawing.Point(62, 152);
             this.btn9.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn9.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn9.Name = "btn9";
@@ -157,7 +158,7 @@
             this.btn8.Depth = 0;
             this.btn8.HighEmphasis = true;
             this.btn8.Icon = null;
-            this.btn8.Location = new System.Drawing.Point(262, 154);
+            this.btn8.Location = new System.Drawing.Point(183, 152);
             this.btn8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn8.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn8.Name = "btn8";
@@ -177,7 +178,7 @@
             this.btn7.Depth = 0;
             this.btn7.HighEmphasis = true;
             this.btn7.Icon = null;
-            this.btn7.Location = new System.Drawing.Point(382, 154);
+            this.btn7.Location = new System.Drawing.Point(303, 152);
             this.btn7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn7.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn7.Name = "btn7";
@@ -197,7 +198,7 @@
             this.btn6.Depth = 0;
             this.btn6.HighEmphasis = true;
             this.btn6.Icon = null;
-            this.btn6.Location = new System.Drawing.Point(141, 202);
+            this.btn6.Location = new System.Drawing.Point(62, 200);
             this.btn6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn6.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn6.Name = "btn6";
@@ -217,7 +218,7 @@
             this.btn5.Depth = 0;
             this.btn5.HighEmphasis = true;
             this.btn5.Icon = null;
-            this.btn5.Location = new System.Drawing.Point(262, 202);
+            this.btn5.Location = new System.Drawing.Point(183, 200);
             this.btn5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn5.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn5.Name = "btn5";
@@ -237,7 +238,7 @@
             this.btn4.Depth = 0;
             this.btn4.HighEmphasis = true;
             this.btn4.Icon = null;
-            this.btn4.Location = new System.Drawing.Point(382, 202);
+            this.btn4.Location = new System.Drawing.Point(303, 200);
             this.btn4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn4.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn4.Name = "btn4";
@@ -257,7 +258,7 @@
             this.btn3.Depth = 0;
             this.btn3.HighEmphasis = true;
             this.btn3.Icon = null;
-            this.btn3.Location = new System.Drawing.Point(141, 250);
+            this.btn3.Location = new System.Drawing.Point(62, 248);
             this.btn3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn3.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn3.Name = "btn3";
@@ -277,7 +278,7 @@
             this.btn2.Depth = 0;
             this.btn2.HighEmphasis = true;
             this.btn2.Icon = null;
-            this.btn2.Location = new System.Drawing.Point(262, 250);
+            this.btn2.Location = new System.Drawing.Point(183, 248);
             this.btn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn2.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn2.Name = "btn2";
@@ -297,7 +298,7 @@
             this.btn1.Depth = 0;
             this.btn1.HighEmphasis = true;
             this.btn1.Icon = null;
-            this.btn1.Location = new System.Drawing.Point(382, 250);
+            this.btn1.Location = new System.Drawing.Point(303, 248);
             this.btn1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn1.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn1.Name = "btn1";
@@ -317,7 +318,7 @@
             this.btn0.Depth = 0;
             this.btn0.HighEmphasis = true;
             this.btn0.Icon = null;
-            this.btn0.Location = new System.Drawing.Point(262, 295);
+            this.btn0.Location = new System.Drawing.Point(183, 293);
             this.btn0.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn0.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn0.Name = "btn0";
@@ -337,7 +338,7 @@
             this.btnClear.Depth = 0;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(262, 343);
+            this.btnClear.Location = new System.Drawing.Point(183, 341);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
@@ -357,12 +358,12 @@
             this.btnCancel.Depth = 0;
             this.btnCancel.HighEmphasis = true;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(86, 343);
+            this.btnCancel.Location = new System.Drawing.Point(19, 341);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnCancel.Size = new System.Drawing.Size(119, 36);
+            this.btnCancel.Size = new System.Drawing.Size(107, 36);
             this.btnCancel.TabIndex = 53;
             this.btnCancel.Text = "عدم تعديل السعر";
             this.btnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -377,7 +378,7 @@
             this.btnDecimal.Depth = 0;
             this.btnDecimal.HighEmphasis = true;
             this.btnDecimal.Icon = null;
-            this.btnDecimal.Location = new System.Drawing.Point(141, 298);
+            this.btnDecimal.Location = new System.Drawing.Point(62, 296);
             this.btnDecimal.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDecimal.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDecimal.Name = "btnDecimal";
@@ -394,7 +395,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(599, 392);
+            this.ClientSize = new System.Drawing.Size(418, 384);
             this.Controls.Add(this.btnDecimal);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnClear);

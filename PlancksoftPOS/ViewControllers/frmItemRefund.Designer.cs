@@ -2,6 +2,10 @@
 {
     partial class frmItemRefund
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -22,201 +26,229 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        public void InitializeComponent()
+        private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItemRefund));
-            this.button1 = new System.Windows.Forms.Button();
+            this.lblItemName = new MaterialSkin.Controls.MaterialLabel();
+            this.txtItemName = new MaterialSkin.Controls.MaterialTextBox2();
+            this.txtItemBarcode = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblItemBarcode = new MaterialSkin.Controls.MaterialLabel();
+            this.lblItemQuantity = new MaterialSkin.Controls.MaterialLabel();
             this.ItemQuantitynud = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.ItemBarCodetxt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ItemNametxt = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
+            this.btnCancel = new MaterialSkin.Controls.MaterialButton();
+            this.btnItemReturn = new MaterialSkin.Controls.MaterialButton();
+            this.btnItemSelect = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.ItemQuantitynud)).BeginInit();
-            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // lblItemName
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(16, 98);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 48);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "اختيار الماده";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.lblItemName.AutoSize = true;
+            this.lblItemName.Depth = 0;
+            this.lblItemName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblItemName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblItemName.Location = new System.Drawing.Point(3, 64);
+            this.lblItemName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblItemName.Name = "lblItemName";
+            this.lblItemName.Size = new System.Drawing.Size(66, 17);
+            this.lblItemName.TabIndex = 26;
+            this.lblItemName.Text = "إسم الماده";
+            this.lblItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtItemName
+            // 
+            this.txtItemName.AnimateReadOnly = false;
+            this.txtItemName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtItemName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtItemName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtItemName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtItemName.Depth = 0;
+            this.txtItemName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtItemName.HideSelection = true;
+            this.txtItemName.LeadingIcon = null;
+            this.txtItemName.Location = new System.Drawing.Point(3, 81);
+            this.txtItemName.MaxLength = 32767;
+            this.txtItemName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.PasswordChar = '\0';
+            this.txtItemName.PrefixSuffixText = null;
+            this.txtItemName.ReadOnly = false;
+            this.txtItemName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtItemName.SelectedText = "";
+            this.txtItemName.SelectionLength = 0;
+            this.txtItemName.SelectionStart = 0;
+            this.txtItemName.ShortcutsEnabled = true;
+            this.txtItemName.Size = new System.Drawing.Size(449, 48);
+            this.txtItemName.TabIndex = 27;
+            this.txtItemName.TabStop = false;
+            this.txtItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtItemName.TrailingIcon = null;
+            this.txtItemName.UseSystemPasswordChar = false;
+            // 
+            // txtItemBarcode
+            // 
+            this.txtItemBarcode.AnimateReadOnly = false;
+            this.txtItemBarcode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtItemBarcode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtItemBarcode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtItemBarcode.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtItemBarcode.Depth = 0;
+            this.txtItemBarcode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtItemBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtItemBarcode.HideSelection = true;
+            this.txtItemBarcode.LeadingIcon = null;
+            this.txtItemBarcode.Location = new System.Drawing.Point(3, 146);
+            this.txtItemBarcode.MaxLength = 32767;
+            this.txtItemBarcode.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtItemBarcode.Name = "txtItemBarcode";
+            this.txtItemBarcode.PasswordChar = '\0';
+            this.txtItemBarcode.PrefixSuffixText = null;
+            this.txtItemBarcode.ReadOnly = false;
+            this.txtItemBarcode.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtItemBarcode.SelectedText = "";
+            this.txtItemBarcode.SelectionLength = 0;
+            this.txtItemBarcode.SelectionStart = 0;
+            this.txtItemBarcode.ShortcutsEnabled = true;
+            this.txtItemBarcode.Size = new System.Drawing.Size(449, 48);
+            this.txtItemBarcode.TabIndex = 29;
+            this.txtItemBarcode.TabStop = false;
+            this.txtItemBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtItemBarcode.TrailingIcon = null;
+            this.txtItemBarcode.UseSystemPasswordChar = false;
+            // 
+            // lblItemBarcode
+            // 
+            this.lblItemBarcode.AutoSize = true;
+            this.lblItemBarcode.Depth = 0;
+            this.lblItemBarcode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblItemBarcode.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblItemBarcode.Location = new System.Drawing.Point(3, 129);
+            this.lblItemBarcode.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblItemBarcode.Name = "lblItemBarcode";
+            this.lblItemBarcode.Size = new System.Drawing.Size(73, 17);
+            this.lblItemBarcode.TabIndex = 28;
+            this.lblItemBarcode.Text = "باركود الماده";
+            this.lblItemBarcode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblItemQuantity
+            // 
+            this.lblItemQuantity.AutoSize = true;
+            this.lblItemQuantity.Depth = 0;
+            this.lblItemQuantity.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblItemQuantity.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblItemQuantity.Location = new System.Drawing.Point(3, 194);
+            this.lblItemQuantity.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblItemQuantity.Name = "lblItemQuantity";
+            this.lblItemQuantity.Size = new System.Drawing.Size(63, 17);
+            this.lblItemQuantity.TabIndex = 30;
+            this.lblItemQuantity.Text = "عدد القطع";
+            this.lblItemQuantity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ItemQuantitynud
             // 
+            this.ItemQuantitynud.Dock = System.Windows.Forms.DockStyle.Top;
             this.ItemQuantitynud.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemQuantitynud.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.ItemQuantitynud.Location = new System.Drawing.Point(257, 26);
+            this.ItemQuantitynud.Location = new System.Drawing.Point(3, 211);
             this.ItemQuantitynud.Name = "ItemQuantitynud";
-            this.ItemQuantitynud.Size = new System.Drawing.Size(115, 20);
-            this.ItemQuantitynud.TabIndex = 16;
+            this.ItemQuantitynud.Size = new System.Drawing.Size(449, 20);
+            this.ItemQuantitynud.TabIndex = 31;
             // 
-            // label4
+            // btnCancel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label4.Location = new System.Drawing.Point(254, 9);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
-            this.label4.TabIndex = 17;
-            this.label4.Text = "عدد القطع";
+            this.btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCancel.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnCancel.Depth = 0;
+            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnCancel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnCancel.HighEmphasis = true;
+            this.btnCancel.Icon = null;
+            this.btnCancel.Location = new System.Drawing.Point(3, 308);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnCancel.Size = new System.Drawing.Size(449, 36);
+            this.btnCancel.TabIndex = 32;
+            this.btnCancel.Text = "إلغاء";
+            this.btnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnCancel.UseAccentColor = false;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // ItemBarCodetxt
+            // btnItemReturn
             // 
-            this.ItemBarCodetxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemBarCodetxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.ItemBarCodetxt.Location = new System.Drawing.Point(16, 72);
-            this.ItemBarCodetxt.Name = "ItemBarCodetxt";
-            this.ItemBarCodetxt.Size = new System.Drawing.Size(226, 20);
-            this.ItemBarCodetxt.TabIndex = 14;
+            this.btnItemReturn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnItemReturn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnItemReturn.Depth = 0;
+            this.btnItemReturn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnItemReturn.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnItemReturn.HighEmphasis = true;
+            this.btnItemReturn.Icon = null;
+            this.btnItemReturn.Location = new System.Drawing.Point(3, 272);
+            this.btnItemReturn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnItemReturn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnItemReturn.Name = "btnItemReturn";
+            this.btnItemReturn.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnItemReturn.Size = new System.Drawing.Size(449, 36);
+            this.btnItemReturn.TabIndex = 33;
+            this.btnItemReturn.Text = "إرجاع الماده";
+            this.btnItemReturn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnItemReturn.UseAccentColor = false;
+            this.btnItemReturn.UseVisualStyleBackColor = true;
+            this.btnItemReturn.Click += new System.EventHandler(this.btnItemReturn_Click);
             // 
-            // label2
+            // btnItemSelect
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label2.Location = new System.Drawing.Point(13, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
-            this.label2.TabIndex = 15;
-            this.label2.Text = "باركود الماده";
-            // 
-            // ItemNametxt
-            // 
-            this.ItemNametxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemNametxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.ItemNametxt.Location = new System.Drawing.Point(16, 25);
-            this.ItemNametxt.Name = "ItemNametxt";
-            this.ItemNametxt.Size = new System.Drawing.Size(226, 20);
-            this.ItemNametxt.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label1.Location = new System.Drawing.Point(13, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "اسم الماده";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(142, 98);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 48);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "ارجاع الماده";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(272, 98);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 48);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "الغاء";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // Menu
-            // 
-            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.اللغةToolStripMenuItem,
-            this.الخروجToolStripMenuItem});
-            this.Menu.Name = "Menu";
-            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Menu.Size = new System.Drawing.Size(107, 48);
-            // 
-            // اللغةToolStripMenuItem
-            // 
-            this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.العربيةToolStripMenuItem,
-            this.englishToolStripMenuItem});
-            this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
-            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.اللغةToolStripMenuItem.Text = "اللغة";
-            // 
-            // العربيةToolStripMenuItem
-            // 
-            this.العربيةToolStripMenuItem.CheckOnClick = true;
-            this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
-            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.العربيةToolStripMenuItem.Text = "العربية";
-            this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
-            // 
-            // englishToolStripMenuItem
-            // 
-            this.englishToolStripMenuItem.CheckOnClick = true;
-            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.englishToolStripMenuItem.Text = "English";
-            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
-            // 
-            // الخروجToolStripMenuItem
-            // 
-            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
-            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.الخروجToolStripMenuItem.Text = "الخروج";
-            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
-            // 
-            // PlancksoftPOS
-            // 
-            this.PlancksoftPOS.ContextMenuStrip = this.Menu;
-            this.PlancksoftPOS.Icon = ((System.Drawing.Icon)(resources.GetObject("PlancksoftPOS.Icon")));
-            this.PlancksoftPOS.Text = "PlancksoftPOS";
-            this.PlancksoftPOS.Visible = true;
+            this.btnItemSelect.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnItemSelect.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnItemSelect.Depth = 0;
+            this.btnItemSelect.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnItemSelect.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnItemSelect.HighEmphasis = true;
+            this.btnItemSelect.Icon = null;
+            this.btnItemSelect.Location = new System.Drawing.Point(3, 236);
+            this.btnItemSelect.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnItemSelect.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnItemSelect.Name = "btnItemSelect";
+            this.btnItemSelect.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnItemSelect.Size = new System.Drawing.Size(449, 36);
+            this.btnItemSelect.TabIndex = 34;
+            this.btnItemSelect.Text = "إختيار الماده";
+            this.btnItemSelect.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnItemSelect.UseAccentColor = false;
+            this.btnItemSelect.UseVisualStyleBackColor = true;
+            this.btnItemSelect.Click += new System.EventHandler(this.btnItemSelect_Click);
             // 
             // frmItemRefund
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(399, 170);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(455, 347);
+            this.Controls.Add(this.btnItemSelect);
+            this.Controls.Add(this.btnItemReturn);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.ItemQuantitynud);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.ItemBarCodetxt);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.ItemNametxt);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Controls.Add(this.lblItemQuantity);
+            this.Controls.Add(this.txtItemBarcode);
+            this.Controls.Add(this.lblItemBarcode);
+            this.Controls.Add(this.txtItemName);
+            this.Controls.Add(this.lblItemName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmItemRefund";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ارجاع المواد";
+            this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "إرجاع المواد";
             ((System.ComponentModel.ISupportInitialize)(this.ItemQuantitynud)).EndInit();
-            this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -224,21 +256,14 @@
 
         #endregion
 
-        public System.Windows.Forms.Button button1;
+        private MaterialSkin.Controls.MaterialLabel lblItemName;
+        private MaterialSkin.Controls.MaterialTextBox2 txtItemName;
+        private MaterialSkin.Controls.MaterialTextBox2 txtItemBarcode;
+        private MaterialSkin.Controls.MaterialLabel lblItemBarcode;
+        private MaterialSkin.Controls.MaterialLabel lblItemQuantity;
         public System.Windows.Forms.NumericUpDown ItemQuantitynud;
-        public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.TextBox ItemBarCodetxt;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox ItemNametxt;
-        public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Button button2;
-        public System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ContextMenuStrip Menu;
-        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
-        private System.Windows.Forms.NotifyIcon PlancksoftPOS;
-        private System.ComponentModel.IContainer components;
+        private MaterialSkin.Controls.MaterialButton btnCancel;
+        private MaterialSkin.Controls.MaterialButton btnItemReturn;
+        private MaterialSkin.Controls.MaterialButton btnItemSelect;
     }
 }

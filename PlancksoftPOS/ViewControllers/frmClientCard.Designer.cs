@@ -144,7 +144,7 @@
             this.Column4});
             this.dgvCustomers.Location = new System.Drawing.Point(9, 236);
             this.dgvCustomers.Name = "dgvCustomers";
-            this.dgvCustomers.Size = new System.Drawing.Size(615, 341);
+            this.dgvCustomers.Size = new System.Drawing.Size(579, 341);
             this.dgvCustomers.TabIndex = 5;
             this.dgvCustomers.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCustomers_RowHeaderMouseDoubleClick);
             // 
@@ -272,7 +272,7 @@
             // 
             this.lblClientID.AutoSize = true;
             this.lblClientID.Depth = 0;
-            this.lblClientID.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblClientID.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblClientID.Location = new System.Drawing.Point(11, 159);
             this.lblClientID.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblClientID.Name = "lblClientID";
@@ -284,7 +284,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(646, 583);
+            this.ClientSize = new System.Drawing.Size(593, 587);
             this.Controls.Add(this.txtClientID);
             this.Controls.Add(this.lblClientID);
             this.Controls.Add(this.btnSearch);

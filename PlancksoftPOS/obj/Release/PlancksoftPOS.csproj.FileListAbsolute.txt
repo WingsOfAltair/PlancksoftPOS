@@ -100,13 +100,11 @@ C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.AssemblyReferenc
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.SuggestedBindingRedirects.cache
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\Interop.WMPLib.dll
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.ResolveComReference.cache
-C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.ViewControllers.frmAddPrinter.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmAuth.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmCloseRegister.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmClientCard.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmEditPrice.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmItemLookup.resources
-C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmAddPrinter1.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmItemRefund.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmLicense.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmLogin.resources
@@ -125,3 +123,4 @@ C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.CoreCompileInput
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.CopyComplete
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.exe
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.pdb
+C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmAddPrinter.resources
