@@ -145,7 +145,7 @@ namespace PlancksoftPOS
             {
                 switchThemeScheme.Checked = Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark));
                 Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-                Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.WHITE);
+                Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.BLACK);
             }
             else
             {
@@ -412,7 +412,7 @@ namespace PlancksoftPOS
                 if (Properties.Settings.Default.pickedThemeScheme == (int)ThemeSchemeChoice.ThemeScheme.Dark)
                 {
                     Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-                    Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.WHITE);
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.BLACK);
                     switchThemeScheme.Checked = true;
                 } else
                 {
@@ -5467,7 +5467,7 @@ namespace PlancksoftPOS
                     if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
                     {
                         Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-                        Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.WHITE);
+                        Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.BLACK);
                         Properties.Settings.Default.pickedThemeScheme = 1;
                         Properties.Settings.Default.Save();
                     }
