@@ -52,14 +52,14 @@ namespace PlancksoftPOS
             {
                 Text = "الترخيص و التفعيل";
                 btnClear.Text = "مسح";
-                btnClose.Text = "التفعيل";
+                btnActivate.Text = "التفعيل";
                 btnClose.Text = "الخروج";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 Text = "Licensing & Activation";
                 btnClear.Text = "Clear";
-                btnClose.Text = "Activate";
+                btnActivate.Text = "Activate";
                 btnClose.Text = "Close";
             }
         }
@@ -105,7 +105,79 @@ namespace PlancksoftPOS
 
         private void btnActivate_Click(object sender, EventArgs e)
         {
-
+            if (txtLicenseKey.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|1"))
+            {
+                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
+                Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(1).ToString());
+                Settings.Default.Save();
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة شهر واحد", Application.ProductName);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("The software system was activated with a new License valid for one month.", Application.ProductName);
+                }
+                this.Close();
+            }
+            else if (txtLicenseKey.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|2"))
+            {
+                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
+                Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(6).ToString());
+                Settings.Default.Save();
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة ستة أشهر", Application.ProductName);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("The software system was activated with a new License valid for six months.", Application.ProductName);
+                }
+                this.Close();
+            }
+            else if (txtLicenseKey.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|3"))
+            {
+                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
+                Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddYears(1).ToString());
+                Settings.Default.Save();
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة سنة واحدة", Application.ProductName);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("The software system was activated with a new License valid for one year.", Application.ProductName);
+                }
+                this.Close();
+            }
+            else if (txtLicenseKey.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|4"))
+            {
+                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
+                Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(1000).ToString());
+                Settings.Default.Save();
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة حياة البرمجية", Application.ProductName);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("The software system was activated with a new License valid for the entire lifetime of this product.", Application.ProductName);
+                }
+                this.Close();
+            }
+            else
+            {
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".مفتاح الرخصه غير صحيح", Application.ProductName);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("License Key is incorrect.", Application.ProductName);
+                }
+                txtLicenseKey.Text = "";
+                txtLicenseKey.Select();
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)

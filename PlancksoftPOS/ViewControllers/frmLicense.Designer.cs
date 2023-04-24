@@ -13,10 +13,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLicense));
             this.txtLicenseKey = new MaterialSkin.Controls.MaterialTextBox2();
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.btnActivate = new MaterialSkin.Controls.MaterialButton();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.SuspendLayout();
             // 
             // txtLicenseKey
@@ -35,7 +37,7 @@
             this.txtLicenseKey.MaxLength = 32767;
             this.txtLicenseKey.MouseState = MaterialSkin.MouseState.OUT;
             this.txtLicenseKey.Name = "txtLicenseKey";
-            this.txtLicenseKey.PasswordChar = '●';
+            this.txtLicenseKey.PasswordChar = '\0';
             this.txtLicenseKey.PrefixSuffixText = null;
             this.txtLicenseKey.ReadOnly = false;
             this.txtLicenseKey.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -48,7 +50,7 @@
             this.txtLicenseKey.TabStop = false;
             this.txtLicenseKey.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txtLicenseKey.TrailingIcon = null;
-            this.txtLicenseKey.UseSystemPasswordChar = true;
+            this.txtLicenseKey.UseSystemPasswordChar = false;
             this.txtLicenseKey.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLicenseKey_KeyPress);
             // 
             // btnClose
@@ -114,14 +116,34 @@
             this.btnActivate.UseVisualStyleBackColor = true;
             this.btnActivate.Click += new System.EventHandler(this.btnActivate_Click);
             // 
+            // materialCard1
+            // 
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Depth = 0;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(-7, -2);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(711, 66);
+            this.materialCard1.TabIndex = 53;
+            // 
             // frmLicense
             // 
             this.ClientSize = new System.Drawing.Size(695, 238);
+            this.ControlBox = false;
+            this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.btnActivate);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtLicenseKey);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmLicense";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,5 +153,6 @@
         private MaterialSkin.Controls.MaterialButton btnClose;
         private MaterialSkin.Controls.MaterialButton btnClear;
         private MaterialSkin.Controls.MaterialButton btnActivate;
+        private MaterialSkin.Controls.MaterialCard materialCard1;
     }
 }
