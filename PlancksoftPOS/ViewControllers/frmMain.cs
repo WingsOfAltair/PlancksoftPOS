@@ -9291,8 +9291,7 @@ namespace PlancksoftPOS
 
         public void BillsCashierName_Enter(object sender, EventArgs e)
         {
-            BillsCashierName.Select(0, BillsCashierName.Text.Length);
-            pendingPurchaseRemovalQuantity.Focus();
+
         }
 
         public void QuantityWarning_Enter_1(object sender, EventArgs e)
