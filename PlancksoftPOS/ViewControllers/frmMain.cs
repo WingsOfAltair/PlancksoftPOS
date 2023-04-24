@@ -4484,25 +4484,28 @@ namespace PlancksoftPOS
                 RetrievedItems = Connection.server.SearchBills("", "", Convert.ToInt32(nudBillNumberSearch.Value));
             dgvBills.DataSource = RetrievedItems.Item2;
 
-            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            if (RetrievedItems.Item1.Count > 0)
             {
-                dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
-                dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
-                dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
-                dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
-                dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
-                dgvBills.Columns["Column5"].HeaderText = "طريقة الدفع";
-                dgvBills.Columns["Column64"].HeaderText = "التاريخ";
-            }
-            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-            {
-                dgvBills.Columns["Column15"].HeaderText = "Bill ID";
-                dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
-                dgvBills.Columns["Column17"].HeaderText = "Net Total";
-                dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
-                dgvBills.Columns["Column19"].HeaderText = "Remainder";
-                dgvBills.Columns["Column5"].HeaderText = "Payment Method";
-                dgvBills.Columns["Column64"].HeaderText = "Date";
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
+                    dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                    dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
+                    dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
+                    dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
+                    dgvBills.Columns["Column5"].HeaderText = "طريقة الدفع";
+                    dgvBills.Columns["Column64"].HeaderText = "التاريخ";
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    dgvBills.Columns["Column15"].HeaderText = "Bill ID";
+                    dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                    dgvBills.Columns["Column17"].HeaderText = "Net Total";
+                    dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
+                    dgvBills.Columns["Column19"].HeaderText = "Remainder";
+                    dgvBills.Columns["Column5"].HeaderText = "Payment Method";
+                    dgvBills.Columns["Column64"].HeaderText = "Date";
+                }
             }
         }
 
