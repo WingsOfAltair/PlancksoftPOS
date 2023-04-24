@@ -9342,6 +9342,7 @@ namespace PlancksoftPOS
             مظلمToolStripMenuItem.Checked = false;
             فاتحToolStripMenuItem.Checked = true;
             switchThemeScheme.Checked = false;
+            Application.Restart();
         }
 
         private void مظلمToolStripMenuItem_Click(object sender, EventArgs e)
@@ -9356,6 +9357,7 @@ namespace PlancksoftPOS
             مظلمToolStripMenuItem.Checked = true;
             فاتحToolStripMenuItem.Checked = false;
             switchThemeScheme.Checked = true;
+            Application.Restart();
         }
 
         public void textBox3_KeyPress(object sender, KeyPressEventArgs e)
