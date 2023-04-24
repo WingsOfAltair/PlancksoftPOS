@@ -5425,6 +5425,7 @@ namespace PlancksoftPOS
 
         public void button1_Click(object sender, EventArgs e)
         {
+            bool changedUI = false;
             try
             {
                 if (Connection.server.UpdateSystemSettings(this.shopName.Text, StoreLogo, this.shopPhone.Text,
@@ -5462,6 +5463,7 @@ namespace PlancksoftPOS
                         Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.BLACK);
                         Properties.Settings.Default.pickedThemeScheme = 1;
                         Properties.Settings.Default.Save();
+                        changedUI = true;
                     }
                     else
                     {
@@ -5469,6 +5471,7 @@ namespace PlancksoftPOS
                         Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.BLACK);
                         Properties.Settings.Default.pickedThemeScheme = 0;
                         Properties.Settings.Default.Save();
+                        changedUI = true;
                     }
 
                     this.Refresh();
@@ -5480,28 +5483,32 @@ namespace PlancksoftPOS
                     {
                         MessageBox.Show("System preferences were saved.", Application.ProductName);
                     }
+                    Application.Restart();
                 } else
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم يتم حفظ الاعدادات", Application.ProductName);
+                        MessageBox.Show(".لم يتم حفظ جميع الاعدادات", Application.ProductName);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Unable to save new System preferences.", Application.ProductName);
+                        MessageBox.Show("Unable to save all new System preferences.", Application.ProductName);
                     }
-                    Application.Restart();
                 }
             }
             catch (Exception error)
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم يتم حفظ الاعدادات", Application.ProductName);
+                    MessageBox.Show(".لم يتم حفظ جميع الاعدادات", Application.ProductName);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to save new System preferences.", Application.ProductName);
+                    MessageBox.Show("Unable to save all new System preferences.", Application.ProductName);
+                }
+                if (changedUI)
+                {
+                    Application.Restart();
                 }
             }
         }

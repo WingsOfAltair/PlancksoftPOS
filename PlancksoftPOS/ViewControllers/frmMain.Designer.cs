@@ -2138,12 +2138,12 @@ namespace PlancksoftPOS
             this.button25.Depth = 0;
             this.button25.HighEmphasis = true;
             this.button25.Icon = null;
-            this.button25.Location = new System.Drawing.Point(8, 100);
+            this.button25.Location = new System.Drawing.Point(9, 100);
             this.button25.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button25.MouseState = MaterialSkin.MouseState.HOVER;
             this.button25.Name = "button25";
             this.button25.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.button25.Size = new System.Drawing.Size(133, 36);
+            this.button25.Size = new System.Drawing.Size(132, 36);
             this.button25.TabIndex = 74;
             this.button25.Text = "أقل 100 المواد مباعه";
             this.button25.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
