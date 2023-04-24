@@ -138,6 +138,9 @@ namespace PlancksoftPOS
 
         public void refreshSettings()
         {
+            Program.materialSkinManager = MaterialSkinManager.Instance;
+            Program.materialSkinManager.EnforceBackcolorOnAllComponents = true;
+
             if (Properties.Settings.Default.pickedThemeScheme == (int)ThemeSchemeChoice.ThemeScheme.Dark)
             {
                 switchThemeScheme.Checked = Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark));
@@ -148,7 +151,7 @@ namespace PlancksoftPOS
             {
                 switchThemeScheme.Checked = Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Light));
                 Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-                Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
+                Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.BLACK);
             }
             DataTable dt = Connection.server.RetrieveSystemSettings();
 
@@ -402,6 +405,10 @@ namespace PlancksoftPOS
 
                 applyLocalizationOnUI();
 
+
+                Program.materialSkinManager = MaterialSkinManager.Instance;
+                Program.materialSkinManager.EnforceBackcolorOnAllComponents = true;
+
                 if (Properties.Settings.Default.pickedThemeScheme == (int)ThemeSchemeChoice.ThemeScheme.Dark)
                 {
                     Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
@@ -410,7 +417,7 @@ namespace PlancksoftPOS
                 } else
                 {
                     Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-                    Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.BLACK);
                     switchThemeScheme.Checked = false;
                 }
 
@@ -5454,6 +5461,9 @@ namespace PlancksoftPOS
                     }
                     TaxRate = Convert.ToDecimal(nudTaxRate.Value / 100);
 
+                    Program.materialSkinManager = MaterialSkinManager.Instance;
+                    Program.materialSkinManager.EnforceBackcolorOnAllComponents = true;
+
                     if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
                     {
                         Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
@@ -5464,7 +5474,7 @@ namespace PlancksoftPOS
                     else
                     {
                         Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-                        Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.WHITE);
+                        Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.BLACK);
                         Properties.Settings.Default.pickedThemeScheme = 0;
                         Properties.Settings.Default.Save();
                     }
