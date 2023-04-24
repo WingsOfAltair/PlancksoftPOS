@@ -2,6 +2,10 @@
 {
     partial class frmEditPrice
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -22,345 +26,429 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        public void InitializeComponent()
+        private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditPrice));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button13 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
-            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1.SuspendLayout();
-            this.Menu.SuspendLayout();
+            this.lblEnterAmount = new MaterialSkin.Controls.MaterialLabel();
+            this.txtAmount = new MaterialSkin.Controls.MaterialTextBox2();
+            this.btnEditPrice = new MaterialSkin.Controls.MaterialButton();
+            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.btn9 = new MaterialSkin.Controls.MaterialButton();
+            this.btn8 = new MaterialSkin.Controls.MaterialButton();
+            this.btn7 = new MaterialSkin.Controls.MaterialButton();
+            this.btn6 = new MaterialSkin.Controls.MaterialButton();
+            this.btn5 = new MaterialSkin.Controls.MaterialButton();
+            this.btn4 = new MaterialSkin.Controls.MaterialButton();
+            this.btn3 = new MaterialSkin.Controls.MaterialButton();
+            this.btn2 = new MaterialSkin.Controls.MaterialButton();
+            this.btn1 = new MaterialSkin.Controls.MaterialButton();
+            this.btn0 = new MaterialSkin.Controls.MaterialButton();
+            this.btnClear = new MaterialSkin.Controls.MaterialButton();
+            this.btnCancel = new MaterialSkin.Controls.MaterialButton();
+            this.btnDecimal = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // lblEnterAmount
             // 
-            this.groupBox1.Controls.Add(this.button13);
-            this.groupBox1.Controls.Add(this.button12);
-            this.groupBox1.Controls.Add(this.button11);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.button10);
-            this.groupBox1.Controls.Add(this.button9);
-            this.groupBox1.Controls.Add(this.button8);
-            this.groupBox1.Controls.Add(this.button7);
-            this.groupBox1.Controls.Add(this.button6);
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(458, 408);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "تعديل السعر";
+            this.lblEnterAmount.AutoSize = true;
+            this.lblEnterAmount.Depth = 0;
+            this.lblEnterAmount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblEnterAmount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblEnterAmount.Location = new System.Drawing.Point(3, 64);
+            this.lblEnterAmount.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblEnterAmount.Name = "lblEnterAmount";
+            this.lblEnterAmount.Size = new System.Drawing.Size(80, 17);
+            this.lblEnterAmount.TabIndex = 26;
+            this.lblEnterAmount.Text = "المبلغ الجديد";
+            this.lblEnterAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button13
+            // txtAmount
             // 
-            this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button13.ForeColor = System.Drawing.Color.White;
-            this.button13.Location = new System.Drawing.Point(196, 341);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(75, 50);
-            this.button13.TabIndex = 13;
-            this.button13.Text = "مسح";
-            this.button13.UseVisualStyleBackColor = false;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
+            this.txtAmount.AnimateReadOnly = false;
+            this.txtAmount.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtAmount.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtAmount.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtAmount.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtAmount.Depth = 0;
+            this.txtAmount.Dock = System.Windows.Forms.DockStyle.Top;
+            this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtAmount.HideSelection = true;
+            this.txtAmount.LeadingIcon = null;
+            this.txtAmount.Location = new System.Drawing.Point(3, 81);
+            this.txtAmount.MaxLength = 32767;
+            this.txtAmount.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.PasswordChar = '\0';
+            this.txtAmount.PrefixSuffixText = null;
+            this.txtAmount.ReadOnly = false;
+            this.txtAmount.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtAmount.SelectedText = "";
+            this.txtAmount.SelectionLength = 0;
+            this.txtAmount.SelectionStart = 0;
+            this.txtAmount.ShortcutsEnabled = true;
+            this.txtAmount.Size = new System.Drawing.Size(460, 48);
+            this.txtAmount.TabIndex = 41;
+            this.txtAmount.TabStop = false;
+            this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtAmount.TrailingIcon = null;
+            this.txtAmount.UseSystemPasswordChar = false;
             // 
-            // button12
+            // btnEditPrice
             // 
-            this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.Color.White;
-            this.button12.Location = new System.Drawing.Point(277, 341);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(113, 50);
-            this.button12.TabIndex = 2;
-            this.button12.Text = "عدم تعديل السعر";
-            this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.btnEditPrice.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnEditPrice.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnEditPrice.Depth = 0;
+            this.btnEditPrice.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnEditPrice.HighEmphasis = true;
+            this.btnEditPrice.Icon = null;
+            this.btnEditPrice.Location = new System.Drawing.Point(303, 341);
+            this.btnEditPrice.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnEditPrice.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnEditPrice.Name = "btnEditPrice";
+            this.btnEditPrice.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnEditPrice.Size = new System.Drawing.Size(84, 36);
+            this.btnEditPrice.TabIndex = 40;
+            this.btnEditPrice.Text = "تعديل السعر";
+            this.btnEditPrice.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnEditPrice.UseAccentColor = false;
+            this.btnEditPrice.UseVisualStyleBackColor = true;
+            this.btnEditPrice.Click += new System.EventHandler(this.btnEditPrice_Click);
             // 
-            // button11
+            // materialButton1
             // 
-            this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button11.ForeColor = System.Drawing.Color.White;
-            this.button11.Location = new System.Drawing.Point(79, 341);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(111, 50);
-            this.button11.TabIndex = 1;
-            this.button11.Text = "تعديل السعر";
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.HighEmphasis = true;
+            this.materialButton1.Icon = null;
+            this.materialButton1.Location = new System.Drawing.Point(0, 0);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton1.Size = new System.Drawing.Size(64, 36);
+            this.materialButton1.TabIndex = 0;
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton1.UseAccentColor = false;
             // 
-            // label1
+            // btn9
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label1.Location = new System.Drawing.Point(181, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(149, 31);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "المبلغ المدفوع";
+            this.btn9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn9.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btn9.Depth = 0;
+            this.btn9.HighEmphasis = true;
+            this.btn9.Icon = null;
+            this.btn9.Location = new System.Drawing.Point(62, 152);
+            this.btn9.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn9.Name = "btn9";
+            this.btn9.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btn9.Size = new System.Drawing.Size(64, 36);
+            this.btn9.TabIndex = 42;
+            this.btn9.Text = "9";
+            this.btn9.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn9.UseAccentColor = false;
+            this.btn9.UseVisualStyleBackColor = true;
+            this.btn9.Click += new System.EventHandler(this.btn9_Click);
             // 
-            // button10
+            // btn8
             // 
-            this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.White;
-            this.button10.Location = new System.Drawing.Point(196, 279);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(75, 53);
-            this.button10.TabIndex = 3;
-            this.button10.Text = "0";
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.btn8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn8.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btn8.Depth = 0;
+            this.btn8.HighEmphasis = true;
+            this.btn8.Icon = null;
+            this.btn8.Location = new System.Drawing.Point(183, 152);
+            this.btn8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn8.Name = "btn8";
+            this.btn8.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btn8.Size = new System.Drawing.Size(64, 36);
+            this.btn8.TabIndex = 43;
+            this.btn8.Text = "8";
+            this.btn8.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn8.UseAccentColor = false;
+            this.btn8.UseVisualStyleBackColor = true;
+            this.btn8.Click += new System.EventHandler(this.btn8_Click);
             // 
-            // button9
+            // btn7
             // 
-            this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(277, 102);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(75, 53);
-            this.button9.TabIndex = 12;
-            this.button9.Text = "9";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.btn7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn7.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btn7.Depth = 0;
+            this.btn7.HighEmphasis = true;
+            this.btn7.Icon = null;
+            this.btn7.Location = new System.Drawing.Point(303, 152);
+            this.btn7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn7.Name = "btn7";
+            this.btn7.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btn7.Size = new System.Drawing.Size(64, 36);
+            this.btn7.TabIndex = 44;
+            this.btn7.Text = "7";
+            this.btn7.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn7.UseAccentColor = false;
+            this.btn7.UseVisualStyleBackColor = true;
+            this.btn7.Click += new System.EventHandler(this.btn7_Click);
             // 
-            // button8
+            // btn6
             // 
-            this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(196, 102);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(75, 53);
-            this.button8.TabIndex = 11;
-            this.button8.Text = "8";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.btn6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn6.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btn6.Depth = 0;
+            this.btn6.HighEmphasis = true;
+            this.btn6.Icon = null;
+            this.btn6.Location = new System.Drawing.Point(62, 200);
+            this.btn6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn6.Name = "btn6";
+            this.btn6.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btn6.Size = new System.Drawing.Size(64, 36);
+            this.btn6.TabIndex = 45;
+            this.btn6.Text = "6";
+            this.btn6.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn6.UseAccentColor = false;
+            this.btn6.UseVisualStyleBackColor = true;
+            this.btn6.Click += new System.EventHandler(this.btn6_Click);
             // 
-            // button7
+            // btn5
             // 
-            this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(115, 102);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 53);
-            this.button7.TabIndex = 10;
-            this.button7.Text = "7";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.btn5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn5.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btn5.Depth = 0;
+            this.btn5.HighEmphasis = true;
+            this.btn5.Icon = null;
+            this.btn5.Location = new System.Drawing.Point(183, 200);
+            this.btn5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn5.Name = "btn5";
+            this.btn5.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btn5.Size = new System.Drawing.Size(64, 36);
+            this.btn5.TabIndex = 46;
+            this.btn5.Text = "5";
+            this.btn5.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn5.UseAccentColor = false;
+            this.btn5.UseVisualStyleBackColor = true;
+            this.btn5.Click += new System.EventHandler(this.btn5_Click);
             // 
-            // button6
+            // btn4
             // 
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.White;
-            this.button6.Location = new System.Drawing.Point(277, 161);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 53);
-            this.button6.TabIndex = 9;
-            this.button6.Text = "6";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.btn4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn4.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btn4.Depth = 0;
+            this.btn4.HighEmphasis = true;
+            this.btn4.Icon = null;
+            this.btn4.Location = new System.Drawing.Point(303, 200);
+            this.btn4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn4.Name = "btn4";
+            this.btn4.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btn4.Size = new System.Drawing.Size(64, 36);
+            this.btn4.TabIndex = 47;
+            this.btn4.Text = "4";
+            this.btn4.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn4.UseAccentColor = false;
+            this.btn4.UseVisualStyleBackColor = true;
+            this.btn4.Click += new System.EventHandler(this.btn4_Click);
             // 
-            // button5
+            // btn3
             // 
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.White;
-            this.button5.Location = new System.Drawing.Point(196, 161);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(75, 53);
-            this.button5.TabIndex = 8;
-            this.button5.Text = "5";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.btn3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btn3.Depth = 0;
+            this.btn3.HighEmphasis = true;
+            this.btn3.Icon = null;
+            this.btn3.Location = new System.Drawing.Point(62, 248);
+            this.btn3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn3.Name = "btn3";
+            this.btn3.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btn3.Size = new System.Drawing.Size(64, 36);
+            this.btn3.TabIndex = 48;
+            this.btn3.Text = "3";
+            this.btn3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn3.UseAccentColor = false;
+            this.btn3.UseVisualStyleBackColor = true;
+            this.btn3.Click += new System.EventHandler(this.btn3_Click);
             // 
-            // button4
+            // btn2
             // 
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.White;
-            this.button4.Location = new System.Drawing.Point(115, 161);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 53);
-            this.button4.TabIndex = 7;
-            this.button4.Text = "4";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.btn2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btn2.Depth = 0;
+            this.btn2.HighEmphasis = true;
+            this.btn2.Icon = null;
+            this.btn2.Location = new System.Drawing.Point(183, 248);
+            this.btn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn2.Name = "btn2";
+            this.btn2.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btn2.Size = new System.Drawing.Size(64, 36);
+            this.btn2.TabIndex = 49;
+            this.btn2.Text = "2";
+            this.btn2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn2.UseAccentColor = false;
+            this.btn2.UseVisualStyleBackColor = true;
+            this.btn2.Click += new System.EventHandler(this.btn2_Click);
             // 
-            // button3
+            // btn1
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(277, 220);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 53);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "3";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.btn1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btn1.Depth = 0;
+            this.btn1.HighEmphasis = true;
+            this.btn1.Icon = null;
+            this.btn1.Location = new System.Drawing.Point(303, 248);
+            this.btn1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn1.Name = "btn1";
+            this.btn1.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btn1.Size = new System.Drawing.Size(64, 36);
+            this.btn1.TabIndex = 50;
+            this.btn1.Text = "1";
+            this.btn1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn1.UseAccentColor = false;
+            this.btn1.UseVisualStyleBackColor = true;
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             // 
-            // button2
+            // btn0
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(196, 220);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 53);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "2";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btn0.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btn0.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btn0.Depth = 0;
+            this.btn0.HighEmphasis = true;
+            this.btn0.Icon = null;
+            this.btn0.Location = new System.Drawing.Point(183, 293);
+            this.btn0.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btn0.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btn0.Name = "btn0";
+            this.btn0.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btn0.Size = new System.Drawing.Size(64, 36);
+            this.btn0.TabIndex = 51;
+            this.btn0.Text = "0";
+            this.btn0.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btn0.UseAccentColor = false;
+            this.btn0.UseVisualStyleBackColor = true;
+            this.btn0.Click += new System.EventHandler(this.btn0_Click);
             // 
-            // button1
+            // btnClear
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(115, 220);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 53);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "1";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnClear.Depth = 0;
+            this.btnClear.HighEmphasis = true;
+            this.btnClear.Icon = null;
+            this.btnClear.Location = new System.Drawing.Point(183, 341);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClear.Name = "btnClear";
+            this.btnClear.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnClear.Size = new System.Drawing.Size(64, 36);
+            this.btnClear.TabIndex = 52;
+            this.btnClear.Text = "مسح";
+            this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClear.UseAccentColor = false;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // textBox1
+            // btnCancel
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.textBox1.Location = new System.Drawing.Point(27, 58);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(409, 38);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            this.btnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnCancel.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnCancel.Depth = 0;
+            this.btnCancel.HighEmphasis = true;
+            this.btnCancel.Icon = null;
+            this.btnCancel.Location = new System.Drawing.Point(19, 341);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnCancel.Size = new System.Drawing.Size(107, 36);
+            this.btnCancel.TabIndex = 53;
+            this.btnCancel.Text = "عدم تعديل السعر";
+            this.btnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnCancel.UseAccentColor = false;
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // PlancksoftPOS
+            // btnDecimal
             // 
-            this.PlancksoftPOS.ContextMenuStrip = this.Menu;
-            this.PlancksoftPOS.Icon = ((System.Drawing.Icon)(resources.GetObject("PlancksoftPOS.Icon")));
-            this.PlancksoftPOS.Text = "PlancksoftPOS";
-            this.PlancksoftPOS.Visible = true;
-            // 
-            // Menu
-            // 
-            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.اللغةToolStripMenuItem,
-            this.الخروجToolStripMenuItem});
-            this.Menu.Name = "Menu";
-            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Menu.Size = new System.Drawing.Size(107, 48);
-            // 
-            // اللغةToolStripMenuItem
-            // 
-            this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.العربيةToolStripMenuItem,
-            this.englishToolStripMenuItem});
-            this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
-            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.اللغةToolStripMenuItem.Text = "اللغة";
-            // 
-            // العربيةToolStripMenuItem
-            // 
-            this.العربيةToolStripMenuItem.CheckOnClick = true;
-            this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
-            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.العربيةToolStripMenuItem.Text = "العربية";
-            this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
-            // 
-            // englishToolStripMenuItem
-            // 
-            this.englishToolStripMenuItem.CheckOnClick = true;
-            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.englishToolStripMenuItem.Text = "English";
-            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
-            // 
-            // الخروجToolStripMenuItem
-            // 
-            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
-            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.الخروجToolStripMenuItem.Text = "الخروج";
-            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
+            this.btnDecimal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDecimal.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnDecimal.Depth = 0;
+            this.btnDecimal.HighEmphasis = true;
+            this.btnDecimal.Icon = null;
+            this.btnDecimal.Location = new System.Drawing.Point(62, 296);
+            this.btnDecimal.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnDecimal.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnDecimal.Name = "btnDecimal";
+            this.btnDecimal.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnDecimal.Size = new System.Drawing.Size(64, 36);
+            this.btnDecimal.TabIndex = 54;
+            this.btnDecimal.Text = ".";
+            this.btnDecimal.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnDecimal.UseAccentColor = false;
+            this.btnDecimal.UseVisualStyleBackColor = true;
+            this.btnDecimal.Click += new System.EventHandler(this.btnDecimal_Click);
             // 
             // frmEditPrice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(485, 435);
-            this.ControlBox = false;
-            this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.ClientSize = new System.Drawing.Size(466, 422);
+            this.Controls.Add(this.btnDecimal);
+            this.Controls.Add(this.btnCancel);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btn0);
+            this.Controls.Add(this.btn1);
+            this.Controls.Add(this.btn2);
+            this.Controls.Add(this.btn3);
+            this.Controls.Add(this.btn4);
+            this.Controls.Add(this.btn5);
+            this.Controls.Add(this.btn6);
+            this.Controls.Add(this.btn7);
+            this.Controls.Add(this.btn8);
+            this.Controls.Add(this.btn9);
+            this.Controls.Add(this.materialButton1);
+            this.Controls.Add(this.btnEditPrice);
+            this.Controls.Add(this.txtAmount);
+            this.Controls.Add(this.lblEnterAmount);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEditPrice";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "تعديل السعر";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        public System.Windows.Forms.GroupBox groupBox1;
-        public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Button button10;
-        public System.Windows.Forms.Button button9;
-        public System.Windows.Forms.Button button8;
-        public System.Windows.Forms.Button button7;
-        public System.Windows.Forms.Button button6;
-        public System.Windows.Forms.Button button5;
-        public System.Windows.Forms.Button button4;
-        public System.Windows.Forms.Button button3;
-        public System.Windows.Forms.Button button2;
-        public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.TextBox textBox1;
-        public System.Windows.Forms.Button button12;
-        public System.Windows.Forms.Button button11;
-        public System.Windows.Forms.Button button13;
-        private System.Windows.Forms.NotifyIcon PlancksoftPOS;
-        private System.Windows.Forms.ContextMenuStrip Menu;
-        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
-        private System.ComponentModel.IContainer components;
+        private MaterialSkin.Controls.MaterialLabel lblEnterAmount;
+        private MaterialSkin.Controls.MaterialTextBox2 txtAmount;
+        private MaterialSkin.Controls.MaterialButton btnEditPrice;
+        private MaterialSkin.Controls.MaterialButton materialButton1;
+        private MaterialSkin.Controls.MaterialButton btn9;
+        private MaterialSkin.Controls.MaterialButton btn8;
+        private MaterialSkin.Controls.MaterialButton btn7;
+        private MaterialSkin.Controls.MaterialButton btn6;
+        private MaterialSkin.Controls.MaterialButton btn5;
+        private MaterialSkin.Controls.MaterialButton btn4;
+        private MaterialSkin.Controls.MaterialButton btn3;
+        private MaterialSkin.Controls.MaterialButton btn2;
+        private MaterialSkin.Controls.MaterialButton btn1;
+        private MaterialSkin.Controls.MaterialButton btn0;
+        private MaterialSkin.Controls.MaterialButton btnClear;
+        private MaterialSkin.Controls.MaterialButton btnCancel;
+        private MaterialSkin.Controls.MaterialButton btnDecimal;
     }
 }

@@ -2,6 +2,10 @@
 {
     partial class frmSales
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -22,26 +26,14 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        public void InitializeComponent()
+        private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSales));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.SaleQuantity = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.button3 = new System.Windows.Forms.Button();
-            this.saleRate = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.searchItemBarCode = new System.Windows.Forms.TextBox();
-            this.searchItemName = new System.Windows.Forms.TextBox();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
+            this.lblItemName = new MaterialSkin.Controls.MaterialLabel();
+            this.txtItemBarcode = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblItemBarcode = new MaterialSkin.Controls.MaterialLabel();
+            this.btnClose = new MaterialSkin.Controls.MaterialButton();
+            this.btnClear = new MaterialSkin.Controls.MaterialButton();
+            this.txtItemName = new MaterialSkin.Controls.MaterialTextBox2();
             this.searchItemDGV = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,230 +48,153 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
-            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SaleQuantity)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleRate)).BeginInit();
+            this.saleRate = new System.Windows.Forms.NumericUpDown();
+            this.lblDiscountPercentage = new MaterialSkin.Controls.MaterialLabel();
+            this.lblDiscountedItemQuantity = new MaterialSkin.Controls.MaterialLabel();
+            this.nudDiscountItemQuantity = new System.Windows.Forms.NumericUpDown();
+            this.btnDiscountConfirm = new MaterialSkin.Controls.MaterialButton();
+            this.lblDiscountStart = new MaterialSkin.Controls.MaterialLabel();
+            this.dtpDiscountStart = new System.Windows.Forms.DateTimePicker();
+            this.lblDiscountEnd = new MaterialSkin.Controls.MaterialLabel();
+            this.dtpDiscountEnd = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.searchItemDGV)).BeginInit();
-            this.Menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.saleRate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDiscountItemQuantity)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // lblItemName
             // 
-            this.groupBox1.Controls.Add(this.SaleQuantity);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.saleRate);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.searchItemBarCode);
-            this.groupBox1.Controls.Add(this.searchItemName);
-            this.groupBox1.Controls.Add(this.label54);
-            this.groupBox1.Controls.Add(this.label53);
-            this.groupBox1.Controls.Add(this.searchItemDGV);
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(758, 499);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
+            this.lblItemName.AutoSize = true;
+            this.lblItemName.Depth = 0;
+            this.lblItemName.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblItemName.Location = new System.Drawing.Point(2, 468);
+            this.lblItemName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblItemName.Name = "lblItemName";
+            this.lblItemName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblItemName.Size = new System.Drawing.Size(72, 17);
+            this.lblItemName.TabIndex = 2;
+            this.lblItemName.Text = "إسم القطعه";
+            this.lblItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // SaleQuantity
+            // txtItemBarcode
             // 
-            this.SaleQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaleQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.SaleQuantity.Location = new System.Drawing.Point(6, 431);
-            this.SaleQuantity.Maximum = new decimal(new int[] {
-            -1981284353,
-            -1966660860,
-            0,
-            0});
-            this.SaleQuantity.Minimum = new decimal(new int[] {
-            1661992959,
-            1808227885,
-            5,
-            -2147483648});
-            this.SaleQuantity.Name = "SaleQuantity";
-            this.SaleQuantity.Size = new System.Drawing.Size(103, 20);
-            this.SaleQuantity.TabIndex = 3;
+            this.txtItemBarcode.AnimateReadOnly = false;
+            this.txtItemBarcode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtItemBarcode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtItemBarcode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtItemBarcode.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtItemBarcode.Depth = 0;
+            this.txtItemBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtItemBarcode.HideSelection = true;
+            this.txtItemBarcode.LeadingIcon = null;
+            this.txtItemBarcode.Location = new System.Drawing.Point(3, 560);
+            this.txtItemBarcode.MaxLength = 32767;
+            this.txtItemBarcode.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtItemBarcode.Name = "txtItemBarcode";
+            this.txtItemBarcode.PasswordChar = '\0';
+            this.txtItemBarcode.PrefixSuffixText = null;
+            this.txtItemBarcode.ReadOnly = false;
+            this.txtItemBarcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtItemBarcode.SelectedText = "";
+            this.txtItemBarcode.SelectionLength = 0;
+            this.txtItemBarcode.SelectionStart = 0;
+            this.txtItemBarcode.ShortcutsEnabled = true;
+            this.txtItemBarcode.Size = new System.Drawing.Size(756, 48);
+            this.txtItemBarcode.TabIndex = 6;
+            this.txtItemBarcode.TabStop = false;
+            this.txtItemBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtItemBarcode.TrailingIcon = null;
+            this.txtItemBarcode.UseSystemPasswordChar = false;
+            this.txtItemBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtItemBarcode_KeyPress);
+            this.txtItemBarcode.TextChanged += new System.EventHandler(this.txtItemBarcode_TextChanged);
             // 
-            // label4
+            // lblItemBarcode
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label4.Location = new System.Drawing.Point(11, 415);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(90, 13);
-            this.label4.TabIndex = 21;
-            this.label4.Text = "عدد قطع الخصم";
+            this.lblItemBarcode.AutoSize = true;
+            this.lblItemBarcode.Depth = 0;
+            this.lblItemBarcode.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblItemBarcode.Location = new System.Drawing.Point(0, 540);
+            this.lblItemBarcode.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblItemBarcode.Name = "lblItemBarcode";
+            this.lblItemBarcode.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblItemBarcode.Size = new System.Drawing.Size(79, 17);
+            this.lblItemBarcode.TabIndex = 5;
+            this.lblItemBarcode.Text = "باركود القطعه";
+            this.lblItemBarcode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // btnClose
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label3.Location = new System.Drawing.Point(117, 453);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "تاريخ انتهاء الخصم";
+            this.btnClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnClose.Depth = 0;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnClose.HighEmphasis = true;
+            this.btnClose.Icon = null;
+            this.btnClose.Location = new System.Drawing.Point(3, 774);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnClose.Size = new System.Drawing.Size(759, 36);
+            this.btnClose.TabIndex = 73;
+            this.btnClose.Text = "إغلاق";
+            this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClose.UseAccentColor = false;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // dateTimePicker2
+            // btnClear
             // 
-            this.dateTimePicker2.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.dateTimePicker2.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Location = new System.Drawing.Point(6, 471);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(218, 20);
-            this.dateTimePicker2.TabIndex = 5;
+            this.btnClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnClear.Depth = 0;
+            this.btnClear.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnClear.HighEmphasis = true;
+            this.btnClear.Icon = null;
+            this.btnClear.Location = new System.Drawing.Point(3, 738);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClear.Name = "btnClear";
+            this.btnClear.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnClear.Size = new System.Drawing.Size(759, 36);
+            this.btnClear.TabIndex = 74;
+            this.btnClear.Text = "مسح";
+            this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClear.UseAccentColor = false;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // label2
+            // txtItemName
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label2.Location = new System.Drawing.Point(388, 453);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "تاريخ بدء الخصم";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(230, 471);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(250, 20);
-            this.dateTimePicker1.TabIndex = 4;
-            // 
-            // button3
-            // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(499, 456);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 35);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "مسح";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // saleRate
-            // 
-            this.saleRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saleRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.saleRate.Location = new System.Drawing.Point(115, 431);
-            this.saleRate.Maximum = new decimal(new int[] {
-            -1981284353,
-            -1966660860,
-            0,
-            0});
-            this.saleRate.Minimum = new decimal(new int[] {
-            1661992959,
-            1808227885,
-            5,
-            -2147483648});
-            this.saleRate.Name = "saleRate";
-            this.saleRate.Size = new System.Drawing.Size(109, 20);
-            this.saleRate.TabIndex = 2;
-            this.saleRate.Enter += new System.EventHandler(this.saleRate_Enter);
-            this.saleRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.saleRate_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label1.Location = new System.Drawing.Point(107, 413);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(135, 13);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "نسبة الخصم بالمئه (رقم)";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(671, 456);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 35);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "اغلاق";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(580, 456);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 35);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "تأكيد الخصم";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // searchItemBarCode
-            // 
-            this.searchItemBarCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchItemBarCode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.searchItemBarCode.Location = new System.Drawing.Point(230, 430);
-            this.searchItemBarCode.Name = "searchItemBarCode";
-            this.searchItemBarCode.Size = new System.Drawing.Size(250, 20);
-            this.searchItemBarCode.TabIndex = 1;
-            this.searchItemBarCode.TextChanged += new System.EventHandler(this.searchItemBarCode_TextChanged);
-            this.searchItemBarCode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchItemBarCode_KeyPress);
-            // 
-            // searchItemName
-            // 
-            this.searchItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchItemName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.searchItemName.Location = new System.Drawing.Point(486, 430);
-            this.searchItemName.Name = "searchItemName";
-            this.searchItemName.Size = new System.Drawing.Size(266, 20);
-            this.searchItemName.TabIndex = 0;
-            this.searchItemName.TextChanged += new System.EventHandler(this.searchItemName_TextChanged);
-            this.searchItemName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.searchItemName_KeyPress);
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label54.Location = new System.Drawing.Point(400, 414);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(83, 13);
-            this.label54.TabIndex = 10;
-            this.label54.Text = "باركود القطعه";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label53.Location = new System.Drawing.Point(686, 413);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(66, 13);
-            this.label53.TabIndex = 9;
-            this.label53.Text = "اسم القطعه";
+            this.txtItemName.AnimateReadOnly = false;
+            this.txtItemName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtItemName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtItemName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtItemName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtItemName.Depth = 0;
+            this.txtItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtItemName.HideSelection = true;
+            this.txtItemName.LeadingIcon = null;
+            this.txtItemName.Location = new System.Drawing.Point(1, 488);
+            this.txtItemName.MaxLength = 32767;
+            this.txtItemName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.PasswordChar = '\0';
+            this.txtItemName.PrefixSuffixText = null;
+            this.txtItemName.ReadOnly = false;
+            this.txtItemName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtItemName.SelectedText = "";
+            this.txtItemName.SelectionLength = 0;
+            this.txtItemName.SelectionStart = 0;
+            this.txtItemName.ShortcutsEnabled = true;
+            this.txtItemName.Size = new System.Drawing.Size(758, 48);
+            this.txtItemName.TabIndex = 75;
+            this.txtItemName.TabStop = false;
+            this.txtItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtItemName.TrailingIcon = null;
+            this.txtItemName.UseSystemPasswordChar = false;
+            this.txtItemName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtItemName_KeyPress);
+            this.txtItemName.TextChanged += new System.EventHandler(this.txtItemName_TextChanged);
             // 
             // searchItemDGV
             // 
@@ -299,11 +214,11 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5});
-            this.searchItemDGV.Location = new System.Drawing.Point(0, 9);
+            this.searchItemDGV.Location = new System.Drawing.Point(1, 67);
             this.searchItemDGV.Name = "searchItemDGV";
             this.searchItemDGV.ReadOnly = true;
             this.searchItemDGV.Size = new System.Drawing.Size(758, 397);
-            this.searchItemDGV.TabIndex = 5;
+            this.searchItemDGV.TabIndex = 77;
             // 
             // dataGridViewTextBoxColumn41
             // 
@@ -403,99 +318,183 @@
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             // 
-            // PlancksoftPOS
+            // saleRate
             // 
-            this.PlancksoftPOS.ContextMenuStrip = this.Menu;
-            this.PlancksoftPOS.Icon = ((System.Drawing.Icon)(resources.GetObject("PlancksoftPOS.Icon")));
-            this.PlancksoftPOS.Text = "PlancksoftPOS";
-            this.PlancksoftPOS.Visible = true;
+            this.saleRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saleRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.saleRate.Location = new System.Drawing.Point(9, 631);
+            this.saleRate.Maximum = new decimal(new int[] {
+            -1981284353,
+            -1966660860,
+            0,
+            0});
+            this.saleRate.Minimum = new decimal(new int[] {
+            1661992959,
+            1808227885,
+            5,
+            -2147483648});
+            this.saleRate.Name = "saleRate";
+            this.saleRate.Size = new System.Drawing.Size(148, 20);
+            this.saleRate.TabIndex = 78;
+            this.saleRate.Enter += new System.EventHandler(this.saleRate_Enter);
+            this.saleRate.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.saleRate_KeyPress);
             // 
-            // Menu
+            // lblDiscountPercentage
             // 
-            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.اللغةToolStripMenuItem,
-            this.الخروجToolStripMenuItem});
-            this.Menu.Name = "Menu";
-            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Menu.Size = new System.Drawing.Size(107, 48);
+            this.lblDiscountPercentage.AutoSize = true;
+            this.lblDiscountPercentage.Depth = 0;
+            this.lblDiscountPercentage.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDiscountPercentage.Location = new System.Drawing.Point(6, 611);
+            this.lblDiscountPercentage.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDiscountPercentage.Name = "lblDiscountPercentage";
+            this.lblDiscountPercentage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblDiscountPercentage.Size = new System.Drawing.Size(151, 17);
+            this.lblDiscountPercentage.TabIndex = 79;
+            this.lblDiscountPercentage.Text = "نسبة الخصم بالمئه (رقم)";
+            this.lblDiscountPercentage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // اللغةToolStripMenuItem
+            // lblDiscountedItemQuantity
             // 
-            this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.العربيةToolStripMenuItem,
-            this.englishToolStripMenuItem});
-            this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
-            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.اللغةToolStripMenuItem.Text = "اللغة";
+            this.lblDiscountedItemQuantity.AutoSize = true;
+            this.lblDiscountedItemQuantity.Depth = 0;
+            this.lblDiscountedItemQuantity.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDiscountedItemQuantity.Location = new System.Drawing.Point(6, 656);
+            this.lblDiscountedItemQuantity.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDiscountedItemQuantity.Name = "lblDiscountedItemQuantity";
+            this.lblDiscountedItemQuantity.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblDiscountedItemQuantity.Size = new System.Drawing.Size(100, 17);
+            this.lblDiscountedItemQuantity.TabIndex = 81;
+            this.lblDiscountedItemQuantity.Text = "عدد قطع الخصم";
+            this.lblDiscountedItemQuantity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // العربيةToolStripMenuItem
+            // nudDiscountItemQuantity
             // 
-            this.العربيةToolStripMenuItem.CheckOnClick = true;
-            this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
-            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.العربيةToolStripMenuItem.Text = "العربية";
-            this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
+            this.nudDiscountItemQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nudDiscountItemQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.nudDiscountItemQuantity.Location = new System.Drawing.Point(9, 676);
+            this.nudDiscountItemQuantity.Maximum = new decimal(new int[] {
+            -1981284353,
+            -1966660860,
+            0,
+            0});
+            this.nudDiscountItemQuantity.Minimum = new decimal(new int[] {
+            1661992959,
+            1808227885,
+            5,
+            -2147483648});
+            this.nudDiscountItemQuantity.Name = "nudDiscountItemQuantity";
+            this.nudDiscountItemQuantity.Size = new System.Drawing.Size(148, 20);
+            this.nudDiscountItemQuantity.TabIndex = 80;
             // 
-            // englishToolStripMenuItem
+            // btnDiscountConfirm
             // 
-            this.englishToolStripMenuItem.CheckOnClick = true;
-            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.englishToolStripMenuItem.Text = "English";
-            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            this.btnDiscountConfirm.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDiscountConfirm.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnDiscountConfirm.Depth = 0;
+            this.btnDiscountConfirm.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnDiscountConfirm.HighEmphasis = true;
+            this.btnDiscountConfirm.Icon = null;
+            this.btnDiscountConfirm.Location = new System.Drawing.Point(3, 702);
+            this.btnDiscountConfirm.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnDiscountConfirm.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnDiscountConfirm.Name = "btnDiscountConfirm";
+            this.btnDiscountConfirm.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnDiscountConfirm.Size = new System.Drawing.Size(759, 36);
+            this.btnDiscountConfirm.TabIndex = 82;
+            this.btnDiscountConfirm.Text = "تأكيد الخصم";
+            this.btnDiscountConfirm.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnDiscountConfirm.UseAccentColor = false;
+            this.btnDiscountConfirm.UseVisualStyleBackColor = true;
+            this.btnDiscountConfirm.Click += new System.EventHandler(this.btnDiscountConfirm_Click);
             // 
-            // الخروجToolStripMenuItem
+            // lblDiscountStart
             // 
-            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
-            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.الخروجToolStripMenuItem.Text = "الخروج";
-            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
+            this.lblDiscountStart.AutoSize = true;
+            this.lblDiscountStart.Depth = 0;
+            this.lblDiscountStart.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDiscountStart.Location = new System.Drawing.Point(213, 611);
+            this.lblDiscountStart.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDiscountStart.Name = "lblDiscountStart";
+            this.lblDiscountStart.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblDiscountStart.Size = new System.Drawing.Size(101, 17);
+            this.lblDiscountStart.TabIndex = 83;
+            this.lblDiscountStart.Text = "تاريخ بدء الخصم";
+            this.lblDiscountStart.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtpDiscountStart
+            // 
+            this.dtpDiscountStart.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.dtpDiscountStart.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.dtpDiscountStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDiscountStart.Location = new System.Drawing.Point(163, 631);
+            this.dtpDiscountStart.Name = "dtpDiscountStart";
+            this.dtpDiscountStart.Size = new System.Drawing.Size(250, 20);
+            this.dtpDiscountStart.TabIndex = 84;
+            // 
+            // lblDiscountEnd
+            // 
+            this.lblDiscountEnd.AutoSize = true;
+            this.lblDiscountEnd.Depth = 0;
+            this.lblDiscountEnd.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDiscountEnd.Location = new System.Drawing.Point(490, 611);
+            this.lblDiscountEnd.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDiscountEnd.Name = "lblDiscountEnd";
+            this.lblDiscountEnd.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblDiscountEnd.Size = new System.Drawing.Size(115, 17);
+            this.lblDiscountEnd.TabIndex = 85;
+            this.lblDiscountEnd.Text = "تاريخ إنتهاء الخصم";
+            this.lblDiscountEnd.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dtpDiscountEnd
+            // 
+            this.dtpDiscountEnd.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.dtpDiscountEnd.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.dtpDiscountEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDiscountEnd.Location = new System.Drawing.Point(437, 631);
+            this.dtpDiscountEnd.Name = "dtpDiscountEnd";
+            this.dtpDiscountEnd.Size = new System.Drawing.Size(250, 20);
+            this.dtpDiscountEnd.TabIndex = 86;
             // 
             // frmSales
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(759, 503);
-            this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.ClientSize = new System.Drawing.Size(765, 813);
+            this.Controls.Add(this.dtpDiscountEnd);
+            this.Controls.Add(this.lblDiscountEnd);
+            this.Controls.Add(this.dtpDiscountStart);
+            this.Controls.Add(this.lblDiscountStart);
+            this.Controls.Add(this.btnDiscountConfirm);
+            this.Controls.Add(this.lblDiscountedItemQuantity);
+            this.Controls.Add(this.nudDiscountItemQuantity);
+            this.Controls.Add(this.lblDiscountPercentage);
+            this.Controls.Add(this.saleRate);
+            this.Controls.Add(this.searchItemDGV);
+            this.Controls.Add(this.txtItemName);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.txtItemBarcode);
+            this.Controls.Add(this.lblItemBarcode);
+            this.Controls.Add(this.lblItemName);
             this.Name = "frmSales";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
-            this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "الخصومات";
             this.Load += new System.EventHandler(this.frmSales_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmSales_KeyPress);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SaleQuantity)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.saleRate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchItemDGV)).EndInit();
-            this.Menu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.saleRate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDiscountItemQuantity)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        public System.Windows.Forms.GroupBox groupBox1;
+        private MaterialSkin.Controls.MaterialLabel lblItemName;
+        private MaterialSkin.Controls.MaterialTextBox2 txtItemBarcode;
+        private MaterialSkin.Controls.MaterialLabel lblItemBarcode;
+        private MaterialSkin.Controls.MaterialButton btnClose;
+        private MaterialSkin.Controls.MaterialButton btnClear;
+        private MaterialSkin.Controls.MaterialTextBox2 txtItemName;
         public System.Windows.Forms.DataGridView searchItemDGV;
-        public System.Windows.Forms.TextBox searchItemBarCode;
-        public System.Windows.Forms.TextBox searchItemName;
-        public System.Windows.Forms.Label label54;
-        public System.Windows.Forms.Label label53;
-        public System.Windows.Forms.Button button2;
-        public System.Windows.Forms.Button button1;
-        public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.NumericUpDown saleRate;
-        public System.Windows.Forms.Button button3;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.DateTimePicker dateTimePicker2;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.DateTimePicker dateTimePicker1;
-        public System.Windows.Forms.NumericUpDown SaleQuantity;
-        public System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemBuyPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn FavoriteCategoryName;
@@ -509,12 +508,14 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.NotifyIcon PlancksoftPOS;
-        private System.Windows.Forms.ContextMenuStrip Menu;
-        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
-        private System.ComponentModel.IContainer components;
+        public System.Windows.Forms.NumericUpDown saleRate;
+        private MaterialSkin.Controls.MaterialLabel lblDiscountPercentage;
+        private MaterialSkin.Controls.MaterialLabel lblDiscountedItemQuantity;
+        public System.Windows.Forms.NumericUpDown nudDiscountItemQuantity;
+        private MaterialSkin.Controls.MaterialButton btnDiscountConfirm;
+        private MaterialSkin.Controls.MaterialLabel lblDiscountStart;
+        public System.Windows.Forms.DateTimePicker dtpDiscountStart;
+        private MaterialSkin.Controls.MaterialLabel lblDiscountEnd;
+        public System.Windows.Forms.DateTimePicker dtpDiscountEnd;
     }
 }

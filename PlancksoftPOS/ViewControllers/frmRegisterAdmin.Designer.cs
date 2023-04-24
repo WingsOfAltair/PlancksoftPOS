@@ -2,6 +2,10 @@
 {
     partial class frmRegisterAdmin
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -22,221 +26,240 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        public void InitializeComponent()
+        private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmRegisterAdmin));
-            this.BtnRegister = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtFname = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtPWD = new System.Windows.Forms.TextBox();
-            this.txtUID = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
-            this.Menu.SuspendLayout();
+            this.lblUID = new MaterialSkin.Controls.MaterialLabel();
+            this.txtPassword = new MaterialSkin.Controls.MaterialTextBox2();
+            this.txtAdminName = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblAdminName = new MaterialSkin.Controls.MaterialLabel();
+            this.btnClear = new MaterialSkin.Controls.MaterialButton();
+            this.btnRegisterAdmin = new MaterialSkin.Controls.MaterialButton();
+            this.txtUID = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblPassword = new MaterialSkin.Controls.MaterialLabel();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.SuspendLayout();
             // 
-            // BtnRegister
+            // lblUID
             // 
-            this.BtnRegister.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.BtnRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BtnRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnRegister.ForeColor = System.Drawing.Color.White;
-            this.BtnRegister.Location = new System.Drawing.Point(27, 125);
-            this.BtnRegister.Name = "BtnRegister";
-            this.BtnRegister.Size = new System.Drawing.Size(142, 39);
-            this.BtnRegister.TabIndex = 2;
-            this.BtnRegister.Text = "التسجيل";
-            this.BtnRegister.UseVisualStyleBackColor = false;
-            this.BtnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
+            this.lblUID.AutoSize = true;
+            this.lblUID.Depth = 0;
+            this.lblUID.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblUID.Location = new System.Drawing.Point(4, 73);
+            this.lblUID.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblUID.Name = "lblUID";
+            this.lblUID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblUID.Size = new System.Drawing.Size(130, 17);
+            this.lblUID.TabIndex = 2;
+            this.lblUID.Text = "رمز المستخدم الإداري";
+            this.lblUID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // txtPassword
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label3.Location = new System.Drawing.Point(25, 83);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(188, 13);
-            this.label3.TabIndex = 25;
-            this.label3.Text = "اسم المستخدم (رئيس قسم الصيانه)";
+            this.txtPassword.AnimateReadOnly = false;
+            this.txtPassword.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtPassword.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtPassword.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtPassword.Depth = 0;
+            this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtPassword.HideSelection = true;
+            this.txtPassword.LeadingIcon = null;
+            this.txtPassword.Location = new System.Drawing.Point(3, 164);
+            this.txtPassword.MaxLength = 32767;
+            this.txtPassword.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '●';
+            this.txtPassword.PrefixSuffixText = null;
+            this.txtPassword.ReadOnly = false;
+            this.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtPassword.SelectedText = "";
+            this.txtPassword.SelectionLength = 0;
+            this.txtPassword.SelectionStart = 0;
+            this.txtPassword.ShortcutsEnabled = true;
+            this.txtPassword.Size = new System.Drawing.Size(360, 48);
+            this.txtPassword.TabIndex = 4;
+            this.txtPassword.TabStop = false;
+            this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtPassword.TrailingIcon = null;
+            this.txtPassword.UseSystemPasswordChar = true;
+            this.txtPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPassword_KeyPress);
             // 
-            // txtFname
+            // txtAdminName
             // 
-            this.txtFname.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtFname.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFname.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtFname.Location = new System.Drawing.Point(27, 99);
-            this.txtFname.Name = "txtFname";
-            this.txtFname.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtFname.Size = new System.Drawing.Size(260, 20);
-            this.txtFname.TabIndex = 1;
-            this.txtFname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFname_KeyPress);
+            this.txtAdminName.AnimateReadOnly = false;
+            this.txtAdminName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtAdminName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtAdminName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtAdminName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtAdminName.Depth = 0;
+            this.txtAdminName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtAdminName.HideSelection = true;
+            this.txtAdminName.LeadingIcon = null;
+            this.txtAdminName.Location = new System.Drawing.Point(3, 235);
+            this.txtAdminName.MaxLength = 32767;
+            this.txtAdminName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtAdminName.Name = "txtAdminName";
+            this.txtAdminName.PasswordChar = '\0';
+            this.txtAdminName.PrefixSuffixText = null;
+            this.txtAdminName.ReadOnly = false;
+            this.txtAdminName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtAdminName.SelectedText = "";
+            this.txtAdminName.SelectionLength = 0;
+            this.txtAdminName.SelectionStart = 0;
+            this.txtAdminName.ShortcutsEnabled = true;
+            this.txtAdminName.Size = new System.Drawing.Size(360, 48);
+            this.txtAdminName.TabIndex = 6;
+            this.txtAdminName.TabStop = false;
+            this.txtAdminName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtAdminName.TrailingIcon = null;
+            this.txtAdminName.UseSystemPasswordChar = false;
+            this.txtAdminName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtAdminName_KeyPress);
             // 
-            // label2
+            // lblAdminName
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label2.Location = new System.Drawing.Point(25, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "الكلمه السريه";
+            this.lblAdminName.AutoSize = true;
+            this.lblAdminName.Depth = 0;
+            this.lblAdminName.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblAdminName.Location = new System.Drawing.Point(4, 215);
+            this.lblAdminName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblAdminName.Name = "lblAdminName";
+            this.lblAdminName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblAdminName.Size = new System.Drawing.Size(227, 17);
+            this.lblAdminName.TabIndex = 5;
+            this.lblAdminName.Text = "اسم المستخدم (رئيس قسم الصيانه)";
+            this.lblAdminName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // btnClear
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label1.Location = new System.Drawing.Point(24, 4);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(120, 13);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "رمز المستخدم الإداري";
+            this.btnClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnClear.Depth = 0;
+            this.btnClear.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnClear.HighEmphasis = true;
+            this.btnClear.Icon = null;
+            this.btnClear.Location = new System.Drawing.Point(3, 329);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClear.Name = "btnClear";
+            this.btnClear.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnClear.Size = new System.Drawing.Size(363, 36);
+            this.btnClear.TabIndex = 73;
+            this.btnClear.Text = "مسح";
+            this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClear.UseAccentColor = false;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // txtPWD
+            // btnRegisterAdmin
             // 
-            this.txtPWD.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPWD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPWD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtPWD.Location = new System.Drawing.Point(27, 59);
-            this.txtPWD.Name = "txtPWD";
-            this.txtPWD.PasswordChar = '*';
-            this.txtPWD.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtPWD.Size = new System.Drawing.Size(260, 20);
-            this.txtPWD.TabIndex = 0;
-            this.txtPWD.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPWD_KeyPress);
+            this.btnRegisterAdmin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRegisterAdmin.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnRegisterAdmin.Depth = 0;
+            this.btnRegisterAdmin.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnRegisterAdmin.HighEmphasis = true;
+            this.btnRegisterAdmin.Icon = null;
+            this.btnRegisterAdmin.Location = new System.Drawing.Point(3, 293);
+            this.btnRegisterAdmin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnRegisterAdmin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnRegisterAdmin.Name = "btnRegisterAdmin";
+            this.btnRegisterAdmin.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnRegisterAdmin.Size = new System.Drawing.Size(363, 36);
+            this.btnRegisterAdmin.TabIndex = 74;
+            this.btnRegisterAdmin.Text = "التسجيل";
+            this.btnRegisterAdmin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnRegisterAdmin.UseAccentColor = false;
+            this.btnRegisterAdmin.UseVisualStyleBackColor = true;
+            this.btnRegisterAdmin.Click += new System.EventHandler(this.btnRegisterAdmin_Click);
             // 
             // txtUID
             // 
-            this.txtUID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.txtUID.Location = new System.Drawing.Point(27, 20);
+            this.txtUID.AnimateReadOnly = false;
+            this.txtUID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtUID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtUID.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtUID.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtUID.Depth = 0;
+            this.txtUID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtUID.HideSelection = true;
+            this.txtUID.LeadingIcon = null;
+            this.txtUID.Location = new System.Drawing.Point(3, 93);
+            this.txtUID.MaxLength = 32767;
+            this.txtUID.MouseState = MaterialSkin.MouseState.OUT;
             this.txtUID.Name = "txtUID";
-            this.txtUID.ReadOnly = true;
+            this.txtUID.PasswordChar = '\0';
+            this.txtUID.PrefixSuffixText = null;
+            this.txtUID.ReadOnly = false;
             this.txtUID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtUID.Size = new System.Drawing.Size(260, 20);
-            this.txtUID.TabIndex = 20;
+            this.txtUID.SelectedText = "";
+            this.txtUID.SelectionLength = 0;
+            this.txtUID.SelectionStart = 0;
+            this.txtUID.ShortcutsEnabled = true;
+            this.txtUID.Size = new System.Drawing.Size(360, 48);
+            this.txtUID.TabIndex = 75;
+            this.txtUID.TabStop = false;
             this.txtUID.Text = "admin";
+            this.txtUID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUID.TrailingIcon = null;
+            this.txtUID.UseSystemPasswordChar = false;
             // 
-            // button3
+            // lblPassword
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(175, 125);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(112, 39);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "مسح";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Depth = 0;
+            this.lblPassword.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblPassword.Location = new System.Drawing.Point(4, 144);
+            this.lblPassword.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblPassword.Size = new System.Drawing.Size(82, 17);
+            this.lblPassword.TabIndex = 76;
+            this.lblPassword.Text = "الكلمه السريه";
+            this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Menu
+            // materialCard1
             // 
-            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.اللغةToolStripMenuItem,
-            this.الخروجToolStripMenuItem});
-            this.Menu.Name = "Menu";
-            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Menu.Size = new System.Drawing.Size(107, 48);
-            // 
-            // اللغةToolStripMenuItem
-            // 
-            this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.العربيةToolStripMenuItem,
-            this.englishToolStripMenuItem});
-            this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
-            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.اللغةToolStripMenuItem.Text = "اللغة";
-            // 
-            // العربيةToolStripMenuItem
-            // 
-            this.العربيةToolStripMenuItem.CheckOnClick = true;
-            this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
-            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.العربيةToolStripMenuItem.Text = "العربية";
-            this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
-            // 
-            // englishToolStripMenuItem
-            // 
-            this.englishToolStripMenuItem.CheckOnClick = true;
-            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
-            this.englishToolStripMenuItem.Text = "English";
-            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
-            // 
-            // الخروجToolStripMenuItem
-            // 
-            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
-            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
-            this.الخروجToolStripMenuItem.Text = "الخروج";
-            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
-            // 
-            // PlancksoftPOS
-            // 
-            this.PlancksoftPOS.ContextMenuStrip = this.Menu;
-            this.PlancksoftPOS.Icon = ((System.Drawing.Icon)(resources.GetObject("PlancksoftPOS.Icon")));
-            this.PlancksoftPOS.Text = "PlancksoftPOS";
-            this.PlancksoftPOS.Visible = true;
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Depth = 0;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(-5, 1);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(375, 58);
+            this.materialCard1.TabIndex = 77;
             // 
             // frmRegisterAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(311, 168);
+            this.ClientSize = new System.Drawing.Size(369, 368);
             this.ControlBox = false;
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.BtnRegister);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txtFname);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtPWD);
+            this.Controls.Add(this.materialCard1);
+            this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtUID);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Controls.Add(this.btnRegisterAdmin);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.txtAdminName);
+            this.Controls.Add(this.lblAdminName);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.lblUID);
             this.Name = "frmRegisterAdmin";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "تسجيل الحساب الإداري";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRegisterAdmin_FormClosing);
-            this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        public System.Windows.Forms.Button BtnRegister;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.TextBox txtFname;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.TextBox txtPWD;
-        public System.Windows.Forms.TextBox txtUID;
-        public System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ContextMenuStrip Menu;
-        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
-        private System.Windows.Forms.NotifyIcon PlancksoftPOS;
-        private System.ComponentModel.IContainer components;
+        private MaterialSkin.Controls.MaterialLabel lblUID;
+        private MaterialSkin.Controls.MaterialTextBox2 txtPassword;
+        private MaterialSkin.Controls.MaterialTextBox2 txtAdminName;
+        private MaterialSkin.Controls.MaterialLabel lblAdminName;
+        private MaterialSkin.Controls.MaterialButton btnClear;
+        private MaterialSkin.Controls.MaterialButton btnRegisterAdmin;
+        private MaterialSkin.Controls.MaterialTextBox2 txtUID;
+        private MaterialSkin.Controls.MaterialLabel lblPassword;
+        private MaterialSkin.Controls.MaterialCard materialCard1;
     }
 }

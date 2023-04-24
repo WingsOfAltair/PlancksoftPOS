@@ -2,6 +2,10 @@
 {
     partial class frmItemLookup
     {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -22,16 +26,9 @@
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        public void InitializeComponent()
+        private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItemLookup));
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.BtnPrint = new System.Windows.Forms.PictureBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.DGVItemsLookup = new System.Windows.Forms.DataGridView();
             this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,105 +43,22 @@
             this.ItemTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FavoriteCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FavoriteCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.ItemBarCodetxt = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.ItemNametxt = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
-            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnPrint)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            this.lblItemName = new MaterialSkin.Controls.MaterialLabel();
+            this.txtItemName = new MaterialSkin.Controls.MaterialTextBox2();
+            this.txtItemBarcode = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblItemBarcode = new MaterialSkin.Controls.MaterialLabel();
+            this.lblItemQuantity = new MaterialSkin.Controls.MaterialLabel();
+            this.btnSearch = new MaterialSkin.Controls.MaterialButton();
+            this.btnClear = new MaterialSkin.Controls.MaterialButton();
+            this.BtnPrint = new System.Windows.Forms.PictureBox();
+            this.btnClose = new MaterialSkin.Controls.MaterialButton();
+            this.cbItemType = new System.Windows.Forms.ComboBox();
+            this.lblItemType = new MaterialSkin.Controls.MaterialLabel();
+            this.nudItemQuantity = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.DGVItemsLookup)).BeginInit();
-            this.Menu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BtnPrint)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudItemQuantity)).BeginInit();
             this.SuspendLayout();
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.BtnPrint);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.DGVItemsLookup);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.ItemBarCodetxt);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.ItemNametxt);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1210, 448);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            // 
-            // BtnPrint
-            // 
-            this.BtnPrint.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.BtnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnPrint.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.BtnPrint.Location = new System.Drawing.Point(242, 394);
-            this.BtnPrint.Name = "BtnPrint";
-            this.BtnPrint.Size = new System.Drawing.Size(97, 47);
-            this.BtnPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.BtnPrint.TabIndex = 25;
-            this.BtnPrint.TabStop = false;
-            this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.numericUpDown1.Location = new System.Drawing.Point(436, 417);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(115, 20);
-            this.numericUpDown1.TabIndex = 3;
-            this.numericUpDown1.Visible = false;
-            this.numericUpDown1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numericUpDown1_KeyPress);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label4.Location = new System.Drawing.Point(493, 402);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
-            this.label4.TabIndex = 11;
-            this.label4.Text = "عدد القطع";
-            this.label4.Visible = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(557, 417);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(184, 21);
-            this.comboBox1.TabIndex = 2;
-            this.comboBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox1_KeyPress);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label3.Location = new System.Drawing.Point(666, 402);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(78, 13);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "تصنيف الماده";
             // 
             // DGVItemsLookup
             // 
@@ -164,11 +78,11 @@
             this.ItemTypeName,
             this.FavoriteCategory,
             this.FavoriteCategoryName});
-            this.DGVItemsLookup.Location = new System.Drawing.Point(133, 9);
+            this.DGVItemsLookup.Location = new System.Drawing.Point(6, 67);
             this.DGVItemsLookup.Name = "DGVItemsLookup";
-            this.DGVItemsLookup.Size = new System.Drawing.Size(1077, 372);
-            this.DGVItemsLookup.TabIndex = 7;
-            this.DGVItemsLookup.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVItemsLookup_RowHeaderMouseClick);
+            this.DGVItemsLookup.Size = new System.Drawing.Size(1216, 372);
+            this.DGVItemsLookup.TabIndex = 8;
+            this.DGVItemsLookup.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVItemsLookup_RowHeaderMouseDoubleClick);
             // 
             // ItemID
             // 
@@ -252,176 +166,276 @@
             this.FavoriteCategoryName.HeaderText = "المجلد المفضل";
             this.FavoriteCategoryName.Name = "FavoriteCategoryName";
             // 
-            // button3
+            // lblItemName
             // 
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.White;
-            this.button3.Location = new System.Drawing.Point(133, 394);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 48);
-            this.button3.TabIndex = 6;
-            this.button3.Text = "الخروج";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.lblItemName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblItemName.AutoSize = true;
+            this.lblItemName.Depth = 0;
+            this.lblItemName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblItemName.Location = new System.Drawing.Point(91, 448);
+            this.lblItemName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblItemName.Name = "lblItemName";
+            this.lblItemName.Size = new System.Drawing.Size(66, 17);
+            this.lblItemName.TabIndex = 9;
+            this.lblItemName.Text = "اسم الماده";
+            this.lblItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button2
+            // txtItemName
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(345, 394);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 48);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "مسح";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.txtItemName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtItemName.AnimateReadOnly = false;
+            this.txtItemName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtItemName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtItemName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtItemName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtItemName.Depth = 0;
+            this.txtItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtItemName.HideSelection = true;
+            this.txtItemName.LeadingIcon = null;
+            this.txtItemName.Location = new System.Drawing.Point(6, 468);
+            this.txtItemName.MaxLength = 32767;
+            this.txtItemName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtItemName.Name = "txtItemName";
+            this.txtItemName.PasswordChar = '\0';
+            this.txtItemName.PrefixSuffixText = null;
+            this.txtItemName.ReadOnly = false;
+            this.txtItemName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtItemName.SelectedText = "";
+            this.txtItemName.SelectionLength = 0;
+            this.txtItemName.SelectionStart = 0;
+            this.txtItemName.ShortcutsEnabled = true;
+            this.txtItemName.Size = new System.Drawing.Size(252, 48);
+            this.txtItemName.TabIndex = 10;
+            this.txtItemName.TabStop = false;
+            this.txtItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtItemName.TrailingIcon = null;
+            this.txtItemName.UseSystemPasswordChar = false;
+            this.txtItemName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtItemName_KeyPress);
             // 
-            // button1
+            // txtItemBarcode
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(451, 394);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 48);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "البحث";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.txtItemBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtItemBarcode.AnimateReadOnly = false;
+            this.txtItemBarcode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtItemBarcode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtItemBarcode.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtItemBarcode.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtItemBarcode.Depth = 0;
+            this.txtItemBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtItemBarcode.HideSelection = true;
+            this.txtItemBarcode.LeadingIcon = null;
+            this.txtItemBarcode.Location = new System.Drawing.Point(262, 468);
+            this.txtItemBarcode.MaxLength = 32767;
+            this.txtItemBarcode.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtItemBarcode.Name = "txtItemBarcode";
+            this.txtItemBarcode.PasswordChar = '\0';
+            this.txtItemBarcode.PrefixSuffixText = null;
+            this.txtItemBarcode.ReadOnly = false;
+            this.txtItemBarcode.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtItemBarcode.SelectedText = "";
+            this.txtItemBarcode.SelectionLength = 0;
+            this.txtItemBarcode.SelectionStart = 0;
+            this.txtItemBarcode.ShortcutsEnabled = true;
+            this.txtItemBarcode.Size = new System.Drawing.Size(252, 48);
+            this.txtItemBarcode.TabIndex = 12;
+            this.txtItemBarcode.TabStop = false;
+            this.txtItemBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtItemBarcode.TrailingIcon = null;
+            this.txtItemBarcode.UseSystemPasswordChar = false;
+            this.txtItemBarcode.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtItemBarcode_KeyPress);
             // 
-            // ItemBarCodetxt
+            // lblItemBarcode
             // 
-            this.ItemBarCodetxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemBarCodetxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.ItemBarCodetxt.Location = new System.Drawing.Point(747, 418);
-            this.ItemBarCodetxt.Name = "ItemBarCodetxt";
-            this.ItemBarCodetxt.Size = new System.Drawing.Size(226, 20);
-            this.ItemBarCodetxt.TabIndex = 1;
-            this.ItemBarCodetxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ItemBarCodetxt_KeyPress);
+            this.lblItemBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblItemBarcode.AutoSize = true;
+            this.lblItemBarcode.Depth = 0;
+            this.lblItemBarcode.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblItemBarcode.Location = new System.Drawing.Point(347, 448);
+            this.lblItemBarcode.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblItemBarcode.Name = "lblItemBarcode";
+            this.lblItemBarcode.Size = new System.Drawing.Size(73, 17);
+            this.lblItemBarcode.TabIndex = 11;
+            this.lblItemBarcode.Text = "باركود الماده";
+            this.lblItemBarcode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
+            // lblItemQuantity
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label2.Location = new System.Drawing.Point(896, 402);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "باركود الماده";
+            this.lblItemQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblItemQuantity.AutoSize = true;
+            this.lblItemQuantity.Depth = 0;
+            this.lblItemQuantity.Enabled = false;
+            this.lblItemQuantity.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblItemQuantity.Location = new System.Drawing.Point(763, 450);
+            this.lblItemQuantity.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblItemQuantity.Name = "lblItemQuantity";
+            this.lblItemQuantity.Size = new System.Drawing.Size(63, 17);
+            this.lblItemQuantity.TabIndex = 14;
+            this.lblItemQuantity.Text = "عدد القطع";
+            this.lblItemQuantity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblItemQuantity.Visible = false;
             // 
-            // ItemNametxt
+            // btnSearch
             // 
-            this.ItemNametxt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemNametxt.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.ItemNametxt.Location = new System.Drawing.Point(979, 418);
-            this.ItemNametxt.Name = "ItemNametxt";
-            this.ItemNametxt.Size = new System.Drawing.Size(226, 20);
-            this.ItemNametxt.TabIndex = 0;
-            this.ItemNametxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ItemNametxt_KeyPress);
+            this.btnSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnSearch.Depth = 0;
+            this.btnSearch.HighEmphasis = true;
+            this.btnSearch.Icon = null;
+            this.btnSearch.Location = new System.Drawing.Point(947, 479);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnSearch.Size = new System.Drawing.Size(64, 36);
+            this.btnSearch.TabIndex = 15;
+            this.btnSearch.Text = "البحث";
+            this.btnSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnSearch.UseAccentColor = false;
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
-            // label1
+            // btnClear
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label1.Location = new System.Drawing.Point(1142, 402);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "اسم الماده";
+            this.btnClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnClear.Depth = 0;
+            this.btnClear.HighEmphasis = true;
+            this.btnClear.Icon = null;
+            this.btnClear.Location = new System.Drawing.Point(1019, 479);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClear.Name = "btnClear";
+            this.btnClear.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnClear.Size = new System.Drawing.Size(64, 36);
+            this.btnClear.TabIndex = 16;
+            this.btnClear.Text = "مسح";
+            this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClear.UseAccentColor = false;
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // PlancksoftPOS
+            // BtnPrint
             // 
-            this.PlancksoftPOS.ContextMenuStrip = this.Menu;
-            this.PlancksoftPOS.Icon = ((System.Drawing.Icon)(resources.GetObject("PlancksoftPOS.Icon")));
-            this.PlancksoftPOS.Text = "PlancksoftPOS";
-            this.PlancksoftPOS.Visible = true;
+            this.BtnPrint.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.BtnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnPrint.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.BtnPrint.Location = new System.Drawing.Point(1090, 479);
+            this.BtnPrint.Name = "BtnPrint";
+            this.BtnPrint.Size = new System.Drawing.Size(63, 35);
+            this.BtnPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.BtnPrint.TabIndex = 26;
+            this.BtnPrint.TabStop = false;
+            this.BtnPrint.Click += new System.EventHandler(this.BtnPrint_Click);
             // 
-            // Menu
+            // btnClose
             // 
-            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.اللغةToolStripMenuItem,
-            this.الخروجToolStripMenuItem});
-            this.Menu.Name = "Menu";
-            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Menu.Size = new System.Drawing.Size(181, 70);
+            this.btnClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnClose.Depth = 0;
+            this.btnClose.HighEmphasis = true;
+            this.btnClose.Icon = null;
+            this.btnClose.Location = new System.Drawing.Point(1160, 478);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnClose.Size = new System.Drawing.Size(64, 36);
+            this.btnClose.TabIndex = 27;
+            this.btnClose.Text = "الخروج";
+            this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClose.UseAccentColor = false;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // اللغةToolStripMenuItem
+            // cbItemType
             // 
-            this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.العربيةToolStripMenuItem,
-            this.englishToolStripMenuItem});
-            this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
-            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.اللغةToolStripMenuItem.Text = "اللغة";
+            this.cbItemType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbItemType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbItemType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbItemType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.cbItemType.FormattingEnabled = true;
+            this.cbItemType.Location = new System.Drawing.Point(520, 492);
+            this.cbItemType.Name = "cbItemType";
+            this.cbItemType.Size = new System.Drawing.Size(184, 21);
+            this.cbItemType.TabIndex = 28;
+            this.cbItemType.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbItemType_KeyPress);
             // 
-            // العربيةToolStripMenuItem
+            // lblItemType
             // 
-            this.العربيةToolStripMenuItem.CheckOnClick = true;
-            this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
-            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.العربيةToolStripMenuItem.Text = "العربية";
-            this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
+            this.lblItemType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblItemType.AutoSize = true;
+            this.lblItemType.Depth = 0;
+            this.lblItemType.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblItemType.Location = new System.Drawing.Point(578, 450);
+            this.lblItemType.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblItemType.Name = "lblItemType";
+            this.lblItemType.Size = new System.Drawing.Size(84, 17);
+            this.lblItemType.TabIndex = 29;
+            this.lblItemType.Text = "تصنيف الماده";
+            this.lblItemType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // englishToolStripMenuItem
+            // nudItemQuantity
             // 
-            this.englishToolStripMenuItem.CheckOnClick = true;
-            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.englishToolStripMenuItem.Text = "English";
-            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
-            // 
-            // الخروجToolStripMenuItem
-            // 
-            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
-            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.الخروجToolStripMenuItem.Text = "الخروج";
-            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
+            this.nudItemQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nudItemQuantity.Enabled = false;
+            this.nudItemQuantity.Location = new System.Drawing.Point(736, 493);
+            this.nudItemQuantity.Maximum = new decimal(new int[] {
+            1569325055,
+            23283064,
+            0,
+            0});
+            this.nudItemQuantity.Name = "nudItemQuantity";
+            this.nudItemQuantity.Size = new System.Drawing.Size(120, 20);
+            this.nudItemQuantity.TabIndex = 30;
+            this.nudItemQuantity.Visible = false;
+            this.nudItemQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudItemQuantity_KeyPress);
             // 
             // frmItemLookup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1079, 450);
-            this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.ClientSize = new System.Drawing.Size(1230, 525);
+            this.Controls.Add(this.nudItemQuantity);
+            this.Controls.Add(this.lblItemType);
+            this.Controls.Add(this.cbItemType);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.BtnPrint);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.lblItemQuantity);
+            this.Controls.Add(this.txtItemBarcode);
+            this.Controls.Add(this.lblItemBarcode);
+            this.Controls.Add(this.txtItemName);
+            this.Controls.Add(this.lblItemName);
+            this.Controls.Add(this.DGVItemsLookup);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmItemLookup";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Sizable = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "البحث عن المواد";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BtnPrint)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DGVItemsLookup)).EndInit();
-            this.Menu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BtnPrint)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudItemQuantity)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        public System.Windows.Forms.GroupBox groupBox1;
-        public System.Windows.Forms.TextBox ItemBarCodetxt;
-        public System.Windows.Forms.Label label2;
-        public System.Windows.Forms.TextBox ItemNametxt;
-        public System.Windows.Forms.Label label1;
-        public System.Windows.Forms.Button button3;
-        public System.Windows.Forms.Button button2;
-        public System.Windows.Forms.Button button1;
         public System.Windows.Forms.DataGridView DGVItemsLookup;
-        public System.Windows.Forms.ComboBox comboBox1;
-        public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.PictureBox BtnPrint;
-        public System.Windows.Forms.NumericUpDown numericUpDown1;
-        public System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemBarCode;
@@ -435,12 +449,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FavoriteCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn FavoriteCategoryName;
-        private System.Windows.Forms.NotifyIcon PlancksoftPOS;
-        private System.Windows.Forms.ContextMenuStrip Menu;
-        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
-        private System.ComponentModel.IContainer components;
+        private MaterialSkin.Controls.MaterialLabel lblItemName;
+        private MaterialSkin.Controls.MaterialTextBox2 txtItemName;
+        private MaterialSkin.Controls.MaterialTextBox2 txtItemBarcode;
+        private MaterialSkin.Controls.MaterialLabel lblItemBarcode;
+        private MaterialSkin.Controls.MaterialLabel lblItemQuantity;
+        private MaterialSkin.Controls.MaterialButton btnSearch;
+        private MaterialSkin.Controls.MaterialButton btnClear;
+        public System.Windows.Forms.PictureBox BtnPrint;
+        private MaterialSkin.Controls.MaterialButton btnClose;
+        public System.Windows.Forms.ComboBox cbItemType;
+        private MaterialSkin.Controls.MaterialLabel lblItemType;
+        private System.Windows.Forms.NumericUpDown nudItemQuantity;
     }
 }

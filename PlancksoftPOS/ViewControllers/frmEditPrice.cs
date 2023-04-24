@@ -1,4 +1,5 @@
-﻿using PlancksoftPOS.Properties;
+﻿using MaterialSkin.Controls;
+using MaterialSkin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,12 +9,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dependencies;
+using PlancksoftPOS.Properties;
+using System.Reflection.Emit;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 
 namespace PlancksoftPOS
 {
-    public partial class frmEditPrice : Form
+    public partial class frmEditPrice : MaterialForm
     {
-
         public decimal moneyDeduction = 0;
         public DialogResult dialogResult;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
@@ -22,19 +28,19 @@ namespace PlancksoftPOS
         {
             InitializeComponent();
 
+            Program.materialSkinManager.AddFormToManage(this);
+
             frmLogin.pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
-                العربيةToolStripMenuItem.Checked = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
-                englishToolStripMenuItem.Checked = true;
             }
 
             applyLocalizationOnUI();
@@ -45,129 +51,58 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 Text = "تعديل السعر";
-                groupBox1.Text = "تعديل السعر";
-                label1.Text = "المبلغ المدفوع";
-                button12.Text = "عدم تعديل السعر";
-                button11.Text = "تعديل السعر";
-                button13.Text = "مسح";
-                اللغةToolStripMenuItem.Text = "اللغة";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "الخروج";
+                lblEnterAmount.Text = "المبلغ المدفوع الجديد";
+                btnCancel.Text = "عدم تعديل السعر";
+                btnEditPrice.Text = "تعديل السعر";
+                btnClear.Text = "مسح";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 Text = "Price Edit";
-                groupBox1.Text = "Price Edit";
-                label1.Text = "Paid Amount";
-                button12.Text = "Do not alter price";
-                button11.Text = "Alter price";
-                button13.Text = "Clear";
-                اللغةToolStripMenuItem.Text = "Language";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "Exit";
+                lblEnterAmount.Text = "New Paid Amount";
+                btnCancel.Text = "Do not alter price";
+                btnEditPrice.Text = "Alter price";
+                btnClear.Text = "Clear";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
         }
 
-        public void button9_Click(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            textBox1.Text += "9";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
+            txtAmount.Text = "";
         }
 
-        public void button8_Click(object sender, EventArgs e)
+        private void btnEditPrice_Click(object sender, EventArgs e)
         {
-            textBox1.Text += "8";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
+            try
+            {
+                this.moneyDeduction = Convert.ToDecimal(txtAmount.Text);
+                dialogResult = DialogResult.OK;
+                this.Close();
+            } catch(Exception err)
+            {
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MaterialMessageBox.Show(".المبلغ المدخل خطأ في الصيغة", false, FlexibleMaterialForm.ButtonsPosition.Center, RightToLeft.Yes);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MaterialMessageBox.Show("The entered number is invalid.", false, FlexibleMaterialForm.ButtonsPosition.Center, RightToLeft.No);
+                }
+                return;
+            }
         }
 
-        public void button7_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "7";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button6_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "6";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button5_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "5";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button4_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "4";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button3_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "3";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button2_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "2";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button1_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "1";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button10_Click(object sender, EventArgs e)
-        {
-            textBox1.Text += "0";
-            textBox1.SelectionStart = textBox1.Text.Length;
-            textBox1.SelectionLength = 0;
-            textBox1.Select();
-        }
-
-        public void button11_Click(object sender, EventArgs e)
-        {
-            this.moneyDeduction = Convert.ToDecimal(textBox1.Text);
-            dialogResult = DialogResult.OK;
-            this.Close();
-        }
-
-        public void button12_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
             dialogResult = DialogResult.Cancel;
             this.Close();
         }
 
-        public void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtAmount_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != '.')
             {
@@ -175,7 +110,7 @@ namespace PlancksoftPOS
             }
 
             // only allow one decimal point
-            if (e.KeyChar == '.' && textBox1.Text.IndexOf('.') > -1)
+            if (e.KeyChar == '.' && txtAmount.Text.IndexOf('.') > -1)
             {
                 e.Handled = true;
             }
@@ -184,44 +119,101 @@ namespace PlancksoftPOS
 
             if (e.KeyChar == (Char)Keys.Enter)
             {
-                button11.PerformClick();
-            } else if (e.KeyChar == (Char)Keys.Escape)
+                btnEditPrice.PerformClick();
+            }
+            else if (e.KeyChar == (Char)Keys.Escape)
             {
                 dialogResult = DialogResult.Cancel;
                 this.Close();
             }
         }
 
-        public void button13_Click(object sender, EventArgs e)
+        private void btn9_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
+            txtAmount.Text += "9";
+            txtAmount.SelectionStart = txtAmount.Text.Length;
+            txtAmount.SelectionLength = 0;
+            txtAmount.Select();
         }
 
-        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btn8_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            txtAmount.Text += "8";
+            txtAmount.SelectionStart = txtAmount.Text.Length;
+            txtAmount.SelectionLength = 0;
+            txtAmount.Select();
         }
 
-        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btn7_Click(object sender, EventArgs e)
         {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
-            Settings.Default.Save();
-            englishToolStripMenuItem.Checked = false;
-            العربيةToolStripMenuItem.Checked = true;
-            PlancksoftPOS.Dispose();
-            applyLocalizationOnUI();
+            txtAmount.Text += "7";
+            txtAmount.SelectionStart = txtAmount.Text.Length;
+            txtAmount.SelectionLength = 0;
+            txtAmount.Select();
         }
 
-        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btn6_Click(object sender, EventArgs e)
         {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
-            Settings.Default.Save();
-            englishToolStripMenuItem.Checked = true;
-            العربيةToolStripMenuItem.Checked = false;
-            PlancksoftPOS.Dispose();
-            applyLocalizationOnUI();
+            txtAmount.Text += "6";
+            txtAmount.SelectionStart = txtAmount.Text.Length;
+            txtAmount.SelectionLength = 0;
+            txtAmount.Select();
+        }
+
+        private void btn5_Click(object sender, EventArgs e)
+        {
+            txtAmount.Text += "5";
+            txtAmount.SelectionStart = txtAmount.Text.Length;
+            txtAmount.SelectionLength = 0;
+            txtAmount.Select();
+        }
+
+        private void btn4_Click(object sender, EventArgs e)
+        {
+            txtAmount.Text += "4";
+            txtAmount.SelectionStart = txtAmount.Text.Length;
+            txtAmount.SelectionLength = 0;
+            txtAmount.Select();
+        }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            txtAmount.Text += "3";
+            txtAmount.SelectionStart = txtAmount.Text.Length;
+            txtAmount.SelectionLength = 0;
+            txtAmount.Select();
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            txtAmount.Text += "2";
+            txtAmount.SelectionStart = txtAmount.Text.Length;
+            txtAmount.SelectionLength = 0;
+            txtAmount.Select();
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            txtAmount.Text += "1";
+            txtAmount.SelectionStart = txtAmount.Text.Length;
+            txtAmount.SelectionLength = 0;
+            txtAmount.Select();
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+            txtAmount.Text += "0";
+            txtAmount.SelectionStart = txtAmount.Text.Length;
+            txtAmount.SelectionLength = 0;
+            txtAmount.Select();
+        }
+
+        private void btnDecimal_Click(object sender, EventArgs e)
+        {
+            txtAmount.Text += ".";
+            txtAmount.SelectionStart = txtAmount.Text.Length;
+            txtAmount.SelectionLength = 0;
+            txtAmount.Select();
         }
     }
 }

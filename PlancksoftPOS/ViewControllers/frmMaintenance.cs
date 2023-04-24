@@ -1,4 +1,5 @@
-﻿using PlancksoftPOS.Properties;
+﻿using MaterialSkin.Controls;
+using MaterialSkin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,15 +9,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dependencies;
+using PlancksoftPOS.Properties;
+using System.Reflection.Emit;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+using System.Globalization;
+using System.Security.Cryptography;
 
 namespace PlancksoftPOS
 {
-    public partial class frmMaintenance : Form
+    public partial class frmMaintenance : MaterialForm
     {
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
+
         public frmMaintenance()
         {
             InitializeComponent();
+
+            Program.materialSkinManager.AddFormToManage(this);
 
             frmLogin.pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
 
@@ -24,13 +36,11 @@ namespace PlancksoftPOS
             {
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
-                العربيةToolStripMenuItem.Checked = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
-                englishToolStripMenuItem.Checked = true;
             }
 
             applyLocalizationOnUI();
@@ -40,64 +50,27 @@ namespace PlancksoftPOS
         {
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                Text = "طلب الصيانة";
-                groupBox1.Text = "عن البرمجية";
-                button1.Text = "إغلاق";
-                label1.Text = "تم تصميم و برمجة هذا النظام من قبل مؤسسة Plancksoft";
-                label2.Text = "للإستفسارات والصيانة, الرجاء الإتصال بالرقم التالي:";
-                اللغةToolStripMenuItem.Text = "اللغة";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "الخروج";
+                Text = "عن البرمجية";
+                btnClose.Text = "إغلاق";
+                lblPlancksoft1.Text = "تم تصميم و برمجة هذا النظام من قبل مؤسسة Plancksoft";
+                lblPlancksoft2.Text = ":للإستفسارات والصيانة, الرجاء الإتصال بالرقم التالي";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                Text = "Maintenance Request";
-                groupBox1.Text = "About";
-                button1.Text = "Close";
-                label1.Text = "This software system was designed and programmed by Plancksoft";
-                label2.Text = "For inquiries and maintenance, please contact the number below:";
-                اللغةToolStripMenuItem.Text = "Language";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "Exit";
+                Text = "About";
+                btnClose.Text = "Close";
+                lblPlancksoft1.Text = "This software system was designed and programmed by Plancksoft";
+                lblPlancksoft2.Text = "For inquiries and maintenance, please contact the number below:";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
         }
 
-            public void button1_Click(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
-            Settings.Default.Save();
-            englishToolStripMenuItem.Checked = false;
-            العربيةToolStripMenuItem.Checked = true;
-            PlancksoftPOS.Dispose();
-            applyLocalizationOnUI();
-        }
-
-        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmLogin.pickedLanguage = LanguageChoice.Languages.English;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
-            Settings.Default.Save();
-            englishToolStripMenuItem.Checked = true;
-            العربيةToolStripMenuItem.Checked = false;
-            PlancksoftPOS.Dispose();
-            applyLocalizationOnUI();
         }
     }
 }

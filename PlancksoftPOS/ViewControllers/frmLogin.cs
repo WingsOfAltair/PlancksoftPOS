@@ -1,20 +1,27 @@
-﻿using Dependencies;
-using PlancksoftPOS.Properties;
+﻿using MaterialSkin.Controls;
+using MaterialSkin;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dependencies;
+using PlancksoftPOS.Properties;
+using System.Reflection.Emit;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+using System.Globalization;
+using System.Security.Cryptography;
+using System.Threading;
 
 namespace PlancksoftPOS
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin : MaterialForm
     {
         public const string AesIV256 = @"!QAZ2WSX#EDC4RFV";
         public const string AesKey256 = @"5TGB&YHN7UJM(IK<5TGB&YHN7UJM(IK<";
@@ -23,6 +30,7 @@ namespace PlancksoftPOS
         public Mutex _mutex;
 
         public LanguageChoice languageChoice = new LanguageChoice();
+        public ThemeSchemeChoice.ThemeScheme themeSchemeChoice = new ThemeSchemeChoice.ThemeScheme();
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
         public bool closeApp = false;
 
@@ -42,69 +50,22 @@ namespace PlancksoftPOS
             }
         }
 
-        public static byte[] GetSha512Hash(string plainText)
-        {
-            SHA512 sha512 = SHA512.Create();
-            byte[] computedHash = sha512.ComputeHash(Encoding.UTF8.GetBytes(plainText));
-            return computedHash;
-        }
-
-
-        public static string GetHash256Str(string message)
-        {
-            byte[] hashed = GetSha512Hash(message);
-            string result = BitConverter.ToString(hashed).Replace("-", "");
-            return result;
-        }
-
-        public void applyLocalizationOnUI()
-        {
-            if (pickedLanguage == LanguageChoice.Languages.Arabic)
-            {
-                Text = "شاشة الدخول";
-                label1.Text = "رمز المستخدم";
-                label2.Text = "الكلمه السريه";
-                BtnLogin.Text = "تسجيل الدخول";
-                BtnExit.Text = "الخروج";
-                button11.Text = "مسح";
-                اللغةToolStripMenuItem.Text = "اللغة";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "الخروج";
-                RightToLeft = RightToLeft.Yes;
-                RightToLeftLayout = true;
-            } else if (pickedLanguage == LanguageChoice.Languages.English)
-            {
-                Text = "Login window";
-                label1.Text = "Username";
-                label2.Text = "Password";
-                BtnLogin.Text = "Login";
-                BtnExit.Text = "Exit";
-                button11.Text = "Clear";
-                اللغةToolStripMenuItem.Text = "Language";
-                العربيةToolStripMenuItem.Text = "العربية";
-                englishToolStripMenuItem.Text = "English";
-                الخروجToolStripMenuItem.Text = "Exit";
-                RightToLeft = RightToLeft.No;
-                RightToLeftLayout = false;
-            }
-        }
-
         public frmLogin()
         {
             InitializeComponent();
 
+            Program.materialSkinManager.AddFormToManage(this);
+
             pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
+            themeSchemeChoice = (ThemeSchemeChoice.ThemeScheme)Settings.Default.pickedThemeScheme;
 
             if (pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                العربيةToolStripMenuItem.Checked = true;
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
             else if (pickedLanguage == LanguageChoice.Languages.English)
             {
-                englishToolStripMenuItem.Checked = true;
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
@@ -180,10 +141,7 @@ namespace PlancksoftPOS
                 Environment.Exit(0);
             }
         }
-        
-        /// <summary>
-        /// AES decryption
-        /// </summary>
+
         public string Decrypt256(string text)
         {
             // AesCryptoServiceProvider
@@ -217,20 +175,162 @@ namespace PlancksoftPOS
             try
             {
                 txtUID.SelectedIndex = 0;
-            } catch(Exception error)
+            }
+            catch (Exception error)
             {
 
             }
         }
 
-        public void BtnExit_Click(object sender, EventArgs e)
+        public void applyLocalizationOnUI()
         {
-            Application.Exit();
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                Text = "شاشة الدخول";
+                btnLogin.Text = "تسجيل الدخول";
+                btnExit.Text = "الخروج";
+                btnClear.Text = "مسح";
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+            }
+            else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                Text = "Login window";
+                btnLogin.Text = "Login";
+                btnExit.Text = "Exit";
+                btnClear.Text = "Clear";
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+            }
         }
 
-        public void BtnLogin_Click(object sender, EventArgs e)
+        public static byte[] GetSha512Hash(string plainText)
         {
-            if (txtUID.Text == "" && txtPWD.Text == "")
+            SHA512 sha512 = SHA512.Create();
+            byte[] computedHash = sha512.ComputeHash(Encoding.UTF8.GetBytes(plainText));
+            return computedHash;
+        }
+
+
+        public static string GetHash256Str(string message)
+        {
+            byte[] hashed = GetSha512Hash(message);
+            string result = BitConverter.ToString(hashed).Replace("-", "");
+            return result;
+        }
+
+        public string Encrypt256(string text)
+        {
+            // AesCryptoServiceProvider
+            AesCryptoServiceProvider aes = new AesCryptoServiceProvider();
+            aes.BlockSize = 128;
+            aes.KeySize = 256;
+            aes.IV = Encoding.UTF8.GetBytes(AesIV256);
+            aes.Key = Encoding.UTF8.GetBytes(AesKey256);
+            aes.Mode = CipherMode.CBC;
+            aes.Padding = PaddingMode.PKCS7;
+
+            // Convert string to byte array
+            byte[] src = Encoding.Unicode.GetBytes(text);
+
+            // encryption
+            using (ICryptoTransform encrypt = aes.CreateEncryptor())
+            {
+                byte[] dest = encrypt.TransformFinalBlock(src, 0, src.Length);
+
+                // Convert byte array to Base64 strings
+                return Convert.ToBase64String(dest);
+            }
+        }
+
+        private void btn9_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text += "9";
+            txtPassword.SelectionStart = txtPassword.Text.Length;
+            txtPassword.SelectionLength = txtPassword.Text.Length;
+            txtPassword.Select();
+        }
+
+        private void btn8_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text += "8";
+            txtPassword.SelectionStart = txtPassword.Text.Length;
+            txtPassword.SelectionLength = txtPassword.Text.Length;
+            txtPassword.Select();
+        }
+
+        private void btn7_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text += "7";
+            txtPassword.SelectionStart = txtPassword.Text.Length;
+            txtPassword.SelectionLength = txtPassword.Text.Length;
+            txtPassword.Select();
+        }
+
+        private void btn6_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text += "6";
+            txtPassword.SelectionStart = txtPassword.Text.Length;
+            txtPassword.SelectionLength = txtPassword.Text.Length;
+            txtPassword.Select();
+        }
+
+        private void btn5_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text += "5";
+            txtPassword.SelectionStart = txtPassword.Text.Length;
+            txtPassword.SelectionLength = txtPassword.Text.Length;
+            txtPassword.Select();
+        }
+
+        private void btn4_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text += "4";
+            txtPassword.SelectionStart = txtPassword.Text.Length;
+            txtPassword.SelectionLength = txtPassword.Text.Length;
+            txtPassword.Select();
+        }
+
+        private void btn3_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text += "3";
+            txtPassword.SelectionStart = txtPassword.Text.Length;
+            txtPassword.SelectionLength = txtPassword.Text.Length;
+            txtPassword.Select();
+        }
+
+        private void btn2_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text += "2";
+            txtPassword.SelectionStart = txtPassword.Text.Length;
+            txtPassword.SelectionLength = txtPassword.Text.Length;
+            txtPassword.Select();
+        }
+
+        private void btn1_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text += "1";
+            txtPassword.SelectionStart = txtPassword.Text.Length;
+            txtPassword.SelectionLength = txtPassword.Text.Length;
+            txtPassword.Select();
+        }
+
+        private void btn0_Click(object sender, EventArgs e)
+        {
+            txtPassword.Text += "0";
+            txtPassword.SelectionStart = txtPassword.Text.Length;
+            txtPassword.SelectionLength = txtPassword.Text.Length;
+            txtPassword.Select();
+        }
+
+        private void btnClear_Click_1(object sender, EventArgs e)
+        {
+            txtPassword.Text = "";
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            if (txtUID.Text == "" && txtPassword.Text == "")
             {
                 if (pickedLanguage == LanguageChoice.Languages.Arabic)
                     MessageBox.Show(".الرجاء ملأ البيانات الصحيحه و عدم ترك فراغات", Application.ProductName);
@@ -240,7 +340,7 @@ namespace PlancksoftPOS
             }
             Account newAccount = new Account();
             newAccount.SetAccountUID(txtUID.Text);
-            newAccount.SetAccountPWD(MD5Encryption.Encrypt(txtPWD.Text, "PlancksoftPOS"));
+            newAccount.SetAccountPWD(MD5Encryption.Encrypt(txtPassword.Text, "PlancksoftPOS"));
 
             Tuple<bool, string, bool> result = Connection.server.Login(newAccount);
             if (result.Item1)
@@ -264,23 +364,15 @@ namespace PlancksoftPOS
                     MessageBox.Show("User Account is not registered.", Application.ProductName);
             }
             txtUID.Text = "";
-            txtPWD.Text = "";
+            txtPassword.Text = "";
         }
 
-        public void txtPWD_KeyPress(object sender, KeyPressEventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-            e.Handled = !(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar));
-            if (e.KeyChar == (Char)Keys.Enter)
-                BtnLogin.PerformClick();
+            Application.Exit();
         }
 
-        public void txtUID_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (Char)Keys.Enter)
-                BtnLogin.PerformClick();
-        }
-
-        public void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
@@ -325,121 +417,6 @@ namespace PlancksoftPOS
             }
             catch (Exception error)
             { }
-        }
-
-        public void button10_Click(object sender, EventArgs e)
-        {
-            txtPWD.Text += "0";
-            txtPWD.SelectionStart = txtPWD.Text.Length;
-            txtPWD.SelectionLength = txtPWD.Text.Length;
-            txtPWD.Select();
-        }
-
-        public void button1_Click(object sender, EventArgs e)
-        {
-            txtPWD.Text += "1";
-            txtPWD.SelectionStart = txtPWD.Text.Length;
-            txtPWD.SelectionLength = txtPWD.Text.Length;
-            txtPWD.Select();
-        }
-
-        public void button2_Click(object sender, EventArgs e)
-        {
-            txtPWD.Text += "2";
-            txtPWD.SelectionStart = txtPWD.Text.Length;
-            txtPWD.SelectionLength = txtPWD.Text.Length;
-            txtPWD.Select();
-        }
-
-        public void button3_Click(object sender, EventArgs e)
-        {
-            txtPWD.Text += "3";
-            txtPWD.SelectionStart = txtPWD.Text.Length;
-            txtPWD.SelectionLength = txtPWD.Text.Length;
-            txtPWD.Select();
-        }
-
-        public void button4_Click(object sender, EventArgs e)
-        {
-            txtPWD.Text += "4";
-            txtPWD.SelectionStart = txtPWD.Text.Length;
-            txtPWD.SelectionLength = txtPWD.Text.Length;
-            txtPWD.Select();
-        }
-
-        public void button5_Click(object sender, EventArgs e)
-        {
-            txtPWD.Text += "5";
-            txtPWD.SelectionStart = txtPWD.Text.Length;
-            txtPWD.SelectionLength = txtPWD.Text.Length;
-            txtPWD.Select();
-        }
-
-        public void button6_Click(object sender, EventArgs e)
-        {
-            txtPWD.Text += "6";
-            txtPWD.SelectionStart = txtPWD.Text.Length;
-            txtPWD.SelectionLength = txtPWD.Text.Length;
-            txtPWD.Select();
-        }
-
-        public void button7_Click(object sender, EventArgs e)
-        {
-            txtPWD.Text += "7";
-            txtPWD.SelectionStart = txtPWD.Text.Length;
-            txtPWD.SelectionLength = txtPWD.Text.Length;
-            txtPWD.Select();
-        }
-
-        public void button8_Click(object sender, EventArgs e)
-        {
-            txtPWD.Text += "8";
-            txtPWD.SelectionStart = txtPWD.Text.Length;
-            txtPWD.SelectionLength = txtPWD.Text.Length;
-            txtPWD.Select();
-        }
-
-        public void button9_Click(object sender, EventArgs e)
-        {
-            txtPWD.Text += "9";
-            txtPWD.SelectionStart = txtPWD.Text.Length;
-            txtPWD.SelectionLength = txtPWD.Text.Length;
-            txtPWD.Select();
-        }
-
-        public void button11_Click(object sender, EventArgs e)
-        {
-            txtPWD.Text = "";
-        }
-
-        public void txtUID_Enter(object sender, EventArgs e)
-        {
-            RetrieveUsersList();
-        }
-
-        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            pickedLanguage = LanguageChoice.Languages.Arabic;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
-            Settings.Default.Save();
-            englishToolStripMenuItem.Checked = false;
-            العربيةToolStripMenuItem.Checked = true;
-            applyLocalizationOnUI();
-        }
-
-        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            pickedLanguage = LanguageChoice.Languages.English;
-            Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
-            Settings.Default.Save();
-            العربيةToolStripMenuItem.Checked = false;
-            englishToolStripMenuItem.Checked = true;
-            applyLocalizationOnUI();
         }
     }
 }
