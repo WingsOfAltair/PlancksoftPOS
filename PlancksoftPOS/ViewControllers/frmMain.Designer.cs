@@ -2138,12 +2138,12 @@ namespace PlancksoftPOS
             this.button25.Depth = 0;
             this.button25.HighEmphasis = true;
             this.button25.Icon = null;
-            this.button25.Location = new System.Drawing.Point(9, 100);
+            this.button25.Location = new System.Drawing.Point(8, 100);
             this.button25.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button25.MouseState = MaterialSkin.MouseState.HOVER;
             this.button25.Name = "button25";
             this.button25.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.button25.Size = new System.Drawing.Size(132, 36);
+            this.button25.Size = new System.Drawing.Size(133, 36);
             this.button25.TabIndex = 74;
             this.button25.Text = "أقل 100 المواد مباعه";
             this.button25.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -10166,14 +10166,14 @@ namespace PlancksoftPOS
             this.nudTaxRate.DecimalPlaces = 2;
             this.nudTaxRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudTaxRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.nudTaxRate.Location = new System.Drawing.Point(11, 54);
+            this.nudTaxRate.Location = new System.Drawing.Point(0, 17);
             this.nudTaxRate.Maximum = new decimal(new int[] {
             276447231,
             23283,
             0,
             0});
             this.nudTaxRate.Name = "nudTaxRate";
-            this.nudTaxRate.Size = new System.Drawing.Size(416, 20);
+            this.nudTaxRate.Size = new System.Drawing.Size(226, 20);
             this.nudTaxRate.TabIndex = 0;
             // 
             // label78
@@ -10183,7 +10183,7 @@ namespace PlancksoftPOS
             this.label78.Depth = 0;
             this.label78.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label78.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label78.Location = new System.Drawing.Point(97, 27);
+            this.label78.Location = new System.Drawing.Point(0, 0);
             this.label78.MouseState = MaterialSkin.MouseState.HOVER;
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(136, 17);
