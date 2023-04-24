@@ -146,12 +146,16 @@ namespace PlancksoftPOS
                 switchThemeScheme.Checked = Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark));
                 Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
                 Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.BLACK);
+                مظلمToolStripMenuItem.Checked = true;
+                فاتحToolStripMenuItem.Checked = false;
             }
             else
             {
                 switchThemeScheme.Checked = Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Light));
                 Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
                 Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.BLACK);
+                مظلمToolStripMenuItem.Checked = false;
+                فاتحToolStripMenuItem.Checked = true;
             }
             DataTable dt = Connection.server.RetrieveSystemSettings();
 
@@ -414,11 +418,15 @@ namespace PlancksoftPOS
                     Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
                     Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.BLACK);
                     switchThemeScheme.Checked = true;
+                    مظلمToolStripMenuItem.Checked = true;
+                    فاتحToolStripMenuItem.Checked = false;
                 } else
                 {
                     Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
                     Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.BLACK);
                     switchThemeScheme.Checked = false;
+                    مظلمToolStripMenuItem.Checked = false;
+                    فاتحToolStripMenuItem.Checked = true;
                 }
 
                 DataTable dt = Connection.server.RetrieveSystemSettings();
@@ -5464,6 +5472,8 @@ namespace PlancksoftPOS
                         Properties.Settings.Default.pickedThemeScheme = 1;
                         Properties.Settings.Default.Save();
                         changedUI = true;
+                        مظلمToolStripMenuItem.Checked = true;
+                        فاتحToolStripMenuItem.Checked = false;
                     }
                     else
                     {
@@ -5472,6 +5482,8 @@ namespace PlancksoftPOS
                         Properties.Settings.Default.pickedThemeScheme = 0;
                         Properties.Settings.Default.Save();
                         changedUI = true;
+                        مظلمToolStripMenuItem.Checked = false;
+                        فاتحToolStripMenuItem.Checked = true;
                     }
 
                     this.Refresh();
@@ -9316,6 +9328,34 @@ namespace PlancksoftPOS
         private void switchThemeScheme_CheckedChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void فاتحToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.materialSkinManager = MaterialSkinManager.Instance;
+            Program.materialSkinManager.EnforceBackcolorOnAllComponents = false; ;
+
+            Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.BLACK);
+            Properties.Settings.Default.pickedThemeScheme = 0;
+            Properties.Settings.Default.Save();
+            مظلمToolStripMenuItem.Checked = false;
+            فاتحToolStripMenuItem.Checked = true;
+            switchThemeScheme.Checked = false;
+        }
+
+        private void مظلمToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.materialSkinManager = MaterialSkinManager.Instance;
+            Program.materialSkinManager.EnforceBackcolorOnAllComponents = false; ;
+
+            Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.BLACK);
+            Properties.Settings.Default.pickedThemeScheme = 1;
+            Properties.Settings.Default.Save();
+            مظلمToolStripMenuItem.Checked = true;
+            فاتحToolStripMenuItem.Checked = false;
+            switchThemeScheme.Checked = true;
         }
 
         public void textBox3_KeyPress(object sender, KeyPressEventArgs e)
