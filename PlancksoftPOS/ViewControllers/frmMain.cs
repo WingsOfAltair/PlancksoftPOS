@@ -5490,6 +5490,7 @@ namespace PlancksoftPOS
                     {
                         MessageBox.Show("Unable to save new System preferences.", Application.ProductName);
                     }
+                    Application.Restart();
                 }
             }
             catch (Exception error)

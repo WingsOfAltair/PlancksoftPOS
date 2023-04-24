@@ -93,8 +93,8 @@ namespace PlancksoftPOS
             this.label49 = new MaterialSkin.Controls.MaterialLabel();
             this.button24 = new MaterialSkin.Controls.MaterialButton();
             this.button17 = new MaterialSkin.Controls.MaterialButton();
-            this.richTextBox4 = new MaterialLabel();
-            this.richTextBox6 = new MaterialLabel();
+            this.richTextBox4 = new MaterialSkin.Controls.MaterialLabel();
+            this.richTextBox6 = new MaterialSkin.Controls.MaterialLabel();
             this.pendingPurchaseRemovalQuantity = new System.Windows.Forms.NumericUpDown();
             this.pendingPurchaseNewQuantity = new System.Windows.Forms.NumericUpDown();
             this.panel4 = new MaterialSkin.Controls.MaterialCard();
@@ -1710,24 +1710,26 @@ namespace PlancksoftPOS
             // richTextBox4
             // 
             this.richTextBox4.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox4.Depth = 0;
+            this.richTextBox4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.richTextBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.richTextBox4.Location = new System.Drawing.Point(0, 59);
+            this.richTextBox4.MouseState = MaterialSkin.MouseState.HOVER;
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.Size = new System.Drawing.Size(158, 60);
             this.richTextBox4.TabIndex = 27;
-            this.richTextBox4.Text = "";
             // 
             // richTextBox6
             // 
             this.richTextBox6.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.richTextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox6.Depth = 0;
+            this.richTextBox6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.richTextBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.richTextBox6.Location = new System.Drawing.Point(3, 6);
+            this.richTextBox6.MouseState = MaterialSkin.MouseState.HOVER;
             this.richTextBox6.Name = "richTextBox6";
             this.richTextBox6.Size = new System.Drawing.Size(158, 47);
             this.richTextBox6.TabIndex = 38;
-            this.richTextBox6.Text = "";
             // 
             // pendingPurchaseRemovalQuantity
             // 
@@ -1787,9 +1789,8 @@ namespace PlancksoftPOS
             // richTextBox3
             // 
             this.richTextBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.richTextBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox3.Depth = 0;
-            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.richTextBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.richTextBox3.Location = new System.Drawing.Point(15, 36);
             this.richTextBox3.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1801,9 +1802,8 @@ namespace PlancksoftPOS
             // richTextBox2
             // 
             this.richTextBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.richTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox2.Depth = 0;
-            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.richTextBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.richTextBox2.Location = new System.Drawing.Point(164, 36);
             this.richTextBox2.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1815,9 +1815,8 @@ namespace PlancksoftPOS
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Depth = 0;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.richTextBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.richTextBox1.Location = new System.Drawing.Point(302, 36);
             this.richTextBox1.MouseState = MaterialSkin.MouseState.HOVER;
@@ -1829,9 +1828,8 @@ namespace PlancksoftPOS
             // richTextBox5
             // 
             this.richTextBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.richTextBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox5.Depth = 0;
-            this.richTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.richTextBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.richTextBox5.Location = new System.Drawing.Point(440, 36);
             this.richTextBox5.MouseState = MaterialSkin.MouseState.HOVER;
