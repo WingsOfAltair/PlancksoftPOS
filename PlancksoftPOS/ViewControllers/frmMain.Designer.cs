@@ -93,15 +93,15 @@ namespace PlancksoftPOS
             this.label49 = new MaterialSkin.Controls.MaterialLabel();
             this.button24 = new MaterialSkin.Controls.MaterialButton();
             this.button17 = new MaterialSkin.Controls.MaterialButton();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox6 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox4 = new MaterialLabel();
+            this.richTextBox6 = new MaterialLabel();
             this.pendingPurchaseRemovalQuantity = new System.Windows.Forms.NumericUpDown();
             this.pendingPurchaseNewQuantity = new System.Windows.Forms.NumericUpDown();
             this.panel4 = new MaterialSkin.Controls.MaterialCard();
-            this.richTextBox3 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
-            this.richTextBox2 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
-            this.richTextBox1 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
-            this.richTextBox5 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
+            this.richTextBox3 = new MaterialSkin.Controls.MaterialLabel();
+            this.richTextBox2 = new MaterialSkin.Controls.MaterialLabel();
+            this.richTextBox1 = new MaterialSkin.Controls.MaterialLabel();
+            this.richTextBox5 = new MaterialSkin.Controls.MaterialLabel();
             this.label112 = new MaterialSkin.Controls.MaterialLabel();
             this.panel2 = new MaterialSkin.Controls.MaterialCard();
             this.cashierNameLbl = new MaterialSkin.Controls.MaterialLabel();
@@ -1714,7 +1714,6 @@ namespace PlancksoftPOS
             this.richTextBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.richTextBox4.Location = new System.Drawing.Point(0, 59);
             this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.ReadOnly = true;
             this.richTextBox4.Size = new System.Drawing.Size(158, 60);
             this.richTextBox4.TabIndex = 27;
             this.richTextBox4.Text = "";
@@ -1726,7 +1725,6 @@ namespace PlancksoftPOS
             this.richTextBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.richTextBox6.Location = new System.Drawing.Point(3, 6);
             this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.ReadOnly = true;
             this.richTextBox6.Size = new System.Drawing.Size(158, 47);
             this.richTextBox6.TabIndex = 38;
             this.richTextBox6.Text = "";
@@ -1796,7 +1794,6 @@ namespace PlancksoftPOS
             this.richTextBox3.Location = new System.Drawing.Point(15, 36);
             this.richTextBox3.MouseState = MaterialSkin.MouseState.HOVER;
             this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.ReadOnly = true;
             this.richTextBox3.Size = new System.Drawing.Size(132, 61);
             this.richTextBox3.TabIndex = 49;
             this.richTextBox3.Text = "المجموع السابق";
@@ -1811,7 +1808,6 @@ namespace PlancksoftPOS
             this.richTextBox2.Location = new System.Drawing.Point(164, 36);
             this.richTextBox2.MouseState = MaterialSkin.MouseState.HOVER;
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.ReadOnly = true;
             this.richTextBox2.Size = new System.Drawing.Size(132, 61);
             this.richTextBox2.TabIndex = 48;
             this.richTextBox2.Text = "المدفوع السابق";
@@ -1826,7 +1822,6 @@ namespace PlancksoftPOS
             this.richTextBox1.Location = new System.Drawing.Point(302, 36);
             this.richTextBox1.MouseState = MaterialSkin.MouseState.HOVER;
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(132, 61);
             this.richTextBox1.TabIndex = 47;
             this.richTextBox1.Text = "الباقي السابق";
@@ -1841,7 +1836,6 @@ namespace PlancksoftPOS
             this.richTextBox5.Location = new System.Drawing.Point(440, 36);
             this.richTextBox5.MouseState = MaterialSkin.MouseState.HOVER;
             this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.ReadOnly = true;
             this.richTextBox5.Size = new System.Drawing.Size(132, 61);
             this.richTextBox5.TabIndex = 46;
             this.richTextBox5.Text = "رقم الفاتورة الحالية";
@@ -1881,7 +1875,7 @@ namespace PlancksoftPOS
             this.cashierNameLbl.AutoSize = true;
             this.cashierNameLbl.Depth = 0;
             this.cashierNameLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.cashierNameLbl.Location = new System.Drawing.Point(670, 48);
+            this.cashierNameLbl.Location = new System.Drawing.Point(699, 47);
             this.cashierNameLbl.MouseState = MaterialSkin.MouseState.HOVER;
             this.cashierNameLbl.Name = "cashierNameLbl";
             this.cashierNameLbl.Size = new System.Drawing.Size(109, 17);
@@ -10714,7 +10708,7 @@ namespace PlancksoftPOS
         public MaterialCard groupBox3;
         public System.Windows.Forms.NumericUpDown pendingPurchaseRemovalQuantity;
         public System.Windows.Forms.DataGridView ItemsPendingPurchase;
-        public System.Windows.Forms.RichTextBox richTextBox4;
+        public MaterialLabel richTextBox4;
         public System.Windows.Forms.NumericUpDown pendingPurchaseNewQuantity;
         public System.Drawing.Printing.PrintDocument printDocument1;
         public MaterialCard groupBox6;
@@ -10766,7 +10760,7 @@ namespace PlancksoftPOS
         public MaterialLabel label50;
         public System.Windows.Forms.NumericUpDown pendingPurchaseNewPrice;
         public System.Windows.Forms.Button button23;
-        public System.Windows.Forms.RichTextBox richTextBox6;
+        public MaterialLabel richTextBox6;
         public System.Windows.Forms.TabControl tabControl4;
         public System.Windows.Forms.TabPage InvoicesSales;
         public MaterialCard groupBox13;
@@ -11325,10 +11319,10 @@ namespace PlancksoftPOS
         private MaterialSkin.Controls.MaterialLabel label71;
         private MaterialSkin.Controls.MaterialLabel cashierNameLbl;
         private MaterialSkin.Controls.MaterialLabel label112;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox richTextBox5;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox richTextBox1;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox richTextBox2;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox richTextBox3;
+        private MaterialSkin.Controls.MaterialLabel richTextBox5;
+        private MaterialSkin.Controls.MaterialLabel richTextBox1;
+        private MaterialSkin.Controls.MaterialLabel richTextBox2;
+        private MaterialSkin.Controls.MaterialLabel richTextBox3;
         private MaterialSkin.Controls.MaterialLabel label52;
         private MaterialSkin.Controls.MaterialLabel label49;
         public MaterialLabel label67;

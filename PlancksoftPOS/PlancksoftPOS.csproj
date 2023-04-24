@@ -84,8 +84,9 @@
     <ApplicationIcon>Resources\pos.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MaterialSkin">
-      <HintPath>..\packages\MaterialSkin.2.RTL.2.3.1.1\lib\net48\MaterialSkin.dll</HintPath>
+    <Reference Include="MaterialSkin, Version=2.3.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\MaterialSkin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.IdentityModel.JsonWebTokens, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.IdentityModel.JsonWebTokens.5.6.0\lib\net461\Microsoft.IdentityModel.JsonWebTokens.dll</HintPath>

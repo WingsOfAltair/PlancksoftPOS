@@ -28,7 +28,7 @@ namespace PlancksoftPOS
             else
             {
                 materialSkinManager = MaterialSkinManager.Instance;
-                materialSkinManager.EnforceBackcolorOnAllComponents = true;
+                materialSkinManager.EnforceBackcolorOnAllComponents = false;
 
                 if ((ThemeSchemeChoice.ThemeScheme)Settings.Default.pickedThemeScheme == ThemeSchemeChoice.ThemeScheme.Dark)
                 {
