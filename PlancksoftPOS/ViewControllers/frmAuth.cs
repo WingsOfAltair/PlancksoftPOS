@@ -49,16 +49,16 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 Text = "ادخل كلمة السر للحساب";
-                btnCancel.Text = "تمام";
-                btnSubmit.Text = "اغلاق";
+                btnSubmit.Text = "تمام";
+                btnCancel.Text = "اغلاق";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 Text = "Enter the password to your account";
-                btnCancel.Text = "Submit";
-                btnSubmit.Text = "Close";
+                btnSubmit.Text = "Submit";
+                btnCancel.Text = "Close";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
