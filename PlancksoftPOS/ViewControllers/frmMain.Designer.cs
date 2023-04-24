@@ -103,7 +103,7 @@ namespace PlancksoftPOS
             this.richTextBox1 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             this.richTextBox5 = new MaterialSkin.Controls.MaterialMultiLineTextBox();
             this.label112 = new MaterialSkin.Controls.MaterialLabel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel2 = new MaterialCard();
             this.cashierNameLbl = new MaterialSkin.Controls.MaterialLabel();
             this.label71 = new MaterialSkin.Controls.MaterialLabel();
             this.dateTimeLbl = new MaterialSkin.Controls.MaterialLabel();
@@ -10973,7 +10973,7 @@ namespace PlancksoftPOS
         public MaterialCheckbox openclose_edit;
         public System.Windows.Forms.FlowLayoutPanel groupBox4;
         public System.Windows.Forms.Panel panel1;
-        public System.Windows.Forms.Panel panel2;
+        public MaterialCard panel2;
         public System.Windows.Forms.Panel pnlOpenCloseCash;
         public System.Windows.Forms.Panel panel3;
         public System.Windows.Forms.Panel panel5;
