@@ -36,6 +36,7 @@
             this.btnRegisterAdmin = new MaterialSkin.Controls.MaterialButton();
             this.txtUID = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblPassword = new MaterialSkin.Controls.MaterialLabel();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.SuspendLayout();
             // 
             // lblUID
@@ -215,9 +216,24 @@
             this.lblPassword.Text = "الكلمه السريه";
             this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // materialCard1
+            // 
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Depth = 0;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(-5, 1);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(375, 58);
+            this.materialCard1.TabIndex = 77;
+            // 
             // frmRegisterAdmin
             // 
             this.ClientSize = new System.Drawing.Size(369, 368);
+            this.ControlBox = false;
+            this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtUID);
             this.Controls.Add(this.btnRegisterAdmin);
@@ -229,6 +245,7 @@
             this.Name = "frmRegisterAdmin";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,5 +260,6 @@
         private MaterialSkin.Controls.MaterialButton btnRegisterAdmin;
         private MaterialSkin.Controls.MaterialTextBox2 txtUID;
         private MaterialSkin.Controls.MaterialLabel lblPassword;
+        private MaterialSkin.Controls.MaterialCard materialCard1;
     }
 }
