@@ -86,11 +86,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MaterialMessageBox.Show(".المبلغ المدخل خطأ في الصيغة", false, FlexibleMaterialForm.ButtonsPosition.Center, RightToLeft.Yes);
+                    MaterialMessageBox.Show(".المبلغ المدخل خطأ في الصيغة", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MaterialMessageBox.Show("The entered number is invalid.", false, FlexibleMaterialForm.ButtonsPosition.Center, RightToLeft.No);
+                    MaterialMessageBox.Show("The entered number is invalid.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 return;
             }

@@ -106,5 +106,125 @@ namespace PlancksoftPOS.Properties {
                 this["pickedThemeScheme"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#E57373")]
+        public string darkPrimary {
+            get {
+                return ((string)(this["darkPrimary"]));
+            }
+            set {
+                this["darkPrimary"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FF7043")]
+        public string darkPrimaryDark {
+            get {
+                return ((string)(this["darkPrimaryDark"]));
+            }
+            set {
+                this["darkPrimaryDark"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FFE0B2")]
+        public string darkLightPrimary {
+            get {
+                return ((string)(this["darkLightPrimary"]));
+            }
+            set {
+                this["darkLightPrimary"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#FFE0B2")]
+        public string darkAccent {
+            get {
+                return ((string)(this["darkAccent"]));
+            }
+            set {
+                this["darkAccent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("BLACK")]
+        public string darkTextShade {
+            get {
+                return ((string)(this["darkTextShade"]));
+            }
+            set {
+                this["darkTextShade"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#3F51B5")]
+        public string Primary {
+            get {
+                return ((string)(this["Primary"]));
+            }
+            set {
+                this["Primary"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#303F9F")]
+        public string PrimaryDark {
+            get {
+                return ((string)(this["PrimaryDark"]));
+            }
+            set {
+                this["PrimaryDark"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#d6bfff")]
+        public string LightPrimary {
+            get {
+                return ((string)(this["LightPrimary"]));
+            }
+            set {
+                this["LightPrimary"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("#F48FB1")]
+        public string Accent {
+            get {
+                return ((string)(this["Accent"]));
+            }
+            set {
+                this["Accent"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("BLACK")]
+        public string TextShade {
+            get {
+                return ((string)(this["TextShade"]));
+            }
+            set {
+                this["TextShade"] = value;
+            }
+        }
     }
 }

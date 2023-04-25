@@ -94,11 +94,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MaterialMessageBox.Show(".الرجاء إدخال إسم عميل", false, FlexibleMaterialForm.ButtonsPosition.Center, RightToLeft.Yes);
+                    MaterialMessageBox.Show(".الرجاء إدخال إسم عميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MaterialMessageBox.Show("Please enter a valid client name.", false, FlexibleMaterialForm.ButtonsPosition.Center, RightToLeft.No);
+                    MaterialMessageBox.Show("Please enter a valid client name.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 return;
             }

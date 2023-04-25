@@ -23,5 +23,35 @@
     <Setting Name="pickedThemeScheme" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
+    <Setting Name="darkPrimary" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#E57373</Value>
+    </Setting>
+    <Setting Name="darkPrimaryDark" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#FF7043</Value>
+    </Setting>
+    <Setting Name="darkLightPrimary" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#FFE0B2</Value>
+    </Setting>
+    <Setting Name="darkAccent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#FFE0B2</Value>
+    </Setting>
+    <Setting Name="darkTextShade" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BLACK</Value>
+    </Setting>
+    <Setting Name="Primary" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#3F51B5</Value>
+    </Setting>
+    <Setting Name="PrimaryDark" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#303F9F</Value>
+    </Setting>
+    <Setting Name="LightPrimary" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#d6bfff</Value>
+    </Setting>
+    <Setting Name="Accent" Type="System.String" Scope="User">
+      <Value Profile="(Default)">#F48FB1</Value>
+    </Setting>
+    <Setting Name="TextShade" Type="System.String" Scope="User">
+      <Value Profile="(Default)">BLACK</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

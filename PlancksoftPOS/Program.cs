@@ -33,12 +33,18 @@ namespace PlancksoftPOS
                 if ((ThemeSchemeChoice.ThemeScheme)Settings.Default.pickedThemeScheme == ThemeSchemeChoice.ThemeScheme.Dark)
                 {
                     Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-                    Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.BLACK);
+                    if (Settings.Default.darkTextShade == "BLACK")
+                        Program.materialSkinManager.ColorScheme = new ColorScheme(Settings.Default.darkPrimary, Settings.Default.darkPrimaryDark, Settings.Default.darkLightPrimary, Settings.Default.darkAccent, TextShade.BLACK);
+                    else
+                        Program.materialSkinManager.ColorScheme = new ColorScheme(Settings.Default.darkPrimary, Settings.Default.darkPrimaryDark, Settings.Default.darkLightPrimary, Settings.Default.darkAccent, TextShade.WHITE);
                 }
                 else
                 {
                     Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-                    Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.BLACK);
+                    if (Settings.Default.TextShade == "BLACK")
+                        Program.materialSkinManager.ColorScheme = new ColorScheme(Settings.Default.Primary, Settings.Default.PrimaryDark, Settings.Default.LightPrimary, Settings.Default.Accent, TextShade.BLACK);
+                    else
+                        Program.materialSkinManager.ColorScheme = new ColorScheme(Settings.Default.Primary, Settings.Default.PrimaryDark, Settings.Default.LightPrimary, Settings.Default.Accent, TextShade.WHITE);
                 }
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
