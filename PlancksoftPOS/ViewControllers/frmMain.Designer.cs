@@ -704,6 +704,8 @@ namespace PlancksoftPOS
             this.lblColorSeperator1 = new MaterialSkin.Controls.MaterialLabel();
             this.switchBlackTextShade = new MaterialSkin.Controls.MaterialSwitch();
             this.switchDarkBlackTextShade = new MaterialSkin.Controls.MaterialSwitch();
+            this.lblDarkColorScheme = new MaterialSkin.Controls.MaterialLabel();
+            this.lblLightColorScheme = new MaterialSkin.Controls.MaterialLabel();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -6618,7 +6620,7 @@ namespace PlancksoftPOS
             this.button37.Depth = 0;
             this.button37.HighEmphasis = true;
             this.button37.Icon = null;
-            this.button37.Location = new System.Drawing.Point(805, 204);
+            this.button37.Location = new System.Drawing.Point(801, 232);
             this.button37.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button37.MouseState = MaterialSkin.MouseState.HOVER;
             this.button37.Name = "button37";
@@ -6639,7 +6641,7 @@ namespace PlancksoftPOS
             this.button16.Depth = 0;
             this.button16.HighEmphasis = true;
             this.button16.Icon = null;
-            this.button16.Location = new System.Drawing.Point(703, 80);
+            this.button16.Location = new System.Drawing.Point(700, 106);
             this.button16.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button16.MouseState = MaterialSkin.MouseState.HOVER;
             this.button16.Name = "button16";
@@ -6660,7 +6662,7 @@ namespace PlancksoftPOS
             this.button32.Depth = 0;
             this.button32.HighEmphasis = true;
             this.button32.Icon = null;
-            this.button32.Location = new System.Drawing.Point(795, 80);
+            this.button32.Location = new System.Drawing.Point(792, 106);
             this.button32.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button32.MouseState = MaterialSkin.MouseState.HOVER;
             this.button32.Name = "button32";
@@ -7073,7 +7075,7 @@ namespace PlancksoftPOS
             this.button34.Depth = 0;
             this.button34.HighEmphasis = true;
             this.button34.Icon = null;
-            this.button34.Location = new System.Drawing.Point(761, 263);
+            this.button34.Location = new System.Drawing.Point(899, 291);
             this.button34.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button34.MouseState = MaterialSkin.MouseState.HOVER;
             this.button34.Name = "button34";
@@ -9943,6 +9945,8 @@ namespace PlancksoftPOS
             // switchDarkTheme
             // 
             this.switchDarkTheme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.switchDarkTheme.Controls.Add(this.lblLightColorScheme);
+            this.switchDarkTheme.Controls.Add(this.lblDarkColorScheme);
             this.switchDarkTheme.Controls.Add(this.switchDarkBlackTextShade);
             this.switchDarkTheme.Controls.Add(this.switchBlackTextShade);
             this.switchDarkTheme.Controls.Add(this.lblColorSeperator1);
@@ -10031,9 +10035,9 @@ namespace PlancksoftPOS
             this.switchThemeScheme.MouseState = MaterialSkin.MouseState.HOVER;
             this.switchThemeScheme.Name = "switchThemeScheme";
             this.switchThemeScheme.Ripple = true;
-            this.switchThemeScheme.Size = new System.Drawing.Size(135, 37);
+            this.switchThemeScheme.Size = new System.Drawing.Size(110, 37);
             this.switchThemeScheme.TabIndex = 0;
-            this.switchThemeScheme.Text = "Dark Mode";
+            this.switchThemeScheme.Text = "الشكل المظلم";
             this.switchThemeScheme.UseVisualStyleBackColor = true;
             // 
             // shopPhone
@@ -10909,6 +10913,34 @@ namespace PlancksoftPOS
             this.switchDarkBlackTextShade.TabIndex = 56;
             this.switchDarkBlackTextShade.Text = "أسود";
             this.switchDarkBlackTextShade.UseVisualStyleBackColor = true;
+            // 
+            // lblDarkColorScheme
+            // 
+            this.lblDarkColorScheme.AutoSize = true;
+            this.lblDarkColorScheme.Depth = 0;
+            this.lblDarkColorScheme.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDarkColorScheme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblDarkColorScheme.Location = new System.Drawing.Point(214, 45);
+            this.lblDarkColorScheme.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDarkColorScheme.Name = "lblDarkColorScheme";
+            this.lblDarkColorScheme.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblDarkColorScheme.Size = new System.Drawing.Size(83, 19);
+            this.lblDarkColorScheme.TabIndex = 57;
+            this.lblDarkColorScheme.Text = "الألوان للشكل المظلم";
+            // 
+            // lblLightColorScheme
+            // 
+            this.lblLightColorScheme.AutoSize = true;
+            this.lblLightColorScheme.Depth = 0;
+            this.lblLightColorScheme.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblLightColorScheme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblLightColorScheme.Location = new System.Drawing.Point(214, 221);
+            this.lblLightColorScheme.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblLightColorScheme.Name = "lblLightColorScheme";
+            this.lblLightColorScheme.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblLightColorScheme.Size = new System.Drawing.Size(81, 19);
+            this.lblLightColorScheme.TabIndex = 58;
+            this.lblLightColorScheme.Text = "الألوان للشكل الفاتج";
             // 
             // frmMain
             // 
@@ -11881,6 +11913,8 @@ namespace PlancksoftPOS
         public MaterialTextBox2 PrimaryColor;
         private MaterialSwitch switchBlackTextShade;
         private MaterialSwitch switchDarkBlackTextShade;
+        public MaterialLabel lblDarkColorScheme;
+        public MaterialLabel lblLightColorScheme;
     }
 }
 

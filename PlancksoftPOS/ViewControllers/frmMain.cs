@@ -1156,6 +1156,19 @@ namespace PlancksoftPOS
                         groupBox5.Text = "الطابعات";
                         label114.Text = "عدد فراغ الفاتوره";
                         IncludeLogoReceipt.Text = "تضمين الشعار في الفاتوره";
+                        switchThemeScheme.Text = "الشكل المظلم";
+                        lblDarkColorScheme.Text = "الألوان للشكل المظلم";
+                        lblDarkPrimaryColor.Text = "الأساسي";
+                        lblDarkPrimaryDark.Text = "الأساسي المظلم";
+                        lblDarkPrimaryLight.Text = "الأساسي الفاتح";
+                        lblDarkAccent.Text = "التمييز";
+                        lblDarkTextShade.Text = "ظل النصوص";
+                        lblLightColorScheme.Text = "الألوان للشكل الفاتج";
+                        lblPrimaryColor.Text = "الأساسي";
+                        lblPrimaryDark.Text = "الأساسي المظلم";
+                        lblPrimaryLight.Text = "الأساسي الفاتح";
+                        lblAccent.Text = "التمييز";
+                        lblTextShade.Text = "ظل النصوص";
                         button1.Text = "حفظ الإعدادات";
                     }
                     if (tabControl9.Contains(tabControl9.TabPages["printersSettings"]))
@@ -1658,6 +1671,20 @@ namespace PlancksoftPOS
                         groupBox5.Text = "Printers";
                         label114.Text = "Blank Spaces in Receipt";
                         IncludeLogoReceipt.Text = "Include Logo in Receipt";
+                        switchThemeScheme.Text = "Dark Mode";
+                        lblDarkColorScheme.Text = "Dark Color Scheme";
+                        lblDarkColorScheme.Text = "Colors";
+                        lblDarkPrimaryColor.Text = "Basic";
+                        lblDarkPrimaryDark.Text = "Basic Dark";
+                        lblDarkPrimaryLight.Text = "Basic Light";
+                        lblDarkAccent.Text = "Accent";
+                        lblDarkTextShade.Text = "Text Shade";
+                        lblLightColorScheme.Text = "Light Color Scheme";
+                        lblPrimaryColor.Text = "Basic";
+                        lblPrimaryDark.Text = "Basic Dark";
+                        lblPrimaryLight.Text = "Basic Light";
+                        lblAccent.Text = "Accent";
+                        lblTextShade.Text = "Text Shade";
                         button1.Text = "Save Preferences";
                     }
                     if (tabControl9.Contains(tabControl9.TabPages["printersSettings"]))

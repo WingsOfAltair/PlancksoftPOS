@@ -124,3 +124,4 @@ C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.CoreCompileInput
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.CopyComplete
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.exe
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.pdb
+C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmColorPicker.resources
