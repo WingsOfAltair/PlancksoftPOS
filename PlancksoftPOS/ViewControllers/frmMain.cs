@@ -145,7 +145,10 @@ namespace PlancksoftPOS
             {
                 switchThemeScheme.Checked = Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark));
                 Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-                Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.BLACK);
+                if (Properties.Settings.Default.darkTextShade == "BLACK")
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.BLACK);
+                else
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.WHITE);
                 مظلمToolStripMenuItem.Checked = true;
                 فاتحToolStripMenuItem.Checked = false;
             }
@@ -153,7 +156,10 @@ namespace PlancksoftPOS
             {
                 switchThemeScheme.Checked = Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Light));
                 Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-                Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.BLACK);
+                if (Settings.Default.TextShade == "BLACK")
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.BLACK);
+                else
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.WHITE);
                 مظلمToolStripMenuItem.Checked = false;
                 فاتحToolStripMenuItem.Checked = true;
             }
@@ -473,14 +479,20 @@ namespace PlancksoftPOS
                 if (Properties.Settings.Default.pickedThemeScheme == (int)ThemeSchemeChoice.ThemeScheme.Dark)
                 {
                     Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-                    Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.BLACK);
+                    if (Properties.Settings.Default.TextShade == "BLACK")
+                        Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.BLACK);
+                    else
+                        Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.WHITE);
                     switchThemeScheme.Checked = true;
                     مظلمToolStripMenuItem.Checked = true;
                     فاتحToolStripMenuItem.Checked = false;
                 } else
                 {
                     Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-                    Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.BLACK);
+                    if (Properties.Settings.Default.TextShade == "BLACK")
+                        Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.BLACK);
+                    else
+                        Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.WHITE);
                     switchThemeScheme.Checked = false;
                     مظلمToolStripMenuItem.Checked = false;
                     فاتحToolStripMenuItem.Checked = true;
@@ -5530,7 +5542,10 @@ namespace PlancksoftPOS
                     if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
                     {
                         Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-                        Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.BLACK);
+                        if (Properties.Settings.Default.TextShade == "BLACK")
+                            Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.BLACK);
+                        else
+                            Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.WHITE);
                         Properties.Settings.Default.pickedThemeScheme = 1;
                         Properties.Settings.Default.Save();
                         changedUI = true;
@@ -5540,7 +5555,10 @@ namespace PlancksoftPOS
                     else
                     {
                         Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-                        Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.BLACK);
+                        if (Properties.Settings.Default.TextShade == "BLACK")
+                            Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.BLACK);
+                        else
+                            Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.WHITE);
                         Properties.Settings.Default.pickedThemeScheme = 0;
                         Properties.Settings.Default.Save();
                         changedUI = true;
@@ -9398,7 +9416,10 @@ namespace PlancksoftPOS
             Program.materialSkinManager.EnforceBackcolorOnAllComponents = false; ;
 
             Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Indigo500, Primary.Indigo700, Primary.Indigo100, Accent.Pink200, TextShade.BLACK);
+            if (Properties.Settings.Default.TextShade == "BLACK")
+                Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.BLACK);
+            else
+                Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.WHITE);
             Properties.Settings.Default.pickedThemeScheme = 0;
             Properties.Settings.Default.Save();
             مظلمToolStripMenuItem.Checked = false;
@@ -9413,7 +9434,10 @@ namespace PlancksoftPOS
             Program.materialSkinManager.EnforceBackcolorOnAllComponents = false; ;
 
             Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            Program.materialSkinManager.ColorScheme = new ColorScheme(Primary.Red300, Primary.DeepOrange400, Primary.Orange100, Accent.Orange100, TextShade.BLACK);
+            if (Properties.Settings.Default.TextShade == "BLACK")
+                Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.BLACK);
+            else
+                Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.WHITE);
             Properties.Settings.Default.pickedThemeScheme = 1;
             Properties.Settings.Default.Save();
             مظلمToolStripMenuItem.Checked = true;
