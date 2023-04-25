@@ -155,3 +155,4 @@ C:\PlancksoftPOS\PlancksoftPOS\bin\Debug\tr\Microsoft.VisualStudio.Services.WebA
 C:\PlancksoftPOS\PlancksoftPOS\bin\Debug\zh-Hans\Microsoft.VisualStudio.Services.WebApi.resources.dll
 C:\PlancksoftPOS\PlancksoftPOS\bin\Debug\zh-Hant\Microsoft.VisualStudio.Services.WebApi.resources.dll
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmAddPrinter.resources
+C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmColorPicker.resources

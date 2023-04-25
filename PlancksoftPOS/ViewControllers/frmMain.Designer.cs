@@ -28,13 +28,13 @@ namespace PlancksoftPOS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ادارةالمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اضافةمادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -641,6 +641,8 @@ namespace PlancksoftPOS
             this.button1 = new MaterialSkin.Controls.MaterialButton();
             this.groupBox9 = new MaterialSkin.Controls.MaterialCard();
             this.switchDarkTheme = new MaterialSkin.Controls.MaterialCard();
+            this.lblDarkPrimaryColor = new MaterialSkin.Controls.MaterialLabel();
+            this.DarkPrimaryColor = new MaterialSkin.Controls.MaterialTextBox2();
             this.switchThemeScheme = new MaterialSkin.Controls.MaterialSwitch();
             this.shopPhone = new MaterialSkin.Controls.MaterialTextBox2();
             this.A = new MaterialSkin.Controls.MaterialLabel();
@@ -682,6 +684,26 @@ namespace PlancksoftPOS
             this.فاتحToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.مظلمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblDarkPrimaryDark = new MaterialSkin.Controls.MaterialLabel();
+            this.DarkPrimaryDarkColor = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblDarkPrimaryLight = new MaterialSkin.Controls.MaterialLabel();
+            this.DarkPrimaryLightColor = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblDarkAccent = new MaterialSkin.Controls.MaterialLabel();
+            this.DarkAccentColor = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblDarkTextShade = new MaterialSkin.Controls.MaterialLabel();
+            this.lblColorSeperator2 = new MaterialSkin.Controls.MaterialLabel();
+            this.lblTextShade = new MaterialSkin.Controls.MaterialLabel();
+            this.lblAccent = new MaterialSkin.Controls.MaterialLabel();
+            this.AccentColor = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblPrimaryLight = new MaterialSkin.Controls.MaterialLabel();
+            this.PrimaryLightColor = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblPrimaryDark = new MaterialSkin.Controls.MaterialLabel();
+            this.PrimaryDarkColor = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblPrimaryColor = new MaterialSkin.Controls.MaterialLabel();
+            this.PrimaryColor = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblColorSeperator1 = new MaterialSkin.Controls.MaterialLabel();
+            this.switchBlackTextShade = new MaterialSkin.Controls.MaterialSwitch();
+            this.switchDarkBlackTextShade = new MaterialSkin.Controls.MaterialSwitch();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -3668,13 +3690,13 @@ namespace PlancksoftPOS
             this.groupBox8.Depth = 0;
             this.groupBox8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox8.Location = new System.Drawing.Point(3, 82);
+            this.groupBox8.Location = new System.Drawing.Point(3, 95);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(14);
             this.groupBox8.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Padding = new System.Windows.Forms.Padding(14);
             this.groupBox8.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox8.Size = new System.Drawing.Size(1864, 800);
+            this.groupBox8.Size = new System.Drawing.Size(1864, 787);
             this.groupBox8.TabIndex = 20;
             this.groupBox8.Text = "مخزون البضائع";
             // 
@@ -3692,7 +3714,7 @@ namespace PlancksoftPOS
             this.panel17.MouseState = MaterialSkin.MouseState.HOVER;
             this.panel17.Name = "panel17";
             this.panel17.Padding = new System.Windows.Forms.Padding(14);
-            this.panel17.Size = new System.Drawing.Size(1733, 613);
+            this.panel17.Size = new System.Drawing.Size(1733, 600);
             this.panel17.TabIndex = 47;
             // 
             // DgvInventory
@@ -3724,7 +3746,7 @@ namespace PlancksoftPOS
             this.DgvInventory.Name = "DgvInventory";
             this.DgvInventory.ReadOnly = true;
             this.DgvInventory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.DgvInventory.Size = new System.Drawing.Size(1730, 631);
+            this.DgvInventory.Size = new System.Drawing.Size(1730, 592);
             this.DgvInventory.TabIndex = 0;
             this.DgvInventory.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvInventory_RowHeaderMouseClick);
             // 
@@ -3856,7 +3878,7 @@ namespace PlancksoftPOS
             this.panel18.MouseState = MaterialSkin.MouseState.HOVER;
             this.panel18.Name = "panel18";
             this.panel18.Padding = new System.Windows.Forms.Padding(14);
-            this.panel18.Size = new System.Drawing.Size(119, 609);
+            this.panel18.Size = new System.Drawing.Size(119, 596);
             this.panel18.TabIndex = 48;
             // 
             // BtnDeleteItem
@@ -4460,7 +4482,7 @@ namespace PlancksoftPOS
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Padding = new System.Windows.Forms.Padding(14);
             this.groupBox7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox7.Size = new System.Drawing.Size(1864, 79);
+            this.groupBox7.Size = new System.Drawing.Size(1864, 92);
             this.groupBox7.TabIndex = 21;
             this.groupBox7.Text = "البحث عن القطع";
             // 
@@ -4497,7 +4519,7 @@ namespace PlancksoftPOS
             this.nudItemBarCodeSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudItemBarCodeSearch.HideSelection = true;
             this.nudItemBarCodeSearch.LeadingIcon = null;
-            this.nudItemBarCodeSearch.Location = new System.Drawing.Point(1569, 46);
+            this.nudItemBarCodeSearch.Location = new System.Drawing.Point(1569, 29);
             this.nudItemBarCodeSearch.MaxLength = 32767;
             this.nudItemBarCodeSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.nudItemBarCodeSearch.Name = "nudItemBarCodeSearch";
@@ -4553,7 +4575,7 @@ namespace PlancksoftPOS
             this.label57.Depth = 0;
             this.label57.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label57.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label57.Location = new System.Drawing.Point(1600, 20);
+            this.label57.Location = new System.Drawing.Point(1600, 3);
             this.label57.MouseState = MaterialSkin.MouseState.HOVER;
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(57, 19);
@@ -4567,7 +4589,7 @@ namespace PlancksoftPOS
             this.label58.Depth = 0;
             this.label58.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label58.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label58.Location = new System.Drawing.Point(1316, 20);
+            this.label58.Location = new System.Drawing.Point(1316, 3);
             this.label58.MouseState = MaterialSkin.MouseState.HOVER;
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(45, 19);
@@ -4601,7 +4623,7 @@ namespace PlancksoftPOS
             this.txtItemNameSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtItemNameSearch.HideSelection = true;
             this.txtItemNameSearch.LeadingIcon = null;
-            this.txtItemNameSearch.Location = new System.Drawing.Point(1149, 46);
+            this.txtItemNameSearch.Location = new System.Drawing.Point(1149, 29);
             this.txtItemNameSearch.MaxLength = 32767;
             this.txtItemNameSearch.MouseState = MaterialSkin.MouseState.OUT;
             this.txtItemNameSearch.Name = "txtItemNameSearch";
@@ -8667,8 +8689,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemName.DataPropertyName = "Item Name";
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle8;
             this.VendorItemName.HeaderText = "اسم الماده";
             this.VendorItemName.Name = "VendorItemName";
             this.VendorItemName.ReadOnly = true;
@@ -8677,8 +8699,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBarCode.DataPropertyName = "Item BarCode";
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle9;
             this.VendorItemBarCode.HeaderText = "باركود الماده";
             this.VendorItemBarCode.Name = "VendorItemBarCode";
             this.VendorItemBarCode.ReadOnly = true;
@@ -8687,8 +8709,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemType.DataPropertyName = "Item Type";
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle10;
             this.VendorItemType.HeaderText = "صنف الماده";
             this.VendorItemType.Name = "VendorItemType";
             this.VendorItemType.ReadOnly = true;
@@ -8697,8 +8719,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemQuantity.DataPropertyName = "Item Quantity";
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle11;
             this.VendorItemQuantity.HeaderText = "عدد القطع";
             this.VendorItemQuantity.Name = "VendorItemQuantity";
             this.VendorItemQuantity.ReadOnly = true;
@@ -8707,8 +8729,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBuyPrice.DataPropertyName = "VendorItemBuyPrice";
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle12;
             this.VendorItemBuyPrice.HeaderText = "سعر الشراء";
             this.VendorItemBuyPrice.Name = "VendorItemBuyPrice";
             this.VendorItemBuyPrice.ReadOnly = true;
@@ -8717,8 +8739,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPrice.DataPropertyName = "VendorItemSellPrice";
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle13;
             this.VendorItemSellPrice.HeaderText = "سعر البيع";
             this.VendorItemSellPrice.Name = "VendorItemSellPrice";
             this.VendorItemSellPrice.ReadOnly = true;
@@ -8727,8 +8749,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPriceTax.DataPropertyName = "VendorItemSellPriceTax";
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle14;
             this.VendorItemSellPriceTax.HeaderText = "سعر البيع مع الضريبه";
             this.VendorItemSellPriceTax.Name = "VendorItemSellPriceTax";
             this.VendorItemSellPriceTax.ReadOnly = true;
@@ -9860,6 +9882,7 @@ namespace PlancksoftPOS
             // groupBox24
             // 
             this.groupBox24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox24.Controls.Add(this.switchDarkTheme);
             this.groupBox24.Controls.Add(this.button1);
             this.groupBox24.Controls.Add(this.groupBox9);
             this.groupBox24.Controls.Add(this.groupBox5);
@@ -9902,7 +9925,6 @@ namespace PlancksoftPOS
             // groupBox9
             // 
             this.groupBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.groupBox9.Controls.Add(this.switchDarkTheme);
             this.groupBox9.Controls.Add(this.shopPhone);
             this.groupBox9.Controls.Add(this.A);
             this.groupBox9.Controls.Add(this.shopName);
@@ -9914,23 +9936,90 @@ namespace PlancksoftPOS
             this.groupBox9.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox9.Size = new System.Drawing.Size(492, 432);
+            this.groupBox9.Size = new System.Drawing.Size(492, 265);
             this.groupBox9.TabIndex = 35;
             this.groupBox9.Text = "الإعدادات الأساسية";
             // 
             // switchDarkTheme
             // 
             this.switchDarkTheme.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.switchDarkTheme.Controls.Add(this.switchDarkBlackTextShade);
+            this.switchDarkTheme.Controls.Add(this.switchBlackTextShade);
+            this.switchDarkTheme.Controls.Add(this.lblColorSeperator1);
+            this.switchDarkTheme.Controls.Add(this.lblTextShade);
+            this.switchDarkTheme.Controls.Add(this.lblAccent);
+            this.switchDarkTheme.Controls.Add(this.AccentColor);
+            this.switchDarkTheme.Controls.Add(this.lblPrimaryLight);
+            this.switchDarkTheme.Controls.Add(this.PrimaryLightColor);
+            this.switchDarkTheme.Controls.Add(this.lblPrimaryDark);
+            this.switchDarkTheme.Controls.Add(this.PrimaryDarkColor);
+            this.switchDarkTheme.Controls.Add(this.lblPrimaryColor);
+            this.switchDarkTheme.Controls.Add(this.PrimaryColor);
+            this.switchDarkTheme.Controls.Add(this.lblColorSeperator2);
+            this.switchDarkTheme.Controls.Add(this.lblDarkTextShade);
+            this.switchDarkTheme.Controls.Add(this.lblDarkAccent);
+            this.switchDarkTheme.Controls.Add(this.DarkAccentColor);
+            this.switchDarkTheme.Controls.Add(this.lblDarkPrimaryLight);
+            this.switchDarkTheme.Controls.Add(this.DarkPrimaryLightColor);
+            this.switchDarkTheme.Controls.Add(this.lblDarkPrimaryDark);
+            this.switchDarkTheme.Controls.Add(this.DarkPrimaryDarkColor);
+            this.switchDarkTheme.Controls.Add(this.lblDarkPrimaryColor);
+            this.switchDarkTheme.Controls.Add(this.DarkPrimaryColor);
             this.switchDarkTheme.Controls.Add(this.switchThemeScheme);
             this.switchDarkTheme.Depth = 0;
             this.switchDarkTheme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.switchDarkTheme.Location = new System.Drawing.Point(14, 182);
+            this.switchDarkTheme.Location = new System.Drawing.Point(1397, 338);
             this.switchDarkTheme.Margin = new System.Windows.Forms.Padding(14);
             this.switchDarkTheme.MouseState = MaterialSkin.MouseState.HOVER;
             this.switchDarkTheme.Name = "switchDarkTheme";
             this.switchDarkTheme.Padding = new System.Windows.Forms.Padding(14);
-            this.switchDarkTheme.Size = new System.Drawing.Size(437, 236);
+            this.switchDarkTheme.Size = new System.Drawing.Size(492, 440);
             this.switchDarkTheme.TabIndex = 30;
+            // 
+            // lblDarkPrimaryColor
+            // 
+            this.lblDarkPrimaryColor.AutoSize = true;
+            this.lblDarkPrimaryColor.Depth = 0;
+            this.lblDarkPrimaryColor.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDarkPrimaryColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblDarkPrimaryColor.Location = new System.Drawing.Point(17, 94);
+            this.lblDarkPrimaryColor.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDarkPrimaryColor.Name = "lblDarkPrimaryColor";
+            this.lblDarkPrimaryColor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblDarkPrimaryColor.Size = new System.Drawing.Size(35, 19);
+            this.lblDarkPrimaryColor.TabIndex = 34;
+            this.lblDarkPrimaryColor.Text = "الأساسي";
+            // 
+            // DarkPrimaryColor
+            // 
+            this.DarkPrimaryColor.AnimateReadOnly = false;
+            this.DarkPrimaryColor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.DarkPrimaryColor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.DarkPrimaryColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.DarkPrimaryColor.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.DarkPrimaryColor.Depth = 0;
+            this.DarkPrimaryColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DarkPrimaryColor.HideSelection = true;
+            this.DarkPrimaryColor.LeadingIcon = null;
+            this.DarkPrimaryColor.Location = new System.Drawing.Point(14, 116);
+            this.DarkPrimaryColor.MaxLength = 32767;
+            this.DarkPrimaryColor.MouseState = MaterialSkin.MouseState.OUT;
+            this.DarkPrimaryColor.Name = "DarkPrimaryColor";
+            this.DarkPrimaryColor.PasswordChar = '\0';
+            this.DarkPrimaryColor.PrefixSuffixText = null;
+            this.DarkPrimaryColor.ReadOnly = false;
+            this.DarkPrimaryColor.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.DarkPrimaryColor.SelectedText = "";
+            this.DarkPrimaryColor.SelectionLength = 0;
+            this.DarkPrimaryColor.SelectionStart = 0;
+            this.DarkPrimaryColor.ShortcutsEnabled = true;
+            this.DarkPrimaryColor.Size = new System.Drawing.Size(103, 48);
+            this.DarkPrimaryColor.TabIndex = 31;
+            this.DarkPrimaryColor.TabStop = false;
+            this.DarkPrimaryColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.DarkPrimaryColor.TrailingIcon = null;
+            this.DarkPrimaryColor.UseSystemPasswordChar = false;
+            this.DarkPrimaryColor.Click += new System.EventHandler(this.DarkPrimaryColor_Click);
             // 
             // switchThemeScheme
             // 
@@ -10419,6 +10508,407 @@ namespace PlancksoftPOS
             this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.الخروجToolStripMenuItem.Text = "الخروج";
             this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
+            // 
+            // lblDarkPrimaryDark
+            // 
+            this.lblDarkPrimaryDark.AutoSize = true;
+            this.lblDarkPrimaryDark.Depth = 0;
+            this.lblDarkPrimaryDark.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDarkPrimaryDark.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblDarkPrimaryDark.Location = new System.Drawing.Point(126, 94);
+            this.lblDarkPrimaryDark.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDarkPrimaryDark.Name = "lblDarkPrimaryDark";
+            this.lblDarkPrimaryDark.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblDarkPrimaryDark.Size = new System.Drawing.Size(63, 19);
+            this.lblDarkPrimaryDark.TabIndex = 36;
+            this.lblDarkPrimaryDark.Text = "الأساسي المظلم";
+            // 
+            // DarkPrimaryDarkColor
+            // 
+            this.DarkPrimaryDarkColor.AnimateReadOnly = false;
+            this.DarkPrimaryDarkColor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.DarkPrimaryDarkColor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.DarkPrimaryDarkColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.DarkPrimaryDarkColor.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.DarkPrimaryDarkColor.Depth = 0;
+            this.DarkPrimaryDarkColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DarkPrimaryDarkColor.HideSelection = true;
+            this.DarkPrimaryDarkColor.LeadingIcon = null;
+            this.DarkPrimaryDarkColor.Location = new System.Drawing.Point(123, 116);
+            this.DarkPrimaryDarkColor.MaxLength = 32767;
+            this.DarkPrimaryDarkColor.MouseState = MaterialSkin.MouseState.OUT;
+            this.DarkPrimaryDarkColor.Name = "DarkPrimaryDarkColor";
+            this.DarkPrimaryDarkColor.PasswordChar = '\0';
+            this.DarkPrimaryDarkColor.PrefixSuffixText = null;
+            this.DarkPrimaryDarkColor.ReadOnly = false;
+            this.DarkPrimaryDarkColor.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.DarkPrimaryDarkColor.SelectedText = "";
+            this.DarkPrimaryDarkColor.SelectionLength = 0;
+            this.DarkPrimaryDarkColor.SelectionStart = 0;
+            this.DarkPrimaryDarkColor.ShortcutsEnabled = true;
+            this.DarkPrimaryDarkColor.Size = new System.Drawing.Size(103, 48);
+            this.DarkPrimaryDarkColor.TabIndex = 35;
+            this.DarkPrimaryDarkColor.TabStop = false;
+            this.DarkPrimaryDarkColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.DarkPrimaryDarkColor.TrailingIcon = null;
+            this.DarkPrimaryDarkColor.UseSystemPasswordChar = false;
+            this.DarkPrimaryDarkColor.Click += new System.EventHandler(this.DarkPrimaryDarkColor_Click);
+            // 
+            // lblDarkPrimaryLight
+            // 
+            this.lblDarkPrimaryLight.AutoSize = true;
+            this.lblDarkPrimaryLight.Depth = 0;
+            this.lblDarkPrimaryLight.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDarkPrimaryLight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblDarkPrimaryLight.Location = new System.Drawing.Point(235, 94);
+            this.lblDarkPrimaryLight.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDarkPrimaryLight.Name = "lblDarkPrimaryLight";
+            this.lblDarkPrimaryLight.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblDarkPrimaryLight.Size = new System.Drawing.Size(62, 19);
+            this.lblDarkPrimaryLight.TabIndex = 38;
+            this.lblDarkPrimaryLight.Text = "الأساسي الغاتح";
+            // 
+            // DarkPrimaryLightColor
+            // 
+            this.DarkPrimaryLightColor.AnimateReadOnly = false;
+            this.DarkPrimaryLightColor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.DarkPrimaryLightColor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.DarkPrimaryLightColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.DarkPrimaryLightColor.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.DarkPrimaryLightColor.Depth = 0;
+            this.DarkPrimaryLightColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DarkPrimaryLightColor.HideSelection = true;
+            this.DarkPrimaryLightColor.LeadingIcon = null;
+            this.DarkPrimaryLightColor.Location = new System.Drawing.Point(232, 116);
+            this.DarkPrimaryLightColor.MaxLength = 32767;
+            this.DarkPrimaryLightColor.MouseState = MaterialSkin.MouseState.OUT;
+            this.DarkPrimaryLightColor.Name = "DarkPrimaryLightColor";
+            this.DarkPrimaryLightColor.PasswordChar = '\0';
+            this.DarkPrimaryLightColor.PrefixSuffixText = null;
+            this.DarkPrimaryLightColor.ReadOnly = false;
+            this.DarkPrimaryLightColor.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.DarkPrimaryLightColor.SelectedText = "";
+            this.DarkPrimaryLightColor.SelectionLength = 0;
+            this.DarkPrimaryLightColor.SelectionStart = 0;
+            this.DarkPrimaryLightColor.ShortcutsEnabled = true;
+            this.DarkPrimaryLightColor.Size = new System.Drawing.Size(103, 48);
+            this.DarkPrimaryLightColor.TabIndex = 37;
+            this.DarkPrimaryLightColor.TabStop = false;
+            this.DarkPrimaryLightColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.DarkPrimaryLightColor.TrailingIcon = null;
+            this.DarkPrimaryLightColor.UseSystemPasswordChar = false;
+            this.DarkPrimaryLightColor.Click += new System.EventHandler(this.DarkPrimaryLightColor_Click);
+            // 
+            // lblDarkAccent
+            // 
+            this.lblDarkAccent.AutoSize = true;
+            this.lblDarkAccent.Depth = 0;
+            this.lblDarkAccent.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDarkAccent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblDarkAccent.Location = new System.Drawing.Point(344, 94);
+            this.lblDarkAccent.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDarkAccent.Name = "lblDarkAccent";
+            this.lblDarkAccent.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblDarkAccent.Size = new System.Drawing.Size(27, 19);
+            this.lblDarkAccent.TabIndex = 40;
+            this.lblDarkAccent.Text = "التمييز";
+            // 
+            // DarkAccentColor
+            // 
+            this.DarkAccentColor.AnimateReadOnly = false;
+            this.DarkAccentColor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.DarkAccentColor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.DarkAccentColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.DarkAccentColor.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.DarkAccentColor.Depth = 0;
+            this.DarkAccentColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DarkAccentColor.HideSelection = true;
+            this.DarkAccentColor.LeadingIcon = null;
+            this.DarkAccentColor.Location = new System.Drawing.Point(341, 116);
+            this.DarkAccentColor.MaxLength = 32767;
+            this.DarkAccentColor.MouseState = MaterialSkin.MouseState.OUT;
+            this.DarkAccentColor.Name = "DarkAccentColor";
+            this.DarkAccentColor.PasswordChar = '\0';
+            this.DarkAccentColor.PrefixSuffixText = null;
+            this.DarkAccentColor.ReadOnly = false;
+            this.DarkAccentColor.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.DarkAccentColor.SelectedText = "";
+            this.DarkAccentColor.SelectionLength = 0;
+            this.DarkAccentColor.SelectionStart = 0;
+            this.DarkAccentColor.ShortcutsEnabled = true;
+            this.DarkAccentColor.Size = new System.Drawing.Size(103, 48);
+            this.DarkAccentColor.TabIndex = 39;
+            this.DarkAccentColor.TabStop = false;
+            this.DarkAccentColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.DarkAccentColor.TrailingIcon = null;
+            this.DarkAccentColor.UseSystemPasswordChar = false;
+            this.DarkAccentColor.Click += new System.EventHandler(this.DarkAccentColor_Click);
+            // 
+            // lblDarkTextShade
+            // 
+            this.lblDarkTextShade.AutoSize = true;
+            this.lblDarkTextShade.Depth = 0;
+            this.lblDarkTextShade.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblDarkTextShade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblDarkTextShade.Location = new System.Drawing.Point(17, 167);
+            this.lblDarkTextShade.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDarkTextShade.Name = "lblDarkTextShade";
+            this.lblDarkTextShade.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblDarkTextShade.Size = new System.Drawing.Size(54, 19);
+            this.lblDarkTextShade.TabIndex = 42;
+            this.lblDarkTextShade.Text = "ظل النصوص";
+            // 
+            // lblColorSeperator2
+            // 
+            this.lblColorSeperator2.AutoSize = true;
+            this.lblColorSeperator2.Depth = 0;
+            this.lblColorSeperator2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblColorSeperator2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblColorSeperator2.Location = new System.Drawing.Point(6, 240);
+            this.lblColorSeperator2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblColorSeperator2.Name = "lblColorSeperator2";
+            this.lblColorSeperator2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblColorSeperator2.Size = new System.Drawing.Size(484, 19);
+            this.lblColorSeperator2.TabIndex = 43;
+            this.lblColorSeperator2.Text = "_____________________________________________________________________";
+            // 
+            // lblTextShade
+            // 
+            this.lblTextShade.AutoSize = true;
+            this.lblTextShade.Depth = 0;
+            this.lblTextShade.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblTextShade.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblTextShade.Location = new System.Drawing.Point(14, 352);
+            this.lblTextShade.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblTextShade.Name = "lblTextShade";
+            this.lblTextShade.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblTextShade.Size = new System.Drawing.Size(54, 19);
+            this.lblTextShade.TabIndex = 53;
+            this.lblTextShade.Text = "ظل النصوص";
+            // 
+            // lblAccent
+            // 
+            this.lblAccent.AutoSize = true;
+            this.lblAccent.Depth = 0;
+            this.lblAccent.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblAccent.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblAccent.Location = new System.Drawing.Point(349, 279);
+            this.lblAccent.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblAccent.Name = "lblAccent";
+            this.lblAccent.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblAccent.Size = new System.Drawing.Size(27, 19);
+            this.lblAccent.TabIndex = 51;
+            this.lblAccent.Text = "التمييز";
+            // 
+            // AccentColor
+            // 
+            this.AccentColor.AnimateReadOnly = false;
+            this.AccentColor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.AccentColor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.AccentColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.AccentColor.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.AccentColor.Depth = 0;
+            this.AccentColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AccentColor.HideSelection = true;
+            this.AccentColor.LeadingIcon = null;
+            this.AccentColor.Location = new System.Drawing.Point(346, 301);
+            this.AccentColor.MaxLength = 32767;
+            this.AccentColor.MouseState = MaterialSkin.MouseState.OUT;
+            this.AccentColor.Name = "AccentColor";
+            this.AccentColor.PasswordChar = '\0';
+            this.AccentColor.PrefixSuffixText = null;
+            this.AccentColor.ReadOnly = false;
+            this.AccentColor.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.AccentColor.SelectedText = "";
+            this.AccentColor.SelectionLength = 0;
+            this.AccentColor.SelectionStart = 0;
+            this.AccentColor.ShortcutsEnabled = true;
+            this.AccentColor.Size = new System.Drawing.Size(103, 48);
+            this.AccentColor.TabIndex = 50;
+            this.AccentColor.TabStop = false;
+            this.AccentColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.AccentColor.TrailingIcon = null;
+            this.AccentColor.UseSystemPasswordChar = false;
+            this.AccentColor.Click += new System.EventHandler(this.AccentColor_Click);
+            // 
+            // lblPrimaryLight
+            // 
+            this.lblPrimaryLight.AutoSize = true;
+            this.lblPrimaryLight.Depth = 0;
+            this.lblPrimaryLight.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblPrimaryLight.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblPrimaryLight.Location = new System.Drawing.Point(235, 279);
+            this.lblPrimaryLight.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblPrimaryLight.Name = "lblPrimaryLight";
+            this.lblPrimaryLight.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblPrimaryLight.Size = new System.Drawing.Size(62, 19);
+            this.lblPrimaryLight.TabIndex = 49;
+            this.lblPrimaryLight.Text = "الأساسي الغاتح";
+            // 
+            // PrimaryLightColor
+            // 
+            this.PrimaryLightColor.AnimateReadOnly = false;
+            this.PrimaryLightColor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.PrimaryLightColor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.PrimaryLightColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PrimaryLightColor.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.PrimaryLightColor.Depth = 0;
+            this.PrimaryLightColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrimaryLightColor.HideSelection = true;
+            this.PrimaryLightColor.LeadingIcon = null;
+            this.PrimaryLightColor.Location = new System.Drawing.Point(232, 301);
+            this.PrimaryLightColor.MaxLength = 32767;
+            this.PrimaryLightColor.MouseState = MaterialSkin.MouseState.OUT;
+            this.PrimaryLightColor.Name = "PrimaryLightColor";
+            this.PrimaryLightColor.PasswordChar = '\0';
+            this.PrimaryLightColor.PrefixSuffixText = null;
+            this.PrimaryLightColor.ReadOnly = false;
+            this.PrimaryLightColor.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PrimaryLightColor.SelectedText = "";
+            this.PrimaryLightColor.SelectionLength = 0;
+            this.PrimaryLightColor.SelectionStart = 0;
+            this.PrimaryLightColor.ShortcutsEnabled = true;
+            this.PrimaryLightColor.Size = new System.Drawing.Size(103, 48);
+            this.PrimaryLightColor.TabIndex = 48;
+            this.PrimaryLightColor.TabStop = false;
+            this.PrimaryLightColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.PrimaryLightColor.TrailingIcon = null;
+            this.PrimaryLightColor.UseSystemPasswordChar = false;
+            this.PrimaryLightColor.Click += new System.EventHandler(this.PrimaryLightColor_Click);
+            // 
+            // lblPrimaryDark
+            // 
+            this.lblPrimaryDark.AutoSize = true;
+            this.lblPrimaryDark.Depth = 0;
+            this.lblPrimaryDark.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblPrimaryDark.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblPrimaryDark.Location = new System.Drawing.Point(126, 279);
+            this.lblPrimaryDark.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblPrimaryDark.Name = "lblPrimaryDark";
+            this.lblPrimaryDark.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblPrimaryDark.Size = new System.Drawing.Size(63, 19);
+            this.lblPrimaryDark.TabIndex = 47;
+            this.lblPrimaryDark.Text = "الأساسي المظلم";
+            // 
+            // PrimaryDarkColor
+            // 
+            this.PrimaryDarkColor.AnimateReadOnly = false;
+            this.PrimaryDarkColor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.PrimaryDarkColor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.PrimaryDarkColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PrimaryDarkColor.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.PrimaryDarkColor.Depth = 0;
+            this.PrimaryDarkColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrimaryDarkColor.HideSelection = true;
+            this.PrimaryDarkColor.LeadingIcon = null;
+            this.PrimaryDarkColor.Location = new System.Drawing.Point(123, 301);
+            this.PrimaryDarkColor.MaxLength = 32767;
+            this.PrimaryDarkColor.MouseState = MaterialSkin.MouseState.OUT;
+            this.PrimaryDarkColor.Name = "PrimaryDarkColor";
+            this.PrimaryDarkColor.PasswordChar = '\0';
+            this.PrimaryDarkColor.PrefixSuffixText = null;
+            this.PrimaryDarkColor.ReadOnly = false;
+            this.PrimaryDarkColor.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PrimaryDarkColor.SelectedText = "";
+            this.PrimaryDarkColor.SelectionLength = 0;
+            this.PrimaryDarkColor.SelectionStart = 0;
+            this.PrimaryDarkColor.ShortcutsEnabled = true;
+            this.PrimaryDarkColor.Size = new System.Drawing.Size(103, 48);
+            this.PrimaryDarkColor.TabIndex = 46;
+            this.PrimaryDarkColor.TabStop = false;
+            this.PrimaryDarkColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.PrimaryDarkColor.TrailingIcon = null;
+            this.PrimaryDarkColor.UseSystemPasswordChar = false;
+            this.PrimaryDarkColor.Click += new System.EventHandler(this.PrimaryDarkColor_Click);
+            // 
+            // lblPrimaryColor
+            // 
+            this.lblPrimaryColor.AutoSize = true;
+            this.lblPrimaryColor.Depth = 0;
+            this.lblPrimaryColor.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblPrimaryColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblPrimaryColor.Location = new System.Drawing.Point(17, 279);
+            this.lblPrimaryColor.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblPrimaryColor.Name = "lblPrimaryColor";
+            this.lblPrimaryColor.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblPrimaryColor.Size = new System.Drawing.Size(35, 19);
+            this.lblPrimaryColor.TabIndex = 45;
+            this.lblPrimaryColor.Text = "الأساسي";
+            // 
+            // PrimaryColor
+            // 
+            this.PrimaryColor.AnimateReadOnly = false;
+            this.PrimaryColor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.PrimaryColor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.PrimaryColor.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PrimaryColor.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.PrimaryColor.Depth = 0;
+            this.PrimaryColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PrimaryColor.HideSelection = true;
+            this.PrimaryColor.LeadingIcon = null;
+            this.PrimaryColor.Location = new System.Drawing.Point(14, 301);
+            this.PrimaryColor.MaxLength = 32767;
+            this.PrimaryColor.MouseState = MaterialSkin.MouseState.OUT;
+            this.PrimaryColor.Name = "PrimaryColor";
+            this.PrimaryColor.PasswordChar = '\0';
+            this.PrimaryColor.PrefixSuffixText = null;
+            this.PrimaryColor.ReadOnly = false;
+            this.PrimaryColor.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.PrimaryColor.SelectedText = "";
+            this.PrimaryColor.SelectionLength = 0;
+            this.PrimaryColor.SelectionStart = 0;
+            this.PrimaryColor.ShortcutsEnabled = true;
+            this.PrimaryColor.Size = new System.Drawing.Size(103, 48);
+            this.PrimaryColor.TabIndex = 44;
+            this.PrimaryColor.TabStop = false;
+            this.PrimaryColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.PrimaryColor.TrailingIcon = null;
+            this.PrimaryColor.UseSystemPasswordChar = false;
+            this.PrimaryColor.Click += new System.EventHandler(this.PrimaryColor_Click);
+            // 
+            // lblColorSeperator1
+            // 
+            this.lblColorSeperator1.AutoSize = true;
+            this.lblColorSeperator1.Depth = 0;
+            this.lblColorSeperator1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblColorSeperator1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblColorSeperator1.Location = new System.Drawing.Point(3, 64);
+            this.lblColorSeperator1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblColorSeperator1.Name = "lblColorSeperator1";
+            this.lblColorSeperator1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblColorSeperator1.Size = new System.Drawing.Size(484, 19);
+            this.lblColorSeperator1.TabIndex = 54;
+            this.lblColorSeperator1.Text = "_____________________________________________________________________";
+            // 
+            // switchBlackTextShade
+            // 
+            this.switchBlackTextShade.AutoSize = true;
+            this.switchBlackTextShade.Depth = 0;
+            this.switchBlackTextShade.Location = new System.Drawing.Point(14, 376);
+            this.switchBlackTextShade.Margin = new System.Windows.Forms.Padding(0);
+            this.switchBlackTextShade.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.switchBlackTextShade.MouseState = MaterialSkin.MouseState.HOVER;
+            this.switchBlackTextShade.Name = "switchBlackTextShade";
+            this.switchBlackTextShade.Ripple = true;
+            this.switchBlackTextShade.Size = new System.Drawing.Size(77, 37);
+            this.switchBlackTextShade.TabIndex = 55;
+            this.switchBlackTextShade.Text = "أسود";
+            this.switchBlackTextShade.UseVisualStyleBackColor = true;
+            // 
+            // switchDarkBlackTextShade
+            // 
+            this.switchDarkBlackTextShade.AutoSize = true;
+            this.switchDarkBlackTextShade.Depth = 0;
+            this.switchDarkBlackTextShade.Location = new System.Drawing.Point(17, 186);
+            this.switchDarkBlackTextShade.Margin = new System.Windows.Forms.Padding(0);
+            this.switchDarkBlackTextShade.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.switchDarkBlackTextShade.MouseState = MaterialSkin.MouseState.HOVER;
+            this.switchDarkBlackTextShade.Name = "switchDarkBlackTextShade";
+            this.switchDarkBlackTextShade.Ripple = true;
+            this.switchDarkBlackTextShade.Size = new System.Drawing.Size(77, 37);
+            this.switchDarkBlackTextShade.TabIndex = 56;
+            this.switchDarkBlackTextShade.Text = "أسود";
+            this.switchDarkBlackTextShade.UseVisualStyleBackColor = true;
             // 
             // frmMain
             // 
@@ -11369,6 +11859,28 @@ namespace PlancksoftPOS
         private System.Windows.Forms.ToolStripMenuItem فاتحToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem مظلمToolStripMenuItem;
         public MaterialCheckbox sell_edit;
+        public MaterialLabel lblDarkPrimaryColor;
+        public MaterialTextBox2 DarkPrimaryColor;
+        public MaterialLabel lblDarkPrimaryDark;
+        public MaterialTextBox2 DarkPrimaryDarkColor;
+        public MaterialLabel lblDarkPrimaryLight;
+        public MaterialTextBox2 DarkPrimaryLightColor;
+        public MaterialLabel lblDarkAccent;
+        public MaterialTextBox2 DarkAccentColor;
+        public MaterialLabel lblDarkTextShade;
+        public MaterialLabel lblColorSeperator2;
+        public MaterialLabel lblColorSeperator1;
+        public MaterialLabel lblTextShade;
+        public MaterialLabel lblAccent;
+        public MaterialTextBox2 AccentColor;
+        public MaterialLabel lblPrimaryLight;
+        public MaterialTextBox2 PrimaryLightColor;
+        public MaterialLabel lblPrimaryDark;
+        public MaterialTextBox2 PrimaryDarkColor;
+        public MaterialLabel lblPrimaryColor;
+        public MaterialTextBox2 PrimaryColor;
+        private MaterialSwitch switchBlackTextShade;
+        private MaterialSwitch switchDarkBlackTextShade;
     }
 }
 

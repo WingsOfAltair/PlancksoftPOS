@@ -145,7 +145,7 @@ namespace PlancksoftPOS
             {
                 switchThemeScheme.Checked = Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark));
                 Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-                if (Properties.Settings.Default.darkTextShade == "BLACK")
+                if (Properties.Settings.Default.darkTextShade.ToUpper() == "BLACK")
                     Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.BLACK);
                 else
                     Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.WHITE);
@@ -156,7 +156,7 @@ namespace PlancksoftPOS
             {
                 switchThemeScheme.Checked = Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Light));
                 Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-                if (Settings.Default.TextShade == "BLACK")
+                if (Properties.Settings.Default.TextShade.ToUpper() == "BLACK")
                     Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.BLACK);
                 else
                     Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.WHITE);
@@ -472,6 +472,35 @@ namespace PlancksoftPOS
 
                 applyLocalizationOnUI();
 
+                // Dark Theme Color Scheme
+
+                DarkPrimaryColor.Text = Properties.Settings.Default.darkPrimary;
+                DarkPrimaryDarkColor.Text = Properties.Settings.Default.darkPrimaryDark;
+                DarkPrimaryLightColor.Text = Properties.Settings.Default.darkLightPrimary;
+                DarkAccentColor.Text = Properties.Settings.Default.darkAccent;
+
+                if (Properties.Settings.Default.darkTextShade.ToUpper() == "BLACK")
+                {
+                    switchDarkBlackTextShade.Checked = true;
+                } else
+                {
+                    switchDarkBlackTextShade.Checked = false;
+                }
+
+                // Light Theme Color Scheme
+
+                PrimaryColor.Text = Properties.Settings.Default.Primary;
+                PrimaryDarkColor.Text = Properties.Settings.Default.PrimaryDark;
+                PrimaryLightColor.Text = Properties.Settings.Default.LightPrimary;
+                AccentColor.Text = Properties.Settings.Default.Accent;
+                
+                if (Properties.Settings.Default.TextShade.ToUpper() == "BLACK")
+                {
+                    switchBlackTextShade.Checked = true;
+                } else
+                {
+                    switchBlackTextShade.Checked = false;
+                }
 
                 Program.materialSkinManager = MaterialSkinManager.Instance;
                 Program.materialSkinManager.EnforceBackcolorOnAllComponents = false;
@@ -479,7 +508,7 @@ namespace PlancksoftPOS
                 if (Properties.Settings.Default.pickedThemeScheme == (int)ThemeSchemeChoice.ThemeScheme.Dark)
                 {
                     Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-                    if (Properties.Settings.Default.TextShade == "BLACK")
+                    if (Properties.Settings.Default.darkTextShade.ToUpper() == "BLACK")
                         Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.BLACK);
                     else
                         Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.WHITE);
@@ -489,7 +518,7 @@ namespace PlancksoftPOS
                 } else
                 {
                     Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-                    if (Properties.Settings.Default.TextShade == "BLACK")
+                    if (Properties.Settings.Default.TextShade.ToUpper() == "BLACK")
                         Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.BLACK);
                     else
                         Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.WHITE);
@@ -5537,12 +5566,36 @@ namespace PlancksoftPOS
                     TaxRate = Convert.ToDecimal(nudTaxRate.Value / 100);
 
                     Program.materialSkinManager = MaterialSkinManager.Instance;
-                    Program.materialSkinManager.EnforceBackcolorOnAllComponents = false;;
+                    Program.materialSkinManager.EnforceBackcolorOnAllComponents = false;
+
+                    // Dark Theme Color Scheme
+
+                    Properties.Settings.Default.darkPrimary = DarkPrimaryColor.Text;
+                    Properties.Settings.Default.darkPrimaryDark = DarkPrimaryDarkColor.Text;
+                    Properties.Settings.Default.darkLightPrimary = DarkPrimaryLightColor.Text;
+                    Properties.Settings.Default.darkAccent = DarkAccentColor.Text;
+
+                    if (switchDarkBlackTextShade.Checked)
+                        Properties.Settings.Default.darkTextShade = "BLACK";
+                    else
+                        Properties.Settings.Default.darkTextShade = "WHITE";
+
+                    // Light Theme Color Scheme
+
+                    Properties.Settings.Default.Primary = PrimaryColor.Text;
+                    Properties.Settings.Default.PrimaryDark = PrimaryDarkColor.Text;
+                    Properties.Settings.Default.LightPrimary = PrimaryLightColor.Text;
+                    Properties.Settings.Default.Accent = AccentColor.Text;
+
+                    if (switchBlackTextShade.Checked)
+                        Properties.Settings.Default.TextShade = "BLACK";
+                    else
+                        Properties.Settings.Default.TextShade = "WHITE";
 
                     if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
                     {
                         Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-                        if (Properties.Settings.Default.TextShade == "BLACK")
+                        if (Properties.Settings.Default.darkTextShade == "BLACK")
                             Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.BLACK);
                         else
                             Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.WHITE);
@@ -9434,7 +9487,7 @@ namespace PlancksoftPOS
             Program.materialSkinManager.EnforceBackcolorOnAllComponents = false; ;
 
             Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
-            if (Properties.Settings.Default.TextShade == "BLACK")
+            if (Properties.Settings.Default.darkTextShade == "BLACK")
                 Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.BLACK);
             else
                 Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.WHITE);
@@ -9444,6 +9497,86 @@ namespace PlancksoftPOS
             فاتحToolStripMenuItem.Checked = false;
             switchThemeScheme.Checked = true;
             Application.Restart();
+        }
+
+        private void DarkPrimaryColor_Click(object sender, EventArgs e)
+        {
+            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker.ShowDialog();
+            if (frmColorPicker.colorDialogResult == DialogResult.OK)
+            {
+                DarkPrimaryColor.Text = frmColorPicker.hexColor;
+            }
+        }
+
+        private void DarkPrimaryDarkColor_Click(object sender, EventArgs e)
+        {
+            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker.ShowDialog();
+            if (frmColorPicker.colorDialogResult == DialogResult.OK)
+            {
+                DarkPrimaryDarkColor.Text = frmColorPicker.hexColor;
+            }
+        }
+
+        private void DarkPrimaryLightColor_Click(object sender, EventArgs e)
+        {
+            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker.ShowDialog();
+            if (frmColorPicker.colorDialogResult == DialogResult.OK)
+            {
+                DarkPrimaryLightColor.Text = frmColorPicker.hexColor;
+            }
+        }
+
+        private void DarkAccentColor_Click(object sender, EventArgs e)
+        {
+            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker.ShowDialog();
+            if (frmColorPicker.colorDialogResult == DialogResult.OK)
+            {
+                DarkAccentColor.Text = frmColorPicker.hexColor;
+            }
+        }
+
+        private void PrimaryColor_Click(object sender, EventArgs e)
+        {
+            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker.ShowDialog();
+            if (frmColorPicker.colorDialogResult == DialogResult.OK)
+            {
+                PrimaryColor.Text = frmColorPicker.hexColor;
+            }
+        }
+
+        private void PrimaryDarkColor_Click(object sender, EventArgs e)
+        {
+            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker.ShowDialog();
+            if (frmColorPicker.colorDialogResult == DialogResult.OK)
+            {
+                PrimaryDarkColor.Text = frmColorPicker.hexColor;
+            }
+        }
+
+        private void PrimaryLightColor_Click(object sender, EventArgs e)
+        {
+            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker.ShowDialog();
+            if (frmColorPicker.colorDialogResult == DialogResult.OK)
+            {
+                PrimaryLightColor.Text = frmColorPicker.hexColor;
+            }
+        }
+
+        private void AccentColor_Click(object sender, EventArgs e)
+        {
+            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker.ShowDialog();
+            if (frmColorPicker.colorDialogResult == DialogResult.OK)
+            {
+                AccentColor.Text = frmColorPicker.hexColor;
+            }
         }
 
         public void textBox3_KeyPress(object sender, KeyPressEventArgs e)
