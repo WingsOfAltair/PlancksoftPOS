@@ -15,7 +15,7 @@ namespace Dependencies
         [DataMember]
         public int authority;
         [DataMember]
-        public bool customer_card_edit, discount_edit, price_edit, receipt_edit, inventory_edit, expenses_add, users_edit, settings_edit, personnel_edit, openclose_edit;
+        public bool customer_card_edit, discount_edit, price_edit, receipt_edit, inventory_edit, expenses_add, users_edit, settings_edit, personnel_edit, openclose_edit, sell_edit;
         [DataMember]
         public string Uid { get => uid; set => uid = value; }
         [DataMember]

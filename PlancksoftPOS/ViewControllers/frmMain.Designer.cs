@@ -610,6 +610,7 @@ namespace PlancksoftPOS
             this.button20 = new MaterialSkin.Controls.MaterialButton();
             this.button22 = new MaterialSkin.Controls.MaterialButton();
             this.groupBox35 = new MaterialSkin.Controls.MaterialCard();
+            this.sell_edit = new MaterialSkin.Controls.MaterialCheckbox();
             this.openclose_edit = new MaterialSkin.Controls.MaterialCheckbox();
             this.personnel_edit = new MaterialSkin.Controls.MaterialCheckbox();
             this.settings_edit = new MaterialSkin.Controls.MaterialCheckbox();
@@ -9374,6 +9375,7 @@ namespace PlancksoftPOS
             this.groupBox35.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox35.Controls.Add(this.sell_edit);
             this.groupBox35.Controls.Add(this.openclose_edit);
             this.groupBox35.Controls.Add(this.personnel_edit);
             this.groupBox35.Controls.Add(this.settings_edit);
@@ -9394,6 +9396,25 @@ namespace PlancksoftPOS
             this.groupBox35.Size = new System.Drawing.Size(1076, 243);
             this.groupBox35.TabIndex = 27;
             this.groupBox35.Text = "الصلاحيات";
+            // 
+            // sell_edit
+            // 
+            this.sell_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.sell_edit.AutoSize = true;
+            this.sell_edit.Depth = 0;
+            this.sell_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sell_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.sell_edit.Location = new System.Drawing.Point(635, 47);
+            this.sell_edit.Margin = new System.Windows.Forms.Padding(0);
+            this.sell_edit.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.sell_edit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.sell_edit.Name = "sell_edit";
+            this.sell_edit.ReadOnly = false;
+            this.sell_edit.Ripple = true;
+            this.sell_edit.Size = new System.Drawing.Size(122, 37);
+            this.sell_edit.TabIndex = 10;
+            this.sell_edit.Text = "مبيعات الكاش";
+            this.sell_edit.UseVisualStyleBackColor = true;
             // 
             // openclose_edit
             // 
@@ -9440,7 +9461,7 @@ namespace PlancksoftPOS
             this.settings_edit.Depth = 0;
             this.settings_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settings_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.settings_edit.Location = new System.Drawing.Point(623, 116);
+            this.settings_edit.Location = new System.Drawing.Point(623, 140);
             this.settings_edit.Margin = new System.Windows.Forms.Padding(0);
             this.settings_edit.MouseLocation = new System.Drawing.Point(-1, -1);
             this.settings_edit.MouseState = MaterialSkin.MouseState.HOVER;
@@ -9459,7 +9480,7 @@ namespace PlancksoftPOS
             this.users_edit.Depth = 0;
             this.users_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.users_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.users_edit.Location = new System.Drawing.Point(603, 84);
+            this.users_edit.Location = new System.Drawing.Point(603, 106);
             this.users_edit.Margin = new System.Windows.Forms.Padding(0);
             this.users_edit.MouseLocation = new System.Drawing.Point(-1, -1);
             this.users_edit.MouseState = MaterialSkin.MouseState.HOVER;
@@ -9478,7 +9499,7 @@ namespace PlancksoftPOS
             this.expenses_edit.Depth = 0;
             this.expenses_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.expenses_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.expenses_edit.Location = new System.Drawing.Point(634, 50);
+            this.expenses_edit.Location = new System.Drawing.Point(634, 78);
             this.expenses_edit.Margin = new System.Windows.Forms.Padding(0);
             this.expenses_edit.MouseLocation = new System.Drawing.Point(-1, -1);
             this.expenses_edit.MouseState = MaterialSkin.MouseState.HOVER;
@@ -11360,6 +11381,7 @@ namespace PlancksoftPOS
         private System.Windows.Forms.ToolStripMenuItem المظهرToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem فاتحToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem مظلمToolStripMenuItem;
+        public MaterialCheckbox sell_edit;
     }
 }
 

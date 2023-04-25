@@ -222,6 +222,7 @@ namespace PlancksoftPOS
             settings_edit.Checked = this.userPermissions.settings_edit;
             personnel_edit.Checked = this.userPermissions.personnel_edit;
             openclose_edit.Checked = this.userPermissions.openclose_edit;
+            sell_edit.Checked = this.userPermissions.sell_edit;
 
             if (!this.userPermissions.customer_card_edit)
             {
@@ -363,6 +364,58 @@ namespace PlancksoftPOS
                     tabControl1.TabPages.Add(TaxesTab);
             }
 
+            if (!this.userPermissions.sell_edit)
+            {
+                label67.Enabled = false;
+                pictureBox10.Enabled = false;
+                pictureBox25.Enabled = false;
+                label93.Enabled = false;
+                pictureBox12.Enabled = false;
+                label69.Enabled = false;
+                pictureBox11.Enabled = false;
+                label68.Enabled = false;
+                pictureBox26.Enabled = false;
+                label89.Enabled = false;
+                pictureBox3.Enabled = false;
+                label2.Enabled = false;
+                label24.Enabled = false;
+                pictureBox37.Enabled = false;
+                label70.Enabled = false;
+                pictureBox13.Enabled = false;
+                pictureBox14.Enabled = false;
+                tabControl2.Enabled = false;
+                ItemsPendingPurchase.Enabled = false;
+                button17.Enabled = false;
+                button24.Enabled = false;
+                pendingPurchaseRemovalQuantity.Enabled = false;
+                pendingPurchaseNewQuantity.Enabled = false;
+            } else
+            {
+                label67.Enabled = true;
+                pictureBox10.Enabled = true;
+                pictureBox25.Enabled = true;
+                label93.Enabled = true;
+                pictureBox12.Enabled = true;
+                label69.Enabled = true;
+                pictureBox11.Enabled = true;
+                label68.Enabled = true;
+                pictureBox26.Enabled = true;
+                label89.Enabled = true;
+                pictureBox3.Enabled = true;
+                label2.Enabled = true;
+                label24.Enabled = true;
+                pictureBox37.Enabled = true;
+                label70.Enabled = true;
+                pictureBox13.Enabled = true;
+                pictureBox14.Enabled = true;
+                tabControl2.Enabled = true;
+                ItemsPendingPurchase.Enabled = true;
+                button17.Enabled = true;
+                button24.Enabled = true;
+                pendingPurchaseRemovalQuantity.Enabled = true;
+                pendingPurchaseNewQuantity.Enabled = true;
+            }
+
             if (!this.userPermissions.openclose_edit)
             {
                 openRegisterBtn.Enabled = false;
@@ -372,17 +425,21 @@ namespace PlancksoftPOS
             }
             else
             {
+                openRegisterBtn.Enabled = true;
+                closeRegisterBtn.Enabled = true;
+                label65.Enabled = true;
+                label66.Enabled = true;
+
                 if (registerOpen)
                 {
                     openRegisterBtn.Enabled = false;
                     closeRegisterBtn.Enabled = true;
-                } else
+                }
+                else
                 {
                     openRegisterBtn.Enabled = true;
                     closeRegisterBtn.Enabled = false;
                 }
-                label65.Enabled = true;
-                label66.Enabled = true;
             }
         }
 
@@ -1039,6 +1096,7 @@ namespace PlancksoftPOS
                     settings_edit.Text = "تعديل الإعدادات";
                     personnel_edit.Text = "تعديل الموظفين";
                     openclose_edit.Text = "فتح و إغلاق الكاش";
+                    sell_edit.Text = "مبيعات الكاش";
                 }
                 if (tabControl1.Contains(tabControl1.TabPages["Settings"]))
                 {
@@ -1540,6 +1598,7 @@ namespace PlancksoftPOS
                     settings_edit.Text = "Edit Settings";
                     personnel_edit.Text = "Edit Employees";
                     openclose_edit.Text = "Close & Open Cash Register";
+                    sell_edit.Text = "Cash Sales";
                 }
                 if (tabControl1.Contains(tabControl1.TabPages["Settings"]))
                 {
@@ -3910,6 +3969,7 @@ namespace PlancksoftPOS
                 settings_edit.Checked = this.userPermissions.settings_edit;
                 personnel_edit.Checked = this.userPermissions.personnel_edit;
                 openclose_edit.Checked = this.userPermissions.openclose_edit;
+                sell_edit.Checked = this.userPermissions.sell_edit;
             }
             catch (Exception ex) { }
         }
@@ -3955,6 +4015,7 @@ namespace PlancksoftPOS
                             newAccount.settings_edit = settings_edit.Checked;
                             newAccount.personnel_edit = personnel_edit.Checked;
                             newAccount.openclose_edit = openclose_edit.Checked;
+                            newAccount.sell_edit = sell_edit.Checked;
 
                             if (Connection.server.Register(newAccount, this.UID, newAccount.GetAccountAuthority()))
                             {
@@ -4058,6 +4119,7 @@ namespace PlancksoftPOS
                             newAccount.settings_edit = settings_edit.Checked;
                             newAccount.personnel_edit = personnel_edit.Checked;
                             newAccount.openclose_edit = openclose_edit.Checked;
+                            newAccount.sell_edit = sell_edit.Checked;
 
                             if (Connection.server.UpdateUser(newAccount, this.UID, newAccount.GetAccountAuthority()))
                             {

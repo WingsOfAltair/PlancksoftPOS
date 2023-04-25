@@ -32,11 +32,12 @@
             this.txtPassword = new MaterialSkin.Controls.MaterialTextBox2();
             this.txtAdminName = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblAdminName = new MaterialSkin.Controls.MaterialLabel();
+            this.btnClose = new MaterialSkin.Controls.MaterialButton();
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
-            this.btnRegisterAdmin = new MaterialSkin.Controls.MaterialButton();
             this.txtUID = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblPassword = new MaterialSkin.Controls.MaterialLabel();
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.btnRegisterAdmin = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
             // lblUID
@@ -129,6 +130,27 @@
             this.lblAdminName.Text = "اسم المستخدم (رئيس قسم الصيانه)";
             this.lblAdminName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnClose
+            // 
+            this.btnClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnClose.Depth = 0;
+            this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnClose.HighEmphasis = true;
+            this.btnClose.Icon = null;
+            this.btnClose.Location = new System.Drawing.Point(3, 364);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClose.Name = "btnClose";
+            this.btnClose.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnClose.Size = new System.Drawing.Size(363, 36);
+            this.btnClose.TabIndex = 73;
+            this.btnClose.Text = "الخروج";
+            this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClose.UseAccentColor = false;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // btnClear
             // 
             this.btnClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -137,39 +159,18 @@
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(3, 329);
+            this.btnClear.Location = new System.Drawing.Point(3, 328);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
             this.btnClear.NoAccentTextColor = System.Drawing.Color.Empty;
             this.btnClear.Size = new System.Drawing.Size(363, 36);
-            this.btnClear.TabIndex = 73;
+            this.btnClear.TabIndex = 74;
             this.btnClear.Text = "مسح";
             this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnClear.UseAccentColor = false;
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnRegisterAdmin
-            // 
-            this.btnRegisterAdmin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRegisterAdmin.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnRegisterAdmin.Depth = 0;
-            this.btnRegisterAdmin.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnRegisterAdmin.HighEmphasis = true;
-            this.btnRegisterAdmin.Icon = null;
-            this.btnRegisterAdmin.Location = new System.Drawing.Point(3, 293);
-            this.btnRegisterAdmin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnRegisterAdmin.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnRegisterAdmin.Name = "btnRegisterAdmin";
-            this.btnRegisterAdmin.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnRegisterAdmin.Size = new System.Drawing.Size(363, 36);
-            this.btnRegisterAdmin.TabIndex = 74;
-            this.btnRegisterAdmin.Text = "التسجيل";
-            this.btnRegisterAdmin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnRegisterAdmin.UseAccentColor = false;
-            this.btnRegisterAdmin.UseVisualStyleBackColor = true;
-            this.btnRegisterAdmin.Click += new System.EventHandler(this.btnRegisterAdmin_Click);
             // 
             // txtUID
             // 
@@ -229,15 +230,37 @@
             this.materialCard1.Size = new System.Drawing.Size(375, 58);
             this.materialCard1.TabIndex = 77;
             // 
+            // btnRegisterAdmin
+            // 
+            this.btnRegisterAdmin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRegisterAdmin.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnRegisterAdmin.Depth = 0;
+            this.btnRegisterAdmin.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnRegisterAdmin.HighEmphasis = true;
+            this.btnRegisterAdmin.Icon = null;
+            this.btnRegisterAdmin.Location = new System.Drawing.Point(3, 292);
+            this.btnRegisterAdmin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnRegisterAdmin.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnRegisterAdmin.Name = "btnRegisterAdmin";
+            this.btnRegisterAdmin.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnRegisterAdmin.Size = new System.Drawing.Size(363, 36);
+            this.btnRegisterAdmin.TabIndex = 78;
+            this.btnRegisterAdmin.Text = "التسجيل";
+            this.btnRegisterAdmin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnRegisterAdmin.UseAccentColor = false;
+            this.btnRegisterAdmin.UseVisualStyleBackColor = true;
+            this.btnRegisterAdmin.Click += new System.EventHandler(this.btnRegisterAdmin_Click);
+            // 
             // frmRegisterAdmin
             // 
-            this.ClientSize = new System.Drawing.Size(369, 368);
+            this.ClientSize = new System.Drawing.Size(369, 403);
             this.ControlBox = false;
+            this.Controls.Add(this.btnRegisterAdmin);
             this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtUID);
-            this.Controls.Add(this.btnRegisterAdmin);
             this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtAdminName);
             this.Controls.Add(this.lblAdminName);
             this.Controls.Add(this.txtPassword);
@@ -256,10 +279,11 @@
         private MaterialSkin.Controls.MaterialTextBox2 txtPassword;
         private MaterialSkin.Controls.MaterialTextBox2 txtAdminName;
         private MaterialSkin.Controls.MaterialLabel lblAdminName;
+        private MaterialSkin.Controls.MaterialButton btnClose;
         private MaterialSkin.Controls.MaterialButton btnClear;
-        private MaterialSkin.Controls.MaterialButton btnRegisterAdmin;
         private MaterialSkin.Controls.MaterialTextBox2 txtUID;
         private MaterialSkin.Controls.MaterialLabel lblPassword;
         private MaterialSkin.Controls.MaterialCard materialCard1;
+        private MaterialSkin.Controls.MaterialButton btnRegisterAdmin;
     }
 }

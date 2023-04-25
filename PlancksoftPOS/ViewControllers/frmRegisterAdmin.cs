@@ -54,6 +54,7 @@ namespace PlancksoftPOS
                 lblAdminName.Text = "اسم المستخدم (رئيس قسم الصيانه)";
                 btnRegisterAdmin.Text = "التسجيل";
                 btnClear.Text = "مسح";
+                btnClose.Text = "الخروج";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
@@ -65,6 +66,7 @@ namespace PlancksoftPOS
                 lblAdminName.Text = "User Name (Head of IT)";
                 btnRegisterAdmin.Text = "Register";
                 btnClear.Text = "Clear";
+                btnClose.Text = "Close";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
@@ -94,6 +96,7 @@ namespace PlancksoftPOS
                 newAccount.settings_edit = true;
                 newAccount.personnel_edit = true;
                 newAccount.openclose_edit = true;
+                newAccount.sell_edit = true;
 
                 if (Connection.server.RegisterAdmin(newAccount))
                 {
@@ -127,13 +130,18 @@ namespace PlancksoftPOS
         {
             e.Handled = !(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar));
             if (e.KeyChar == (Char)Keys.Enter)
-                btnRegisterAdmin.PerformClick();
+                btnClear.PerformClick();
         }
 
         private void txtAdminName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
-                btnRegisterAdmin.PerformClick();
+                btnClear.PerformClick();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

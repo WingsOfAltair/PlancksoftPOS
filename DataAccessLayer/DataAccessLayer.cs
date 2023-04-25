@@ -638,6 +638,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@settingsEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.settings_edit.ToString())));
                     cmd.Parameters.AddWithValue("@personnelEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.personnel_edit.ToString())));
                     cmd.Parameters.AddWithValue("@opencloseEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.openclose_edit.ToString())));
+                    cmd.Parameters.AddWithValue("@sellEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.sell_edit.ToString())));
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
@@ -759,6 +760,7 @@ namespace DataAccessLayer
                             cmd.Parameters.AddWithValue("@settingsEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.settings_edit.ToString())));
                             cmd.Parameters.AddWithValue("@personnelEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.personnel_edit.ToString())));
                             cmd.Parameters.AddWithValue("@opencloseEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.openclose_edit.ToString())));
+                            cmd.Parameters.AddWithValue("@sellEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.sell_edit.ToString())));
                             cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                             if (connection != null && connection.State == ConnectionState.Closed)
@@ -792,6 +794,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@settingsEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.settings_edit.ToString())));
                     cmd.Parameters.AddWithValue("@personnelEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.personnel_edit.ToString())));
                     cmd.Parameters.AddWithValue("@opencloseEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.openclose_edit.ToString())));
+                    cmd.Parameters.AddWithValue("@sellEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.sell_edit.ToString())));
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
@@ -1513,6 +1516,7 @@ namespace DataAccessLayer
                     User.settings_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Settings Edit Permission"].ToString()));
                     User.personnel_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Personnel Edit Permission"].ToString()));
                     User.openclose_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Open Close Cash Permission"].ToString()));
+                    User.sell_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Sell Permission"].ToString()));
                 }
                 return User;
             }
@@ -2820,6 +2824,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@settingsEditPerm", Convert.ToInt32(Convert.ToBoolean(UserToUpdate.settings_edit.ToString())));
                     cmd.Parameters.AddWithValue("@personnelEditPerm", Convert.ToInt32(Convert.ToBoolean(UserToUpdate.personnel_edit.ToString())));
                     cmd.Parameters.AddWithValue("@opencloseEditPerm", Convert.ToInt32(Convert.ToBoolean(UserToUpdate.openclose_edit.ToString())));
+                    cmd.Parameters.AddWithValue("@sellEditPerm", Convert.ToInt32(Convert.ToBoolean(UserToUpdate.sell_edit.ToString())));
                     cmd.Parameters.AddWithValue("@UserAuthority", AdminOrNot);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
