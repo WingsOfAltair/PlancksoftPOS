@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -16,11 +17,13 @@ namespace PlancksoftPOS
     public partial class frmColorPicker : MaterialForm
     {
         internal string hexColor = "";
+        internal Color argbColor;
         internal DialogResult colorDialogResult = new DialogResult();
 
-        public frmColorPicker()
+        public frmColorPicker(string hexColor)
         {
             InitializeComponent();
+            this.hexColor = hexColor;
         }
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -34,8 +37,12 @@ namespace PlancksoftPOS
 
         private void frmColorPicker_Load(object sender, EventArgs e)
         {
+            argbColor = ColorTranslator.FromHtml(hexColor);
+            textBox1.Text = Convert.ToInt16(argbColor.R).ToString();
+            textBox2.Text = Convert.ToInt16(argbColor.G).ToString();
+            textBox3.Text = Convert.ToInt16(argbColor.B).ToString();
+            panel1.BackColor = Color.FromArgb(argbColor.R, argbColor.G, argbColor.B);
             setTB();
-            panel1.BackColor = Color.FromArgb(trackBar1.Value, trackBar2.Value, trackBar3.Value);
         }
 
         private void colorDialogToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,11 +137,6 @@ namespace PlancksoftPOS
         {
             colorDialogResult = DialogResult.Cancel;
             this.Close();
-        }
-
-        private void panel1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void materialButton1_Click(object sender, EventArgs e)

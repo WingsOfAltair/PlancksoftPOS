@@ -48,13 +48,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.trackBar3 = new System.Windows.Forms.TrackBar();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.shopName = new MaterialSkin.Controls.MaterialTextBox2();
             this.btnPickColor = new MaterialSkin.Controls.MaterialButton();
             this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,7 +68,6 @@
             this.panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.panel1.Size = new System.Drawing.Size(303, 276);
             this.panel1.TabIndex = 0;
-            this.panel1.Click += new System.EventHandler(this.panel1_Click);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmColorPicker_MouseDown);
             // 
             // contextMenuStrip1
@@ -222,36 +222,6 @@
             this.trackBar3.Value = 192;
             this.trackBar3.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
-            // shopName
-            // 
-            this.shopName.AnimateReadOnly = false;
-            this.shopName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.shopName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.shopName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.shopName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.shopName.Depth = 0;
-            this.shopName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shopName.HideSelection = true;
-            this.shopName.LeadingIcon = null;
-            this.shopName.Location = new System.Drawing.Point(6, 10);
-            this.shopName.MaxLength = 32767;
-            this.shopName.MouseState = MaterialSkin.MouseState.OUT;
-            this.shopName.Name = "shopName";
-            this.shopName.PasswordChar = '\0';
-            this.shopName.PrefixSuffixText = null;
-            this.shopName.ReadOnly = false;
-            this.shopName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.shopName.SelectedText = "";
-            this.shopName.SelectionLength = 0;
-            this.shopName.SelectionStart = 0;
-            this.shopName.ShortcutsEnabled = true;
-            this.shopName.Size = new System.Drawing.Size(171, 48);
-            this.shopName.TabIndex = 13;
-            this.shopName.TabStop = false;
-            this.shopName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.shopName.TrailingIcon = null;
-            this.shopName.UseSystemPasswordChar = false;
-            // 
             // btnPickColor
             // 
             this.btnPickColor.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -279,7 +249,7 @@
             this.materialButton1.Depth = 0;
             this.materialButton1.HighEmphasis = true;
             this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(179, 15);
+            this.materialButton1.Location = new System.Drawing.Point(7, 15);
             this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
@@ -292,15 +262,23 @@
             this.materialButton1.UseVisualStyleBackColor = true;
             this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(130, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(38, 32);
+            this.pictureBox1.TabIndex = 98;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmColorPicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(309, 499);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.materialButton1);
             this.Controls.Add(this.btnPickColor);
-            this.Controls.Add(this.shopName);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label3);
@@ -328,6 +306,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -351,10 +330,10 @@
         private System.Windows.Forms.ToolStripMenuItem copyToRGBToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem colorDialogToolStripMenuItem;
         private System.Windows.Forms.ColorDialog colorDialog1;
-        public MaterialSkin.Controls.MaterialTextBox2 shopName;
         private MaterialSkin.Controls.MaterialButton btnPickColor;
         internal System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialButton materialButton1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

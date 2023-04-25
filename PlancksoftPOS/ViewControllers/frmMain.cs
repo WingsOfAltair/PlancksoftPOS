@@ -9528,7 +9528,7 @@ namespace PlancksoftPOS
 
         private void DarkPrimaryColor_Click(object sender, EventArgs e)
         {
-            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker frmColorPicker = new frmColorPicker(DarkPrimaryColor.Text);
             frmColorPicker.ShowDialog();
             if (frmColorPicker.colorDialogResult == DialogResult.OK)
             {
@@ -9538,7 +9538,7 @@ namespace PlancksoftPOS
 
         private void DarkPrimaryDarkColor_Click(object sender, EventArgs e)
         {
-            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker frmColorPicker = new frmColorPicker(DarkPrimaryDarkColor.Text);
             frmColorPicker.ShowDialog();
             if (frmColorPicker.colorDialogResult == DialogResult.OK)
             {
@@ -9548,7 +9548,7 @@ namespace PlancksoftPOS
 
         private void DarkPrimaryLightColor_Click(object sender, EventArgs e)
         {
-            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker frmColorPicker = new frmColorPicker(DarkPrimaryLightColor.Text);
             frmColorPicker.ShowDialog();
             if (frmColorPicker.colorDialogResult == DialogResult.OK)
             {
@@ -9558,7 +9558,7 @@ namespace PlancksoftPOS
 
         private void DarkAccentColor_Click(object sender, EventArgs e)
         {
-            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker frmColorPicker = new frmColorPicker(DarkAccentColor.Text);
             frmColorPicker.ShowDialog();
             if (frmColorPicker.colorDialogResult == DialogResult.OK)
             {
@@ -9568,7 +9568,7 @@ namespace PlancksoftPOS
 
         private void PrimaryColor_Click(object sender, EventArgs e)
         {
-            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker frmColorPicker = new frmColorPicker(PrimaryColor.Text);
             frmColorPicker.ShowDialog();
             if (frmColorPicker.colorDialogResult == DialogResult.OK)
             {
@@ -9578,7 +9578,7 @@ namespace PlancksoftPOS
 
         private void PrimaryDarkColor_Click(object sender, EventArgs e)
         {
-            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker frmColorPicker = new frmColorPicker(PrimaryDarkColor.Text);
             frmColorPicker.ShowDialog();
             if (frmColorPicker.colorDialogResult == DialogResult.OK)
             {
@@ -9588,7 +9588,7 @@ namespace PlancksoftPOS
 
         private void PrimaryLightColor_Click(object sender, EventArgs e)
         {
-            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker frmColorPicker = new frmColorPicker(PrimaryLightColor.Text);
             frmColorPicker.ShowDialog();
             if (frmColorPicker.colorDialogResult == DialogResult.OK)
             {
@@ -9598,12 +9598,52 @@ namespace PlancksoftPOS
 
         private void AccentColor_Click(object sender, EventArgs e)
         {
-            frmColorPicker frmColorPicker = new frmColorPicker();
+            frmColorPicker frmColorPicker = new frmColorPicker(AccentColor.Text);
             frmColorPicker.ShowDialog();
             if (frmColorPicker.colorDialogResult == DialogResult.OK)
             {
                 AccentColor.Text = frmColorPicker.hexColor;
             }
+        }
+
+        private void DarkPrimaryColor_TextChanged(object sender, EventArgs e)
+        {
+            DarkPrimaryColorPanel.BackColor = ColorTranslator.FromHtml(DarkPrimaryColor.Text);
+        }
+
+        private void DarkPrimaryDarkColor_TextChanged(object sender, EventArgs e)
+        {
+            DarkPrimaryDarkColorPanel.BackColor = ColorTranslator.FromHtml(DarkPrimaryDarkColor.Text);
+        }
+
+        private void DarkPrimaryLightColor_TextChanged(object sender, EventArgs e)
+        {
+            DarkPrimaryLightColorPanel.BackColor = ColorTranslator.FromHtml(DarkPrimaryLightColor.Text);
+        }
+
+        private void DarkAccentColor_TextChanged(object sender, EventArgs e)
+        {
+            DarkAccentColorPanel.BackColor = ColorTranslator.FromHtml(DarkAccentColor.Text);
+        }
+
+        private void PrimaryColor_TextChanged(object sender, EventArgs e)
+        {
+            PrimaryColorPanel.BackColor = ColorTranslator.FromHtml(PrimaryColor.Text);
+        }
+
+        private void PrimaryDarkColor_TextChanged(object sender, EventArgs e)
+        {
+            PrimaryDarkColorPanel.BackColor = ColorTranslator.FromHtml(PrimaryDarkColor.Text);
+        }
+
+        private void PrimaryLightColor_TextChanged(object sender, EventArgs e)
+        {
+            PrimaryLightColorPanel.BackColor = ColorTranslator.FromHtml(PrimaryLightColor.Text);
+        }
+
+        private void AccentColor_TextChanged(object sender, EventArgs e)
+        {
+            AccentColorPanel.BackColor = ColorTranslator.FromHtml(AccentColor.Text);
         }
 
         public void textBox3_KeyPress(object sender, KeyPressEventArgs e)
