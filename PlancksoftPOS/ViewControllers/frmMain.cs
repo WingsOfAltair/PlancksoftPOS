@@ -8901,6 +8901,8 @@ namespace PlancksoftPOS
                 }
                 List<Item> itemsToAdd = new List<Item>();
 
+                this.totalVendorAmount = 0;
+
                 foreach (DataGridViewRow currentBillRow in dvgEntryExitItems.Rows)
                 {
                     if (!currentBillRow.IsNewRow)
@@ -8909,14 +8911,23 @@ namespace PlancksoftPOS
                         {
                             Item newItem = new Item();
 
-                            newItem.SetName(currentBillRow.Cells[0].Value.ToString());
-                            newItem.SetBarCode(currentBillRow.Cells[1].Value.ToString());
-                            newItem.SetQuantity(Convert.ToInt32(currentBillRow.Cells[2].Value.ToString()));
-                            newItem.SetBuyPrice(Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString()));
-                            newItem.QuantityWarning = Convert.ToInt32(currentBillRow.Cells[5].Value.ToString());
-                            newItem.ProductionDate = Convert.ToDateTime(currentBillRow.Cells[6].Value.ToString());
-                            newItem.ExpirationDate = Convert.ToDateTime(currentBillRow.Cells[7].Value.ToString());
-                            newItem.EntryDate = Convert.ToDateTime(currentBillRow.Cells[8].Value.ToString());
+                            string itemName = currentBillRow.Cells[0].Value.ToString();
+                            string itemBarCode = currentBillRow.Cells[1].Value.ToString();
+                            int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
+                            decimal itemBuyPrice = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
+                            int quantityWarning = Convert.ToInt32(currentBillRow.Cells[5].Value.ToString());
+                            DateTime productionDate = Convert.ToDateTime(currentBillRow.Cells[6].Value.ToString());
+                            DateTime expirationDate = Convert.ToDateTime(currentBillRow.Cells[7].Value.ToString());
+                            DateTime entryDate = Convert.ToDateTime(currentBillRow.Cells[8].Value.ToString());
+
+                            newItem.SetName(itemName);
+                            newItem.SetBarCode(itemBarCode);
+                            newItem.SetQuantity(itemQuantity);
+                            newItem.SetBuyPrice(itemBuyPrice);
+                            newItem.QuantityWarning = quantityWarning;
+                            newItem.ProductionDate = productionDate;
+                            newItem.ExpirationDate = expirationDate;
+                            newItem.EntryDate = entryDate;
 
                             if (WarehouseEntryExitList.SelectedItem != null)
                             {
@@ -8924,12 +8935,13 @@ namespace PlancksoftPOS
                                 newItem.SetWarehouseID(WarehouseID);
                             }
                             else newItem.SetWarehouseID(0);
+                            Connection.server.UpdateItemQuantity(newItem);
+                            this.totalVendorAmount += newItem.GetBuyPrice() * newItem.GetQuantity();
                             itemsToAdd.Add(newItem);
                         }
                         
                     }
                 }
-                dvgEntryExitItems.Rows.Clear();
 
                 if (Connection.server.UpdateItemWarehouse(itemsToAdd, this.UID, EntryExitType.SelectedIndex))
                 {
@@ -8960,35 +8972,9 @@ namespace PlancksoftPOS
                     }
                 }
 
-                List<Item> itemsToAdd2 = new List<Item>();
-
                 if (nudClientIDImportExport.Value != 0 && txtClientNameImportExport.Text != "")
                 {
-                    int row = 0;
-                    foreach (DataGridViewRow currentBillRow in dvgEntryExitItems.Rows)
-                    {
-                        if (currentBillRow.Cells[0].Value != null && currentBillRow.Cells[0].Value != DBNull.Value && !String.IsNullOrWhiteSpace(currentBillRow.Cells[0].Value.ToString()))
-                        {
-                            string itemName = currentBillRow.Cells[0].Value.ToString();
-                            string itemBarCode = currentBillRow.Cells[1].Value.ToString();
-                            int itemQuantity = Convert.ToInt32(currentBillRow.Cells[3].Value.ToString());
-                            decimal itemBuyPrice = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                            decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[5].Value.ToString());
-                            decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[6].Value.ToString());
-                            Item itemToAdd = new Item();
-                            itemToAdd.SetName(itemName);
-                            itemToAdd.SetBarCode(itemBarCode);
-                            itemToAdd.SetQuantity(itemQuantity);
-                            itemToAdd.SetBuyPrice(itemBuyPrice);
-                            itemToAdd.SetPrice(itemPrice);
-                            itemToAdd.SetPriceTax(itemPriceTax);
-                            Connection.server.UpdateItemQuantity(itemToAdd);
-                            itemsToAdd2.Add(itemToAdd);
-                            this.totalVendorAmount += itemBuyPrice * itemQuantity;
-                        }
-                    }
-
-                    Bill billToAdd = new Bill(this.CurrentVendorBillNumber, this.totalVendorAmount, itemsToAdd2, DateTime.Now);
+                    Bill billToAdd = new Bill(this.CurrentVendorBillNumber, this.totalVendorAmount, itemsToAdd, DateTime.Now);
                     if (Connection.server.AddVendorBill(billToAdd, this.cashierName))
                     {
                         this.totalVendorAmount = Connection.server.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
@@ -8999,10 +8985,12 @@ namespace PlancksoftPOS
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
                             MessageBox.Show(".تمت اضافة الفاتوره للمورد", Application.ProductName);
+                            dvgEntryExitItems.Rows.Clear();
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
                             MessageBox.Show("A new Importer Bill was added.", Application.ProductName);
+                            dvgEntryExitItems.Rows.Clear();
                         }
                     }
                 }
@@ -9681,7 +9669,6 @@ namespace PlancksoftPOS
                     Customer pickedCustomer = Connection.server.SearchCustomersInfo(pickCustomer.pickedCustomer.CustomerName, Convert.ToString(pickCustomer.pickedCustomer.CustomerID)).Item1;
                     txtClientNameImportExport.Text = pickedCustomer.CustomerName;
                     nudClientIDImportExport.Value = pickedCustomer.CustomerID;
-                    //EntryExitItemBuyPrice.Value = pickedCustomer.CustomerPrice;
                 }
             }
             catch (Exception error)

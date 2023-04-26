@@ -92,8 +92,8 @@ namespace PlancksoftPOS
         {
             if (!DGVCustomers.Rows[this.ID].IsNewRow)
             {
-                pickedCustomer.CustomerID = Convert.ToInt32(DGVCustomers.Rows[this.ID].Cells[1].Value.ToString());
-                pickedCustomer.CustomerName = DGVCustomers.Rows[this.ID].Cells[0].Value.ToString();
+                pickedCustomer.CustomerID = Convert.ToInt32(DGVCustomers.Rows[this.ID].Cells[0].Value.ToString());
+                pickedCustomer.CustomerName = DGVCustomers.Rows[this.ID].Cells[1].Value.ToString();
 
                 dialogResult = DialogResult.OK;
                 this.Close();

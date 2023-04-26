@@ -232,18 +232,21 @@
             this.CustomerPickItemName.DataPropertyName = "Item Name";
             this.CustomerPickItemName.HeaderText = "اسم الماده";
             this.CustomerPickItemName.Name = "CustomerPickItemName";
+            this.CustomerPickItemName.Visible = false;
             // 
             // CustomerPickItemBarCode
             // 
             this.CustomerPickItemBarCode.DataPropertyName = "Item BarCode";
             this.CustomerPickItemBarCode.HeaderText = "باركود الماده";
             this.CustomerPickItemBarCode.Name = "CustomerPickItemBarCode";
+            this.CustomerPickItemBarCode.Visible = false;
             // 
             // CustomerPickCustomerPrice
             // 
             this.CustomerPickCustomerPrice.DataPropertyName = "Customer Price";
             this.CustomerPickCustomerPrice.HeaderText = "سعر العميل";
             this.CustomerPickCustomerPrice.Name = "CustomerPickCustomerPrice";
+            this.CustomerPickCustomerPrice.Visible = false;
             // 
             // frmPickCustomer
             // 
