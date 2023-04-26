@@ -189,7 +189,7 @@ namespace PlancksoftPOS
 
 
             taxRate = Convert.ToDecimal(dt.Rows[0]["SystemTax"].ToString());
-            nudTaxRate.Value = Convert.ToDecimal(taxRate * 100);
+            nudTaxRate.Value = Convert.ToDecimal(taxRate);
             TaxRate = Convert.ToDecimal(nudTaxRate.Value / 100);
 
             this.PlancksoftPOSName = dt.Rows[0]["SystemName"].ToString();
@@ -560,7 +560,7 @@ namespace PlancksoftPOS
                 taxRate = Convert.ToDecimal(dt.Rows[0]["SystemTax"].ToString());
                 this.moneyInRegister = Properties.Settings.Default.moneyInRegister;
                 this.moneyInRegisterInitial = Properties.Settings.Default.moneyInRegisterInitial;
-                nudTaxRate.Value = Convert.ToDecimal(taxRate * 100);
+                nudTaxRate.Value = Convert.ToDecimal(taxRate);
                 capital = Connection.server.GetCapitalAmount();
                 CapitalAmountnud.Value = capital;
                 CapitalAmount = capital;
@@ -1016,26 +1016,27 @@ namespace PlancksoftPOS
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["AgentsItemsDefinitions"]))
                     {
-                        tabControl3.TabPages["AgentsItemsDefinitions"].Text = "تعريف مواد العميل";
-                        groupBox23.Text = "جدول المواد";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn1"].HeaderText = "إسم القطعة";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn2"].HeaderText = "باركود القطعه";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn3"].HeaderText = "عدد القطعه";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn4"].HeaderText = "سعر الشراء";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn5"].HeaderText = "سعر القطعه";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn25"].HeaderText = "سعر القطعه بالضريبه";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn26"].HeaderText = "المصنف المفضل";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn27"].HeaderText = "المستودع";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn28"].HeaderText = "تصنيف الماده";
-                        groupBox34.Text = "تعريف مواد العميل";
-                        label32.Text = "إسم العميل";
-                        label31.Text = "رمز العميل";
-                        label81.Text = "سعر الشراء";
-                        label86.Text = "سعر البيع قبل الضريبه";
-                        label88.Text = "سعر البيع بعد الضريبه";
-                        label90.Text = "سعر بيع العميل";
-                        button5.Text = "إختيار العميل";
-                        button4.Text = "إضافة الماده للعميل";
+                        tabControl3.TabPages.Remove(tabControl3.TabPages["AgentsItemsDefinitions"]);
+                        //tabControl3.TabPages["AgentsItemsDefinitions"].Text = "تعريف مواد العميل";
+                        //groupBox23.Text = "جدول المواد";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn1"].HeaderText = "إسم القطعة";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn2"].HeaderText = "باركود القطعه";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn3"].HeaderText = "عدد القطعه";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn4"].HeaderText = "سعر الشراء";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn5"].HeaderText = "سعر القطعه";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn25"].HeaderText = "سعر القطعه بالضريبه";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn26"].HeaderText = "المصنف المفضل";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn27"].HeaderText = "المستودع";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn28"].HeaderText = "تصنيف الماده";
+                        //groupBox34.Text = "تعريف مواد العميل";
+                        //label32.Text = "إسم العميل";
+                        //label31.Text = "رمز العميل";
+                        //label81.Text = "سعر الشراء";
+                        //label86.Text = "سعر البيع قبل الضريبه";
+                        //label88.Text = "سعر البيع بعد الضريبه";
+                        //label90.Text = "سعر بيع العميل";
+                        //button5.Text = "إختيار العميل";
+                        //button4.Text = "إضافة الماده للعميل";
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["ImporterDefinitions"]))
                     {
@@ -1057,20 +1058,21 @@ namespace PlancksoftPOS
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["AddImporterInvoices"]))
                     {
-                        tabControl3.TabPages["AddImporterInvoices"].Text = "إضافة فاتورة مورد";
-                        groupBox41.Text = "إضافة فاتورة مورد";
-                        label43.Text = "إسم المورد";
-                        label44.Text = "رقم المورد";
-                        button12.Text = "إضافة الفاتورة";
-                        button10.Text = "إختيار ماده";
-                        button11.Text = "حذف ماده";
-                        dgvVendorItemsPick.Columns["VendorItemName"].HeaderText = "إسم المادة";
-                        dgvVendorItemsPick.Columns["VendorItemBarCode"].HeaderText = "باركود المادة";
-                        dgvVendorItemsPick.Columns["VendorItemType"].HeaderText = "صنف المادة";
-                        dgvVendorItemsPick.Columns["VendorItemQuantity"].HeaderText = "عدد الفطع";
-                        dgvVendorItemsPick.Columns["VendorItemBuyPrice"].HeaderText = "سعر الشراء";
-                        dgvVendorItemsPick.Columns["VendorItemSellPrice"].HeaderText = "سعر البيع";
-                        dgvVendorItemsPick.Columns["VendorItemSellPriceTax"].HeaderText = "سعر البيع مع الضريبة";
+                        tabControl3.TabPages.Remove(tabControl3.TabPages["AddImporterInvoices"]);
+                        //tabControl3.TabPages["AddImporterInvoices"].Text = "إضافة فاتورة مورد";
+                        //groupBox41.Text = "إضافة فاتورة مورد";
+                        //label43.Text = "إسم المورد";
+                        //label44.Text = "رقم المورد";
+                        //button12.Text = "إضافة الفاتورة";
+                        //button10.Text = "إختيار ماده";
+                        //button11.Text = "حذف ماده";
+                        //dgvVendorItemsPick.Columns["VendorItemName"].HeaderText = "إسم المادة";
+                        //dgvVendorItemsPick.Columns["VendorItemBarCode"].HeaderText = "باركود المادة";
+                        //dgvVendorItemsPick.Columns["VendorItemType"].HeaderText = "صنف المادة";
+                        //dgvVendorItemsPick.Columns["VendorItemQuantity"].HeaderText = "عدد الفطع";
+                        //dgvVendorItemsPick.Columns["VendorItemBuyPrice"].HeaderText = "سعر الشراء";
+                        //dgvVendorItemsPick.Columns["VendorItemSellPrice"].HeaderText = "سعر البيع";
+                        //dgvVendorItemsPick.Columns["VendorItemSellPriceTax"].HeaderText = "سعر البيع مع الضريبة";
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["ImporterBalanceChecks"]))
                     {
@@ -1532,26 +1534,27 @@ namespace PlancksoftPOS
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["AgentsItemsDefinitions"]))
                     {
-                        tabControl3.TabPages["AgentsItemsDefinitions"].Text = "Client Items Definitions";
-                        groupBox23.Text = "Items Grid";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn1"].HeaderText = "Item Name";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Item Barcode";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn3"].HeaderText = "Item Quantity";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn4"].HeaderText = "Buy Price";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn5"].HeaderText = "Sell Price";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn25"].HeaderText = "Sell Price Tax";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn26"].HeaderText = "Favorite Category";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn27"].HeaderText = "Warehouse";
-                        DGVCustomerItems.Columns["dataGridViewTextBoxColumn28"].HeaderText = "Item Type";
-                        groupBox34.Text = "Client Items Definition";
-                        label32.Text = "Client Name";
-                        label31.Text = "Client ID";
-                        label81.Text = "Buy Price";
-                        label86.Text = "Sell Price";
-                        label88.Text = "Sell Price Tax";
-                        label90.Text = "Client Sell Price";
-                        button5.Text = "Pick Client";
-                        button4.Text = "Add Item to Client";
+                        tabControl3.TabPages.Remove(tabControl3.TabPages["AgentsItemsDefinitions"]);
+                        //tabControl3.TabPages["AgentsItemsDefinitions"].Text = "Client Items Definitions";
+                        //groupBox23.Text = "Items Grid";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn1"].HeaderText = "Item Name";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Item Barcode";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn3"].HeaderText = "Item Quantity";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn4"].HeaderText = "Buy Price";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn5"].HeaderText = "Sell Price";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn25"].HeaderText = "Sell Price Tax";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn26"].HeaderText = "Favorite Category";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn27"].HeaderText = "Warehouse";
+                        //DGVCustomerItems.Columns["dataGridViewTextBoxColumn28"].HeaderText = "Item Type";
+                        //groupBox34.Text = "Client Items Definition";
+                        //label32.Text = "Client Name";
+                        //label31.Text = "Client ID";
+                        //label81.Text = "Buy Price";
+                        //label86.Text = "Sell Price";
+                        //label88.Text = "Sell Price Tax";
+                        //label90.Text = "Client Sell Price";
+                        //button5.Text = "Pick Client";
+                        //button4.Text = "Add Item to Client";
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["ImporterDefinitions"]))
                     {
@@ -1573,20 +1576,21 @@ namespace PlancksoftPOS
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["AddImporterInvoices"]))
                     {
-                        tabControl3.TabPages["AddImporterInvoices"].Text = "Add Importer Bill";
-                        groupBox41.Text = "Add Importer Bill";
-                        label43.Text = "Importer Name";
-                        label44.Text = "Importer ID";
-                        button12.Text = "Add Bill";
-                        button10.Text = "Pick Item";
-                        button11.Text = "Delete Item";
-                        dgvVendorItemsPick.Columns["VendorItemName"].HeaderText = "Item Name";
-                        dgvVendorItemsPick.Columns["VendorItemBarCode"].HeaderText = "Item Barcode";
-                        dgvVendorItemsPick.Columns["VendorItemType"].HeaderText = "Item Type";
-                        dgvVendorItemsPick.Columns["VendorItemQuantity"].HeaderText = "Item Quantity";
-                        dgvVendorItemsPick.Columns["VendorItemBuyPrice"].HeaderText = "Buy Price";
-                        dgvVendorItemsPick.Columns["VendorItemSellPrice"].HeaderText = "Sell Price";
-                        dgvVendorItemsPick.Columns["VendorItemSellPriceTax"].HeaderText = "Sell Price Tax";
+                        tabControl3.TabPages.Remove(tabControl3.TabPages["AddImporterInvoices"]);
+                        //tabControl3.TabPages["AddImporterInvoices"].Text = "Add Importer Bill";
+                        //groupBox41.Text = "Add Importer Bill";
+                        //label43.Text = "Importer Name";
+                        //label44.Text = "Importer ID";
+                        //button12.Text = "Add Bill";
+                        //button10.Text = "Pick Item";
+                        //button11.Text = "Delete Item";
+                        //dgvVendorItemsPick.Columns["VendorItemName"].HeaderText = "Item Name";
+                        //dgvVendorItemsPick.Columns["VendorItemBarCode"].HeaderText = "Item Barcode";
+                        //dgvVendorItemsPick.Columns["VendorItemType"].HeaderText = "Item Type";
+                        //dgvVendorItemsPick.Columns["VendorItemQuantity"].HeaderText = "Item Quantity";
+                        //dgvVendorItemsPick.Columns["VendorItemBuyPrice"].HeaderText = "Buy Price";
+                        //dgvVendorItemsPick.Columns["VendorItemSellPrice"].HeaderText = "Sell Price";
+                        //dgvVendorItemsPick.Columns["VendorItemSellPriceTax"].HeaderText = "Sell Price Tax";
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["ImporterBalanceChecks"]))
                     {
@@ -6748,9 +6752,7 @@ namespace PlancksoftPOS
 
         public void tabControl3_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            /*if (e.TabPage == tabPage17)
-                e.Cancel = true;
-                */
+
         }
 
         public void dgvVendorBills_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
