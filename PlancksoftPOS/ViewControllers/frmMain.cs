@@ -3483,7 +3483,7 @@ namespace PlancksoftPOS
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Cannot pay a blank bill.", Application.ProductName);
+                    MessageBox.Show("You cannot pay an empty Bill.", Application.ProductName);
                 }
             }
             else
@@ -3499,6 +3499,8 @@ namespace PlancksoftPOS
                     this.remainderAmount = this.paidAmount - this.totalAmount;
                     frmPayCash.Dispose();
 
+
+
                     List<Item> itemsToAdd = new List<Item>();
                     int row = 0;
                     foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
@@ -3511,7 +3513,6 @@ namespace PlancksoftPOS
                             decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
                             decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
                             Item itemToAdd = new Item();
-                            itemToAdd = new Item();
                             itemToAdd.SetName(itemName);
                             itemToAdd.SetBarCode(itemBarCode);
                             itemToAdd.SetQuantity(itemQuantity);
@@ -3532,11 +3533,11 @@ namespace PlancksoftPOS
                                         {
                                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                             {
-                                                MessageBox.Show("قطعه إسم " + item.ItemName + "باركود " + item.ItemBarCode + "  انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف به للتحذير.");
+                                                MessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.", Application.ProductName);
                                             }
                                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                             {
-                                                MessageBox.Show("Item Name " + item.ItemName + "Barcode " + item.ItemBarCode + " is either expired or has less quantity in storage than defined warning limit.");
+                                                MessageBox.Show("Item Barcode " + item.ItemBarCode + " is either expired or has less quantity in inventory than defined warning limit.", Application.ProductName);
                                             }
                                         }
                                     }
@@ -3550,7 +3551,8 @@ namespace PlancksoftPOS
                                         dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
                                         dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
                                         dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
-                                    } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                                    }
+                                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                     {
                                         dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
                                         dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
@@ -3564,6 +3566,26 @@ namespace PlancksoftPOS
                         }
                     }
 
+                    List<Bill> unpaidBills = new List<Bill>(Connection.server.RetrieveUnpaidBills().Item1);
+                    foreach(Bill billToPay in unpaidBills)
+                    {
+                        if (CurrentBillNumber == billToPay.getBillNumber())
+                        {
+                            if (billToPay.Postponed)
+                            {
+                                if (Connection.server.PayUnpaidBill(CurrentBillNumber))
+                                {
+                                    Bill billPaid = Connection.server.SearchBills("", "", CurrentBillNumber).Item1[0];
+                                    printCertainReceipt(billPaid.BillNumber, billPaid.getCashierName(), billPaid.TotalAmount, billPaid.PaidAmount,
+                                        billPaid.RemainderAmount, billPaid.Date);
+                                    CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
+                                    label91.Text = this.CapitalAmount.ToString();
+                                    this.customersaleItems.Clear();
+                                    return;
+                                }
+                            }
+                        }
+                    }
                     Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now);
 
                     if (Connection.server.PayBill(billToAdd, this.cashierName))
@@ -3571,8 +3593,7 @@ namespace PlancksoftPOS
                         // paid bill
 
                         printReceipt();
-                        this.CapitalAmount = Connection.server.GetCapitalAmount();
-                        CapitalAmountnud.Value = this.CapitalAmount;
+                        CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
                         label91.Text = this.CapitalAmount.ToString();
                         this.customersaleItems.Clear();
                     }
@@ -3624,7 +3645,6 @@ namespace PlancksoftPOS
                             dvgEntryExitItems.Rows.Clear();
                         }
                     }
-
                     billToAdd.BillNumber = UnpaidBillNumber;
                     previousBillsList.Push(billToAdd);
 
@@ -3679,7 +3699,7 @@ namespace PlancksoftPOS
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        label112.Text = " Number of pending Bills: " + heldBillsCount.ToString();
+                        label112.Text = " Number of Pending Bills: " + heldBillsCount.ToString();
                     }
                 }
             }
@@ -3857,6 +3877,8 @@ namespace PlancksoftPOS
                         richTextBox3.ResetText();
                     }
 
+                    bill.Postponed = true;
+
                     calculateStatistics();
                 }
             }
@@ -3864,11 +3886,6 @@ namespace PlancksoftPOS
             {
                 try
                 {
-                    previousSharedUnpaidBillsList = new Stack<Bill>();
-                    foreach (Bill bill in Connection.server.RetrieveUnpaidBills().Item1)
-                    {
-                        previousSharedUnpaidBillsList.Push(bill);
-                    }
                     if (previousSharedUnpaidBillsList.Count > 0)
                     {
                         List<Item> itemsBought = new List<Item>();
@@ -3915,6 +3932,8 @@ namespace PlancksoftPOS
                             richTextBox3.ResetText();
                         }
 
+                        bill.Postponed = true;
+
                         calculateStatistics();
                     }
                     else
@@ -3946,6 +3965,8 @@ namespace PlancksoftPOS
                         richTextBox2.ResetText();
                         richTextBox3.ResetText();
                     }
+
+                    bill.Postponed = true;
 
                     calculateStatistics();
                 }
@@ -4040,6 +4061,8 @@ namespace PlancksoftPOS
                         richTextBox3.ResetText();
                     }
 
+                    bill.Postponed = true;
+
                     calculateStatistics();
                 }
             } else
@@ -4094,6 +4117,8 @@ namespace PlancksoftPOS
                             richTextBox2.ResetText();
                             richTextBox3.ResetText();
                         }
+
+                        bill.Postponed = true;
 
                         calculateStatistics();
                     }
@@ -7238,6 +7263,8 @@ namespace PlancksoftPOS
                     this.remainderAmount = this.paidAmount - this.totalAmount;
                     frmPayCash.Dispose();
 
+
+
                     List<Item> itemsToAdd = new List<Item>();
                     int row = 0;
                     foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
@@ -7304,14 +7331,31 @@ namespace PlancksoftPOS
                     }
 
                     Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now);
-                    if (Connection.server.PayBill(billToAdd, this.cashierName))
-                    {
-                        // paid bill
 
-                        printReceipt();
-                        CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
-                        label91.Text = this.CapitalAmount.ToString();
-                        this.customersaleItems.Clear();
+                    Bill lastBill = Connection.server.RetrieveLastBillNumberToday();
+                    if (CurrentBillNumber != lastBill.getBillNumber())
+                    {
+                        if (Connection.server.PayUnpaidBill(CurrentBillNumber))
+                        {
+                            Bill billPaid = Connection.server.SearchBills("", "", CurrentBillNumber).Item1[0];
+                            printCertainReceipt(billPaid.BillNumber, billPaid.getCashierName(), billPaid.TotalAmount, billPaid.PaidAmount,
+                                billPaid.RemainderAmount, billPaid.Date);
+                            CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
+                            label91.Text = this.CapitalAmount.ToString();
+                            this.customersaleItems.Clear();
+                        }
+                    }
+                    else
+                    {
+                        if (Connection.server.PayBill(billToAdd, this.cashierName))
+                        {
+                            // paid bill
+
+                            printReceipt();
+                            CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
+                            label91.Text = this.CapitalAmount.ToString();
+                            this.customersaleItems.Clear();
+                        }
                     }
                 }
                 else if (frmPayCash.dialogResult == DialogResult.Ignore)
@@ -7927,10 +7971,12 @@ namespace PlancksoftPOS
 
                         if (frmPayCash.dialogResult == DialogResult.OK)
                         {
-                            this.paidAmount = Convert.ToDecimal(frmPayCash.moneyPaid);
+                            this.paidAmount = frmPayCash.moneyPaid;
                             this.moneyInRegister += this.paidAmount;
                             this.remainderAmount = this.paidAmount - this.totalAmount;
                             frmPayCash.Dispose();
+
+
 
                             List<Item> itemsToAdd = new List<Item>();
                             int row = 0;
@@ -7943,7 +7989,6 @@ namespace PlancksoftPOS
                                     int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
                                     decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
                                     decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-
                                     Item itemToAdd = new Item();
                                     itemToAdd.SetName(itemName);
                                     itemToAdd.SetBarCode(itemBarCode);
@@ -7965,11 +8010,11 @@ namespace PlancksoftPOS
                                                 {
                                                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                                     {
-                                                        MessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.");
+                                                        MessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.", Application.ProductName);
                                                     }
                                                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                                     {
-                                                        MessageBox.Show("Item Barcode " + item.ItemBarCode + " is expired or has less quantity in inventory than defined warning limit.");
+                                                        MessageBox.Show("Item Barcode " + item.ItemBarCode + " is either expired or has less quantity in inventory than defined warning limit.", Application.ProductName);
                                                     }
                                                 }
                                             }
@@ -7999,16 +8044,31 @@ namespace PlancksoftPOS
                             }
 
                             Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now);
-                            if (Connection.server.PayBill(billToAdd, this.cashierName))
-                            {
-                                // paid bill
 
-                                printReceipt();
-                                capital = Connection.server.GetCapitalAmount();
-                                CapitalAmountnud.Value = capital;
-                                CapitalAmount = capital;
-                                label91.Text = this.CapitalAmount.ToString();
-                                this.customersaleItems.Clear();
+                            Bill lastBill = Connection.server.RetrieveLastBillNumberToday();
+                            if (CurrentBillNumber != lastBill.getBillNumber())
+                            {
+                                if (Connection.server.PayUnpaidBill(CurrentBillNumber))
+                                {
+                                    Bill billPaid = Connection.server.SearchBills("", "", CurrentBillNumber).Item1[0];
+                                    printCertainReceipt(billPaid.BillNumber, billPaid.getCashierName(), billPaid.TotalAmount, billPaid.PaidAmount,
+                                        billPaid.RemainderAmount, billPaid.Date);
+                                    CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
+                                    label91.Text = this.CapitalAmount.ToString();
+                                    this.customersaleItems.Clear();
+                                }
+                            }
+                            else
+                            {
+                                if (Connection.server.PayBill(billToAdd, this.cashierName))
+                                {
+                                    // paid bill
+
+                                    printReceipt();
+                                    CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
+                                    label91.Text = this.CapitalAmount.ToString();
+                                    this.customersaleItems.Clear();
+                                }
                             }
                         }
                         else if (frmPayCash.dialogResult == DialogResult.Ignore)
@@ -8029,11 +8089,11 @@ namespace PlancksoftPOS
                                     decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
                                     decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
                                     Item item = new Item();
-                                    item.SetName(itemName);
-                                    item.SetBarCode(itemBarCode);
-                                    item.SetQuantity(itemQuantity);
-                                    item.SetPrice(itemPrice);
-                                    item.SetPriceTax(itemPriceTax);
+                                    items[row].SetName(itemName);
+                                    items[row].SetBarCode(itemBarCode);
+                                    items[row].SetQuantity(itemQuantity);
+                                    items[row].SetPrice(itemPrice);
+                                    items[row++].SetPriceTax(itemPriceTax);
                                     items.Add(item);
                                 }
                             }
@@ -8536,11 +8596,6 @@ namespace PlancksoftPOS
                     {
                         try
                         {
-                            previousSharedUnpaidBillsList = new Stack<Bill>();
-                            foreach (Bill bill in Connection.server.RetrieveUnpaidBills().Item1)
-                            {
-                                previousSharedUnpaidBillsList.Push(bill);
-                            }
                             if (previousSharedUnpaidBillsList.Count > 0)
                             {
                                 List<Item> itemsBought = new List<Item>();
@@ -8565,6 +8620,7 @@ namespace PlancksoftPOS
                                 nextSharedUnpaidBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
                                 ItemsPendingPurchase.Rows.Clear();
                                 Bill bill = previousSharedUnpaidBillsList.Pop();
+
                                 if (bill.BillNumber < 1)
                                 {
                                     this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
@@ -8586,6 +8642,8 @@ namespace PlancksoftPOS
                                     richTextBox2.ResetText();
                                     richTextBox3.ResetText();
                                 }
+
+                                bill.Postponed = true;
 
                                 calculateStatistics();
                             }
@@ -8618,6 +8676,8 @@ namespace PlancksoftPOS
                                 richTextBox2.ResetText();
                                 richTextBox3.ResetText();
                             }
+
+                            bill.Postponed = true;
 
                             calculateStatistics();
                         }
@@ -8767,6 +8827,8 @@ namespace PlancksoftPOS
                                     richTextBox3.ResetText();
                                 }
 
+                                bill.Postponed = true;
+
                                 calculateStatistics();
                             }
                             else
@@ -8799,6 +8861,8 @@ namespace PlancksoftPOS
                                 richTextBox2.ResetText();
                                 richTextBox3.ResetText();
                             }
+
+                            bill.Postponed = true;
 
                             calculateStatistics();
                         }
@@ -10526,15 +10590,25 @@ namespace PlancksoftPOS
 
         private void lastBillNumberUpdaterTimer_Tick(object sender, EventArgs e)
         {
-            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
-            richTextBox5.ResetText();
-            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            if (!switchSharedUnpaidBills.Checked)
             {
-                richTextBox5.Text = (" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
-            }
-            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
+                richTextBox5.ResetText();
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    richTextBox5.Text = (" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    richTextBox5.Text = (" Current Bill ID: " + this.CurrentBillNumber);
+                }
+            } else
             {
-                richTextBox5.Text = (" Current Bill ID: " + this.CurrentBillNumber);
+                previousSharedUnpaidBillsList = new Stack<Bill>();
+                foreach (Bill bill in Connection.server.RetrieveUnpaidBills().Item1)
+                {
+                    previousSharedUnpaidBillsList.Push(bill);
+                }
             }
         }
 

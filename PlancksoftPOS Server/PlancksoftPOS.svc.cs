@@ -367,6 +367,10 @@ namespace PlancksoftPOS_Server
         {
             return DAL.AddVendorBill(billToAdd, cashierName);
         }
+        public bool PayUnpaidBill(int BillNumber)
+        {
+            return DAL.PayUnpaidBill(BillNumber);
+        }
         public bool PayBill(Bill billToAdd, string cashierName)
         {
             return DAL.PayBill(billToAdd, cashierName);

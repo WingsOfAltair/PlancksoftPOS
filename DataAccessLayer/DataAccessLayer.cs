@@ -1237,7 +1237,12 @@ namespace DataAccessLayer
                     bill.SetCashierName(Bill["Cashier Name"].ToString());
                     bill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
                     bill.SetDate(Convert.ToDateTime(Bill["Date"].ToString()));
+                    bill.Postponed = true;
                     Bills.Add(bill);
+                }
+                foreach(Bill bill in Bills)
+                {
+                    bill.ItemsBought = RetrieveBillItems(bill.getBillNumber()).Item1;
                 }
                 return Tuple.Create(Bills, dt);
             }
@@ -2805,7 +2810,7 @@ namespace DataAccessLayer
             }
         }
 
-        public bool PayUnpaidBill(Bill billToAdd, string cashierName)
+        public bool PayUnpaidBill(int BillNumber)
         {
             try
             {
@@ -2813,8 +2818,7 @@ namespace DataAccessLayer
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
-                    cmd.Parameters.AddWithValue("@BillID", billToAdd.getBillNumber());
+                    cmd.Parameters.AddWithValue("@BillID", BillNumber);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
