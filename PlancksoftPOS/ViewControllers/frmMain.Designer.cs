@@ -28,13 +28,13 @@ namespace PlancksoftPOS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ادارةالمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اضافةمادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,6 +68,7 @@ namespace PlancksoftPOS
             this.pictureBox37 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
+            this.switchSharedUnpaidBills = new MaterialSkin.Controls.MaterialSwitch();
             this.label51 = new MaterialSkin.Controls.MaterialLabel();
             this.pendingPurchaseNewPriceTax = new System.Windows.Forms.NumericUpDown();
             this.label50 = new MaterialSkin.Controls.MaterialLabel();
@@ -1241,6 +1242,7 @@ namespace PlancksoftPOS
             this.groupBox4.Controls.Add(this.panel1);
             this.groupBox4.Controls.Add(this.pictureBox14);
             this.groupBox4.Controls.Add(this.pictureBox13);
+            this.groupBox4.Controls.Add(this.switchSharedUnpaidBills);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox4.Location = new System.Drawing.Point(1618, 14);
             this.groupBox4.Name = "groupBox4";
@@ -1388,6 +1390,23 @@ namespace PlancksoftPOS
             this.pictureBox13.TabIndex = 32;
             this.pictureBox13.TabStop = false;
             this.pictureBox13.Click += new System.EventHandler(this.pictureBox13_Click);
+            // 
+            // switchSharedUnpaidBills
+            // 
+            this.switchSharedUnpaidBills.AutoSize = true;
+            this.switchSharedUnpaidBills.Depth = 0;
+            this.switchSharedUnpaidBills.Location = new System.Drawing.Point(72, 572);
+            this.switchSharedUnpaidBills.Margin = new System.Windows.Forms.Padding(0);
+            this.switchSharedUnpaidBills.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.switchSharedUnpaidBills.MouseState = MaterialSkin.MouseState.HOVER;
+            this.switchSharedUnpaidBills.Name = "switchSharedUnpaidBills";
+            this.switchSharedUnpaidBills.Ripple = true;
+            this.switchSharedUnpaidBills.Size = new System.Drawing.Size(196, 37);
+            this.switchSharedUnpaidBills.TabIndex = 47;
+            this.switchSharedUnpaidBills.Text = "Shared Unpaid Bills";
+            this.switchSharedUnpaidBills.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.switchSharedUnpaidBills.UseVisualStyleBackColor = true;
+            this.switchSharedUnpaidBills.CheckedChanged += new System.EventHandler(this.switchSharedUnpaidBills_CheckedChanged);
             // 
             // label51
             // 
@@ -8718,8 +8737,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemName.DataPropertyName = "Item Name";
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle1;
             this.VendorItemName.HeaderText = "اسم الماده";
             this.VendorItemName.Name = "VendorItemName";
             this.VendorItemName.ReadOnly = true;
@@ -8728,8 +8747,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBarCode.DataPropertyName = "Item BarCode";
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle2;
             this.VendorItemBarCode.HeaderText = "باركود الماده";
             this.VendorItemBarCode.Name = "VendorItemBarCode";
             this.VendorItemBarCode.ReadOnly = true;
@@ -8738,8 +8757,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemType.DataPropertyName = "Item Type";
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle3;
             this.VendorItemType.HeaderText = "صنف الماده";
             this.VendorItemType.Name = "VendorItemType";
             this.VendorItemType.ReadOnly = true;
@@ -8748,8 +8767,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemQuantity.DataPropertyName = "Item Quantity";
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle4;
             this.VendorItemQuantity.HeaderText = "عدد القطع";
             this.VendorItemQuantity.Name = "VendorItemQuantity";
             this.VendorItemQuantity.ReadOnly = true;
@@ -8758,8 +8777,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBuyPrice.DataPropertyName = "VendorItemBuyPrice";
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle5;
             this.VendorItemBuyPrice.HeaderText = "سعر الشراء";
             this.VendorItemBuyPrice.Name = "VendorItemBuyPrice";
             this.VendorItemBuyPrice.ReadOnly = true;
@@ -8768,8 +8787,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPrice.DataPropertyName = "VendorItemSellPrice";
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle6;
             this.VendorItemSellPrice.HeaderText = "سعر البيع";
             this.VendorItemSellPrice.Name = "VendorItemSellPrice";
             this.VendorItemSellPrice.ReadOnly = true;
@@ -8778,8 +8797,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPriceTax.DataPropertyName = "VendorItemSellPriceTax";
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle7;
             this.VendorItemSellPriceTax.HeaderText = "سعر البيع مع الضريبه";
             this.VendorItemSellPriceTax.Name = "VendorItemSellPriceTax";
             this.VendorItemSellPriceTax.ReadOnly = true;
@@ -11126,6 +11145,7 @@ namespace PlancksoftPOS
             ((System.ComponentModel.ISupportInitialize)(this.openRegisterBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeRegisterBtn)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox25)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
@@ -12078,6 +12098,7 @@ namespace PlancksoftPOS
         public System.Windows.Forms.NumericUpDown nudClientIDImportExport;
         public MaterialLabel lblClientIDImportExport;
         public MaterialLabel lblClientNameImportExport;
+        private MaterialSwitch switchSharedUnpaidBills;
     }
 }
 

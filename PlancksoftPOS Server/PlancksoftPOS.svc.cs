@@ -155,6 +155,10 @@ namespace PlancksoftPOS_Server
         { 
             return DAL.RetrievePortedBills();
         }
+        public Tuple<List<Bill>, DataTable> RetrieveUnpaidBills()
+        {
+            return DAL.RetrieveUnpaidBills();
+        }
         public Tuple<List<Bill>, DataTable> RetrieveVendorBills()
         {
             return DAL.RetrieveVendorBills();
@@ -355,9 +359,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.AddItemToCustomer(ItemBarCode, CustomerID, CustomerPrice);
         }
-        public int AddVendorBillUnpaid(Bill billToAdd, string cashierName)
+        public int AddUnpaidBill(Bill billToAdd, string cashierName)
         {
-            return DAL.AddVendorBillUnpaid(billToAdd, cashierName);
+            return DAL.AddUnpaidBill(billToAdd, cashierName);
         }
         public int AddVendorBill(Bill billToAdd, string cashierName)
         {

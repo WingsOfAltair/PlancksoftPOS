@@ -83,6 +83,9 @@
   <PropertyGroup>
     <ApplicationIcon>Resources\pos.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>PlancksoftPOS.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="MaterialSkin, Version=2.3.1.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -333,25 +336,25 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS.xsd">
+    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS1.xsd">
+    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS61.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS2.xsd">
+    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS62.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS3.xsd">
+    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS63.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS4.xsd">
+    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS64.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS5.xsd">
+    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS65.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS_Server.wsdl" />
+    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS_Server1.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\DataAccessLayer.Account.datasource" />
@@ -462,7 +465,6 @@
     <None Include="Resources\closeregister.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS.disco" />
     <None Include="Connected Services\Plancksoft_Server\configuration91.svcinfo" />
     <None Include="Connected Services\Plancksoft_Server\configuration.svcinfo" />
     <None Include="Connected Services\Plancksoft_Server\Reference.svcmap">
@@ -472,6 +474,7 @@
     <None Include="Resources\plancksoft_b_t.png" />
     <None Include="Resources\istockphoto-1166351637-612x612.jpg" />
     <None Include="Resources\password.png" />
+    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS1.disco" />
     <Content Include="Resources\pos.ico" />
     <None Include="Resources\point-of-sale.jpg" />
     <None Include="Resources\beep.mp3" />
