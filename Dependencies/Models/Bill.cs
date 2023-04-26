@@ -45,7 +45,10 @@ namespace Dependencies
 
         public Bill(int billNumber, decimal totalAmount, List<Item> itemsBought, DateTime date)
         {
-            BillNumber = billNumber;
+            if (BillNumber > -1)
+            {
+                BillNumber = billNumber;
+            }
             TotalAmount = totalAmount;
             PaidAmount = paidAmount;
             RemainderAmount = remainderAmount;
@@ -56,7 +59,10 @@ namespace Dependencies
 
         public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, List<Item> itemsBought, bool paybycash, DateTime date)
         {
-            BillNumber = billNumber;
+            if (BillNumber > -1)
+            {
+                BillNumber = billNumber;
+            }
             TotalAmount = totalAmount;
             PaidAmount = paidAmount;
             RemainderAmount = remainderAmount;
@@ -67,7 +73,10 @@ namespace Dependencies
 
         public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, List<Item> itemsBought, DateTime date)
         {
-            BillNumber = billNumber;
+            if (BillNumber > -1)
+            {
+                BillNumber = billNumber;
+            }
             TotalAmount = totalAmount;
             PaidAmount = paidAmount;
             RemainderAmount = remainderAmount;

@@ -373,21 +373,21 @@ namespace PlancksoftPOS
 
             if (!this.userPermissions.sell_edit)
             {
-                label67.Enabled = false;
+                //label67.Enabled = false;
                 pictureBox10.Enabled = false;
                 pictureBox25.Enabled = false;
-                label93.Enabled = false;
+                //label93.Enabled = false;
                 pictureBox12.Enabled = false;
-                label69.Enabled = false;
+                //label69.Enabled = false;
                 pictureBox11.Enabled = false;
-                label68.Enabled = false;
+                //label68.Enabled = false;
                 pictureBox26.Enabled = false;
-                label89.Enabled = false;
+                //label89.Enabled = false;
                 pictureBox3.Enabled = false;
-                label2.Enabled = false;
-                label24.Enabled = false;
+                //label2.Enabled = false;
+                //label24.Enabled = false;
                 pictureBox37.Enabled = false;
-                label70.Enabled = false;
+                //label70.Enabled = false;
                 pictureBox13.Enabled = false;
                 pictureBox14.Enabled = false;
                 tabControl2.Enabled = false;
@@ -398,21 +398,21 @@ namespace PlancksoftPOS
                 pendingPurchaseNewQuantity.Enabled = false;
             } else
             {
-                label67.Enabled = true;
+                //label67.Enabled = true;
                 pictureBox10.Enabled = true;
                 pictureBox25.Enabled = true;
-                label93.Enabled = true;
+                //label93.Enabled = true;
                 pictureBox12.Enabled = true;
-                label69.Enabled = true;
+                //label69.Enabled = true;
                 pictureBox11.Enabled = true;
-                label68.Enabled = true;
+                //label68.Enabled = true;
                 pictureBox26.Enabled = true;
-                label89.Enabled = true;
+                //label89.Enabled = true;
                 pictureBox3.Enabled = true;
-                label2.Enabled = true;
-                label24.Enabled = true;
+                //label2.Enabled = true;
+                //label24.Enabled = true;
                 pictureBox37.Enabled = true;
-                label70.Enabled = true;
+                //label70.Enabled = true;
                 pictureBox13.Enabled = true;
                 pictureBox14.Enabled = true;
                 tabControl2.Enabled = true;
@@ -692,14 +692,14 @@ namespace PlancksoftPOS
                 if (tabControl1.Contains(tabControl1.TabPages["Cash"]))
                 {
                     tabControl1.TabPages["Cash"].Text = "الكاش";
-                    label93.Text = "بطاقة عميل F2";
-                    label67.Text = "الدفع F1";
-                    label68.Text = "الخصومات F4";
-                    label69.Text = "فاتوره جديده F3";
-                    label2.Text = "فتح الكاش F6";
-                    label89.Text = "تعديل السعر F5";
-                    label24.Text = "البحث عن المواد F9";
-                    label70.Text = "F8 الفواتير السابقه F7";
+                    //label93.Text = "بطاقة عميل F2";
+                    //label67.Text = "الدفع F1";
+                    //label68.Text = "الخصومات F4";
+                    //label69.Text = "فاتوره جديده F3";
+                    //label2.Text = "فتح الكاش F6";
+                    //label89.Text = "تعديل السعر F5";
+                    //label24.Text = "البحث عن المواد F9";
+                    //label70.Text = "F8 الفواتير السابقه F7";
                     label71.Text = "اسم الكاشير:";
                     label45.Text = "هذه النسخه مرخصه ل";
                     groupBox3.Text = "قائمة المشتريات الحاليه";
@@ -1011,8 +1011,8 @@ namespace PlancksoftPOS
                         groupBox15.Text = "جدول العملاء";
                         dgvCustomers.Columns["Column27"].HeaderText = "إسم العميل";
                         dgvCustomers.Columns["CustomerIDDelete"].HeaderText = "رمز العميل";
-                        dgvCustomers.Columns["Column38"].HeaderText = "رقم الزبون";
-                        dgvCustomers.Columns["Column39"].HeaderText = "عنوان الزبون";
+                        dgvCustomers.Columns["Column38"].HeaderText = "رقم العميل";
+                        dgvCustomers.Columns["Column39"].HeaderText = "عنوان العميل";
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["AgentsItemsDefinitions"]))
                     {
@@ -1210,14 +1210,14 @@ namespace PlancksoftPOS
                 if (tabControl1.Contains(tabControl1.TabPages["Cash"]))
                 {
                     tabControl1.TabPages["Cash"].Text = "Cash";
-                    label93.Text = "Client Card F2";
-                    label67.Text = "Pay F1";
-                    label68.Text = "Discounts F4";
-                    label69.Text = "New Bill F3";
-                    label2.Text = "Drawer F6";
-                    label89.Text = "Edit Price F5";
-                    label24.Text = "Items Lookup F9";
-                    label70.Text = "F8 Previous Bills F7";
+                    //label93.Text = "Client Card F2";
+                    //label67.Text = "Pay F1";
+                    //label68.Text = "Discounts F4";
+                    //label69.Text = "New Bill F3";
+                    //label2.Text = "Drawer F6";
+                    //label89.Text = "Edit Price F5";
+                    //label24.Text = "Items Lookup F9";
+                    //label70.Text = "F8 Previous Bills F7";
                     label71.Text = "Cashier Name:";
                     label45.Text = "This copy is licensed for ";
                     groupBox3.Text = "List of currently pending items";
@@ -3563,6 +3563,7 @@ namespace PlancksoftPOS
                     }
 
                     Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now);
+                    
                     if (Connection.server.PayBill(billToAdd, this.cashierName))
                     {
                         // paid bill
@@ -3602,6 +3603,27 @@ namespace PlancksoftPOS
                     }
 
                     Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
+                    int UnpaidBillNumber = Connection.server.AddVendorBillUnpaid(billToAdd, this.cashierName);
+                    if (UnpaidBillNumber > -1)
+                    {
+                        this.totalVendorAmount = Connection.server.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                        this.CurrentVendorBillNumber++;
+                        this.ItemsList = DisplayData();
+                        DisplayFavorites();
+                        dgvVendorItemsPick.DataSource = new DataTable();
+                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".تمت اضافة الفاتوره غير مدفوعه كدين على العميل", Application.ProductName);
+                            dvgEntryExitItems.Rows.Clear();
+                        }
+                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("A new unpaid bill was added as debt to the client.", Application.ProductName);
+                            dvgEntryExitItems.Rows.Clear();
+                        }
+                    }
+
+                    billToAdd.BillNumber = UnpaidBillNumber;
                     previousBillsList.Push(billToAdd);
 
                     frmPayCash.Dispose();
@@ -3777,8 +3799,14 @@ namespace PlancksoftPOS
                     nextBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
                     ItemsPendingPurchase.Rows.Clear();
                     Bill bill = previousBillsList.Pop();
-                    //this.CurrentBillNumber = bill.getBillNumber();
-                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
+                    if (bill.BillNumber < 1)
+                    {
+                        this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
+                    }
+                    else
+                    {
+                        this.CurrentBillNumber = bill.getBillNumber();
+                    }
                     foreach (Item item in bill.getItemsList())
                     {
                         var index = ItemsPendingPurchase.Rows.Add();
@@ -3858,8 +3886,14 @@ namespace PlancksoftPOS
                     previousBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
                     ItemsPendingPurchase.Rows.Clear();
                     Bill bill = nextBillsList.Pop();
-                    this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
-                    //this.CurrentBillNumber = bill.getBillNumber();
+
+                    if (bill.getBillNumber() < 1)
+                    {
+                        this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
+                    } else
+                    {
+                        this.CurrentBillNumber = bill.getBillNumber();
+                    }
 
                     foreach (Item item in bill.getItemsList())
                     {
@@ -6156,7 +6190,7 @@ namespace PlancksoftPOS
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تمت اضافة الزبون", Application.ProductName);
+                        MessageBox.Show(".تمت اضافة العميل", Application.ProductName);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
@@ -6167,7 +6201,7 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم نتمكن من اضافة الزبون", Application.ProductName);
+                        MessageBox.Show(".لم نتمكن من اضافة العميل", Application.ProductName);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
@@ -6191,8 +6225,8 @@ namespace PlancksoftPOS
                 {
                     dgvCustomers.Columns["Column27"].HeaderText = "إسم العميل";
                     dgvCustomers.Columns["CustomerIDDelete"].HeaderText = "رمز العميل";
-                    dgvCustomers.Columns["Column38"].HeaderText = "رقم الزبون";
-                    dgvCustomers.Columns["Column39"].HeaderText = "عنوان الزبون";
+                    dgvCustomers.Columns["Column38"].HeaderText = "رقم العميل";
+                    dgvCustomers.Columns["Column39"].HeaderText = "عنوان العميل";
                 } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
                     dgvCustomers.Columns["Column27"].HeaderText = "Client Name";
@@ -6302,7 +6336,7 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نستطع اختيار الزبون", Application.ProductName);
+                    MessageBox.Show(".لم نستطع اختيار العميل", Application.ProductName);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
@@ -6329,7 +6363,7 @@ namespace PlancksoftPOS
                     CustomerPrice.Value = 0;
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تمت اضافة الماده للزبون", Application.ProductName);
+                        MessageBox.Show(".تمت اضافة الماده للعميل", Application.ProductName);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
@@ -6346,7 +6380,7 @@ namespace PlancksoftPOS
                     CustomerPrice.Value = 0;
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم تتم اضافة الماده للزبون", Application.ProductName);
+                        MessageBox.Show(".لم تتم اضافة الماده للعميل", Application.ProductName);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
@@ -6363,7 +6397,7 @@ namespace PlancksoftPOS
                 CustomerPrice.Value = 0;
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم تتم اضافة الماده للزبون", Application.ProductName);
+                    MessageBox.Show(".لم تتم اضافة الماده للعميل", Application.ProductName);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
@@ -6716,7 +6750,8 @@ namespace PlancksoftPOS
                     }
 
                     Bill billToAdd = new Bill(this.CurrentVendorBillNumber, this.totalVendorAmount, itemsToAdd, DateTime.Now);
-                    if (Connection.server.AddVendorBill(billToAdd, this.cashierName))
+                    int BillNumber = Connection.server.AddVendorBill(billToAdd, this.cashierName);
+                    if (BillNumber > -1)
                     {
                         this.totalVendorAmount = Connection.server.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
                         this.CurrentVendorBillNumber++;
@@ -7120,6 +7155,26 @@ namespace PlancksoftPOS
                     }
 
                     Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
+                    int UnpaidBillNumber = Connection.server.AddVendorBillUnpaid(billToAdd, this.cashierName);
+                    if (UnpaidBillNumber > -1)
+                    {
+                        this.totalVendorAmount = Connection.server.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                        this.CurrentVendorBillNumber++;
+                        this.ItemsList = DisplayData();
+                        DisplayFavorites();
+                        dgvVendorItemsPick.DataSource = new DataTable();
+                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".تمت اضافة الفاتوره غير مدفوعه كدين على العميل", Application.ProductName);
+                            dvgEntryExitItems.Rows.Clear();
+                        }
+                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("A new unpaid bill was added as debt to the client.", Application.ProductName);
+                            dvgEntryExitItems.Rows.Clear();
+                        }
+                    }
+                    billToAdd.BillNumber = UnpaidBillNumber;
                     previousBillsList.Push(billToAdd);
 
                     frmPayCash.Dispose();
@@ -7797,6 +7852,26 @@ namespace PlancksoftPOS
                             }
 
                             Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
+                            int UnpaidBillNumber = Connection.server.AddVendorBillUnpaid(billToAdd, this.cashierName);
+                            if (UnpaidBillNumber > -1)
+                            {
+                                this.totalVendorAmount = Connection.server.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                                this.CurrentVendorBillNumber++;
+                                this.ItemsList = DisplayData();
+                                DisplayFavorites();
+                                dgvVendorItemsPick.DataSource = new DataTable();
+                                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MessageBox.Show(".تمت اضافة الفاتوره غير مدفوعه كدين على العميل", Application.ProductName);
+                                    dvgEntryExitItems.Rows.Clear();
+                                }
+                                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MessageBox.Show("A new unpaid bill was added as debt to the client.", Application.ProductName);
+                                    dvgEntryExitItems.Rows.Clear();
+                                }
+                            }
+                            billToAdd.BillNumber = UnpaidBillNumber;
                             previousBillsList.Push(billToAdd);
 
                             frmPayCash.Dispose();
@@ -8210,8 +8285,15 @@ namespace PlancksoftPOS
                             nextBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
                             ItemsPendingPurchase.Rows.Clear();
                             Bill bill = previousBillsList.Pop();
-                            //this.CurrentBillNumber = bill.getBillNumber();
-                            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
+
+                            if (bill.getBillNumber() < 1)
+                            {
+                                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
+                            } else
+                            {
+                                this.CurrentBillNumber = bill.getBillNumber();
+                            }
+
                             foreach (Item item in bill.getItemsList())
                             {
                                 var index = ItemsPendingPurchase.Rows.Add();
@@ -8290,8 +8372,14 @@ namespace PlancksoftPOS
                             previousBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
                             ItemsPendingPurchase.Rows.Clear();
                             Bill bill = nextBillsList.Pop();
-                            this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
-                            //this.CurrentBillNumber = bill.getBillNumber();
+
+                            if (bill.getBillNumber() < 1)
+                            {
+                                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
+                            } else
+                            {
+                                this.CurrentBillNumber = bill.getBillNumber();
+                            }
 
                             foreach (Item item in bill.getItemsList())
                             {
@@ -8977,7 +9065,7 @@ namespace PlancksoftPOS
                 if (nudClientIDImportExport.Value != 0 && txtClientNameImportExport.Text != "")
                 {
                     Bill billToAdd = new Bill(this.CurrentVendorBillNumber, this.totalVendorAmount, itemsToAdd, DateTime.Now);
-                    if (Connection.server.AddVendorBill(billToAdd, this.cashierName))
+                    if (Connection.server.AddVendorBill(billToAdd, this.cashierName) > -1)
                     {
                         this.totalVendorAmount = Connection.server.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
                         this.CurrentVendorBillNumber++;
@@ -9677,7 +9765,7 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نستطع اختيار الزبون", Application.ProductName);
+                    MessageBox.Show(".لم نستطع اختيار العميل", Application.ProductName);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {

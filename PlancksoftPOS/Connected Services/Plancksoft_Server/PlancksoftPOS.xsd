@@ -75,6 +75,7 @@
       <xs:element minOccurs="0" name="price_edit" type="xs:boolean" />
       <xs:element minOccurs="0" name="pwd" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="receipt_edit" type="xs:boolean" />
+      <xs:element minOccurs="0" name="sell_edit" type="xs:boolean" />
       <xs:element minOccurs="0" name="settings_edit" type="xs:boolean" />
       <xs:element minOccurs="0" name="uid" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="users_edit" type="xs:boolean" />

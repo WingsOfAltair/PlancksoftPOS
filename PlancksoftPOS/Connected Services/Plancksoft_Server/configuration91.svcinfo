@@ -112,7 +112,7 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IPlancksoftPOS_Server" contract="PlancksoftPOS_Server.IPlancksoftPOS_Server" bindingType="basicHttpBinding" address="http://localhost/PlancksoftPOS.svc" bindingConfiguration="BasicHttpBinding_IPlancksoftPOS_Server">
+    <endpoint name="BasicHttpBinding_IPlancksoftPOS_Server" contract="Plancksoft_Server.IPlancksoftPOS_Server" bindingType="basicHttpBinding" address="http://localhost/PlancksoftPOS.svc" bindingConfiguration="BasicHttpBinding_IPlancksoftPOS_Server">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>http://localhost/PlancksoftPOS.svc</serializedValue>
@@ -127,7 +127,7 @@
           <serializedValue>BasicHttpBinding_IPlancksoftPOS_Server</serializedValue>
         </property>
         <property path="/contract" isComplexType="false" isExplicitlyDefined="true" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>PlancksoftPOS_Server.IPlancksoftPOS_Server</serializedValue>
+          <serializedValue>Plancksoft_Server.IPlancksoftPOS_Server</serializedValue>
         </property>
         <property path="/headers" isComplexType="true" isExplicitlyDefined="false" clrType="System.ServiceModel.Configuration.AddressHeaderCollectionElement, System.ServiceModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue>System.ServiceModel.Configuration.AddressHeaderCollectionElement</serializedValue>

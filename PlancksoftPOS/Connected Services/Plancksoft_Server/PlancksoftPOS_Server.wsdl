@@ -532,6 +532,12 @@
   <wsdl:message name="IPlancksoftPOS_Server_AddItemToCustomer_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddItemToCustomerResponse" />
   </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_AddVendorBillUnpaid_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddVendorBillUnpaid" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_AddVendorBillUnpaid_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddVendorBillUnpaidResponse" />
+  </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_AddVendorBill_InputMessage">
     <wsdl:part name="parameters" element="tns:AddVendorBill" />
   </wsdl:message>
@@ -1024,6 +1030,10 @@
     <wsdl:operation name="AddItemToCustomer">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomer" message="tns:IPlancksoftPOS_Server_AddItemToCustomer_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomerResponse" message="tns:IPlancksoftPOS_Server_AddItemToCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVendorBillUnpaid">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillUnpaid" message="tns:IPlancksoftPOS_Server_AddVendorBillUnpaid_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillUnpaidResponse" message="tns:IPlancksoftPOS_Server_AddVendorBillUnpaid_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="AddVendorBill">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBill" message="tns:IPlancksoftPOS_Server_AddVendorBill_InputMessage" />
@@ -1900,6 +1910,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddItemToCustomer">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVendorBillUnpaid">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillUnpaid" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

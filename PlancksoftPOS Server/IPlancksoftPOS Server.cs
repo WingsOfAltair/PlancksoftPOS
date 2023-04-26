@@ -184,7 +184,9 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool AddItemToCustomer(string ItemBarCode, int CustomerID, decimal CustomerPrice);
         [OperationContract]
-        bool AddVendorBill(Bill billToAdd, string cashierName);
+        int AddVendorBillUnpaid(Bill billToAdd, string cashierName);
+        [OperationContract]
+        int AddVendorBill(Bill billToAdd, string cashierName);
         [OperationContract]
         bool PayBill(Bill billToAdd, string cashierName);
         [OperationContract]

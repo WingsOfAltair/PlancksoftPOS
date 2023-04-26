@@ -8,11 +8,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PlancksoftPOS.PlancksoftPOS_Server {
+namespace PlancksoftPOS.Plancksoft_Server {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PlancksoftPOS_Server.IPlancksoftPOS_Server")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Plancksoft_Server.IPlancksoftPOS_Server")]
     public interface IPlancksoftPOS_Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/CheckConnection", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/CheckConnectionResponse")]
@@ -537,11 +537,17 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomer", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomerResponse")]
         System.Threading.Tasks.Task<bool> AddItemToCustomerAsync(string ItemBarCode, int CustomerID, decimal CustomerPrice);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillResponse")]
-        bool AddVendorBill(Dependencies.Bill billToAdd, string cashierName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillUnpaid", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillUnpaidResponse")]
+        int AddVendorBillUnpaid(Dependencies.Bill billToAdd, string cashierName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillUnpaid", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillUnpaidResponse")]
+        System.Threading.Tasks.Task<int> AddVendorBillUnpaidAsync(Dependencies.Bill billToAdd, string cashierName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillResponse")]
-        System.Threading.Tasks.Task<bool> AddVendorBillAsync(Dependencies.Bill billToAdd, string cashierName);
+        int AddVendorBill(Dependencies.Bill billToAdd, string cashierName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillResponse")]
+        System.Threading.Tasks.Task<int> AddVendorBillAsync(Dependencies.Bill billToAdd, string cashierName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayBillResponse")]
         bool PayBill(Dependencies.Bill billToAdd, string cashierName);
@@ -685,12 +691,12 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IPlancksoftPOS_ServerChannel : PlancksoftPOS.PlancksoftPOS_Server.IPlancksoftPOS_Server, System.ServiceModel.IClientChannel {
+    public interface IPlancksoftPOS_ServerChannel : PlancksoftPOS.Plancksoft_Server.IPlancksoftPOS_Server, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PlancksoftPOS_ServerClient : System.ServiceModel.ClientBase<PlancksoftPOS.PlancksoftPOS_Server.IPlancksoftPOS_Server>, PlancksoftPOS.PlancksoftPOS_Server.IPlancksoftPOS_Server {
+    public partial class PlancksoftPOS_ServerClient : System.ServiceModel.ClientBase<PlancksoftPOS.Plancksoft_Server.IPlancksoftPOS_Server>, PlancksoftPOS.Plancksoft_Server.IPlancksoftPOS_Server {
         
         public PlancksoftPOS_ServerClient() {
         }
@@ -1407,11 +1413,19 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
             return base.Channel.AddItemToCustomerAsync(ItemBarCode, CustomerID, CustomerPrice);
         }
         
-        public bool AddVendorBill(Dependencies.Bill billToAdd, string cashierName) {
+        public int AddVendorBillUnpaid(Dependencies.Bill billToAdd, string cashierName) {
+            return base.Channel.AddVendorBillUnpaid(billToAdd, cashierName);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddVendorBillUnpaidAsync(Dependencies.Bill billToAdd, string cashierName) {
+            return base.Channel.AddVendorBillUnpaidAsync(billToAdd, cashierName);
+        }
+        
+        public int AddVendorBill(Dependencies.Bill billToAdd, string cashierName) {
             return base.Channel.AddVendorBill(billToAdd, cashierName);
         }
         
-        public System.Threading.Tasks.Task<bool> AddVendorBillAsync(Dependencies.Bill billToAdd, string cashierName) {
+        public System.Threading.Tasks.Task<int> AddVendorBillAsync(Dependencies.Bill billToAdd, string cashierName) {
             return base.Channel.AddVendorBillAsync(billToAdd, cashierName);
         }
         

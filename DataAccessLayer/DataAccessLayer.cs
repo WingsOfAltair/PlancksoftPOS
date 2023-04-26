@@ -2675,7 +2675,54 @@ namespace DataAccessLayer
             }
         }
 
-        public bool AddVendorBill(Bill billToAdd, string cashierName)
+        public int AddVendorBillUnpaid(Bill billToAdd, string cashierName)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("AddVendorBillUnpaid", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@cashierName", cashierName);
+                    cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
+                    cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
+                    cmd.Parameters.Add("@BillID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    int BillID = Convert.ToInt32(cmd.Parameters["@BillID"].Value);
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+
+                    foreach (Item itemToAdd in billToAdd.ItemsBought)
+                    {
+                        using (SqlCommand cmd2 = new SqlCommand("AddItemToVendorBill", connection))
+                        {
+                            cmd2.CommandType = CommandType.StoredProcedure;
+
+                            cmd2.Parameters.AddWithValue("@BillID", BillID);
+                            cmd2.Parameters.AddWithValue("@ItemBarCode", itemToAdd.GetItemBarCode());
+                            cmd2.Parameters.AddWithValue("@ItemQuantity", itemToAdd.GetQuantity());
+
+                            if (connection != null && connection.State == ConnectionState.Closed)
+                                connection.Open();
+                            cmd2.ExecuteNonQuery();
+                            connection.Close();
+                        }
+                    }
+
+                    return BillID;
+                }
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
+
+        public int AddVendorBill(Bill billToAdd, string cashierName)
         {
             try
             {
@@ -2699,6 +2746,57 @@ namespace DataAccessLayer
                     foreach (Item itemToAdd in billToAdd.ItemsBought)
                     {
                         using (SqlCommand cmd2 = new SqlCommand("AddItemToVendorBill", connection))
+                        {
+                            cmd2.CommandType = CommandType.StoredProcedure;
+
+                            cmd2.Parameters.AddWithValue("@BillID", BillID);
+                            cmd2.Parameters.AddWithValue("@ItemBarCode", itemToAdd.GetItemBarCode());
+                            cmd2.Parameters.AddWithValue("@ItemQuantity", itemToAdd.GetQuantity());
+
+                            if (connection != null && connection.State == ConnectionState.Closed)
+                                connection.Open();
+                            cmd2.ExecuteNonQuery();
+                            connection.Close();
+                        }
+                    }
+
+                    return BillID;
+                }
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
+
+        public bool PayUnpaidBill(Bill billToAdd, string cashierName)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("PayUnpaidBill", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@cashierName", cashierName);
+                    cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
+                    cmd.Parameters.AddWithValue("@paidAmount", billToAdd.getPaidAmount());
+                    cmd.Parameters.AddWithValue("@remainderAmount", billToAdd.getRemainderAmount());
+                    cmd.Parameters.AddWithValue("@paymentByCash", Convert.ToInt32(billToAdd.PayByCash));
+                    cmd.Parameters.AddWithValue("@unpaid", Convert.ToInt32(billToAdd.getBillNumber()));
+                    cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
+                    cmd.Parameters.Add("@BillID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    int BillID = Convert.ToInt32(cmd.Parameters["@BillID"].Value);
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                    
+                    foreach(Item itemToAdd in billToAdd.ItemsBought)
+                    {
+                        using (SqlCommand cmd2 = new SqlCommand("AddItemToBill", connection))
                         {
                             cmd2.CommandType = CommandType.StoredProcedure;
 
