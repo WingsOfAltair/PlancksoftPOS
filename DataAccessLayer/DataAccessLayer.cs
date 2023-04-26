@@ -2493,7 +2493,6 @@ namespace DataAccessLayer
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@CustomerName", CustomerToInsert.CustomerName.ToString());
-                    cmd.Parameters.AddWithValue("@CustomerID", CustomerToInsert.CustomerID.ToString());
                     cmd.Parameters.AddWithValue("@CustomerPhone", CustomerToInsert.CustomerPhone.ToString());
                     cmd.Parameters.AddWithValue("@CustomerAddress", CustomerToInsert.CustomerAddress.ToString());
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -2521,7 +2520,7 @@ namespace DataAccessLayer
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@CustomerName", CustomerToInsert.CustomerName.ToString());
-                    cmd.Parameters.AddWithValue("@CustomerID", CustomerToInsert.CustomerID.ToString());
+                    //cmd.Parameters.AddWithValue("@CustomerID", CustomerToInsert.CustomerID.ToString());
                     cmd.Parameters.AddWithValue("@CustomerPhone", CustomerToInsert.CustomerPhone.ToString());
                     cmd.Parameters.AddWithValue("@CustomerAddress", CustomerToInsert.CustomerAddress.ToString());
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -3556,6 +3555,7 @@ namespace DataAccessLayer
                 {
                     searchedCustomer.CustomerID = Convert.ToInt32(customer["Customer ID"].ToString());
                     searchedCustomer.CustomerName = customer["Customer Name"].ToString();
+                    //searchedCustomer.CustomerPrice = Convert.ToDecimal(customer["Customer Price"].ToString());
                 }
 
                 return Tuple.Create(searchedCustomer, dt);

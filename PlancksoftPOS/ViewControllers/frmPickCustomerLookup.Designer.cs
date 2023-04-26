@@ -36,8 +36,8 @@
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.btnPickCustomer = new MaterialSkin.Controls.MaterialButton();
             this.DGVCustomers = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerPickCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerPickCustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCustomers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,12 +45,12 @@
             // 
             this.lblCustomerName.AutoSize = true;
             this.lblCustomerName.Depth = 0;
-            this.lblCustomerName.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCustomerName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblCustomerName.Location = new System.Drawing.Point(4, 432);
             this.lblCustomerName.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCustomerName.Name = "lblCustomerName";
             this.lblCustomerName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblCustomerName.Size = new System.Drawing.Size(67, 17);
+            this.lblCustomerName.Size = new System.Drawing.Size(44, 19);
             this.lblCustomerName.TabIndex = 2;
             this.lblCustomerName.Text = "إسم الزبون";
             this.lblCustomerName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -123,12 +123,12 @@
             // 
             this.lblCustomerID.AutoSize = true;
             this.lblCustomerID.Depth = 0;
-            this.lblCustomerID.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCustomerID.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblCustomerID.Location = new System.Drawing.Point(406, 432);
             this.lblCustomerID.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCustomerID.Name = "lblCustomerID";
             this.lblCustomerID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblCustomerID.Size = new System.Drawing.Size(58, 17);
+            this.lblCustomerID.Size = new System.Drawing.Size(47, 19);
             this.lblCustomerID.TabIndex = 5;
             this.lblCustomerID.Text = "رمز الزبون";
             this.lblCustomerID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -201,24 +201,25 @@
             this.DGVCustomers.BackgroundColor = System.Drawing.Color.White;
             this.DGVCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2});
+            this.CustomerPickCustomerName,
+            this.CustomerPickCustomerID});
             this.DGVCustomers.Location = new System.Drawing.Point(3, 67);
             this.DGVCustomers.Name = "DGVCustomers";
             this.DGVCustomers.Size = new System.Drawing.Size(764, 362);
             this.DGVCustomers.TabIndex = 75;
+            this.DGVCustomers.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVCustomers_RowHeaderMouseClick);
             // 
-            // Column1
+            // CustomerPickCustomerName
             // 
-            this.Column1.DataPropertyName = "Customer Name";
-            this.Column1.HeaderText = "اسم الزبون";
-            this.Column1.Name = "Column1";
+            this.CustomerPickCustomerName.DataPropertyName = "Customer Name";
+            this.CustomerPickCustomerName.HeaderText = "اسم الزبون";
+            this.CustomerPickCustomerName.Name = "CustomerPickCustomerName";
             // 
-            // Column2
+            // CustomerPickCustomerID
             // 
-            this.Column2.DataPropertyName = "Customer ID";
-            this.Column2.HeaderText = "رقم الزبون";
-            this.Column2.Name = "Column2";
+            this.CustomerPickCustomerID.DataPropertyName = "Customer ID";
+            this.CustomerPickCustomerID.HeaderText = "رقم الزبون";
+            this.CustomerPickCustomerID.Name = "CustomerPickCustomerID";
             // 
             // frmPickCustomerLookup
             // 
@@ -249,7 +250,7 @@
         private MaterialSkin.Controls.MaterialButton btnClear;
         private MaterialSkin.Controls.MaterialButton btnPickCustomer;
         public System.Windows.Forms.DataGridView DGVCustomers;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPickCustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPickCustomerID;
     }
 }

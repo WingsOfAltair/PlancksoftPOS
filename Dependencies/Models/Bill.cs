@@ -15,7 +15,7 @@ namespace Dependencies
         [DataMember]
         public decimal remainderAmount, totalAmount, paidAmount;
         [DataMember]
-        public Item[] itemsBought;
+        public List<Item> itemsBought;
         [DataMember]
         public DateTime date;
         [DataMember]
@@ -32,7 +32,7 @@ namespace Dependencies
         [DataMember]
         public decimal RemainderAmount { get => remainderAmount; set => remainderAmount = value; }
         [DataMember]
-        public Item[] ItemsBought { get => itemsBought; set => itemsBought = value; }
+        public List<Item> ItemsBought { get => itemsBought; set => itemsBought = value; }
         [DataMember]
         public DateTime Date { get => date; set => date = value; }
         [DataMember]
@@ -43,7 +43,7 @@ namespace Dependencies
 
         }
 
-        public Bill(int billNumber, decimal totalAmount, Item[] itemsBought, DateTime date)
+        public Bill(int billNumber, decimal totalAmount, List<Item> itemsBought, DateTime date)
         {
             BillNumber = billNumber;
             TotalAmount = totalAmount;
@@ -54,7 +54,7 @@ namespace Dependencies
             Date = date;
         }
 
-        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, Item[] itemsBought, bool paybycash, DateTime date)
+        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, List<Item> itemsBought, bool paybycash, DateTime date)
         {
             BillNumber = billNumber;
             TotalAmount = totalAmount;
@@ -65,7 +65,7 @@ namespace Dependencies
             Date = date;
         }
 
-        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, Item[] itemsBought, DateTime date)
+        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, List<Item> itemsBought, DateTime date)
         {
             BillNumber = billNumber;
             TotalAmount = totalAmount;
@@ -100,7 +100,7 @@ namespace Dependencies
             return this.RemainderAmount;
         }
 
-        public Item[] getItemsList()
+        public List<Item> getItemsList()
         {
             return this.ItemsBought;
         }
@@ -135,7 +135,7 @@ namespace Dependencies
             this.RemainderAmount = RemainderAmount;
         }
 
-        public void SetItemsList(Item[] ItemsList)
+        public void SetItemsList(List<Item> ItemsList)
         {
             this.ItemsBought = ItemsList;
         }

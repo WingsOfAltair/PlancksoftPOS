@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
             this.DGVCustomers = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblCustomerName = new MaterialSkin.Controls.MaterialLabel();
             this.txtCustomerName = new MaterialSkin.Controls.MaterialTextBox2();
             this.txtCustomerID = new MaterialSkin.Controls.MaterialTextBox2();
@@ -41,6 +36,11 @@
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.btnPickCustomer = new MaterialSkin.Controls.MaterialButton();
+            this.CustomerPickCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerPickCustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerPickItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerPickItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CustomerPickCustomerPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVCustomers)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,57 +49,27 @@
             this.DGVCustomers.BackgroundColor = System.Drawing.Color.White;
             this.DGVCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
+            this.CustomerPickCustomerName,
+            this.CustomerPickCustomerID,
+            this.CustomerPickItemName,
+            this.CustomerPickItemBarCode,
+            this.CustomerPickCustomerPrice});
             this.DGVCustomers.Location = new System.Drawing.Point(6, 67);
             this.DGVCustomers.Name = "DGVCustomers";
             this.DGVCustomers.Size = new System.Drawing.Size(764, 362);
             this.DGVCustomers.TabIndex = 1;
             this.DGVCustomers.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVCustomers_RowHeaderMouseClick);
             // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Customer Name";
-            this.Column1.HeaderText = "اسم الزبون";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Customer ID";
-            this.Column2.HeaderText = "رقم الزبون";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Item Name";
-            this.Column3.HeaderText = "اسم الماده";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Item BarCode";
-            this.Column4.HeaderText = "باركود الماده";
-            this.Column4.Name = "Column4";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Customer Price";
-            this.Column5.HeaderText = "سعر العميل";
-            this.Column5.Name = "Column5";
-            // 
             // lblCustomerName
             // 
             this.lblCustomerName.AutoSize = true;
             this.lblCustomerName.Depth = 0;
-            this.lblCustomerName.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCustomerName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblCustomerName.Location = new System.Drawing.Point(4, 432);
             this.lblCustomerName.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCustomerName.Name = "lblCustomerName";
             this.lblCustomerName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblCustomerName.Size = new System.Drawing.Size(67, 17);
+            this.lblCustomerName.Size = new System.Drawing.Size(44, 19);
             this.lblCustomerName.TabIndex = 2;
             this.lblCustomerName.Text = "إسم الزبون";
             this.lblCustomerName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -172,12 +142,12 @@
             // 
             this.lblCustomerID.AutoSize = true;
             this.lblCustomerID.Depth = 0;
-            this.lblCustomerID.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCustomerID.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblCustomerID.Location = new System.Drawing.Point(406, 432);
             this.lblCustomerID.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCustomerID.Name = "lblCustomerID";
             this.lblCustomerID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblCustomerID.Size = new System.Drawing.Size(58, 17);
+            this.lblCustomerID.Size = new System.Drawing.Size(47, 19);
             this.lblCustomerID.TabIndex = 5;
             this.lblCustomerID.Text = "رمز الزبون";
             this.lblCustomerID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -245,6 +215,36 @@
             this.btnPickCustomer.UseVisualStyleBackColor = true;
             this.btnPickCustomer.Click += new System.EventHandler(this.btnPickCustomer_Click);
             // 
+            // CustomerPickCustomerName
+            // 
+            this.CustomerPickCustomerName.DataPropertyName = "Customer Name";
+            this.CustomerPickCustomerName.HeaderText = "اسم الزبون";
+            this.CustomerPickCustomerName.Name = "CustomerPickCustomerName";
+            // 
+            // CustomerPickCustomerID
+            // 
+            this.CustomerPickCustomerID.DataPropertyName = "Customer ID";
+            this.CustomerPickCustomerID.HeaderText = "رقم الزبون";
+            this.CustomerPickCustomerID.Name = "CustomerPickCustomerID";
+            // 
+            // CustomerPickItemName
+            // 
+            this.CustomerPickItemName.DataPropertyName = "Item Name";
+            this.CustomerPickItemName.HeaderText = "اسم الماده";
+            this.CustomerPickItemName.Name = "CustomerPickItemName";
+            // 
+            // CustomerPickItemBarCode
+            // 
+            this.CustomerPickItemBarCode.DataPropertyName = "Item BarCode";
+            this.CustomerPickItemBarCode.HeaderText = "باركود الماده";
+            this.CustomerPickItemBarCode.Name = "CustomerPickItemBarCode";
+            // 
+            // CustomerPickCustomerPrice
+            // 
+            this.CustomerPickCustomerPrice.DataPropertyName = "Customer Price";
+            this.CustomerPickCustomerPrice.HeaderText = "سعر العميل";
+            this.CustomerPickCustomerPrice.Name = "CustomerPickCustomerPrice";
+            // 
             // frmPickCustomer
             // 
             this.ClientSize = new System.Drawing.Size(775, 619);
@@ -268,11 +268,6 @@
         #endregion
 
         public System.Windows.Forms.DataGridView DGVCustomers;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private MaterialSkin.Controls.MaterialLabel lblCustomerName;
         private MaterialSkin.Controls.MaterialTextBox2 txtCustomerName;
         private MaterialSkin.Controls.MaterialTextBox2 txtCustomerID;
@@ -280,5 +275,10 @@
         private MaterialSkin.Controls.MaterialButton btnClose;
         private MaterialSkin.Controls.MaterialButton btnClear;
         private MaterialSkin.Controls.MaterialButton btnPickCustomer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPickCustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPickCustomerID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPickItemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPickItemBarCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPickCustomerPrice;
     }
 }

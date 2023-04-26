@@ -75,8 +75,8 @@ namespace PlancksoftPOS
                 btnPickCustomer.Text = "Pick Customer";
                 btnClose.Text = "Close";
                 btnClear.Text = "Clear";
-                DGVCustomers.Columns["Column1"].HeaderText = "Client Name";
-                DGVCustomers.Columns["Column2"].HeaderText = "Client ID";
+                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "Client Name";
+                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "Client ID";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
@@ -92,8 +92,8 @@ namespace PlancksoftPOS
         {
             if (!DGVCustomers.Rows[this.ID].IsNewRow)
             {
-                pickedCustomer.CustomerID = Convert.ToInt32(DGVCustomers.Rows[this.ID].Cells[0].Value.ToString());
-                pickedCustomer.CustomerName = DGVCustomers.Rows[this.ID].Cells[1].Value.ToString();
+                pickedCustomer.CustomerID = Convert.ToInt32(DGVCustomers.Rows[this.ID].Cells[1].Value.ToString());
+                pickedCustomer.CustomerName = DGVCustomers.Rows[this.ID].Cells[0].Value.ToString();
 
                 dialogResult = DialogResult.OK;
                 this.Close();
@@ -113,47 +113,47 @@ namespace PlancksoftPOS
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                DGVCustomers.Columns["Column1"].HeaderText = "اسم الزبون";
-                DGVCustomers.Columns["Column2"].HeaderText = "رقم الزبون";
+                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "اسم الزبون";
+                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "رقم الزبون";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                DGVCustomers.Columns["Column1"].HeaderText = "Client Name";
-                DGVCustomers.Columns["Column2"].HeaderText = "Client ID";
+                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "Client Name";
+                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "Client ID";
             }
         }
 
         private void txtCustomerName_TextChanged(object sender, EventArgs e)
         {
-            DataTable RetrievedCustomers = Connection.server.SearchCustomers(txtCustomerName.Text, "", "");
+            DataTable RetrievedCustomers = Connection.server.SearchCustomersInfo(txtCustomerName.Text, "").Item2;
             DGVCustomers.DataSource = RetrievedCustomers;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                DGVCustomers.Columns["Column1"].HeaderText = "اسم الزبون";
-                DGVCustomers.Columns["Column2"].HeaderText = "رقم الزبون";
+                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "اسم الزبون";
+                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "رقم الزبون";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                DGVCustomers.Columns["Column1"].HeaderText = "Client Name";
-                DGVCustomers.Columns["Column2"].HeaderText = "Client ID";
+                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "Client Name";
+                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "Client ID";
             }
         }
 
         private void txtCustomerID_TextChanged(object sender, EventArgs e)
         {
-            DataTable RetrievedCustomers = Connection.server.SearchCustomers("", txtCustomerID.Text, "");
+            DataTable RetrievedCustomers = Connection.server.SearchCustomersInfo("", txtCustomerID.Text).Item2;
             DGVCustomers.DataSource = RetrievedCustomers;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                DGVCustomers.Columns["Column1"].HeaderText = "اسم الزبون";
-                DGVCustomers.Columns["Column2"].HeaderText = "رقم الزبون";
+                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "اسم الزبون";
+                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "رقم الزبون";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                DGVCustomers.Columns["Column1"].HeaderText = "Client Name";
-                DGVCustomers.Columns["Column2"].HeaderText = "Client ID";
+                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "Client Name";
+                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "Client ID";
             }
         }
 

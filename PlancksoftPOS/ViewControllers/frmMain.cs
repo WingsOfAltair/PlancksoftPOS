@@ -16,6 +16,7 @@ using System.IO.Ports;
 using Dependencies;
 using MaterialSkin.Controls;
 using MaterialSkin;
+using Microsoft.TeamFoundation.Common;
 
 namespace PlancksoftPOS
 {
@@ -875,6 +876,7 @@ namespace PlancksoftPOS
                         label98.Text = "تاريخ الإدخال";
                         label46.Text = "سعر الشراء";
                         button14.Text = "إختيار ماده";
+                        btnPickClientForImportExport.Text = "إختيار العميل";
                         button38.Text = "إضافة ماده";
                         button36.Text = "حذف ماده";
                         button15.Text = "اتمام العمليه";
@@ -1390,6 +1392,7 @@ namespace PlancksoftPOS
                         label98.Text = "Entry Date";
                         label46.Text = "Buy Price";
                         button14.Text = "Pick Item";
+                        btnPickClientForImportExport.Text = "Pick Client";
                         button38.Text = "Add Item";
                         button36.Text = "Delete Item";
                         button15.Text = "Commit Form";
@@ -1673,7 +1676,6 @@ namespace PlancksoftPOS
                         IncludeLogoReceipt.Text = "Include Logo in Receipt";
                         switchThemeScheme.Text = "Dark Mode";
                         lblDarkColorScheme.Text = "Dark Color Scheme";
-                        lblDarkColorScheme.Text = "Colors";
                         lblDarkPrimaryColor.Text = "Basic";
                         lblDarkPrimaryDark.Text = "Basic Dark";
                         lblDarkPrimaryLight.Text = "Basic Light";
@@ -3491,7 +3493,7 @@ namespace PlancksoftPOS
                     this.remainderAmount = this.paidAmount - this.totalAmount;
                     frmPayCash.Dispose();
 
-                    Item[] itemsToAdd = new Item[0];
+                    List<Item> itemsToAdd = new List<Item>();
                     int row = 0;
                     foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
                     {
@@ -3502,13 +3504,14 @@ namespace PlancksoftPOS
                             int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
                             decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
                             decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                            Array.Resize(ref itemsToAdd, itemsToAdd.Length + 1);
-                            itemsToAdd[row] = new Item();
-                            itemsToAdd[row].SetName(itemName);
-                            itemsToAdd[row].SetBarCode(itemBarCode);
-                            itemsToAdd[row].SetQuantity(itemQuantity);
-                            itemsToAdd[row].SetPrice(itemPrice);
-                            itemsToAdd[row++].SetPriceTax(itemPriceTax);
+                            Item itemToAdd = new Item();
+                            itemToAdd = new Item();
+                            itemToAdd.SetName(itemName);
+                            itemToAdd.SetBarCode(itemBarCode);
+                            itemToAdd.SetQuantity(itemQuantity);
+                            itemToAdd.SetPrice(itemPrice);
+                            itemToAdd.SetPriceTax(itemPriceTax);
+                            itemsToAdd.Add(itemToAdd);
                             int newItemQuantity = Connection.server.GetItemQuantity(itemBarCode) - itemQuantity;
                             bool updatedQuantity = Connection.server.UpdateItemQuantity(new Item(itemName, itemBarCode, newItemQuantity, itemPrice, itemPriceTax, DateTime.Now));
 
@@ -3569,7 +3572,7 @@ namespace PlancksoftPOS
                 }
                 else if (frmPayCash.dialogResult == DialogResult.Ignore)
                 {
-                    Item[] items = new Item[0];
+                    List<Item> items = new List<Item>();
                     int row = 0;
                     this.paidAmount = 0;
                     this.moneyInRegister += 0;
@@ -3584,13 +3587,13 @@ namespace PlancksoftPOS
                             int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
                             decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
                             decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                            Array.Resize(ref items, items.Length + 1);
-                            items[row] = new Item();
-                            items[row].SetName(itemName);
-                            items[row].SetBarCode(itemBarCode);
-                            items[row].SetQuantity(itemQuantity);
-                            items[row].SetPrice(itemPrice);
-                            items[row++].SetPriceTax(itemPriceTax);
+                            Item item = new Item();
+                            item.SetName(itemName);
+                            item.SetBarCode(itemBarCode);
+                            item.SetQuantity(itemQuantity);
+                            item.SetPrice(itemPrice);
+                            item.SetPriceTax(itemPriceTax);
+                            items.Add(item);
                         }
                     }
 
@@ -3669,7 +3672,7 @@ namespace PlancksoftPOS
             }
             else
             {
-                Item[] items = new Item[0];
+                List<Item> items = new List<Item>();
                 int row = 0;
                 foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
                 {
@@ -3680,13 +3683,13 @@ namespace PlancksoftPOS
                         int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
                         decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
                         decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                        Array.Resize(ref items, items.Length + 1);
-                        items[row] = new Item();
-                        items[row].SetName(itemName);
-                        items[row].SetBarCode(itemBarCode);
-                        items[row].SetQuantity(itemQuantity);
-                        items[row].SetPrice(itemPrice);
-                        items[row++].SetPriceTax(itemPriceTax);
+                        Item item = new Item();
+                        item.SetName(itemName);
+                        item.SetBarCode(itemBarCode);
+                        item.SetQuantity(itemQuantity);
+                        item.SetPrice(itemPrice);
+                        item.SetPriceTax(itemPriceTax);
+                        items.Add(item);
                     }
                 }
 
@@ -3748,25 +3751,25 @@ namespace PlancksoftPOS
             {
                 if (previousBillsList.Count > 0)
                 {
-                    Item[] itemsBought = new Item[0];
+                    List<Item> itemsBought = new List<Item>();
                     foreach (DataGridViewRow item in ItemsPendingPurchase.Rows)
                     {
                         if (!item.IsNewRow)
                         {
-                            Array.Resize(ref itemsBought, itemsBought.Length + 1);
                             string itemName = item.Cells["pendingPurchaseItemName"].Value.ToString();
                             string itemBarCode = item.Cells["pendingPurchaseItemBarCode"].Value.ToString();
                             int itemQuantity = Convert.ToInt32(item.Cells["pendingPurchaseItemQuantity"].Value);
                             decimal itemPrice = Convert.ToDecimal(item.Cells["pendingPurchaseItemPrice"].Value);
                             decimal itemPriceTax = Convert.ToDecimal(item.Cells["pendingPurchaseItemPriceTax"].Value);
 
-                            itemsBought[itemsBought.Length - 1] = new Item(itemName, itemBarCode, itemQuantity, itemPrice, itemPriceTax, DateTime.Now);
+                            itemsBought.Add(new Item(itemName, itemBarCode, itemQuantity, itemPrice, itemPriceTax, DateTime.Now));
 
                             richTextBox1.ResetText();
                             richTextBox2.ResetText();
                             richTextBox3.ResetText();
                         }
                     }
+
                     nextBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
                     ItemsPendingPurchase.Rows.Clear();
                     Bill bill = previousBillsList.Pop();
@@ -3829,19 +3832,18 @@ namespace PlancksoftPOS
                 if (nextBillsList.Count > 0)
                 {
                     //this.CurrentBillNumber += 1;
-                    Item[] itemsBought = new Item[0];
+                    List<Item> itemsBought = new List<Item>();
                     foreach (DataGridViewRow item in ItemsPendingPurchase.Rows)
                     {
                         if (!item.IsNewRow)
                         {
-                            Array.Resize(ref itemsBought, itemsBought.Length + 1);
                             string itemName = item.Cells["pendingPurchaseItemName"].Value.ToString();
                             string itemBarCode = item.Cells["pendingPurchaseItemBarCode"].Value.ToString();
                             int itemQuantity = Convert.ToInt32(item.Cells["pendingPurchaseItemQuantity"].Value);
                             decimal itemPrice = Convert.ToDecimal(item.Cells["pendingPurchaseItemPrice"].Value);
                             decimal itemPriceTax = Convert.ToDecimal(item.Cells["pendingPurchaseItemPriceTax"].Value);
 
-                            itemsBought[itemsBought.Length - 1] = new Item(itemName, itemBarCode, itemQuantity, itemPrice, itemPriceTax, DateTime.Now);
+                            itemsBought.Add(new Item(itemName, itemBarCode, itemQuantity, itemPrice, itemPriceTax, DateTime.Now));
 
                             richTextBox1.ResetText();
                             richTextBox2.ResetText();
@@ -5861,21 +5863,9 @@ namespace PlancksoftPOS
 
                     dgvCustomers.DataSource = retrievedCustomers.Item2;
 
-                    customerName.Items.Clear();
-                    foreach (Customer customer in retrievedCustomers.Item1)
-                    {
-                        customerName.Items.Add(new Items(customer.CustomerName));
-                    }
-
                     Tuple<List<Customer>, DataTable> retrievedVendors = Connection.server.GetRetrieveVendors();
 
                     dgvVendors.DataSource = retrievedVendors.Item2;
-
-                    VendorName.Items.Clear();
-                    foreach (Customer customer in retrievedVendors.Item1)
-                    {
-                        VendorName.Items.Add(new Items(customer.CustomerName));
-                    }
                 }
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["Alerts"])
                 {
@@ -6149,7 +6139,7 @@ namespace PlancksoftPOS
         {
             try
             {
-                if (Connection.server.RegisterCustomer(new Customer(customerName.Text, Convert.ToInt32(customerID.Value), CustomerPhone.Text, CustomerAddress.Text)))
+                if (Connection.server.RegisterCustomer(new Customer(customerName.Text, 0, CustomerPhone.Text, CustomerAddress.Text)))
                 {
                     customerName.Text = "";
                     customerID.Value = 0;
@@ -6159,11 +6149,6 @@ namespace PlancksoftPOS
                     Tuple<List<Customer>, DataTable> retrievedCustomers = Connection.server.GetRetrieveCustomers();
 
                     dgvCustomers.DataSource = retrievedCustomers.Item2;
-
-                    foreach (Customer customer in retrievedCustomers.Item1)
-                    {
-                        customerName.Items.Add(new Items(customer.CustomerName));
-                    }
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
@@ -6211,11 +6196,6 @@ namespace PlancksoftPOS
                     dgvCustomers.Columns["Column38"].HeaderText = "Phone Number";
                     dgvCustomers.Columns["Column39"].HeaderText = "Client Address";
                 }
-
-                foreach (Customer customer in retrievedCustomers.Item1)
-                {
-                    customerName.Items.Add(new Items(customer.CustomerName));
-                }
             }
             catch(Exception error)
             { }
@@ -6230,11 +6210,6 @@ namespace PlancksoftPOS
                     Tuple<List<Customer>, DataTable> retrievedCustomers = Connection.server.GetRetrieveCustomers();
 
                     dgvCustomers.DataSource = retrievedCustomers.Item2;
-
-                    foreach (Customer customer in retrievedCustomers.Item1)
-                    {
-                        customerName.Items.Remove(new Items(customer.CustomerName));
-                    }
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
@@ -6496,15 +6471,9 @@ namespace PlancksoftPOS
                 DGVCustomerItems.DataSource = retreivedCustomerItems.Item2;
             } else if (tabControl3.SelectedTab == tabControl3.TabPages["AgentsItemsDefinitions"])
             {
-                VendorName.Items.Clear();
                 Tuple<List<Customer>, DataTable> retrievedVendors = Connection.server.GetRetrieveVendors();
 
                 dgvVendors.DataSource = retrievedVendors.Item2;
-
-                foreach (Customer customer in retrievedVendors.Item1)
-                {
-                    VendorName.Items.Add(new Items(customer.CustomerName));
-                }
             }
         }
 
@@ -6608,10 +6577,9 @@ namespace PlancksoftPOS
         {
             try
             {
-                if (Connection.server.RegisterVendor(new Customer(VendorName.Text, Convert.ToInt32(VendorID.Value), VendorPhone.Text, VendorAddress.Text)))
+                if (Connection.server.RegisterVendor(new Customer(VendorName.Text, 0, VendorPhone.Text, VendorAddress.Text)))
                 {
                     VendorName.Text = "";
-                    VendorName.Items.Clear();
                     VendorID.Value = 0;
                     VendorPhone.Text = "";
                     VendorAddress.Text = "";
@@ -6620,10 +6588,6 @@ namespace PlancksoftPOS
 
                     dgvVendors.DataSource = retrievedVendors.Item2;
 
-                    foreach (Customer customer in retrievedVendors.Item1)
-                    {
-                        VendorName.Items.Add(new Items(customer.CustomerName));
-                    }
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
                         MessageBox.Show(".تمت اضافة المورد", Application.ProductName);
@@ -6653,16 +6617,12 @@ namespace PlancksoftPOS
         {
             try
             {
-                if (Connection.server.DeletesCustomer(dgvVendors.CurrentRow.Cells["CustomerIDDelete"].Value.ToString()))
+                if (Connection.server.DeletesCustomer(dgvVendors.CurrentRow.Cells["VendorCustomerID"].Value.ToString()))
                 {
                     Tuple<List<Customer>, DataTable> retrievedCustomers = Connection.server.GetRetrieveVendors();
 
                     dgvVendors.DataSource = retrievedCustomers.Item2;
 
-                    foreach (Customer customer in retrievedCustomers.Item1)
-                    {
-                        VendorName.Items.Remove(new Items(customer.CustomerName));
-                    }
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
                         MessageBox.Show(".تم حذف العميل", Application.ProductName);
@@ -6697,7 +6657,6 @@ namespace PlancksoftPOS
         {
             try
             {
-                VendorName.Items.Clear();
                 Tuple<List<Customer>, DataTable> retrievedVendors = Connection.server.GetRetrieveVendors();
 
                 dgvVendors.DataSource = retrievedVendors.Item2;
@@ -6715,11 +6674,6 @@ namespace PlancksoftPOS
                     dgvVendors.Columns["VendorCustomerPhone"].HeaderText = "Importer Phone Number";
                     dgvVendors.Columns["VendorCustomerAddress"].HeaderText = "Importer Address";
                 }
-
-                foreach (Customer customer in retrievedVendors.Item1)
-                {
-                    VendorName.Items.Add(new Items(customer.CustomerName));
-                }
             } catch (Exception error)
             {
 
@@ -6732,7 +6686,7 @@ namespace PlancksoftPOS
             {
                 if (numericUpDown3.Value != 0 && textBox8.Text != "")
                 {
-                    Item[] itemsToAdd = new Item[0];
+                    List<Item> itemsToAdd = new List<Item>();
                     int row = 0;
                     foreach (DataGridViewRow currentBillRow in dgvVendorItemsPick.Rows)
                     {
@@ -6744,15 +6698,15 @@ namespace PlancksoftPOS
                             decimal itemBuyPrice = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
                             decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[5].Value.ToString());
                             decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[6].Value.ToString());
-                            Array.Resize(ref itemsToAdd, itemsToAdd.Length + 1);
-                            itemsToAdd[row] = new Item();
-                            itemsToAdd[row].SetName(itemName);
-                            itemsToAdd[row].SetBarCode(itemBarCode);
-                            itemsToAdd[row].SetQuantity(itemQuantity);
-                            itemsToAdd[row].SetBuyPrice(itemBuyPrice);
-                            itemsToAdd[row].SetPrice(itemPrice);
-                            itemsToAdd[row].SetPriceTax(itemPriceTax);
+                            Item itemToAdd = new Item();
+                            itemToAdd.SetName(itemName);
+                            itemToAdd.SetBarCode(itemBarCode);
+                            itemToAdd.SetQuantity(itemQuantity);
+                            itemToAdd.SetBuyPrice(itemBuyPrice);
+                            itemToAdd.SetPrice(itemPrice);
+                            itemToAdd.SetPriceTax(itemPriceTax);
                             Connection.server.UpdateItemQuantity(itemsToAdd[row++]);
+                            itemsToAdd.Add(itemToAdd);
                             this.totalVendorAmount += itemBuyPrice * itemQuantity;
                         }
                     }
@@ -7060,7 +7014,7 @@ namespace PlancksoftPOS
                     this.remainderAmount = this.paidAmount - this.totalAmount;
                     frmPayCash.Dispose();
 
-                    Item[] itemsToAdd = new Item[0];
+                    List<Item> itemsToAdd = new List<Item>();
                     int row = 0;
                     foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
                     {
@@ -7071,13 +7025,13 @@ namespace PlancksoftPOS
                             int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
                             decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
                             decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                            Array.Resize(ref itemsToAdd, itemsToAdd.Length + 1);
-                            itemsToAdd[row] = new Item();
-                            itemsToAdd[row].SetName(itemName);
-                            itemsToAdd[row].SetBarCode(itemBarCode);
-                            itemsToAdd[row].SetQuantity(itemQuantity);
-                            itemsToAdd[row].SetPrice(itemPrice);
-                            itemsToAdd[row++].SetPriceTax(itemPriceTax);
+                            Item itemToAdd = new Item();
+                            itemToAdd.SetName(itemName);
+                            itemToAdd.SetBarCode(itemBarCode);
+                            itemToAdd.SetQuantity(itemQuantity);
+                            itemToAdd.SetPrice(itemPrice);
+                            itemToAdd.SetPriceTax(itemPriceTax);
+                            itemsToAdd.Add(itemToAdd);
                             int newItemQuantity = Connection.server.GetItemQuantity(itemBarCode) - itemQuantity;
                             bool updatedQuantity = Connection.server.UpdateItemQuantity(new Item(itemName, itemBarCode, newItemQuantity, itemPrice, itemPriceTax, DateTime.Now));
 
@@ -7138,7 +7092,7 @@ namespace PlancksoftPOS
                 }
                 else if (frmPayCash.dialogResult == DialogResult.Ignore)
                 {
-                    Item[] items = new Item[0];
+                    List<Item> items = new List<Item>();
                     int row = 0;
                     this.paidAmount = 0;
                     this.moneyInRegister += 0;
@@ -7153,13 +7107,13 @@ namespace PlancksoftPOS
                             int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
                             decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
                             decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                            Array.Resize(ref items, items.Length + 1);
-                            items[row] = new Item();
+                            Item item = new Item();
                             items[row].SetName(itemName);
                             items[row].SetBarCode(itemBarCode);
                             items[row].SetQuantity(itemQuantity);
                             items[row].SetPrice(itemPrice);
                             items[row++].SetPriceTax(itemPriceTax);
+                            items.Add(item);
                         }
                     }
 
@@ -7361,7 +7315,7 @@ namespace PlancksoftPOS
             }
             else
             {
-                Item[] items = new Item[0];
+                List<Item> items = new List<Item>();
                 int row = 0;
                 foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
                 {
@@ -7372,13 +7326,13 @@ namespace PlancksoftPOS
                         int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
                         decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
                         decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                        Array.Resize(ref items, items.Length + 1);
-                        items[row] = new Item();
-                        items[row].SetName(itemName);
-                        items[row].SetBarCode(itemBarCode);
-                        items[row].SetQuantity(itemQuantity);
-                        items[row].SetPrice(itemPrice);
-                        items[row++].SetPriceTax(itemPriceTax);
+                        Item item = new Item();
+                        item.SetName(itemName);
+                        item.SetBarCode(itemBarCode);
+                        item.SetQuantity(itemQuantity);
+                        item.SetPrice(itemPrice);
+                        item.SetPriceTax(itemPriceTax);
+                        items.Add(item);
                     }
                 }
 
@@ -7734,7 +7688,7 @@ namespace PlancksoftPOS
                             this.remainderAmount = this.paidAmount - this.totalAmount;
                             frmPayCash.Dispose();
 
-                            Item[] itemsToAdd = new Item[0];
+                            List<Item> itemsToAdd = new List<Item>();
                             int row = 0;
                             foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
                             {
@@ -7745,13 +7699,14 @@ namespace PlancksoftPOS
                                     int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
                                     decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
                                     decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                                    Array.Resize(ref itemsToAdd, itemsToAdd.Length + 1);
-                                    itemsToAdd[row] = new Item();
-                                    itemsToAdd[row].SetName(itemName);
-                                    itemsToAdd[row].SetBarCode(itemBarCode);
-                                    itemsToAdd[row].SetQuantity(itemQuantity);
-                                    itemsToAdd[row].SetPrice(itemPrice);
-                                    itemsToAdd[row++].SetPriceTax(itemPriceTax);
+
+                                    Item itemToAdd = new Item();
+                                    itemToAdd.SetName(itemName);
+                                    itemToAdd.SetBarCode(itemBarCode);
+                                    itemToAdd.SetQuantity(itemQuantity);
+                                    itemToAdd.SetPrice(itemPrice);
+                                    itemToAdd.SetPriceTax(itemPriceTax);
+                                    itemsToAdd.Add(itemToAdd);
                                     int newItemQuantity = Connection.server.GetItemQuantity(itemBarCode) - itemQuantity;
                                     bool updatedQuantity = Connection.server.UpdateItemQuantity(new Item(itemName, itemBarCode, newItemQuantity, itemPrice, itemPriceTax, DateTime.Now));
 
@@ -7814,7 +7769,7 @@ namespace PlancksoftPOS
                         }
                         else if (frmPayCash.dialogResult == DialogResult.Ignore)
                         {
-                            Item[] items = new Item[0];
+                            List<Item> items = new List<Item>();
                             int row = 0;
                             this.paidAmount = 0;
                             this.moneyInRegister += 0;
@@ -7829,13 +7784,13 @@ namespace PlancksoftPOS
                                     int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
                                     decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
                                     decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                                    Array.Resize(ref items, items.Length + 1);
-                                    items[row] = new Item();
-                                    items[row].SetName(itemName);
-                                    items[row].SetBarCode(itemBarCode);
-                                    items[row].SetQuantity(itemQuantity);
-                                    items[row].SetPrice(itemPrice);
-                                    items[row++].SetPriceTax(itemPriceTax);
+                                    Item item = new Item();
+                                    item.SetName(itemName);
+                                    item.SetBarCode(itemBarCode);
+                                    item.SetQuantity(itemQuantity);
+                                    item.SetPrice(itemPrice);
+                                    item.SetPriceTax(itemPriceTax);
+                                    items.Add(item);
                                 }
                             }
 
@@ -8010,7 +7965,7 @@ namespace PlancksoftPOS
                     }
                     else
                     {
-                        Item[] items = new Item[0];
+                        List<Item> items = new List<Item>();
                         int row = 0;
                         foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
                         {
@@ -8021,13 +7976,13 @@ namespace PlancksoftPOS
                                 int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
                                 decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
                                 decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                                Array.Resize(ref items, items.Length + 1);
-                                items[row] = new Item();
-                                items[row].SetName(itemName);
-                                items[row].SetBarCode(itemBarCode);
-                                items[row].SetQuantity(itemQuantity);
-                                items[row].SetPrice(itemPrice);
-                                items[row++].SetPriceTax(itemPriceTax);
+                                Item item = new Item();
+                                item.SetName(itemName);
+                                item.SetBarCode(itemBarCode);
+                                item.SetQuantity(itemQuantity);
+                                item.SetPrice(itemPrice);
+                                item.SetPriceTax(itemPriceTax);
+                                items.Add(item);
                             }
                         }
 
@@ -8232,19 +8187,18 @@ namespace PlancksoftPOS
                     {
                         if (previousBillsList.Count > 0)
                         {
-                            Item[] itemsBought = new Item[0];
+                            List<Item> itemsBought = new List<Item>();
                             foreach (DataGridViewRow item in ItemsPendingPurchase.Rows)
                             {
                                 if (!item.IsNewRow)
                                 {
-                                    Array.Resize(ref itemsBought, itemsBought.Length + 1);
                                     string itemName = item.Cells["pendingPurchaseItemName"].Value.ToString();
                                     string itemBarCode = item.Cells["pendingPurchaseItemBarCode"].Value.ToString();
                                     int itemQuantity = Convert.ToInt32(item.Cells["pendingPurchaseItemQuantity"].Value);
                                     decimal itemPrice = Convert.ToDecimal(item.Cells["pendingPurchaseItemPrice"].Value);
                                     decimal itemPriceTax = Convert.ToDecimal(item.Cells["pendingPurchaseItemPriceTax"].Value);
 
-                                    itemsBought[itemsBought.Length - 1] = new Item(itemName, itemBarCode, itemQuantity, itemPrice, itemPriceTax, DateTime.Now);
+                                    itemsBought.Add(new Item(itemName, itemBarCode, itemQuantity, itemPrice, itemPriceTax, DateTime.Now));
 
                                     richTextBox1.ResetText();
                                     richTextBox2.ResetText();
@@ -8312,19 +8266,18 @@ namespace PlancksoftPOS
                         if (nextBillsList.Count > 0)
                         {
                             //this.CurrentBillNumber += 1;
-                            Item[] itemsBought = new Item[0];
+                            List<Item> itemsBought = new List<Item>();
                             foreach (DataGridViewRow item in ItemsPendingPurchase.Rows)
                             {
                                 if (!item.IsNewRow)
                                 {
-                                    Array.Resize(ref itemsBought, itemsBought.Length + 1);
                                     string itemName = item.Cells["pendingPurchaseItemName"].Value.ToString();
                                     string itemBarCode = item.Cells["pendingPurchaseItemBarCode"].Value.ToString();
                                     int itemQuantity = Convert.ToInt32(item.Cells["pendingPurchaseItemQuantity"].Value);
                                     decimal itemPrice = Convert.ToDecimal(item.Cells["pendingPurchaseItemPrice"].Value);
                                     decimal itemPriceTax = Convert.ToDecimal(item.Cells["pendingPurchaseItemPriceTax"].Value);
 
-                                    itemsBought[itemsBought.Length - 1] = new Item(itemName, itemBarCode, itemQuantity, itemPrice, itemPriceTax, DateTime.Now);
+                                    itemsBought.Add(new Item(itemName, itemBarCode, itemQuantity, itemPrice, itemPriceTax, DateTime.Now));
 
                                     richTextBox1.ResetText();
                                     richTextBox2.ResetText();
@@ -8935,6 +8888,17 @@ namespace PlancksoftPOS
         {
             try
             {
+                if (nudClientIDImportExport.Value == 0 || txtClientNameImportExport.Text.IsNullOrEmpty())
+                {
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialSkin.Controls.MaterialMessageBox.Show(".الرجاء إختيار العميل لإتمام الفاتوره الحاليه", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    } else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialSkin.Controls.MaterialMessageBox.Show("Please pick a client to commit the current bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                    return;
+                }
                 List<Item> itemsToAdd = new List<Item>();
 
                 foreach (DataGridViewRow currentBillRow in dvgEntryExitItems.Rows)
@@ -8993,6 +8957,64 @@ namespace PlancksoftPOS
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
                         MessageBox.Show("Unable to submit Transaction.", Application.ProductName);
+                    }
+                }
+
+                List<Item> itemsToAdd2 = new List<Item>();
+
+                if (nudClientIDImportExport.Value != 0 && txtClientNameImportExport.Text != "")
+                {
+                    int row = 0;
+                    foreach (DataGridViewRow currentBillRow in dvgEntryExitItems.Rows)
+                    {
+                        if (currentBillRow.Cells[0].Value != null && currentBillRow.Cells[0].Value != DBNull.Value && !String.IsNullOrWhiteSpace(currentBillRow.Cells[0].Value.ToString()))
+                        {
+                            string itemName = currentBillRow.Cells[0].Value.ToString();
+                            string itemBarCode = currentBillRow.Cells[1].Value.ToString();
+                            int itemQuantity = Convert.ToInt32(currentBillRow.Cells[3].Value.ToString());
+                            decimal itemBuyPrice = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
+                            decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[5].Value.ToString());
+                            decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[6].Value.ToString());
+                            Item itemToAdd = new Item();
+                            itemToAdd.SetName(itemName);
+                            itemToAdd.SetBarCode(itemBarCode);
+                            itemToAdd.SetQuantity(itemQuantity);
+                            itemToAdd.SetBuyPrice(itemBuyPrice);
+                            itemToAdd.SetPrice(itemPrice);
+                            itemToAdd.SetPriceTax(itemPriceTax);
+                            Connection.server.UpdateItemQuantity(itemToAdd);
+                            itemsToAdd2.Add(itemToAdd);
+                            this.totalVendorAmount += itemBuyPrice * itemQuantity;
+                        }
+                    }
+
+                    Bill billToAdd = new Bill(this.CurrentVendorBillNumber, this.totalVendorAmount, itemsToAdd2, DateTime.Now);
+                    if (Connection.server.AddVendorBill(billToAdd, this.cashierName))
+                    {
+                        this.totalVendorAmount = Connection.server.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                        this.CurrentVendorBillNumber++;
+                        this.ItemsList = DisplayData();
+                        DisplayFavorites();
+                        dgvVendorItemsPick.DataSource = new DataTable();
+                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MessageBox.Show(".تمت اضافة الفاتوره للمورد", Application.ProductName);
+                        }
+                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MessageBox.Show("A new Importer Bill was added.", Application.ProductName);
+                        }
+                    }
+                }
+                else
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MessageBox.Show(".الرجاء إختيار مورد", Application.ProductName);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MessageBox.Show("Please pick an Importer.", Application.ProductName);
                     }
                 }
             }
@@ -9644,6 +9666,35 @@ namespace PlancksoftPOS
         private void AccentColor_TextChanged(object sender, EventArgs e)
         {
             AccentColorPanel.BackColor = ColorTranslator.FromHtml(AccentColor.Text);
+        }
+
+        private void btnPickClientForImportExport_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmPickCustomerLookup pickCustomer = new frmPickCustomerLookup();
+                openedForm = pickCustomer;
+                pickCustomer.ShowDialog();
+
+                if (pickCustomer.pickedCustomer.CustomerName != null)
+                {
+                    Customer pickedCustomer = Connection.server.SearchCustomersInfo(pickCustomer.pickedCustomer.CustomerName, Convert.ToString(pickCustomer.pickedCustomer.CustomerID)).Item1;
+                    txtClientNameImportExport.Text = pickedCustomer.CustomerName;
+                    nudClientIDImportExport.Value = pickedCustomer.CustomerID;
+                    //EntryExitItemBuyPrice.Value = pickedCustomer.CustomerPrice;
+                }
+            }
+            catch (Exception error)
+            {
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MessageBox.Show(".لم نستطع اختيار الزبون", Application.ProductName);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MessageBox.Show("Unable to pick Client.", Application.ProductName);
+                }
+            }
         }
 
         public void textBox3_KeyPress(object sender, KeyPressEventArgs e)
