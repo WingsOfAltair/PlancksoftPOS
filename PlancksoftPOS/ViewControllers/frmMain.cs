@@ -10233,8 +10233,43 @@ namespace PlancksoftPOS
                 }
             } else
             {
+                Stack<Bill> tempPreviousBills = new Stack<Bill>();
+                foreach (Bill bill in previousSharedUnpaidBillsList)
+                {
+                    if (!previousBillsList.Contains(bill))
+                    {
+                        if (bill.ItemsBought.Count > 0)
+                        {
+                            if (!bill.Postponed)
+                            {
+                                tempPreviousBills.Push(bill);
+                            }
+                        }
+                    }
+                }
+                previousBillsList = tempPreviousBills;
+                tempPreviousBills = null;
+
+                Stack<Bill> tempNextBills = new Stack<Bill>();
+                foreach (Bill bill in nextSharedUnpaidBillsList)
+                {
+                    if (!nextBillsList.Contains(bill))
+                    {
+                        if (bill.ItemsBought.Count > 0)
+                        {
+                            if (!bill.Postponed)
+                            {
+                                tempNextBills.Push(bill);
+                            }
+                        }
+                    }
+                }
+                nextBillsList = tempNextBills;
+                tempNextBills = null;
+
                 previousSharedUnpaidBillsList = new Stack<Bill>();
                 nextSharedUnpaidBillsList = new Stack<Bill>();
+                ItemsPendingPurchase.Rows.Clear();
             }
         }
 

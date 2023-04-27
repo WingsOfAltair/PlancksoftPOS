@@ -4,12 +4,186 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
-      <xsd:import schemaLocation="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
-      <xsd:import schemaLocation="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Dependencies" />
-      <xsd:import schemaLocation="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Dependencies" />
+      <xsd:import schemaLocation="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System.Data" />
+      <xsd:import schemaLocation="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IPlancksoftPOS_Server_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_AddSaleOnItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSaleOnItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_AddSaleOnItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSaleOnItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_AddItemToCustomer_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddItemToCustomer" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_AddItemToCustomer_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddItemToCustomerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_AddUnpaidBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUnpaidBill" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_AddUnpaidBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUnpaidBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_AddVendorBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddVendorBill" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_AddVendorBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddVendorBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_PayUnpaidBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:PayUnpaidBill" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_PayUnpaidBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PayUnpaidBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_PayBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:PayBill" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_PayBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PayBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBill" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_ReturnItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnItem" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_ReturnItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateItemWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateItemWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItem" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateItemQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemQuantity" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateItemQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_DeleteItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteItem" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_DeleteItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveLastVendorBillNumberToday_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveLastVendorBillNumberToday" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveLastVendorBillNumberToday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveLastVendorBillNumberTodayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveLastBillNumberToday_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveLastBillNumberToday" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveLastBillNumberToday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveLastBillNumberTodayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveItemsQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemsQuantity" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveItemsQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemsQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveSaleItemsQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSaleItemsQuantity" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveSaleItemsQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSaleItemsQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveExpireStockToday_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveExpireStockToday" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveExpireStockToday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveExpireStockTodayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveSaleToday_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSaleToday" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveSaleToday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSaleTodayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_SearchTodayBills_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchTodayBills" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_SearchTodayBills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchTodayBillsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_SearchBills_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchBills" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_SearchBills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchBillsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_GetItemQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemQuantity" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_GetItemQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveAbsence_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAbsence" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveAbsence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAbsenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_SearchExpenses_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchExpenses" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_SearchExpenses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchExpensesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_SearchItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_SearchItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_SearchCustomers_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCustomers" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_SearchCustomers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCustomersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_SearchCustomersInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCustomersInfo" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_SearchCustomersInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchCustomersInfoResponse" />
+  </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_CheckConnection_InputMessage">
     <wsdl:part name="parameters" element="tns:CheckConnection" />
   </wsdl:message>
@@ -520,181 +694,123 @@
   <wsdl:message name="IPlancksoftPOS_Server_DeleteEmployee_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteEmployeeResponse" />
   </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_DeleteUser_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteUser" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_DeleteUser_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_AddSaleOnItems_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddSaleOnItems" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_AddSaleOnItems_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddSaleOnItemsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_AddItemToCustomer_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddItemToCustomer" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_AddItemToCustomer_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddItemToCustomerResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_AddUnpaidBill_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddUnpaidBill" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_AddUnpaidBill_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddUnpaidBillResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_AddVendorBill_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddVendorBill" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_AddVendorBill_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddVendorBillResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_PayUnpaidBill_InputMessage">
-    <wsdl:part name="parameters" element="tns:PayUnpaidBill" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_PayUnpaidBill_OutputMessage">
-    <wsdl:part name="parameters" element="tns:PayUnpaidBillResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_PayBill_InputMessage">
-    <wsdl:part name="parameters" element="tns:PayBill" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_PayBill_OutputMessage">
-    <wsdl:part name="parameters" element="tns:PayBillResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_UpdateEmployee_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateEmployee" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_UpdateEmployee_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateEmployeeResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_UpdateUser_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateUser" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_UpdateUser_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_UpdateBill_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateBill" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_UpdateBill_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateBillResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_ReturnItem_InputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnItem" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_ReturnItem_OutputMessage">
-    <wsdl:part name="parameters" element="tns:ReturnItemResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_UpdateItemWarehouse_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateItemWarehouse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_UpdateItemWarehouse_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateItemWarehouseResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_UpdateItem_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateItem" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_UpdateItem_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateItemResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_UpdateItemQuantity_InputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateItemQuantity" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_UpdateItemQuantity_OutputMessage">
-    <wsdl:part name="parameters" element="tns:UpdateItemQuantityResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_DeleteItem_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteItem" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_DeleteItem_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeleteItemResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveLastVendorBillNumberToday_InputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveLastVendorBillNumberToday" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveLastVendorBillNumberToday_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveLastVendorBillNumberTodayResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveLastBillNumberToday_InputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveLastBillNumberToday" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveLastBillNumberToday_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveLastBillNumberTodayResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveItemsQuantity_InputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveItemsQuantity" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveItemsQuantity_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveItemsQuantityResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveSaleItemsQuantity_InputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveSaleItemsQuantity" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveSaleItemsQuantity_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveSaleItemsQuantityResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveExpireStockToday_InputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveExpireStockToday" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveExpireStockToday_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveExpireStockTodayResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveSaleToday_InputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveSaleToday" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveSaleToday_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveSaleTodayResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_SearchTodayBills_InputMessage">
-    <wsdl:part name="parameters" element="tns:SearchTodayBills" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_SearchTodayBills_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SearchTodayBillsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_SearchBills_InputMessage">
-    <wsdl:part name="parameters" element="tns:SearchBills" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_SearchBills_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SearchBillsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_GetItemQuantity_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetItemQuantity" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_GetItemQuantity_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetItemQuantityResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveAbsence_InputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveAbsence" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_RetrieveAbsence_OutputMessage">
-    <wsdl:part name="parameters" element="tns:RetrieveAbsenceResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_SearchExpenses_InputMessage">
-    <wsdl:part name="parameters" element="tns:SearchExpenses" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_SearchExpenses_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SearchExpensesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_SearchItems_InputMessage">
-    <wsdl:part name="parameters" element="tns:SearchItems" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_SearchItems_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SearchItemsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_SearchCustomers_InputMessage">
-    <wsdl:part name="parameters" element="tns:SearchCustomers" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_SearchCustomers_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SearchCustomersResponse" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_SearchCustomersInfo_InputMessage">
-    <wsdl:part name="parameters" element="tns:SearchCustomersInfo" />
-  </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_SearchCustomersInfo_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SearchCustomersInfoResponse" />
-  </wsdl:message>
   <wsdl:portType name="IPlancksoftPOS_Server">
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteUser" message="tns:IPlancksoftPOS_Server_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteUserResponse" message="tns:IPlancksoftPOS_Server_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSaleOnItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItems" message="tns:IPlancksoftPOS_Server_AddSaleOnItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItemsResponse" message="tns:IPlancksoftPOS_Server_AddSaleOnItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddItemToCustomer">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomer" message="tns:IPlancksoftPOS_Server_AddItemToCustomer_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomerResponse" message="tns:IPlancksoftPOS_Server_AddItemToCustomer_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUnpaidBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBill" message="tns:IPlancksoftPOS_Server_AddUnpaidBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBillResponse" message="tns:IPlancksoftPOS_Server_AddUnpaidBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVendorBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBill" message="tns:IPlancksoftPOS_Server_AddVendorBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillResponse" message="tns:IPlancksoftPOS_Server_AddVendorBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PayUnpaidBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBill" message="tns:IPlancksoftPOS_Server_PayUnpaidBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBillResponse" message="tns:IPlancksoftPOS_Server_PayUnpaidBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PayBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/PayBill" message="tns:IPlancksoftPOS_Server_PayBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/PayBillResponse" message="tns:IPlancksoftPOS_Server_PayBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployee" message="tns:IPlancksoftPOS_Server_UpdateEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployeeResponse" message="tns:IPlancksoftPOS_Server_UpdateEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateUser" message="tns:IPlancksoftPOS_Server_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateUserResponse" message="tns:IPlancksoftPOS_Server_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateBill" message="tns:IPlancksoftPOS_Server_UpdateBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateBillResponse" message="tns:IPlancksoftPOS_Server_UpdateBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/ReturnItem" message="tns:IPlancksoftPOS_Server_ReturnItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/ReturnItemResponse" message="tns:IPlancksoftPOS_Server_ReturnItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemWarehouse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouse" message="tns:IPlancksoftPOS_Server_UpdateItemWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouseResponse" message="tns:IPlancksoftPOS_Server_UpdateItemWarehouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItem" message="tns:IPlancksoftPOS_Server_UpdateItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemResponse" message="tns:IPlancksoftPOS_Server_UpdateItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantity" message="tns:IPlancksoftPOS_Server_UpdateItemQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantityResponse" message="tns:IPlancksoftPOS_Server_UpdateItemQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteItem" message="tns:IPlancksoftPOS_Server_DeleteItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteItemResponse" message="tns:IPlancksoftPOS_Server_DeleteItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveLastVendorBillNumberToday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberToday" message="tns:IPlancksoftPOS_Server_RetrieveLastVendorBillNumberToday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberTodayResponse" message="tns:IPlancksoftPOS_Server_RetrieveLastVendorBillNumberToday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveLastBillNumberToday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberToday" message="tns:IPlancksoftPOS_Server_RetrieveLastBillNumberToday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberTodayResponse" message="tns:IPlancksoftPOS_Server_RetrieveLastBillNumberToday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveItemsQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantity" message="tns:IPlancksoftPOS_Server_RetrieveItemsQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantityResponse" message="tns:IPlancksoftPOS_Server_RetrieveItemsQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSaleItemsQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantity" message="tns:IPlancksoftPOS_Server_RetrieveSaleItemsQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantityResponse" message="tns:IPlancksoftPOS_Server_RetrieveSaleItemsQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveExpireStockToday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockToday" message="tns:IPlancksoftPOS_Server_RetrieveExpireStockToday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockTodayResponse" message="tns:IPlancksoftPOS_Server_RetrieveExpireStockToday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSaleToday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleToday" message="tns:IPlancksoftPOS_Server_RetrieveSaleToday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleTodayResponse" message="tns:IPlancksoftPOS_Server_RetrieveSaleToday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchTodayBills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBills" message="tns:IPlancksoftPOS_Server_SearchTodayBills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBillsResponse" message="tns:IPlancksoftPOS_Server_SearchTodayBills_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchBills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchBills" message="tns:IPlancksoftPOS_Server_SearchBills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchBillsResponse" message="tns:IPlancksoftPOS_Server_SearchBills_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantity" message="tns:IPlancksoftPOS_Server_GetItemQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantityResponse" message="tns:IPlancksoftPOS_Server_GetItemQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAbsence">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsence" message="tns:IPlancksoftPOS_Server_RetrieveAbsence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsenceResponse" message="tns:IPlancksoftPOS_Server_RetrieveAbsence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchExpenses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchExpenses" message="tns:IPlancksoftPOS_Server_SearchExpenses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchExpensesResponse" message="tns:IPlancksoftPOS_Server_SearchExpenses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchItems" message="tns:IPlancksoftPOS_Server_SearchItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchItemsResponse" message="tns:IPlancksoftPOS_Server_SearchItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCustomers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomers" message="tns:IPlancksoftPOS_Server_SearchCustomers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersResponse" message="tns:IPlancksoftPOS_Server_SearchCustomers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchCustomersInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersInfo" message="tns:IPlancksoftPOS_Server_SearchCustomersInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersInfoResponse" message="tns:IPlancksoftPOS_Server_SearchCustomersInfo_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="CheckConnection">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/CheckConnection" message="tns:IPlancksoftPOS_Server_CheckConnection_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/CheckConnectionResponse" message="tns:IPlancksoftPOS_Server_CheckConnection_OutputMessage" />
@@ -1035,125 +1151,270 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteEmployee" message="tns:IPlancksoftPOS_Server_DeleteEmployee_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteEmployeeResponse" message="tns:IPlancksoftPOS_Server_DeleteEmployee_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeleteUser">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteUser" message="tns:IPlancksoftPOS_Server_DeleteUser_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteUserResponse" message="tns:IPlancksoftPOS_Server_DeleteUser_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddSaleOnItems">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItems" message="tns:IPlancksoftPOS_Server_AddSaleOnItems_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItemsResponse" message="tns:IPlancksoftPOS_Server_AddSaleOnItems_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddItemToCustomer">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomer" message="tns:IPlancksoftPOS_Server_AddItemToCustomer_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomerResponse" message="tns:IPlancksoftPOS_Server_AddItemToCustomer_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddUnpaidBill">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBill" message="tns:IPlancksoftPOS_Server_AddUnpaidBill_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBillResponse" message="tns:IPlancksoftPOS_Server_AddUnpaidBill_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddVendorBill">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBill" message="tns:IPlancksoftPOS_Server_AddVendorBill_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillResponse" message="tns:IPlancksoftPOS_Server_AddVendorBill_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="PayUnpaidBill">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBill" message="tns:IPlancksoftPOS_Server_PayUnpaidBill_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBillResponse" message="tns:IPlancksoftPOS_Server_PayUnpaidBill_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="PayBill">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/PayBill" message="tns:IPlancksoftPOS_Server_PayBill_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/PayBillResponse" message="tns:IPlancksoftPOS_Server_PayBill_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateEmployee">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployee" message="tns:IPlancksoftPOS_Server_UpdateEmployee_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployeeResponse" message="tns:IPlancksoftPOS_Server_UpdateEmployee_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateUser">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateUser" message="tns:IPlancksoftPOS_Server_UpdateUser_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateUserResponse" message="tns:IPlancksoftPOS_Server_UpdateUser_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateBill">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateBill" message="tns:IPlancksoftPOS_Server_UpdateBill_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateBillResponse" message="tns:IPlancksoftPOS_Server_UpdateBill_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="ReturnItem">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/ReturnItem" message="tns:IPlancksoftPOS_Server_ReturnItem_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/ReturnItemResponse" message="tns:IPlancksoftPOS_Server_ReturnItem_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateItemWarehouse">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouse" message="tns:IPlancksoftPOS_Server_UpdateItemWarehouse_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouseResponse" message="tns:IPlancksoftPOS_Server_UpdateItemWarehouse_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateItem">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItem" message="tns:IPlancksoftPOS_Server_UpdateItem_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemResponse" message="tns:IPlancksoftPOS_Server_UpdateItem_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="UpdateItemQuantity">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantity" message="tns:IPlancksoftPOS_Server_UpdateItemQuantity_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantityResponse" message="tns:IPlancksoftPOS_Server_UpdateItemQuantity_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="DeleteItem">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteItem" message="tns:IPlancksoftPOS_Server_DeleteItem_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteItemResponse" message="tns:IPlancksoftPOS_Server_DeleteItem_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveLastVendorBillNumberToday">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberToday" message="tns:IPlancksoftPOS_Server_RetrieveLastVendorBillNumberToday_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberTodayResponse" message="tns:IPlancksoftPOS_Server_RetrieveLastVendorBillNumberToday_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveLastBillNumberToday">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberToday" message="tns:IPlancksoftPOS_Server_RetrieveLastBillNumberToday_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberTodayResponse" message="tns:IPlancksoftPOS_Server_RetrieveLastBillNumberToday_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveItemsQuantity">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantity" message="tns:IPlancksoftPOS_Server_RetrieveItemsQuantity_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantityResponse" message="tns:IPlancksoftPOS_Server_RetrieveItemsQuantity_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveSaleItemsQuantity">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantity" message="tns:IPlancksoftPOS_Server_RetrieveSaleItemsQuantity_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantityResponse" message="tns:IPlancksoftPOS_Server_RetrieveSaleItemsQuantity_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveExpireStockToday">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockToday" message="tns:IPlancksoftPOS_Server_RetrieveExpireStockToday_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockTodayResponse" message="tns:IPlancksoftPOS_Server_RetrieveExpireStockToday_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveSaleToday">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleToday" message="tns:IPlancksoftPOS_Server_RetrieveSaleToday_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleTodayResponse" message="tns:IPlancksoftPOS_Server_RetrieveSaleToday_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SearchTodayBills">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBills" message="tns:IPlancksoftPOS_Server_SearchTodayBills_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBillsResponse" message="tns:IPlancksoftPOS_Server_SearchTodayBills_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SearchBills">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchBills" message="tns:IPlancksoftPOS_Server_SearchBills_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchBillsResponse" message="tns:IPlancksoftPOS_Server_SearchBills_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetItemQuantity">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantity" message="tns:IPlancksoftPOS_Server_GetItemQuantity_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantityResponse" message="tns:IPlancksoftPOS_Server_GetItemQuantity_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveAbsence">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsence" message="tns:IPlancksoftPOS_Server_RetrieveAbsence_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsenceResponse" message="tns:IPlancksoftPOS_Server_RetrieveAbsence_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SearchExpenses">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchExpenses" message="tns:IPlancksoftPOS_Server_SearchExpenses_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchExpensesResponse" message="tns:IPlancksoftPOS_Server_SearchExpenses_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SearchItems">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchItems" message="tns:IPlancksoftPOS_Server_SearchItems_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchItemsResponse" message="tns:IPlancksoftPOS_Server_SearchItems_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SearchCustomers">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomers" message="tns:IPlancksoftPOS_Server_SearchCustomers_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersResponse" message="tns:IPlancksoftPOS_Server_SearchCustomers_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SearchCustomersInfo">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersInfo" message="tns:IPlancksoftPOS_Server_SearchCustomersInfo_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersInfoResponse" message="tns:IPlancksoftPOS_Server_SearchCustomersInfo_OutputMessage" />
-    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IPlancksoftPOS_Server" type="tns:IPlancksoftPOS_Server">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSaleOnItems">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddItemToCustomer">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomer" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddUnpaidBill">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVendorBill">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PayUnpaidBill">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PayBill">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/PayBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployee">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployee" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBill">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateBill" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReturnItem">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/ReturnItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemWarehouse">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemQuantity">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveLastVendorBillNumberToday">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberToday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveLastBillNumberToday">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberToday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveItemsQuantity">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSaleItemsQuantity">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveExpireStockToday">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockToday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSaleToday">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleToday" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchTodayBills">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBills" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchBills">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/SearchBills" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItemQuantity">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAbsence">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsence" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchExpenses">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/SearchExpenses" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchItems">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/SearchItems" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCustomers">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchCustomersInfo">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="CheckConnection">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/CheckConnection" style="document" />
       <wsdl:input>
@@ -1912,267 +2173,6 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteEmployee">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteEmployee" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteUser">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteUser" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddSaleOnItems">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItems" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddItemToCustomer">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomer" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddUnpaidBill">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBill" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddVendorBill">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBill" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PayUnpaidBill">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBill" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="PayBill">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/PayBill" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateEmployee">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployee" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateUser">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateUser" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateBill">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateBill" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="ReturnItem">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/ReturnItem" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateItemWarehouse">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouse" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateItem">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItem" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="UpdateItemQuantity">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantity" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeleteItem">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteItem" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveLastVendorBillNumberToday">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberToday" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveLastBillNumberToday">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberToday" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveItemsQuantity">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantity" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveSaleItemsQuantity">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantity" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveExpireStockToday">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockToday" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveSaleToday">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleToday" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SearchTodayBills">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBills" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SearchBills">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/SearchBills" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetItemQuantity">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantity" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RetrieveAbsence">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsence" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SearchExpenses">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/SearchExpenses" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SearchItems">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/SearchItems" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SearchCustomers">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomers" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="SearchCustomersInfo">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersInfo" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
