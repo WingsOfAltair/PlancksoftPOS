@@ -524,13 +524,12 @@ namespace DataAccessLayer
             }
         }
 
-        public Tuple<List<Customer>, DataTable> GetRetrieveCustomers()
+        public DataTable GetRetrieveClients()
         {
             try
             {
-                List<Customer> Customers = new List<Customer>();
                 SqlDataAdapter adapter = new SqlDataAdapter();
-                SqlCommand cmd = new SqlCommand("RetrieveCustomersList", connection)
+                SqlCommand cmd = new SqlCommand("RetrieveClientsList", connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
@@ -538,30 +537,21 @@ namespace DataAccessLayer
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                dt.TableName = "CustomersList";
-                
-                foreach (DataRow Customer in dt.Rows)
-                {
-                    Customer customer = new Customer();
-                    customer.CustomerName = Customer["Customer Name"].ToString();
-                    Customers.Add(customer);
-                }
-                return Tuple.Create(Customers, dt);
+                dt.TableName = "ClientsList";
+                return dt;
             }
             catch (Exception ex)
             {
-                List<Customer> Customers = new List<Customer>();
                 DataTable dt = new DataTable();
-                dt.TableName = "CustomersList";
-                return Tuple.Create(Customers, dt);
+                dt.TableName = "ClientsList";
+                return dt;
             }
         }
 
-        public Tuple<List<Customer>, DataTable> GetRetrieveVendors()
+        public DataTable GetRetrieveVendors()
         {
             try
             {
-                List<Customer> Customers = new List<Customer>();
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 SqlCommand cmd = new SqlCommand("RetrieveVendorsList", connection)
                 {
@@ -573,20 +563,13 @@ namespace DataAccessLayer
                 adapter.Fill(dt);
                 dt.TableName = "VendorsList";
                 
-                foreach (DataRow Customer in dt.Rows)
-                {
-                    Customer customer = new Customer();
-                    customer.CustomerName = Customer["Customer Name"].ToString();
-                    Customers.Add(customer);
-                }
-                return Tuple.Create(Customers, dt);
+                return dt;
             }
             catch (Exception ex)
             {
-                List<Customer> Customers = new List<Customer>();
                 DataTable dt = new DataTable();
                 dt.TableName = "VendorsList";
-                return Tuple.Create(Customers, dt);
+                return dt;
             }
         }
 
@@ -628,7 +611,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@UserName", AccountToRegister.GetAccountName());
                     cmd.Parameters.AddWithValue("@UserID", AccountToRegister.GetAccountUID().ToLower());
                     cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(AccountToRegister.GetAccountPWD(), "PlancksoftPOS"));
-                    cmd.Parameters.AddWithValue("@customerCardEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.customer_card_edit.ToString())));
+                    cmd.Parameters.AddWithValue("@ClientCardEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.Client_card_edit.ToString())));
                     cmd.Parameters.AddWithValue("@discountEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.discount_edit.ToString())));
                     cmd.Parameters.AddWithValue("@priceEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.price_edit.ToString())));
                     cmd.Parameters.AddWithValue("@receiptEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.receipt_edit.ToString())));
@@ -750,7 +733,7 @@ namespace DataAccessLayer
                             cmd.Parameters.AddWithValue("@UserName", AccountToRegister.GetAccountName());
                             cmd.Parameters.AddWithValue("@UserID", AccountToRegister.GetAccountUID().ToLower());
                             cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(AccountToRegister.GetAccountPWD().ToString(), "PlancksoftPOS"));
-                            cmd.Parameters.AddWithValue("@customerCardEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.customer_card_edit.ToString())));
+                            cmd.Parameters.AddWithValue("@ClientCardEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.Client_card_edit.ToString())));
                             cmd.Parameters.AddWithValue("@discountEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.discount_edit.ToString())));
                             cmd.Parameters.AddWithValue("@priceEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.price_edit.ToString())));
                             cmd.Parameters.AddWithValue("@receiptEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.receipt_edit.ToString())));
@@ -784,7 +767,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@UserID", AccountToRegister.GetAccountUID().ToLower());
                     cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(AccountToRegister.GetAccountPWD().ToString(), "PlancksoftPOS"));
                     cmd.Parameters.AddWithValue("@AdminAcc", UID);
-                    cmd.Parameters.AddWithValue("@customerCardEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.customer_card_edit.ToString())));
+                    cmd.Parameters.AddWithValue("@ClientCardEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.Client_card_edit.ToString())));
                     cmd.Parameters.AddWithValue("@discountEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.discount_edit.ToString())));
                     cmd.Parameters.AddWithValue("@priceEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.price_edit.ToString())));
                     cmd.Parameters.AddWithValue("@receiptEditPerm", Convert.ToInt32(Convert.ToBoolean(AccountToRegister.receipt_edit.ToString())));
@@ -1546,7 +1529,7 @@ namespace DataAccessLayer
                 
                 foreach (DataRow Permission in dt.Rows)
                 {
-                    User.customer_card_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Customer Card Permission"].ToString()));
+                    User.Client_card_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Client Card Permission"].ToString()));
                     User.discount_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Discount Permission"].ToString()));
                     User.price_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Price Edit Permission"].ToString()));
                     User.receipt_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Receipt Edit Permission"].ToString()));
@@ -1740,11 +1723,10 @@ namespace DataAccessLayer
             }
         }
 
-        public Tuple<List<Item>, DataTable> RetrieveVendorBillItems(int BillNumber)
+        public DataTable RetrieveVendorBillItems(int BillNumber)
         {
             try
             {
-                List<Item> BillItems = new List<Item>();
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 SqlCommand cmd = new SqlCommand("RetrieveVendorBillItems", connection)
                 {
@@ -1755,24 +1737,37 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "VendorBillItems";
-                
-                foreach (DataRow FavoriteItem in dt.Rows)
-                {
-                    Item billItem = new Item();
-                    billItem.SetName(FavoriteItem["Item Name"].ToString());
-                    billItem.SetBarCode(FavoriteItem["Item BarCode"].ToString());
-                    billItem.vendorQuantity = Convert.ToInt32(FavoriteItem["Item Buy Quantity"].ToString());
-                    billItem.SetBuyPrice(Convert.ToDecimal(FavoriteItem["Item Buy Price"].ToString()));
-                    BillItems.Add(billItem);
-                }
-                return Tuple.Create(BillItems, dt);
+                return dt;
             }
             catch (Exception ex)
             {
-                List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
                 dt.TableName = "VendorBillItems";
-                return Tuple.Create(Items, dt);
+                return dt;
+            }
+        }
+
+        public DataTable RetrieveClientBills(int ClientID)
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveClientBills", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@ClientID", ClientID);
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "ClientBills";
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.TableName = "ClientBills";
+                return dt;
             }
         }
 
@@ -2499,15 +2494,15 @@ namespace DataAccessLayer
             }
         }
 
-        public bool DeletesCustomer(string CustomerID)
+        public bool DeletesClient(string ClientID)
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("DeleteCustomer", connection))
+                using (SqlCommand cmd = new SqlCommand("DeleteClient", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
                     
-                    cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
+                    cmd.Parameters.AddWithValue("@ClientID", ClientID);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
@@ -2524,17 +2519,17 @@ namespace DataAccessLayer
             }
         }
 
-        public bool RegisterCustomer(Customer CustomerToInsert)
+        public bool RegisterClient(Client ClientToInsert)
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("RegisterCustomer", connection))
+                using (SqlCommand cmd = new SqlCommand("RegisterClient", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@CustomerName", CustomerToInsert.CustomerName.ToString());
-                    cmd.Parameters.AddWithValue("@CustomerPhone", CustomerToInsert.CustomerPhone.ToString());
-                    cmd.Parameters.AddWithValue("@CustomerAddress", CustomerToInsert.CustomerAddress.ToString());
+                    cmd.Parameters.AddWithValue("@ClientName", ClientToInsert.ClientName.ToString());
+                    cmd.Parameters.AddWithValue("@ClientPhone", ClientToInsert.ClientPhone.ToString());
+                    cmd.Parameters.AddWithValue("@ClientAddress", ClientToInsert.ClientAddress.ToString());
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
@@ -2551,7 +2546,7 @@ namespace DataAccessLayer
             }
         }
 
-        public bool RegisterVendor(Customer CustomerToInsert)
+        public bool RegisterVendor(Client ClientToInsert)
         {
             try
             {
@@ -2559,10 +2554,10 @@ namespace DataAccessLayer
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@CustomerName", CustomerToInsert.CustomerName.ToString());
-                    //cmd.Parameters.AddWithValue("@CustomerID", CustomerToInsert.CustomerID.ToString());
-                    cmd.Parameters.AddWithValue("@CustomerPhone", CustomerToInsert.CustomerPhone.ToString());
-                    cmd.Parameters.AddWithValue("@CustomerAddress", CustomerToInsert.CustomerAddress.ToString());
+                    cmd.Parameters.AddWithValue("@ClientName", ClientToInsert.ClientName.ToString());
+                    //cmd.Parameters.AddWithValue("@ClientID", ClientToInsert.ClientID.ToString());
+                    cmd.Parameters.AddWithValue("@ClientPhone", ClientToInsert.ClientPhone.ToString());
+                    cmd.Parameters.AddWithValue("@ClientAddress", ClientToInsert.ClientAddress.ToString());
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
@@ -2687,17 +2682,17 @@ namespace DataAccessLayer
             }
         }
 
-        public bool AddItemToCustomer(string ItemBarCode, int CustomerID, decimal CustomerPrice)
+        public bool AddItemToClient(string ItemBarCode, int ClientID, decimal ClientPrice)
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("AddItemToCustomer", connection))
+                using (SqlCommand cmd = new SqlCommand("AddItemToClient", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@CustomerID", CustomerID);
+                    cmd.Parameters.AddWithValue("@ClientID", ClientID);
                     cmd.Parameters.AddWithValue("@ItemBarCode", ItemBarCode);
-                    cmd.Parameters.AddWithValue("@ItemPrice", CustomerPrice);
+                    cmd.Parameters.AddWithValue("@ItemPrice", ClientPrice);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
@@ -2773,6 +2768,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@cashierName", cashierName);
                     cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
                     cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
+                    cmd.Parameters.AddWithValue("@ClientID", billToAdd.ClientID);
                     cmd.Parameters.Add("@BillID", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -2810,7 +2806,7 @@ namespace DataAccessLayer
             }
         }
 
-        public bool PayUnpaidBill(int BillNumber)
+        public bool PayUnpaidBill(int BillNumber, decimal paidAmount, decimal remainderAmount)
         {
             try
             {
@@ -2819,6 +2815,8 @@ namespace DataAccessLayer
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@BillID", BillNumber);
+                    cmd.Parameters.AddWithValue("@PaidAmount", paidAmount);
+                    cmd.Parameters.AddWithValue("@RemainderAmount", remainderAmount);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
@@ -2850,6 +2848,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@remainderAmount", billToAdd.getRemainderAmount());
                     cmd.Parameters.AddWithValue("@paymentByCash", Convert.ToInt32(billToAdd.PayByCash));
                     cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
+                    cmd.Parameters.AddWithValue("@ClientID", billToAdd.ClientID);
                     cmd.Parameters.Add("@BillID", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -2927,7 +2926,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@UserID", UserToUpdate.GetAccountUID());
                     if (UserToUpdate.GetAccountPWD() != null)
                         cmd.Parameters.AddWithValue("@UserPWD", MD5Encryption.Encrypt(UserToUpdate.GetAccountPWD().ToString(), "PlancksoftPOS"));
-                    cmd.Parameters.AddWithValue("@customerCardEditPerm", Convert.ToInt32(Convert.ToBoolean(UserToUpdate.customer_card_edit.ToString())));
+                    cmd.Parameters.AddWithValue("@ClientCardEditPerm", Convert.ToInt32(Convert.ToBoolean(UserToUpdate.Client_card_edit.ToString())));
                     cmd.Parameters.AddWithValue("@discountEditPerm", Convert.ToInt32(Convert.ToBoolean(UserToUpdate.discount_edit.ToString())));
                     cmd.Parameters.AddWithValue("@priceEditPerm", Convert.ToInt32(Convert.ToBoolean(UserToUpdate.price_edit.ToString())));
                     cmd.Parameters.AddWithValue("@receiptEditPerm", Convert.ToInt32(Convert.ToBoolean(UserToUpdate.receipt_edit.ToString())));
@@ -3614,26 +3613,26 @@ namespace DataAccessLayer
             }
         }
 
-        public DataTable SearchCustomers(string customerName = "", string customerID = "", string itemName = "")
+        public DataTable SearchClients(string ClientName = "", string ClientID = "", string itemName = "")
         {
             try
             {
                 SqlDataAdapter adapter = new SqlDataAdapter();
-                SqlCommand cmd = new SqlCommand("SearchCustomers", connection)
+                SqlCommand cmd = new SqlCommand("SearchClients", connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
 
-                if (customerName != "")
-                    cmd.Parameters.AddWithValue("@customerName", customerName);
-                if (customerID != "")
-                    cmd.Parameters.AddWithValue("@customerID", customerID);
+                if (ClientName != "")
+                    cmd.Parameters.AddWithValue("@ClientName", ClientName);
+                if (ClientID != "")
+                    cmd.Parameters.AddWithValue("@ClientID", ClientID);
                 if (itemName != "")
                     cmd.Parameters.AddWithValue("@itemName", itemName);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                dt.TableName = "Customers";
+                dt.TableName = "Clients";
                 return dt;
             }
             catch (Exception ex)
@@ -3644,42 +3643,32 @@ namespace DataAccessLayer
             }
         }
 
-        public Tuple<Customer, DataTable> SearchCustomersInfo(string customerName = "", string customerID = "")
+        public DataTable SearchClientsInfo(string ClientName = "", string ClientID = "")
         {
             try
             {
                 SqlDataAdapter adapter = new SqlDataAdapter();
-                SqlCommand cmd = new SqlCommand("SearchCustomersInfo", connection)
+                SqlCommand cmd = new SqlCommand("SearchClientsInfo", connection)
                 {
                     CommandType = CommandType.StoredProcedure
                 };
 
-                if (customerName != "")
-                    cmd.Parameters.AddWithValue("@customerName", customerName);
-                if (customerID != "")
-                    cmd.Parameters.AddWithValue("@customerID", customerID);
+                if (ClientName != "")
+                    cmd.Parameters.AddWithValue("@ClientName", ClientName);
+                if (ClientID != "")
+                    cmd.Parameters.AddWithValue("@ClientID", ClientID);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-                dt.TableName = "CustomersInfo";
+                dt.TableName = "ClientsInfo";
 
-                Customer searchedCustomer = new Customer();
-
-                foreach(DataRow customer in dt.Rows)
-                {
-                    searchedCustomer.CustomerID = Convert.ToInt32(customer["Customer ID"].ToString());
-                    searchedCustomer.CustomerName = customer["Customer Name"].ToString();
-                    //searchedCustomer.CustomerPrice = Convert.ToDecimal(customer["Customer Price"].ToString());
-                }
-
-                return Tuple.Create(searchedCustomer, dt);
+                return dt;
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
-                dt.TableName = "CustomersInfo";
-                Customer Customer = new Customer();
-                return Tuple.Create(Customer, dt);
+                dt.TableName = "ClientsInfo";
+                return dt;
             }
         }
     }

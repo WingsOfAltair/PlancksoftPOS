@@ -8,188 +8,12 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PlancksoftPOS.Plancksoft_Server {
+namespace PlancksoftPOS.PlancksoftPOS_Server {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="Plancksoft_Server.IPlancksoftPOS_Server")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="PlancksoftPOS_Server.IPlancksoftPOS_Server")]
     public interface IPlancksoftPOS_Server {
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteUser", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteUserResponse")]
-        bool DeleteUser(Dependencies.Account UserToUpdate, string cashierName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteUser", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteUserResponse")]
-        System.Threading.Tasks.Task<bool> DeleteUserAsync(Dependencies.Account UserToUpdate, string cashierName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItemsResponse")]
-        bool AddSaleOnItems(System.Collections.Generic.List<Dependencies.Item> saleItems);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItemsResponse")]
-        System.Threading.Tasks.Task<bool> AddSaleOnItemsAsync(System.Collections.Generic.List<Dependencies.Item> saleItems);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomer", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomerResponse")]
-        bool AddItemToCustomer(string ItemBarCode, int CustomerID, decimal CustomerPrice);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomer", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddItemToCustomerResponse")]
-        System.Threading.Tasks.Task<bool> AddItemToCustomerAsync(string ItemBarCode, int CustomerID, decimal CustomerPrice);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBillResponse")]
-        int AddUnpaidBill(Dependencies.Bill billToAdd, string cashierName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBillResponse")]
-        System.Threading.Tasks.Task<int> AddUnpaidBillAsync(Dependencies.Bill billToAdd, string cashierName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillResponse")]
-        int AddVendorBill(Dependencies.Bill billToAdd, string cashierName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillResponse")]
-        System.Threading.Tasks.Task<int> AddVendorBillAsync(Dependencies.Bill billToAdd, string cashierName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBillResponse")]
-        bool PayUnpaidBill(int BillNumber);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBillResponse")]
-        System.Threading.Tasks.Task<bool> PayUnpaidBillAsync(int BillNumber);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayBillResponse")]
-        bool PayBill(Dependencies.Bill billToAdd, string cashierName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayBillResponse")]
-        System.Threading.Tasks.Task<bool> PayBillAsync(Dependencies.Bill billToAdd, string cashierName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployee", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployeeResponse")]
-        bool UpdateEmployee(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployee", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployeeResponse")]
-        System.Threading.Tasks.Task<bool> UpdateEmployeeAsync(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateUser", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateUserResponse")]
-        bool UpdateUser(Dependencies.Account UserToUpdate, string cashierName, int AdminOrNot);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateUser", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateUserResponse")]
-        System.Threading.Tasks.Task<bool> UpdateUserAsync(Dependencies.Account UserToUpdate, string cashierName, int AdminOrNot);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateBillResponse")]
-        bool UpdateBill(int BillNumber, string CashierName, decimal TotalAmount, decimal PaidAmount, decimal RemainderAmount);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateBillResponse")]
-        System.Threading.Tasks.Task<bool> UpdateBillAsync(int BillNumber, string CashierName, decimal TotalAmount, decimal PaidAmount, decimal RemainderAmount);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/ReturnItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/ReturnItemResponse")]
-        bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/ReturnItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/ReturnItemResponse")]
-        System.Threading.Tasks.Task<bool> ReturnItemAsync(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouse", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouseResponse")]
-        bool UpdateItemWarehouse(System.Collections.Generic.List<Dependencies.Item> ItemsToUpdate, string EmployeeName, int EntryExitType);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouse", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouseResponse")]
-        System.Threading.Tasks.Task<bool> UpdateItemWarehouseAsync(System.Collections.Generic.List<Dependencies.Item> ItemsToUpdate, string EmployeeName, int EntryExitType);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemResponse")]
-        bool UpdateItem(Dependencies.Item ItemToUpdate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemResponse")]
-        System.Threading.Tasks.Task<bool> UpdateItemAsync(Dependencies.Item ItemToUpdate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantityResponse")]
-        bool UpdateItemQuantity(Dependencies.Item ItemToUpdate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantityResponse")]
-        System.Threading.Tasks.Task<bool> UpdateItemQuantityAsync(Dependencies.Item ItemToUpdate);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteItemResponse")]
-        bool DeleteItem(string ItemBarCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteItemResponse")]
-        System.Threading.Tasks.Task<bool> DeleteItemAsync(string ItemBarCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberTodayRespons" +
-            "e")]
-        Dependencies.Bill RetrieveLastVendorBillNumberToday(System.DateTime Date);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberTodayRespons" +
-            "e")]
-        System.Threading.Tasks.Task<Dependencies.Bill> RetrieveLastVendorBillNumberTodayAsync(System.DateTime Date);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberTodayResponse")]
-        Dependencies.Bill RetrieveLastBillNumberToday();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberTodayResponse")]
-        System.Threading.Tasks.Task<Dependencies.Bill> RetrieveLastBillNumberTodayAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantityResponse")]
-        System.Collections.Generic.List<Dependencies.Item> RetrieveItemsQuantity(string ItemBarCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantityResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Item>> RetrieveItemsQuantityAsync(string ItemBarCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantityResponse")]
-        System.Collections.Generic.List<Dependencies.Item> RetrieveSaleItemsQuantity();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantityResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Item>> RetrieveSaleItemsQuantityAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockTodayResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveExpireStockToday(System.DateTime Date);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockTodayResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveExpireStockTodayAsync(System.DateTime Date);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleTodayResponse")]
-        System.Collections.Generic.List<Dependencies.Item> RetrieveSaleToday(System.DateTime Date, int QuantityEnd);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleTodayResponse")]
-        System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Item>> RetrieveSaleTodayAsync(System.DateTime Date, int QuantityEnd);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchTodayBills(System.DateTime Date);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBillsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> SearchTodayBillsAsync(System.DateTime Date);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchBills(string dateFrom, string dateTo, int BillNumber);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchBillsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> SearchBillsAsync(string dateFrom, string dateTo, int BillNumber);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantityResponse")]
-        int GetItemQuantity(string ItemBarCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantityResponse")]
-        System.Threading.Tasks.Task<int> GetItemQuantityAsync(string ItemBarCode);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsence", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsenceResponse")]
-        System.Data.DataTable RetrieveAbsence(System.DateTime Date1, System.DateTime Date2);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsence", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsenceResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> RetrieveAbsenceAsync(System.DateTime Date1, System.DateTime Date2);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchExpenses", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchExpensesResponse")]
-        System.Data.DataTable SearchExpenses(string Date1, string Date2, string ExpenseName, string EmployeeID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchExpenses", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchExpensesResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> SearchExpensesAsync(string Date1, string Date2, string ExpenseName, string EmployeeID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchItemsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchItems(string ItemName, string ItemBarCode, int ItemType);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchItemsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> SearchItemsAsync(string ItemName, string ItemBarCode, int ItemType);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomers", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersResponse")]
-        System.Data.DataTable SearchCustomers(string customerName, string customerID, string itemName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomers", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> SearchCustomersAsync(string customerName, string customerID, string itemName);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersInfo", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersInfoResponse")]
-        System.Tuple<Dependencies.Customer, System.Data.DataTable> SearchCustomersInfo(string customerName, string customerID);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersInfo", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchCustomersInfoResponse")]
-        System.Threading.Tasks.Task<System.Tuple<Dependencies.Customer, System.Data.DataTable>> SearchCustomersInfoAsync(string customerName, string customerID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/CheckConnection", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/CheckConnectionResponse")]
         bool CheckConnection();
@@ -293,17 +117,17 @@ namespace PlancksoftPOS.Plancksoft_Server {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUsersList", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUsersListResponse")]
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Account>, System.Data.DataTable>> RetrieveUsersListAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveCustomers", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveCustomersResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Customer>, System.Data.DataTable> GetRetrieveCustomers();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveClients", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveClientsResponse")]
+        System.Data.DataTable GetRetrieveClients();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveCustomers", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveCustomersResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Customer>, System.Data.DataTable>> GetRetrieveCustomersAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveVendors", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveVendorsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Customer>, System.Data.DataTable> GetRetrieveVendors();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveClients", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveClientsResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetRetrieveClientsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveVendors", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveVendorsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Customer>, System.Data.DataTable>> GetRetrieveVendorsAsync();
+        System.Data.DataTable GetRetrieveVendors();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveVendors", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/GetRetrieveVendorsResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetRetrieveVendorsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/CheckAdmin", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/CheckAdminResponse")]
         bool CheckAdmin();
@@ -509,11 +333,17 @@ namespace PlancksoftPOS.Plancksoft_Server {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUsers", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUsersResponse")]
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Account>, System.Data.DataTable>> RetrieveUsersAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBillItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBillItemsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveVendorBillItems(int BillNumber);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveClientBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveClientBillsResponse")]
+        System.Data.DataTable RetrieveClientBills(int ClientID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveClientBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveClientBillsResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> RetrieveClientBillsAsync(int ClientID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBillItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBillItemsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveVendorBillItemsAsync(int BillNumber);
+        System.Data.DataTable RetrieveVendorBillItems(int BillNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBillItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBillItemsResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> RetrieveVendorBillItemsAsync(int BillNumber);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItemsResponse")]
         System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveBillItems(int BillNumber);
@@ -671,23 +501,23 @@ namespace PlancksoftPOS.Plancksoft_Server {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/InsertPrinter", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/InsertPrinterResponse")]
         System.Threading.Tasks.Task<bool> InsertPrinterAsync(string machineName, string printerName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeletesCustomer", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeletesCustomerResponse")]
-        bool DeletesCustomer(string CustomerID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeletesClient", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeletesClientResponse")]
+        bool DeletesClient(string ClientID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeletesCustomer", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeletesCustomerResponse")]
-        System.Threading.Tasks.Task<bool> DeletesCustomerAsync(string CustomerID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeletesClient", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeletesClientResponse")]
+        System.Threading.Tasks.Task<bool> DeletesClientAsync(string ClientID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RegisterCustomer", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RegisterCustomerResponse")]
-        bool RegisterCustomer(Dependencies.Customer CustomerToInsert);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RegisterClient", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RegisterClientResponse")]
+        bool RegisterClient(Dependencies.Client ClientToInsert);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RegisterCustomer", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RegisterCustomerResponse")]
-        System.Threading.Tasks.Task<bool> RegisterCustomerAsync(Dependencies.Customer CustomerToInsert);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RegisterVendor", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RegisterVendorResponse")]
-        bool RegisterVendor(Dependencies.Customer CustomerToInsert);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RegisterClient", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RegisterClientResponse")]
+        System.Threading.Tasks.Task<bool> RegisterClientAsync(Dependencies.Client ClientToInsert);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RegisterVendor", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RegisterVendorResponse")]
-        System.Threading.Tasks.Task<bool> RegisterVendorAsync(Dependencies.Customer CustomerToInsert);
+        bool RegisterVendor(Dependencies.Client ClientToInsert);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RegisterVendor", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RegisterVendorResponse")]
+        System.Threading.Tasks.Task<bool> RegisterVendorAsync(Dependencies.Client ClientToInsert);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteAbsence", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteAbsenceResponse")]
         bool DeleteAbsence(int AbsenceID);
@@ -700,15 +530,191 @@ namespace PlancksoftPOS.Plancksoft_Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteEmployee", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteEmployeeResponse")]
         System.Threading.Tasks.Task<bool> DeleteEmployeeAsync(int EmployeeID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteUser", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteUserResponse")]
+        bool DeleteUser(Dependencies.Account UserToUpdate, string cashierName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteUser", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteUserResponse")]
+        System.Threading.Tasks.Task<bool> DeleteUserAsync(Dependencies.Account UserToUpdate, string cashierName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItemsResponse")]
+        bool AddSaleOnItems(System.Collections.Generic.List<Dependencies.Item> saleItems);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddSaleOnItemsResponse")]
+        System.Threading.Tasks.Task<bool> AddSaleOnItemsAsync(System.Collections.Generic.List<Dependencies.Item> saleItems);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddItemToClient", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddItemToClientResponse")]
+        bool AddItemToClient(string ItemBarCode, int ClientID, decimal ClientPrice);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddItemToClient", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddItemToClientResponse")]
+        System.Threading.Tasks.Task<bool> AddItemToClientAsync(string ItemBarCode, int ClientID, decimal ClientPrice);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBillResponse")]
+        int AddUnpaidBill(Dependencies.Bill billToAdd, string cashierName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddUnpaidBillResponse")]
+        System.Threading.Tasks.Task<int> AddUnpaidBillAsync(Dependencies.Bill billToAdd, string cashierName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillResponse")]
+        int AddVendorBill(Dependencies.Bill billToAdd, string cashierName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/AddVendorBillResponse")]
+        System.Threading.Tasks.Task<int> AddVendorBillAsync(Dependencies.Bill billToAdd, string cashierName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBillResponse")]
+        bool PayUnpaidBill(int BillNumber, decimal paidAmount, decimal remainderAmount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBillResponse")]
+        System.Threading.Tasks.Task<bool> PayUnpaidBillAsync(int BillNumber, decimal paidAmount, decimal remainderAmount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayBillResponse")]
+        bool PayBill(Dependencies.Bill billToAdd, string cashierName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayBillResponse")]
+        System.Threading.Tasks.Task<bool> PayBillAsync(Dependencies.Bill billToAdd, string cashierName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployee", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployeeResponse")]
+        bool UpdateEmployee(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployee", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployeeResponse")]
+        System.Threading.Tasks.Task<bool> UpdateEmployeeAsync(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateUser", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateUserResponse")]
+        bool UpdateUser(Dependencies.Account UserToUpdate, string cashierName, int AdminOrNot);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateUser", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateUserResponse")]
+        System.Threading.Tasks.Task<bool> UpdateUserAsync(Dependencies.Account UserToUpdate, string cashierName, int AdminOrNot);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateBillResponse")]
+        bool UpdateBill(int BillNumber, string CashierName, decimal TotalAmount, decimal PaidAmount, decimal RemainderAmount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateBillResponse")]
+        System.Threading.Tasks.Task<bool> UpdateBillAsync(int BillNumber, string CashierName, decimal TotalAmount, decimal PaidAmount, decimal RemainderAmount);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/ReturnItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/ReturnItemResponse")]
+        bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/ReturnItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/ReturnItemResponse")]
+        System.Threading.Tasks.Task<bool> ReturnItemAsync(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouse", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouseResponse")]
+        bool UpdateItemWarehouse(System.Collections.Generic.List<Dependencies.Item> ItemsToUpdate, string EmployeeName, int EntryExitType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouse", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouseResponse")]
+        System.Threading.Tasks.Task<bool> UpdateItemWarehouseAsync(System.Collections.Generic.List<Dependencies.Item> ItemsToUpdate, string EmployeeName, int EntryExitType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemResponse")]
+        bool UpdateItem(Dependencies.Item ItemToUpdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemResponse")]
+        System.Threading.Tasks.Task<bool> UpdateItemAsync(Dependencies.Item ItemToUpdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantityResponse")]
+        bool UpdateItemQuantity(Dependencies.Item ItemToUpdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemQuantityResponse")]
+        System.Threading.Tasks.Task<bool> UpdateItemQuantityAsync(Dependencies.Item ItemToUpdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteItemResponse")]
+        bool DeleteItem(string ItemBarCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteItemResponse")]
+        System.Threading.Tasks.Task<bool> DeleteItemAsync(string ItemBarCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberTodayRespons" +
+            "e")]
+        Dependencies.Bill RetrieveLastVendorBillNumberToday(System.DateTime Date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastVendorBillNumberTodayRespons" +
+            "e")]
+        System.Threading.Tasks.Task<Dependencies.Bill> RetrieveLastVendorBillNumberTodayAsync(System.DateTime Date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberTodayResponse")]
+        Dependencies.Bill RetrieveLastBillNumberToday();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveLastBillNumberTodayResponse")]
+        System.Threading.Tasks.Task<Dependencies.Bill> RetrieveLastBillNumberTodayAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantityResponse")]
+        System.Collections.Generic.List<Dependencies.Item> RetrieveItemsQuantity(string ItemBarCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemsQuantityResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Item>> RetrieveItemsQuantityAsync(string ItemBarCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantityResponse")]
+        System.Collections.Generic.List<Dependencies.Item> RetrieveSaleItemsQuantity();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleItemsQuantityResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Item>> RetrieveSaleItemsQuantityAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockTodayResponse")]
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveExpireStockToday(System.DateTime Date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveExpireStockTodayResponse")]
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveExpireStockTodayAsync(System.DateTime Date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleTodayResponse")]
+        System.Collections.Generic.List<Dependencies.Item> RetrieveSaleToday(System.DateTime Date, int QuantityEnd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleToday", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveSaleTodayResponse")]
+        System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Item>> RetrieveSaleTodayAsync(System.DateTime Date, int QuantityEnd);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBillsResponse")]
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchTodayBills(System.DateTime Date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchTodayBillsResponse")]
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> SearchTodayBillsAsync(System.DateTime Date);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchBillsResponse")]
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchBills(string dateFrom, string dateTo, int BillNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchBillsResponse")]
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> SearchBillsAsync(string dateFrom, string dateTo, int BillNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantityResponse")]
+        int GetItemQuantity(string ItemBarCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantity", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/GetItemQuantityResponse")]
+        System.Threading.Tasks.Task<int> GetItemQuantityAsync(string ItemBarCode);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsence", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsenceResponse")]
+        System.Data.DataTable RetrieveAbsence(System.DateTime Date1, System.DateTime Date2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsence", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveAbsenceResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> RetrieveAbsenceAsync(System.DateTime Date1, System.DateTime Date2);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchExpenses", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchExpensesResponse")]
+        System.Data.DataTable SearchExpenses(string Date1, string Date2, string ExpenseName, string EmployeeID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchExpenses", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchExpensesResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> SearchExpensesAsync(string Date1, string Date2, string ExpenseName, string EmployeeID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchItemsResponse")]
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchItems(string ItemName, string ItemBarCode, int ItemType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchItemsResponse")]
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> SearchItemsAsync(string ItemName, string ItemBarCode, int ItemType);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchClients", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchClientsResponse")]
+        System.Data.DataTable SearchClients(string ClientName, string ClientID, string itemName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchClients", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchClientsResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> SearchClientsAsync(string ClientName, string ClientID, string itemName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchClientsInfo", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchClientsInfoResponse")]
+        System.Data.DataTable SearchClientsInfo(string ClientName, string ClientID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchClientsInfo", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchClientsInfoResponse")]
+        System.Threading.Tasks.Task<System.Data.DataTable> SearchClientsInfoAsync(string ClientName, string ClientID);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IPlancksoftPOS_ServerChannel : PlancksoftPOS.Plancksoft_Server.IPlancksoftPOS_Server, System.ServiceModel.IClientChannel {
+    public interface IPlancksoftPOS_ServerChannel : PlancksoftPOS.PlancksoftPOS_Server.IPlancksoftPOS_Server, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class PlancksoftPOS_ServerClient : System.ServiceModel.ClientBase<PlancksoftPOS.Plancksoft_Server.IPlancksoftPOS_Server>, PlancksoftPOS.Plancksoft_Server.IPlancksoftPOS_Server {
+    public partial class PlancksoftPOS_ServerClient : System.ServiceModel.ClientBase<PlancksoftPOS.PlancksoftPOS_Server.IPlancksoftPOS_Server>, PlancksoftPOS.PlancksoftPOS_Server.IPlancksoftPOS_Server {
         
         public PlancksoftPOS_ServerClient() {
         }
@@ -727,238 +733,6 @@ namespace PlancksoftPOS.Plancksoft_Server {
         
         public PlancksoftPOS_ServerClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public bool DeleteUser(Dependencies.Account UserToUpdate, string cashierName) {
-            return base.Channel.DeleteUser(UserToUpdate, cashierName);
-        }
-        
-        public System.Threading.Tasks.Task<bool> DeleteUserAsync(Dependencies.Account UserToUpdate, string cashierName) {
-            return base.Channel.DeleteUserAsync(UserToUpdate, cashierName);
-        }
-        
-        public bool AddSaleOnItems(System.Collections.Generic.List<Dependencies.Item> saleItems) {
-            return base.Channel.AddSaleOnItems(saleItems);
-        }
-        
-        public System.Threading.Tasks.Task<bool> AddSaleOnItemsAsync(System.Collections.Generic.List<Dependencies.Item> saleItems) {
-            return base.Channel.AddSaleOnItemsAsync(saleItems);
-        }
-        
-        public bool AddItemToCustomer(string ItemBarCode, int CustomerID, decimal CustomerPrice) {
-            return base.Channel.AddItemToCustomer(ItemBarCode, CustomerID, CustomerPrice);
-        }
-        
-        public System.Threading.Tasks.Task<bool> AddItemToCustomerAsync(string ItemBarCode, int CustomerID, decimal CustomerPrice) {
-            return base.Channel.AddItemToCustomerAsync(ItemBarCode, CustomerID, CustomerPrice);
-        }
-        
-        public int AddUnpaidBill(Dependencies.Bill billToAdd, string cashierName) {
-            return base.Channel.AddUnpaidBill(billToAdd, cashierName);
-        }
-        
-        public System.Threading.Tasks.Task<int> AddUnpaidBillAsync(Dependencies.Bill billToAdd, string cashierName) {
-            return base.Channel.AddUnpaidBillAsync(billToAdd, cashierName);
-        }
-        
-        public int AddVendorBill(Dependencies.Bill billToAdd, string cashierName) {
-            return base.Channel.AddVendorBill(billToAdd, cashierName);
-        }
-        
-        public System.Threading.Tasks.Task<int> AddVendorBillAsync(Dependencies.Bill billToAdd, string cashierName) {
-            return base.Channel.AddVendorBillAsync(billToAdd, cashierName);
-        }
-        
-        public bool PayUnpaidBill(int BillNumber) {
-            return base.Channel.PayUnpaidBill(BillNumber);
-        }
-        
-        public System.Threading.Tasks.Task<bool> PayUnpaidBillAsync(int BillNumber) {
-            return base.Channel.PayUnpaidBillAsync(BillNumber);
-        }
-        
-        public bool PayBill(Dependencies.Bill billToAdd, string cashierName) {
-            return base.Channel.PayBill(billToAdd, cashierName);
-        }
-        
-        public System.Threading.Tasks.Task<bool> PayBillAsync(Dependencies.Bill billToAdd, string cashierName) {
-            return base.Channel.PayBillAsync(billToAdd, cashierName);
-        }
-        
-        public bool UpdateEmployee(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address) {
-            return base.Channel.UpdateEmployee(EmployeeID, EmployeeName, Salary, Phone, Address);
-        }
-        
-        public System.Threading.Tasks.Task<bool> UpdateEmployeeAsync(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address) {
-            return base.Channel.UpdateEmployeeAsync(EmployeeID, EmployeeName, Salary, Phone, Address);
-        }
-        
-        public bool UpdateUser(Dependencies.Account UserToUpdate, string cashierName, int AdminOrNot) {
-            return base.Channel.UpdateUser(UserToUpdate, cashierName, AdminOrNot);
-        }
-        
-        public System.Threading.Tasks.Task<bool> UpdateUserAsync(Dependencies.Account UserToUpdate, string cashierName, int AdminOrNot) {
-            return base.Channel.UpdateUserAsync(UserToUpdate, cashierName, AdminOrNot);
-        }
-        
-        public bool UpdateBill(int BillNumber, string CashierName, decimal TotalAmount, decimal PaidAmount, decimal RemainderAmount) {
-            return base.Channel.UpdateBill(BillNumber, CashierName, TotalAmount, PaidAmount, RemainderAmount);
-        }
-        
-        public System.Threading.Tasks.Task<bool> UpdateBillAsync(int BillNumber, string CashierName, decimal TotalAmount, decimal PaidAmount, decimal RemainderAmount) {
-            return base.Channel.UpdateBillAsync(BillNumber, CashierName, TotalAmount, PaidAmount, RemainderAmount);
-        }
-        
-        public bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName) {
-            return base.Channel.ReturnItem(ItemName, ItemBarCode, ItemQuantity, cashierName);
-        }
-        
-        public System.Threading.Tasks.Task<bool> ReturnItemAsync(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName) {
-            return base.Channel.ReturnItemAsync(ItemName, ItemBarCode, ItemQuantity, cashierName);
-        }
-        
-        public bool UpdateItemWarehouse(System.Collections.Generic.List<Dependencies.Item> ItemsToUpdate, string EmployeeName, int EntryExitType) {
-            return base.Channel.UpdateItemWarehouse(ItemsToUpdate, EmployeeName, EntryExitType);
-        }
-        
-        public System.Threading.Tasks.Task<bool> UpdateItemWarehouseAsync(System.Collections.Generic.List<Dependencies.Item> ItemsToUpdate, string EmployeeName, int EntryExitType) {
-            return base.Channel.UpdateItemWarehouseAsync(ItemsToUpdate, EmployeeName, EntryExitType);
-        }
-        
-        public bool UpdateItem(Dependencies.Item ItemToUpdate) {
-            return base.Channel.UpdateItem(ItemToUpdate);
-        }
-        
-        public System.Threading.Tasks.Task<bool> UpdateItemAsync(Dependencies.Item ItemToUpdate) {
-            return base.Channel.UpdateItemAsync(ItemToUpdate);
-        }
-        
-        public bool UpdateItemQuantity(Dependencies.Item ItemToUpdate) {
-            return base.Channel.UpdateItemQuantity(ItemToUpdate);
-        }
-        
-        public System.Threading.Tasks.Task<bool> UpdateItemQuantityAsync(Dependencies.Item ItemToUpdate) {
-            return base.Channel.UpdateItemQuantityAsync(ItemToUpdate);
-        }
-        
-        public bool DeleteItem(string ItemBarCode) {
-            return base.Channel.DeleteItem(ItemBarCode);
-        }
-        
-        public System.Threading.Tasks.Task<bool> DeleteItemAsync(string ItemBarCode) {
-            return base.Channel.DeleteItemAsync(ItemBarCode);
-        }
-        
-        public Dependencies.Bill RetrieveLastVendorBillNumberToday(System.DateTime Date) {
-            return base.Channel.RetrieveLastVendorBillNumberToday(Date);
-        }
-        
-        public System.Threading.Tasks.Task<Dependencies.Bill> RetrieveLastVendorBillNumberTodayAsync(System.DateTime Date) {
-            return base.Channel.RetrieveLastVendorBillNumberTodayAsync(Date);
-        }
-        
-        public Dependencies.Bill RetrieveLastBillNumberToday() {
-            return base.Channel.RetrieveLastBillNumberToday();
-        }
-        
-        public System.Threading.Tasks.Task<Dependencies.Bill> RetrieveLastBillNumberTodayAsync() {
-            return base.Channel.RetrieveLastBillNumberTodayAsync();
-        }
-        
-        public System.Collections.Generic.List<Dependencies.Item> RetrieveItemsQuantity(string ItemBarCode) {
-            return base.Channel.RetrieveItemsQuantity(ItemBarCode);
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Item>> RetrieveItemsQuantityAsync(string ItemBarCode) {
-            return base.Channel.RetrieveItemsQuantityAsync(ItemBarCode);
-        }
-        
-        public System.Collections.Generic.List<Dependencies.Item> RetrieveSaleItemsQuantity() {
-            return base.Channel.RetrieveSaleItemsQuantity();
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Item>> RetrieveSaleItemsQuantityAsync() {
-            return base.Channel.RetrieveSaleItemsQuantityAsync();
-        }
-        
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveExpireStockToday(System.DateTime Date) {
-            return base.Channel.RetrieveExpireStockToday(Date);
-        }
-        
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveExpireStockTodayAsync(System.DateTime Date) {
-            return base.Channel.RetrieveExpireStockTodayAsync(Date);
-        }
-        
-        public System.Collections.Generic.List<Dependencies.Item> RetrieveSaleToday(System.DateTime Date, int QuantityEnd) {
-            return base.Channel.RetrieveSaleToday(Date, QuantityEnd);
-        }
-        
-        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Item>> RetrieveSaleTodayAsync(System.DateTime Date, int QuantityEnd) {
-            return base.Channel.RetrieveSaleTodayAsync(Date, QuantityEnd);
-        }
-        
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchTodayBills(System.DateTime Date) {
-            return base.Channel.SearchTodayBills(Date);
-        }
-        
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> SearchTodayBillsAsync(System.DateTime Date) {
-            return base.Channel.SearchTodayBillsAsync(Date);
-        }
-        
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchBills(string dateFrom, string dateTo, int BillNumber) {
-            return base.Channel.SearchBills(dateFrom, dateTo, BillNumber);
-        }
-        
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> SearchBillsAsync(string dateFrom, string dateTo, int BillNumber) {
-            return base.Channel.SearchBillsAsync(dateFrom, dateTo, BillNumber);
-        }
-        
-        public int GetItemQuantity(string ItemBarCode) {
-            return base.Channel.GetItemQuantity(ItemBarCode);
-        }
-        
-        public System.Threading.Tasks.Task<int> GetItemQuantityAsync(string ItemBarCode) {
-            return base.Channel.GetItemQuantityAsync(ItemBarCode);
-        }
-        
-        public System.Data.DataTable RetrieveAbsence(System.DateTime Date1, System.DateTime Date2) {
-            return base.Channel.RetrieveAbsence(Date1, Date2);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> RetrieveAbsenceAsync(System.DateTime Date1, System.DateTime Date2) {
-            return base.Channel.RetrieveAbsenceAsync(Date1, Date2);
-        }
-        
-        public System.Data.DataTable SearchExpenses(string Date1, string Date2, string ExpenseName, string EmployeeID) {
-            return base.Channel.SearchExpenses(Date1, Date2, ExpenseName, EmployeeID);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> SearchExpensesAsync(string Date1, string Date2, string ExpenseName, string EmployeeID) {
-            return base.Channel.SearchExpensesAsync(Date1, Date2, ExpenseName, EmployeeID);
-        }
-        
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchItems(string ItemName, string ItemBarCode, int ItemType) {
-            return base.Channel.SearchItems(ItemName, ItemBarCode, ItemType);
-        }
-        
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> SearchItemsAsync(string ItemName, string ItemBarCode, int ItemType) {
-            return base.Channel.SearchItemsAsync(ItemName, ItemBarCode, ItemType);
-        }
-        
-        public System.Data.DataTable SearchCustomers(string customerName, string customerID, string itemName) {
-            return base.Channel.SearchCustomers(customerName, customerID, itemName);
-        }
-        
-        public System.Threading.Tasks.Task<System.Data.DataTable> SearchCustomersAsync(string customerName, string customerID, string itemName) {
-            return base.Channel.SearchCustomersAsync(customerName, customerID, itemName);
-        }
-        
-        public System.Tuple<Dependencies.Customer, System.Data.DataTable> SearchCustomersInfo(string customerName, string customerID) {
-            return base.Channel.SearchCustomersInfo(customerName, customerID);
-        }
-        
-        public System.Threading.Tasks.Task<System.Tuple<Dependencies.Customer, System.Data.DataTable>> SearchCustomersInfoAsync(string customerName, string customerID) {
-            return base.Channel.SearchCustomersInfoAsync(customerName, customerID);
         }
         
         public bool CheckConnection() {
@@ -1097,19 +871,19 @@ namespace PlancksoftPOS.Plancksoft_Server {
             return base.Channel.RetrieveUsersListAsync();
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Customer>, System.Data.DataTable> GetRetrieveCustomers() {
-            return base.Channel.GetRetrieveCustomers();
+        public System.Data.DataTable GetRetrieveClients() {
+            return base.Channel.GetRetrieveClients();
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Customer>, System.Data.DataTable>> GetRetrieveCustomersAsync() {
-            return base.Channel.GetRetrieveCustomersAsync();
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetRetrieveClientsAsync() {
+            return base.Channel.GetRetrieveClientsAsync();
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Customer>, System.Data.DataTable> GetRetrieveVendors() {
+        public System.Data.DataTable GetRetrieveVendors() {
             return base.Channel.GetRetrieveVendors();
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Customer>, System.Data.DataTable>> GetRetrieveVendorsAsync() {
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetRetrieveVendorsAsync() {
             return base.Channel.GetRetrieveVendorsAsync();
         }
         
@@ -1385,11 +1159,19 @@ namespace PlancksoftPOS.Plancksoft_Server {
             return base.Channel.RetrieveUsersAsync();
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveVendorBillItems(int BillNumber) {
+        public System.Data.DataTable RetrieveClientBills(int ClientID) {
+            return base.Channel.RetrieveClientBills(ClientID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> RetrieveClientBillsAsync(int ClientID) {
+            return base.Channel.RetrieveClientBillsAsync(ClientID);
+        }
+        
+        public System.Data.DataTable RetrieveVendorBillItems(int BillNumber) {
             return base.Channel.RetrieveVendorBillItems(BillNumber);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveVendorBillItemsAsync(int BillNumber) {
+        public System.Threading.Tasks.Task<System.Data.DataTable> RetrieveVendorBillItemsAsync(int BillNumber) {
             return base.Channel.RetrieveVendorBillItemsAsync(BillNumber);
         }
         
@@ -1601,28 +1383,28 @@ namespace PlancksoftPOS.Plancksoft_Server {
             return base.Channel.InsertPrinterAsync(machineName, printerName);
         }
         
-        public bool DeletesCustomer(string CustomerID) {
-            return base.Channel.DeletesCustomer(CustomerID);
+        public bool DeletesClient(string ClientID) {
+            return base.Channel.DeletesClient(ClientID);
         }
         
-        public System.Threading.Tasks.Task<bool> DeletesCustomerAsync(string CustomerID) {
-            return base.Channel.DeletesCustomerAsync(CustomerID);
+        public System.Threading.Tasks.Task<bool> DeletesClientAsync(string ClientID) {
+            return base.Channel.DeletesClientAsync(ClientID);
         }
         
-        public bool RegisterCustomer(Dependencies.Customer CustomerToInsert) {
-            return base.Channel.RegisterCustomer(CustomerToInsert);
+        public bool RegisterClient(Dependencies.Client ClientToInsert) {
+            return base.Channel.RegisterClient(ClientToInsert);
         }
         
-        public System.Threading.Tasks.Task<bool> RegisterCustomerAsync(Dependencies.Customer CustomerToInsert) {
-            return base.Channel.RegisterCustomerAsync(CustomerToInsert);
+        public System.Threading.Tasks.Task<bool> RegisterClientAsync(Dependencies.Client ClientToInsert) {
+            return base.Channel.RegisterClientAsync(ClientToInsert);
         }
         
-        public bool RegisterVendor(Dependencies.Customer CustomerToInsert) {
-            return base.Channel.RegisterVendor(CustomerToInsert);
+        public bool RegisterVendor(Dependencies.Client ClientToInsert) {
+            return base.Channel.RegisterVendor(ClientToInsert);
         }
         
-        public System.Threading.Tasks.Task<bool> RegisterVendorAsync(Dependencies.Customer CustomerToInsert) {
-            return base.Channel.RegisterVendorAsync(CustomerToInsert);
+        public System.Threading.Tasks.Task<bool> RegisterVendorAsync(Dependencies.Client ClientToInsert) {
+            return base.Channel.RegisterVendorAsync(ClientToInsert);
         }
         
         public bool DeleteAbsence(int AbsenceID) {
@@ -1639,6 +1421,238 @@ namespace PlancksoftPOS.Plancksoft_Server {
         
         public System.Threading.Tasks.Task<bool> DeleteEmployeeAsync(int EmployeeID) {
             return base.Channel.DeleteEmployeeAsync(EmployeeID);
+        }
+        
+        public bool DeleteUser(Dependencies.Account UserToUpdate, string cashierName) {
+            return base.Channel.DeleteUser(UserToUpdate, cashierName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteUserAsync(Dependencies.Account UserToUpdate, string cashierName) {
+            return base.Channel.DeleteUserAsync(UserToUpdate, cashierName);
+        }
+        
+        public bool AddSaleOnItems(System.Collections.Generic.List<Dependencies.Item> saleItems) {
+            return base.Channel.AddSaleOnItems(saleItems);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddSaleOnItemsAsync(System.Collections.Generic.List<Dependencies.Item> saleItems) {
+            return base.Channel.AddSaleOnItemsAsync(saleItems);
+        }
+        
+        public bool AddItemToClient(string ItemBarCode, int ClientID, decimal ClientPrice) {
+            return base.Channel.AddItemToClient(ItemBarCode, ClientID, ClientPrice);
+        }
+        
+        public System.Threading.Tasks.Task<bool> AddItemToClientAsync(string ItemBarCode, int ClientID, decimal ClientPrice) {
+            return base.Channel.AddItemToClientAsync(ItemBarCode, ClientID, ClientPrice);
+        }
+        
+        public int AddUnpaidBill(Dependencies.Bill billToAdd, string cashierName) {
+            return base.Channel.AddUnpaidBill(billToAdd, cashierName);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddUnpaidBillAsync(Dependencies.Bill billToAdd, string cashierName) {
+            return base.Channel.AddUnpaidBillAsync(billToAdd, cashierName);
+        }
+        
+        public int AddVendorBill(Dependencies.Bill billToAdd, string cashierName) {
+            return base.Channel.AddVendorBill(billToAdd, cashierName);
+        }
+        
+        public System.Threading.Tasks.Task<int> AddVendorBillAsync(Dependencies.Bill billToAdd, string cashierName) {
+            return base.Channel.AddVendorBillAsync(billToAdd, cashierName);
+        }
+        
+        public bool PayUnpaidBill(int BillNumber, decimal paidAmount, decimal remainderAmount) {
+            return base.Channel.PayUnpaidBill(BillNumber, paidAmount, remainderAmount);
+        }
+        
+        public System.Threading.Tasks.Task<bool> PayUnpaidBillAsync(int BillNumber, decimal paidAmount, decimal remainderAmount) {
+            return base.Channel.PayUnpaidBillAsync(BillNumber, paidAmount, remainderAmount);
+        }
+        
+        public bool PayBill(Dependencies.Bill billToAdd, string cashierName) {
+            return base.Channel.PayBill(billToAdd, cashierName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> PayBillAsync(Dependencies.Bill billToAdd, string cashierName) {
+            return base.Channel.PayBillAsync(billToAdd, cashierName);
+        }
+        
+        public bool UpdateEmployee(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address) {
+            return base.Channel.UpdateEmployee(EmployeeID, EmployeeName, Salary, Phone, Address);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateEmployeeAsync(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address) {
+            return base.Channel.UpdateEmployeeAsync(EmployeeID, EmployeeName, Salary, Phone, Address);
+        }
+        
+        public bool UpdateUser(Dependencies.Account UserToUpdate, string cashierName, int AdminOrNot) {
+            return base.Channel.UpdateUser(UserToUpdate, cashierName, AdminOrNot);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateUserAsync(Dependencies.Account UserToUpdate, string cashierName, int AdminOrNot) {
+            return base.Channel.UpdateUserAsync(UserToUpdate, cashierName, AdminOrNot);
+        }
+        
+        public bool UpdateBill(int BillNumber, string CashierName, decimal TotalAmount, decimal PaidAmount, decimal RemainderAmount) {
+            return base.Channel.UpdateBill(BillNumber, CashierName, TotalAmount, PaidAmount, RemainderAmount);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateBillAsync(int BillNumber, string CashierName, decimal TotalAmount, decimal PaidAmount, decimal RemainderAmount) {
+            return base.Channel.UpdateBillAsync(BillNumber, CashierName, TotalAmount, PaidAmount, RemainderAmount);
+        }
+        
+        public bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName) {
+            return base.Channel.ReturnItem(ItemName, ItemBarCode, ItemQuantity, cashierName);
+        }
+        
+        public System.Threading.Tasks.Task<bool> ReturnItemAsync(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName) {
+            return base.Channel.ReturnItemAsync(ItemName, ItemBarCode, ItemQuantity, cashierName);
+        }
+        
+        public bool UpdateItemWarehouse(System.Collections.Generic.List<Dependencies.Item> ItemsToUpdate, string EmployeeName, int EntryExitType) {
+            return base.Channel.UpdateItemWarehouse(ItemsToUpdate, EmployeeName, EntryExitType);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateItemWarehouseAsync(System.Collections.Generic.List<Dependencies.Item> ItemsToUpdate, string EmployeeName, int EntryExitType) {
+            return base.Channel.UpdateItemWarehouseAsync(ItemsToUpdate, EmployeeName, EntryExitType);
+        }
+        
+        public bool UpdateItem(Dependencies.Item ItemToUpdate) {
+            return base.Channel.UpdateItem(ItemToUpdate);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateItemAsync(Dependencies.Item ItemToUpdate) {
+            return base.Channel.UpdateItemAsync(ItemToUpdate);
+        }
+        
+        public bool UpdateItemQuantity(Dependencies.Item ItemToUpdate) {
+            return base.Channel.UpdateItemQuantity(ItemToUpdate);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateItemQuantityAsync(Dependencies.Item ItemToUpdate) {
+            return base.Channel.UpdateItemQuantityAsync(ItemToUpdate);
+        }
+        
+        public bool DeleteItem(string ItemBarCode) {
+            return base.Channel.DeleteItem(ItemBarCode);
+        }
+        
+        public System.Threading.Tasks.Task<bool> DeleteItemAsync(string ItemBarCode) {
+            return base.Channel.DeleteItemAsync(ItemBarCode);
+        }
+        
+        public Dependencies.Bill RetrieveLastVendorBillNumberToday(System.DateTime Date) {
+            return base.Channel.RetrieveLastVendorBillNumberToday(Date);
+        }
+        
+        public System.Threading.Tasks.Task<Dependencies.Bill> RetrieveLastVendorBillNumberTodayAsync(System.DateTime Date) {
+            return base.Channel.RetrieveLastVendorBillNumberTodayAsync(Date);
+        }
+        
+        public Dependencies.Bill RetrieveLastBillNumberToday() {
+            return base.Channel.RetrieveLastBillNumberToday();
+        }
+        
+        public System.Threading.Tasks.Task<Dependencies.Bill> RetrieveLastBillNumberTodayAsync() {
+            return base.Channel.RetrieveLastBillNumberTodayAsync();
+        }
+        
+        public System.Collections.Generic.List<Dependencies.Item> RetrieveItemsQuantity(string ItemBarCode) {
+            return base.Channel.RetrieveItemsQuantity(ItemBarCode);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Item>> RetrieveItemsQuantityAsync(string ItemBarCode) {
+            return base.Channel.RetrieveItemsQuantityAsync(ItemBarCode);
+        }
+        
+        public System.Collections.Generic.List<Dependencies.Item> RetrieveSaleItemsQuantity() {
+            return base.Channel.RetrieveSaleItemsQuantity();
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Item>> RetrieveSaleItemsQuantityAsync() {
+            return base.Channel.RetrieveSaleItemsQuantityAsync();
+        }
+        
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveExpireStockToday(System.DateTime Date) {
+            return base.Channel.RetrieveExpireStockToday(Date);
+        }
+        
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveExpireStockTodayAsync(System.DateTime Date) {
+            return base.Channel.RetrieveExpireStockTodayAsync(Date);
+        }
+        
+        public System.Collections.Generic.List<Dependencies.Item> RetrieveSaleToday(System.DateTime Date, int QuantityEnd) {
+            return base.Channel.RetrieveSaleToday(Date, QuantityEnd);
+        }
+        
+        public System.Threading.Tasks.Task<System.Collections.Generic.List<Dependencies.Item>> RetrieveSaleTodayAsync(System.DateTime Date, int QuantityEnd) {
+            return base.Channel.RetrieveSaleTodayAsync(Date, QuantityEnd);
+        }
+        
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchTodayBills(System.DateTime Date) {
+            return base.Channel.SearchTodayBills(Date);
+        }
+        
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> SearchTodayBillsAsync(System.DateTime Date) {
+            return base.Channel.SearchTodayBillsAsync(Date);
+        }
+        
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> SearchBills(string dateFrom, string dateTo, int BillNumber) {
+            return base.Channel.SearchBills(dateFrom, dateTo, BillNumber);
+        }
+        
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> SearchBillsAsync(string dateFrom, string dateTo, int BillNumber) {
+            return base.Channel.SearchBillsAsync(dateFrom, dateTo, BillNumber);
+        }
+        
+        public int GetItemQuantity(string ItemBarCode) {
+            return base.Channel.GetItemQuantity(ItemBarCode);
+        }
+        
+        public System.Threading.Tasks.Task<int> GetItemQuantityAsync(string ItemBarCode) {
+            return base.Channel.GetItemQuantityAsync(ItemBarCode);
+        }
+        
+        public System.Data.DataTable RetrieveAbsence(System.DateTime Date1, System.DateTime Date2) {
+            return base.Channel.RetrieveAbsence(Date1, Date2);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> RetrieveAbsenceAsync(System.DateTime Date1, System.DateTime Date2) {
+            return base.Channel.RetrieveAbsenceAsync(Date1, Date2);
+        }
+        
+        public System.Data.DataTable SearchExpenses(string Date1, string Date2, string ExpenseName, string EmployeeID) {
+            return base.Channel.SearchExpenses(Date1, Date2, ExpenseName, EmployeeID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> SearchExpensesAsync(string Date1, string Date2, string ExpenseName, string EmployeeID) {
+            return base.Channel.SearchExpensesAsync(Date1, Date2, ExpenseName, EmployeeID);
+        }
+        
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchItems(string ItemName, string ItemBarCode, int ItemType) {
+            return base.Channel.SearchItems(ItemName, ItemBarCode, ItemType);
+        }
+        
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> SearchItemsAsync(string ItemName, string ItemBarCode, int ItemType) {
+            return base.Channel.SearchItemsAsync(ItemName, ItemBarCode, ItemType);
+        }
+        
+        public System.Data.DataTable SearchClients(string ClientName, string ClientID, string itemName) {
+            return base.Channel.SearchClients(ClientName, ClientID, itemName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> SearchClientsAsync(string ClientName, string ClientID, string itemName) {
+            return base.Channel.SearchClientsAsync(ClientName, ClientID, itemName);
+        }
+        
+        public System.Data.DataTable SearchClientsInfo(string ClientName, string ClientID) {
+            return base.Channel.SearchClientsInfo(ClientName, ClientID);
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> SearchClientsInfoAsync(string ClientName, string ClientID) {
+            return base.Channel.SearchClientsInfoAsync(ClientName, ClientID);
         }
     }
 }

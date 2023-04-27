@@ -17,7 +17,7 @@ namespace Dependencies
         [DataMember]
         public int ItemQuantity, FavoriteCategory, saleRate;
         [DataMember]
-        public decimal ItemBuyPrice, ItemPrice, ItemPriceTax, customerPrice;
+        public decimal ItemBuyPrice, ItemPrice, ItemPriceTax, ClientPrice;
         [DataMember]
         public DateTime Date, DateStart, DateEnd, ProductionDate, ExpirationDate, EntryDate;
         [DataMember]

@@ -103,8 +103,6 @@ C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.ResolveComRefere
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmMain.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmSales.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmRegisterAdmin.resources
-C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmPickCustomerLookup.resources
-C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmPickCustomer.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmPay.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmOpenRegister.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmMaintenance.resources
@@ -125,3 +123,5 @@ C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.CopyComplete
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.exe
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.pdb
 C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmColorPicker.resources
+C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmPickClientLookup.resources
+C:\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmPickClient.resources

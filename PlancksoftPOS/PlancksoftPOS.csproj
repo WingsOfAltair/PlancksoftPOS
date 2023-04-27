@@ -141,7 +141,7 @@
   <ItemGroup>
     <Compile Include="Classes\ThemeSchemeChoice.cs" />
     <Compile Include="Classes\LanguageChoice.cs" />
-    <Compile Include="Connected Services\Plancksoft_Server\Reference.cs">
+    <Compile Include="Connected Services\PlancksoftPOS_Server\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -336,25 +336,25 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS6.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS61.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS62.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS63.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS64.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS4.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS65.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS5.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS_Server1.wsdl" />
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS_Server.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\DataAccessLayer.Account.datasource" />
@@ -465,16 +465,16 @@
     <None Include="Resources\closeregister.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\Plancksoft_Server\configuration91.svcinfo" />
-    <None Include="Connected Services\Plancksoft_Server\configuration.svcinfo" />
-    <None Include="Connected Services\Plancksoft_Server\Reference.svcmap">
+    <None Include="Connected Services\PlancksoftPOS_Server\configuration91.svcinfo" />
+    <None Include="Connected Services\PlancksoftPOS_Server\configuration.svcinfo" />
+    <None Include="Connected Services\PlancksoftPOS_Server\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <None Include="Resources\plancksoft_b_t.png" />
     <None Include="Resources\istockphoto-1166351637-612x612.jpg" />
     <None Include="Resources\password.png" />
-    <None Include="Connected Services\Plancksoft_Server\PlancksoftPOS1.disco" />
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS.disco" />
     <Content Include="Resources\pos.ico" />
     <None Include="Resources\point-of-sale.jpg" />
     <None Include="Resources\beep.mp3" />
@@ -500,7 +500,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\Plancksoft_Server\" />
+    <WCFMetadataStorage Include="Connected Services\PlancksoftPOS_Server\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

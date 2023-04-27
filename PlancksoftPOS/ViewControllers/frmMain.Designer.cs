@@ -28,13 +28,6 @@ namespace PlancksoftPOS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ادارةالمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اضافةمادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -478,24 +471,41 @@ namespace PlancksoftPOS
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.AgentsDefinitions = new System.Windows.Forms.TabPage();
             this.groupBox15 = new MaterialSkin.Controls.MaterialCard();
+            this.selectAllClients = new System.Windows.Forms.CheckBox();
             this.groupBox16 = new MaterialSkin.Controls.MaterialCard();
+            this.btnClientBalanceCheck = new MaterialSkin.Controls.MaterialButton();
             this.button30 = new MaterialSkin.Controls.MaterialButton();
-            this.dgvCustomers = new System.Windows.Forms.DataGridView();
+            this.dgvClients = new System.Windows.Forms.DataGridView();
             this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerIDDelete = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientIDDelete = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.groupBox17 = new MaterialSkin.Controls.MaterialCard();
-            this.customerName = new MaterialSkin.Controls.MaterialTextBox2();
+            this.ClientName = new MaterialSkin.Controls.MaterialTextBox2();
             this.button31 = new MaterialSkin.Controls.MaterialButton();
-            this.CustomerAddress = new MaterialSkin.Controls.MaterialTextBox2();
-            this.CustomerPhone = new MaterialSkin.Controls.MaterialTextBox2();
+            this.ClientAddress = new MaterialSkin.Controls.MaterialTextBox2();
+            this.ClientPhone = new MaterialSkin.Controls.MaterialTextBox2();
             this.label21 = new MaterialSkin.Controls.MaterialLabel();
             this.label18 = new MaterialSkin.Controls.MaterialLabel();
-            this.customerID = new System.Windows.Forms.NumericUpDown();
+            this.ClientID = new System.Windows.Forms.NumericUpDown();
             this.label82 = new MaterialSkin.Controls.MaterialLabel();
             this.label83 = new MaterialSkin.Controls.MaterialLabel();
+            this.ClientBalanceCheck = new System.Windows.Forms.TabPage();
+            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
+            this.btnPrintClientBillItems = new System.Windows.Forms.PictureBox();
+            this.dgvClientBillItems = new System.Windows.Forms.DataGridView();
+            this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
+            this.btnPayDebtBill = new MaterialSkin.Controls.MaterialButton();
+            this.dgvClientBills = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnPrintClientBills = new System.Windows.Forms.PictureBox();
             this.AgentsItemsDefinitions = new System.Windows.Forms.TabPage();
             this.groupBox34 = new MaterialSkin.Controls.MaterialCard();
             this.button4 = new MaterialSkin.Controls.MaterialButton();
@@ -504,7 +514,7 @@ namespace PlancksoftPOS
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
             this.label31 = new MaterialSkin.Controls.MaterialLabel();
             this.label32 = new MaterialSkin.Controls.MaterialLabel();
-            this.CustomerPrice = new System.Windows.Forms.NumericUpDown();
+            this.ClientPrice = new System.Windows.Forms.NumericUpDown();
             this.label90 = new MaterialSkin.Controls.MaterialLabel();
             this.SellPriceTax = new System.Windows.Forms.NumericUpDown();
             this.label88 = new MaterialSkin.Controls.MaterialLabel();
@@ -514,7 +524,7 @@ namespace PlancksoftPOS
             this.label81 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox23 = new MaterialSkin.Controls.MaterialCard();
             this.pictureBox40 = new System.Windows.Forms.PictureBox();
-            this.DGVCustomerItems = new System.Windows.Forms.DataGridView();
+            this.DGVClientItems = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -531,10 +541,10 @@ namespace PlancksoftPOS
             this.button9 = new MaterialSkin.Controls.MaterialButton();
             this.button6 = new MaterialSkin.Controls.MaterialButton();
             this.dgvVendors = new System.Windows.Forms.DataGridView();
-            this.VendorCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VendorCustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VendorCustomerPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VendorCustomerAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VendorClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VendorClientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VendorClientPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VendorClientAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox42 = new System.Windows.Forms.PictureBox();
             this.groupBox40 = new MaterialSkin.Controls.MaterialCard();
             this.VendorName = new MaterialSkin.Controls.MaterialTextBox2();
@@ -546,23 +556,6 @@ namespace PlancksoftPOS
             this.VendorID = new System.Windows.Forms.NumericUpDown();
             this.label41 = new MaterialSkin.Controls.MaterialLabel();
             this.label42 = new MaterialSkin.Controls.MaterialLabel();
-            this.AddImporterInvoices = new System.Windows.Forms.TabPage();
-            this.groupBox41 = new MaterialSkin.Controls.MaterialCard();
-            this.button12 = new MaterialSkin.Controls.MaterialButton();
-            this.button11 = new MaterialSkin.Controls.MaterialButton();
-            this.button10 = new MaterialSkin.Controls.MaterialButton();
-            this.dgvVendorItemsPick = new System.Windows.Forms.DataGridView();
-            this.VendorItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VendorItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VendorItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VendorItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VendorItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VendorItemSellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VendorItemSellPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.label44 = new MaterialSkin.Controls.MaterialLabel();
-            this.textBox8 = new MaterialSkin.Controls.MaterialTextBox2();
-            this.label43 = new MaterialSkin.Controls.MaterialLabel();
             this.ImporterBalanceChecks = new System.Windows.Forms.TabPage();
             this.groupBox42 = new MaterialSkin.Controls.MaterialCard();
             this.pictureBox35 = new System.Windows.Forms.PictureBox();
@@ -618,7 +611,7 @@ namespace PlancksoftPOS
             this.receipt_edit = new MaterialSkin.Controls.MaterialCheckbox();
             this.price_edit = new MaterialSkin.Controls.MaterialCheckbox();
             this.discount_edit = new MaterialSkin.Controls.MaterialCheckbox();
-            this.customer_card_edit = new MaterialSkin.Controls.MaterialCheckbox();
+            this.Client_card_edit = new MaterialSkin.Controls.MaterialCheckbox();
             this.cbAdminOrNotAdd = new MaterialSkin.Controls.MaterialCheckbox();
             this.label75 = new MaterialSkin.Controls.MaterialLabel();
             this.txtUserPasswordAdd = new MaterialSkin.Controls.MaterialTextBox2();
@@ -712,6 +705,10 @@ namespace PlancksoftPOS
             this.فاتحToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.مظلمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -878,20 +875,27 @@ namespace PlancksoftPOS
             this.AgentsDefinitions.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.groupBox16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
             this.groupBox17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customerID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientID)).BeginInit();
+            this.ClientBalanceCheck.SuspendLayout();
+            this.materialCard1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrintClientBillItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientBillItems)).BeginInit();
+            this.materialCard2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientBills)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrintClientBills)).BeginInit();
             this.AgentsItemsDefinitions.SuspendLayout();
             this.groupBox34.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SellPriceTax)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.SellPrice)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BuyPrice)).BeginInit();
             this.groupBox23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVCustomerItems)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVClientItems)).BeginInit();
             this.ImporterDefinitions.SuspendLayout();
             this.groupBox39.SuspendLayout();
             this.groupBox38.SuspendLayout();
@@ -899,10 +903,6 @@ namespace PlancksoftPOS
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox42)).BeginInit();
             this.groupBox40.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VendorID)).BeginInit();
-            this.AddImporterInvoices.SuspendLayout();
-            this.groupBox41.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVendorItemsPick)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.ImporterBalanceChecks.SuspendLayout();
             this.groupBox42.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).BeginInit();
@@ -7439,9 +7439,9 @@ namespace PlancksoftPOS
             // tabControl3
             // 
             this.tabControl3.Controls.Add(this.AgentsDefinitions);
+            this.tabControl3.Controls.Add(this.ClientBalanceCheck);
             this.tabControl3.Controls.Add(this.AgentsItemsDefinitions);
             this.tabControl3.Controls.Add(this.ImporterDefinitions);
-            this.tabControl3.Controls.Add(this.AddImporterInvoices);
             this.tabControl3.Controls.Add(this.ImporterBalanceChecks);
             this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl3.ItemSize = new System.Drawing.Size(88, 30);
@@ -7471,23 +7471,38 @@ namespace PlancksoftPOS
             this.groupBox15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox15.Controls.Add(this.selectAllClients);
             this.groupBox15.Controls.Add(this.groupBox16);
-            this.groupBox15.Controls.Add(this.dgvCustomers);
+            this.groupBox15.Controls.Add(this.dgvClients);
             this.groupBox15.Controls.Add(this.pictureBox21);
             this.groupBox15.Depth = 0;
             this.groupBox15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox15.Location = new System.Drawing.Point(0, 5);
+            this.groupBox15.Location = new System.Drawing.Point(0, 0);
             this.groupBox15.Margin = new System.Windows.Forms.Padding(14);
             this.groupBox15.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox15.Name = "groupBox15";
             this.groupBox15.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox15.Size = new System.Drawing.Size(921, 908);
+            this.groupBox15.Size = new System.Drawing.Size(921, 913);
             this.groupBox15.TabIndex = 0;
             this.groupBox15.Text = "جدول العملاء";
+            // 
+            // selectAllClients
+            // 
+            this.selectAllClients.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.selectAllClients.AutoSize = true;
+            this.selectAllClients.Location = new System.Drawing.Point(762, 26);
+            this.selectAllClients.Name = "selectAllClients";
+            this.selectAllClients.Size = new System.Drawing.Size(92, 20);
+            this.selectAllClients.TabIndex = 27;
+            this.selectAllClients.Text = "Select All";
+            this.selectAllClients.UseVisualStyleBackColor = true;
+            this.selectAllClients.CheckedChanged += new System.EventHandler(this.selectAllClients_CheckedChanged);
             // 
             // groupBox16
             // 
             this.groupBox16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox16.Controls.Add(this.btnClientBalanceCheck);
             this.groupBox16.Controls.Add(this.button30);
             this.groupBox16.Depth = 0;
             this.groupBox16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
@@ -7499,6 +7514,27 @@ namespace PlancksoftPOS
             this.groupBox16.Size = new System.Drawing.Size(905, 97);
             this.groupBox16.TabIndex = 1;
             this.groupBox16.Text = "االتعديل على العملاء";
+            // 
+            // btnClientBalanceCheck
+            // 
+            this.btnClientBalanceCheck.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClientBalanceCheck.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClientBalanceCheck.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnClientBalanceCheck.Depth = 0;
+            this.btnClientBalanceCheck.HighEmphasis = true;
+            this.btnClientBalanceCheck.Icon = null;
+            this.btnClientBalanceCheck.Location = new System.Drawing.Point(659, 20);
+            this.btnClientBalanceCheck.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClientBalanceCheck.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClientBalanceCheck.Name = "btnClientBalanceCheck";
+            this.btnClientBalanceCheck.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnClientBalanceCheck.Size = new System.Drawing.Size(86, 36);
+            this.btnClientBalanceCheck.TabIndex = 88;
+            this.btnClientBalanceCheck.Text = "كشف حساب";
+            this.btnClientBalanceCheck.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClientBalanceCheck.UseAccentColor = false;
+            this.btnClientBalanceCheck.UseVisualStyleBackColor = true;
+            this.btnClientBalanceCheck.Click += new System.EventHandler(this.btnClientBalanceCheck_Click);
             // 
             // button30
             // 
@@ -7521,52 +7557,52 @@ namespace PlancksoftPOS
             this.button30.UseVisualStyleBackColor = true;
             this.button30.Click += new System.EventHandler(this.button30_Click);
             // 
-            // dgvCustomers
+            // dgvClients
             // 
-            this.dgvCustomers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvClients.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvCustomers.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvClients.BackgroundColor = System.Drawing.Color.White;
+            this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column27,
-            this.CustomerIDDelete,
+            this.ClientIDDelete,
             this.Column38,
             this.Column39});
-            this.dgvCustomers.Location = new System.Drawing.Point(3, 52);
-            this.dgvCustomers.Name = "dgvCustomers";
-            this.dgvCustomers.ReadOnly = true;
-            this.dgvCustomers.Size = new System.Drawing.Size(912, 735);
-            this.dgvCustomers.TabIndex = 0;
+            this.dgvClients.Location = new System.Drawing.Point(3, 52);
+            this.dgvClients.Name = "dgvClients";
+            this.dgvClients.ReadOnly = true;
+            this.dgvClients.Size = new System.Drawing.Size(912, 740);
+            this.dgvClients.TabIndex = 0;
             // 
             // Column27
             // 
             this.Column27.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column27.DataPropertyName = "Customer Name";
+            this.Column27.DataPropertyName = "Client Name";
             this.Column27.HeaderText = "اسم العميل";
             this.Column27.Name = "Column27";
             this.Column27.ReadOnly = true;
             // 
-            // CustomerIDDelete
+            // ClientIDDelete
             // 
-            this.CustomerIDDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.CustomerIDDelete.DataPropertyName = "Customer ID";
-            this.CustomerIDDelete.HeaderText = "رمز العميل";
-            this.CustomerIDDelete.Name = "CustomerIDDelete";
-            this.CustomerIDDelete.ReadOnly = true;
+            this.ClientIDDelete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ClientIDDelete.DataPropertyName = "Client ID";
+            this.ClientIDDelete.HeaderText = "رمز العميل";
+            this.ClientIDDelete.Name = "ClientIDDelete";
+            this.ClientIDDelete.ReadOnly = true;
             // 
             // Column38
             // 
             this.Column38.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column38.DataPropertyName = "Customer Phone";
-            this.Column38.HeaderText = "رقم الزبون";
+            this.Column38.DataPropertyName = "Client Phone";
+            this.Column38.HeaderText = "رقم العميل";
             this.Column38.Name = "Column38";
             this.Column38.ReadOnly = true;
             // 
             // Column39
             // 
             this.Column39.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column39.DataPropertyName = "Customer Address";
-            this.Column39.HeaderText = "عنوان الزبون";
+            this.Column39.DataPropertyName = "Client Address";
+            this.Column39.HeaderText = "عنوان العميل";
             this.Column39.Name = "Column39";
             this.Column39.ReadOnly = true;
             // 
@@ -7590,56 +7626,56 @@ namespace PlancksoftPOS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.groupBox17.Controls.Add(this.customerName);
+            this.groupBox17.Controls.Add(this.ClientName);
             this.groupBox17.Controls.Add(this.button31);
-            this.groupBox17.Controls.Add(this.CustomerAddress);
-            this.groupBox17.Controls.Add(this.CustomerPhone);
+            this.groupBox17.Controls.Add(this.ClientAddress);
+            this.groupBox17.Controls.Add(this.ClientPhone);
             this.groupBox17.Controls.Add(this.label21);
             this.groupBox17.Controls.Add(this.label18);
-            this.groupBox17.Controls.Add(this.customerID);
+            this.groupBox17.Controls.Add(this.ClientID);
             this.groupBox17.Controls.Add(this.label82);
             this.groupBox17.Controls.Add(this.label83);
             this.groupBox17.Depth = 0;
             this.groupBox17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox17.Location = new System.Drawing.Point(916, 5);
+            this.groupBox17.Location = new System.Drawing.Point(916, 0);
             this.groupBox17.Margin = new System.Windows.Forms.Padding(14);
             this.groupBox17.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox17.Name = "groupBox17";
             this.groupBox17.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox17.Size = new System.Drawing.Size(982, 963);
+            this.groupBox17.Size = new System.Drawing.Size(982, 968);
             this.groupBox17.TabIndex = 4;
             this.groupBox17.Text = "تسجيل العملاء";
             // 
-            // customerName
+            // ClientName
             // 
-            this.customerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.customerName.AnimateReadOnly = false;
-            this.customerName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.customerName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.customerName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.customerName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.customerName.Depth = 0;
-            this.customerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.customerName.HideSelection = true;
-            this.customerName.LeadingIcon = null;
-            this.customerName.Location = new System.Drawing.Point(549, 38);
-            this.customerName.MaxLength = 10;
-            this.customerName.MouseState = MaterialSkin.MouseState.OUT;
-            this.customerName.Name = "customerName";
-            this.customerName.PasswordChar = '\0';
-            this.customerName.PrefixSuffixText = null;
-            this.customerName.ReadOnly = false;
-            this.customerName.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.customerName.SelectedText = "";
-            this.customerName.SelectionLength = 0;
-            this.customerName.SelectionStart = 0;
-            this.customerName.ShortcutsEnabled = true;
-            this.customerName.Size = new System.Drawing.Size(422, 48);
-            this.customerName.TabIndex = 87;
-            this.customerName.TabStop = false;
-            this.customerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.customerName.TrailingIcon = null;
-            this.customerName.UseSystemPasswordChar = false;
+            this.ClientName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClientName.AnimateReadOnly = false;
+            this.ClientName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.ClientName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.ClientName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.ClientName.Depth = 0;
+            this.ClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.ClientName.HideSelection = true;
+            this.ClientName.LeadingIcon = null;
+            this.ClientName.Location = new System.Drawing.Point(549, 38);
+            this.ClientName.MaxLength = 10;
+            this.ClientName.MouseState = MaterialSkin.MouseState.OUT;
+            this.ClientName.Name = "ClientName";
+            this.ClientName.PasswordChar = '\0';
+            this.ClientName.PrefixSuffixText = null;
+            this.ClientName.ReadOnly = false;
+            this.ClientName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ClientName.SelectedText = "";
+            this.ClientName.SelectionLength = 0;
+            this.ClientName.SelectionStart = 0;
+            this.ClientName.ShortcutsEnabled = true;
+            this.ClientName.Size = new System.Drawing.Size(422, 48);
+            this.ClientName.TabIndex = 87;
+            this.ClientName.TabStop = false;
+            this.ClientName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ClientName.TrailingIcon = null;
+            this.ClientName.UseSystemPasswordChar = false;
             // 
             // button31
             // 
@@ -7662,69 +7698,69 @@ namespace PlancksoftPOS
             this.button31.UseVisualStyleBackColor = true;
             this.button31.Click += new System.EventHandler(this.button31_Click);
             // 
-            // CustomerAddress
+            // ClientAddress
             // 
-            this.CustomerAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CustomerAddress.AnimateReadOnly = false;
-            this.CustomerAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.CustomerAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.CustomerAddress.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.CustomerAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.CustomerAddress.Depth = 0;
-            this.CustomerAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerAddress.HideSelection = true;
-            this.CustomerAddress.LeadingIcon = null;
-            this.CustomerAddress.Location = new System.Drawing.Point(547, 192);
-            this.CustomerAddress.MaxLength = 32767;
-            this.CustomerAddress.MouseState = MaterialSkin.MouseState.OUT;
-            this.CustomerAddress.Name = "CustomerAddress";
-            this.CustomerAddress.PasswordChar = '\0';
-            this.CustomerAddress.PrefixSuffixText = null;
-            this.CustomerAddress.ReadOnly = false;
-            this.CustomerAddress.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.CustomerAddress.SelectedText = "";
-            this.CustomerAddress.SelectionLength = 0;
-            this.CustomerAddress.SelectionStart = 0;
-            this.CustomerAddress.ShortcutsEnabled = true;
-            this.CustomerAddress.Size = new System.Drawing.Size(424, 48);
-            this.CustomerAddress.TabIndex = 7;
-            this.CustomerAddress.TabStop = false;
-            this.CustomerAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.CustomerAddress.TrailingIcon = null;
-            this.CustomerAddress.UseSystemPasswordChar = false;
-            this.CustomerAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CustomerAddress_KeyPress);
+            this.ClientAddress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClientAddress.AnimateReadOnly = false;
+            this.ClientAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.ClientAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.ClientAddress.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.ClientAddress.Depth = 0;
+            this.ClientAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientAddress.HideSelection = true;
+            this.ClientAddress.LeadingIcon = null;
+            this.ClientAddress.Location = new System.Drawing.Point(547, 192);
+            this.ClientAddress.MaxLength = 32767;
+            this.ClientAddress.MouseState = MaterialSkin.MouseState.OUT;
+            this.ClientAddress.Name = "ClientAddress";
+            this.ClientAddress.PasswordChar = '\0';
+            this.ClientAddress.PrefixSuffixText = null;
+            this.ClientAddress.ReadOnly = false;
+            this.ClientAddress.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ClientAddress.SelectedText = "";
+            this.ClientAddress.SelectionLength = 0;
+            this.ClientAddress.SelectionStart = 0;
+            this.ClientAddress.ShortcutsEnabled = true;
+            this.ClientAddress.Size = new System.Drawing.Size(424, 48);
+            this.ClientAddress.TabIndex = 7;
+            this.ClientAddress.TabStop = false;
+            this.ClientAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ClientAddress.TrailingIcon = null;
+            this.ClientAddress.UseSystemPasswordChar = false;
+            this.ClientAddress.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ClientAddress_KeyPress);
             // 
-            // CustomerPhone
+            // ClientPhone
             // 
-            this.CustomerPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CustomerPhone.AnimateReadOnly = false;
-            this.CustomerPhone.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.CustomerPhone.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.CustomerPhone.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.CustomerPhone.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.CustomerPhone.Depth = 0;
-            this.CustomerPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerPhone.HideSelection = true;
-            this.CustomerPhone.LeadingIcon = null;
-            this.CustomerPhone.Location = new System.Drawing.Point(547, 112);
-            this.CustomerPhone.MaxLength = 10;
-            this.CustomerPhone.MouseState = MaterialSkin.MouseState.OUT;
-            this.CustomerPhone.Name = "CustomerPhone";
-            this.CustomerPhone.PasswordChar = '\0';
-            this.CustomerPhone.PrefixSuffixText = null;
-            this.CustomerPhone.ReadOnly = false;
-            this.CustomerPhone.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.CustomerPhone.SelectedText = "";
-            this.CustomerPhone.SelectionLength = 0;
-            this.CustomerPhone.SelectionStart = 0;
-            this.CustomerPhone.ShortcutsEnabled = true;
-            this.CustomerPhone.Size = new System.Drawing.Size(424, 48);
-            this.CustomerPhone.TabIndex = 6;
-            this.CustomerPhone.TabStop = false;
-            this.CustomerPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.CustomerPhone.TrailingIcon = null;
-            this.CustomerPhone.UseSystemPasswordChar = false;
-            this.CustomerPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CustomerPhone_KeyPress);
+            this.ClientPhone.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClientPhone.AnimateReadOnly = false;
+            this.ClientPhone.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.ClientPhone.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.ClientPhone.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientPhone.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.ClientPhone.Depth = 0;
+            this.ClientPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientPhone.HideSelection = true;
+            this.ClientPhone.LeadingIcon = null;
+            this.ClientPhone.Location = new System.Drawing.Point(547, 112);
+            this.ClientPhone.MaxLength = 10;
+            this.ClientPhone.MouseState = MaterialSkin.MouseState.OUT;
+            this.ClientPhone.Name = "ClientPhone";
+            this.ClientPhone.PasswordChar = '\0';
+            this.ClientPhone.PrefixSuffixText = null;
+            this.ClientPhone.ReadOnly = false;
+            this.ClientPhone.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ClientPhone.SelectedText = "";
+            this.ClientPhone.SelectionLength = 0;
+            this.ClientPhone.SelectionStart = 0;
+            this.ClientPhone.ShortcutsEnabled = true;
+            this.ClientPhone.Size = new System.Drawing.Size(424, 48);
+            this.ClientPhone.TabIndex = 6;
+            this.ClientPhone.TabStop = false;
+            this.ClientPhone.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ClientPhone.TrailingIcon = null;
+            this.ClientPhone.UseSystemPasswordChar = false;
+            this.ClientPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ClientPhone_KeyPress);
             // 
             // label21
             // 
@@ -7754,23 +7790,23 @@ namespace PlancksoftPOS
             this.label18.TabIndex = 37;
             this.label18.Text = "رقم تلفون";
             // 
-            // customerID
+            // ClientID
             // 
-            this.customerID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.customerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customerID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.customerID.Location = new System.Drawing.Point(547, 107);
-            this.customerID.Maximum = new decimal(new int[] {
+            this.ClientID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.ClientID.Location = new System.Drawing.Point(547, 107);
+            this.ClientID.Maximum = new decimal(new int[] {
             -1486618625,
             232830643,
             0,
             0});
-            this.customerID.Name = "customerID";
-            this.customerID.Size = new System.Drawing.Size(424, 20);
-            this.customerID.TabIndex = 1;
-            this.customerID.Visible = false;
-            this.customerID.Enter += new System.EventHandler(this.customerID_Enter);
-            this.customerID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.customerID_KeyPress);
+            this.ClientID.Name = "ClientID";
+            this.ClientID.Size = new System.Drawing.Size(424, 20);
+            this.ClientID.TabIndex = 1;
+            this.ClientID.Visible = false;
+            this.ClientID.Enter += new System.EventHandler(this.ClientID_Enter);
+            this.ClientID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ClientID_KeyPress);
             // 
             // label82
             // 
@@ -7801,6 +7837,209 @@ namespace PlancksoftPOS
             this.label83.Text = "رمز العميل";
             this.label83.Visible = false;
             // 
+            // ClientBalanceCheck
+            // 
+            this.ClientBalanceCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.ClientBalanceCheck.Controls.Add(this.materialCard1);
+            this.ClientBalanceCheck.Controls.Add(this.materialCard2);
+            this.ClientBalanceCheck.Location = new System.Drawing.Point(4, 34);
+            this.ClientBalanceCheck.Name = "ClientBalanceCheck";
+            this.ClientBalanceCheck.Padding = new System.Windows.Forms.Padding(3);
+            this.ClientBalanceCheck.Size = new System.Drawing.Size(1898, 913);
+            this.ClientBalanceCheck.TabIndex = 3;
+            this.ClientBalanceCheck.Text = "كشف حساب العميل";
+            // 
+            // materialCard1
+            // 
+            this.materialCard1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard1.Controls.Add(this.btnPrintClientBillItems);
+            this.materialCard1.Controls.Add(this.dgvClientBillItems);
+            this.materialCard1.Depth = 0;
+            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard1.Location = new System.Drawing.Point(0, 330);
+            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard1.Name = "materialCard1";
+            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard1.Size = new System.Drawing.Size(1898, 583);
+            this.materialCard1.TabIndex = 5;
+            this.materialCard1.Text = "المواد المشتراه بالفاتوره";
+            // 
+            // btnPrintClientBillItems
+            // 
+            this.btnPrintClientBillItems.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintClientBillItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.btnPrintClientBillItems.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintClientBillItems.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.btnPrintClientBillItems.Location = new System.Drawing.Point(1798, 19);
+            this.btnPrintClientBillItems.Name = "btnPrintClientBillItems";
+            this.btnPrintClientBillItems.Size = new System.Drawing.Size(100, 66);
+            this.btnPrintClientBillItems.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnPrintClientBillItems.TabIndex = 31;
+            this.btnPrintClientBillItems.TabStop = false;
+            // 
+            // dgvClientBillItems
+            // 
+            this.dgvClientBillItems.AllowUserToAddRows = false;
+            this.dgvClientBillItems.AllowUserToDeleteRows = false;
+            this.dgvClientBillItems.AllowUserToOrderColumns = true;
+            this.dgvClientBillItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvClientBillItems.BackgroundColor = System.Drawing.Color.White;
+            this.dgvClientBillItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientBillItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn20,
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23});
+            this.dgvClientBillItems.Location = new System.Drawing.Point(3, 19);
+            this.dgvClientBillItems.Name = "dgvClientBillItems";
+            this.dgvClientBillItems.ReadOnly = true;
+            this.dgvClientBillItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dgvClientBillItems.Size = new System.Drawing.Size(1792, 547);
+            this.dgvClientBillItems.TabIndex = 29;
+            // 
+            // materialCard2
+            // 
+            this.materialCard2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialCard2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.materialCard2.Controls.Add(this.btnPayDebtBill);
+            this.materialCard2.Controls.Add(this.dgvClientBills);
+            this.materialCard2.Controls.Add(this.btnPrintClientBills);
+            this.materialCard2.Depth = 0;
+            this.materialCard2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialCard2.Location = new System.Drawing.Point(0, 1);
+            this.materialCard2.Margin = new System.Windows.Forms.Padding(14);
+            this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCard2.Name = "materialCard2";
+            this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
+            this.materialCard2.Size = new System.Drawing.Size(1896, 329);
+            this.materialCard2.TabIndex = 6;
+            this.materialCard2.Text = "لائحة الفواتير";
+            // 
+            // btnPayDebtBill
+            // 
+            this.btnPayDebtBill.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPayDebtBill.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnPayDebtBill.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnPayDebtBill.Depth = 0;
+            this.btnPayDebtBill.HighEmphasis = true;
+            this.btnPayDebtBill.Icon = null;
+            this.btnPayDebtBill.Location = new System.Drawing.Point(1809, 121);
+            this.btnPayDebtBill.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnPayDebtBill.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnPayDebtBill.Name = "btnPayDebtBill";
+            this.btnPayDebtBill.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnPayDebtBill.Size = new System.Drawing.Size(82, 36);
+            this.btnPayDebtBill.TabIndex = 83;
+            this.btnPayDebtBill.Text = "دفع الفاتوره";
+            this.btnPayDebtBill.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnPayDebtBill.UseAccentColor = false;
+            this.btnPayDebtBill.UseVisualStyleBackColor = true;
+            this.btnPayDebtBill.Click += new System.EventHandler(this.btnPayDebtBill_Click);
+            // 
+            // dgvClientBills
+            // 
+            this.dgvClientBills.AllowUserToAddRows = false;
+            this.dgvClientBills.AllowUserToDeleteRows = false;
+            this.dgvClientBills.AllowUserToOrderColumns = true;
+            this.dgvClientBills.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvClientBills.BackgroundColor = System.Drawing.Color.White;
+            this.dgvClientBills.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClientBills.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn24,
+            this.dataGridViewTextBoxColumn29,
+            this.dataGridViewTextBoxColumn30,
+            this.dataGridViewTextBoxColumn31,
+            this.Column4,
+            this.Column6,
+            this.Column8});
+            this.dgvClientBills.Location = new System.Drawing.Point(4, 9);
+            this.dgvClientBills.Name = "dgvClientBills";
+            this.dgvClientBills.ReadOnly = true;
+            this.dgvClientBills.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dgvClientBills.Size = new System.Drawing.Size(1789, 311);
+            this.dgvClientBills.TabIndex = 28;
+            this.dgvClientBills.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvClientBills_RowHeaderMouseClick);
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "Bill Number";
+            this.dataGridViewTextBoxColumn24.HeaderText = "رقم الفاتوره";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn29
+            // 
+            this.dataGridViewTextBoxColumn29.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn29.DataPropertyName = "Cashier Name";
+            this.dataGridViewTextBoxColumn29.HeaderText = "اسم الكاشير";
+            this.dataGridViewTextBoxColumn29.Name = "dataGridViewTextBoxColumn29";
+            this.dataGridViewTextBoxColumn29.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            this.dataGridViewTextBoxColumn30.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn30.DataPropertyName = "Total Amount";
+            this.dataGridViewTextBoxColumn30.HeaderText = "المبلغ الصافي";
+            this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            this.dataGridViewTextBoxColumn30.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            this.dataGridViewTextBoxColumn31.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn31.DataPropertyName = "Date";
+            this.dataGridViewTextBoxColumn31.HeaderText = "التاريخ";
+            this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            this.dataGridViewTextBoxColumn31.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.Column4.DataPropertyName = "Status";
+            this.Column4.HeaderText = "الحاله";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Width = 65;
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.DataPropertyName = "Client ID";
+            this.Column6.HeaderText = "رقم العميل";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column8.DataPropertyName = "Client Name";
+            this.Column8.HeaderText = "إسم العميل";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // btnPrintClientBills
+            // 
+            this.btnPrintClientBills.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrintClientBills.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.btnPrintClientBills.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPrintClientBills.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
+            this.btnPrintClientBills.Location = new System.Drawing.Point(1795, 21);
+            this.btnPrintClientBills.Name = "btnPrintClientBills";
+            this.btnPrintClientBills.Size = new System.Drawing.Size(98, 91);
+            this.btnPrintClientBills.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnPrintClientBills.TabIndex = 29;
+            this.btnPrintClientBills.TabStop = false;
+            // 
             // AgentsItemsDefinitions
             // 
             this.AgentsItemsDefinitions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
@@ -7825,7 +8064,7 @@ namespace PlancksoftPOS
             this.groupBox34.Controls.Add(this.numericUpDown2);
             this.groupBox34.Controls.Add(this.label31);
             this.groupBox34.Controls.Add(this.label32);
-            this.groupBox34.Controls.Add(this.CustomerPrice);
+            this.groupBox34.Controls.Add(this.ClientPrice);
             this.groupBox34.Controls.Add(this.label90);
             this.groupBox34.Controls.Add(this.SellPriceTax);
             this.groupBox34.Controls.Add(this.label88);
@@ -7961,22 +8200,22 @@ namespace PlancksoftPOS
             this.label32.TabIndex = 56;
             this.label32.Text = "إسم العميل";
             // 
-            // CustomerPrice
+            // ClientPrice
             // 
-            this.CustomerPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CustomerPrice.DecimalPlaces = 2;
-            this.CustomerPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CustomerPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.CustomerPrice.Location = new System.Drawing.Point(584, 99);
-            this.CustomerPrice.Maximum = new decimal(new int[] {
+            this.ClientPrice.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClientPrice.DecimalPlaces = 2;
+            this.ClientPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.ClientPrice.Location = new System.Drawing.Point(584, 99);
+            this.ClientPrice.Maximum = new decimal(new int[] {
             1661992959,
             1808227885,
             5,
             0});
-            this.CustomerPrice.Name = "CustomerPrice";
-            this.CustomerPrice.Size = new System.Drawing.Size(397, 20);
-            this.CustomerPrice.TabIndex = 47;
-            this.CustomerPrice.Enter += new System.EventHandler(this.CustomerPrice_Enter_1);
+            this.ClientPrice.Name = "ClientPrice";
+            this.ClientPrice.Size = new System.Drawing.Size(397, 20);
+            this.ClientPrice.TabIndex = 47;
+            this.ClientPrice.Enter += new System.EventHandler(this.ClientPrice_Enter_1);
             // 
             // label90
             // 
@@ -8091,7 +8330,7 @@ namespace PlancksoftPOS
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.groupBox23.Controls.Add(this.pictureBox40);
-            this.groupBox23.Controls.Add(this.DGVCustomerItems);
+            this.groupBox23.Controls.Add(this.DGVClientItems);
             this.groupBox23.Depth = 0;
             this.groupBox23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.groupBox23.Location = new System.Drawing.Point(-1, 0);
@@ -8118,17 +8357,17 @@ namespace PlancksoftPOS
             this.pictureBox40.TabStop = false;
             this.pictureBox40.Click += new System.EventHandler(this.pictureBox40_Click);
             // 
-            // DGVCustomerItems
+            // DGVClientItems
             // 
-            this.DGVCustomerItems.AllowUserToAddRows = false;
-            this.DGVCustomerItems.AllowUserToDeleteRows = false;
-            this.DGVCustomerItems.AllowUserToOrderColumns = true;
-            this.DGVCustomerItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.DGVClientItems.AllowUserToAddRows = false;
+            this.DGVClientItems.AllowUserToDeleteRows = false;
+            this.DGVClientItems.AllowUserToOrderColumns = true;
+            this.DGVClientItems.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DGVCustomerItems.BackgroundColor = System.Drawing.Color.White;
-            this.DGVCustomerItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVCustomerItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DGVClientItems.BackgroundColor = System.Drawing.Color.White;
+            this.DGVClientItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVClientItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
@@ -8138,13 +8377,13 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn26,
             this.dataGridViewTextBoxColumn27,
             this.dataGridViewTextBoxColumn28});
-            this.DGVCustomerItems.Location = new System.Drawing.Point(5, 51);
-            this.DGVCustomerItems.Name = "DGVCustomerItems";
-            this.DGVCustomerItems.ReadOnly = true;
-            this.DGVCustomerItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.DGVCustomerItems.Size = new System.Drawing.Size(1893, 387);
-            this.DGVCustomerItems.TabIndex = 1;
-            this.DGVCustomerItems.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVCustomerItems_RowHeaderMouseClick);
+            this.DGVClientItems.Location = new System.Drawing.Point(5, 51);
+            this.DGVClientItems.Name = "DGVClientItems";
+            this.DGVClientItems.ReadOnly = true;
+            this.DGVClientItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.DGVClientItems.Size = new System.Drawing.Size(1893, 387);
+            this.DGVClientItems.TabIndex = 1;
+            this.DGVClientItems.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVClientItems_RowHeaderMouseClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -8335,47 +8574,47 @@ namespace PlancksoftPOS
             this.dgvVendors.BackgroundColor = System.Drawing.Color.White;
             this.dgvVendors.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvVendors.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.VendorCustomerName,
-            this.VendorCustomerID,
-            this.VendorCustomerPhone,
-            this.VendorCustomerAddress});
+            this.VendorClientName,
+            this.VendorClientID,
+            this.VendorClientPhone,
+            this.VendorClientAddress});
             this.dgvVendors.Location = new System.Drawing.Point(5, 49);
             this.dgvVendors.Name = "dgvVendors";
             this.dgvVendors.ReadOnly = true;
             this.dgvVendors.Size = new System.Drawing.Size(899, 773);
             this.dgvVendors.TabIndex = 0;
             // 
-            // VendorCustomerName
+            // VendorClientName
             // 
-            this.VendorCustomerName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VendorCustomerName.DataPropertyName = "Customer Name";
-            this.VendorCustomerName.HeaderText = "اسم المورد";
-            this.VendorCustomerName.Name = "VendorCustomerName";
-            this.VendorCustomerName.ReadOnly = true;
+            this.VendorClientName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.VendorClientName.DataPropertyName = "Client Name";
+            this.VendorClientName.HeaderText = "اسم المورد";
+            this.VendorClientName.Name = "VendorClientName";
+            this.VendorClientName.ReadOnly = true;
             // 
-            // VendorCustomerID
+            // VendorClientID
             // 
-            this.VendorCustomerID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VendorCustomerID.DataPropertyName = "Customer ID";
-            this.VendorCustomerID.HeaderText = "رمز المورد";
-            this.VendorCustomerID.Name = "VendorCustomerID";
-            this.VendorCustomerID.ReadOnly = true;
+            this.VendorClientID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.VendorClientID.DataPropertyName = "Client ID";
+            this.VendorClientID.HeaderText = "رمز المورد";
+            this.VendorClientID.Name = "VendorClientID";
+            this.VendorClientID.ReadOnly = true;
             // 
-            // VendorCustomerPhone
+            // VendorClientPhone
             // 
-            this.VendorCustomerPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VendorCustomerPhone.DataPropertyName = "Customer Phone";
-            this.VendorCustomerPhone.HeaderText = "رقم المورد";
-            this.VendorCustomerPhone.Name = "VendorCustomerPhone";
-            this.VendorCustomerPhone.ReadOnly = true;
+            this.VendorClientPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.VendorClientPhone.DataPropertyName = "Client Phone";
+            this.VendorClientPhone.HeaderText = "رقم المورد";
+            this.VendorClientPhone.Name = "VendorClientPhone";
+            this.VendorClientPhone.ReadOnly = true;
             // 
-            // VendorCustomerAddress
+            // VendorClientAddress
             // 
-            this.VendorCustomerAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VendorCustomerAddress.DataPropertyName = "Customer Address";
-            this.VendorCustomerAddress.HeaderText = "عنوان المورد";
-            this.VendorCustomerAddress.Name = "VendorCustomerAddress";
-            this.VendorCustomerAddress.ReadOnly = true;
+            this.VendorClientAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.VendorClientAddress.DataPropertyName = "Client Address";
+            this.VendorClientAddress.HeaderText = "عنوان المورد";
+            this.VendorClientAddress.Name = "VendorClientAddress";
+            this.VendorClientAddress.ReadOnly = true;
             // 
             // pictureBox42
             // 
@@ -8609,273 +8848,6 @@ namespace PlancksoftPOS
             this.label42.TabIndex = 20;
             this.label42.Text = "رمز المورد";
             this.label42.Visible = false;
-            // 
-            // AddImporterInvoices
-            // 
-            this.AddImporterInvoices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.AddImporterInvoices.Controls.Add(this.groupBox41);
-            this.AddImporterInvoices.Location = new System.Drawing.Point(4, 34);
-            this.AddImporterInvoices.Name = "AddImporterInvoices";
-            this.AddImporterInvoices.Padding = new System.Windows.Forms.Padding(3);
-            this.AddImporterInvoices.Size = new System.Drawing.Size(1898, 913);
-            this.AddImporterInvoices.TabIndex = 3;
-            this.AddImporterInvoices.Text = "إضافة فاتوره مورد";
-            // 
-            // groupBox41
-            // 
-            this.groupBox41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.groupBox41.Controls.Add(this.button12);
-            this.groupBox41.Controls.Add(this.button11);
-            this.groupBox41.Controls.Add(this.button10);
-            this.groupBox41.Controls.Add(this.dgvVendorItemsPick);
-            this.groupBox41.Controls.Add(this.numericUpDown3);
-            this.groupBox41.Controls.Add(this.label44);
-            this.groupBox41.Controls.Add(this.textBox8);
-            this.groupBox41.Controls.Add(this.label43);
-            this.groupBox41.Depth = 0;
-            this.groupBox41.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox41.Location = new System.Drawing.Point(3, 3);
-            this.groupBox41.Margin = new System.Windows.Forms.Padding(14);
-            this.groupBox41.MouseState = MaterialSkin.MouseState.HOVER;
-            this.groupBox41.Name = "groupBox41";
-            this.groupBox41.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox41.Size = new System.Drawing.Size(1892, 907);
-            this.groupBox41.TabIndex = 0;
-            this.groupBox41.Text = "إضافة فاتورة مورد";
-            this.groupBox41.Visible = false;
-            // 
-            // button12
-            // 
-            this.button12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button12.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button12.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.button12.Depth = 0;
-            this.button12.HighEmphasis = true;
-            this.button12.Icon = null;
-            this.button12.Location = new System.Drawing.Point(1261, 33);
-            this.button12.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.button12.MouseState = MaterialSkin.MouseState.HOVER;
-            this.button12.Name = "button12";
-            this.button12.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.button12.Size = new System.Drawing.Size(96, 36);
-            this.button12.TabIndex = 91;
-            this.button12.Text = "إضافة الفاتورة";
-            this.button12.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.button12.UseAccentColor = false;
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Visible = false;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // button11
-            // 
-            this.button11.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button11.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button11.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.button11.Depth = 0;
-            this.button11.HighEmphasis = true;
-            this.button11.Icon = null;
-            this.button11.Location = new System.Drawing.Point(1806, 152);
-            this.button11.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.button11.MouseState = MaterialSkin.MouseState.HOVER;
-            this.button11.Name = "button11";
-            this.button11.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.button11.Size = new System.Drawing.Size(72, 36);
-            this.button11.TabIndex = 90;
-            this.button11.Text = "حذف ماده";
-            this.button11.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.button11.UseAccentColor = false;
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Visible = false;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
-            // 
-            // button10
-            // 
-            this.button10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button10.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button10.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.button10.Depth = 0;
-            this.button10.HighEmphasis = true;
-            this.button10.Icon = null;
-            this.button10.Location = new System.Drawing.Point(1800, 104);
-            this.button10.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.button10.MouseState = MaterialSkin.MouseState.HOVER;
-            this.button10.Name = "button10";
-            this.button10.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.button10.Size = new System.Drawing.Size(78, 36);
-            this.button10.TabIndex = 89;
-            this.button10.Text = "إختيار ماده";
-            this.button10.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.button10.UseAccentColor = false;
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Visible = false;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // dgvVendorItemsPick
-            // 
-            this.dgvVendorItemsPick.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvVendorItemsPick.BackgroundColor = System.Drawing.Color.White;
-            this.dgvVendorItemsPick.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVendorItemsPick.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.VendorItemName,
-            this.VendorItemBarCode,
-            this.VendorItemType,
-            this.VendorItemQuantity,
-            this.VendorItemBuyPrice,
-            this.VendorItemSellPrice,
-            this.VendorItemSellPriceTax});
-            this.dgvVendorItemsPick.Location = new System.Drawing.Point(6, 106);
-            this.dgvVendorItemsPick.Name = "dgvVendorItemsPick";
-            this.dgvVendorItemsPick.ReadOnly = true;
-            this.dgvVendorItemsPick.Size = new System.Drawing.Size(1733, 798);
-            this.dgvVendorItemsPick.TabIndex = 7;
-            this.dgvVendorItemsPick.Visible = false;
-            // 
-            // VendorItemName
-            // 
-            this.VendorItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VendorItemName.DataPropertyName = "Item Name";
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle15;
-            this.VendorItemName.HeaderText = "اسم الماده";
-            this.VendorItemName.Name = "VendorItemName";
-            this.VendorItemName.ReadOnly = true;
-            // 
-            // VendorItemBarCode
-            // 
-            this.VendorItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VendorItemBarCode.DataPropertyName = "Item BarCode";
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle16;
-            this.VendorItemBarCode.HeaderText = "باركود الماده";
-            this.VendorItemBarCode.Name = "VendorItemBarCode";
-            this.VendorItemBarCode.ReadOnly = true;
-            // 
-            // VendorItemType
-            // 
-            this.VendorItemType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VendorItemType.DataPropertyName = "Item Type";
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle17;
-            this.VendorItemType.HeaderText = "صنف الماده";
-            this.VendorItemType.Name = "VendorItemType";
-            this.VendorItemType.ReadOnly = true;
-            // 
-            // VendorItemQuantity
-            // 
-            this.VendorItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VendorItemQuantity.DataPropertyName = "Item Quantity";
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle18;
-            this.VendorItemQuantity.HeaderText = "عدد القطع";
-            this.VendorItemQuantity.Name = "VendorItemQuantity";
-            this.VendorItemQuantity.ReadOnly = true;
-            // 
-            // VendorItemBuyPrice
-            // 
-            this.VendorItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VendorItemBuyPrice.DataPropertyName = "VendorItemBuyPrice";
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle19;
-            this.VendorItemBuyPrice.HeaderText = "سعر الشراء";
-            this.VendorItemBuyPrice.Name = "VendorItemBuyPrice";
-            this.VendorItemBuyPrice.ReadOnly = true;
-            // 
-            // VendorItemSellPrice
-            // 
-            this.VendorItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VendorItemSellPrice.DataPropertyName = "VendorItemSellPrice";
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle20;
-            this.VendorItemSellPrice.HeaderText = "سعر البيع";
-            this.VendorItemSellPrice.Name = "VendorItemSellPrice";
-            this.VendorItemSellPrice.ReadOnly = true;
-            // 
-            // VendorItemSellPriceTax
-            // 
-            this.VendorItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VendorItemSellPriceTax.DataPropertyName = "VendorItemSellPriceTax";
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle21;
-            this.VendorItemSellPriceTax.HeaderText = "سعر البيع مع الضريبه";
-            this.VendorItemSellPriceTax.Name = "VendorItemSellPriceTax";
-            this.VendorItemSellPriceTax.ReadOnly = true;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.numericUpDown3.Location = new System.Drawing.Point(1364, 49);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.ReadOnly = true;
-            this.numericUpDown3.Size = new System.Drawing.Size(217, 20);
-            this.numericUpDown3.TabIndex = 3;
-            this.numericUpDown3.Visible = false;
-            // 
-            // label44
-            // 
-            this.label44.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label44.AutoSize = true;
-            this.label44.Depth = 0;
-            this.label44.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label44.Location = new System.Drawing.Point(1448, 23);
-            this.label44.MouseState = MaterialSkin.MouseState.HOVER;
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(43, 19);
-            this.label44.TabIndex = 2;
-            this.label44.Text = "رقم المورد";
-            this.label44.Visible = false;
-            // 
-            // textBox8
-            // 
-            this.textBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox8.AnimateReadOnly = false;
-            this.textBox8.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.textBox8.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.textBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.textBox8.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.textBox8.Depth = 0;
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.HideSelection = true;
-            this.textBox8.LeadingIcon = null;
-            this.textBox8.Location = new System.Drawing.Point(1607, 49);
-            this.textBox8.MaxLength = 32767;
-            this.textBox8.MouseState = MaterialSkin.MouseState.OUT;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.PasswordChar = '\0';
-            this.textBox8.PrefixSuffixText = null;
-            this.textBox8.ReadOnly = true;
-            this.textBox8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBox8.SelectedText = "";
-            this.textBox8.SelectionLength = 0;
-            this.textBox8.SelectionStart = 0;
-            this.textBox8.ShortcutsEnabled = true;
-            this.textBox8.Size = new System.Drawing.Size(271, 48);
-            this.textBox8.TabIndex = 1;
-            this.textBox8.TabStop = false;
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textBox8.TrailingIcon = null;
-            this.textBox8.UseSystemPasswordChar = false;
-            this.textBox8.Visible = false;
-            // 
-            // label43
-            // 
-            this.label43.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label43.AutoSize = true;
-            this.label43.Depth = 0;
-            this.label43.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label43.Location = new System.Drawing.Point(1719, 23);
-            this.label43.MouseState = MaterialSkin.MouseState.HOVER;
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(44, 19);
-            this.label43.TabIndex = 0;
-            this.label43.Text = "إسم المورد";
-            this.label43.Visible = false;
             // 
             // ImporterBalanceChecks
             // 
@@ -9459,7 +9431,7 @@ namespace PlancksoftPOS
             this.groupBox35.Controls.Add(this.receipt_edit);
             this.groupBox35.Controls.Add(this.price_edit);
             this.groupBox35.Controls.Add(this.discount_edit);
-            this.groupBox35.Controls.Add(this.customer_card_edit);
+            this.groupBox35.Controls.Add(this.Client_card_edit);
             this.groupBox35.Depth = 0;
             this.groupBox35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.groupBox35.Location = new System.Drawing.Point(6, 81);
@@ -9661,24 +9633,24 @@ namespace PlancksoftPOS
             this.discount_edit.Text = "إضافة الخصومات";
             this.discount_edit.UseVisualStyleBackColor = true;
             // 
-            // customer_card_edit
+            // Client_card_edit
             // 
-            this.customer_card_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.customer_card_edit.AutoSize = true;
-            this.customer_card_edit.Depth = 0;
-            this.customer_card_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.customer_card_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.customer_card_edit.Location = new System.Drawing.Point(895, 19);
-            this.customer_card_edit.Margin = new System.Windows.Forms.Padding(0);
-            this.customer_card_edit.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.customer_card_edit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.customer_card_edit.Name = "customer_card_edit";
-            this.customer_card_edit.ReadOnly = false;
-            this.customer_card_edit.Ripple = true;
-            this.customer_card_edit.Size = new System.Drawing.Size(165, 37);
-            this.customer_card_edit.TabIndex = 0;
-            this.customer_card_edit.Text = "إضافة بطاقة عميل و تعديل المواد";
-            this.customer_card_edit.UseVisualStyleBackColor = true;
+            this.Client_card_edit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Client_card_edit.AutoSize = true;
+            this.Client_card_edit.Depth = 0;
+            this.Client_card_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Client_card_edit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.Client_card_edit.Location = new System.Drawing.Point(895, 19);
+            this.Client_card_edit.Margin = new System.Windows.Forms.Padding(0);
+            this.Client_card_edit.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.Client_card_edit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.Client_card_edit.Name = "Client_card_edit";
+            this.Client_card_edit.ReadOnly = false;
+            this.Client_card_edit.Ripple = true;
+            this.Client_card_edit.Size = new System.Drawing.Size(165, 37);
+            this.Client_card_edit.TabIndex = 0;
+            this.Client_card_edit.Text = "إضافة بطاقة عميل و تعديل المواد";
+            this.Client_card_edit.UseVisualStyleBackColor = true;
             // 
             // cbAdminOrNotAdd
             // 
@@ -11112,6 +11084,38 @@ namespace PlancksoftPOS
             this.الخروجToolStripMenuItem.Text = "الخروج";
             this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
             // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Item Name";
+            this.dataGridViewTextBoxColumn20.HeaderText = "اسم الماده";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "Item BarCode";
+            this.dataGridViewTextBoxColumn21.HeaderText = "باركود الماده";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "Sold Quantity";
+            this.dataGridViewTextBoxColumn22.HeaderText = "عدد البيع";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "Item Price Tax";
+            this.dataGridViewTextBoxColumn23.HeaderText = "سعر البيع بعد الضريبه";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -11324,24 +11328,33 @@ namespace PlancksoftPOS
             this.tabControl3.ResumeLayout(false);
             this.AgentsDefinitions.ResumeLayout(false);
             this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
             this.groupBox16.ResumeLayout(false);
             this.groupBox16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
             this.groupBox17.ResumeLayout(false);
             this.groupBox17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.customerID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientID)).EndInit();
+            this.ClientBalanceCheck.ResumeLayout(false);
+            this.materialCard1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrintClientBillItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientBillItems)).EndInit();
+            this.materialCard2.ResumeLayout(false);
+            this.materialCard2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClientBills)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPrintClientBills)).EndInit();
             this.AgentsItemsDefinitions.ResumeLayout(false);
             this.groupBox34.ResumeLayout(false);
             this.groupBox34.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CustomerPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ClientPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SellPriceTax)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.SellPrice)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BuyPrice)).EndInit();
             this.groupBox23.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox40)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVCustomerItems)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVClientItems)).EndInit();
             this.ImporterDefinitions.ResumeLayout(false);
             this.groupBox39.ResumeLayout(false);
             this.groupBox38.ResumeLayout(false);
@@ -11351,11 +11364,6 @@ namespace PlancksoftPOS
             this.groupBox40.ResumeLayout(false);
             this.groupBox40.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.VendorID)).EndInit();
-            this.AddImporterInvoices.ResumeLayout(false);
-            this.groupBox41.ResumeLayout(false);
-            this.groupBox41.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvVendorItemsPick)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ImporterBalanceChecks.ResumeLayout(false);
             this.groupBox42.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox35)).EndInit();
@@ -11471,10 +11479,10 @@ namespace PlancksoftPOS
         public System.Windows.Forms.TabPage AgentsDefinitions;
         public MaterialCard groupBox15;
         public MaterialCard groupBox16;
-        public System.Windows.Forms.DataGridView dgvCustomers;
+        public System.Windows.Forms.DataGridView dgvClients;
         public System.Windows.Forms.PictureBox pictureBox21;
         public MaterialCard groupBox17;
-        public System.Windows.Forms.NumericUpDown customerID;
+        public System.Windows.Forms.NumericUpDown ClientID;
         public MaterialLabel label82;
         public MaterialLabel label83;
         public System.Windows.Forms.PictureBox pictureBox26;
@@ -11576,12 +11584,12 @@ namespace PlancksoftPOS
         public MaterialLabel label21;
         public MaterialLabel label18;
         public System.Windows.Forms.PictureBox picLogo;
-        public MaterialTextBox2 CustomerAddress;
-        public MaterialTextBox2 CustomerPhone;
+        public MaterialTextBox2 ClientAddress;
+        public MaterialTextBox2 ClientPhone;
         public System.Windows.Forms.PictureBox pictureBox37;
         public System.Windows.Forms.TabPage AgentsItemsDefinitions;
         public MaterialCard groupBox34;
-        public System.Windows.Forms.NumericUpDown CustomerPrice;
+        public System.Windows.Forms.NumericUpDown ClientPrice;
         public MaterialLabel label90;
         public System.Windows.Forms.NumericUpDown SellPriceTax;
         public MaterialLabel label88;
@@ -11590,7 +11598,7 @@ namespace PlancksoftPOS
         public MaterialLabel label86;
         public MaterialLabel label81;
         public MaterialCard groupBox23;
-        public System.Windows.Forms.DataGridView DGVCustomerItems;
+        public System.Windows.Forms.DataGridView DGVClientItems;
         public System.Windows.Forms.NumericUpDown numericUpDown2;
         public MaterialLabel label31;
         public MaterialLabel label32;
@@ -11602,7 +11610,7 @@ namespace PlancksoftPOS
         public MaterialCheckbox receipt_edit;
         public MaterialCheckbox price_edit;
         public MaterialCheckbox discount_edit;
-        public MaterialCheckbox customer_card_edit;
+        public MaterialCheckbox Client_card_edit;
         public MaterialCheckbox settings_edit;
         public MaterialCheckbox users_edit;
         public System.Windows.Forms.TabControl tabControl6;
@@ -11692,14 +11700,8 @@ namespace PlancksoftPOS
         public System.Windows.Forms.NumericUpDown VendorID;
         public MaterialLabel label41;
         public MaterialLabel label42;
-        public System.Windows.Forms.TabPage AddImporterInvoices;
+        public System.Windows.Forms.TabPage ClientBalanceCheck;
         public System.Windows.Forms.TabPage ImporterBalanceChecks;
-        public MaterialCard groupBox41;
-        public System.Windows.Forms.NumericUpDown numericUpDown3;
-        public MaterialLabel label44;
-        public MaterialTextBox2 textBox8;
-        public MaterialLabel label43;
-        public System.Windows.Forms.DataGridView dgvVendorItemsPick;
         public MaterialCard groupBox42;
         public System.Windows.Forms.DataGridView dgvVendorBillItems;
         public MaterialCard groupBox43;
@@ -11881,7 +11883,7 @@ namespace PlancksoftPOS
         public System.Windows.Forms.DataGridViewTextBoxColumn Column60;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column61;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column27;
-        public System.Windows.Forms.DataGridViewTextBoxColumn CustomerIDDelete;
+        public System.Windows.Forms.DataGridViewTextBoxColumn ClientIDDelete;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column38;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column39;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -11918,13 +11920,6 @@ namespace PlancksoftPOS
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorItemName;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorItemBarCode;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorItemType;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorItemQuantity;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorItemBuyPrice;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorItemSellPrice;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorItemSellPriceTax;
         public System.Windows.Forms.PictureBox pictureBox35;
         public System.Windows.Forms.DataGridViewTextBoxColumn BillNumber;
         public System.Windows.Forms.DataGridViewTextBoxColumn BillCashierName;
@@ -11932,10 +11927,10 @@ namespace PlancksoftPOS
         public System.Windows.Forms.DataGridViewTextBoxColumn BillPaidAmount;
         public System.Windows.Forms.DataGridViewTextBoxColumn BillRemainderAmount;
         public System.Windows.Forms.DataGridViewTextBoxColumn BillPaymentType;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorCustomerName;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorCustomerID;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorCustomerPhone;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorCustomerAddress;
+        public System.Windows.Forms.DataGridViewTextBoxColumn VendorClientName;
+        public System.Windows.Forms.DataGridViewTextBoxColumn VendorClientID;
+        public System.Windows.Forms.DataGridViewTextBoxColumn VendorClientPhone;
+        public System.Windows.Forms.DataGridViewTextBoxColumn VendorClientAddress;
         public System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         public System.Windows.Forms.DataGridViewTextBoxColumn UserID;
         public System.Windows.Forms.DataGridViewTextBoxColumn UserPassword;
@@ -12007,9 +12002,6 @@ namespace PlancksoftPOS
         private MaterialSkin.Controls.MaterialButton button8;
         private MaterialSkin.Controls.MaterialButton button9;
         private MaterialSkin.Controls.MaterialButton button6;
-        private MaterialSkin.Controls.MaterialButton button11;
-        private MaterialSkin.Controls.MaterialButton button10;
-        private MaterialSkin.Controls.MaterialButton button12;
         private MaterialSkin.Controls.MaterialButton button19;
         private MaterialSkin.Controls.MaterialButton button20;
         private MaterialSkin.Controls.MaterialButton button22;
@@ -12091,7 +12083,7 @@ namespace PlancksoftPOS
         internal System.Windows.Forms.PictureBox DarkPrimaryLightColorPanel;
         internal System.Windows.Forms.PictureBox DarkPrimaryDarkColorPanel;
         internal System.Windows.Forms.PictureBox DarkPrimaryColorPanel;
-        public MaterialTextBox2 customerName;
+        public MaterialTextBox2 ClientName;
         public MaterialTextBox2 VendorName;
         private MaterialButton btnPickClientForImportExport;
         public MaterialTextBox2 txtClientNameImportExport;
@@ -12099,6 +12091,26 @@ namespace PlancksoftPOS
         public MaterialLabel lblClientIDImportExport;
         public MaterialLabel lblClientNameImportExport;
         private MaterialSwitch switchDebtUnpaidBills;
+        private System.Windows.Forms.CheckBox selectAllClients;
+        public MaterialCard materialCard1;
+        public System.Windows.Forms.PictureBox btnPrintClientBillItems;
+        public System.Windows.Forms.DataGridView dgvClientBillItems;
+        public MaterialCard materialCard2;
+        public System.Windows.Forms.DataGridView dgvClientBills;
+        public System.Windows.Forms.PictureBox btnPrintClientBills;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private MaterialButton btnClientBalanceCheck;
+        private MaterialButton btnPayDebtBill;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
     }
 }
 

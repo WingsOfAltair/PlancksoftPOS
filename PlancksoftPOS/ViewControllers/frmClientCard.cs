@@ -19,7 +19,7 @@ namespace PlancksoftPOS
     public partial class frmClientCard : MaterialForm
     {
         Connection Connection = new Connection();
-        public Customer customer = new Customer();
+        public Client Client = new Client();
         public DialogResult dialogResult;
         public List<Item> saleItems = new List<Item>();
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
@@ -56,11 +56,11 @@ namespace PlancksoftPOS
                 btnClear.Text = "مسح";
                 btnSearch.Text = "بحث";
                 btnClose.Text = "خروج";
-                dgvCustomers.Columns["Column1"].HeaderText = "اسم العميل";
-                dgvCustomers.Columns["Column2"].HeaderText = "رمز العميل";
-                dgvCustomers.Columns["Column3"].HeaderText = "اسم الماده";
-                dgvCustomers.Columns["Column4"].HeaderText = "سعر العميل";
-                dgvCustomers.Columns["Column5"].HeaderText = "باركود الماده";
+                dgvClients.Columns["Column1"].HeaderText = "اسم العميل";
+                dgvClients.Columns["Column2"].HeaderText = "رمز العميل";
+                dgvClients.Columns["Column3"].HeaderText = "اسم الماده";
+                dgvClients.Columns["Column4"].HeaderText = "سعر العميل";
+                dgvClients.Columns["Column5"].HeaderText = "باركود الماده";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
@@ -72,11 +72,11 @@ namespace PlancksoftPOS
                 btnClear.Text = "Clear";
                 btnSearch.Text = "Search";
                 btnClose.Text = "Close";
-                dgvCustomers.Columns["Column1"].HeaderText = "Client Name";
-                dgvCustomers.Columns["Column2"].HeaderText = "Client ID";
-                dgvCustomers.Columns["Column3"].HeaderText = "Item Name";
-                dgvCustomers.Columns["Column4"].HeaderText = "Client Price";
-                dgvCustomers.Columns["Column5"].HeaderText = "Item Barcode";
+                dgvClients.Columns["Column1"].HeaderText = "Client Name";
+                dgvClients.Columns["Column2"].HeaderText = "Client ID";
+                dgvClients.Columns["Column3"].HeaderText = "Item Name";
+                dgvClients.Columns["Column4"].HeaderText = "Client Price";
+                dgvClients.Columns["Column5"].HeaderText = "Item Barcode";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
@@ -102,24 +102,24 @@ namespace PlancksoftPOS
                 }
                 return;
             }
-            DataTable RetrievedCustomers = Connection.server.SearchCustomers(txtClientName.Text, txtClientID.Text, txtItemName.Text);
-            dgvCustomers.DataSource = RetrievedCustomers;
+            DataTable RetrievedClients = Connection.server.SearchClients(txtClientName.Text, txtClientID.Text, txtItemName.Text);
+            dgvClients.DataSource = RetrievedClients;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                dgvCustomers.Columns["Column1"].HeaderText = "اسم العميل";
-                dgvCustomers.Columns["Column2"].HeaderText = "رمز العميل";
-                dgvCustomers.Columns["Column3"].HeaderText = "اسم الماده";
-                dgvCustomers.Columns["Column4"].HeaderText = "سعر العميل";
-                dgvCustomers.Columns["Column5"].HeaderText = "باركود الماده";
+                dgvClients.Columns["Column1"].HeaderText = "اسم العميل";
+                dgvClients.Columns["Column2"].HeaderText = "رمز العميل";
+                dgvClients.Columns["Column3"].HeaderText = "اسم الماده";
+                dgvClients.Columns["Column4"].HeaderText = "سعر العميل";
+                dgvClients.Columns["Column5"].HeaderText = "باركود الماده";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                dgvCustomers.Columns["Column1"].HeaderText = "Client Name";
-                dgvCustomers.Columns["Column2"].HeaderText = "Client ID";
-                dgvCustomers.Columns["Column3"].HeaderText = "Item Name";
-                dgvCustomers.Columns["Column4"].HeaderText = "Client Price";
-                dgvCustomers.Columns["Column5"].HeaderText = "Item Barcode";
+                dgvClients.Columns["Column1"].HeaderText = "Client Name";
+                dgvClients.Columns["Column2"].HeaderText = "Client ID";
+                dgvClients.Columns["Column3"].HeaderText = "Item Name";
+                dgvClients.Columns["Column4"].HeaderText = "Client Price";
+                dgvClients.Columns["Column5"].HeaderText = "Item Barcode";
             }
         }
 
@@ -129,16 +129,16 @@ namespace PlancksoftPOS
             this.Close();
         }
 
-        private void dgvCustomers_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dgvClients_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             try
             {
-                customer.CustomerName = dgvCustomers.Rows[e.RowIndex].Cells[0].Value.ToString();
-                customer.CustomerID = Convert.ToInt32(dgvCustomers.Rows[e.RowIndex].Cells[1].Value.ToString());
+                Client.ClientName = dgvClients.Rows[e.RowIndex].Cells[0].Value.ToString();
+                Client.ClientID = Convert.ToInt32(dgvClients.Rows[e.RowIndex].Cells[1].Value.ToString());
 
 
                 bool found = false;
-                foreach (DataGridViewRow item in dgvCustomers.Rows)
+                foreach (DataGridViewRow item in dgvClients.Rows)
                 {
                     if (!item.IsNewRow && !found)
                     {
@@ -147,7 +147,7 @@ namespace PlancksoftPOS
                         {
                             newItem.SetName(item.Cells[2].Value.ToString());
                             newItem.SetBarCode(item.Cells[3].Value.ToString());
-                            newItem.customerPrice = Convert.ToDecimal(item.Cells[4].Value.ToString());
+                            newItem.ClientPrice = Convert.ToDecimal(item.Cells[4].Value.ToString());
                             saleItems.Add(newItem);
 
                             found = true;
@@ -182,15 +182,15 @@ namespace PlancksoftPOS
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to choose customer item.", Application.ProductName);
+                    MessageBox.Show("Unable to choose Client item.", Application.ProductName);
                 }
             }
         }
 
         private void txtClientName_TextChanged(object sender, EventArgs e)
         {
-            DataTable RetrievedCustomers = Connection.server.SearchCustomers(txtClientName.Text, "", "");
-            dgvCustomers.DataSource = RetrievedCustomers;
+            DataTable RetrievedClients = Connection.server.SearchClients(txtClientName.Text, "", "");
+            dgvClients.DataSource = RetrievedClients;
         }
     }
 }

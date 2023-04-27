@@ -1,6 +1,6 @@
 ﻿namespace PlancksoftPOS
 {
-    partial class frmPickCustomerLookup
+    partial class frmPickClientLookup
     {
         /// <summary>
         /// Required designer variable.
@@ -28,110 +28,110 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lblCustomerName = new MaterialSkin.Controls.MaterialLabel();
-            this.txtCustomerName = new MaterialSkin.Controls.MaterialTextBox2();
-            this.txtCustomerID = new MaterialSkin.Controls.MaterialTextBox2();
-            this.lblCustomerID = new MaterialSkin.Controls.MaterialLabel();
+            this.lblClientName = new MaterialSkin.Controls.MaterialLabel();
+            this.txtClientName = new MaterialSkin.Controls.MaterialTextBox2();
+            this.txtClientID = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblClientID = new MaterialSkin.Controls.MaterialLabel();
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
-            this.btnPickCustomer = new MaterialSkin.Controls.MaterialButton();
-            this.DGVCustomers = new System.Windows.Forms.DataGridView();
-            this.CustomerPickCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CustomerPickCustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.DGVCustomers)).BeginInit();
+            this.btnPickClient = new MaterialSkin.Controls.MaterialButton();
+            this.DGVClients = new System.Windows.Forms.DataGridView();
+            this.ClientPickClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientPickClientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.DGVClients)).BeginInit();
             this.SuspendLayout();
             // 
-            // lblCustomerName
+            // lblClientName
             // 
-            this.lblCustomerName.AutoSize = true;
-            this.lblCustomerName.Depth = 0;
-            this.lblCustomerName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblCustomerName.Location = new System.Drawing.Point(4, 432);
-            this.lblCustomerName.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblCustomerName.Name = "lblCustomerName";
-            this.lblCustomerName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblCustomerName.Size = new System.Drawing.Size(44, 19);
-            this.lblCustomerName.TabIndex = 2;
-            this.lblCustomerName.Text = "إسم الزبون";
-            this.lblCustomerName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblClientName.AutoSize = true;
+            this.lblClientName.Depth = 0;
+            this.lblClientName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblClientName.Location = new System.Drawing.Point(4, 432);
+            this.lblClientName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblClientName.Name = "lblClientName";
+            this.lblClientName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblClientName.Size = new System.Drawing.Size(43, 19);
+            this.lblClientName.TabIndex = 2;
+            this.lblClientName.Text = "إسم العميل";
+            this.lblClientName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // txtCustomerName
+            // txtClientName
             // 
-            this.txtCustomerName.AnimateReadOnly = false;
-            this.txtCustomerName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtCustomerName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtCustomerName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtCustomerName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtCustomerName.Depth = 0;
-            this.txtCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtCustomerName.HideSelection = true;
-            this.txtCustomerName.LeadingIcon = null;
-            this.txtCustomerName.Location = new System.Drawing.Point(7, 452);
-            this.txtCustomerName.MaxLength = 32767;
-            this.txtCustomerName.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCustomerName.Name = "txtCustomerName";
-            this.txtCustomerName.PasswordChar = '\0';
-            this.txtCustomerName.PrefixSuffixText = null;
-            this.txtCustomerName.ReadOnly = false;
-            this.txtCustomerName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtCustomerName.SelectedText = "";
-            this.txtCustomerName.SelectionLength = 0;
-            this.txtCustomerName.SelectionStart = 0;
-            this.txtCustomerName.ShortcutsEnabled = true;
-            this.txtCustomerName.Size = new System.Drawing.Size(360, 48);
-            this.txtCustomerName.TabIndex = 4;
-            this.txtCustomerName.TabStop = false;
-            this.txtCustomerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtCustomerName.TrailingIcon = null;
-            this.txtCustomerName.UseSystemPasswordChar = false;
-            this.txtCustomerName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustomerName_KeyPress);
-            this.txtCustomerName.TextChanged += new System.EventHandler(this.txtCustomerName_TextChanged);
+            this.txtClientName.AnimateReadOnly = false;
+            this.txtClientName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtClientName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtClientName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtClientName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtClientName.Depth = 0;
+            this.txtClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtClientName.HideSelection = true;
+            this.txtClientName.LeadingIcon = null;
+            this.txtClientName.Location = new System.Drawing.Point(7, 452);
+            this.txtClientName.MaxLength = 32767;
+            this.txtClientName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtClientName.Name = "txtClientName";
+            this.txtClientName.PasswordChar = '\0';
+            this.txtClientName.PrefixSuffixText = null;
+            this.txtClientName.ReadOnly = false;
+            this.txtClientName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtClientName.SelectedText = "";
+            this.txtClientName.SelectionLength = 0;
+            this.txtClientName.SelectionStart = 0;
+            this.txtClientName.ShortcutsEnabled = true;
+            this.txtClientName.Size = new System.Drawing.Size(360, 48);
+            this.txtClientName.TabIndex = 4;
+            this.txtClientName.TabStop = false;
+            this.txtClientName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtClientName.TrailingIcon = null;
+            this.txtClientName.UseSystemPasswordChar = false;
+            this.txtClientName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClientName_KeyPress);
+            this.txtClientName.TextChanged += new System.EventHandler(this.txtClientName_TextChanged);
             // 
-            // txtCustomerID
+            // txtClientID
             // 
-            this.txtCustomerID.AnimateReadOnly = false;
-            this.txtCustomerID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtCustomerID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtCustomerID.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtCustomerID.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtCustomerID.Depth = 0;
-            this.txtCustomerID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtCustomerID.HideSelection = true;
-            this.txtCustomerID.LeadingIcon = null;
-            this.txtCustomerID.Location = new System.Drawing.Point(409, 452);
-            this.txtCustomerID.MaxLength = 32767;
-            this.txtCustomerID.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCustomerID.Name = "txtCustomerID";
-            this.txtCustomerID.PasswordChar = '\0';
-            this.txtCustomerID.PrefixSuffixText = null;
-            this.txtCustomerID.ReadOnly = false;
-            this.txtCustomerID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtCustomerID.SelectedText = "";
-            this.txtCustomerID.SelectionLength = 0;
-            this.txtCustomerID.SelectionStart = 0;
-            this.txtCustomerID.ShortcutsEnabled = true;
-            this.txtCustomerID.Size = new System.Drawing.Size(360, 48);
-            this.txtCustomerID.TabIndex = 6;
-            this.txtCustomerID.TabStop = false;
-            this.txtCustomerID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtCustomerID.TrailingIcon = null;
-            this.txtCustomerID.UseSystemPasswordChar = false;
-            this.txtCustomerID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCustomerID_KeyPress);
-            this.txtCustomerID.TextChanged += new System.EventHandler(this.txtCustomerID_TextChanged);
+            this.txtClientID.AnimateReadOnly = false;
+            this.txtClientID.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtClientID.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtClientID.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtClientID.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtClientID.Depth = 0;
+            this.txtClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtClientID.HideSelection = true;
+            this.txtClientID.LeadingIcon = null;
+            this.txtClientID.Location = new System.Drawing.Point(409, 452);
+            this.txtClientID.MaxLength = 32767;
+            this.txtClientID.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtClientID.Name = "txtClientID";
+            this.txtClientID.PasswordChar = '\0';
+            this.txtClientID.PrefixSuffixText = null;
+            this.txtClientID.ReadOnly = false;
+            this.txtClientID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtClientID.SelectedText = "";
+            this.txtClientID.SelectionLength = 0;
+            this.txtClientID.SelectionStart = 0;
+            this.txtClientID.ShortcutsEnabled = true;
+            this.txtClientID.Size = new System.Drawing.Size(360, 48);
+            this.txtClientID.TabIndex = 6;
+            this.txtClientID.TabStop = false;
+            this.txtClientID.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtClientID.TrailingIcon = null;
+            this.txtClientID.UseSystemPasswordChar = false;
+            this.txtClientID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClientID_KeyPress);
+            this.txtClientID.TextChanged += new System.EventHandler(this.txtClientID_TextChanged);
             // 
-            // lblCustomerID
+            // lblClientID
             // 
-            this.lblCustomerID.AutoSize = true;
-            this.lblCustomerID.Depth = 0;
-            this.lblCustomerID.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblCustomerID.Location = new System.Drawing.Point(406, 432);
-            this.lblCustomerID.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblCustomerID.Name = "lblCustomerID";
-            this.lblCustomerID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblCustomerID.Size = new System.Drawing.Size(47, 19);
-            this.lblCustomerID.TabIndex = 5;
-            this.lblCustomerID.Text = "رمز الزبون";
-            this.lblCustomerID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblClientID.AutoSize = true;
+            this.lblClientID.Depth = 0;
+            this.lblClientID.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblClientID.Location = new System.Drawing.Point(406, 432);
+            this.lblClientID.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblClientID.Name = "lblClientID";
+            this.lblClientID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.lblClientID.Size = new System.Drawing.Size(46, 19);
+            this.lblClientID.TabIndex = 5;
+            this.lblClientID.Text = "رمز العميل";
+            this.lblClientID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnClose
             // 
@@ -175,82 +175,84 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // btnPickCustomer
+            // btnPickClient
             // 
-            this.btnPickCustomer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnPickCustomer.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnPickCustomer.Depth = 0;
-            this.btnPickCustomer.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnPickCustomer.HighEmphasis = true;
-            this.btnPickCustomer.Icon = null;
-            this.btnPickCustomer.Location = new System.Drawing.Point(3, 508);
-            this.btnPickCustomer.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnPickCustomer.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnPickCustomer.Name = "btnPickCustomer";
-            this.btnPickCustomer.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnPickCustomer.Size = new System.Drawing.Size(769, 36);
-            this.btnPickCustomer.TabIndex = 74;
-            this.btnPickCustomer.Text = "إختيار الزبون";
-            this.btnPickCustomer.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnPickCustomer.UseAccentColor = false;
-            this.btnPickCustomer.UseVisualStyleBackColor = true;
-            this.btnPickCustomer.Click += new System.EventHandler(this.btnPickCustomer_Click);
+            this.btnPickClient.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnPickClient.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnPickClient.Depth = 0;
+            this.btnPickClient.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.btnPickClient.HighEmphasis = true;
+            this.btnPickClient.Icon = null;
+            this.btnPickClient.Location = new System.Drawing.Point(3, 508);
+            this.btnPickClient.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnPickClient.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnPickClient.Name = "btnPickClient";
+            this.btnPickClient.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnPickClient.Size = new System.Drawing.Size(769, 36);
+            this.btnPickClient.TabIndex = 74;
+            this.btnPickClient.Text = "إختيار العميل";
+            this.btnPickClient.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnPickClient.UseAccentColor = false;
+            this.btnPickClient.UseVisualStyleBackColor = true;
+            this.btnPickClient.Click += new System.EventHandler(this.btnPickClient_Click);
             // 
-            // DGVCustomers
+            // DGVClients
             // 
-            this.DGVCustomers.BackgroundColor = System.Drawing.Color.White;
-            this.DGVCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DGVCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.CustomerPickCustomerName,
-            this.CustomerPickCustomerID});
-            this.DGVCustomers.Location = new System.Drawing.Point(3, 67);
-            this.DGVCustomers.Name = "DGVCustomers";
-            this.DGVCustomers.Size = new System.Drawing.Size(764, 362);
-            this.DGVCustomers.TabIndex = 75;
-            this.DGVCustomers.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVCustomers_RowHeaderMouseClick);
+            this.DGVClients.BackgroundColor = System.Drawing.Color.White;
+            this.DGVClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGVClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ClientPickClientName,
+            this.ClientPickClientID});
+            this.DGVClients.Location = new System.Drawing.Point(3, 67);
+            this.DGVClients.Name = "DGVClients";
+            this.DGVClients.Size = new System.Drawing.Size(764, 362);
+            this.DGVClients.TabIndex = 75;
+            this.DGVClients.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVClients_RowHeaderMouseClick);
             // 
-            // CustomerPickCustomerName
+            // ClientPickClientName
             // 
-            this.CustomerPickCustomerName.DataPropertyName = "Customer Name";
-            this.CustomerPickCustomerName.HeaderText = "اسم الزبون";
-            this.CustomerPickCustomerName.Name = "CustomerPickCustomerName";
+            this.ClientPickClientName.DataPropertyName = "Client Name";
+            this.ClientPickClientName.HeaderText = "اسم العميل";
+            this.ClientPickClientName.Name = "ClientPickClientName";
             // 
-            // CustomerPickCustomerID
+            // ClientPickClientID
             // 
-            this.CustomerPickCustomerID.DataPropertyName = "Customer ID";
-            this.CustomerPickCustomerID.HeaderText = "رقم الزبون";
-            this.CustomerPickCustomerID.Name = "CustomerPickCustomerID";
+            this.ClientPickClientID.DataPropertyName = "Client ID";
+            this.ClientPickClientID.HeaderText = "رقم العميل";
+            this.ClientPickClientID.Name = "ClientPickClientID";
             // 
-            // frmPickCustomerLookup
+            // frmPickClientLookup
             // 
             this.ClientSize = new System.Drawing.Size(775, 619);
-            this.Controls.Add(this.DGVCustomers);
-            this.Controls.Add(this.btnPickCustomer);
+            this.Controls.Add(this.DGVClients);
+            this.Controls.Add(this.btnPickClient);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.txtCustomerID);
-            this.Controls.Add(this.lblCustomerID);
-            this.Controls.Add(this.txtCustomerName);
-            this.Controls.Add(this.lblCustomerName);
-            this.Name = "frmPickCustomerLookup";
+            this.Controls.Add(this.txtClientID);
+            this.Controls.Add(this.lblClientID);
+            this.Controls.Add(this.txtClientName);
+            this.Controls.Add(this.lblClientName);
+            this.Name = "frmPickClientLookup";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
-            ((System.ComponentModel.ISupportInitialize)(this.DGVCustomers)).EndInit();
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "إختيار العميل";
+            ((System.ComponentModel.ISupportInitialize)(this.DGVClients)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private MaterialSkin.Controls.MaterialLabel lblCustomerName;
-        private MaterialSkin.Controls.MaterialTextBox2 txtCustomerName;
-        private MaterialSkin.Controls.MaterialTextBox2 txtCustomerID;
-        private MaterialSkin.Controls.MaterialLabel lblCustomerID;
+        private MaterialSkin.Controls.MaterialLabel lblClientName;
+        private MaterialSkin.Controls.MaterialTextBox2 txtClientName;
+        private MaterialSkin.Controls.MaterialTextBox2 txtClientID;
+        private MaterialSkin.Controls.MaterialLabel lblClientID;
         private MaterialSkin.Controls.MaterialButton btnClose;
         private MaterialSkin.Controls.MaterialButton btnClear;
-        private MaterialSkin.Controls.MaterialButton btnPickCustomer;
-        public System.Windows.Forms.DataGridView DGVCustomers;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPickCustomerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CustomerPickCustomerID;
+        private MaterialSkin.Controls.MaterialButton btnPickClient;
+        public System.Windows.Forms.DataGridView DGVClients;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientPickClientName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientPickClientID;
     }
 }

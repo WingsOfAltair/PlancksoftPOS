@@ -418,5 +418,109 @@ namespace PlancksoftPOS
             catch (Exception error)
             { }
         }
+
+        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmLogin.pickedLanguage = LanguageChoice.Languages.Arabic;
+                Properties.Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
+                Properties.Settings.Default.Save();
+                englishToolStripMenuItem.Checked = false;
+                العربيةToolStripMenuItem.Checked = true;
+                applyLocalizationOnUI();
+            }
+            catch (Exception err) { }
+        }
+
+        private void englishToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmLogin.pickedLanguage = LanguageChoice.Languages.English;
+                Properties.Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
+                Properties.Settings.Default.Save();
+                englishToolStripMenuItem.Checked = true;
+                العربيةToolStripMenuItem.Checked = false;
+                applyLocalizationOnUI();
+            }
+            catch (Exception err) { }
+        }
+
+        private void مظلمToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.materialSkinManager = MaterialSkinManager.Instance;
+            Program.materialSkinManager.EnforceBackcolorOnAllComponents = false; ;
+
+            Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+            if (Properties.Settings.Default.darkTextShade == "BLACK")
+                Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.BLACK);
+            else
+                Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.WHITE);
+            Properties.Settings.Default.pickedThemeScheme = 1;
+            Properties.Settings.Default.Save();
+            مظلمToolStripMenuItem.Checked = true;
+            فاتحToolStripMenuItem.Checked = false;
+        }
+
+        private void فاتحToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Program.materialSkinManager = MaterialSkinManager.Instance;
+            Program.materialSkinManager.EnforceBackcolorOnAllComponents = false; ;
+
+            Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            if (Properties.Settings.Default.TextShade == "BLACK")
+                Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.BLACK);
+            else
+                Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.WHITE);
+            Properties.Settings.Default.pickedThemeScheme = 0;
+            Properties.Settings.Default.Save();
+            مظلمToolStripMenuItem.Checked = false;
+            فاتحToolStripMenuItem.Checked = true;
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            frmLogin.pickedLanguage = (LanguageChoice.Languages)Properties.Settings.Default.pickedLanguage;
+
+            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                العربيةToolStripMenuItem.Checked = true;
+                RightToLeft = RightToLeft.Yes;
+                RightToLeftLayout = true;
+            }
+            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            {
+                englishToolStripMenuItem.Checked = true;
+                RightToLeft = RightToLeft.No;
+                RightToLeftLayout = false;
+            }
+
+            if (Properties.Settings.Default.pickedThemeScheme == (int)ThemeSchemeChoice.ThemeScheme.Dark)
+            {
+                Program.materialSkinManager.Theme = MaterialSkinManager.Themes.DARK;
+                if (Properties.Settings.Default.darkTextShade.ToUpper() == "BLACK")
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.BLACK);
+                else
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.darkPrimary, Properties.Settings.Default.darkPrimaryDark, Properties.Settings.Default.darkLightPrimary, Properties.Settings.Default.darkAccent, TextShade.WHITE);
+                مظلمToolStripMenuItem.Checked = true;
+                فاتحToolStripMenuItem.Checked = false;
+            }
+            else
+            {
+                Program.materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+                if (Properties.Settings.Default.TextShade.ToUpper() == "BLACK")
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.BLACK);
+                else
+                    Program.materialSkinManager.ColorScheme = new ColorScheme(Properties.Settings.Default.Primary, Properties.Settings.Default.PrimaryDark, Properties.Settings.Default.LightPrimary, Properties.Settings.Default.Accent, TextShade.WHITE);
+                مظلمToolStripMenuItem.Checked = false;
+                فاتحToolStripMenuItem.Checked = true;
+            }
+        }
     }
 }

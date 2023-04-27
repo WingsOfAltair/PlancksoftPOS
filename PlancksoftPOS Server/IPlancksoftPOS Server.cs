@@ -44,9 +44,9 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         Tuple<List<Account>, DataTable> RetrieveUsersList();
         [OperationContract]
-        Tuple<List<Customer>, DataTable> GetRetrieveCustomers();
+        DataTable GetRetrieveClients();
         [OperationContract]
-        Tuple<List<Customer>, DataTable> GetRetrieveVendors();
+        DataTable GetRetrieveVendors();
         [OperationContract]
         bool CheckAdmin();
         [OperationContract]
@@ -116,7 +116,9 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         Tuple<List<Account>, DataTable> RetrieveUsers();
         [OperationContract]
-        Tuple<List<Item>, DataTable> RetrieveVendorBillItems(int BillNumber);
+        DataTable RetrieveClientBills(int ClientID);
+        [OperationContract]
+        DataTable RetrieveVendorBillItems(int BillNumber);
         [OperationContract]
         Tuple<List<Item>, DataTable> RetrieveBillItems(int BillNumber);
         [OperationContract]
@@ -170,11 +172,11 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool InsertPrinter(string machineName, string printerName);
         [OperationContract]
-        bool DeletesCustomer(string CustomerID);
+        bool DeletesClient(string ClientID);
         [OperationContract]
-        bool RegisterCustomer(Customer CustomerToInsert);
+        bool RegisterClient(Client ClientToInsert);
         [OperationContract]
-        bool RegisterVendor(Customer CustomerToInsert);
+        bool RegisterVendor(Client ClientToInsert);
         [OperationContract]
         bool DeleteAbsence(int AbsenceID);
         [OperationContract]
@@ -184,13 +186,13 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool AddSaleOnItems(List<Item> saleItems);
         [OperationContract]
-        bool AddItemToCustomer(string ItemBarCode, int CustomerID, decimal CustomerPrice);
+        bool AddItemToClient(string ItemBarCode, int ClientID, decimal ClientPrice);
         [OperationContract]
         int AddUnpaidBill(Bill billToAdd, string cashierName);
         [OperationContract]
         int AddVendorBill(Bill billToAdd, string cashierName);
         [OperationContract]
-        bool PayUnpaidBill(int BillNumber);
+        bool PayUnpaidBill(int BillNumber, decimal paidAmount, decimal remainderAmount);
         [OperationContract]
         bool PayBill(Bill billToAdd, string cashierName);
         [OperationContract]
@@ -234,8 +236,8 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         Tuple<List<Item>, DataTable> SearchItems(string ItemName = "", string ItemBarCode = "", int ItemType = 0);
         [OperationContract]
-        DataTable SearchCustomers(string customerName = "", string customerID = "", string itemName = "");
+        DataTable SearchClients(string ClientName = "", string ClientID = "", string itemName = "");
         [OperationContract]
-        Tuple<Customer, DataTable> SearchCustomersInfo(string customerName = "", string customerID = "");
+        DataTable SearchClientsInfo(string ClientName = "", string ClientID = "");
     }
 }
