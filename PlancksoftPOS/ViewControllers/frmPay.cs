@@ -26,7 +26,7 @@ namespace PlancksoftPOS
         public decimal moneyPaid = 0;
         public decimal paidAmount = 0;
         public decimal remainderAmount = 0;
-        public bool paybycash = false;
+        public bool paybycash = true;
 
         public DialogResult dialogResult;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
@@ -56,6 +56,9 @@ namespace PlancksoftPOS
             txtRequiredAmount.Text = totalAmount.ToString();
             txtRemainderAmount.Text = Convert.ToString(this.paidAmount - this.totalAmount);
             txtPaidAmount.Select();
+
+            rbCash.Checked = true;
+            rbVisa.Checked = false;
 
             if (frmMain.Authority == 1)
             {

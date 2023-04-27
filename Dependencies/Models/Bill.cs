@@ -11,6 +11,8 @@ namespace Dependencies
     public class Bill
     {
         [DataMember]
+        private bool postponed;
+        [DataMember]
         public int billNumber;
         [DataMember]
         public decimal remainderAmount, totalAmount, paidAmount;
@@ -37,6 +39,8 @@ namespace Dependencies
         public DateTime Date { get => date; set => date = value; }
         [DataMember]
         public bool PayByCash { get => paybycash; set => paybycash = value; }
+        [DataMember]
+        public bool Postponed { get => postponed; set => postponed = value; }
 
         public Bill()
         {
@@ -45,7 +49,10 @@ namespace Dependencies
 
         public Bill(int billNumber, decimal totalAmount, List<Item> itemsBought, DateTime date)
         {
-            BillNumber = billNumber;
+            if (BillNumber > -1)
+            {
+                BillNumber = billNumber;
+            }
             TotalAmount = totalAmount;
             PaidAmount = paidAmount;
             RemainderAmount = remainderAmount;
@@ -56,7 +63,10 @@ namespace Dependencies
 
         public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, List<Item> itemsBought, bool paybycash, DateTime date)
         {
-            BillNumber = billNumber;
+            if (BillNumber > -1)
+            {
+                BillNumber = billNumber;
+            }
             TotalAmount = totalAmount;
             PaidAmount = paidAmount;
             RemainderAmount = remainderAmount;
@@ -67,7 +77,10 @@ namespace Dependencies
 
         public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, List<Item> itemsBought, DateTime date)
         {
-            BillNumber = billNumber;
+            if (BillNumber > -1)
+            {
+                BillNumber = billNumber;
+            }
             TotalAmount = totalAmount;
             PaidAmount = paidAmount;
             RemainderAmount = remainderAmount;

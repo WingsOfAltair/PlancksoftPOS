@@ -62,12 +62,12 @@
             // 
             this.lblRequiredAmount.AutoSize = true;
             this.lblRequiredAmount.Depth = 0;
-            this.lblRequiredAmount.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblRequiredAmount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblRequiredAmount.Location = new System.Drawing.Point(114, 73);
             this.lblRequiredAmount.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblRequiredAmount.Name = "lblRequiredAmount";
             this.lblRequiredAmount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblRequiredAmount.Size = new System.Drawing.Size(91, 17);
+            this.lblRequiredAmount.Size = new System.Drawing.Size(61, 19);
             this.lblRequiredAmount.TabIndex = 0;
             this.lblRequiredAmount.Text = "المبلغ المطلوب";
             // 
@@ -75,12 +75,12 @@
             // 
             this.lblRemainderAmount.AutoSize = true;
             this.lblRemainderAmount.Depth = 0;
-            this.lblRemainderAmount.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblRemainderAmount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblRemainderAmount.Location = new System.Drawing.Point(562, 73);
             this.lblRemainderAmount.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblRemainderAmount.Name = "lblRemainderAmount";
             this.lblRemainderAmount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblRemainderAmount.Size = new System.Drawing.Size(36, 17);
+            this.lblRemainderAmount.Size = new System.Drawing.Size(23, 19);
             this.lblRemainderAmount.TabIndex = 1;
             this.lblRemainderAmount.Text = "الباقي";
             // 
@@ -88,12 +88,12 @@
             // 
             this.lblPaidAmount.AutoSize = true;
             this.lblPaidAmount.Depth = 0;
-            this.lblPaidAmount.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblPaidAmount.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblPaidAmount.Location = new System.Drawing.Point(356, 144);
             this.lblPaidAmount.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPaidAmount.Name = "lblPaidAmount";
             this.lblPaidAmount.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblPaidAmount.Size = new System.Drawing.Size(87, 17);
+            this.lblPaidAmount.Size = new System.Drawing.Size(56, 19);
             this.lblPaidAmount.TabIndex = 2;
             this.lblPaidAmount.Text = "المبلغ المدفوع";
             // 
@@ -414,14 +414,14 @@
             this.cbWithDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbWithDiscount.AutoSize = true;
             this.cbWithDiscount.Depth = 0;
-            this.cbWithDiscount.Location = new System.Drawing.Point(742, 293);
+            this.cbWithDiscount.Location = new System.Drawing.Point(792, 293);
             this.cbWithDiscount.Margin = new System.Windows.Forms.Padding(0);
             this.cbWithDiscount.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cbWithDiscount.MouseState = MaterialSkin.MouseState.HOVER;
             this.cbWithDiscount.Name = "cbWithDiscount";
             this.cbWithDiscount.ReadOnly = false;
             this.cbWithDiscount.Ripple = true;
-            this.cbWithDiscount.Size = new System.Drawing.Size(87, 37);
+            this.cbWithDiscount.Size = new System.Drawing.Size(69, 37);
             this.cbWithDiscount.TabIndex = 66;
             this.cbWithDiscount.Text = "مع خصم";
             this.cbWithDiscount.UseVisualStyleBackColor = true;
@@ -431,7 +431,7 @@
             // 
             this.nudDiscountRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nudDiscountRate.Enabled = false;
-            this.nudDiscountRate.Location = new System.Drawing.Point(748, 326);
+            this.nudDiscountRate.Location = new System.Drawing.Point(780, 326);
             this.nudDiscountRate.Maximum = new decimal(new int[] {
             10,
             0,
@@ -447,12 +447,12 @@
             this.lblPercentage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblPercentage.AutoSize = true;
             this.lblPercentage.Depth = 0;
-            this.lblPercentage.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblPercentage.Location = new System.Drawing.Point(816, 330);
+            this.lblPercentage.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblPercentage.Location = new System.Drawing.Point(848, 330);
             this.lblPercentage.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPercentage.Name = "lblPercentage";
             this.lblPercentage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblPercentage.Size = new System.Drawing.Size(12, 17);
+            this.lblPercentage.Size = new System.Drawing.Size(13, 19);
             this.lblPercentage.TabIndex = 68;
             this.lblPercentage.Text = "%";
             // 
@@ -461,13 +461,13 @@
             this.rbCash.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rbCash.AutoSize = true;
             this.rbCash.Depth = 0;
-            this.rbCash.Location = new System.Drawing.Point(732, 216);
+            this.rbCash.Location = new System.Drawing.Point(789, 216);
             this.rbCash.Margin = new System.Windows.Forms.Padding(0);
             this.rbCash.MouseLocation = new System.Drawing.Point(-1, -1);
             this.rbCash.MouseState = MaterialSkin.MouseState.HOVER;
             this.rbCash.Name = "rbCash";
             this.rbCash.Ripple = true;
-            this.rbCash.Size = new System.Drawing.Size(93, 37);
+            this.rbCash.Size = new System.Drawing.Size(68, 37);
             this.rbCash.TabIndex = 69;
             this.rbCash.TabStop = true;
             this.rbCash.Text = "دفع كاش";
@@ -478,13 +478,13 @@
             this.rbVisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rbVisa.AutoSize = true;
             this.rbVisa.Depth = 0;
-            this.rbVisa.Location = new System.Drawing.Point(732, 253);
+            this.rbVisa.Location = new System.Drawing.Point(772, 253);
             this.rbVisa.Margin = new System.Windows.Forms.Padding(0);
             this.rbVisa.MouseLocation = new System.Drawing.Point(-1, -1);
             this.rbVisa.MouseState = MaterialSkin.MouseState.HOVER;
             this.rbVisa.Name = "rbVisa";
             this.rbVisa.Ripple = true;
-            this.rbVisa.Size = new System.Drawing.Size(90, 37);
+            this.rbVisa.Size = new System.Drawing.Size(82, 37);
             this.rbVisa.TabIndex = 70;
             this.rbVisa.TabStop = true;
             this.rbVisa.Text = "دفع Visa";
@@ -498,7 +498,7 @@
             this.btnPay.Depth = 0;
             this.btnPay.HighEmphasis = true;
             this.btnPay.Icon = null;
-            this.btnPay.Location = new System.Drawing.Point(559, 228);
+            this.btnPay.Location = new System.Drawing.Point(591, 228);
             this.btnPay.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPay.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPay.Name = "btnPay";
@@ -519,7 +519,7 @@
             this.btnDelayPayment.Depth = 0;
             this.btnDelayPayment.HighEmphasis = true;
             this.btnDelayPayment.Icon = null;
-            this.btnDelayPayment.Location = new System.Drawing.Point(545, 276);
+            this.btnDelayPayment.Location = new System.Drawing.Point(577, 276);
             this.btnDelayPayment.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelayPayment.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelayPayment.Name = "btnDelayPayment";
@@ -540,7 +540,7 @@
             this.btnCancel.Depth = 0;
             this.btnCancel.HighEmphasis = true;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(559, 317);
+            this.btnCancel.Location = new System.Drawing.Point(591, 317);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";
@@ -577,7 +577,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 414);
+            this.ClientSize = new System.Drawing.Size(876, 421);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnDelayPayment);

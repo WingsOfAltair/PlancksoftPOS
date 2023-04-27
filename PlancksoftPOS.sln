@@ -8,6 +8,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dependencies", "Dependencies\Dependencies.csproj", "{123458DB-B615-47E7-A917-C3D7E67CABD2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlancksoftPOS", "PlancksoftPOS\PlancksoftPOS.csproj", "{690B9723-B20B-4BBA-BFED-5BC79081D516}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E9FD12D7-24CB-4B93-848E-83B73645CD1A} = {E9FD12D7-24CB-4B93-848E-83B73645CD1A}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlancksoftPOS Server", "PlancksoftPOS Server\PlancksoftPOS Server.csproj", "{E9FD12D7-24CB-4B93-848E-83B73645CD1A}"
 EndProject

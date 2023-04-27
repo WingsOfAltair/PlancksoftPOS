@@ -84,6 +84,8 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         Tuple<List<Bill>, DataTable> RetrievePortedBills();
         [OperationContract]
+        Tuple<List<Bill>, DataTable> RetrieveUnpaidBills();
+        [OperationContract]
         Tuple<List<Bill>, DataTable> RetrieveVendorBills();
         [OperationContract]
         DataTable RetrieveTaxZReport();
@@ -184,7 +186,11 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool AddItemToCustomer(string ItemBarCode, int CustomerID, decimal CustomerPrice);
         [OperationContract]
-        bool AddVendorBill(Bill billToAdd, string cashierName);
+        int AddUnpaidBill(Bill billToAdd, string cashierName);
+        [OperationContract]
+        int AddVendorBill(Bill billToAdd, string cashierName);
+        [OperationContract]
+        bool PayUnpaidBill(int BillNumber);
         [OperationContract]
         bool PayBill(Bill billToAdd, string cashierName);
         [OperationContract]

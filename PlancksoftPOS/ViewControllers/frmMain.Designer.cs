@@ -28,13 +28,13 @@ namespace PlancksoftPOS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.ادارةالمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.اضافةمادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,22 +60,15 @@ namespace PlancksoftPOS
             this.groupBox4 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox25 = new System.Windows.Forms.PictureBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.label93 = new MaterialSkin.Controls.MaterialLabel();
-            this.label67 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
             this.pictureBox12 = new System.Windows.Forms.PictureBox();
-            this.label68 = new MaterialSkin.Controls.MaterialLabel();
-            this.label69 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox26 = new System.Windows.Forms.PictureBox();
-            this.label2 = new MaterialSkin.Controls.MaterialLabel();
-            this.label89 = new MaterialSkin.Controls.MaterialLabel();
             this.panel1 = new MaterialSkin.Controls.MaterialCard();
             this.pictureBox37 = new System.Windows.Forms.PictureBox();
-            this.label24 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox13 = new System.Windows.Forms.PictureBox();
-            this.label70 = new MaterialSkin.Controls.MaterialLabel();
+            this.switchDebtUnpaidBills = new MaterialSkin.Controls.MaterialSwitch();
             this.label51 = new MaterialSkin.Controls.MaterialLabel();
             this.pendingPurchaseNewPriceTax = new System.Windows.Forms.NumericUpDown();
             this.label50 = new MaterialSkin.Controls.MaterialLabel();
@@ -1242,20 +1235,14 @@ namespace PlancksoftPOS
             // 
             this.groupBox4.Controls.Add(this.pictureBox25);
             this.groupBox4.Controls.Add(this.pictureBox10);
-            this.groupBox4.Controls.Add(this.label93);
-            this.groupBox4.Controls.Add(this.label67);
             this.groupBox4.Controls.Add(this.pictureBox11);
             this.groupBox4.Controls.Add(this.pictureBox12);
-            this.groupBox4.Controls.Add(this.label68);
-            this.groupBox4.Controls.Add(this.label69);
             this.groupBox4.Controls.Add(this.pictureBox3);
             this.groupBox4.Controls.Add(this.pictureBox26);
-            this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Controls.Add(this.label89);
             this.groupBox4.Controls.Add(this.panel1);
             this.groupBox4.Controls.Add(this.pictureBox14);
             this.groupBox4.Controls.Add(this.pictureBox13);
-            this.groupBox4.Controls.Add(this.label70);
+            this.groupBox4.Controls.Add(this.switchDebtUnpaidBills);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox4.Location = new System.Drawing.Point(1618, 14);
             this.groupBox4.Name = "groupBox4";
@@ -1291,45 +1278,13 @@ namespace PlancksoftPOS
             this.pictureBox10.TabStop = false;
             this.pictureBox10.Click += new System.EventHandler(this.pictureBox10_Click);
             // 
-            // label93
-            // 
-            this.label93.AutoSize = true;
-            this.label93.BackColor = System.Drawing.Color.Transparent;
-            this.label93.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label93.Depth = 0;
-            this.label93.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label93.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label93.Location = new System.Drawing.Point(197, 104);
-            this.label93.MouseState = MaterialSkin.MouseState.HOVER;
-            this.label93.Name = "label93";
-            this.label93.Size = new System.Drawing.Size(68, 19);
-            this.label93.TabIndex = 39;
-            this.label93.Text = "بطاقة عميل F2";
-            this.label93.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label93_MouseClick);
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.BackColor = System.Drawing.Color.Transparent;
-            this.label67.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label67.Depth = 0;
-            this.label67.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label67.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label67.Location = new System.Drawing.Point(150, 104);
-            this.label67.MouseState = MaterialSkin.MouseState.HOVER;
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(41, 19);
-            this.label67.TabIndex = 34;
-            this.label67.Text = "الدفع F1";
-            this.label67.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label67_MouseClick);
-            // 
             // pictureBox11
             // 
             this.pictureBox11.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pictureBox11.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox11.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox11.Image = global::PlancksoftPOS.Properties.Resources.discount;
-            this.pictureBox11.Location = new System.Drawing.Point(20, 107);
+            this.pictureBox11.Location = new System.Drawing.Point(141, 107);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(124, 98);
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1343,7 +1298,7 @@ namespace PlancksoftPOS
             this.pictureBox12.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox12.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox12.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox12.Image")));
-            this.pictureBox12.Location = new System.Drawing.Point(141, 211);
+            this.pictureBox12.Location = new System.Drawing.Point(11, 107);
             this.pictureBox12.Name = "pictureBox12";
             this.pictureBox12.Size = new System.Drawing.Size(124, 98);
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1351,45 +1306,13 @@ namespace PlancksoftPOS
             this.pictureBox12.TabStop = false;
             this.pictureBox12.Click += new System.EventHandler(this.pictureBox12_Click);
             // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label68.Depth = 0;
-            this.label68.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label68.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label68.Location = new System.Drawing.Point(67, 208);
-            this.label68.MouseState = MaterialSkin.MouseState.HOVER;
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(68, 19);
-            this.label68.TabIndex = 35;
-            this.label68.Text = "الخصومات F4";
-            this.label68.Click += new System.EventHandler(this.label68_Click);
-            this.label68.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label68_MouseClick);
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label69.Depth = 0;
-            this.label69.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label69.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label69.Location = new System.Drawing.Point(193, 312);
-            this.label69.MouseState = MaterialSkin.MouseState.HOVER;
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(72, 19);
-            this.label69.TabIndex = 36;
-            this.label69.Text = "فاتوره جديده F3";
-            this.label69.Click += new System.EventHandler(this.label69_Click);
-            this.label69.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label69_MouseClick);
-            // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pictureBox3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(63, 315);
+            this.pictureBox3.Location = new System.Drawing.Point(141, 211);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(124, 98);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1403,7 +1326,7 @@ namespace PlancksoftPOS
             this.pictureBox26.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox26.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox26.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox26.Image")));
-            this.pictureBox26.Location = new System.Drawing.Point(141, 419);
+            this.pictureBox26.Location = new System.Drawing.Point(11, 211);
             this.pictureBox26.Name = "pictureBox26";
             this.pictureBox26.Size = new System.Drawing.Size(124, 98);
             this.pictureBox26.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1411,46 +1334,13 @@ namespace PlancksoftPOS
             this.pictureBox26.TabStop = false;
             this.pictureBox26.Click += new System.EventHandler(this.pictureBox26_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label2.Depth = 0;
-            this.label2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label2.Location = new System.Drawing.Point(72, 416);
-            this.label2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 19);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "فتح الكاش F6";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
-            this.label2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label2_MouseClick);
-            // 
-            // label89
-            // 
-            this.label89.AutoSize = true;
-            this.label89.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label89.Depth = 0;
-            this.label89.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label89.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label89.Location = new System.Drawing.Point(194, 520);
-            this.label89.MouseState = MaterialSkin.MouseState.HOVER;
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(71, 19);
-            this.label89.TabIndex = 41;
-            this.label89.Text = "تعديل السعر F5";
-            this.label89.Click += new System.EventHandler(this.label89_Click);
-            this.label89.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label89_MouseClick);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.panel1.Controls.Add(this.pictureBox37);
-            this.panel1.Controls.Add(this.label24);
             this.panel1.Depth = 0;
             this.panel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel1.Location = new System.Drawing.Point(2, 553);
+            this.panel1.Location = new System.Drawing.Point(2, 326);
             this.panel1.Margin = new System.Windows.Forms.Padding(14);
             this.panel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.panel1.Name = "panel1";
@@ -1473,30 +1363,13 @@ namespace PlancksoftPOS
             this.pictureBox37.TabStop = false;
             this.pictureBox37.Click += new System.EventHandler(this.pictureBox37_Click);
             // 
-            // label24
-            // 
-            this.label24.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label24.AutoSize = true;
-            this.label24.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.label24.Depth = 0;
-            this.label24.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label24.Location = new System.Drawing.Point(4, 52);
-            this.label24.MouseState = MaterialSkin.MouseState.HOVER;
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(90, 19);
-            this.label24.TabIndex = 45;
-            this.label24.Text = "البحث عن المواد F9";
-            this.label24.Click += new System.EventHandler(this.label24_Click);
-            this.label24.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label24_MouseClick);
-            // 
             // pictureBox14
             // 
             this.pictureBox14.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.pictureBox14.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox14.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox14.Image = global::PlancksoftPOS.Properties.Resources.rightarrow;
-            this.pictureBox14.Location = new System.Drawing.Point(195, 697);
+            this.pictureBox14.Location = new System.Drawing.Point(195, 470);
             this.pictureBox14.Name = "pictureBox14";
             this.pictureBox14.Size = new System.Drawing.Size(70, 98);
             this.pictureBox14.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1510,7 +1383,7 @@ namespace PlancksoftPOS
             this.pictureBox13.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox13.Image = global::PlancksoftPOS.Properties.Resources.leftarrow;
-            this.pictureBox13.Location = new System.Drawing.Point(110, 697);
+            this.pictureBox13.Location = new System.Drawing.Point(110, 470);
             this.pictureBox13.Name = "pictureBox13";
             this.pictureBox13.Size = new System.Drawing.Size(79, 99);
             this.pictureBox13.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1518,20 +1391,22 @@ namespace PlancksoftPOS
             this.pictureBox13.TabStop = false;
             this.pictureBox13.Click += new System.EventHandler(this.pictureBox13_Click);
             // 
-            // label70
+            // switchDebtUnpaidBills
             // 
-            this.label70.AutoSize = true;
-            this.label70.Cursor = System.Windows.Forms.Cursors.Default;
-            this.label70.Depth = 0;
-            this.label70.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label70.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label70.Location = new System.Drawing.Point(155, 799);
-            this.label70.MouseState = MaterialSkin.MouseState.HOVER;
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(110, 19);
-            this.label70.TabIndex = 37;
-            this.label70.Text = " F8 الفواتير السابقه F7";
-            this.label70.MouseClick += new System.Windows.Forms.MouseEventHandler(this.label93_MouseClick);
+            this.switchDebtUnpaidBills.AutoSize = true;
+            this.switchDebtUnpaidBills.Depth = 0;
+            this.switchDebtUnpaidBills.Location = new System.Drawing.Point(124, 572);
+            this.switchDebtUnpaidBills.Margin = new System.Windows.Forms.Padding(0);
+            this.switchDebtUnpaidBills.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.switchDebtUnpaidBills.MouseState = MaterialSkin.MouseState.HOVER;
+            this.switchDebtUnpaidBills.Name = "switchDebtUnpaidBills";
+            this.switchDebtUnpaidBills.Ripple = true;
+            this.switchDebtUnpaidBills.Size = new System.Drawing.Size(144, 37);
+            this.switchDebtUnpaidBills.TabIndex = 47;
+            this.switchDebtUnpaidBills.Text = "الفواتير المعلقه بالدين";
+            this.switchDebtUnpaidBills.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.switchDebtUnpaidBills.UseVisualStyleBackColor = true;
+            this.switchDebtUnpaidBills.CheckedChanged += new System.EventHandler(this.switchSharedUnpaidBills_CheckedChanged);
             // 
             // label51
             // 
@@ -8862,8 +8737,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemName.DataPropertyName = "Item Name";
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemName.DefaultCellStyle = dataGridViewCellStyle15;
             this.VendorItemName.HeaderText = "اسم الماده";
             this.VendorItemName.Name = "VendorItemName";
             this.VendorItemName.ReadOnly = true;
@@ -8872,8 +8747,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBarCode.DataPropertyName = "Item BarCode";
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBarCode.DefaultCellStyle = dataGridViewCellStyle16;
             this.VendorItemBarCode.HeaderText = "باركود الماده";
             this.VendorItemBarCode.Name = "VendorItemBarCode";
             this.VendorItemBarCode.ReadOnly = true;
@@ -8882,8 +8757,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemType.DataPropertyName = "Item Type";
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemType.DefaultCellStyle = dataGridViewCellStyle17;
             this.VendorItemType.HeaderText = "صنف الماده";
             this.VendorItemType.Name = "VendorItemType";
             this.VendorItemType.ReadOnly = true;
@@ -8892,8 +8767,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemQuantity.DataPropertyName = "Item Quantity";
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemQuantity.DefaultCellStyle = dataGridViewCellStyle18;
             this.VendorItemQuantity.HeaderText = "عدد القطع";
             this.VendorItemQuantity.Name = "VendorItemQuantity";
             this.VendorItemQuantity.ReadOnly = true;
@@ -8902,8 +8777,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemBuyPrice.DataPropertyName = "VendorItemBuyPrice";
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemBuyPrice.DefaultCellStyle = dataGridViewCellStyle19;
             this.VendorItemBuyPrice.HeaderText = "سعر الشراء";
             this.VendorItemBuyPrice.Name = "VendorItemBuyPrice";
             this.VendorItemBuyPrice.ReadOnly = true;
@@ -8912,8 +8787,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPrice.DataPropertyName = "VendorItemSellPrice";
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPrice.DefaultCellStyle = dataGridViewCellStyle20;
             this.VendorItemSellPrice.HeaderText = "سعر البيع";
             this.VendorItemSellPrice.Name = "VendorItemSellPrice";
             this.VendorItemSellPrice.ReadOnly = true;
@@ -8922,8 +8797,8 @@ namespace PlancksoftPOS
             // 
             this.VendorItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.VendorItemSellPriceTax.DataPropertyName = "VendorItemSellPriceTax";
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
-            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Black;
+            this.VendorItemSellPriceTax.DefaultCellStyle = dataGridViewCellStyle21;
             this.VendorItemSellPriceTax.HeaderText = "سعر البيع مع الضريبه";
             this.VendorItemSellPriceTax.Name = "VendorItemSellPriceTax";
             this.VendorItemSellPriceTax.ReadOnly = true;
@@ -11278,7 +11153,6 @@ namespace PlancksoftPOS
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox26)).EndInit();
             this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox37)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox13)).EndInit();
@@ -11575,9 +11449,6 @@ namespace PlancksoftPOS
         public System.Windows.Forms.PictureBox pictureBox13;
         public System.Windows.Forms.PictureBox openRegisterBtn;
         public System.Windows.Forms.PictureBox closeRegisterBtn;
-        public MaterialLabel label69;
-        public MaterialLabel label68;
-        public MaterialLabel label70;
         public MaterialCard groupBox10;
         public System.Windows.Forms.DataGridView dgvUsers;
         public MaterialCard groupBox11;
@@ -11595,7 +11466,6 @@ namespace PlancksoftPOS
         public System.Windows.Forms.DataGridView dgvExports;
         public System.Windows.Forms.PictureBox pictureBox23;
         public System.Windows.Forms.PictureBox pictureBox22;
-        public MaterialLabel label93;
         public System.Windows.Forms.PictureBox pictureBox25;
         public System.Windows.Forms.TabControl tabControl3;
         public System.Windows.Forms.TabPage AgentsDefinitions;
@@ -11607,7 +11477,6 @@ namespace PlancksoftPOS
         public System.Windows.Forms.NumericUpDown customerID;
         public MaterialLabel label82;
         public MaterialLabel label83;
-        public MaterialLabel label89;
         public System.Windows.Forms.PictureBox pictureBox26;
         public MaterialLabel label51;
         public System.Windows.Forms.NumericUpDown pendingPurchaseNewPriceTax;
@@ -11638,7 +11507,6 @@ namespace PlancksoftPOS
         public System.Windows.Forms.PictureBox pictureBox4;
         public System.Windows.Forms.PictureBox pictureBox5;
         public System.Windows.Forms.Timer itemBarCodeEntryTimer;
-        public MaterialLabel label2;
         public System.Windows.Forms.PictureBox pictureBox3;
         public System.Windows.Forms.TabControl tabControl2;
         public System.Windows.Forms.PictureBox pictureBox9;
@@ -11711,7 +11579,6 @@ namespace PlancksoftPOS
         public MaterialTextBox2 CustomerAddress;
         public MaterialTextBox2 CustomerPhone;
         public System.Windows.Forms.PictureBox pictureBox37;
-        public MaterialLabel label24;
         public System.Windows.Forms.TabPage AgentsItemsDefinitions;
         public MaterialCard groupBox34;
         public System.Windows.Forms.NumericUpDown CustomerPrice;
@@ -12178,7 +12045,6 @@ namespace PlancksoftPOS
         private MaterialSkin.Controls.MaterialLabel richTextBox3;
         private MaterialSkin.Controls.MaterialLabel label52;
         private MaterialSkin.Controls.MaterialLabel label49;
-        public MaterialLabel label67;
         public MaterialCard groupBox21;
         public MaterialLabel label116;
         public MaterialLabel label115;
@@ -12232,6 +12098,7 @@ namespace PlancksoftPOS
         public System.Windows.Forms.NumericUpDown nudClientIDImportExport;
         public MaterialLabel lblClientIDImportExport;
         public MaterialLabel lblClientNameImportExport;
+        private MaterialSwitch switchDebtUnpaidBills;
     }
 }
 
