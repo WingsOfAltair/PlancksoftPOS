@@ -76,11 +76,11 @@ namespace PlancksoftPOS_Server
         { 
             return DAL.RetrieveUsersList(); 
         }
-        public Tuple<List<Customer>, DataTable> GetRetrieveCustomers()
+        public DataTable GetRetrieveClients()
         {
-            return DAL.GetRetrieveCustomers();
+            return DAL.GetRetrieveClients();
         }
-        public Tuple<List<Customer>, DataTable> GetRetrieveVendors()
+        public DataTable GetRetrieveVendors()
         {
             return DAL.GetRetrieveVendors();
         }
@@ -159,6 +159,10 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveUnpaidBills();
         }
+        public DataTable RetrieveClientBills(int ClientID)
+        {
+            return DAL.RetrieveClientBills(ClientID);
+        }
         public Tuple<List<Bill>, DataTable> RetrieveVendorBills()
         {
             return DAL.RetrieveVendorBills();
@@ -219,7 +223,7 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveUsers();
         }
-        public Tuple<List<Item>, DataTable> RetrieveVendorBillItems(int BillNumber)
+        public DataTable RetrieveVendorBillItems(int BillNumber)
         {
             return DAL.RetrieveVendorBillItems(BillNumber);
         }
@@ -327,17 +331,17 @@ namespace PlancksoftPOS_Server
         {
             return DAL.InsertPrinter(machineName, printerName);
         }
-        public bool DeletesCustomer(string CustomerID)
+        public bool DeletesClient(string ClientID)
         {
-            return DAL.DeletesCustomer(CustomerID);
+            return DAL.DeletesClient(ClientID);
         }
-        public bool RegisterCustomer(Customer CustomerToInsert)
+        public bool RegisterClient(Client ClientToInsert)
         {
-            return DAL.RegisterCustomer(CustomerToInsert);
+            return DAL.RegisterClient(ClientToInsert);
         }
-        public bool RegisterVendor(Customer CustomerToInsert)
+        public bool RegisterVendor(Client ClientToInsert)
         {
-            return DAL.RegisterVendor(CustomerToInsert);
+            return DAL.RegisterVendor(ClientToInsert);
         }
         public bool DeleteAbsence(int AbsenceID)
         {
@@ -355,9 +359,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.AddSaleOnItems(saleItems);
         }
-        public bool AddItemToCustomer(string ItemBarCode, int CustomerID, decimal CustomerPrice)
+        public bool AddItemToClient(string ItemBarCode, int ClientID, decimal ClientPrice)
         {
-            return DAL.AddItemToCustomer(ItemBarCode, CustomerID, CustomerPrice);
+            return DAL.AddItemToClient(ItemBarCode, ClientID, ClientPrice);
         }
         public int AddUnpaidBill(Bill billToAdd, string cashierName)
         {
@@ -367,9 +371,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.AddVendorBill(billToAdd, cashierName);
         }
-        public bool PayUnpaidBill(int BillNumber)
+        public bool PayUnpaidBill(int BillNumber, decimal paidAmount, decimal remainderAmount)
         {
-            return DAL.PayUnpaidBill(BillNumber);
+            return DAL.PayUnpaidBill(BillNumber, paidAmount, remainderAmount);
         }
         public bool PayBill(Bill billToAdd, string cashierName)
         {
@@ -455,13 +459,13 @@ namespace PlancksoftPOS_Server
         {
             return DAL.SearchItems(ItemName, ItemBarCode, ItemType);
         }
-        public DataTable SearchCustomers(string customerName = "", string customerID = "", string itemName = "")
+        public DataTable SearchClients(string ClientName = "", string ClientID = "", string itemName = "")
         {
-            return DAL.SearchCustomers(customerName, customerID, itemName);
+            return DAL.SearchClients(ClientName, ClientID, itemName);
         }
-        public Tuple<Customer, DataTable> SearchCustomersInfo(string customerName = "", string customerID = "")
+        public DataTable SearchClientsInfo(string ClientName = "", string ClientID = "")
         {
-            return DAL.SearchCustomersInfo(customerName, customerID);
+            return DAL.SearchClientsInfo(ClientName, ClientID);
         }
     }
 }

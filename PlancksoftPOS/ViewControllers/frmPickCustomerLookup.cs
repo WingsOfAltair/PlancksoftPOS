@@ -19,15 +19,15 @@ using System.Globalization;
 
 namespace PlancksoftPOS
 {
-    public partial class frmPickCustomerLookup : MaterialForm
+    public partial class frmPickClientLookup : MaterialForm
     {
         Connection Connection = new Connection();
-        public Customer pickedCustomer = new Customer();
+        public Client pickedClient = new Client();
         public DialogResult dialogResult;
         public int ID = 0;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
-        public frmPickCustomerLookup()
+        public frmPickClientLookup()
         {
             InitializeComponent();
 
@@ -48,35 +48,35 @@ namespace PlancksoftPOS
 
             applyLocalizationOnUI();
 
-            DataTable RetrievedCustomers = Connection.server.SearchCustomersInfo("", "").Item2;
-            DGVCustomers.DataSource = RetrievedCustomers;
+            DataTable RetrievedClients = Connection.server.SearchClientsInfo("", "");
+            DGVClients.DataSource = RetrievedClients;
         }
 
         public void applyLocalizationOnUI()
         {
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                Text = "اختيار الزبون";
-                lblCustomerName.Text = "اسم الزبون";
-                lblCustomerID.Text = "رمز الزبون";
-                btnPickCustomer.Text = "اختيار الزبون";
+                Text = "اختيار العميل";
+                lblClientName.Text = "اسم العميل";
+                lblClientID.Text = "رمز العميل";
+                btnPickClient.Text = "اختيار العميل";
                 btnClose.Text = "اغلاق";
                 btnClear.Text = "مسح";
-                DGVCustomers.Columns["Column1"].HeaderText = "اسم الزبون";
-                DGVCustomers.Columns["Column2"].HeaderText = "رقم الزبون";
+                DGVClients.Columns["Column1"].HeaderText = "اسم العميل";
+                DGVClients.Columns["Column2"].HeaderText = "رقم العميل";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                Text = "Customer Picker";
-                lblCustomerName.Text = "Customer Name";
-                lblCustomerID.Text = "Customer ID";
-                btnPickCustomer.Text = "Pick Customer";
+                Text = "Client Picker";
+                lblClientName.Text = "Client Name";
+                lblClientID.Text = "Client ID";
+                btnPickClient.Text = "Pick Client";
                 btnClose.Text = "Close";
                 btnClear.Text = "Clear";
-                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "Client Name";
-                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "Client ID";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "Client Name";
+                DGVClients.Columns["ClientPickClientID"].HeaderText = "Client ID";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
@@ -88,12 +88,12 @@ namespace PlancksoftPOS
             this.Close();
         }
 
-        private void btnPickCustomer_Click(object sender, EventArgs e)
+        private void btnPickClient_Click(object sender, EventArgs e)
         {
-            if (!DGVCustomers.Rows[this.ID].IsNewRow)
+            if (!DGVClients.Rows[this.ID].IsNewRow)
             {
-                pickedCustomer.CustomerID = Convert.ToInt32(DGVCustomers.Rows[this.ID].Cells[0].Value.ToString());
-                pickedCustomer.CustomerName = DGVCustomers.Rows[this.ID].Cells[1].Value.ToString();
+                pickedClient.ClientID = Convert.ToInt32(DGVClients.Rows[this.ID].Cells["ClientPickClientID"].Value.ToString());
+                pickedClient.ClientName = DGVClients.Rows[this.ID].Cells["ClientPickClientName"].Value.ToString();
 
                 dialogResult = DialogResult.OK;
                 this.Close();
@@ -107,71 +107,71 @@ namespace PlancksoftPOS
 
         private void btnClear_Click(object sender, EventArgs e)
         {
-            txtCustomerName.Text = "";
-            txtCustomerID.Text = "";
+            txtClientName.Text = "";
+            txtClientID.Text = "";
 
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "اسم الزبون";
-                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "رقم الزبون";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "اسم العميل";
+                DGVClients.Columns["ClientPickClientID"].HeaderText = "رقم العميل";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "Client Name";
-                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "Client ID";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "Client Name";
+                DGVClients.Columns["ClientPickClientID"].HeaderText = "Client ID";
             }
         }
 
-        private void txtCustomerName_TextChanged(object sender, EventArgs e)
+        private void txtClientName_TextChanged(object sender, EventArgs e)
         {
-            DataTable RetrievedCustomers = Connection.server.SearchCustomersInfo(txtCustomerName.Text, "").Item2;
-            DGVCustomers.DataSource = RetrievedCustomers;
+            DataTable RetrievedClients = Connection.server.SearchClientsInfo(txtClientName.Text, "");
+            DGVClients.DataSource = RetrievedClients;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "اسم الزبون";
-                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "رقم الزبون";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "اسم العميل";
+                DGVClients.Columns["ClientPickClientID"].HeaderText = "رقم العميل";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "Client Name";
-                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "Client ID";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "Client Name";
+                DGVClients.Columns["ClientPickClientID"].HeaderText = "Client ID";
             }
         }
 
-        private void txtCustomerID_TextChanged(object sender, EventArgs e)
+        private void txtClientID_TextChanged(object sender, EventArgs e)
         {
-            DataTable RetrievedCustomers = Connection.server.SearchCustomersInfo("", txtCustomerID.Text).Item2;
-            DGVCustomers.DataSource = RetrievedCustomers;
+            DataTable RetrievedClients = Connection.server.SearchClientsInfo("", txtClientID.Text);
+            DGVClients.DataSource = RetrievedClients;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "اسم الزبون";
-                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "رقم الزبون";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "اسم العميل";
+                DGVClients.Columns["ClientPickClientID"].HeaderText = "رقم العميل";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                DGVCustomers.Columns["CustomerPickCustomerName"].HeaderText = "Client Name";
-                DGVCustomers.Columns["CustomerPickCustomerID"].HeaderText = "Client ID";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "Client Name";
+                DGVClients.Columns["ClientPickClientID"].HeaderText = "Client ID";
             }
         }
 
-        private void DGVCustomers_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void DGVClients_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.ID = e.RowIndex;
         }
 
-        private void txtCustomerName_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtClientName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
-                btnPickCustomer.PerformClick();
+                btnPickClient.PerformClick();
         }
 
-        private void txtCustomerID_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtClientID_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
-                btnPickCustomer.PerformClick();
+                btnPickClient.PerformClick();
         }
     }
 }

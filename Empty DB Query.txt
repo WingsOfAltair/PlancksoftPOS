@@ -1,8 +1,8 @@
 truncate table absence
 truncate table billitems
 truncate table bills
-truncate table customersitems
-truncate table customersvendors
+truncate table clientsitems
+truncate table clientsvendors
 truncate table deductions
 truncate table discounts
 truncate table employees

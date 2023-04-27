@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<configuration>
+  <appSettings>
+    <add key="aspnet:UseTaskFriendlySynchronizationContext" value="true"/>
+  </appSettings>
+  <system.web>
+    <compilation debug="true" targetFramework="4.8"/>
+    <httpRuntime executionTimeout="180" maxRequestLength="2147483647" targetFramework="4.5.2"/>
+  </system.web>
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="basicHttpBinding" allowCookies="true" maxReceivedMessageSize="2147483647" maxBufferSize="2147483647" maxBufferPoolSize="2147483647">
+          <readerQuotas maxDepth="2000000" maxArrayLength="2147483647" maxStringContentLength="2147483647" maxBytesPerRead="2147483647" maxNameTableCharCount="2147483647"/>
+        </binding>
+      </basicHttpBinding>
+    </bindings>
+    <services>
+      <service name="PlancksoftPOS_Server.PlancksoftPOS_Server">
+        <endpoint address="" binding="basicHttpBinding" bindingConfiguration="basicHttpBinding" contract="PlancksoftPOS_Server.IPlancksoftPOS_Server"/>
+      </service>
+    </services>
+    <behaviors>
+      <serviceBehaviors>
+        <behavior>
+          <dataContractSerializer maxItemsInObjectGraph="2147483647"/>
+          <!-- To avoid disclosing metadata information, set the values below to false before deployment -->
+          <serviceMetadata httpGetEnabled="true" httpsGetEnabled="false"/>
+          <!-- To receive exception details in faults for debugging purposes, set the value below to true.  Set to false before deployment to avoid disclosing exception information -->
+          <serviceDebug includeExceptionDetailInFaults="true"/>
+          <serviceThrottling maxConcurrentCalls="1000" maxConcurrentSessions="1000" maxConcurrentInstances="1000"/>
+        </behavior>
+      </serviceBehaviors>
+		<endpointBehaviors>
+			<behavior>
+				<dataContractSerializer maxItemsInObjectGraph="2147483647" />
+			</behavior>
+		</endpointBehaviors>
+    </behaviors>
+    <protocolMapping>
+      <add binding="basicHttpsBinding" scheme="https"/>
+    </protocolMapping>
+    <serviceHostingEnvironment aspNetCompatibilityEnabled="true" multipleSiteBindingsEnabled="true"/>
+  </system.serviceModel>
+  <system.webServer>
+	  <modules runAllManagedModulesForAllRequests="true"/>
+	  <directoryBrowse enabled="true"/>
+  </system.webServer>
+</configuration>

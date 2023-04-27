@@ -33,7 +33,7 @@
             this.txtClientName = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblItemName = new MaterialSkin.Controls.MaterialLabel();
             this.txtItemName = new MaterialSkin.Controls.MaterialTextBox2();
-            this.dgvCustomers = new System.Windows.Forms.DataGridView();
+            this.dgvClients = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,7 +44,7 @@
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.btnSearch = new MaterialSkin.Controls.MaterialButton();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
             // lblClientName
@@ -55,7 +55,7 @@
             this.lblClientName.Location = new System.Drawing.Point(6, 105);
             this.lblClientName.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblClientName.Name = "lblClientName";
-            this.lblClientName.Size = new System.Drawing.Size(71, 17);
+            this.lblClientName.Size = new System.Drawing.Size(43, 19);
             this.lblClientName.TabIndex = 0;
             this.lblClientName.Text = "إسم العميل";
             // 
@@ -98,7 +98,7 @@
             this.lblItemName.Location = new System.Drawing.Point(11, 213);
             this.lblItemName.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemName.Name = "lblItemName";
-            this.lblItemName.Size = new System.Drawing.Size(66, 17);
+            this.lblItemName.Size = new System.Drawing.Size(40, 19);
             this.lblItemName.TabIndex = 4;
             this.lblItemName.Text = "إسم الماده";
             // 
@@ -132,31 +132,31 @@
             this.txtItemName.TrailingIcon = null;
             this.txtItemName.UseSystemPasswordChar = false;
             // 
-            // dgvCustomers
+            // dgvClients
             // 
-            this.dgvCustomers.BackgroundColor = System.Drawing.Color.White;
-            this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCustomers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvClients.BackgroundColor = System.Drawing.Color.White;
+            this.dgvClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column5,
             this.Column4});
-            this.dgvCustomers.Location = new System.Drawing.Point(9, 236);
-            this.dgvCustomers.Name = "dgvCustomers";
-            this.dgvCustomers.Size = new System.Drawing.Size(579, 341);
-            this.dgvCustomers.TabIndex = 5;
-            this.dgvCustomers.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvCustomers_RowHeaderMouseDoubleClick);
+            this.dgvClients.Location = new System.Drawing.Point(9, 236);
+            this.dgvClients.Name = "dgvClients";
+            this.dgvClients.Size = new System.Drawing.Size(579, 341);
+            this.dgvClients.TabIndex = 5;
+            this.dgvClients.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvClients_RowHeaderMouseDoubleClick);
             // 
             // Column1
             // 
-            this.Column1.DataPropertyName = "Customer Name";
+            this.Column1.DataPropertyName = "Client Name";
             this.Column1.HeaderText = "اسم العميل";
             this.Column1.Name = "Column1";
             // 
             // Column2
             // 
-            this.Column2.DataPropertyName = "Customer ID";
+            this.Column2.DataPropertyName = "Client ID";
             this.Column2.HeaderText = "رمز العميل";
             this.Column2.Name = "Column2";
             // 
@@ -174,7 +174,7 @@
             // 
             // Column4
             // 
-            this.Column4.DataPropertyName = "Customer Price";
+            this.Column4.DataPropertyName = "Client Price";
             this.Column4.HeaderText = "سعر العميل";
             this.Column4.Name = "Column4";
             // 
@@ -216,7 +216,7 @@
             this.lblClientID.Location = new System.Drawing.Point(11, 159);
             this.lblClientID.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblClientID.Name = "lblClientID";
-            this.lblClientID.Size = new System.Drawing.Size(66, 17);
+            this.lblClientID.Size = new System.Drawing.Size(40, 19);
             this.lblClientID.TabIndex = 2;
             this.lblClientID.Text = "إسم الماده";
             // 
@@ -228,12 +228,12 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(3, 657);
+            this.btnClose.Location = new System.Drawing.Point(3, 660);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
             this.btnClose.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnClose.Size = new System.Drawing.Size(621, 36);
+            this.btnClose.Size = new System.Drawing.Size(653, 36);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "الخروج";
             this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -249,12 +249,12 @@
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(3, 621);
+            this.btnClear.Location = new System.Drawing.Point(3, 624);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
             this.btnClear.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnClear.Size = new System.Drawing.Size(621, 36);
+            this.btnClear.Size = new System.Drawing.Size(653, 36);
             this.btnClear.TabIndex = 7;
             this.btnClear.Text = "مسح";
             this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -270,12 +270,12 @@
             this.btnSearch.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSearch.HighEmphasis = true;
             this.btnSearch.Icon = null;
-            this.btnSearch.Location = new System.Drawing.Point(3, 585);
+            this.btnSearch.Location = new System.Drawing.Point(3, 588);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnSearch.Size = new System.Drawing.Size(621, 36);
+            this.btnSearch.Size = new System.Drawing.Size(653, 36);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "البحث";
             this.btnSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -287,13 +287,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 696);
+            this.ClientSize = new System.Drawing.Size(659, 699);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtClientID);
             this.Controls.Add(this.lblClientID);
-            this.Controls.Add(this.dgvCustomers);
+            this.Controls.Add(this.dgvClients);
             this.Controls.Add(this.txtItemName);
             this.Controls.Add(this.lblItemName);
             this.Controls.Add(this.txtClientName);
@@ -311,7 +311,7 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "شاشة بطاقة العميل";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,7 +323,7 @@
         private MaterialSkin.Controls.MaterialTextBox2 txtClientName;
         private MaterialSkin.Controls.MaterialLabel lblItemName;
         private MaterialSkin.Controls.MaterialTextBox2 txtItemName;
-        public System.Windows.Forms.DataGridView dgvCustomers;
+        public System.Windows.Forms.DataGridView dgvClients;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column3;

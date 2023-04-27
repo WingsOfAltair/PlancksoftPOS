@@ -47,7 +47,17 @@
             this.btnExit = new MaterialSkin.Controls.MaterialButton();
             this.btnLogin = new MaterialSkin.Controls.MaterialButton();
             this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
+            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.المظهرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.فاتحToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.مظلمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // picLogo
@@ -58,7 +68,7 @@
             this.picLogo.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
             this.picLogo.Location = new System.Drawing.Point(3, 64);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(375, 158);
+            this.picLogo.Size = new System.Drawing.Size(391, 158);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 42;
             this.picLogo.TabStop = false;
@@ -72,7 +82,7 @@
             this.txtUID.FormattingEnabled = true;
             this.txtUID.Location = new System.Drawing.Point(3, 222);
             this.txtUID.Name = "txtUID";
-            this.txtUID.Size = new System.Drawing.Size(375, 21);
+            this.txtUID.Size = new System.Drawing.Size(391, 21);
             this.txtUID.TabIndex = 44;
             // 
             // txtPassword
@@ -99,7 +109,7 @@
             this.txtPassword.SelectionLength = 0;
             this.txtPassword.SelectionStart = 0;
             this.txtPassword.ShortcutsEnabled = true;
-            this.txtPassword.Size = new System.Drawing.Size(375, 48);
+            this.txtPassword.Size = new System.Drawing.Size(391, 48);
             this.txtPassword.TabIndex = 48;
             this.txtPassword.TabStop = false;
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -334,12 +344,12 @@
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnExit.HighEmphasis = true;
             this.btnExit.Icon = null;
-            this.btnExit.Location = new System.Drawing.Point(3, 553);
+            this.btnExit.Location = new System.Drawing.Point(3, 592);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnExit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnExit.Name = "btnExit";
             this.btnExit.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnExit.Size = new System.Drawing.Size(375, 36);
+            this.btnExit.Size = new System.Drawing.Size(391, 36);
             this.btnExit.TabIndex = 63;
             this.btnExit.Text = "الخروج";
             this.btnExit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -355,12 +365,12 @@
             this.btnLogin.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnLogin.HighEmphasis = true;
             this.btnLogin.Icon = null;
-            this.btnLogin.Location = new System.Drawing.Point(3, 517);
+            this.btnLogin.Location = new System.Drawing.Point(3, 556);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnLogin.Size = new System.Drawing.Size(375, 36);
+            this.btnLogin.Size = new System.Drawing.Size(391, 36);
             this.btnLogin.TabIndex = 64;
             this.btnLogin.Text = "تسجيل الدخول";
             this.btnLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -375,11 +385,83 @@
             this.PlancksoftPOS.Text = "PlancksoftPOS";
             this.PlancksoftPOS.Visible = true;
             // 
+            // Menu
+            // 
+            this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.اللغةToolStripMenuItem,
+            this.المظهرToolStripMenuItem,
+            this.الخروجToolStripMenuItem});
+            this.Menu.Name = "Menu";
+            this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.Menu.Size = new System.Drawing.Size(110, 70);
+            // 
+            // اللغةToolStripMenuItem
+            // 
+            this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.العربيةToolStripMenuItem,
+            this.englishToolStripMenuItem});
+            this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
+            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.اللغةToolStripMenuItem.Text = "اللغة";
+            // 
+            // العربيةToolStripMenuItem
+            // 
+            this.العربيةToolStripMenuItem.CheckOnClick = true;
+            this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
+            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.العربيةToolStripMenuItem.Text = "العربية";
+            this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
+            // 
+            // englishToolStripMenuItem
+            // 
+            this.englishToolStripMenuItem.CheckOnClick = true;
+            this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.englishToolStripMenuItem.Text = "English";
+            this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            // 
+            // المظهرToolStripMenuItem
+            // 
+            this.المظهرToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.فاتحToolStripMenuItem,
+            this.مظلمToolStripMenuItem});
+            this.المظهرToolStripMenuItem.Name = "المظهرToolStripMenuItem";
+            this.المظهرToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.المظهرToolStripMenuItem.Text = "المظهر";
+            // 
+            // فاتحToolStripMenuItem
+            // 
+            this.فاتحToolStripMenuItem.Name = "فاتحToolStripMenuItem";
+            this.فاتحToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.فاتحToolStripMenuItem.Text = "فاتح";
+            this.فاتحToolStripMenuItem.Click += new System.EventHandler(this.فاتحToolStripMenuItem_Click);
+            // 
+            // مظلمToolStripMenuItem
+            // 
+            this.مظلمToolStripMenuItem.Name = "مظلمToolStripMenuItem";
+            this.مظلمToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.مظلمToolStripMenuItem.Text = "مظلم";
+            this.مظلمToolStripMenuItem.Click += new System.EventHandler(this.مظلمToolStripMenuItem_Click);
+            // 
+            // الخروجToolStripMenuItem
+            // 
+            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
+            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
+            this.الخروجToolStripMenuItem.Text = "الخروج";
+            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.ContextMenuStrip = this.Menu;
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "PlancksoftPOS";
+            this.notifyIcon1.Visible = true;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(381, 592);
+            this.ClientSize = new System.Drawing.Size(397, 631);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnClear);
@@ -410,7 +492,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "الترخيص و التفعيل";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLogin_FormClosing);
+            this.Load += new System.EventHandler(this.frmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).EndInit();
+            this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -435,5 +519,14 @@
         private MaterialSkin.Controls.MaterialButton btnExit;
         private MaterialSkin.Controls.MaterialButton btnLogin;
         private System.Windows.Forms.NotifyIcon PlancksoftPOS;
+        private System.Windows.Forms.ContextMenuStrip Menu;
+        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem المظهرToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem فاتحToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem مظلمToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

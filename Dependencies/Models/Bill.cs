@@ -13,6 +13,8 @@ namespace Dependencies
         [DataMember]
         private bool postponed;
         [DataMember]
+        private int clientID;
+        [DataMember]
         public int billNumber;
         [DataMember]
         public decimal remainderAmount, totalAmount, paidAmount;
@@ -41,6 +43,8 @@ namespace Dependencies
         public bool PayByCash { get => paybycash; set => paybycash = value; }
         [DataMember]
         public bool Postponed { get => postponed; set => postponed = value; }
+        [DataMember]
+        public int ClientID { get => clientID; set => clientID = value; }
 
         public Bill()
         {

@@ -47,7 +47,7 @@
     <Compile Include="Models\Bill.cs" />
     <Compile Include="Models\Printer.cs" />
     <Compile Include="Models\Category.cs" />
-    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Client.cs" />
     <Compile Include="Models\Item.cs" />
     <Compile Include="Models\ItemType.cs" />
     <Compile Include="Models\LanguageChoice.cs" />
