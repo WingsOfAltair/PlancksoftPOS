@@ -96,15 +96,23 @@ namespace PlancksoftPOS
 
         private void btnPickClient_Click(object sender, EventArgs e)
         {
-            if (!DGVClients.Rows[this.ID].IsNewRow)
+            try
             {
-                pickedClient.ClientID = Convert.ToInt32(DGVClients.Rows[this.ID].Cells[1].Value.ToString());
-                pickedClient.ClientName = DGVClients.Rows[this.ID].Cells[0].Value.ToString();
+                if (!DGVClients.Rows[this.ID].IsNewRow)
+                {
+                    pickedClient.ClientID = Convert.ToInt32(DGVClients.Rows[this.ID].Cells[1].Value.ToString());
+                    pickedClient.ClientName = DGVClients.Rows[this.ID].Cells[0].Value.ToString();
 
-                dialogResult = DialogResult.OK;
-                this.Close();
+                    dialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show(".يجب عليك اختيار زبون من فضلك", Application.ProductName);
+                    return;
+                }
             }
-            else
+            catch (Exception ex)
             {
                 MessageBox.Show(".يجب عليك اختيار زبون من فضلك", Application.ProductName);
                 return;

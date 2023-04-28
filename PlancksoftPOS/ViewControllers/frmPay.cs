@@ -16,6 +16,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Security.Policy;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
+using Microsoft.TeamFoundation.Common;
 
 namespace PlancksoftPOS
 {
@@ -77,6 +78,7 @@ namespace PlancksoftPOS
                 rbCash.Text = "دفع كاش";
                 rbVisa.Text = "دفع Visa";
                 btnPay.Text = "دفع";
+                btnClientPay.Text = "دفع عميل";
                 btnDelayPayment.Text = "تأجيل الدفع";
                 btnCancel.Text = "اغلاق";
                 btnClear.Text = "مسح";
@@ -93,6 +95,7 @@ namespace PlancksoftPOS
                 rbCash.Text = "Cash Payment";
                 rbVisa.Text = "Visa Payment";
                 btnPay.Text = "Pay";
+                btnClientPay.Text = "Client Pay";
                 btnDelayPayment.Text = "Postpone Payment";
                 btnCancel.Text = "Close";
                 btnClear.Text = "Clear";
@@ -265,6 +268,32 @@ namespace PlancksoftPOS
                 txtRemainderAmount.Text = this.remainderAmount.ToString();
             }
             catch (Exception error) { }
+        }
+
+        private void btnClientPay_Click(object sender, EventArgs e)
+        {
+            if (!txtPaidAmount.Text.IsNullOrEmpty())
+            {
+                if (rbCash.Checked)
+                    this.paybycash = true;
+                else this.paybycash = false;
+                this.moneyPaid = Convert.ToDecimal(txtPaidAmount.Text);
+                this.dialogResult = DialogResult.Retry;
+                this.Close();
+            }
+            else
+            {
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MaterialMessageBox.Show(".الرجاء إدخال مبلغ الدفع", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    return;
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MaterialMessageBox.Show("Please enter the payment amount.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    return;
+                }
+            }
         }
     }
 }
