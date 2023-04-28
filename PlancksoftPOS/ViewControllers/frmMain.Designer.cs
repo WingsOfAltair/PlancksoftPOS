@@ -495,6 +495,10 @@ namespace PlancksoftPOS
             this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.btnPrintClientBillItems = new System.Windows.Forms.PictureBox();
             this.dgvClientBillItems = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
             this.btnPayDebtBill = new MaterialSkin.Controls.MaterialButton();
             this.dgvClientBills = new System.Windows.Forms.DataGridView();
@@ -705,10 +709,6 @@ namespace PlancksoftPOS
             this.فاتحToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.مظلمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -7440,9 +7440,9 @@ namespace PlancksoftPOS
             // 
             this.tabControl3.Controls.Add(this.AgentsDefinitions);
             this.tabControl3.Controls.Add(this.ClientBalanceCheck);
-            this.tabControl3.Controls.Add(this.AgentsItemsDefinitions);
             this.tabControl3.Controls.Add(this.ImporterDefinitions);
             this.tabControl3.Controls.Add(this.ImporterBalanceChecks);
+            this.tabControl3.Controls.Add(this.AgentsItemsDefinitions);
             this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl3.ItemSize = new System.Drawing.Size(88, 30);
             this.tabControl3.Location = new System.Drawing.Point(0, 0);
@@ -7902,6 +7902,38 @@ namespace PlancksoftPOS
             this.dgvClientBillItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgvClientBillItems.Size = new System.Drawing.Size(1792, 547);
             this.dgvClientBillItems.TabIndex = 29;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            this.dataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn20.DataPropertyName = "Item Name";
+            this.dataGridViewTextBoxColumn20.HeaderText = "اسم الماده";
+            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            this.dataGridViewTextBoxColumn20.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn21.DataPropertyName = "Item BarCode";
+            this.dataGridViewTextBoxColumn21.HeaderText = "باركود الماده";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "Sold Quantity";
+            this.dataGridViewTextBoxColumn22.HeaderText = "عدد البيع";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "Item Price Tax";
+            this.dataGridViewTextBoxColumn23.HeaderText = "سعر البيع بعد الضريبه";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
             // 
             // materialCard2
             // 
@@ -11083,38 +11115,6 @@ namespace PlancksoftPOS
             this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.الخروجToolStripMenuItem.Text = "الخروج";
             this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn20.DataPropertyName = "Item Name";
-            this.dataGridViewTextBoxColumn20.HeaderText = "اسم الماده";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn21.DataPropertyName = "Item BarCode";
-            this.dataGridViewTextBoxColumn21.HeaderText = "باركود الماده";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "Sold Quantity";
-            this.dataGridViewTextBoxColumn22.HeaderText = "عدد البيع";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "Item Price Tax";
-            this.dataGridViewTextBoxColumn23.HeaderText = "سعر البيع بعد الضريبه";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
             // 
             // frmMain
             // 
