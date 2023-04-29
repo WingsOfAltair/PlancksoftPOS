@@ -18,12 +18,16 @@ using MaterialSkin.Controls;
 using MaterialSkin;
 using Microsoft.TeamFoundation.Common;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.ComponentModel;
 
 namespace PlancksoftPOS
 {
-
     public partial class frmMain : MaterialForm
     {
+        public bool menuExpand = true, menuSalesSubExpand = false, menuInventorySubExpand = false, menuTaxesSubExpand = false
+            , menuExpensesSubExpand = false, menuSettingsSubExpand = false, menuEmployeesAffairsSubExpand = false
+            , menuClientAffairsSubExpand = false;
         public Form openedForm = null;
         public Connection Connection = new Connection();
         public int ID = 0, CurrentBillNumber = 0, CurrentVendorBillNumber = 0, ClientItemID = 0, heldBillsCount = 0, EmployeeID = 0, AbsenceID = 0;
@@ -236,17 +240,17 @@ namespace PlancksoftPOS
 
             if (!this.userPermissions.Client_card_edit)
             {
-                pictureBox25.Enabled = false;
+                btnClientCard.Enabled = false;
             }
 
             if (!this.userPermissions.discount_edit)
             {
-                pictureBox11.Enabled = false;
+                btnDiscounts.Enabled = false;
             }
 
             if (!this.userPermissions.price_edit)
             {
-                pictureBox26.Enabled = false;
+                btnEditTotalPrice.Enabled = false;
             }
 
             if (tabControl1.Contains(tabControl1.TabPages["Agents"]))
@@ -391,22 +395,22 @@ namespace PlancksoftPOS
             if (!this.userPermissions.sell_edit)
             {
                 //label67.Enabled = false;
-                pictureBox10.Enabled = false;
-                pictureBox25.Enabled = false;
                 //label93.Enabled = false;
-                pictureBox12.Enabled = false;
                 //label69.Enabled = false;
-                pictureBox11.Enabled = false;
                 //label68.Enabled = false;
-                pictureBox26.Enabled = false;
                 //label89.Enabled = false;
-                pictureBox3.Enabled = false;
                 //label2.Enabled = false;
                 //label24.Enabled = false;
-                pictureBox37.Enabled = false;
                 //label70.Enabled = false;
-                pictureBox13.Enabled = false;
-                pictureBox14.Enabled = false;
+                btnPay.Enabled = false;
+                btnClientCard.Enabled = false;
+                btnNewInvoice.Enabled = false;
+                btnDiscounts.Enabled = false;
+                btnOpenCashDrawer.Enabled = false;
+                btnEditTotalPrice.Enabled = false;
+                btnItemLookup.Enabled = false;
+                btnNextBill.Enabled = false;
+                btnPreviousBill.Enabled = false;
                 tabControl2.Enabled = false;
                 ItemsPendingPurchase.Enabled = false;
                 button17.Enabled = false;
@@ -416,22 +420,22 @@ namespace PlancksoftPOS
             } else
             {
                 //label67.Enabled = true;
-                pictureBox10.Enabled = true;
-                pictureBox25.Enabled = true;
                 //label93.Enabled = true;
-                pictureBox12.Enabled = true;
                 //label69.Enabled = true;
-                pictureBox11.Enabled = true;
                 //label68.Enabled = true;
-                pictureBox26.Enabled = true;
                 //label89.Enabled = true;
-                pictureBox3.Enabled = true;
                 //label2.Enabled = true;
                 //label24.Enabled = true;
-                pictureBox37.Enabled = true;
                 //label70.Enabled = true;
-                pictureBox13.Enabled = true;
-                pictureBox14.Enabled = true;
+                btnPay.Enabled = true;
+                btnClientCard.Enabled = true;
+                btnNewInvoice.Enabled = true;
+                btnDiscounts.Enabled = true;
+                btnOpenCashDrawer.Enabled = true;
+                btnEditTotalPrice.Enabled = true;
+                btnItemLookup.Enabled = true;
+                btnNextBill.Enabled = true;
+                btnPreviousBill.Enabled = true;
                 tabControl2.Enabled = true;
                 ItemsPendingPurchase.Enabled = true;
                 button17.Enabled = true;
@@ -544,6 +548,45 @@ namespace PlancksoftPOS
                     مظلمToolStripMenuItem.Checked = false;
                     فاتحToolStripMenuItem.Checked = true;
                 }
+
+                //pnlMenu.Size = new Size(20, 990);
+                pnlMenuSalesSub.Size = new Size(220, 10);
+
+                tabControl1.Appearance = TabAppearance.FlatButtons;
+                tabControl1.ItemSize = new Size(0, 1);
+                tabControl1.SizeMode = TabSizeMode.Fixed;
+
+                tabControl2.Appearance = TabAppearance.FlatButtons;
+                tabControl2.ItemSize = new Size(0, 1);
+                tabControl2.SizeMode = TabSizeMode.Fixed;
+
+                tabControl3.Appearance = TabAppearance.FlatButtons;
+                tabControl3.ItemSize = new Size(0, 1);
+                tabControl3.SizeMode = TabSizeMode.Fixed;
+
+                tabControl4.Appearance = TabAppearance.FlatButtons;
+                tabControl4.ItemSize = new Size(0, 1);
+                tabControl4.SizeMode = TabSizeMode.Fixed;
+
+                tabControl5.Appearance = TabAppearance.FlatButtons;
+                tabControl5.ItemSize = new Size(0, 1);
+                tabControl5.SizeMode = TabSizeMode.Fixed;
+
+                tabControl6.Appearance = TabAppearance.FlatButtons;
+                tabControl6.ItemSize = new Size(0, 1);
+                tabControl6.SizeMode = TabSizeMode.Fixed;
+
+                tabControl7.Appearance = TabAppearance.FlatButtons;
+                tabControl7.ItemSize = new Size(0, 1);
+                tabControl7.SizeMode = TabSizeMode.Fixed;
+
+                tabControl8.Appearance = TabAppearance.FlatButtons;
+                tabControl8.ItemSize = new Size(0, 1);
+                tabControl8.SizeMode = TabSizeMode.Fixed;
+
+                tabControl9.Appearance = TabAppearance.FlatButtons;
+                tabControl9.ItemSize = new Size(0, 1);
+                tabControl9.SizeMode = TabSizeMode.Fixed;
 
                 DataTable dt = Connection.server.RetrieveSystemSettings();
 
@@ -717,6 +760,54 @@ namespace PlancksoftPOS
                     //label89.Text = "تعديل السعر F5";
                     //label24.Text = "البحث عن المواد F9";
                     //label70.Text = "F8 الفواتير السابقه F7";
+
+                    btnMenuCash.Text = "الكاش";
+
+                    btnMenuSales.Text = "المبيعات";
+                    btnMenuSalesSubSales.Text = "المبيعات";
+                    btnMenuSalesSubEditInvoices.Text = "التعديل على الفواتير";
+                    btnMenuSalesSubTravelingUntravelingSales.Text = "المبيعات المرحله و الغير مرحله";
+                    btnMenuSalesSubSoldItems.Text = "جرد الكميات المباعه";
+
+                    btnMenuInventory.Text = "المستودع";
+                    btnMenuInventorySubInventory.Text = "المستودع";
+                    btnMenuInventorySubItemsQuantify.Text = "جرد المستودعات";
+                    btnMenuInventorySubIncomingOutgoingItems.Text = "سند إدخال و إخراج";
+                    btnMenuInventorySubAddItemTypes.Text = "إضافة صنف";
+                    btnMenuInventorySubAddFavorites.Text = "إضافة مجلد مفضلات";
+                    btnMenuInventorySubAddWarehouses.Text = "إضافة مستودع";
+
+                    btnMenuExpenses.Text = "المصاريف";
+                    btnMenuExpensesSubSearchExpenses.Text = "البحث عن المصروفات";
+                    btnMenuExpensesSubAddExpense.Text = "إضافة مصروف";
+
+                    btnMenuIncomingOutgoing.Text = "الصادر و الوارد و رأس المال";
+
+                    btnMenuEmployeesAffairs.Text = "شؤون الموظفين";
+
+                    btnMenuEmployeesAffairsSubEmployeesManagement.Text = "إدارة الموظفين";
+                    btnMenuEmployeesAffairsSubDaysOff.Text = "الإجازات";
+
+                    btnMenuClientsVendors.Text = "شؤون العملاء";
+                    btnMenuClientsVendorsSubClientsDefinitions.Text = "تعريف العملاء";
+                    btnMenuClientsVendorsSubClientsBalanceCheck.Text = "كشف حساب العميل";
+                    btnMenuClientsVendorsSubVendorsDefinitions.Text = "تعريف مورد";
+                    btnMenuClientsVendorsSubVendorBalanceCheck.Text = "كشف حساب مورد";
+                    btnMenuClientsVendorsSubVendorItemsDefinitions.Text = "تعريف مواد العميل";
+
+                    btnMenuAlerts.Text = "التنبيهات";
+
+                    btnMenuTaxes.Text = "الضريبه";
+                    btnMenuTaxesSubTaxZReport.Text = "تقرير الضريبه Z";
+
+                    btnMenuUsers.Text = "المستخدمين";
+
+                    btnMenuSettings.Text = "الإعدادات";
+                    btnMenuSettingsSubPOSSettings.Text = "إعدادات البرمجية";
+                    btnMenuSettingsSubPrinterSettings.Text = "إعدادات الطابعات";
+
+                    btnMenuRefunds.Text = "المرجعات";
+
                     label71.Text = "اسم الكاشير:";
                     label45.Text = "هذه النسخه مرخصه ل";
                     groupBox3.Text = "قائمة المشتريات الحاليه";
@@ -1216,6 +1307,9 @@ namespace PlancksoftPOS
                 اللغةToolStripMenuItem.Text = "اللغة";
                 العربيةToolStripMenuItem.Text = "العربية";
                 englishToolStripMenuItem.Text = "English";
+                المظهرToolStripMenuItem.Text = "المظهر";
+                فاتحToolStripMenuItem.Text = "فاتح";
+                مظلمToolStripMenuItem.Text = "مظلم";
                 الخروجToolStripMenuItem.Text = "الخروج";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
@@ -1234,6 +1328,54 @@ namespace PlancksoftPOS
                     //label89.Text = "Edit Price F5";
                     //label24.Text = "Items Lookup F9";
                     //label70.Text = "F8 Previous Bills F7";
+
+                    btnMenuCash.Text = "Cash";
+
+                    btnMenuSales.Text = "Sales";
+                    btnMenuSalesSubSales.Text = "Sales";
+                    btnMenuSalesSubEditInvoices.Text = "Edit Invoices";
+                    btnMenuSalesSubTravelingUntravelingSales.Text = "Incoming & Outgoing Sales";
+                    btnMenuSalesSubSoldItems.Text = "Sold Items Quantification";
+
+                    btnMenuInventory.Text = "Inventory";
+                    btnMenuInventorySubInventory.Text = "Inventory";
+                    btnMenuInventorySubItemsQuantify.Text = "Warehouses Quantification";
+                    btnMenuInventorySubIncomingOutgoingItems.Text = "Import & Export Form";
+                    btnMenuInventorySubAddItemTypes.Text = "Add an Item Type";
+                    btnMenuInventorySubAddFavorites.Text = "Add a Favorite Category";
+                    btnMenuInventorySubAddWarehouses.Text = "Add a Warehouse";
+
+                    btnMenuExpenses.Text = "Expenses";
+                    btnMenuExpensesSubSearchExpenses.Text = "Expenses Lookup";
+                    btnMenuExpensesSubAddExpense.Text = "Add an Expense";
+
+                    btnMenuIncomingOutgoing.Text = "Import & Export & Capital";
+
+                    btnMenuEmployeesAffairs.Text = "Employees' Affairs";
+
+                    btnMenuEmployeesAffairsSubEmployeesManagement.Text = "Employees Management";
+                    btnMenuEmployeesAffairsSubDaysOff.Text = "Days Off";
+
+                    btnMenuClientsVendors.Text = "Clients' Affairs";
+                    btnMenuClientsVendorsSubClientsDefinitions.Text = "Clients' Definitions";
+                    btnMenuClientsVendorsSubClientsBalanceCheck.Text = "Client Balance Check";
+                    btnMenuClientsVendorsSubVendorsDefinitions.Text = "Vendors' Definitions";
+                    btnMenuClientsVendorsSubVendorBalanceCheck.Text = "Vendor Balance Check";
+                    btnMenuClientsVendorsSubVendorItemsDefinitions.Text = "Vendor Items Definitions";
+
+                    btnMenuAlerts.Text = "Alarms";
+
+                    btnMenuTaxes.Text = "Taxes";
+                    btnMenuTaxesSubTaxZReport.Text = "Tax Z Report";
+
+                    btnMenuUsers.Text = "Users";
+
+                    btnMenuSettings.Text = "Settings";
+                    btnMenuSettingsSubPOSSettings.Text = "POS Settings";
+                    btnMenuSettingsSubPrinterSettings.Text = "Printers' Settings";
+
+                    btnMenuRefunds.Text = "Refunds";
+
                     label71.Text = "Cashier Name:";
                     label45.Text = "This copy is licensed for ";
                     groupBox3.Text = "List of currently pending items";
@@ -1730,6 +1872,9 @@ namespace PlancksoftPOS
                 اللغةToolStripMenuItem.Text = "Language";
                 العربيةToolStripMenuItem.Text = "العربية";
                 englishToolStripMenuItem.Text = "English";
+                المظهرToolStripMenuItem.Text = "Theme";
+                فاتحToolStripMenuItem.Text = "Light";
+                مظلمToolStripMenuItem.Text = "Dark";
                 الخروجToolStripMenuItem.Text = "Exit";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
@@ -10569,6 +10714,76 @@ namespace PlancksoftPOS
             }
         }
 
+        private void lblHamburger_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_timer.Start();
+        }
+
+        private void hamburger_menu_timer_Tick(object sender, EventArgs e)
+        {
+            //if (menuExpand)
+            //{
+            //    pnlMenu.Width -= 10;
+
+            //    if (pnlMenu.Width == pnlMenu.MinimumSize.Width)
+            //    {
+            //        menuExpand = false;
+            //        //btnPay.Visible = true;
+            //        //btnClientCard.Visible = true;
+            //        //btnNewInvoice.Visible = true;
+            //        //btnDiscounts.Visible = true;
+            //        //btnOpenCashDrawer.Visible = true;
+            //        //btnEditTotalPrice.Visible = true;
+            //        //btnItemLookup.Visible = true;
+            //        //btnNextBill.Visible = true;
+            //        //btnPreviousBill.Visible = true;
+
+            //        btnMenuCash.Visible = false;
+
+            //        btnMenuSales.Visible = false;
+            //        pnlMenuSalesSub.Visible = false;
+            //        btnMenuSalesSubSales.Visible = false;
+            //        btnMenuSalesSubInvoiceEdit.Visible = false;
+            //        hamburger_menu_timer.Stop();
+            //    }
+            //}
+            //else
+            //{
+            //    pnlMenu.Width += 10;
+            //    if (pnlMenu.Width == pnlMenu.MaximumSize.Width)
+            //    {
+            //        menuExpand = true;
+            //        //btnPay.Visible = true;
+            //        //btnClientCard.Visible = true;
+            //        //btnNewInvoice.Visible = true;
+            //        //btnDiscounts.Visible = true;
+            //        //btnOpenCashDrawer.Visible = true;
+            //        //btnEditTotalPrice.Visible = true;
+            //        //btnItemLookup.Visible = true;
+            //        //btnNextBill.Visible = true;
+            //        //btnPreviousBill.Visible = true;
+
+            //        btnMenuCash.Visible = true;
+
+            //        btnMenuSales.Visible = true;
+            //        pnlMenuSalesSub.Visible = true;
+            //        btnMenuSalesSubSales.Visible = true;
+            //        btnMenuSalesSubInvoiceEdit.Visible = true;
+            //        hamburger_menu_timer.Stop();
+            //    }
+            //}
+        }
+
+        private void btnMenuCash_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["Cash"];
+        }
+
+        private void btnMenuSales_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_sales_sub_timer.Start();
+        }
+
         private void btnClientBalanceCheck_Click(object sender, EventArgs e)
         {
             try
@@ -10639,6 +10854,402 @@ namespace PlancksoftPOS
                     {
                         MessageBox.Show("A new Favorite Category was saved.", Application.ProductName);
                     }
+                }
+            }
+        }
+
+        private void pnlMenu_Click(object sender, EventArgs e)
+        {
+            ////btnPay.Visible = false;
+            ////btnClientCard.Visible = false;
+            ////btnNewInvoice.Visible = false;
+            ////btnDiscounts.Visible = false;
+            ////btnOpenCashDrawer.Visible = false;
+            ////btnEditTotalPrice.Visible = false;
+            ////btnItemLookup.Visible = false;
+            ////btnNextBill.Visible = false;
+            ////btnPreviousBill.Visible = false;
+
+            //btnMenuCash.Visible = false;
+
+            //btnMenuSales.Visible = false;
+            //pnlMenuSalesSub.Visible = false;
+            //btnMenuSalesSubSales.Visible = false;
+            //btnMenuSalesSubInvoiceEdit.Visible = false;
+            //hamburger_menu_timer.Start();
+        }
+
+        private void btnMenuSalesSubEditInvoices_Click(object sender, EventArgs e)
+        {
+            tabControl4.SelectedTab = tabControl4.TabPages["EditInvoices"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Sales"];
+        }
+
+        private void btnMenuSalesSubTravelingUntravelingSales_Click(object sender, EventArgs e)
+        {
+            tabControl4.SelectedTab = tabControl4.TabPages["TravelingUntravelingSales"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Sales"];
+        }
+
+        private void btnMenuSalesSubSoldItems_Click(object sender, EventArgs e)
+        {
+            tabControl4.SelectedTab = tabControl4.TabPages["SoldItems"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Sales"];
+        }
+
+        private void btnMenuInventory_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_inventory_sub_timer.Start();
+        }
+
+        private void btnMenuInventorySubInventory_Click(object sender, EventArgs e)
+        {
+            tabControl6.SelectedTab = tabControl6.TabPages["posInventory"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+        }
+
+        private void btnMenuInventorySubItemsQuantify_Click(object sender, EventArgs e)
+        {
+            tabControl6.SelectedTab = tabControl6.TabPages["InventoryQuantify"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+        }
+
+        private void btnMenuInventorySubIncomingOutgoingItems_Click(object sender, EventArgs e)
+        {
+            tabControl6.SelectedTab = tabControl6.TabPages["IncomingOutgoingItems"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+        }
+
+        private void btnMenuInventorySubAddItemTypes_Click(object sender, EventArgs e)
+        {
+            tabControl6.SelectedTab = tabControl6.TabPages["AddTypes"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+        }
+
+        private void btnMenuInventorySubAddFavorites_Click(object sender, EventArgs e)
+        {
+            tabControl6.SelectedTab = tabControl6.TabPages["AddFavorites"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+        }
+
+        private void btnMenuInventorySubAddWarehouses_Click(object sender, EventArgs e)
+        {
+            tabControl6.SelectedTab = tabControl6.TabPages["AddWarehouses"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+        }
+
+        private void btnMenuExpenses_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_expenses_sub_timer.Start();
+        }
+
+        private void btnMenuExpensesSubSearchExpenses_Click(object sender, EventArgs e)
+        {
+            tabControl5.SelectedTab = tabControl5.TabPages["SearchExpenses"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Expenses"];
+        }
+
+        private void btnMenuExpensesSubAddExpense_Click(object sender, EventArgs e)
+        {
+            tabControl5.SelectedTab = tabControl5.TabPages["AddExpenses"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Expenses"];
+        }
+
+        private void btnMenuIncomingOutgoing_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["IncomingOutgoing"];
+        }
+
+        private void btnMenuEmployeesAffairs_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_employees_affairs_sub_timer.Start();
+        }
+
+        private void btnMenuEmployeesAffairsSubEmployeesManagement_Click(object sender, EventArgs e)
+        {
+            tabControl8.SelectedTab = tabControl8.TabPages["EmployeesManagement"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Employees"];
+        }
+
+        private void btnMenuEmployeesAffairsSubDaysOff_Click(object sender, EventArgs e)
+        {
+            tabControl8.SelectedTab = tabControl8.TabPages["DaysOff"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Employees"];
+        }
+
+        private void btnMenuClientsVendors_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_clients_affairs_sub_timer.Start();
+        }
+
+        private void btnMenuClientsVendorsSubClientsDefinitions_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedTab = tabControl3.TabPages["AgentsDefinitions"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Agents"];
+        }
+
+        private void btnMenuClientsVendorsSubClientsBalanceCheck_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedTab = tabControl3.TabPages["ClientBalanceCheck"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Agents"];
+        }
+
+        private void btnMenuClientsVendorsSubVendorsDefinitions_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedTab = tabControl3.TabPages["ImporterDefinitions"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Agents"];
+        }
+
+        private void btnMenuAlerts_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["Alerts"];
+        }
+
+        private void btnMenuTaxes_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_taxes_sub_timer.Start();
+        }
+
+        private void btnMenuTaxesSubTaxZReport_Click(object sender, EventArgs e)
+        {
+            tabControl7.SelectedTab = tabControl7.TabPages["TaxZReport"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Taxes"];
+        }
+
+        private void btnMenuUsers_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["posUsers"];
+        }
+
+        private void btnMenuSettings_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_settings_sub_timer.Start();
+        }
+
+        private void btnMenuSettingsSubPOSSettings_Click(object sender, EventArgs e)
+        {
+            tabControl9.SelectedTab = tabControl9.TabPages["posSettings"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Settings"];
+        }
+
+        private void hamburger_menu_clients_affairs_sub_timer_Tick_1(object sender, EventArgs e)
+        {
+            if (menuClientAffairsSubExpand)
+            {
+                pnlMenuClientAffairsSub.Height -= 10;
+
+                if (pnlMenuClientAffairsSub.Height == pnlMenuClientAffairsSub.MinimumSize.Height)
+                {
+                    menuClientAffairsSubExpand = false;
+                    hamburger_menu_clients_affairs_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuClientAffairsSub.Height += 10;
+                if (pnlMenuClientAffairsSub.Height == pnlMenuClientAffairsSub.MaximumSize.Height)
+                {
+                    menuClientAffairsSubExpand = true;
+                    hamburger_menu_clients_affairs_sub_timer.Stop();
+                }
+            }
+        }
+
+        private void hamburger_menu_taxes_sub_timer_Tick_1(object sender, EventArgs e)
+        {
+            if (menuTaxesSubExpand)
+            {
+                pnlMenuTaxesSub.Height -= 10;
+
+                if (pnlMenuTaxesSub.Height == pnlMenuTaxesSub.MinimumSize.Height)
+                {
+                    menuTaxesSubExpand = false;
+                    hamburger_menu_settings_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuTaxesSub.Height += 10;
+                if (pnlMenuTaxesSub.Height == pnlMenuTaxesSub.MaximumSize.Height)
+                {
+                    menuTaxesSubExpand = true;
+                    hamburger_menu_taxes_sub_timer.Stop();
+                }
+            }
+        }
+
+        private void hamburger_menu_settings_sub_timer_Tick_1(object sender, EventArgs e)
+        {
+            if (menuSettingsSubExpand)
+            {
+                pnlMenuSettingsSub.Height -= 10;
+
+                if (pnlMenuSettingsSub.Height == pnlMenuSettingsSub.MinimumSize.Height)
+                {
+                    menuSettingsSubExpand = false;
+                    hamburger_menu_settings_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuSettingsSub.Height += 10;
+                if (pnlMenuSettingsSub.Height == pnlMenuSettingsSub.MaximumSize.Height)
+                {
+                    menuSettingsSubExpand = true;
+                    hamburger_menu_settings_sub_timer.Stop();
+                }
+            }
+        }
+
+        private void btnMenuSettingsSubPrinterSettings_Click(object sender, EventArgs e)
+        {
+            tabControl9.SelectedTab = tabControl9.TabPages["printersSettings"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Settings"];
+        }
+
+        private void btnMenuRefunds_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["Retrievals"];
+        }
+
+        private void hamburger_menu_employees_affairs_sub_timer_Tick(object sender, EventArgs e)
+        {
+            if (menuEmployeesAffairsSubExpand)
+            {
+                pnlMenuEmployeesAffairsSub.Height -= 10;
+
+                if (pnlMenuEmployeesAffairsSub.Height == pnlMenuEmployeesAffairsSub.MinimumSize.Height)
+                {
+                    menuEmployeesAffairsSubExpand = false;
+                    hamburger_menu_employees_affairs_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuEmployeesAffairsSub.Height += 10;
+                if (pnlMenuEmployeesAffairsSub.Height == pnlMenuEmployeesAffairsSub.MaximumSize.Height)
+                {
+                    menuEmployeesAffairsSubExpand = true;
+                    hamburger_menu_employees_affairs_sub_timer.Stop();
+                }
+            }
+        }
+
+        private void hamburger_menu_expenses_sub_timer_Tick(object sender, EventArgs e)
+        {
+            if (menuExpensesSubExpand)
+            {
+                pnlMenuExpensesSub.Height -= 10;
+
+                if (pnlMenuExpensesSub.Height == pnlMenuExpensesSub.MinimumSize.Height)
+                {
+                    menuExpensesSubExpand = false;
+                    hamburger_menu_expenses_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuExpensesSub.Height += 10;
+                if (pnlMenuExpensesSub.Height == pnlMenuExpensesSub.MaximumSize.Height)
+                {
+                    menuExpensesSubExpand = true;
+                    hamburger_menu_expenses_sub_timer.Stop();
+                }
+            }
+        }
+
+        private void btnMenuClientsVendorsSubVendoItemsDefinitions_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedTab = tabControl3.TabPages["AgentsItemsDefinitions"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Agents"];
+        }
+
+        private void btnMenuClientsVendorsSubVendorBalanceCheck_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedTab = tabControl3.TabPages["ImporterBalanceChecks"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Agents"];
+        }
+
+        private void hamburger_menu_inventory_sub_timer_Tick(object sender, EventArgs e)
+        {
+            if (menuInventorySubExpand)
+            {
+                pnlMenuInventorySub.Height -= 10;
+
+                if (pnlMenuInventorySub.Height == pnlMenuInventorySub.MinimumSize.Height)
+                {
+                    menuInventorySubExpand = false;
+                    hamburger_menu_inventory_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuInventorySub.Height += 10;
+                if (pnlMenuInventorySub.Height == pnlMenuInventorySub.MaximumSize.Height)
+                {
+                    menuInventorySubExpand = true;
+                    hamburger_menu_inventory_sub_timer.Stop();
+                }
+            }
+        }
+
+        //protected override void OnResize(EventArgs e)
+        //{
+        //    this.SuspendDrawing();
+        //    base.OnResize(e);
+        //    this.ResumeDrawing();
+        //}
+
+        //protected override void OnResizeBegin(EventArgs e)
+        //{
+        //    this.SuspendDrawing();
+        //    base.OnResizeBegin(e);
+        //}
+
+        //protected override void OnResizeEnd(EventArgs e)
+        //{
+        //    base.OnResizeEnd(e);
+        //    this.ResumeDrawing();
+        //}
+
+        //protected override void OnClosing(CancelEventArgs e)
+        //{
+        //    this.SuspendDrawing();
+        //    base.OnClosing(e);
+        //    this.ResumeDrawing();
+        //}
+
+        private void btnMenuSalesSubSales_Click(object sender, EventArgs e)
+        {
+            tabControl4.SelectedTab = tabControl4.TabPages["InvoicesSales"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Sales"];
+        }
+
+        private void btnMenuSalesSubInvoiceEdit_Click(object sender, EventArgs e)
+        {
+            tabControl4.SelectedTab = tabControl4.TabPages["EditInvoices"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Sales"];
+        }
+
+        private void hamburger_menu_sales_sub_timer_Tick(object sender, EventArgs e)
+        {
+            if (menuSalesSubExpand)
+            {
+                pnlMenuSalesSub.Height -= 10;
+
+                if (pnlMenuSalesSub.Height == pnlMenuSalesSub.MinimumSize.Height)
+                {
+                    menuSalesSubExpand = false;
+                    hamburger_menu_sales_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuSalesSub.Height += 10;
+                if (pnlMenuSalesSub.Height == pnlMenuSalesSub.MaximumSize.Height)
+                {
+                    menuSalesSubExpand = true;
+                    hamburger_menu_sales_sub_timer.Stop();
                 }
             }
         }

@@ -190,6 +190,13 @@ namespace PlancksoftPOS
                 btnLogin.Text = "تسجيل الدخول";
                 btnExit.Text = "الخروج";
                 btnClear.Text = "مسح";
+                اللغةToolStripMenuItem.Text = "اللغة";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                المظهرToolStripMenuItem.Text = "المظهر";
+                فاتحToolStripMenuItem.Text = "فاتح";
+                مظلمToolStripMenuItem.Text = "مظلم";
+                الخروجToolStripMenuItem.Text = "الخروج";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
@@ -199,6 +206,13 @@ namespace PlancksoftPOS
                 btnLogin.Text = "Login";
                 btnExit.Text = "Exit";
                 btnClear.Text = "Clear";
+                اللغةToolStripMenuItem.Text = "Language";
+                العربيةToolStripMenuItem.Text = "العربية";
+                englishToolStripMenuItem.Text = "English";
+                المظهرToolStripMenuItem.Text = "Theme";
+                فاتحToolStripMenuItem.Text = "Light";
+                مظلمToolStripMenuItem.Text = "Dark";
+                الخروجToolStripMenuItem.Text = "Exit";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
@@ -349,7 +363,7 @@ namespace PlancksoftPOS
                 {
                     newAccount.SetAccountName(result.Item2);
                     newAccount.SetAccountAuthority(Convert.ToInt32(result.Item3));
-                    frmMain_new frm2 = new frmMain_new(newAccount);
+                    frmMain frm2 = new frmMain(newAccount);
                     frm2.Show();
                     this.Hide();
                     PlancksoftPOS.Visible = false;

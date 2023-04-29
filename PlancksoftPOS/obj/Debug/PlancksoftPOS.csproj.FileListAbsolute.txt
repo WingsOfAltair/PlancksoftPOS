@@ -67,7 +67,6 @@ C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.csproj.SuggestedBindingRe
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\Interop.WMPLib.dll
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.csproj.ResolveComReference.cache
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmColorPicker.resources
-C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmMain_new.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmMain.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmSales.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmRegisterAdmin.resources
