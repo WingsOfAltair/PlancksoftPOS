@@ -237,17 +237,17 @@ namespace PlancksoftPOS
 
             if (!this.userPermissions.Client_card_edit)
             {
-                pictureBox25.Enabled = false;
+                btnClientCard.Enabled = false;
             }
 
             if (!this.userPermissions.discount_edit)
             {
-                pictureBox11.Enabled = false;
+                btnDiscounts.Enabled = false;
             }
 
             if (!this.userPermissions.price_edit)
             {
-                pictureBox26.Enabled = false;
+                btnEditTotalPrice.Enabled = false;
             }
 
             if (tabControl1.Contains(tabControl1.TabPages["Agents"]))
@@ -392,22 +392,22 @@ namespace PlancksoftPOS
             if (!this.userPermissions.sell_edit)
             {
                 //label67.Enabled = false;
-                pictureBox10.Enabled = false;
-                pictureBox25.Enabled = false;
+                btnPay.Enabled = false;
+                btnClientCard.Enabled = false;
                 //label93.Enabled = false;
-                pictureBox12.Enabled = false;
+                btnNewInvoice.Enabled = false;
                 //label69.Enabled = false;
-                pictureBox11.Enabled = false;
+                btnDiscounts.Enabled = false;
                 //label68.Enabled = false;
-                pictureBox26.Enabled = false;
+                btnOpenCashDrawer.Enabled = false;
                 //label89.Enabled = false;
-                pictureBox3.Enabled = false;
+                btnEditTotalPrice.Enabled = false;
                 //label2.Enabled = false;
                 //label24.Enabled = false;
-                pictureBox37.Enabled = false;
+                btnItemLookup.Enabled = false;
                 //label70.Enabled = false;
-                pictureBox13.Enabled = false;
-                pictureBox14.Enabled = false;
+                btnNextBill.Enabled = false;
+                btnPreviousBill.Enabled = false;
                 tabControl2.Enabled = false;
                 ItemsPendingPurchase.Enabled = false;
                 button17.Enabled = false;
@@ -416,23 +416,23 @@ namespace PlancksoftPOS
                 pendingPurchaseNewQuantity.Enabled = false;
             } else
             {
-                //label67.Enabled = true;
-                pictureBox10.Enabled = true;
-                pictureBox25.Enabled = true;
-                //label93.Enabled = true;
-                pictureBox12.Enabled = true;
-                //label69.Enabled = true;
-                pictureBox11.Enabled = true;
-                //label68.Enabled = true;
-                pictureBox26.Enabled = true;
-                //label89.Enabled = true;
-                pictureBox3.Enabled = true;
-                //label2.Enabled = true;
-                //label24.Enabled = true;
-                pictureBox37.Enabled = true;
-                //label70.Enabled = true;
-                pictureBox13.Enabled = true;
-                pictureBox14.Enabled = true;
+                //label67.Enabled = false;
+                btnPay.Enabled = true;
+                btnClientCard.Enabled = true;
+                //label93.Enabled = false;
+                btnNewInvoice.Enabled = true;
+                //label69.Enabled = false;
+                btnDiscounts.Enabled = true;
+                //label68.Enabled = false;
+                btnOpenCashDrawer.Enabled = true;
+                //label89.Enabled = false;
+                btnEditTotalPrice.Enabled = true;
+                //label2.Enabled = false;
+                //label24.Enabled = false;
+                btnItemLookup.Enabled = true;
+                //label70.Enabled = false;
+                btnNextBill.Enabled = true;
+                btnPreviousBill.Enabled = true;
                 tabControl2.Enabled = true;
                 ItemsPendingPurchase.Enabled = true;
                 button17.Enabled = true;
