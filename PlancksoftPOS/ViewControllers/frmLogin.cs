@@ -349,7 +349,7 @@ namespace PlancksoftPOS
                 {
                     newAccount.SetAccountName(result.Item2);
                     newAccount.SetAccountAuthority(Convert.ToInt32(result.Item3));
-                    frmMain frm2 = new frmMain(newAccount);
+                    frmMain_new frm2 = new frmMain_new(newAccount);
                     frm2.Show();
                     this.Hide();
                     PlancksoftPOS.Visible = false;

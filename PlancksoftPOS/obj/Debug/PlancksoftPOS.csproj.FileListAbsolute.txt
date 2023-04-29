@@ -156,3 +156,4 @@ C:\PlancksoftPOS\PlancksoftPOS\bin\Debug\zh-Hant\Microsoft.VisualStudio.Services
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.csproj.CopyComplete
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.exe
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.pdb
+C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmMain_new.resources

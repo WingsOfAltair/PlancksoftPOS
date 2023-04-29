@@ -157,6 +157,12 @@
     <Compile Include="ViewControllers\frmColorPicker.Designer.cs">
       <DependentUpon>frmColorPicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewControllers\frmMain_new.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmMain_new.Designer.cs">
+      <DependentUpon>frmMain_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewControllers\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     <Compile Include="Classes\RawPrinterHelper.cs" />
     <EmbeddedResource Include="ViewControllers\frmColorPicker.resx">
       <DependentUpon>frmColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewControllers\frmMain_new.resx">
+      <DependentUpon>frmMain_new.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -475,6 +484,7 @@
     <None Include="Resources\istockphoto-1166351637-612x612.jpg" />
     <None Include="Resources\password.png" />
     <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS.disco" />
+    <None Include="Resources\hamburger_menu.jpg" />
     <Content Include="Resources\pos.ico" />
     <None Include="Resources\point-of-sale.jpg" />
     <None Include="Resources\beep.mp3" />
