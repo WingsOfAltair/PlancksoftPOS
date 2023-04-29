@@ -25,7 +25,9 @@ namespace PlancksoftPOS
 {
     public partial class frmMain_new : MaterialForm
     {
-        public bool menuExpand = true, menuSalesSubExpand = false;
+        public bool menuExpand = true, menuSalesSubExpand = false, menuInventorySubExpand = false, menuTaxesSubExpand = false
+            , menuExpensesSubExpand = false, menuSettingsSubExpand = false, menuEmployeesAffairsSubExpand = false
+            , menuClientAffairsSubExpand = false;
         public Form openedForm = null;
         public Connection Connection = new Connection();
         public int ID = 0, CurrentBillNumber = 0, CurrentVendorBillNumber = 0, ClientItemID = 0, heldBillsCount = 0, EmployeeID = 0, AbsenceID = 0;
@@ -10773,6 +10775,320 @@ namespace PlancksoftPOS
             //btnMenuSalesSubSales.Visible = false;
             //btnMenuSalesSubInvoiceEdit.Visible = false;
             //hamburger_menu_timer.Start();
+        }
+
+        private void btnMenuSalesSubEditInvoices_Click(object sender, EventArgs e)
+        {
+            tabControl4.SelectedTab = tabControl4.TabPages["EditInvoices"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Sales"];
+        }
+
+        private void btnMenuSalesSubTravelingUntravelingSales_Click(object sender, EventArgs e)
+        {
+            tabControl4.SelectedTab = tabControl4.TabPages["TravelingUntravelingSales"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Sales"];
+        }
+
+        private void btnMenuSalesSubSoldItems_Click(object sender, EventArgs e)
+        {
+            tabControl4.SelectedTab = tabControl4.TabPages["SoldItems"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Sales"];
+        }
+
+        private void btnMenuInventory_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_inventory_sub_timer.Start();
+        }
+
+        private void btnMenuInventorySubInventory_Click(object sender, EventArgs e)
+        {
+            tabControl6.SelectedTab = tabControl6.TabPages["posInventory"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+        }
+
+        private void btnMenuInventorySubItemsQuantify_Click(object sender, EventArgs e)
+        {
+            tabControl6.SelectedTab = tabControl6.TabPages["InventoryQuantify"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+        }
+
+        private void btnMenuInventorySubIncomingOutgoingItems_Click(object sender, EventArgs e)
+        {
+            tabControl6.SelectedTab = tabControl6.TabPages["IncomingOutgoingItems"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+        }
+
+        private void btnMenuInventorySubAddItemTypes_Click(object sender, EventArgs e)
+        {
+            tabControl6.SelectedTab = tabControl6.TabPages["AddTypes"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+        }
+
+        private void btnMenuInventorySubAddFavorites_Click(object sender, EventArgs e)
+        {
+            tabControl6.SelectedTab = tabControl6.TabPages["AddFavorites"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+        }
+
+        private void btnMenuInventorySubAddWarehouses_Click(object sender, EventArgs e)
+        {
+            tabControl6.SelectedTab = tabControl6.TabPages["AddWarehouses"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
+        }
+
+        private void btnMenuExpenses_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_expenses_sub_timer.Start();
+        }
+
+        private void btnMenuExpensesSubSearchExpenses_Click(object sender, EventArgs e)
+        {
+            tabControl5.SelectedTab = tabControl5.TabPages["SearchExpenses"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Expenses"];
+        }
+
+        private void btnMenuExpensesSubAddExpense_Click(object sender, EventArgs e)
+        {
+            tabControl5.SelectedTab = tabControl5.TabPages["AddExpenses"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Expenses"];
+        }
+
+        private void btnMenuIncomingOutgoing_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["IncomingOutgoing"];
+        }
+
+        private void btnMenuEmployeesAffairs_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_employees_affairs_sub_timer.Start();
+        }
+
+        private void btnMenuEmployeesAffairsSubEmployeesManagement_Click(object sender, EventArgs e)
+        {
+            tabControl8.SelectedTab = tabControl8.TabPages["EmployeesManagement"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Employees"];
+        }
+
+        private void btnMenuEmployeesAffairsSubDaysOff_Click(object sender, EventArgs e)
+        {
+            tabControl8.SelectedTab = tabControl8.TabPages["DaysOff"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Employees"];
+        }
+
+        private void btnMenuClientsVendors_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_clients_affairs_sub_timer.Start();
+        }
+
+        private void btnMenuClientsVendorsSubClientsDefinitions_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedTab = tabControl3.TabPages["AgentsDefinitions"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Agents"];
+        }
+
+        private void btnMenuClientsVendorsSubClientsBalanceCheck_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedTab = tabControl3.TabPages["ClientBalanceCheck"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Agents"];
+        }
+
+        private void btnMenuClientsVendorsSubVendorsDefinitions_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedTab = tabControl3.TabPages["ImporterDefinitions"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Agents"];
+        }
+
+        private void btnMenuAlerts_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["Alerts"];
+        }
+
+        private void btnMenuTaxes_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_taxes_sub_timer.Start();
+        }
+
+        private void btnMenuTaxesSubTaxZReport_Click(object sender, EventArgs e)
+        {
+            tabControl7.SelectedTab = tabControl7.TabPages["TaxZReport"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Taxes"];
+        }
+
+        private void btnMenuUsers_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["posUsers"];
+        }
+
+        private void btnMenuSettings_Click(object sender, EventArgs e)
+        {
+            hamburger_menu_settings_sub_timer.Start();
+        }
+
+        private void btnMenuSettingsSubPOSSettings_Click(object sender, EventArgs e)
+        {
+            tabControl9.SelectedTab = tabControl9.TabPages["posSettings"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Settings"];
+        }
+
+        private void hamburger_menu_clients_affairs_sub_timer_Tick_1(object sender, EventArgs e)
+        {
+            if (menuClientAffairsSubExpand)
+            {
+                pnlMenuClientAffairsSub.Height -= 10;
+
+                if (pnlMenuClientAffairsSub.Height == pnlMenuClientAffairsSub.MinimumSize.Height)
+                {
+                    menuClientAffairsSubExpand = false;
+                    hamburger_menu_clients_affairs_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuClientAffairsSub.Height += 10;
+                if (pnlMenuClientAffairsSub.Height == pnlMenuClientAffairsSub.MaximumSize.Height)
+                {
+                    menuClientAffairsSubExpand = true;
+                    hamburger_menu_clients_affairs_sub_timer.Stop();
+                }
+            }
+        }
+
+        private void hamburger_menu_taxes_sub_timer_Tick_1(object sender, EventArgs e)
+        {
+            if (menuTaxesSubExpand)
+            {
+                pnlMenuTaxesSub.Height -= 10;
+
+                if (pnlMenuTaxesSub.Height == pnlMenuTaxesSub.MinimumSize.Height)
+                {
+                    menuTaxesSubExpand = false;
+                    hamburger_menu_settings_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuTaxesSub.Height += 10;
+                if (pnlMenuTaxesSub.Height == pnlMenuTaxesSub.MaximumSize.Height)
+                {
+                    menuTaxesSubExpand = true;
+                    hamburger_menu_taxes_sub_timer.Stop();
+                }
+            }
+        }
+
+        private void hamburger_menu_settings_sub_timer_Tick_1(object sender, EventArgs e)
+        {
+            if (menuSettingsSubExpand)
+            {
+                pnlMenuSettingsSub.Height -= 10;
+
+                if (pnlMenuSettingsSub.Height == pnlMenuSettingsSub.MinimumSize.Height)
+                {
+                    menuSettingsSubExpand = false;
+                    hamburger_menu_settings_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuSettingsSub.Height += 10;
+                if (pnlMenuSettingsSub.Height == pnlMenuSettingsSub.MaximumSize.Height)
+                {
+                    menuSettingsSubExpand = true;
+                    hamburger_menu_settings_sub_timer.Stop();
+                }
+            }
+        }
+
+        private void btnMenuSettingsSubPrinterSettings_Click(object sender, EventArgs e)
+        {
+            tabControl9.SelectedTab = tabControl9.TabPages["printersSettings"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Settings"];
+        }
+
+        private void btnMenuRefunds_Click(object sender, EventArgs e)
+        {
+            tabControl1.SelectedTab = tabControl1.TabPages["Retrievals"];
+        }
+
+        private void hamburger_menu_employees_affairs_sub_timer_Tick(object sender, EventArgs e)
+        {
+            if (menuEmployeesAffairsSubExpand)
+            {
+                pnlMenuEmployeesAffairsSub.Height -= 10;
+
+                if (pnlMenuEmployeesAffairsSub.Height == pnlMenuEmployeesAffairsSub.MinimumSize.Height)
+                {
+                    menuEmployeesAffairsSubExpand = false;
+                    hamburger_menu_employees_affairs_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuEmployeesAffairsSub.Height += 10;
+                if (pnlMenuEmployeesAffairsSub.Height == pnlMenuEmployeesAffairsSub.MaximumSize.Height)
+                {
+                    menuEmployeesAffairsSubExpand = true;
+                    hamburger_menu_employees_affairs_sub_timer.Stop();
+                }
+            }
+        }
+
+        private void hamburger_menu_expenses_sub_timer_Tick(object sender, EventArgs e)
+        {
+            if (menuExpensesSubExpand)
+            {
+                pnlMenuExpensesSub.Height -= 10;
+
+                if (pnlMenuExpensesSub.Height == pnlMenuExpensesSub.MinimumSize.Height)
+                {
+                    menuExpensesSubExpand = false;
+                    hamburger_menu_expenses_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuExpensesSub.Height += 10;
+                if (pnlMenuExpensesSub.Height == pnlMenuExpensesSub.MaximumSize.Height)
+                {
+                    menuExpensesSubExpand = true;
+                    hamburger_menu_expenses_sub_timer.Stop();
+                }
+            }
+        }
+
+        private void btnMenuClientsVendorsSubVendoItemsDefinitions_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedTab = tabControl3.TabPages["AgentsItemsDefinitions"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Agents"];
+        }
+
+        private void btnMenuClientsVendorsSubVendorBalanceCheck_Click(object sender, EventArgs e)
+        {
+            tabControl3.SelectedTab = tabControl3.TabPages["ImporterBalanceChecks"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Agents"];
+        }
+
+        private void hamburger_menu_inventory_sub_timer_Tick(object sender, EventArgs e)
+        {
+            if (menuInventorySubExpand)
+            {
+                pnlMenuInventorySub.Height -= 10;
+
+                if (pnlMenuInventorySub.Height == pnlMenuInventorySub.MinimumSize.Height)
+                {
+                    menuInventorySubExpand = false;
+                    hamburger_menu_inventory_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuInventorySub.Height += 10;
+                if (pnlMenuInventorySub.Height == pnlMenuInventorySub.MaximumSize.Height)
+                {
+                    menuInventorySubExpand = true;
+                    hamburger_menu_inventory_sub_timer.Stop();
+                }
+            }
         }
 
         //protected override void OnResize(EventArgs e)

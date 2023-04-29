@@ -694,7 +694,51 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox49 = new System.Windows.Forms.PictureBox();
             this.pnlMenu = new MaterialSkin.Controls.MaterialCard();
+            this.materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
+            this.materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
+            this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.btnMenuRefunds = new MaterialSkin.Controls.MaterialButton();
+            this.pnlMenuSettingsSub = new MaterialSkin.Controls.MaterialCard();
+            this.btnMenuSettingsSubPrinterSettings = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuSettingsSubPOSSettings = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuSettings = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuUsers = new MaterialSkin.Controls.MaterialButton();
+            this.pnlMenuTaxesSub = new MaterialSkin.Controls.MaterialCard();
+            this.btnMenuTaxesSubTaxZReport = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuTaxes = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuAlerts = new MaterialSkin.Controls.MaterialButton();
+            this.pnlMenuClientAffairsSub = new MaterialSkin.Controls.MaterialCard();
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuClientsVendorsSubVendorBalanceCheck = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuClientsVendorsSubVendorsDefinitions = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuClientsVendorsSubClientsBalanceCheck = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuClientsVendorsSubClientsDefinitions = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuClientsVendors = new MaterialSkin.Controls.MaterialButton();
+            this.pnlMenuEmployeesAffairsSub = new MaterialSkin.Controls.MaterialCard();
+            this.btnMenuEmployeesAffairsSubDaysOff = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuEmployeesAffairsSubEmployeesManagement = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuEmployeesAffairs = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuIncomingOutgoing = new MaterialSkin.Controls.MaterialButton();
+            this.pnlMenuExpensesSub = new MaterialSkin.Controls.MaterialCard();
+            this.btnMenuExpensesSubAddExpense = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuExpensesSubSearchExpenses = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuExpenses = new MaterialSkin.Controls.MaterialButton();
+            this.pnlMenuInventorySub = new MaterialSkin.Controls.MaterialCard();
+            this.btnMenuIventorySubAddWarehouses = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuIventorySubAddFavorites = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuIventorySubAddItemTypes = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuIventorySubIncomingOutgoingItems = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuIventorySubItemsQuantify = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuIventorySubInventory = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuIventory = new MaterialSkin.Controls.MaterialButton();
+            this.pnlMenuSalesSub = new MaterialSkin.Controls.MaterialCard();
+            this.btnMenuSalesSubSoldItems = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuSalesSubTravelingUntravelingSales = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuSalesSubEditInvoices = new MaterialSkin.Controls.MaterialButton();
+            this.btnMenuSalesSubSales = new MaterialSkin.Controls.MaterialButton();
             this.btnHamburger = new MaterialSkin.Controls.MaterialLabel();
+            this.btnMenuSales = new MaterialSkin.Controls.MaterialButton();
             this.btnMenuCash = new MaterialSkin.Controls.MaterialButton();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.timeDateTimer = new System.Windows.Forms.Timer(this.components);
@@ -713,14 +757,12 @@ namespace PlancksoftPOS
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hamburger_menu_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_sales_sub_timer = new System.Windows.Forms.Timer(this.components);
-            this.btnMenuSales = new MaterialSkin.Controls.MaterialButton();
-            this.btnMenuSalesSubSales = new MaterialSkin.Controls.MaterialButton();
-            this.btnMenuSalesSubInvoiceEdit = new MaterialSkin.Controls.MaterialButton();
-            this.pnlMenuSalesSub = new MaterialSkin.Controls.MaterialCard();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            this.materialCard3 = new MaterialSkin.Controls.MaterialCard();
-            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton3 = new MaterialSkin.Controls.MaterialButton();
+            this.hamburger_menu_inventory_sub_timer = new System.Windows.Forms.Timer(this.components);
+            this.hamburger_menu_expenses_sub_timer = new System.Windows.Forms.Timer(this.components);
+            this.hamburger_menu_employees_affairs_sub_timer = new System.Windows.Forms.Timer(this.components);
+            this.hamburger_menu_clients_affairs_sub_timer = new System.Windows.Forms.Timer(this.components);
+            this.hamburger_menu_taxes_sub_timer = new System.Windows.Forms.Timer(this.components);
+            this.hamburger_menu_settings_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -955,9 +997,14 @@ namespace PlancksoftPOS
             ((System.ComponentModel.ISupportInitialize)(this.dgvReturnedItems)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).BeginInit();
             this.pnlMenu.SuspendLayout();
-            this.Menu.SuspendLayout();
+            this.pnlMenuSettingsSub.SuspendLayout();
+            this.pnlMenuTaxesSub.SuspendLayout();
+            this.pnlMenuClientAffairsSub.SuspendLayout();
+            this.pnlMenuEmployeesAffairsSub.SuspendLayout();
+            this.pnlMenuExpensesSub.SuspendLayout();
+            this.pnlMenuInventorySub.SuspendLayout();
             this.pnlMenuSalesSub.SuspendLayout();
-            this.materialCard3.SuspendLayout();
+            this.Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -982,13 +1029,14 @@ namespace PlancksoftPOS
             this.اضافةمستودعToolStripMenuItem,
             this.اضافةمستودعToolStripMenuItem1});
             this.ادارةالمستودعToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ادارةالمستودعToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.ادارةالمستودعToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.ادارةالمستودعToolStripMenuItem.Name = "ادارةالمستودعToolStripMenuItem";
             this.ادارةالمستودعToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.ادارةالمستودعToolStripMenuItem.Text = "إدارة المستودع";
             // 
             // اضافةمادهToolStripMenuItem
             // 
+            this.اضافةمادهToolStripMenuItem.ForeColor = System.Drawing.Color.Salmon;
             this.اضافةمادهToolStripMenuItem.Name = "اضافةمادهToolStripMenuItem";
             this.اضافةمادهToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.اضافةمادهToolStripMenuItem.Text = "إضافة ماده";
@@ -996,6 +1044,7 @@ namespace PlancksoftPOS
             // 
             // اضافةصنفToolStripMenuItem
             // 
+            this.اضافةصنفToolStripMenuItem.ForeColor = System.Drawing.Color.Salmon;
             this.اضافةصنفToolStripMenuItem.Name = "اضافةصنفToolStripMenuItem";
             this.اضافةصنفToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.اضافةصنفToolStripMenuItem.Text = "إضافة صنف";
@@ -1003,6 +1052,7 @@ namespace PlancksoftPOS
             // 
             // اضافةمستودعToolStripMenuItem
             // 
+            this.اضافةمستودعToolStripMenuItem.ForeColor = System.Drawing.Color.Coral;
             this.اضافةمستودعToolStripMenuItem.Name = "اضافةمستودعToolStripMenuItem";
             this.اضافةمستودعToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.اضافةمستودعToolStripMenuItem.Text = "إضافة مجلد مفضلات";
@@ -1010,6 +1060,7 @@ namespace PlancksoftPOS
             // 
             // اضافةمستودعToolStripMenuItem1
             // 
+            this.اضافةمستودعToolStripMenuItem1.ForeColor = System.Drawing.Color.Salmon;
             this.اضافةمستودعToolStripMenuItem1.Name = "اضافةمستودعToolStripMenuItem1";
             this.اضافةمستودعToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
             this.اضافةمستودعToolStripMenuItem1.Text = "إضافة مستودع";
@@ -1018,7 +1069,7 @@ namespace PlancksoftPOS
             // aToolStripMenuItem
             // 
             this.aToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aToolStripMenuItem.ForeColor = System.Drawing.Color.Black;
+            this.aToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
             this.aToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
             this.aToolStripMenuItem.Text = "طلب الصيانه";
@@ -1027,7 +1078,7 @@ namespace PlancksoftPOS
             // خروجToolStripMenuItem1
             // 
             this.خروجToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.خروجToolStripMenuItem1.ForeColor = System.Drawing.Color.Black;
+            this.خروجToolStripMenuItem1.ForeColor = System.Drawing.Color.OrangeRed;
             this.خروجToolStripMenuItem1.Name = "خروجToolStripMenuItem1";
             this.خروجToolStripMenuItem1.Size = new System.Drawing.Size(44, 20);
             this.خروجToolStripMenuItem1.Text = "خروج";
@@ -11087,8 +11138,26 @@ namespace PlancksoftPOS
             // 
             this.pnlMenu.AutoScroll = true;
             this.pnlMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.pnlMenu.Controls.Add(this.materialCard3);
-            this.pnlMenu.Controls.Add(this.materialButton1);
+            this.pnlMenu.Controls.Add(this.materialDivider4);
+            this.pnlMenu.Controls.Add(this.materialDivider3);
+            this.pnlMenu.Controls.Add(this.materialDivider2);
+            this.pnlMenu.Controls.Add(this.materialDivider1);
+            this.pnlMenu.Controls.Add(this.btnMenuRefunds);
+            this.pnlMenu.Controls.Add(this.pnlMenuSettingsSub);
+            this.pnlMenu.Controls.Add(this.btnMenuSettings);
+            this.pnlMenu.Controls.Add(this.btnMenuUsers);
+            this.pnlMenu.Controls.Add(this.pnlMenuTaxesSub);
+            this.pnlMenu.Controls.Add(this.btnMenuTaxes);
+            this.pnlMenu.Controls.Add(this.btnMenuAlerts);
+            this.pnlMenu.Controls.Add(this.pnlMenuClientAffairsSub);
+            this.pnlMenu.Controls.Add(this.btnMenuClientsVendors);
+            this.pnlMenu.Controls.Add(this.pnlMenuEmployeesAffairsSub);
+            this.pnlMenu.Controls.Add(this.btnMenuEmployeesAffairs);
+            this.pnlMenu.Controls.Add(this.btnMenuIncomingOutgoing);
+            this.pnlMenu.Controls.Add(this.pnlMenuExpensesSub);
+            this.pnlMenu.Controls.Add(this.btnMenuExpenses);
+            this.pnlMenu.Controls.Add(this.pnlMenuInventorySub);
+            this.pnlMenu.Controls.Add(this.btnMenuIventory);
             this.pnlMenu.Controls.Add(this.pnlMenuSalesSub);
             this.pnlMenu.Controls.Add(this.btnHamburger);
             this.pnlMenu.Controls.Add(this.btnMenuSales);
@@ -11100,13 +11169,900 @@ namespace PlancksoftPOS
             this.pnlMenu.Location = new System.Drawing.Point(1667, 88);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(14);
             this.pnlMenu.MaximumSize = new System.Drawing.Size(250, 989);
-            this.pnlMenu.MinimumSize = new System.Drawing.Size(250, 989);
+            this.pnlMenu.MinimumSize = new System.Drawing.Size(250, 990);
             this.pnlMenu.MouseState = MaterialSkin.MouseState.HOVER;
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Padding = new System.Windows.Forms.Padding(14);
-            this.pnlMenu.Size = new System.Drawing.Size(250, 989);
+            this.pnlMenu.Size = new System.Drawing.Size(250, 990);
             this.pnlMenu.TabIndex = 41;
             this.pnlMenu.Click += new System.EventHandler(this.pnlMenu_Click);
+            // 
+            // materialDivider4
+            // 
+            this.materialDivider4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider4.Depth = 0;
+            this.materialDivider4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.materialDivider4.Location = new System.Drawing.Point(14, 585);
+            this.materialDivider4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider4.Name = "materialDivider4";
+            this.materialDivider4.Size = new System.Drawing.Size(222, 23);
+            this.materialDivider4.TabIndex = 68;
+            this.materialDivider4.Text = "materialDivider4";
+            // 
+            // materialDivider3
+            // 
+            this.materialDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider3.Depth = 0;
+            this.materialDivider3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.materialDivider3.Location = new System.Drawing.Point(14, 562);
+            this.materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider3.Name = "materialDivider3";
+            this.materialDivider3.Size = new System.Drawing.Size(222, 23);
+            this.materialDivider3.TabIndex = 67;
+            this.materialDivider3.Text = "materialDivider3";
+            // 
+            // materialDivider2
+            // 
+            this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider2.Depth = 0;
+            this.materialDivider2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.materialDivider2.Location = new System.Drawing.Point(14, 539);
+            this.materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider2.Name = "materialDivider2";
+            this.materialDivider2.Size = new System.Drawing.Size(222, 23);
+            this.materialDivider2.TabIndex = 66;
+            this.materialDivider2.Text = "materialDivider2";
+            // 
+            // materialDivider1
+            // 
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.materialDivider1.Location = new System.Drawing.Point(14, 516);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(222, 23);
+            this.materialDivider1.TabIndex = 65;
+            this.materialDivider1.Text = "materialDivider1";
+            // 
+            // btnMenuRefunds
+            // 
+            this.btnMenuRefunds.AutoSize = false;
+            this.btnMenuRefunds.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuRefunds.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuRefunds.Depth = 0;
+            this.btnMenuRefunds.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuRefunds.HighEmphasis = true;
+            this.btnMenuRefunds.Icon = null;
+            this.btnMenuRefunds.Location = new System.Drawing.Point(14, 480);
+            this.btnMenuRefunds.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuRefunds.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuRefunds.Name = "btnMenuRefunds";
+            this.btnMenuRefunds.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuRefunds.Size = new System.Drawing.Size(222, 36);
+            this.btnMenuRefunds.TabIndex = 64;
+            this.btnMenuRefunds.Text = "المرجعات";
+            this.btnMenuRefunds.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuRefunds.UseAccentColor = false;
+            this.btnMenuRefunds.UseVisualStyleBackColor = true;
+            this.btnMenuRefunds.Click += new System.EventHandler(this.btnMenuRefunds_Click);
+            // 
+            // pnlMenuSettingsSub
+            // 
+            this.pnlMenuSettingsSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pnlMenuSettingsSub.Controls.Add(this.btnMenuSettingsSubPrinterSettings);
+            this.pnlMenuSettingsSub.Controls.Add(this.btnMenuSettingsSubPOSSettings);
+            this.pnlMenuSettingsSub.Depth = 0;
+            this.pnlMenuSettingsSub.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMenuSettingsSub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlMenuSettingsSub.Location = new System.Drawing.Point(14, 470);
+            this.pnlMenuSettingsSub.Margin = new System.Windows.Forms.Padding(14);
+            this.pnlMenuSettingsSub.MaximumSize = new System.Drawing.Size(222, 100);
+            this.pnlMenuSettingsSub.MinimumSize = new System.Drawing.Size(222, 0);
+            this.pnlMenuSettingsSub.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pnlMenuSettingsSub.Name = "pnlMenuSettingsSub";
+            this.pnlMenuSettingsSub.Padding = new System.Windows.Forms.Padding(14);
+            this.pnlMenuSettingsSub.Size = new System.Drawing.Size(222, 10);
+            this.pnlMenuSettingsSub.TabIndex = 63;
+            // 
+            // btnMenuSettingsSubPrinterSettings
+            // 
+            this.btnMenuSettingsSubPrinterSettings.AutoSize = false;
+            this.btnMenuSettingsSubPrinterSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuSettingsSubPrinterSettings.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuSettingsSubPrinterSettings.Depth = 0;
+            this.btnMenuSettingsSubPrinterSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuSettingsSubPrinterSettings.HighEmphasis = true;
+            this.btnMenuSettingsSubPrinterSettings.Icon = null;
+            this.btnMenuSettingsSubPrinterSettings.Location = new System.Drawing.Point(14, 50);
+            this.btnMenuSettingsSubPrinterSettings.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuSettingsSubPrinterSettings.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuSettingsSubPrinterSettings.Name = "btnMenuSettingsSubPrinterSettings";
+            this.btnMenuSettingsSubPrinterSettings.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuSettingsSubPrinterSettings.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuSettingsSubPrinterSettings.TabIndex = 50;
+            this.btnMenuSettingsSubPrinterSettings.Text = "الطابعات";
+            this.btnMenuSettingsSubPrinterSettings.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuSettingsSubPrinterSettings.UseAccentColor = false;
+            this.btnMenuSettingsSubPrinterSettings.UseVisualStyleBackColor = true;
+            this.btnMenuSettingsSubPrinterSettings.Click += new System.EventHandler(this.btnMenuSettingsSubPrinterSettings_Click);
+            // 
+            // btnMenuSettingsSubPOSSettings
+            // 
+            this.btnMenuSettingsSubPOSSettings.AutoSize = false;
+            this.btnMenuSettingsSubPOSSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuSettingsSubPOSSettings.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuSettingsSubPOSSettings.Depth = 0;
+            this.btnMenuSettingsSubPOSSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuSettingsSubPOSSettings.HighEmphasis = true;
+            this.btnMenuSettingsSubPOSSettings.Icon = null;
+            this.btnMenuSettingsSubPOSSettings.Location = new System.Drawing.Point(14, 14);
+            this.btnMenuSettingsSubPOSSettings.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuSettingsSubPOSSettings.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuSettingsSubPOSSettings.Name = "btnMenuSettingsSubPOSSettings";
+            this.btnMenuSettingsSubPOSSettings.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuSettingsSubPOSSettings.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuSettingsSubPOSSettings.TabIndex = 49;
+            this.btnMenuSettingsSubPOSSettings.Text = "إعدادات البرمجية";
+            this.btnMenuSettingsSubPOSSettings.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuSettingsSubPOSSettings.UseAccentColor = false;
+            this.btnMenuSettingsSubPOSSettings.UseVisualStyleBackColor = true;
+            this.btnMenuSettingsSubPOSSettings.Click += new System.EventHandler(this.btnMenuSettingsSubPOSSettings_Click);
+            // 
+            // btnMenuSettings
+            // 
+            this.btnMenuSettings.AutoSize = false;
+            this.btnMenuSettings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuSettings.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuSettings.Depth = 0;
+            this.btnMenuSettings.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuSettings.HighEmphasis = true;
+            this.btnMenuSettings.Icon = null;
+            this.btnMenuSettings.Location = new System.Drawing.Point(14, 434);
+            this.btnMenuSettings.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuSettings.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuSettings.Name = "btnMenuSettings";
+            this.btnMenuSettings.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuSettings.Size = new System.Drawing.Size(222, 36);
+            this.btnMenuSettings.TabIndex = 62;
+            this.btnMenuSettings.Text = "الإعدادات";
+            this.btnMenuSettings.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuSettings.UseAccentColor = false;
+            this.btnMenuSettings.UseVisualStyleBackColor = true;
+            this.btnMenuSettings.Click += new System.EventHandler(this.btnMenuSettings_Click);
+            // 
+            // btnMenuUsers
+            // 
+            this.btnMenuUsers.AutoSize = false;
+            this.btnMenuUsers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuUsers.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuUsers.Depth = 0;
+            this.btnMenuUsers.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuUsers.HighEmphasis = true;
+            this.btnMenuUsers.Icon = null;
+            this.btnMenuUsers.Location = new System.Drawing.Point(14, 398);
+            this.btnMenuUsers.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuUsers.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuUsers.Name = "btnMenuUsers";
+            this.btnMenuUsers.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuUsers.Size = new System.Drawing.Size(222, 36);
+            this.btnMenuUsers.TabIndex = 61;
+            this.btnMenuUsers.Text = "المستخدمين";
+            this.btnMenuUsers.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuUsers.UseAccentColor = false;
+            this.btnMenuUsers.UseVisualStyleBackColor = true;
+            this.btnMenuUsers.Click += new System.EventHandler(this.btnMenuUsers_Click);
+            // 
+            // pnlMenuTaxesSub
+            // 
+            this.pnlMenuTaxesSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pnlMenuTaxesSub.Controls.Add(this.btnMenuTaxesSubTaxZReport);
+            this.pnlMenuTaxesSub.Depth = 0;
+            this.pnlMenuTaxesSub.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMenuTaxesSub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlMenuTaxesSub.Location = new System.Drawing.Point(14, 388);
+            this.pnlMenuTaxesSub.Margin = new System.Windows.Forms.Padding(14);
+            this.pnlMenuTaxesSub.MaximumSize = new System.Drawing.Size(222, 60);
+            this.pnlMenuTaxesSub.MinimumSize = new System.Drawing.Size(222, 0);
+            this.pnlMenuTaxesSub.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pnlMenuTaxesSub.Name = "pnlMenuTaxesSub";
+            this.pnlMenuTaxesSub.Padding = new System.Windows.Forms.Padding(14);
+            this.pnlMenuTaxesSub.Size = new System.Drawing.Size(222, 10);
+            this.pnlMenuTaxesSub.TabIndex = 60;
+            // 
+            // btnMenuTaxesSubTaxZReport
+            // 
+            this.btnMenuTaxesSubTaxZReport.AutoSize = false;
+            this.btnMenuTaxesSubTaxZReport.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuTaxesSubTaxZReport.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuTaxesSubTaxZReport.Depth = 0;
+            this.btnMenuTaxesSubTaxZReport.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuTaxesSubTaxZReport.HighEmphasis = true;
+            this.btnMenuTaxesSubTaxZReport.Icon = null;
+            this.btnMenuTaxesSubTaxZReport.Location = new System.Drawing.Point(14, 14);
+            this.btnMenuTaxesSubTaxZReport.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuTaxesSubTaxZReport.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuTaxesSubTaxZReport.Name = "btnMenuTaxesSubTaxZReport";
+            this.btnMenuTaxesSubTaxZReport.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuTaxesSubTaxZReport.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuTaxesSubTaxZReport.TabIndex = 49;
+            this.btnMenuTaxesSubTaxZReport.Text = "تقرير الضريبه Z";
+            this.btnMenuTaxesSubTaxZReport.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuTaxesSubTaxZReport.UseAccentColor = false;
+            this.btnMenuTaxesSubTaxZReport.UseVisualStyleBackColor = true;
+            this.btnMenuTaxesSubTaxZReport.Click += new System.EventHandler(this.btnMenuTaxesSubTaxZReport_Click);
+            // 
+            // btnMenuTaxes
+            // 
+            this.btnMenuTaxes.AutoSize = false;
+            this.btnMenuTaxes.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuTaxes.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuTaxes.Depth = 0;
+            this.btnMenuTaxes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuTaxes.HighEmphasis = true;
+            this.btnMenuTaxes.Icon = null;
+            this.btnMenuTaxes.Location = new System.Drawing.Point(14, 352);
+            this.btnMenuTaxes.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuTaxes.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuTaxes.Name = "btnMenuTaxes";
+            this.btnMenuTaxes.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuTaxes.Size = new System.Drawing.Size(222, 36);
+            this.btnMenuTaxes.TabIndex = 59;
+            this.btnMenuTaxes.Text = "الضريبه";
+            this.btnMenuTaxes.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuTaxes.UseAccentColor = false;
+            this.btnMenuTaxes.UseVisualStyleBackColor = true;
+            this.btnMenuTaxes.Click += new System.EventHandler(this.btnMenuTaxes_Click);
+            // 
+            // btnMenuAlerts
+            // 
+            this.btnMenuAlerts.AutoSize = false;
+            this.btnMenuAlerts.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuAlerts.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuAlerts.Depth = 0;
+            this.btnMenuAlerts.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuAlerts.HighEmphasis = true;
+            this.btnMenuAlerts.Icon = null;
+            this.btnMenuAlerts.Location = new System.Drawing.Point(14, 316);
+            this.btnMenuAlerts.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuAlerts.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuAlerts.Name = "btnMenuAlerts";
+            this.btnMenuAlerts.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuAlerts.Size = new System.Drawing.Size(222, 36);
+            this.btnMenuAlerts.TabIndex = 58;
+            this.btnMenuAlerts.Text = "التنبيهات";
+            this.btnMenuAlerts.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuAlerts.UseAccentColor = false;
+            this.btnMenuAlerts.UseVisualStyleBackColor = true;
+            this.btnMenuAlerts.Click += new System.EventHandler(this.btnMenuAlerts_Click);
+            // 
+            // pnlMenuClientAffairsSub
+            // 
+            this.pnlMenuClientAffairsSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pnlMenuClientAffairsSub.Controls.Add(this.btnMenuClientsVendorsSubVendoItemsDefinitions);
+            this.pnlMenuClientAffairsSub.Controls.Add(this.btnMenuClientsVendorsSubVendorBalanceCheck);
+            this.pnlMenuClientAffairsSub.Controls.Add(this.btnMenuClientsVendorsSubVendorsDefinitions);
+            this.pnlMenuClientAffairsSub.Controls.Add(this.btnMenuClientsVendorsSubClientsBalanceCheck);
+            this.pnlMenuClientAffairsSub.Controls.Add(this.btnMenuClientsVendorsSubClientsDefinitions);
+            this.pnlMenuClientAffairsSub.Depth = 0;
+            this.pnlMenuClientAffairsSub.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMenuClientAffairsSub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlMenuClientAffairsSub.Location = new System.Drawing.Point(14, 306);
+            this.pnlMenuClientAffairsSub.Margin = new System.Windows.Forms.Padding(14);
+            this.pnlMenuClientAffairsSub.MaximumSize = new System.Drawing.Size(222, 210);
+            this.pnlMenuClientAffairsSub.MinimumSize = new System.Drawing.Size(222, 0);
+            this.pnlMenuClientAffairsSub.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pnlMenuClientAffairsSub.Name = "pnlMenuClientAffairsSub";
+            this.pnlMenuClientAffairsSub.Padding = new System.Windows.Forms.Padding(14);
+            this.pnlMenuClientAffairsSub.Size = new System.Drawing.Size(222, 10);
+            this.pnlMenuClientAffairsSub.TabIndex = 57;
+            // 
+            // btnMenuClientsVendorsSubVendoItemsDefinitions
+            // 
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.AutoSize = false;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.Depth = 0;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.Enabled = false;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.HighEmphasis = true;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.Icon = null;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.Location = new System.Drawing.Point(14, 158);
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.Name = "btnMenuClientsVendorsSubVendoItemsDefinitions";
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.TabIndex = 53;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.Text = "تعريف مواد العميل";
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.UseAccentColor = false;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.UseVisualStyleBackColor = true;
+            this.btnMenuClientsVendorsSubVendoItemsDefinitions.Click += new System.EventHandler(this.btnMenuClientsVendorsSubVendoItemsDefinitions_Click);
+            // 
+            // btnMenuClientsVendorsSubVendorBalanceCheck
+            // 
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.AutoSize = false;
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.Depth = 0;
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.HighEmphasis = true;
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.Icon = null;
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.Location = new System.Drawing.Point(14, 122);
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.Name = "btnMenuClientsVendorsSubVendorBalanceCheck";
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.TabIndex = 52;
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.Text = "كشف حساب مورد";
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.UseAccentColor = false;
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.UseVisualStyleBackColor = true;
+            this.btnMenuClientsVendorsSubVendorBalanceCheck.Click += new System.EventHandler(this.btnMenuClientsVendorsSubVendorBalanceCheck_Click);
+            // 
+            // btnMenuClientsVendorsSubVendorsDefinitions
+            // 
+            this.btnMenuClientsVendorsSubVendorsDefinitions.AutoSize = false;
+            this.btnMenuClientsVendorsSubVendorsDefinitions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuClientsVendorsSubVendorsDefinitions.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuClientsVendorsSubVendorsDefinitions.Depth = 0;
+            this.btnMenuClientsVendorsSubVendorsDefinitions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuClientsVendorsSubVendorsDefinitions.HighEmphasis = true;
+            this.btnMenuClientsVendorsSubVendorsDefinitions.Icon = null;
+            this.btnMenuClientsVendorsSubVendorsDefinitions.Location = new System.Drawing.Point(14, 86);
+            this.btnMenuClientsVendorsSubVendorsDefinitions.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuClientsVendorsSubVendorsDefinitions.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuClientsVendorsSubVendorsDefinitions.Name = "btnMenuClientsVendorsSubVendorsDefinitions";
+            this.btnMenuClientsVendorsSubVendorsDefinitions.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuClientsVendorsSubVendorsDefinitions.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuClientsVendorsSubVendorsDefinitions.TabIndex = 51;
+            this.btnMenuClientsVendorsSubVendorsDefinitions.Text = "تعريف مورد";
+            this.btnMenuClientsVendorsSubVendorsDefinitions.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuClientsVendorsSubVendorsDefinitions.UseAccentColor = false;
+            this.btnMenuClientsVendorsSubVendorsDefinitions.UseVisualStyleBackColor = true;
+            this.btnMenuClientsVendorsSubVendorsDefinitions.Click += new System.EventHandler(this.btnMenuClientsVendorsSubVendorsDefinitions_Click);
+            // 
+            // btnMenuClientsVendorsSubClientsBalanceCheck
+            // 
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.AutoSize = false;
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.Depth = 0;
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.HighEmphasis = true;
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.Icon = null;
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.Location = new System.Drawing.Point(14, 50);
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.Name = "btnMenuClientsVendorsSubClientsBalanceCheck";
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.TabIndex = 50;
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.Text = "كشف حساب العميل";
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.UseAccentColor = false;
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.UseVisualStyleBackColor = true;
+            this.btnMenuClientsVendorsSubClientsBalanceCheck.Click += new System.EventHandler(this.btnMenuClientsVendorsSubClientsBalanceCheck_Click);
+            // 
+            // btnMenuClientsVendorsSubClientsDefinitions
+            // 
+            this.btnMenuClientsVendorsSubClientsDefinitions.AutoSize = false;
+            this.btnMenuClientsVendorsSubClientsDefinitions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuClientsVendorsSubClientsDefinitions.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuClientsVendorsSubClientsDefinitions.Depth = 0;
+            this.btnMenuClientsVendorsSubClientsDefinitions.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuClientsVendorsSubClientsDefinitions.HighEmphasis = true;
+            this.btnMenuClientsVendorsSubClientsDefinitions.Icon = null;
+            this.btnMenuClientsVendorsSubClientsDefinitions.Location = new System.Drawing.Point(14, 14);
+            this.btnMenuClientsVendorsSubClientsDefinitions.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuClientsVendorsSubClientsDefinitions.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuClientsVendorsSubClientsDefinitions.Name = "btnMenuClientsVendorsSubClientsDefinitions";
+            this.btnMenuClientsVendorsSubClientsDefinitions.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuClientsVendorsSubClientsDefinitions.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuClientsVendorsSubClientsDefinitions.TabIndex = 49;
+            this.btnMenuClientsVendorsSubClientsDefinitions.Text = "تعريف العملاء";
+            this.btnMenuClientsVendorsSubClientsDefinitions.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuClientsVendorsSubClientsDefinitions.UseAccentColor = false;
+            this.btnMenuClientsVendorsSubClientsDefinitions.UseVisualStyleBackColor = true;
+            this.btnMenuClientsVendorsSubClientsDefinitions.Click += new System.EventHandler(this.btnMenuClientsVendorsSubClientsDefinitions_Click);
+            // 
+            // btnMenuClientsVendors
+            // 
+            this.btnMenuClientsVendors.AutoSize = false;
+            this.btnMenuClientsVendors.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuClientsVendors.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuClientsVendors.Depth = 0;
+            this.btnMenuClientsVendors.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuClientsVendors.HighEmphasis = true;
+            this.btnMenuClientsVendors.Icon = null;
+            this.btnMenuClientsVendors.Location = new System.Drawing.Point(14, 270);
+            this.btnMenuClientsVendors.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuClientsVendors.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuClientsVendors.Name = "btnMenuClientsVendors";
+            this.btnMenuClientsVendors.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuClientsVendors.Size = new System.Drawing.Size(222, 36);
+            this.btnMenuClientsVendors.TabIndex = 56;
+            this.btnMenuClientsVendors.Text = "شؤون العملاء";
+            this.btnMenuClientsVendors.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuClientsVendors.UseAccentColor = false;
+            this.btnMenuClientsVendors.UseVisualStyleBackColor = true;
+            this.btnMenuClientsVendors.Click += new System.EventHandler(this.btnMenuClientsVendors_Click);
+            // 
+            // pnlMenuEmployeesAffairsSub
+            // 
+            this.pnlMenuEmployeesAffairsSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pnlMenuEmployeesAffairsSub.Controls.Add(this.btnMenuEmployeesAffairsSubDaysOff);
+            this.pnlMenuEmployeesAffairsSub.Controls.Add(this.btnMenuEmployeesAffairsSubEmployeesManagement);
+            this.pnlMenuEmployeesAffairsSub.Depth = 0;
+            this.pnlMenuEmployeesAffairsSub.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMenuEmployeesAffairsSub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlMenuEmployeesAffairsSub.Location = new System.Drawing.Point(14, 260);
+            this.pnlMenuEmployeesAffairsSub.Margin = new System.Windows.Forms.Padding(14);
+            this.pnlMenuEmployeesAffairsSub.MaximumSize = new System.Drawing.Size(222, 100);
+            this.pnlMenuEmployeesAffairsSub.MinimumSize = new System.Drawing.Size(222, 0);
+            this.pnlMenuEmployeesAffairsSub.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pnlMenuEmployeesAffairsSub.Name = "pnlMenuEmployeesAffairsSub";
+            this.pnlMenuEmployeesAffairsSub.Padding = new System.Windows.Forms.Padding(14);
+            this.pnlMenuEmployeesAffairsSub.Size = new System.Drawing.Size(222, 10);
+            this.pnlMenuEmployeesAffairsSub.TabIndex = 55;
+            // 
+            // btnMenuEmployeesAffairsSubDaysOff
+            // 
+            this.btnMenuEmployeesAffairsSubDaysOff.AutoSize = false;
+            this.btnMenuEmployeesAffairsSubDaysOff.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuEmployeesAffairsSubDaysOff.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuEmployeesAffairsSubDaysOff.Depth = 0;
+            this.btnMenuEmployeesAffairsSubDaysOff.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuEmployeesAffairsSubDaysOff.HighEmphasis = true;
+            this.btnMenuEmployeesAffairsSubDaysOff.Icon = null;
+            this.btnMenuEmployeesAffairsSubDaysOff.Location = new System.Drawing.Point(14, 50);
+            this.btnMenuEmployeesAffairsSubDaysOff.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuEmployeesAffairsSubDaysOff.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuEmployeesAffairsSubDaysOff.Name = "btnMenuEmployeesAffairsSubDaysOff";
+            this.btnMenuEmployeesAffairsSubDaysOff.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuEmployeesAffairsSubDaysOff.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuEmployeesAffairsSubDaysOff.TabIndex = 50;
+            this.btnMenuEmployeesAffairsSubDaysOff.Text = "الإجازات";
+            this.btnMenuEmployeesAffairsSubDaysOff.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuEmployeesAffairsSubDaysOff.UseAccentColor = false;
+            this.btnMenuEmployeesAffairsSubDaysOff.UseVisualStyleBackColor = true;
+            this.btnMenuEmployeesAffairsSubDaysOff.Click += new System.EventHandler(this.btnMenuEmployeesAffairsSubDaysOff_Click);
+            // 
+            // btnMenuEmployeesAffairsSubEmployeesManagement
+            // 
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.AutoSize = false;
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.Depth = 0;
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.HighEmphasis = true;
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.Icon = null;
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.Location = new System.Drawing.Point(14, 14);
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.Name = "btnMenuEmployeesAffairsSubEmployeesManagement";
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.TabIndex = 49;
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.Text = "إدارة الموظفين";
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.UseAccentColor = false;
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.UseVisualStyleBackColor = true;
+            this.btnMenuEmployeesAffairsSubEmployeesManagement.Click += new System.EventHandler(this.btnMenuEmployeesAffairsSubEmployeesManagement_Click);
+            // 
+            // btnMenuEmployeesAffairs
+            // 
+            this.btnMenuEmployeesAffairs.AutoSize = false;
+            this.btnMenuEmployeesAffairs.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuEmployeesAffairs.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuEmployeesAffairs.Depth = 0;
+            this.btnMenuEmployeesAffairs.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuEmployeesAffairs.HighEmphasis = true;
+            this.btnMenuEmployeesAffairs.Icon = null;
+            this.btnMenuEmployeesAffairs.Location = new System.Drawing.Point(14, 224);
+            this.btnMenuEmployeesAffairs.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuEmployeesAffairs.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuEmployeesAffairs.Name = "btnMenuEmployeesAffairs";
+            this.btnMenuEmployeesAffairs.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuEmployeesAffairs.Size = new System.Drawing.Size(222, 36);
+            this.btnMenuEmployeesAffairs.TabIndex = 54;
+            this.btnMenuEmployeesAffairs.Text = "شؤون الموظفين";
+            this.btnMenuEmployeesAffairs.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuEmployeesAffairs.UseAccentColor = false;
+            this.btnMenuEmployeesAffairs.UseVisualStyleBackColor = true;
+            this.btnMenuEmployeesAffairs.Click += new System.EventHandler(this.btnMenuEmployeesAffairs_Click);
+            // 
+            // btnMenuIncomingOutgoing
+            // 
+            this.btnMenuIncomingOutgoing.AutoSize = false;
+            this.btnMenuIncomingOutgoing.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuIncomingOutgoing.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuIncomingOutgoing.Depth = 0;
+            this.btnMenuIncomingOutgoing.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuIncomingOutgoing.HighEmphasis = true;
+            this.btnMenuIncomingOutgoing.Icon = null;
+            this.btnMenuIncomingOutgoing.Location = new System.Drawing.Point(14, 188);
+            this.btnMenuIncomingOutgoing.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuIncomingOutgoing.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuIncomingOutgoing.Name = "btnMenuIncomingOutgoing";
+            this.btnMenuIncomingOutgoing.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuIncomingOutgoing.Size = new System.Drawing.Size(222, 36);
+            this.btnMenuIncomingOutgoing.TabIndex = 53;
+            this.btnMenuIncomingOutgoing.Text = "الصادر و الوارد و رأس المال";
+            this.btnMenuIncomingOutgoing.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuIncomingOutgoing.UseAccentColor = false;
+            this.btnMenuIncomingOutgoing.UseVisualStyleBackColor = true;
+            this.btnMenuIncomingOutgoing.Click += new System.EventHandler(this.btnMenuIncomingOutgoing_Click);
+            // 
+            // pnlMenuExpensesSub
+            // 
+            this.pnlMenuExpensesSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pnlMenuExpensesSub.Controls.Add(this.btnMenuExpensesSubAddExpense);
+            this.pnlMenuExpensesSub.Controls.Add(this.btnMenuExpensesSubSearchExpenses);
+            this.pnlMenuExpensesSub.Depth = 0;
+            this.pnlMenuExpensesSub.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMenuExpensesSub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlMenuExpensesSub.Location = new System.Drawing.Point(14, 178);
+            this.pnlMenuExpensesSub.Margin = new System.Windows.Forms.Padding(14);
+            this.pnlMenuExpensesSub.MaximumSize = new System.Drawing.Size(222, 100);
+            this.pnlMenuExpensesSub.MinimumSize = new System.Drawing.Size(222, 0);
+            this.pnlMenuExpensesSub.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pnlMenuExpensesSub.Name = "pnlMenuExpensesSub";
+            this.pnlMenuExpensesSub.Padding = new System.Windows.Forms.Padding(14);
+            this.pnlMenuExpensesSub.Size = new System.Drawing.Size(222, 10);
+            this.pnlMenuExpensesSub.TabIndex = 52;
+            // 
+            // btnMenuExpensesSubAddExpense
+            // 
+            this.btnMenuExpensesSubAddExpense.AutoSize = false;
+            this.btnMenuExpensesSubAddExpense.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuExpensesSubAddExpense.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuExpensesSubAddExpense.Depth = 0;
+            this.btnMenuExpensesSubAddExpense.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuExpensesSubAddExpense.HighEmphasis = true;
+            this.btnMenuExpensesSubAddExpense.Icon = null;
+            this.btnMenuExpensesSubAddExpense.Location = new System.Drawing.Point(14, 50);
+            this.btnMenuExpensesSubAddExpense.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuExpensesSubAddExpense.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuExpensesSubAddExpense.Name = "btnMenuExpensesSubAddExpense";
+            this.btnMenuExpensesSubAddExpense.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuExpensesSubAddExpense.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuExpensesSubAddExpense.TabIndex = 50;
+            this.btnMenuExpensesSubAddExpense.Text = "إضافة مصروف";
+            this.btnMenuExpensesSubAddExpense.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuExpensesSubAddExpense.UseAccentColor = false;
+            this.btnMenuExpensesSubAddExpense.UseVisualStyleBackColor = true;
+            this.btnMenuExpensesSubAddExpense.Click += new System.EventHandler(this.btnMenuExpensesSubAddExpense_Click);
+            // 
+            // btnMenuExpensesSubSearchExpenses
+            // 
+            this.btnMenuExpensesSubSearchExpenses.AutoSize = false;
+            this.btnMenuExpensesSubSearchExpenses.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuExpensesSubSearchExpenses.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuExpensesSubSearchExpenses.Depth = 0;
+            this.btnMenuExpensesSubSearchExpenses.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuExpensesSubSearchExpenses.HighEmphasis = true;
+            this.btnMenuExpensesSubSearchExpenses.Icon = null;
+            this.btnMenuExpensesSubSearchExpenses.Location = new System.Drawing.Point(14, 14);
+            this.btnMenuExpensesSubSearchExpenses.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuExpensesSubSearchExpenses.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuExpensesSubSearchExpenses.Name = "btnMenuExpensesSubSearchExpenses";
+            this.btnMenuExpensesSubSearchExpenses.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuExpensesSubSearchExpenses.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuExpensesSubSearchExpenses.TabIndex = 49;
+            this.btnMenuExpensesSubSearchExpenses.Text = "البحث عن المصروفات";
+            this.btnMenuExpensesSubSearchExpenses.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuExpensesSubSearchExpenses.UseAccentColor = false;
+            this.btnMenuExpensesSubSearchExpenses.UseVisualStyleBackColor = true;
+            this.btnMenuExpensesSubSearchExpenses.Click += new System.EventHandler(this.btnMenuExpensesSubSearchExpenses_Click);
+            // 
+            // btnMenuExpenses
+            // 
+            this.btnMenuExpenses.AutoSize = false;
+            this.btnMenuExpenses.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuExpenses.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuExpenses.Depth = 0;
+            this.btnMenuExpenses.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuExpenses.HighEmphasis = true;
+            this.btnMenuExpenses.Icon = null;
+            this.btnMenuExpenses.Location = new System.Drawing.Point(14, 142);
+            this.btnMenuExpenses.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuExpenses.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuExpenses.Name = "btnMenuExpenses";
+            this.btnMenuExpenses.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuExpenses.Size = new System.Drawing.Size(222, 36);
+            this.btnMenuExpenses.TabIndex = 51;
+            this.btnMenuExpenses.Text = "المصاريف";
+            this.btnMenuExpenses.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuExpenses.UseAccentColor = false;
+            this.btnMenuExpenses.UseVisualStyleBackColor = true;
+            this.btnMenuExpenses.Click += new System.EventHandler(this.btnMenuExpenses_Click);
+            // 
+            // pnlMenuInventorySub
+            // 
+            this.pnlMenuInventorySub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pnlMenuInventorySub.Controls.Add(this.btnMenuIventorySubAddWarehouses);
+            this.pnlMenuInventorySub.Controls.Add(this.btnMenuIventorySubAddFavorites);
+            this.pnlMenuInventorySub.Controls.Add(this.btnMenuIventorySubAddItemTypes);
+            this.pnlMenuInventorySub.Controls.Add(this.btnMenuIventorySubIncomingOutgoingItems);
+            this.pnlMenuInventorySub.Controls.Add(this.btnMenuIventorySubItemsQuantify);
+            this.pnlMenuInventorySub.Controls.Add(this.btnMenuIventorySubInventory);
+            this.pnlMenuInventorySub.Depth = 0;
+            this.pnlMenuInventorySub.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMenuInventorySub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlMenuInventorySub.Location = new System.Drawing.Point(14, 132);
+            this.pnlMenuInventorySub.Margin = new System.Windows.Forms.Padding(14);
+            this.pnlMenuInventorySub.MaximumSize = new System.Drawing.Size(222, 250);
+            this.pnlMenuInventorySub.MinimumSize = new System.Drawing.Size(222, 0);
+            this.pnlMenuInventorySub.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pnlMenuInventorySub.Name = "pnlMenuInventorySub";
+            this.pnlMenuInventorySub.Padding = new System.Windows.Forms.Padding(14);
+            this.pnlMenuInventorySub.Size = new System.Drawing.Size(222, 10);
+            this.pnlMenuInventorySub.TabIndex = 50;
+            // 
+            // btnMenuIventorySubAddWarehouses
+            // 
+            this.btnMenuIventorySubAddWarehouses.AutoSize = false;
+            this.btnMenuIventorySubAddWarehouses.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuIventorySubAddWarehouses.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuIventorySubAddWarehouses.Depth = 0;
+            this.btnMenuIventorySubAddWarehouses.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuIventorySubAddWarehouses.HighEmphasis = true;
+            this.btnMenuIventorySubAddWarehouses.Icon = null;
+            this.btnMenuIventorySubAddWarehouses.Location = new System.Drawing.Point(14, 194);
+            this.btnMenuIventorySubAddWarehouses.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuIventorySubAddWarehouses.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuIventorySubAddWarehouses.Name = "btnMenuIventorySubAddWarehouses";
+            this.btnMenuIventorySubAddWarehouses.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuIventorySubAddWarehouses.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuIventorySubAddWarehouses.TabIndex = 54;
+            this.btnMenuIventorySubAddWarehouses.Text = "إضافة مستودع";
+            this.btnMenuIventorySubAddWarehouses.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuIventorySubAddWarehouses.UseAccentColor = false;
+            this.btnMenuIventorySubAddWarehouses.UseVisualStyleBackColor = true;
+            this.btnMenuIventorySubAddWarehouses.Click += new System.EventHandler(this.btnMenuInventorySubAddWarehouses_Click);
+            // 
+            // btnMenuIventorySubAddFavorites
+            // 
+            this.btnMenuIventorySubAddFavorites.AutoSize = false;
+            this.btnMenuIventorySubAddFavorites.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuIventorySubAddFavorites.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuIventorySubAddFavorites.Depth = 0;
+            this.btnMenuIventorySubAddFavorites.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuIventorySubAddFavorites.HighEmphasis = true;
+            this.btnMenuIventorySubAddFavorites.Icon = null;
+            this.btnMenuIventorySubAddFavorites.Location = new System.Drawing.Point(14, 158);
+            this.btnMenuIventorySubAddFavorites.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuIventorySubAddFavorites.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuIventorySubAddFavorites.Name = "btnMenuIventorySubAddFavorites";
+            this.btnMenuIventorySubAddFavorites.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuIventorySubAddFavorites.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuIventorySubAddFavorites.TabIndex = 53;
+            this.btnMenuIventorySubAddFavorites.Text = "إضافة مجلد مفضلات";
+            this.btnMenuIventorySubAddFavorites.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuIventorySubAddFavorites.UseAccentColor = false;
+            this.btnMenuIventorySubAddFavorites.UseVisualStyleBackColor = true;
+            this.btnMenuIventorySubAddFavorites.Click += new System.EventHandler(this.btnMenuInventorySubAddFavorites_Click);
+            // 
+            // btnMenuIventorySubAddItemTypes
+            // 
+            this.btnMenuIventorySubAddItemTypes.AutoSize = false;
+            this.btnMenuIventorySubAddItemTypes.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuIventorySubAddItemTypes.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuIventorySubAddItemTypes.Depth = 0;
+            this.btnMenuIventorySubAddItemTypes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuIventorySubAddItemTypes.HighEmphasis = true;
+            this.btnMenuIventorySubAddItemTypes.Icon = null;
+            this.btnMenuIventorySubAddItemTypes.Location = new System.Drawing.Point(14, 122);
+            this.btnMenuIventorySubAddItemTypes.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuIventorySubAddItemTypes.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuIventorySubAddItemTypes.Name = "btnMenuIventorySubAddItemTypes";
+            this.btnMenuIventorySubAddItemTypes.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuIventorySubAddItemTypes.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuIventorySubAddItemTypes.TabIndex = 52;
+            this.btnMenuIventorySubAddItemTypes.Text = "إضافة صنف";
+            this.btnMenuIventorySubAddItemTypes.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuIventorySubAddItemTypes.UseAccentColor = false;
+            this.btnMenuIventorySubAddItemTypes.UseVisualStyleBackColor = true;
+            this.btnMenuIventorySubAddItemTypes.Click += new System.EventHandler(this.btnMenuInventorySubAddItemTypes_Click);
+            // 
+            // btnMenuIventorySubIncomingOutgoingItems
+            // 
+            this.btnMenuIventorySubIncomingOutgoingItems.AutoSize = false;
+            this.btnMenuIventorySubIncomingOutgoingItems.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuIventorySubIncomingOutgoingItems.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuIventorySubIncomingOutgoingItems.Depth = 0;
+            this.btnMenuIventorySubIncomingOutgoingItems.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuIventorySubIncomingOutgoingItems.HighEmphasis = true;
+            this.btnMenuIventorySubIncomingOutgoingItems.Icon = null;
+            this.btnMenuIventorySubIncomingOutgoingItems.Location = new System.Drawing.Point(14, 86);
+            this.btnMenuIventorySubIncomingOutgoingItems.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuIventorySubIncomingOutgoingItems.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuIventorySubIncomingOutgoingItems.Name = "btnMenuIventorySubIncomingOutgoingItems";
+            this.btnMenuIventorySubIncomingOutgoingItems.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuIventorySubIncomingOutgoingItems.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuIventorySubIncomingOutgoingItems.TabIndex = 51;
+            this.btnMenuIventorySubIncomingOutgoingItems.Text = "سند إدخال و إخراج";
+            this.btnMenuIventorySubIncomingOutgoingItems.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuIventorySubIncomingOutgoingItems.UseAccentColor = false;
+            this.btnMenuIventorySubIncomingOutgoingItems.UseVisualStyleBackColor = true;
+            this.btnMenuIventorySubIncomingOutgoingItems.Click += new System.EventHandler(this.btnMenuInventorySubIncomingOutgoingItems_Click);
+            // 
+            // btnMenuIventorySubItemsQuantify
+            // 
+            this.btnMenuIventorySubItemsQuantify.AutoSize = false;
+            this.btnMenuIventorySubItemsQuantify.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuIventorySubItemsQuantify.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuIventorySubItemsQuantify.Depth = 0;
+            this.btnMenuIventorySubItemsQuantify.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuIventorySubItemsQuantify.HighEmphasis = true;
+            this.btnMenuIventorySubItemsQuantify.Icon = null;
+            this.btnMenuIventorySubItemsQuantify.Location = new System.Drawing.Point(14, 50);
+            this.btnMenuIventorySubItemsQuantify.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuIventorySubItemsQuantify.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuIventorySubItemsQuantify.Name = "btnMenuIventorySubItemsQuantify";
+            this.btnMenuIventorySubItemsQuantify.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuIventorySubItemsQuantify.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuIventorySubItemsQuantify.TabIndex = 50;
+            this.btnMenuIventorySubItemsQuantify.Text = "جرد المستودعات";
+            this.btnMenuIventorySubItemsQuantify.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuIventorySubItemsQuantify.UseAccentColor = false;
+            this.btnMenuIventorySubItemsQuantify.UseVisualStyleBackColor = true;
+            this.btnMenuIventorySubItemsQuantify.Click += new System.EventHandler(this.btnMenuInventorySubItemsQuantify_Click);
+            // 
+            // btnMenuIventorySubInventory
+            // 
+            this.btnMenuIventorySubInventory.AutoSize = false;
+            this.btnMenuIventorySubInventory.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuIventorySubInventory.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuIventorySubInventory.Depth = 0;
+            this.btnMenuIventorySubInventory.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuIventorySubInventory.HighEmphasis = true;
+            this.btnMenuIventorySubInventory.Icon = null;
+            this.btnMenuIventorySubInventory.Location = new System.Drawing.Point(14, 14);
+            this.btnMenuIventorySubInventory.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuIventorySubInventory.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuIventorySubInventory.Name = "btnMenuIventorySubInventory";
+            this.btnMenuIventorySubInventory.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuIventorySubInventory.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuIventorySubInventory.TabIndex = 49;
+            this.btnMenuIventorySubInventory.Text = "المستودع";
+            this.btnMenuIventorySubInventory.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuIventorySubInventory.UseAccentColor = false;
+            this.btnMenuIventorySubInventory.UseVisualStyleBackColor = true;
+            this.btnMenuIventorySubInventory.Click += new System.EventHandler(this.btnMenuInventorySubInventory_Click);
+            // 
+            // btnMenuIventory
+            // 
+            this.btnMenuIventory.AutoSize = false;
+            this.btnMenuIventory.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuIventory.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuIventory.Depth = 0;
+            this.btnMenuIventory.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuIventory.HighEmphasis = true;
+            this.btnMenuIventory.Icon = null;
+            this.btnMenuIventory.Location = new System.Drawing.Point(14, 96);
+            this.btnMenuIventory.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuIventory.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuIventory.Name = "btnMenuIventory";
+            this.btnMenuIventory.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuIventory.Size = new System.Drawing.Size(222, 36);
+            this.btnMenuIventory.TabIndex = 49;
+            this.btnMenuIventory.Text = "المستودع";
+            this.btnMenuIventory.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuIventory.UseAccentColor = false;
+            this.btnMenuIventory.UseVisualStyleBackColor = true;
+            this.btnMenuIventory.Click += new System.EventHandler(this.btnMenuInventory_Click);
+            // 
+            // pnlMenuSalesSub
+            // 
+            this.pnlMenuSalesSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.pnlMenuSalesSub.Controls.Add(this.btnMenuSalesSubSoldItems);
+            this.pnlMenuSalesSub.Controls.Add(this.btnMenuSalesSubTravelingUntravelingSales);
+            this.pnlMenuSalesSub.Controls.Add(this.btnMenuSalesSubEditInvoices);
+            this.pnlMenuSalesSub.Controls.Add(this.btnMenuSalesSubSales);
+            this.pnlMenuSalesSub.Depth = 0;
+            this.pnlMenuSalesSub.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlMenuSalesSub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.pnlMenuSalesSub.Location = new System.Drawing.Point(14, 86);
+            this.pnlMenuSalesSub.Margin = new System.Windows.Forms.Padding(14);
+            this.pnlMenuSalesSub.MaximumSize = new System.Drawing.Size(222, 180);
+            this.pnlMenuSalesSub.MinimumSize = new System.Drawing.Size(222, 0);
+            this.pnlMenuSalesSub.MouseState = MaterialSkin.MouseState.HOVER;
+            this.pnlMenuSalesSub.Name = "pnlMenuSalesSub";
+            this.pnlMenuSalesSub.Padding = new System.Windows.Forms.Padding(14);
+            this.pnlMenuSalesSub.Size = new System.Drawing.Size(222, 10);
+            this.pnlMenuSalesSub.TabIndex = 48;
+            // 
+            // btnMenuSalesSubSoldItems
+            // 
+            this.btnMenuSalesSubSoldItems.AutoSize = false;
+            this.btnMenuSalesSubSoldItems.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuSalesSubSoldItems.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuSalesSubSoldItems.Depth = 0;
+            this.btnMenuSalesSubSoldItems.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuSalesSubSoldItems.HighEmphasis = true;
+            this.btnMenuSalesSubSoldItems.Icon = null;
+            this.btnMenuSalesSubSoldItems.Location = new System.Drawing.Point(14, 122);
+            this.btnMenuSalesSubSoldItems.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuSalesSubSoldItems.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuSalesSubSoldItems.Name = "btnMenuSalesSubSoldItems";
+            this.btnMenuSalesSubSoldItems.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuSalesSubSoldItems.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuSalesSubSoldItems.TabIndex = 52;
+            this.btnMenuSalesSubSoldItems.Text = "جرد الكميات المباعه";
+            this.btnMenuSalesSubSoldItems.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuSalesSubSoldItems.UseAccentColor = false;
+            this.btnMenuSalesSubSoldItems.UseVisualStyleBackColor = true;
+            this.btnMenuSalesSubSoldItems.Click += new System.EventHandler(this.btnMenuSalesSubSoldItems_Click);
+            // 
+            // btnMenuSalesSubTravelingUntravelingSales
+            // 
+            this.btnMenuSalesSubTravelingUntravelingSales.AutoSize = false;
+            this.btnMenuSalesSubTravelingUntravelingSales.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuSalesSubTravelingUntravelingSales.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuSalesSubTravelingUntravelingSales.Depth = 0;
+            this.btnMenuSalesSubTravelingUntravelingSales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuSalesSubTravelingUntravelingSales.HighEmphasis = true;
+            this.btnMenuSalesSubTravelingUntravelingSales.Icon = null;
+            this.btnMenuSalesSubTravelingUntravelingSales.Location = new System.Drawing.Point(14, 86);
+            this.btnMenuSalesSubTravelingUntravelingSales.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuSalesSubTravelingUntravelingSales.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuSalesSubTravelingUntravelingSales.Name = "btnMenuSalesSubTravelingUntravelingSales";
+            this.btnMenuSalesSubTravelingUntravelingSales.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuSalesSubTravelingUntravelingSales.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuSalesSubTravelingUntravelingSales.TabIndex = 51;
+            this.btnMenuSalesSubTravelingUntravelingSales.Text = "المبيعات المرحله و الغير مرحله";
+            this.btnMenuSalesSubTravelingUntravelingSales.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuSalesSubTravelingUntravelingSales.UseAccentColor = false;
+            this.btnMenuSalesSubTravelingUntravelingSales.UseVisualStyleBackColor = true;
+            this.btnMenuSalesSubTravelingUntravelingSales.Click += new System.EventHandler(this.btnMenuSalesSubTravelingUntravelingSales_Click);
+            // 
+            // btnMenuSalesSubEditInvoices
+            // 
+            this.btnMenuSalesSubEditInvoices.AutoSize = false;
+            this.btnMenuSalesSubEditInvoices.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuSalesSubEditInvoices.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuSalesSubEditInvoices.Depth = 0;
+            this.btnMenuSalesSubEditInvoices.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuSalesSubEditInvoices.HighEmphasis = true;
+            this.btnMenuSalesSubEditInvoices.Icon = null;
+            this.btnMenuSalesSubEditInvoices.Location = new System.Drawing.Point(14, 50);
+            this.btnMenuSalesSubEditInvoices.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuSalesSubEditInvoices.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuSalesSubEditInvoices.Name = "btnMenuSalesSubEditInvoices";
+            this.btnMenuSalesSubEditInvoices.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuSalesSubEditInvoices.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuSalesSubEditInvoices.TabIndex = 50;
+            this.btnMenuSalesSubEditInvoices.Text = "التعديل على الفواتير";
+            this.btnMenuSalesSubEditInvoices.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuSalesSubEditInvoices.UseAccentColor = false;
+            this.btnMenuSalesSubEditInvoices.UseVisualStyleBackColor = true;
+            this.btnMenuSalesSubEditInvoices.Click += new System.EventHandler(this.btnMenuSalesSubEditInvoices_Click);
+            // 
+            // btnMenuSalesSubSales
+            // 
+            this.btnMenuSalesSubSales.AutoSize = false;
+            this.btnMenuSalesSubSales.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuSalesSubSales.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuSalesSubSales.Depth = 0;
+            this.btnMenuSalesSubSales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuSalesSubSales.HighEmphasis = true;
+            this.btnMenuSalesSubSales.Icon = null;
+            this.btnMenuSalesSubSales.Location = new System.Drawing.Point(14, 14);
+            this.btnMenuSalesSubSales.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuSalesSubSales.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuSalesSubSales.Name = "btnMenuSalesSubSales";
+            this.btnMenuSalesSubSales.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuSalesSubSales.Size = new System.Drawing.Size(194, 36);
+            this.btnMenuSalesSubSales.TabIndex = 49;
+            this.btnMenuSalesSubSales.Text = "المبيعات";
+            this.btnMenuSalesSubSales.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuSalesSubSales.UseAccentColor = false;
+            this.btnMenuSalesSubSales.UseVisualStyleBackColor = true;
+            this.btnMenuSalesSubSales.Click += new System.EventHandler(this.btnMenuSalesSubSales_Click);
             // 
             // btnHamburger
             // 
@@ -11123,6 +12079,28 @@ namespace PlancksoftPOS
             this.btnHamburger.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnHamburger.Visible = false;
             this.btnHamburger.Click += new System.EventHandler(this.lblHamburger_Click);
+            // 
+            // btnMenuSales
+            // 
+            this.btnMenuSales.AutoSize = false;
+            this.btnMenuSales.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnMenuSales.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnMenuSales.Depth = 0;
+            this.btnMenuSales.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnMenuSales.HighEmphasis = true;
+            this.btnMenuSales.Icon = null;
+            this.btnMenuSales.Location = new System.Drawing.Point(14, 50);
+            this.btnMenuSales.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnMenuSales.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnMenuSales.Name = "btnMenuSales";
+            this.btnMenuSales.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnMenuSales.Size = new System.Drawing.Size(222, 36);
+            this.btnMenuSales.TabIndex = 46;
+            this.btnMenuSales.Text = "المبيعات";
+            this.btnMenuSales.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnMenuSales.UseAccentColor = false;
+            this.btnMenuSales.UseVisualStyleBackColor = true;
+            this.btnMenuSales.Click += new System.EventHandler(this.btnMenuSales_Click);
             // 
             // btnMenuCash
             // 
@@ -11255,170 +12233,32 @@ namespace PlancksoftPOS
             this.hamburger_menu_sales_sub_timer.Interval = 10;
             this.hamburger_menu_sales_sub_timer.Tick += new System.EventHandler(this.hamburger_menu_sales_sub_timer_Tick);
             // 
-            // btnMenuSales
+            // hamburger_menu_inventory_sub_timer
             // 
-            this.btnMenuSales.AutoSize = false;
-            this.btnMenuSales.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnMenuSales.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnMenuSales.Depth = 0;
-            this.btnMenuSales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuSales.HighEmphasis = true;
-            this.btnMenuSales.Icon = null;
-            this.btnMenuSales.Location = new System.Drawing.Point(14, 50);
-            this.btnMenuSales.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnMenuSales.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnMenuSales.Name = "btnMenuSales";
-            this.btnMenuSales.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnMenuSales.Size = new System.Drawing.Size(222, 36);
-            this.btnMenuSales.TabIndex = 46;
-            this.btnMenuSales.Text = "المبيعات";
-            this.btnMenuSales.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnMenuSales.UseAccentColor = false;
-            this.btnMenuSales.UseVisualStyleBackColor = true;
-            this.btnMenuSales.Click += new System.EventHandler(this.btnMenuSales_Click);
+            this.hamburger_menu_inventory_sub_timer.Interval = 10;
+            this.hamburger_menu_inventory_sub_timer.Tick += new System.EventHandler(this.hamburger_menu_inventory_sub_timer_Tick);
             // 
-            // btnMenuSalesSubSales
+            // hamburger_menu_expenses_sub_timer
             // 
-            this.btnMenuSalesSubSales.AutoSize = false;
-            this.btnMenuSalesSubSales.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnMenuSalesSubSales.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnMenuSalesSubSales.Depth = 0;
-            this.btnMenuSalesSubSales.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuSalesSubSales.HighEmphasis = true;
-            this.btnMenuSalesSubSales.Icon = null;
-            this.btnMenuSalesSubSales.Location = new System.Drawing.Point(14, 14);
-            this.btnMenuSalesSubSales.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnMenuSalesSubSales.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnMenuSalesSubSales.Name = "btnMenuSalesSubSales";
-            this.btnMenuSalesSubSales.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnMenuSalesSubSales.Size = new System.Drawing.Size(192, 36);
-            this.btnMenuSalesSubSales.TabIndex = 47;
-            this.btnMenuSalesSubSales.Text = "المبيعات";
-            this.btnMenuSalesSubSales.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnMenuSalesSubSales.UseAccentColor = false;
-            this.btnMenuSalesSubSales.UseVisualStyleBackColor = true;
-            this.btnMenuSalesSubSales.Click += new System.EventHandler(this.btnMenuSalesSubSales_Click);
+            this.hamburger_menu_expenses_sub_timer.Interval = 10;
+            this.hamburger_menu_expenses_sub_timer.Tick += new System.EventHandler(this.hamburger_menu_expenses_sub_timer_Tick);
             // 
-            // btnMenuSalesSubInvoiceEdit
+            // hamburger_menu_employees_affairs_sub_timer
             // 
-            this.btnMenuSalesSubInvoiceEdit.AutoSize = false;
-            this.btnMenuSalesSubInvoiceEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnMenuSalesSubInvoiceEdit.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.btnMenuSalesSubInvoiceEdit.Depth = 0;
-            this.btnMenuSalesSubInvoiceEdit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMenuSalesSubInvoiceEdit.HighEmphasis = true;
-            this.btnMenuSalesSubInvoiceEdit.Icon = null;
-            this.btnMenuSalesSubInvoiceEdit.Location = new System.Drawing.Point(14, 50);
-            this.btnMenuSalesSubInvoiceEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnMenuSalesSubInvoiceEdit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnMenuSalesSubInvoiceEdit.Name = "btnMenuSalesSubInvoiceEdit";
-            this.btnMenuSalesSubInvoiceEdit.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnMenuSalesSubInvoiceEdit.Size = new System.Drawing.Size(192, 36);
-            this.btnMenuSalesSubInvoiceEdit.TabIndex = 48;
-            this.btnMenuSalesSubInvoiceEdit.Text = "التعديل على الفواتير";
-            this.btnMenuSalesSubInvoiceEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.btnMenuSalesSubInvoiceEdit.UseAccentColor = false;
-            this.btnMenuSalesSubInvoiceEdit.UseVisualStyleBackColor = true;
-            this.btnMenuSalesSubInvoiceEdit.Click += new System.EventHandler(this.btnMenuSalesSubInvoiceEdit_Click);
+            this.hamburger_menu_employees_affairs_sub_timer.Interval = 10;
+            this.hamburger_menu_employees_affairs_sub_timer.Tick += new System.EventHandler(this.hamburger_menu_employees_affairs_sub_timer_Tick);
             // 
-            // pnlMenuSalesSub
+            // hamburger_menu_clients_affairs_sub_timer
             // 
-            this.pnlMenuSalesSub.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.pnlMenuSalesSub.Controls.Add(this.btnMenuSalesSubInvoiceEdit);
-            this.pnlMenuSalesSub.Controls.Add(this.btnMenuSalesSubSales);
-            this.pnlMenuSalesSub.Depth = 0;
-            this.pnlMenuSalesSub.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnlMenuSalesSub.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.pnlMenuSalesSub.Location = new System.Drawing.Point(14, 86);
-            this.pnlMenuSalesSub.Margin = new System.Windows.Forms.Padding(14);
-            this.pnlMenuSalesSub.MaximumSize = new System.Drawing.Size(220, 110);
-            this.pnlMenuSalesSub.MinimumSize = new System.Drawing.Size(220, 10);
-            this.pnlMenuSalesSub.MouseState = MaterialSkin.MouseState.HOVER;
-            this.pnlMenuSalesSub.Name = "pnlMenuSalesSub";
-            this.pnlMenuSalesSub.Padding = new System.Windows.Forms.Padding(14);
-            this.pnlMenuSalesSub.Size = new System.Drawing.Size(220, 110);
-            this.pnlMenuSalesSub.TabIndex = 48;
+            this.hamburger_menu_clients_affairs_sub_timer.Tick += new System.EventHandler(this.hamburger_menu_clients_affairs_sub_timer_Tick_1);
             // 
-            // materialButton1
+            // hamburger_menu_taxes_sub_timer
             // 
-            this.materialButton1.AutoSize = false;
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(14, 196);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(222, 36);
-            this.materialButton1.TabIndex = 49;
-            this.materialButton1.Text = "المبيعات";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = false;
-            this.materialButton1.UseVisualStyleBackColor = true;
+            this.hamburger_menu_taxes_sub_timer.Tick += new System.EventHandler(this.hamburger_menu_taxes_sub_timer_Tick_1);
             // 
-            // materialCard3
+            // hamburger_menu_settings_sub_timer
             // 
-            this.materialCard3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard3.Controls.Add(this.materialButton2);
-            this.materialCard3.Controls.Add(this.materialButton3);
-            this.materialCard3.Depth = 0;
-            this.materialCard3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.materialCard3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard3.Location = new System.Drawing.Point(14, 232);
-            this.materialCard3.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard3.MaximumSize = new System.Drawing.Size(220, 110);
-            this.materialCard3.MinimumSize = new System.Drawing.Size(220, 10);
-            this.materialCard3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard3.Name = "materialCard3";
-            this.materialCard3.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard3.Size = new System.Drawing.Size(220, 110);
-            this.materialCard3.TabIndex = 50;
-            // 
-            // materialButton2
-            // 
-            this.materialButton2.AutoSize = false;
-            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton2.Depth = 0;
-            this.materialButton2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.materialButton2.HighEmphasis = true;
-            this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(14, 50);
-            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton2.Name = "materialButton2";
-            this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton2.Size = new System.Drawing.Size(192, 36);
-            this.materialButton2.TabIndex = 48;
-            this.materialButton2.Text = "التعديل على الفواتير";
-            this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton2.UseAccentColor = false;
-            this.materialButton2.UseVisualStyleBackColor = true;
-            // 
-            // materialButton3
-            // 
-            this.materialButton3.AutoSize = false;
-            this.materialButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton3.Depth = 0;
-            this.materialButton3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.materialButton3.HighEmphasis = true;
-            this.materialButton3.Icon = null;
-            this.materialButton3.Location = new System.Drawing.Point(14, 14);
-            this.materialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton3.Name = "materialButton3";
-            this.materialButton3.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton3.Size = new System.Drawing.Size(192, 36);
-            this.materialButton3.TabIndex = 47;
-            this.materialButton3.Text = "المبيعات";
-            this.materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton3.UseAccentColor = false;
-            this.materialButton3.UseVisualStyleBackColor = true;
+            this.hamburger_menu_settings_sub_timer.Tick += new System.EventHandler(this.hamburger_menu_settings_sub_timer_Tick_1);
             // 
             // frmMain_new
             // 
@@ -11717,9 +12557,14 @@ namespace PlancksoftPOS
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox49)).EndInit();
             this.pnlMenu.ResumeLayout(false);
             this.pnlMenu.PerformLayout();
-            this.Menu.ResumeLayout(false);
+            this.pnlMenuSettingsSub.ResumeLayout(false);
+            this.pnlMenuTaxesSub.ResumeLayout(false);
+            this.pnlMenuClientAffairsSub.ResumeLayout(false);
+            this.pnlMenuEmployeesAffairsSub.ResumeLayout(false);
+            this.pnlMenuExpensesSub.ResumeLayout(false);
+            this.pnlMenuInventorySub.ResumeLayout(false);
             this.pnlMenuSalesSub.ResumeLayout(false);
-            this.materialCard3.ResumeLayout(false);
+            this.Menu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -12413,14 +13258,59 @@ namespace PlancksoftPOS
         private MaterialButton btnNextBill;
         private MaterialButton btnPreviousBill;
         private MaterialSwitch switchDebtUnpaidBills;
-        private MaterialCard pnlMenuSalesSub;
-        private MaterialButton btnMenuSalesSubInvoiceEdit;
-        private MaterialButton btnMenuSalesSubSales;
         private MaterialButton btnMenuSales;
-        private MaterialCard materialCard3;
-        private MaterialButton materialButton2;
-        private MaterialButton materialButton3;
-        private MaterialButton materialButton1;
+        private MaterialCard pnlMenuSalesSub;
+        private MaterialButton btnMenuSalesSubSoldItems;
+        private MaterialButton btnMenuSalesSubTravelingUntravelingSales;
+        private MaterialButton btnMenuSalesSubEditInvoices;
+        private MaterialButton btnMenuSalesSubSales;
+        private MaterialCard pnlMenuInventorySub;
+        private MaterialButton btnMenuIventorySubAddItemTypes;
+        private MaterialButton btnMenuIventorySubIncomingOutgoingItems;
+        private MaterialButton btnMenuIventorySubItemsQuantify;
+        private MaterialButton btnMenuIventorySubInventory;
+        private MaterialButton btnMenuIventory;
+        private MaterialButton btnMenuIventorySubAddWarehouses;
+        private MaterialButton btnMenuIventorySubAddFavorites;
+        private MaterialButton btnMenuExpenses;
+        private MaterialCard pnlMenuExpensesSub;
+        private MaterialButton btnMenuExpensesSubAddExpense;
+        private MaterialButton btnMenuExpensesSubSearchExpenses;
+        private MaterialButton btnMenuIncomingOutgoing;
+        private MaterialButton btnMenuEmployeesAffairs;
+        private MaterialCard pnlMenuEmployeesAffairsSub;
+        private MaterialButton btnMenuEmployeesAffairsSubDaysOff;
+        private MaterialButton btnMenuEmployeesAffairsSubEmployeesManagement;
+        private MaterialButton btnMenuClientsVendors;
+        private MaterialCard pnlMenuClientAffairsSub;
+        private MaterialButton btnMenuClientsVendorsSubClientsBalanceCheck;
+        private MaterialButton btnMenuClientsVendorsSubClientsDefinitions;
+        private MaterialButton btnMenuClientsVendorsSubVendorsDefinitions;
+        private MaterialButton btnMenuClientsVendorsSubVendorBalanceCheck;
+        private MaterialButton btnMenuClientsVendorsSubVendoItemsDefinitions;
+        private MaterialButton btnMenuAlerts;
+        private MaterialButton btnMenuTaxes;
+        private MaterialCard pnlMenuTaxesSub;
+        private MaterialButton btnMenuTaxesSubTaxZReport;
+        private MaterialButton btnMenuUsers;
+        private MaterialCard pnlMenuSettingsSub;
+        private MaterialButton btnMenuSettingsSubPOSSettings;
+        private MaterialButton btnMenuSettings;
+        private MaterialButton btnMenuSettingsSubPrinterSettings;
+        private MaterialButton btnMenuRefunds;
+        private MaterialDivider materialDivider1;
+        private MaterialDivider materialDivider4;
+        private MaterialDivider materialDivider3;
+        private MaterialDivider materialDivider2;
+        private System.Windows.Forms.Timer hamburger_menu_inventory_sub_timer;
+        private System.Windows.Forms.Timer hamburger_menu_expenses_sub_timer;
+        private System.Windows.Forms.Timer hamburger_menu_employees_affairs_sub_timer;
+        private System.Windows.Forms.Timer hamburger_menu_clients_affairs_sub_timer_Tick;
+        private System.Windows.Forms.Timer hamburger_menu_taxes_sub_timer_Tick;
+        private System.Windows.Forms.Timer hamburger_menu_settings_sub_timer_Tick;
+        private System.Windows.Forms.Timer hamburger_menu_clients_affairs_sub_timer;
+        private System.Windows.Forms.Timer hamburger_menu_taxes_sub_timer;
+        private System.Windows.Forms.Timer hamburger_menu_settings_sub_timer;
     }
 }
 
