@@ -18,13 +18,14 @@ using MaterialSkin.Controls;
 using MaterialSkin;
 using Microsoft.TeamFoundation.Common;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.ComponentModel;
 
 namespace PlancksoftPOS
 {
-
     public partial class frmMain_new : MaterialForm
     {
-        public bool menuExpand = false, menuSalesSubExpand = false;
+        public bool menuExpand = true, menuSalesSubExpand = false;
         public Form openedForm = null;
         public Connection Connection = new Connection();
         public int ID = 0, CurrentBillNumber = 0, CurrentVendorBillNumber = 0, ClientItemID = 0, heldBillsCount = 0, EmployeeID = 0, AbsenceID = 0;
@@ -392,20 +393,20 @@ namespace PlancksoftPOS
             if (!this.userPermissions.sell_edit)
             {
                 //label67.Enabled = false;
-                btnPay.Enabled = false;
-                btnClientCard.Enabled = false;
                 //label93.Enabled = false;
-                btnNewInvoice.Enabled = false;
                 //label69.Enabled = false;
-                btnDiscounts.Enabled = false;
                 //label68.Enabled = false;
-                btnOpenCashDrawer.Enabled = false;
                 //label89.Enabled = false;
-                btnEditTotalPrice.Enabled = false;
                 //label2.Enabled = false;
                 //label24.Enabled = false;
-                btnItemLookup.Enabled = false;
                 //label70.Enabled = false;
+                btnPay.Enabled = false;
+                btnClientCard.Enabled = false;
+                btnNewInvoice.Enabled = false;
+                btnDiscounts.Enabled = false;
+                btnOpenCashDrawer.Enabled = false;
+                btnEditTotalPrice.Enabled = false;
+                btnItemLookup.Enabled = false;
                 btnNextBill.Enabled = false;
                 btnPreviousBill.Enabled = false;
                 tabControl2.Enabled = false;
@@ -416,21 +417,21 @@ namespace PlancksoftPOS
                 pendingPurchaseNewQuantity.Enabled = false;
             } else
             {
-                //label67.Enabled = false;
+                //label67.Enabled = true;
+                //label93.Enabled = true;
+                //label69.Enabled = true;
+                //label68.Enabled = true;
+                //label89.Enabled = true;
+                //label2.Enabled = true;
+                //label24.Enabled = true;
+                //label70.Enabled = true;
                 btnPay.Enabled = true;
                 btnClientCard.Enabled = true;
-                //label93.Enabled = false;
                 btnNewInvoice.Enabled = true;
-                //label69.Enabled = false;
                 btnDiscounts.Enabled = true;
-                //label68.Enabled = false;
                 btnOpenCashDrawer.Enabled = true;
-                //label89.Enabled = false;
                 btnEditTotalPrice.Enabled = true;
-                //label2.Enabled = false;
-                //label24.Enabled = false;
                 btnItemLookup.Enabled = true;
-                //label70.Enabled = false;
                 btnNextBill.Enabled = true;
                 btnPreviousBill.Enabled = true;
                 tabControl2.Enabled = true;
@@ -546,7 +547,7 @@ namespace PlancksoftPOS
                     فاتحToolStripMenuItem.Checked = true;
                 }
 
-                pnlMenu.Size = new Size(20, 990);
+                //pnlMenu.Size = new Size(20, 990);
                 pnlMenuSalesSub.Size = new Size(220, 10);
 
                 tabControl1.Appearance = TabAppearance.FlatButtons;
@@ -10616,29 +10617,57 @@ namespace PlancksoftPOS
 
         private void hamburger_menu_timer_Tick(object sender, EventArgs e)
         {
-            if (menuExpand)
-            {
-                pnlMenu.Width -= 10;
+            //if (menuExpand)
+            //{
+            //    pnlMenu.Width -= 10;
 
-                if (pnlMenu.Width == pnlMenu.MinimumSize.Width)
-                {
-                    menuExpand = false;
-                    btnMenuCash.Visible = false;
-                    btnMenuSales.Visible = false;
-                    hamburger_menu_timer.Stop();
-                }
-            }
-            else
-            {
-                btnMenuCash.Visible = true;
-                btnMenuSales.Visible = true;
-                pnlMenu.Width += 10;
-                if (pnlMenu.Width == pnlMenu.MaximumSize.Width)
-                {
-                    menuExpand = true;
-                    hamburger_menu_timer.Stop();
-                }
-            }
+            //    if (pnlMenu.Width == pnlMenu.MinimumSize.Width)
+            //    {
+            //        menuExpand = false;
+            //        //btnPay.Visible = true;
+            //        //btnClientCard.Visible = true;
+            //        //btnNewInvoice.Visible = true;
+            //        //btnDiscounts.Visible = true;
+            //        //btnOpenCashDrawer.Visible = true;
+            //        //btnEditTotalPrice.Visible = true;
+            //        //btnItemLookup.Visible = true;
+            //        //btnNextBill.Visible = true;
+            //        //btnPreviousBill.Visible = true;
+
+            //        btnMenuCash.Visible = false;
+
+            //        btnMenuSales.Visible = false;
+            //        pnlMenuSalesSub.Visible = false;
+            //        btnMenuSalesSubSales.Visible = false;
+            //        btnMenuSalesSubInvoiceEdit.Visible = false;
+            //        hamburger_menu_timer.Stop();
+            //    }
+            //}
+            //else
+            //{
+            //    pnlMenu.Width += 10;
+            //    if (pnlMenu.Width == pnlMenu.MaximumSize.Width)
+            //    {
+            //        menuExpand = true;
+            //        //btnPay.Visible = true;
+            //        //btnClientCard.Visible = true;
+            //        //btnNewInvoice.Visible = true;
+            //        //btnDiscounts.Visible = true;
+            //        //btnOpenCashDrawer.Visible = true;
+            //        //btnEditTotalPrice.Visible = true;
+            //        //btnItemLookup.Visible = true;
+            //        //btnNextBill.Visible = true;
+            //        //btnPreviousBill.Visible = true;
+
+            //        btnMenuCash.Visible = true;
+
+            //        btnMenuSales.Visible = true;
+            //        pnlMenuSalesSub.Visible = true;
+            //        btnMenuSalesSubSales.Visible = true;
+            //        btnMenuSalesSubInvoiceEdit.Visible = true;
+            //        hamburger_menu_timer.Stop();
+            //    }
+            //}
         }
 
         private void btnMenuCash_Click(object sender, EventArgs e)
@@ -10727,8 +10756,50 @@ namespace PlancksoftPOS
 
         private void pnlMenu_Click(object sender, EventArgs e)
         {
-            hamburger_menu_timer.Start();
+            ////btnPay.Visible = false;
+            ////btnClientCard.Visible = false;
+            ////btnNewInvoice.Visible = false;
+            ////btnDiscounts.Visible = false;
+            ////btnOpenCashDrawer.Visible = false;
+            ////btnEditTotalPrice.Visible = false;
+            ////btnItemLookup.Visible = false;
+            ////btnNextBill.Visible = false;
+            ////btnPreviousBill.Visible = false;
+
+            //btnMenuCash.Visible = false;
+
+            //btnMenuSales.Visible = false;
+            //pnlMenuSalesSub.Visible = false;
+            //btnMenuSalesSubSales.Visible = false;
+            //btnMenuSalesSubInvoiceEdit.Visible = false;
+            //hamburger_menu_timer.Start();
         }
+
+        //protected override void OnResize(EventArgs e)
+        //{
+        //    this.SuspendDrawing();
+        //    base.OnResize(e);
+        //    this.ResumeDrawing();
+        //}
+
+        //protected override void OnResizeBegin(EventArgs e)
+        //{
+        //    this.SuspendDrawing();
+        //    base.OnResizeBegin(e);
+        //}
+
+        //protected override void OnResizeEnd(EventArgs e)
+        //{
+        //    base.OnResizeEnd(e);
+        //    this.ResumeDrawing();
+        //}
+
+        //protected override void OnClosing(CancelEventArgs e)
+        //{
+        //    this.SuspendDrawing();
+        //    base.OnClosing(e);
+        //    this.ResumeDrawing();
+        //}
 
         private void btnMenuSalesSubSales_Click(object sender, EventArgs e)
         {
