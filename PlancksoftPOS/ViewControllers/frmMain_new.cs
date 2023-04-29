@@ -24,7 +24,7 @@ namespace PlancksoftPOS
 
     public partial class frmMain_new : MaterialForm
     {
-        public bool menuExpand = false;
+        public bool menuExpand = false, menuSalesSubExpand = false;
         public Form openedForm = null;
         public Connection Connection = new Connection();
         public int ID = 0, CurrentBillNumber = 0, CurrentVendorBillNumber = 0, ClientItemID = 0, heldBillsCount = 0, EmployeeID = 0, AbsenceID = 0;
@@ -545,6 +545,45 @@ namespace PlancksoftPOS
                     مظلمToolStripMenuItem.Checked = false;
                     فاتحToolStripMenuItem.Checked = true;
                 }
+
+                pnlMenu.Size = new Size(20, 990);
+                pnlMenuSalesSub.Size = new Size(220, 10);
+
+                tabControl1.Appearance = TabAppearance.FlatButtons;
+                tabControl1.ItemSize = new Size(0, 1);
+                tabControl1.SizeMode = TabSizeMode.Fixed;
+
+                tabControl2.Appearance = TabAppearance.FlatButtons;
+                tabControl2.ItemSize = new Size(0, 1);
+                tabControl2.SizeMode = TabSizeMode.Fixed;
+
+                tabControl3.Appearance = TabAppearance.FlatButtons;
+                tabControl3.ItemSize = new Size(0, 1);
+                tabControl3.SizeMode = TabSizeMode.Fixed;
+
+                tabControl4.Appearance = TabAppearance.FlatButtons;
+                tabControl4.ItemSize = new Size(0, 1);
+                tabControl4.SizeMode = TabSizeMode.Fixed;
+
+                tabControl5.Appearance = TabAppearance.FlatButtons;
+                tabControl5.ItemSize = new Size(0, 1);
+                tabControl5.SizeMode = TabSizeMode.Fixed;
+
+                tabControl6.Appearance = TabAppearance.FlatButtons;
+                tabControl6.ItemSize = new Size(0, 1);
+                tabControl6.SizeMode = TabSizeMode.Fixed;
+
+                tabControl7.Appearance = TabAppearance.FlatButtons;
+                tabControl7.ItemSize = new Size(0, 1);
+                tabControl7.SizeMode = TabSizeMode.Fixed;
+
+                tabControl8.Appearance = TabAppearance.FlatButtons;
+                tabControl8.ItemSize = new Size(0, 1);
+                tabControl8.SizeMode = TabSizeMode.Fixed;
+
+                tabControl9.Appearance = TabAppearance.FlatButtons;
+                tabControl9.ItemSize = new Size(0, 1);
+                tabControl9.SizeMode = TabSizeMode.Fixed;
 
                 DataTable dt = Connection.server.RetrieveSystemSettings();
 
@@ -10586,19 +10625,17 @@ namespace PlancksoftPOS
                     menuExpand = false;
                     btnMenuCash.Visible = false;
                     btnMenuSales.Visible = false;
-                    btnHamburger.Visible = true;
                     hamburger_menu_timer.Stop();
                 }
             }
             else
             {
+                btnMenuCash.Visible = true;
+                btnMenuSales.Visible = true;
                 pnlMenu.Width += 10;
                 if (pnlMenu.Width == pnlMenu.MaximumSize.Width)
                 {
                     menuExpand = true;
-                    btnHamburger.Visible = true;
-                    btnMenuCash.Visible = true;
-                    btnMenuSales.Visible = true;
                     hamburger_menu_timer.Stop();
                 }
             }
@@ -10611,8 +10648,7 @@ namespace PlancksoftPOS
 
         private void btnMenuSales_Click(object sender, EventArgs e)
         {
-
-            tabControl1.SelectedTab = tabControl1.TabPages["Sales"];
+            hamburger_menu_sales_sub_timer.Start();
         }
 
         private void btnClientBalanceCheck_Click(object sender, EventArgs e)
@@ -10692,6 +10728,41 @@ namespace PlancksoftPOS
         private void pnlMenu_Click(object sender, EventArgs e)
         {
             hamburger_menu_timer.Start();
+        }
+
+        private void btnMenuSalesSubSales_Click(object sender, EventArgs e)
+        {
+            tabControl4.SelectedTab = tabControl4.TabPages["InvoicesSales"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Sales"];
+        }
+
+        private void btnMenuSalesSubInvoiceEdit_Click(object sender, EventArgs e)
+        {
+            tabControl4.SelectedTab = tabControl4.TabPages["EditInvoices"];
+            tabControl1.SelectedTab = tabControl1.TabPages["Sales"];
+        }
+
+        private void hamburger_menu_sales_sub_timer_Tick(object sender, EventArgs e)
+        {
+            if (menuSalesSubExpand)
+            {
+                pnlMenuSalesSub.Height -= 10;
+
+                if (pnlMenuSalesSub.Height == pnlMenuSalesSub.MinimumSize.Height)
+                {
+                    menuSalesSubExpand = false;
+                    hamburger_menu_sales_sub_timer.Stop();
+                }
+            }
+            else
+            {
+                pnlMenuSalesSub.Height += 10;
+                if (pnlMenuSalesSub.Height == pnlMenuSalesSub.MaximumSize.Height)
+                {
+                    menuSalesSubExpand = true;
+                    hamburger_menu_sales_sub_timer.Stop();
+                }
+            }
         }
 
         public void textBox5_KeyPress(object sender, KeyPressEventArgs e)
@@ -12673,16 +12744,6 @@ namespace PlancksoftPOS
             }
 
             return destImage;
-        }
-        protected override void OnResizeBegin(EventArgs e)
-        {
-            SuspendLayout();
-            base.OnResizeBegin(e);
-        }
-        protected override void OnResizeEnd(EventArgs e)
-        {
-            ResumeLayout();
-            base.OnResizeEnd(e);
         }
 
         public void aToolStripMenuItem_Click(object sender, EventArgs e)
