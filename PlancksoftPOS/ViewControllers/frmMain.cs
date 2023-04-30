@@ -12799,7 +12799,7 @@ namespace PlancksoftPOS
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            graphic.DrawString("  Price      " + "               Quantity      " + "          Item Name ", newfont2, black, startX + 15, startY + offsetY);
+                            graphic.DrawString("          Item Name " + "               Quantity      " + "  Price      ", newfont2, black, startX + 15, startY + offsetY);
                         }
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
@@ -12819,15 +12819,15 @@ namespace PlancksoftPOS
                                 ii++;
                                 Item SearchedItem = Connection.server.SearchItems("", dgvBillItems.Rows[i].Cells["Column21"].Value.ToString(), 0).Item1[0];
                                 itemsInBill.Add(SearchedItem);
-                                string itemString = " " + dgvBillItems.Rows[i].Cells["Column20"].Value + "               " + dgvBillItems.Rows[i].Cells["Column23"].Value + "                    " + dgvBillItems.Rows[i].Cells["Column25"].Value + "";
-                                if (IsRtl(itemString))
+                                string itemString = " "  + dgvBillItems.Rows[i].Cells["Column25"].Value + "               " + dgvBillItems.Rows[i].Cells["Column23"].Value + "                    " + dgvBillItems.Rows[i].Cells["Column20"].Value;
+                                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
                                     graphic.DrawString(itemString, itemFont,
                                                 black, startX + 15, startY + offsetY);
                                 }
-                                else
+                                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    itemString = " " + dgvBillItems.Rows[i].Cells["Column25"].Value + "                    " + dgvBillItems.Rows[i].Cells["Column23"].Value + "               " + dgvBillItems.Rows[i].Cells["Column20"].Value + "";
+                                    itemString = " " + dgvBillItems.Rows[i].Cells["Column20"].Value + "                    " + dgvBillItems.Rows[i].Cells["Column23"].Value + "               " + dgvBillItems.Rows[i].Cells["Column25"].Value;
                                     graphic.DrawString(itemString, itemFont,
                                                 black, startX + 15, startY + offsetY);
                                 }
@@ -13030,7 +13030,7 @@ namespace PlancksoftPOS
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            graphic.DrawString("  Price      " + "               Quantity      " + "          Item Name ", newfont2, black, startX + 15, startY + offsetY);
+                            graphic.DrawString("          Item Name " + "               Quantity      " + "  Price      ", newfont2, black, startX + 15, startY + offsetY);
                         }
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
@@ -13039,24 +13039,26 @@ namespace PlancksoftPOS
 
                         offsetY = offsetY + lineHeight;
 
+
                         List<Item> itemsInBill = new List<Item>();
-                        for (int i = 0; i < ItemsPendingPurchase.Rows.Count; i++)
+
+                        for (int i = 0; i < dgvBillItems.Rows.Count; i++)
                         {
-                            if (!ItemsPendingPurchase.Rows[i].IsNewRow)
+                            if (!dgvBillItems.Rows[i].IsNewRow)
                             {
                                 int ii = 1;
                                 ii++;
-                                Item SearchedItem = Connection.server.SearchItems(ItemsPendingPurchase.Rows[i].Cells[0].Value.ToString(), "", 0).Item1[0];
+                                Item SearchedItem = Connection.server.SearchItems("", dgvBillItems.Rows[i].Cells["Column21"].Value.ToString(), 0).Item1[0];
                                 itemsInBill.Add(SearchedItem);
-                                string itemString = " " + ItemsPendingPurchase.Rows[i].Cells[0].Value + "               " + ItemsPendingPurchase.Rows[i].Cells[2].Value + "                    " + ItemsPendingPurchase.Rows[i].Cells[4].Value + "";
-                                if (IsRtl(itemString))
+                                string itemString = " " + dgvBillItems.Rows[i].Cells["Column25"].Value + "               " + dgvBillItems.Rows[i].Cells["Column23"].Value + "                    " + dgvBillItems.Rows[i].Cells["Column20"].Value;
+                                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
                                     graphic.DrawString(itemString, itemFont,
                                                 black, startX + 15, startY + offsetY);
                                 }
-                                else
+                                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    itemString = " " + ItemsPendingPurchase.Rows[i].Cells[4].Value + "                    " + ItemsPendingPurchase.Rows[i].Cells[2].Value + "               " + ItemsPendingPurchase.Rows[i].Cells[0].Value + "";
+                                    itemString = " " + dgvBillItems.Rows[i].Cells["Column20"].Value + "                    " + dgvBillItems.Rows[i].Cells["Column23"].Value + "               " + dgvBillItems.Rows[i].Cells["Column25"].Value;
                                     graphic.DrawString(itemString, itemFont,
                                                 black, startX + 15, startY + offsetY);
                                 }
