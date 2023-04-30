@@ -620,6 +620,7 @@ namespace PlancksoftPOS
                 }
 
                 LoadMenu();
+                LoadActionMenu();
 
                 pnlMenuSalesSub.Size = new Size(220, 10);
 
@@ -740,7 +741,7 @@ namespace PlancksoftPOS
                 if (registerOpen)
                 {
                     tabControl2.Enabled = true;
-                    groupBox4.Enabled = true;
+                    pnlActionMenu.Enabled = true;
                     groupBox3.Enabled = true;
                     closeRegisterBtn.Enabled = true;
                     label66.Enabled = true;
@@ -765,7 +766,7 @@ namespace PlancksoftPOS
                 {
                     this.registerOpen = false;
                     tabControl2.Enabled = false;
-                    groupBox4.Enabled = false;
+                    pnlActionMenu.Enabled = false;
                     groupBox3.Enabled = false;
                     closeRegisterBtn.Enabled = false;
                     label66.Enabled = false;
@@ -2310,9 +2311,15 @@ namespace PlancksoftPOS
             {
                 int key = favorite.Key;
                 flowLayoutPanels.Add(new FlowLayoutPanel());
-                flowLayoutPanels[i].Size = new Size(481, 524);
+                flowLayoutPanels[i].Dock = DockStyle.Fill;
                 flowLayoutPanels[i].Location = new Point(0, 1);
-                flowLayoutPanels[i].FlowDirection = FlowDirection.TopDown;
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    flowLayoutPanels[i].FlowDirection = FlowDirection.RightToLeft;
+                } else if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    flowLayoutPanels[i].FlowDirection = FlowDirection.LeftToRight;
+                }
                 flowLayoutPanels[i].AutoScroll = true;
                 flowLayoutPanels[i].WrapContents = true;
                 flowLayoutPanels[i].BackColor = Color.White;
@@ -9344,7 +9351,7 @@ namespace PlancksoftPOS
                             Properties.Settings.Default.moneyInRegisterInitial = this.moneyInRegisterInitial;
                             Properties.Settings.Default.Save();
                             tabControl2.Enabled = true;
-                            groupBox4.Enabled = true;
+                            pnlActionMenu.Enabled = true;
                             groupBox3.Enabled = true;
                             closeRegisterBtn.Enabled = true;
                             label66.Enabled = true;
@@ -9393,7 +9400,7 @@ namespace PlancksoftPOS
                                 Properties.Settings.Default.Save();
                                 this.registerOpen = false;
                                 tabControl2.Enabled = false;
-                                groupBox4.Enabled = false;
+                                pnlActionMenu.Enabled = false;
                                 groupBox3.Enabled = false;
                                 closeRegisterBtn.Enabled = false;
                                 label66.Enabled = false;
@@ -9497,7 +9504,7 @@ namespace PlancksoftPOS
                         Properties.Settings.Default.Save();
                         this.registerOpen = false;
                         tabControl2.Enabled = false;
-                        groupBox4.Enabled = false;
+                        pnlActionMenu.Enabled = false;
                         groupBox3.Enabled = false;
                         closeRegisterBtn.Enabled = false;
                         label66.Enabled = false;
@@ -9599,7 +9606,7 @@ namespace PlancksoftPOS
                     Properties.Settings.Default.moneyInRegisterInitial = this.moneyInRegisterInitial;
                     Properties.Settings.Default.Save();
                     tabControl2.Enabled = true;
-                    groupBox4.Enabled = true;
+                    pnlActionMenu.Enabled = true;
                     groupBox3.Enabled = true;
                     closeRegisterBtn.Enabled = true;
                     label66.Enabled = true;
@@ -10699,7 +10706,7 @@ namespace PlancksoftPOS
 
         private void lblHamburger_Click(object sender, EventArgs e)
         {
-            CollapseMenu();
+            CollapseSideMenu();
         }
 
         private void btnMenuCash_Click(object sender, EventArgs e)
@@ -10788,12 +10795,12 @@ namespace PlancksoftPOS
 
         private void pnlMenu_Click(object sender, EventArgs e)
         {
-            CollapseMenu();
+            CollapseSideMenu();
         }
 
         private void LoadMenu()
         {
-            if (Properties.Settings.Default.menuExpanded == false)
+            if (Properties.Settings.Default.sideMenuExpanded == false)
             {
                 pnlMenu.Width = 15;
 
@@ -10804,20 +10811,51 @@ namespace PlancksoftPOS
             }
         }
 
-        private void CollapseMenu()
+        private void CollapseSideMenu()
         {
-            if (Properties.Settings.Default.menuExpanded == true)
+            if (Properties.Settings.Default.sideMenuExpanded == true)
             {
-                Properties.Settings.Default.menuExpanded = false;
+                Properties.Settings.Default.sideMenuExpanded = false;
                 Properties.Settings.Default.Save();
 
             }
             else
             {
-                Properties.Settings.Default.menuExpanded = true;
+                Properties.Settings.Default.sideMenuExpanded = true;
                 Properties.Settings.Default.Save();
             }
             LoadMenu();
+        }
+
+        private void CollapseActionMenu()
+        {
+            if (Properties.Settings.Default.actionMenuExpanded == true)
+            {
+                Properties.Settings.Default.actionMenuExpanded = false;
+                Properties.Settings.Default.Save();
+
+            }
+            else
+            {
+                Properties.Settings.Default.actionMenuExpanded = true;
+                Properties.Settings.Default.Save();
+            }
+            LoadActionMenu();
+        }
+
+        private void LoadActionMenu()
+        {
+            if (Properties.Settings.Default.actionMenuExpanded == false)
+            {
+                pnlActionMenu.Width = 10;
+               // pnlActionMenu.FlowDirection = FlowDirection.TopDown;
+
+            }
+            else
+            {
+                //pnlActionMenu.FlowDirection = FlowDirection.RightToLeft;
+                pnlActionMenu.Width = 270;
+            }
         }
 
         private void btnMenuSalesSubEditInvoices_Click(object sender, EventArgs e)
@@ -11128,6 +11166,21 @@ namespace PlancksoftPOS
             catch (Exception error)
             {
             }
+        }
+
+        private void pnlActionMenu_Click(object sender, EventArgs e)
+        {
+            CollapseActionMenu();
+        }
+
+        private void pictureBox3_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click_1(object sender, EventArgs e)
+        {
+
         }
 
         private void hamburger_menu_employees_affairs_sub_timer_Tick(object sender, EventArgs e)
@@ -12088,7 +12141,7 @@ namespace PlancksoftPOS
                         Properties.Settings.Default.Save();
                         this.registerOpen = false;
                         tabControl2.Enabled = false;
-                        groupBox4.Enabled = false;
+                        pnlActionMenu.Enabled = false;
                         groupBox3.Enabled = false;
                         closeRegisterBtn.Enabled = false;
                         label66.Enabled = false;
@@ -12211,7 +12264,7 @@ namespace PlancksoftPOS
                     Properties.Settings.Default.moneyInRegisterInitial = this.moneyInRegisterInitial;
                     Properties.Settings.Default.Save();
                     tabControl2.Enabled = true;
-                    groupBox4.Enabled = true;
+                    pnlActionMenu.Enabled = true;
                     groupBox3.Enabled = true;
                     closeRegisterBtn.Enabled = true;
                     label66.Enabled = true;
