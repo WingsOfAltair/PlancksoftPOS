@@ -73,8 +73,20 @@ namespace PlancksoftPOS
 
         private void btnAddItemType_Click(object sender, EventArgs e)
         {
-            this.itemTypeName = this.cbItemTypes.SelectedItem.ToString();
-            DialogResult = DialogResult.OK;
+            try
+            {
+                this.itemTypeName = this.cbItemTypes.SelectedItem.ToString();
+                DialogResult = DialogResult.OK;
+            } catch(Exception err)
+            {
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MaterialMessageBox.Show(".لم نستطع إختيار طابعه لصنف الماده", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                } else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MaterialMessageBox.Show("Could not add printer to Item Type.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
