@@ -833,6 +833,16 @@ namespace PlancksoftPOS
                     //label24.Text = "البحث عن المواد F9";
                     //label70.Text = "F8 الفواتير السابقه F7";
 
+                    btnPay.Text = "الدفع";
+                    btnClientCard.Text = "بطاقة العميل";
+                    btnNewInvoice.Text = "فاتوره جديده";
+                    btnDiscounts.Text = "الخصومات";
+                    btnOpenCashDrawer.Text = "فتح درج الكاش";
+                    btnEditTotalPrice.Text = "تعديل سعر الفاتوره";
+                    btnItemLookup.Text = "البحث عن ماده";
+                    btnPreviousBill.Text = "فاتوره سابقه";
+                    btnNextBill.Text = "فاتوره تاليه";
+
                     btnMenuCash.Text = "الكاش";
 
                     btnMenuSales.Text = "المبيعات";
@@ -1400,6 +1410,16 @@ namespace PlancksoftPOS
                     //label89.Text = "Edit Price F5";
                     //label24.Text = "Items Lookup F9";
                     //label70.Text = "F8 Previous Bills F7";
+
+                    btnPay.Text = "Pay";
+                    btnClientCard.Text = "Client Card";
+                    btnNewInvoice.Text = "New Invoice";
+                    btnDiscounts.Text = "Discounts";
+                    btnOpenCashDrawer.Text = "Open Cash Drawer";
+                    btnEditTotalPrice.Text = "Edit Total Price";
+                    btnItemLookup.Text = "Item Lookup";
+                    btnPreviousBill.Text = "Previous Bill";
+                    btnNextBill.Text = "Next Bill";
 
                     btnMenuCash.Text = "Cash";
 
