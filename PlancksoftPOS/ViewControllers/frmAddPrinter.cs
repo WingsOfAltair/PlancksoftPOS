@@ -55,8 +55,8 @@ namespace PlancksoftPOS
             {
                 Text = "إضافة صنف مواد لطابعة";
                 lblItemTypes.Text = "أصناف المواد";
-                btnCancel.Text = "إضافة صتف";
-                btnAddItemType.Text = "الغاء";
+                btnAddItemType.Text = "إضافة صتف";
+                btnCancel.Text = "الغاء";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
@@ -64,8 +64,8 @@ namespace PlancksoftPOS
             {
                 Text = "ِAdd an Item Type to Printer";
                 lblItemTypes.Text = "Item Types";
-                btnCancel.Text = "Add Type";
-                btnAddItemType.Text = "Close";
+                btnAddItemType.Text = "Add Type";
+                btnCancel.Text = "Close";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
