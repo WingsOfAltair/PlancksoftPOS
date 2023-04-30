@@ -112,11 +112,11 @@ namespace PlancksoftPOS
                 Settings.Default.Save();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة شهر واحد", Application.ProductName);
+                    MaterialMessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة شهر واحد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("The software system was activated with a new License valid for one month.", Application.ProductName);
+                    MaterialMessageBox.Show("The software system was activated with a new License valid for one month.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 this.Close();
             }
@@ -127,11 +127,11 @@ namespace PlancksoftPOS
                 Settings.Default.Save();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة ستة أشهر", Application.ProductName);
+                    MaterialMessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة ستة أشهر", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("The software system was activated with a new License valid for six months.", Application.ProductName);
+                    MaterialMessageBox.Show("The software system was activated with a new License valid for six months.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 this.Close();
             }
@@ -142,11 +142,11 @@ namespace PlancksoftPOS
                 Settings.Default.Save();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة سنة واحدة", Application.ProductName);
+                    MaterialMessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة سنة واحدة", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("The software system was activated with a new License valid for one year.", Application.ProductName);
+                    MaterialMessageBox.Show("The software system was activated with a new License valid for one year.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 this.Close();
             }
@@ -157,11 +157,11 @@ namespace PlancksoftPOS
                 Settings.Default.Save();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة حياة البرمجية", Application.ProductName);
+                    MaterialMessageBox.Show(".لقد تم تغغيل البرمجية برخصة جديدة فعالة لمدة حياة البرمجية", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("The software system was activated with a new License valid for the entire lifetime of this product.", Application.ProductName);
+                    MaterialMessageBox.Show("The software system was activated with a new License valid for the entire lifetime of this product.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 this.Close();
             }
@@ -169,11 +169,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".مفتاح الرخصه غير صحيح", Application.ProductName);
+                    MaterialMessageBox.Show(".مفتاح الرخصه غير صحيح", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("License Key is incorrect.", Application.ProductName);
+                    MaterialMessageBox.Show("License Key is incorrect.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 txtLicenseKey.Text = "";
                 txtLicenseKey.Select();

@@ -81,9 +81,9 @@ namespace PlancksoftPOS
                         Settings.Default["LicenseKey"] = "";
                         Settings.Default.Save();
                         if (pickedLanguage == LanguageChoice.Languages.Arabic)
-                            MessageBox.Show(".لقد إنتهت فترة صلاحية رخصة البرمجية, الرجاء التواصل مع الدعم الفني لشراء رخصة فعالة جديدة", Application.ProductName);
+                            MaterialMessageBox.Show(".لقد إنتهت فترة صلاحية رخصة البرمجية, الرجاء التواصل مع الدعم الفني لشراء رخصة فعالة جديدة", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         else if (pickedLanguage == LanguageChoice.Languages.English)
-                            MessageBox.Show("The system's license validity duration has ended. Please contact technical support to purchase a new valid license.", Application.ProductName);
+                            MaterialMessageBox.Show("The system's license validity duration has ended. Please contact technical support to purchase a new valid license.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
                 catch (Exception e)
@@ -91,9 +91,9 @@ namespace PlancksoftPOS
                     Settings.Default["LicenseKey"] = "";
                     Settings.Default.Save();
                     if (pickedLanguage == LanguageChoice.Languages.Arabic)
-                        MessageBox.Show(".لقد إنتهت فترة صلاحية رخصة البرمجية, الرجاء التواصل مع الدعم الفني لشراء رخصة فعالة جديدة", Application.ProductName);
+                        MaterialMessageBox.Show(".لقد إنتهت فترة صلاحية رخصة البرمجية, الرجاء التواصل مع الدعم الفني لشراء رخصة فعالة جديدة", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     else if (pickedLanguage == LanguageChoice.Languages.English)
-                        MessageBox.Show("The system's license validity duration has ended. Please contact technical support to purchase a new valid license.", Application.ProductName);
+                        MaterialMessageBox.Show("The system's license validity duration has ended. Please contact technical support to purchase a new valid license.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 if (Decrypt256(Settings.Default.LicenseKey) != GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName))
                 {
@@ -106,9 +106,9 @@ namespace PlancksoftPOS
                     if (!Connection.server.CheckConnection())
                     {
                         if (pickedLanguage == LanguageChoice.Languages.Arabic)
-                            MessageBox.Show(".لا يمكن الاتصال بشبكة السحابة", Application.ProductName);
+                            MaterialMessageBox.Show(".لا يمكن الاتصال بشبكة السحابة", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         else if (pickedLanguage == LanguageChoice.Languages.English)
-                            MessageBox.Show("Unable to communicate with the cloud network.", Application.ProductName);
+                            MaterialMessageBox.Show("Unable to communicate with the cloud network.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         Environment.Exit(0);
                     }
                     else
@@ -133,11 +133,11 @@ namespace PlancksoftPOS
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.ToString());
+                MaterialMessageBox.Show(e.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
                 if (pickedLanguage == LanguageChoice.Languages.Arabic)
-                    MessageBox.Show(".لا يمكن الاتصال بشبكة السحابة", Application.ProductName);
+                    MaterialMessageBox.Show(".لا يمكن الاتصال بشبكة السحابة", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 else if (pickedLanguage == LanguageChoice.Languages.English)
-                    MessageBox.Show("Unable to communicate with the cloud network.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to communicate with the cloud network.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 Environment.Exit(0);
             }
         }
@@ -347,9 +347,9 @@ namespace PlancksoftPOS
             if (txtUID.Text == "" && txtPassword.Text == "")
             {
                 if (pickedLanguage == LanguageChoice.Languages.Arabic)
-                    MessageBox.Show(".الرجاء ملأ البيانات الصحيحه و عدم ترك فراغات", Application.ProductName);
+                    MaterialMessageBox.Show(".الرجاء ملأ البيانات الصحيحه و عدم ترك فراغات", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 else if (pickedLanguage == LanguageChoice.Languages.English)
-                    MessageBox.Show("Please fill all blank fields with valid data.", Application.ProductName);
+                    MaterialMessageBox.Show("Please fill all blank fields with valid data.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 return;
             }
             Account newAccount = new Account();
@@ -373,9 +373,9 @@ namespace PlancksoftPOS
             else
             {
                 if (pickedLanguage == LanguageChoice.Languages.Arabic)
-                    MessageBox.Show(".المستخدم غير مسجل", Application.ProductName);
+                    MaterialMessageBox.Show(".المستخدم غير مسجل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 else if (pickedLanguage == LanguageChoice.Languages.English)
-                    MessageBox.Show("User Account is not registered.", Application.ProductName);
+                    MaterialMessageBox.Show("User Account is not registered.", false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
             txtUID.Text = "";
             txtPassword.Text = "";

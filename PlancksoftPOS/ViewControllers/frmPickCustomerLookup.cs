@@ -102,12 +102,12 @@ namespace PlancksoftPOS
                 }
                 else
                 {
-                    MessageBox.Show(".يجب عليك اختيار زبون من فضلك", Application.ProductName);
+                    MaterialMessageBox.Show(".يجب عليك اختيار زبون من فضلك", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     return;
                 }
             } catch(Exception ex)
             {
-                MessageBox.Show(".يجب عليك اختيار زبون من فضلك", Application.ProductName);
+                MaterialMessageBox.Show(".يجب عليك اختيار زبون من فضلك", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 return;
             }
         }

@@ -161,12 +161,12 @@ namespace PlancksoftPOS
                         {
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                MessageBox.Show(".الرجاء اختيار ماده من الجدول اعلاه", Application.ProductName);
+                                MaterialMessageBox.Show(".الرجاء اختيار ماده من الجدول اعلاه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("Please pick an item from the grid above.", Application.ProductName);
+                            MaterialMessageBox.Show("Please pick an item from the grid above.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                 }
@@ -178,11 +178,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نستطع اختيار مادة العميل", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نستطع اختيار مادة العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to choose Client item.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to choose Client item.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }

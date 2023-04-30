@@ -226,5 +226,17 @@ namespace PlancksoftPOS.Properties {
                 this["TextShade"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool menuExpanded {
+            get {
+                return ((bool)(this["menuExpanded"]));
+            }
+            set {
+                this["menuExpanded"] = value;
+            }
+        }
     }
 }

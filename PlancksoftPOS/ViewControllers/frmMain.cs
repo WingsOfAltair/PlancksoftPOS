@@ -25,7 +25,7 @@ namespace PlancksoftPOS
 {
     public partial class frmMain : MaterialForm
     {
-        public bool menuExpand = true, menuSalesSubExpand = false, menuInventorySubExpand = false, menuTaxesSubExpand = false
+        public bool menuSalesSubExpand = false, menuInventorySubExpand = false, menuTaxesSubExpand = false
             , menuExpensesSubExpand = false, menuSettingsSubExpand = false, menuEmployeesAffairsSubExpand = false
             , menuClientAffairsSubExpand = false;
         public Form openedForm = null;
@@ -549,7 +549,8 @@ namespace PlancksoftPOS
                     فاتحToolStripMenuItem.Checked = true;
                 }
 
-                //pnlMenu.Size = new Size(20, 990);
+                LoadMenu();
+
                 pnlMenuSalesSub.Size = new Size(220, 10);
 
                 tabControl1.Appearance = TabAppearance.FlatButtons;
@@ -741,7 +742,7 @@ namespace PlancksoftPOS
                 }
             }
             catch (Exception e)
-            { MessageBox.Show(e.ToString()); }
+            { MaterialMessageBox.Show(e.ToString()); }
         }
 
         public void applyLocalizationOnUI()
@@ -2289,11 +2290,11 @@ namespace PlancksoftPOS
                     DisplayItemTypes();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم حذف صنف المواد", Application.ProductName);
+                        MaterialMessageBox.Show(".تم حذف صنف المواد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Item Type was deleted.", Application.ProductName);
+                        MaterialMessageBox.Show("Item Type was deleted.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -2302,11 +2303,11 @@ namespace PlancksoftPOS
                 DisplayItemTypes();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من حذف صنف المواد", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من حذف صنف المواد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to delete Item Type.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to delete Item Type.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -2322,11 +2323,11 @@ namespace PlancksoftPOS
                     DisplayItemTypes();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تمت اضافة أصناف المواد الجديده", Application.ProductName);
+                        MaterialMessageBox.Show(".تمت اضافة أصناف المواد الجديده", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("A new Item Type was added.", Application.ProductName);
+                        MaterialMessageBox.Show("A new Item Type was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -2335,11 +2336,11 @@ namespace PlancksoftPOS
                 DisplayItemTypes();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من حفظ أصناف المواد الجديده", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من حفظ أصناف المواد الجديده", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to add new Item Type.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to add new Item Type.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -2359,11 +2360,11 @@ namespace PlancksoftPOS
                     DisplayItemTypes();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم حفظ أصناف المواد", Application.ProductName);
+                        MaterialMessageBox.Show(".تم حفظ أصناف المواد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Item Types were saved.", Application.ProductName);
+                        MaterialMessageBox.Show("Item Types were saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -2372,11 +2373,11 @@ namespace PlancksoftPOS
                 DisplayItemTypes();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من حفظ أصناف المواد", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من حفظ أصناف المواد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to save Item Types.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to save Item Types.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -2392,11 +2393,11 @@ namespace PlancksoftPOS
                     DisplayWarehouses();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم حذف المستودع", Application.ProductName);
+                        MaterialMessageBox.Show(".تم حذف المستودع", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Warehouse was deleted.", Application.ProductName);
+                        MaterialMessageBox.Show("Warehouse was deleted.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -2405,11 +2406,11 @@ namespace PlancksoftPOS
                 DisplayWarehouses();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من حذف المستودع", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من حذف المستودع", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to delete Warehouse.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to delete Warehouse.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -2425,11 +2426,11 @@ namespace PlancksoftPOS
                     DisplayWarehouses();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تمت اضافة المستودع الجديد", Application.ProductName);
+                        MaterialMessageBox.Show(".تمت اضافة المستودع الجديد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("A new Warehouse was added.", Application.ProductName);
+                        MaterialMessageBox.Show("A new Warehouse was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -2438,11 +2439,11 @@ namespace PlancksoftPOS
                 DisplayWarehouses();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من حفظ المستودع الجديد", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من حفظ المستودع الجديد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to add new Warehouse.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to add new Warehouse.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -2462,11 +2463,11 @@ namespace PlancksoftPOS
                     DisplayWarehouses();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم حفظ المستودعات", Application.ProductName);
+                        MaterialMessageBox.Show(".تم حفظ المستودعات", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Werehouses was saved.", Application.ProductName);
+                        MaterialMessageBox.Show("Werehouses was saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -2475,11 +2476,11 @@ namespace PlancksoftPOS
                 DisplayWarehouses();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من حفظ المستودعات", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من حفظ المستودعات", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to save warehouses.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to save warehouses.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -2553,11 +2554,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لا يمكن اضافة الماده المفضله", Application.ProductName);
+                    MaterialMessageBox.Show(".لا يمكن اضافة الماده المفضله", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to add Favorite Item.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to add Favorite Item.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -2573,11 +2574,11 @@ namespace PlancksoftPOS
                     DisplayFavorites();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم حذف مجلد المفضلات", Application.ProductName);
+                        MaterialMessageBox.Show(".تم حذف مجلد المفضلات", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Favorite Category was deleted.", Application.ProductName);
+                        MaterialMessageBox.Show("Favorite Category was deleted.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -2586,11 +2587,11 @@ namespace PlancksoftPOS
                 DisplayFavorites();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من حذف المفضلات", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من حذف المفضلات", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to delete Favorite Category.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to delete Favorite Category.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -2605,11 +2606,11 @@ namespace PlancksoftPOS
                     DisplayPrinters();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم حذف الطابعة", Application.ProductName);
+                        MaterialMessageBox.Show(".تم حذف الطابعة", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Printer was deleted.", Application.ProductName);
+                        MaterialMessageBox.Show("Printer was deleted.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -2618,11 +2619,11 @@ namespace PlancksoftPOS
                 DisplayPrinters();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من حذف الطابعة", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من حذف الطابعة", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to delete Printer.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to delete Printer.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -2638,11 +2639,11 @@ namespace PlancksoftPOS
                     DisplayFavorites();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تمت اضافة مجلد المفضلات الجديده", Application.ProductName);
+                        MaterialMessageBox.Show(".تمت اضافة مجلد المفضلات الجديده", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("A new Favorite Category was added.", Application.ProductName);
+                        MaterialMessageBox.Show("A new Favorite Category was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -2651,11 +2652,11 @@ namespace PlancksoftPOS
                 DisplayFavorites();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من حفظ مجلدات المفضلات", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من حفظ مجلدات المفضلات", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to save Favorite Categories.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to save Favorite Categories.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -2671,11 +2672,11 @@ namespace PlancksoftPOS
                     DisplayPrinters();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تمت اضافة الطابعة الجديده", Application.ProductName);
+                        MaterialMessageBox.Show(".تمت اضافة الطابعة الجديده", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("A new Printer was added.", Application.ProductName);
+                        MaterialMessageBox.Show("A new Printer was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -2684,11 +2685,11 @@ namespace PlancksoftPOS
                 DisplayFavorites();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من حفظ مجلدات المفضلات", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من حفظ مجلدات المفضلات", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to save Favorite Categories.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to save Favorite Categories.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -2708,11 +2709,11 @@ namespace PlancksoftPOS
                     DisplayFavorites();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم حفظ مجلد المفضلات الجديد", Application.ProductName);
+                        MaterialMessageBox.Show(".تم حفظ مجلد المفضلات الجديد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("A new Favorite Category was saved.", Application.ProductName);
+                        MaterialMessageBox.Show("A new Favorite Category was saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -2721,11 +2722,11 @@ namespace PlancksoftPOS
                 DisplayFavorites();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من حفظ مجلدات المفضلات", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من حفظ مجلدات المفضلات", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to save Favorite Categories.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to save Favorite Categories.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -2744,11 +2745,11 @@ namespace PlancksoftPOS
                     DisplayPrinters();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم حفظ الطابعات الجديدة", Application.ProductName);
+                        MaterialMessageBox.Show(".تم حفظ الطابعات الجديدة", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("All new Printers were saved.", Application.ProductName);
+                        MaterialMessageBox.Show("All new Printers were saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -2757,11 +2758,11 @@ namespace PlancksoftPOS
                 DisplayFavorites();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من حفظ الطابعات", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من حفظ الطابعات", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to save Printers.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to save Printers.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -2792,11 +2793,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نستطع حذف القطعه", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نستطع حذف القطعه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to delete Items.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to delete Items.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -3046,11 +3047,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نستطع تعديل أسعار القطعه", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نستطع تعديل أسعار القطعه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to edit Item price.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to edit Item price.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -3080,11 +3081,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نستطع تعديل أسعار القطعه", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نستطع تعديل أسعار القطعه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to edit Item price.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to edit Item price.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -3181,11 +3182,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".لم نتمكن من اضافة الماده الجديده بسبب مشكله في المعلومات المدخلة", Application.ProductName);
+                            MaterialMessageBox.Show(".لم نتمكن من اضافة الماده الجديده بسبب مشكله في المعلومات المدخلة", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("Unable to add new Item because of an issue with filled data.", Application.ProductName);
+                            MaterialMessageBox.Show("Unable to add new Item because of an issue with filled data.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                     ClearInput();
@@ -3195,11 +3196,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show("!الرجاء أدخل المعلومات المطلوبه", Application.ProductName);
+                        MaterialMessageBox.Show("!الرجاء أدخل المعلومات المطلوبه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Please fill required fields!", Application.ProductName);
+                        MaterialMessageBox.Show("Please fill required fields!", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     ClearInput();
                 }
@@ -3207,11 +3208,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show("!الرجاء أدخل المعلومات المطلوبه", Application.ProductName);
+                    MaterialMessageBox.Show("!الرجاء أدخل المعلومات المطلوبه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Please fill required fields!", Application.ProductName);
+                    MaterialMessageBox.Show("Please fill required fields!", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 ClearInput();
             }
@@ -3415,11 +3416,11 @@ namespace PlancksoftPOS
                                 {
                                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                     {
-                                        MessageBox.Show(".لم نتمكن من تحديث معلومات الماده بسبب مشكله في المعلومات المدخله", Application.ProductName);
+                                        MaterialMessageBox.Show(".لم نتمكن من تحديث معلومات الماده بسبب مشكله في المعلومات المدخله", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                     }
                                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                     {
-                                        MessageBox.Show("Unable to update Item details because of an issue with filled data.", Application.ProductName);
+                                        MaterialMessageBox.Show("Unable to update Item details because of an issue with filled data.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                     }
                                 }
                                 ClearInput();
@@ -3428,11 +3429,11 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".الرجاء اختيار سطر ماده من الجدول", Application.ProductName);
+                                    MaterialMessageBox.Show(".الرجاء اختيار سطر ماده من الجدول", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("Please pick an Item Row from the Grid.", Application.ProductName);
+                                    MaterialMessageBox.Show("Please pick an Item Row from the Grid.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 return;
                             }
@@ -3441,11 +3442,11 @@ namespace PlancksoftPOS
                         {
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                                MaterialMessageBox.Show(".كلمة السر خطأ", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                MessageBox.Show("Incorrect Password.", Application.ProductName);
+                                MaterialMessageBox.Show("Incorrect Password.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             return;
                         }
@@ -3456,11 +3457,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".فقط حساب إداري بامكانه تحديث المواد", Application.ProductName);
+                        MaterialMessageBox.Show(".فقط حساب إداري بامكانه تحديث المواد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Only Administrators may update Items.", Application.ProductName);
+                        MaterialMessageBox.Show("Only Administrators may update Items.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     return;
                 }
@@ -3469,11 +3470,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من تحديث معلومات الماده بسبب مشكله في إدخال كلمة السر", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من تحديث معلومات الماده بسبب مشكله في إدخال كلمة السر", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to update Item details because of an issue with Password entry.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to update Item details because of an issue with Password entry.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 return;
             }
@@ -3511,11 +3512,11 @@ namespace PlancksoftPOS
                         {
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                                MaterialMessageBox.Show(".كلمة السر خطأ", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                MessageBox.Show("Incorrect Password.", Application.ProductName);
+                                MaterialMessageBox.Show("Incorrect Password.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             return;
                         }
@@ -3527,11 +3528,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".فقط حساب إداري بامكانه حذف المواد", Application.ProductName);
+                        MaterialMessageBox.Show(".فقط حساب إداري بامكانه حذف المواد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Only Administrators may delete Items.", Application.ProductName);
+                        MaterialMessageBox.Show("Only Administrators may delete Items.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     return;
                 }
@@ -3540,11 +3541,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من حذف الماده بسبب مشكله في إدخال كلمة السر", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من حذف الماده بسبب مشكله في إدخال كلمة السر", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to delete Item because of an issue with Password entry.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to delete Item because of an issue with Password entry.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -3640,11 +3641,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لا بمكتك دفع فاتوره فارغه", Application.ProductName);
+                    MaterialMessageBox.Show(".لا بمكتك دفع فاتوره فارغه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("You cannot pay an empty Bill.", Application.ProductName);
+                    MaterialMessageBox.Show("You cannot pay an empty Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
             else
@@ -3690,11 +3691,11 @@ namespace PlancksoftPOS
                                         {
                                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                             {
-                                                MessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.", Application.ProductName);
+                                                MaterialMessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                             }
                                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                             {
-                                                MessageBox.Show("Item Barcode " + item.ItemBarCode + " is either expired or has less quantity in inventory than defined warning limit.", Application.ProductName);
+                                                MaterialMessageBox.Show("Item Barcode " + item.ItemBarCode + " is either expired or has less quantity in inventory than defined warning limit.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                             }
                                         }
                                     }
@@ -3858,11 +3859,11 @@ namespace PlancksoftPOS
                             DisplayFavorites();
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                MessageBox.Show(".تمت إضافة الفاتوره غير مدفوعه كدين على العميل", Application.ProductName);
+                                MaterialMessageBox.Show(".تمت إضافة الفاتوره غير مدفوعه كدين على العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                MessageBox.Show("A new unpaid bill was added as debt to the client.", Application.ProductName);
+                                MaterialMessageBox.Show("A new unpaid bill was added as debt to the client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                         }
                         billToAdd.BillNumber = UnpaidBillNumber;
@@ -3937,11 +3938,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لا بمكتك اضافة فاتوره أخرى قبل تعبئة الفاتوره الحاليه", Application.ProductName);
+                    MaterialMessageBox.Show(".لا بمكتك اضافة فاتوره أخرى قبل تعبئة الفاتوره الحاليه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to add a new Bill before filling the current Bill.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to add a new Bill before filling the current Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
             else
@@ -4077,11 +4078,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".لا بوجد شراء غير مكتمل سابق", Application.ProductName);
+                            MaterialMessageBox.Show(".لا بوجد شراء غير مكتمل سابق", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("There is no previous pending Bill.", Application.ProductName);
+                            MaterialMessageBox.Show("There is no previous pending Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                 }
@@ -4166,11 +4167,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".لا بوجد شراء دين غير مكتمل سابق", Application.ProductName);
+                            MaterialMessageBox.Show(".لا بوجد شراء دين غير مكتمل سابق", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("There is no previous pending debt Bill.", Application.ProductName);
+                            MaterialMessageBox.Show("There is no previous pending debt Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                 }
@@ -4260,11 +4261,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".لا بوجد شراء غير مكتمل تالي", Application.ProductName);
+                            MaterialMessageBox.Show(".لا بوجد شراء غير مكتمل تالي", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("There is no next pending Bill.", Application.ProductName);
+                            MaterialMessageBox.Show("There is no next pending Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                 }
@@ -4352,11 +4353,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".لا بوجد شراء غير مكتمل تالي", Application.ProductName);
+                            MaterialMessageBox.Show(".لا بوجد شراء غير مكتمل تالي", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("There is no next pending debt Bill.", Application.ProductName);
+                            MaterialMessageBox.Show("There is no next pending debt Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                 } catch (Exception exc)
@@ -4429,7 +4430,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -4537,11 +4538,11 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".لا يمكن تسجيل رمز المستخدم admin", Application.ProductName);
+                                    MaterialMessageBox.Show(".لا يمكن تسجيل رمز المستخدم admin", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("Unable Register User ID admin.", Application.ProductName);
+                                    MaterialMessageBox.Show("Unable Register User ID admin.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 ClearInput();
                                 return;
@@ -4572,11 +4573,11 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".لم نتمكن من اضافة المستخدم", Application.ProductName);
+                                    MaterialMessageBox.Show(".لم نتمكن من اضافة المستخدم", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("Unable to add new User.", Application.ProductName);
+                                    MaterialMessageBox.Show("Unable to add new User.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                             }
                             ClearInput();
@@ -4585,11 +4586,11 @@ namespace PlancksoftPOS
                         {
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                                MaterialMessageBox.Show(".الرجاء ادخال جميع البيانات!", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                MessageBox.Show("Please fill all required data!", Application.ProductName);
+                                MaterialMessageBox.Show("Please fill all required data!", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             ClearInput();
                         }
@@ -4598,11 +4599,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                            MaterialMessageBox.Show(".كلمة السر خطأ", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("Incorrect Password.", Application.ProductName);
+                            MaterialMessageBox.Show("Incorrect Password.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         return;
                     }
@@ -4613,11 +4614,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".فقط حساب إداري بامكانه إضافة المستخدمين", Application.ProductName);
+                    MaterialMessageBox.Show(".فقط حساب إداري بامكانه إضافة المستخدمين", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Only Administrators may add new User Accounts.", Application.ProductName);
+                    MaterialMessageBox.Show("Only Administrators may add new User Accounts.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 return;
             }
@@ -4640,11 +4641,11 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".لا يمكن تسجيل رمز المستخدم لأنه محجوز للحساب الإداري الرئيسي", Application.ProductName);
+                                    MaterialMessageBox.Show(".لا يمكن تسجيل رمز المستخدم لأنه محجوز للحساب الإداري الرئيسي", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("admin User ID is reserved for the main Administrator Account.", Application.ProductName);
+                                    MaterialMessageBox.Show("admin User ID is reserved for the main Administrator Account.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 ClearInput();
                                 return;
@@ -4679,11 +4680,11 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".لا يمكن تحديث المستخدم", Application.ProductName);
+                                    MaterialMessageBox.Show(".لا يمكن تحديث المستخدم", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("Cannot update User Account.", Application.ProductName);
+                                    MaterialMessageBox.Show("Cannot update User Account.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                             }
                             txtUserNameAdd.Text = "";
@@ -4696,11 +4697,11 @@ namespace PlancksoftPOS
                         {
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                                MaterialMessageBox.Show(".الرجاء ادخال جميع البيانات!", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                MessageBox.Show("Please fill all required data!", Application.ProductName);
+                                MaterialMessageBox.Show("Please fill all required data!", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             txtUserNameAdd.Text = "";
                             txtUserIDAdd.Text = "";
@@ -4713,11 +4714,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                            MaterialMessageBox.Show(".كلمة السر خطأ", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("Incorrect Password.", Application.ProductName);
+                            MaterialMessageBox.Show("Incorrect Password.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         return;
                     }
@@ -4728,11 +4729,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".فقط حساب إداري بامكانه تعديل المستخدمين", Application.ProductName);
+                    MaterialMessageBox.Show(".فقط حساب إداري بامكانه تعديل المستخدمين", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Only Administrator Accounts may alter User Accounts.", Application.ProductName);
+                    MaterialMessageBox.Show("Only Administrator Accounts may alter User Accounts.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 return;
             }
@@ -4755,11 +4756,11 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".لا يمكن حذف الحساب الإداري", Application.ProductName);
+                                    MaterialMessageBox.Show(".لا يمكن حذف الحساب الإداري", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("Unable to delete Administrator Account.", Application.ProductName);
+                                    MaterialMessageBox.Show("Unable to delete Administrator Account.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 return;
                             }
@@ -4767,11 +4768,11 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".لا يمكن حذف الحساب المدخول به حاليا, الرجاء الحذف من حساب إداري أخر", Application.ProductName);
+                                    MaterialMessageBox.Show(".لا يمكن حذف الحساب المدخول به حاليا, الرجاء الحذف من حساب إداري أخر", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("Unable to delete User Account as it is currently logged in. Please delete it from another Administrator Account.", Application.ProductName);
+                                    MaterialMessageBox.Show("Unable to delete User Account as it is currently logged in. Please delete it from another Administrator Account.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 return;
                             }
@@ -4787,11 +4788,11 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".لم نتمكن من حذف المستخدم", Application.ProductName);
+                                    MaterialMessageBox.Show(".لم نتمكن من حذف المستخدم", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("Unable to delete User Account.", Application.ProductName);
+                                    MaterialMessageBox.Show("Unable to delete User Account.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                             }
                             txtUserNameAdd.Text = "";
@@ -4804,11 +4805,11 @@ namespace PlancksoftPOS
                         {
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                                MaterialMessageBox.Show(".الرجاء ادخال جميع البيانات!", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                MessageBox.Show("Please fill all required data!", Application.ProductName);
+                                MaterialMessageBox.Show("Please fill all required data!", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             txtUserNameAdd.Text = "";
                             txtUserIDAdd.Text = "";
@@ -4821,11 +4822,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".كلمة السر خطأ", Application.ProductName);
+                            MaterialMessageBox.Show(".كلمة السر خطأ", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("Incorrect Password.", Application.ProductName);
+                            MaterialMessageBox.Show("Incorrect Password.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         return;
                     }
@@ -4836,11 +4837,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".فقط حساب إداري بامكانه تعديل المستخدمين", Application.ProductName);
+                    MaterialMessageBox.Show(".فقط حساب إداري بامكانه تعديل المستخدمين", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Only Administrator Accounts are able to alter User Accounts.", Application.ProductName);
+                    MaterialMessageBox.Show("Only Administrator Accounts are able to alter User Accounts.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 return;
             }
@@ -4930,11 +4931,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show("الرجاء إختيار فاتورة.", Application.ProductName);
+                        MaterialMessageBox.Show("الرجاء إختيار فاتورة.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Please pick a Bill.", Application.ProductName);
+                        MaterialMessageBox.Show("Please pick a Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     return;
                 }
@@ -4942,7 +4943,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -5026,7 +5027,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -5321,7 +5322,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -5366,7 +5367,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -5516,11 +5517,11 @@ namespace PlancksoftPOS
         {
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                MessageBox.Show(String.Format(".+962 79 294 2040 .{0} الرجاء مخاطبة للدعم الفني", Application.CompanyName));
+                MaterialMessageBox.Show(String.Format(".+962 79 294 2040 .{0} الرجاء مخاطبة للدعم الفني", Application.CompanyName));
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                MessageBox.Show(String.Format("Please contact Technical Support. {0}. +962 79 14 077 36", Application.CompanyName));
+                MaterialMessageBox.Show(String.Format("Please contact Technical Support. {0}. +962 79 14 077 36", Application.CompanyName));
             }
         }
 
@@ -5531,7 +5532,7 @@ namespace PlancksoftPOS
                 printDocument2.Print();
             } catch(Exception error)
             {
-                MessageBox.Show(e.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(e.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -5576,7 +5577,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -5621,7 +5622,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -5666,7 +5667,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -5906,7 +5907,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -5921,22 +5922,22 @@ namespace PlancksoftPOS
                     decimal newCapitalAmount = Connection.server.GetCapitalAmount() - CapitalAmountnud.Value;
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تمت اضافة المصروف", Application.ProductName);
+                        MaterialMessageBox.Show(".تمت اضافة المصروف", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
 
-                        MessageBox.Show("A new expense was added.", Application.ProductName);
+                        MaterialMessageBox.Show("A new expense was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             } catch(Exception error) {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من اضافة المصروف", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من اضافة المصروف", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to add new expense.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to add new expense.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -6127,22 +6128,22 @@ namespace PlancksoftPOS
                     this.Refresh();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم حفظ الاعدادات", Application.ProductName);
+                        MaterialMessageBox.Show(".تم حفظ الاعدادات", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("System preferences were saved.", Application.ProductName);
+                        MaterialMessageBox.Show("System preferences were saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     Application.Restart();
                 } else
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم يتم حفظ جميع الاعدادات", Application.ProductName);
+                        MaterialMessageBox.Show(".لم يتم حفظ جميع الاعدادات", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Unable to save all new System preferences.", Application.ProductName);
+                        MaterialMessageBox.Show("Unable to save all new System preferences.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -6150,11 +6151,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم يتم حفظ جميع الاعدادات", Application.ProductName);
+                    MaterialMessageBox.Show(".لم يتم حفظ جميع الاعدادات", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to save all new System preferences.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to save all new System preferences.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 if (changedUI)
                 {
@@ -6587,22 +6588,22 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".تعدلت نسبة خصم الأغراض للعميل", Application.ProductName);
+                            MaterialMessageBox.Show(".تعدلت نسبة خصم الأغراض للعميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("The Discount percentage for Client Items was altered.", Application.ProductName);
+                            MaterialMessageBox.Show("The Discount percentage for Client Items was altered.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                     else
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".تم اضافة خصم العميل", Application.ProductName);
+                            MaterialMessageBox.Show(".تم اضافة خصم العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("A Client Discount was added.", Application.ProductName);
+                            MaterialMessageBox.Show("A Client Discount was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
 
@@ -6628,22 +6629,22 @@ namespace PlancksoftPOS
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تمت اضافة العميل", Application.ProductName);
+                        MaterialMessageBox.Show(".تمت اضافة العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("A new Client was added.", Application.ProductName);
+                        MaterialMessageBox.Show("A new Client was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
                 else
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم نتمكن من اضافة العميل", Application.ProductName);
+                        MaterialMessageBox.Show(".لم نتمكن من اضافة العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Unable to add new Client.", Application.ProductName);
+                        MaterialMessageBox.Show("Unable to add new Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -6689,22 +6690,22 @@ namespace PlancksoftPOS
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم حذف العميل", Application.ProductName);
+                        MaterialMessageBox.Show(".تم حذف العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Client was deleted.", Application.ProductName);
+                        MaterialMessageBox.Show("Client was deleted.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
                 else
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم نستطع حذف العميل", Application.ProductName);
+                        MaterialMessageBox.Show(".لم نستطع حذف العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Unable to delete Client.", Application.ProductName);
+                        MaterialMessageBox.Show("Unable to delete Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -6773,11 +6774,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نستطع اختيار العميل", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نستطع اختيار العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to pick Client.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to pick Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -6800,11 +6801,11 @@ namespace PlancksoftPOS
                     ClientPrice.Value = 0;
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تمت اضافة الماده للعميل", Application.ProductName);
+                        MaterialMessageBox.Show(".تمت اضافة الماده للعميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Client Item was added.", Application.ProductName);
+                        MaterialMessageBox.Show("Client Item was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
                 else
@@ -6817,11 +6818,11 @@ namespace PlancksoftPOS
                     ClientPrice.Value = 0;
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم تتم اضافة الماده للعميل", Application.ProductName);
+                        MaterialMessageBox.Show(".لم تتم اضافة الماده للعميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Client Item was not added.", Application.ProductName);
+                        MaterialMessageBox.Show("Client Item was not added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             } catch(Exception error)
@@ -6834,11 +6835,11 @@ namespace PlancksoftPOS
                 ClientPrice.Value = 0;
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم تتم اضافة الماده للعميل", Application.ProductName);
+                    MaterialMessageBox.Show(".لم تتم اضافة الماده للعميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Client Item was not added.", Application.ProductName);
+                    MaterialMessageBox.Show("Client Item was not added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -6989,11 +6990,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".الرجاء اختيار مورد", Application.ProductName);
+                    MaterialMessageBox.Show(".الرجاء اختيار مورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Please pick an Importer.", Application.ProductName);
+                    MaterialMessageBox.Show("Please pick an Importer.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -7036,11 +7037,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".الرجاء اختيار مورد", Application.ProductName);
+                    MaterialMessageBox.Show(".الرجاء اختيار مورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Please pick an Importer.", Application.ProductName);
+                    MaterialMessageBox.Show("Please pick an Importer.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -7062,22 +7063,22 @@ namespace PlancksoftPOS
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تمت اضافة المورد", Application.ProductName);
+                        MaterialMessageBox.Show(".تمت اضافة المورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("A new Importer was added.", Application.ProductName);
+                        MaterialMessageBox.Show("A new Importer was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
                 else
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم نتمكن من اضافة المورد", Application.ProductName);
+                        MaterialMessageBox.Show(".لم نتمكن من اضافة المورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Unable to add a new Importer.", Application.ProductName);
+                        MaterialMessageBox.Show("Unable to add a new Importer.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -7097,22 +7098,22 @@ namespace PlancksoftPOS
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم حذف العميل", Application.ProductName);
+                        MaterialMessageBox.Show(".تم حذف العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Client was deleted.", Application.ProductName);
+                        MaterialMessageBox.Show("Client was deleted.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
                 else
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم نستطع حذف العميل", Application.ProductName);
+                        MaterialMessageBox.Show(".لم نستطع حذف العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Unable to delete Client.", Application.ProductName);
+                        MaterialMessageBox.Show("Unable to delete Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -7192,22 +7193,22 @@ namespace PlancksoftPOS
         //            dgvVendorItemsPick.DataSource = new DataTable();
         //            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
         //            {
-        //                MessageBox.Show(".تمت اضافة الفاتوره للمورد", Application.ProductName);
+        //                MaterialMessageBox.Show(".تمت اضافة الفاتوره للمورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
         //            }
         //            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
         //            {
-        //                MessageBox.Show("A new Importer Bill was added.", Application.ProductName);
+        //                MaterialMessageBox.Show("A new Importer Bill was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
         //            }
         //        }
         //        else
         //        {
         //            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
         //            {
-        //                MessageBox.Show(".الرجاء إختيار مورد", Application.ProductName);
+        //                MaterialMessageBox.Show(".الرجاء إختيار مورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
         //            }
         //            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
         //            {
-        //                MessageBox.Show("Please pick an Importer.", Application.ProductName);
+        //                MaterialMessageBox.Show("Please pick an Importer.", false, FlexibleMaterialForm.ButtonsPosition.Center);
         //            }
         //        }
         //    }
@@ -7316,7 +7317,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -7361,13 +7362,13 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
         public void pictureBox1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(1.ToString());
+            MaterialMessageBox.Show(1.ToString());
         }
 
         public void ItemsPendingPurchase_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -7380,11 +7381,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".الرجاء اختيار سطر لماده", Application.ProductName);
+                    MaterialMessageBox.Show(".الرجاء اختيار سطر لماده", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Please pick a row of an Item.", Application.ProductName);
+                    MaterialMessageBox.Show("Please pick a row of an Item.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -7463,11 +7464,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لا بمكتك دفع فاتوره فارغه", Application.ProductName);
+                    MaterialMessageBox.Show(".لا بمكتك دفع فاتوره فارغه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("You cannot pay an empty Bill.", Application.ProductName);
+                    MaterialMessageBox.Show("You cannot pay an empty Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
             else
@@ -7513,11 +7514,11 @@ namespace PlancksoftPOS
                                         {
                                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                             {
-                                                MessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.", Application.ProductName);
+                                                MaterialMessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                             }
                                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                             {
-                                                MessageBox.Show("Item Barcode " + item.ItemBarCode + " is either expired or has less quantity in inventory than defined warning limit.", Application.ProductName);
+                                                MaterialMessageBox.Show("Item Barcode " + item.ItemBarCode + " is either expired or has less quantity in inventory than defined warning limit.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                             }
                                         }
                                     }
@@ -7681,11 +7682,11 @@ namespace PlancksoftPOS
                             DisplayFavorites();
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                MessageBox.Show(".تمت إضافة الفاتوره غير مدفوعه كدين على العميل", Application.ProductName);
+                                MaterialMessageBox.Show(".تمت إضافة الفاتوره غير مدفوعه كدين على العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                MessageBox.Show("A new unpaid bill was added as debt to the client.", Application.ProductName);
+                                MaterialMessageBox.Show("A new unpaid bill was added as debt to the client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                         }
                         billToAdd.BillNumber = UnpaidBillNumber;
@@ -7824,22 +7825,22 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".تعدلت نسبة خصم الأغراض للعميل", Application.ProductName);
+                            MaterialMessageBox.Show(".تعدلت نسبة خصم الأغراض للعميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("Client Discount percentage was altered.", Application.ProductName);
+                            MaterialMessageBox.Show("Client Discount percentage was altered.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                     else
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".تم اضافة خصم العميل", Application.ProductName);
+                            MaterialMessageBox.Show(".تم اضافة خصم العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("Client Discount was added.", Application.ProductName);
+                            MaterialMessageBox.Show("Client Discount was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
 
@@ -7883,11 +7884,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لا بمكتك اضافة فاتوره أخرى قبل تعبئة الفاتوره الحاليه", Application.ProductName);
+                    MaterialMessageBox.Show(".لا بمكتك اضافة فاتوره أخرى قبل تعبئة الفاتوره الحاليه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("You cannot add a new Bill before filling the current Bill.", Application.ProductName);
+                    MaterialMessageBox.Show("You cannot add a new Bill before filling the current Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
             else
@@ -8038,22 +8039,22 @@ namespace PlancksoftPOS
                         {
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                MessageBox.Show(".تعدلت نسبة خصم الأغراض", Application.ProductName);
+                                MaterialMessageBox.Show(".تعدلت نسبة خصم الأغراض", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                MessageBox.Show("Items Discount percentage was altered.", Application.ProductName);
+                                MaterialMessageBox.Show("Items Discount percentage was altered.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                         }
                         else
                         {
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                MessageBox.Show(".تم اضافة الخصم", Application.ProductName);
+                                MaterialMessageBox.Show(".تم اضافة الخصم", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                MessageBox.Show("Discount was added.", Application.ProductName);
+                                MaterialMessageBox.Show("Discount was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                         }
                     }
@@ -8066,11 +8067,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم نتمكن من اضافة الخصم", Application.ProductName);
+                        MaterialMessageBox.Show(".لم نتمكن من اضافة الخصم", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Unable to add a Discount.", Application.ProductName);
+                        MaterialMessageBox.Show("Unable to add a Discount.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -8107,7 +8108,7 @@ namespace PlancksoftPOS
             }
             catch (Exception error)
             {
-                MessageBox.Show(e.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(e.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -8140,7 +8141,7 @@ namespace PlancksoftPOS
                                     }
                                     var wmp = new WindowsMediaPlayer { URL = file };
                                     wmp.controls.play();
-                                    if (MessageBox.Show(" .لا يمكن شراء الماده بسبب نفاذ الكميه " + " اضافة ماده؟ ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                                    if (MaterialMessageBox.Show(" .لا يمكن شراء الماده بسبب نفاذ الكميه " + " اضافة ماده؟ ", false, FlexibleMaterialForm.ButtonsPosition.Center, MessageBoxButtons.OKCancel) == DialogResult.OK)
                                     {
                                         tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
                                         return;
@@ -8212,11 +8213,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".لا يمكن اضافة الماده", Application.ProductName);
+                            MaterialMessageBox.Show(".لا يمكن اضافة الماده", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("Unable to add Item.", Application.ProductName);
+                            MaterialMessageBox.Show("Unable to add Item.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                 }
@@ -8245,11 +8246,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".لا بمكتك دفع فاتوره فارغه", Application.ProductName);
+                            MaterialMessageBox.Show(".لا بمكتك دفع فاتوره فارغه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("You cannot pay an empty Bill.", Application.ProductName);
+                            MaterialMessageBox.Show("You cannot pay an empty Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                     else
@@ -8295,11 +8296,11 @@ namespace PlancksoftPOS
                                                 {
                                                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                                     {
-                                                        MessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.", Application.ProductName);
+                                                        MaterialMessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                                     }
                                                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                                     {
-                                                        MessageBox.Show("Item Barcode " + item.ItemBarCode + " is either expired or has less quantity in inventory than defined warning limit.", Application.ProductName);
+                                                        MaterialMessageBox.Show("Item Barcode " + item.ItemBarCode + " is either expired or has less quantity in inventory than defined warning limit.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                                     }
                                                 }
                                             }
@@ -8463,11 +8464,11 @@ namespace PlancksoftPOS
                                     DisplayFavorites();
                                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                     {
-                                        MessageBox.Show(".تمت إضافة الفاتوره غير مدفوعه كدين على العميل", Application.ProductName);
+                                        MaterialMessageBox.Show(".تمت إضافة الفاتوره غير مدفوعه كدين على العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                     }
                                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                     {
-                                        MessageBox.Show("A new unpaid bill was added as debt to the client.", Application.ProductName);
+                                        MaterialMessageBox.Show("A new unpaid bill was added as debt to the client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                     }
                                 }
                                 billToAdd.BillNumber = UnpaidBillNumber;
@@ -8605,22 +8606,22 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".تعدلت نسبة خصم الأغراض للعميل", Application.ProductName);
+                                    MaterialMessageBox.Show(".تعدلت نسبة خصم الأغراض للعميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("Client Items Discount was altered.", Application.ProductName);
+                                    MaterialMessageBox.Show("Client Items Discount was altered.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                             }
                             else
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".تم اضافة خصم العميل", Application.ProductName);
+                                    MaterialMessageBox.Show(".تم اضافة خصم العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("Client Discount was added.", Application.ProductName);
+                                    MaterialMessageBox.Show("Client Discount was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                             }
 
@@ -8638,11 +8639,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".لا بمكتك اضافة فاتوره أخرى قبل تعبئة الفاتوره الحاليه", Application.ProductName);
+                            MaterialMessageBox.Show(".لا بمكتك اضافة فاتوره أخرى قبل تعبئة الفاتوره الحاليه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("You cannot add a new Bill before filling the current Bill.", Application.ProductName);
+                            MaterialMessageBox.Show("You cannot add a new Bill before filling the current Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                     else
@@ -8793,22 +8794,22 @@ namespace PlancksoftPOS
                                 {
                                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                     {
-                                        MessageBox.Show(".تعدلت نسبة خصم الأغراض", Application.ProductName);
+                                        MaterialMessageBox.Show(".تعدلت نسبة خصم الأغراض", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                     }
                                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                     {
-                                        MessageBox.Show("Discount percentage was altered.", Application.ProductName);
+                                        MaterialMessageBox.Show("Discount percentage was altered.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                     }
                                 }
                                 else
                                 {
                                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                     {
-                                        MessageBox.Show(".تم اضافة الخصم", Application.ProductName);
+                                        MaterialMessageBox.Show(".تم اضافة الخصم", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                     }
                                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                     {
-                                        MessageBox.Show("Discount was added.", Application.ProductName);
+                                        MaterialMessageBox.Show("Discount was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                     }
                                 }
                             }
@@ -8821,11 +8822,11 @@ namespace PlancksoftPOS
                         {
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                MessageBox.Show(".لم نتمكن من اضافة الخصم", Application.ProductName);
+                                MaterialMessageBox.Show(".لم نتمكن من اضافة الخصم", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                MessageBox.Show("Unable to add Discount.", Application.ProductName);
+                                MaterialMessageBox.Show("Unable to add Discount.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                         }
                     }
@@ -8860,7 +8861,7 @@ namespace PlancksoftPOS
                     }
                     catch (Exception error)
                     {
-                        MessageBox.Show(e.ToString(), Application.ProductName);
+                        MaterialMessageBox.Show(e.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     break;
 
@@ -8921,11 +8922,11 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".لا بوجد شراء غير مكتمل سابق", Application.ProductName);
+                                    MaterialMessageBox.Show(".لا بوجد شراء غير مكتمل سابق", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("There is no previous pending Bill.", Application.ProductName);
+                                    MaterialMessageBox.Show("There is no previous pending Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                             }
                         }
@@ -9009,11 +9010,11 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".لا بوجد شراء دين غير مكتمل سابق", Application.ProductName);
+                                    MaterialMessageBox.Show(".لا بوجد شراء دين غير مكتمل سابق", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("There is no previous pending debt Bill.", Application.ProductName);
+                                    MaterialMessageBox.Show("There is no previous pending debt Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                             }
                         }
@@ -9102,11 +9103,11 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".لا بوجد شراء غير مكتمل تالي", Application.ProductName);
+                                    MaterialMessageBox.Show(".لا بوجد شراء غير مكتمل تالي", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("There is no next pending Bill.", Application.ProductName);
+                                    MaterialMessageBox.Show("There is no next pending Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                             }
                         }
@@ -9193,11 +9194,11 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".لا بوجد شراء غير مكتمل تالي", Application.ProductName);
+                                    MaterialMessageBox.Show(".لا بوجد شراء غير مكتمل تالي", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("There is no next pending debt Bill.", Application.ProductName);
+                                    MaterialMessageBox.Show("There is no next pending debt Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                             }
                         }
@@ -9255,7 +9256,7 @@ namespace PlancksoftPOS
                                             }
                                             var wmp = new WindowsMediaPlayer { URL = file };
                                             wmp.controls.play();
-                                            if (MessageBox.Show(" .لا يمكن شراء الماده بسبب نفاذ الكميه " + " اضافة ماده؟ ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                                            if (MaterialMessageBox.Show(" .لا يمكن شراء الماده بسبب نفاذ الكميه " + " اضافة ماده؟ ", false, FlexibleMaterialForm.ButtonsPosition.Center, MessageBoxButtons.OKCancel) == DialogResult.OK)
                                             {
                                                 tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
                                                 return;
@@ -9328,11 +9329,11 @@ namespace PlancksoftPOS
                             {
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".لا يمكن اضافة الماده", Application.ProductName);
+                                    MaterialMessageBox.Show(".لا يمكن اضافة الماده", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("Unable to add Item.", Application.ProductName);
+                                    MaterialMessageBox.Show("Unable to add Item.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                             }
                         }
@@ -9376,13 +9377,13 @@ namespace PlancksoftPOS
                             {
                                 richTextBox4.Text = (" :المجموع كامل " + this.totalAmount);
                                 richTextBox5.Text = (" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
-                                MessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), Application.ProductName);
+                                MaterialMessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
                                 richTextBox4.Text = (" Total: " + this.totalAmount);
                                 richTextBox5.Text = (" Current Bill ID: " + this.CurrentBillNumber);
-                                MessageBox.Show(String.Format("You have opened the cash register with an amount of {0} JOD.", moneyInRegister), Application.ProductName);
+                                MaterialMessageBox.Show(String.Format("You have opened the cash register with an amount of {0} JOD.", moneyInRegister), false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             this.Select();
                         }
@@ -9473,16 +9474,16 @@ namespace PlancksoftPOS
                                 catch (Exception ex)
                                 {
                                     this.WindowState = FormWindowState.Maximized;
-                                    MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                                    MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
 
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    MessageBox.Show(".لفد قمت باغلاق الصندوق", Application.ProductName);
+                                    MaterialMessageBox.Show(".لفد قمت باغلاق الصندوق", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
-                                    MessageBox.Show("You have closed the cash register.", Application.ProductName);
+                                    MaterialMessageBox.Show("You have closed the cash register.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 }
                             }
                         }
@@ -9575,16 +9576,16 @@ namespace PlancksoftPOS
                         catch (Exception ex)
                         {
                             this.WindowState = FormWindowState.Maximized;
-                            MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                            MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
 
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".لفد قمت باغلاق الصندوق", Application.ProductName);
+                            MaterialMessageBox.Show(".لفد قمت باغلاق الصندوق", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("You have closed the cash register.", Application.ProductName);
+                            MaterialMessageBox.Show("You have closed the cash register.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                 }
@@ -9630,12 +9631,12 @@ namespace PlancksoftPOS
                     {
                         richTextBox4.Text = (" :المجموع كامل " + this.totalAmount);
                         richTextBox5.Text = (" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
-                        MessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), Application.ProductName);
+                        MaterialMessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), false, FlexibleMaterialForm.ButtonsPosition.Center);
                     } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
                         richTextBox4.Text = (" Total: " + this.totalAmount);
                         richTextBox5.Text = (" Current Bill ID: " + this.CurrentBillNumber);
-                        MessageBox.Show(String.Format("You have opened the cash register with the amount {0} JOD.", moneyInRegister), Application.ProductName);
+                        MaterialMessageBox.Show(String.Format("You have opened the cash register with the amount {0} JOD.", moneyInRegister), false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     this.Select();
                 }
@@ -9729,7 +9730,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -9756,11 +9757,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".لا يمكن اختيار الماده", Application.ProductName);
+                            MaterialMessageBox.Show(".لا يمكن اختيار الماده", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("Unable to pick Item.", Application.ProductName);
+                            MaterialMessageBox.Show("Unable to pick Item.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                 }
@@ -9839,22 +9840,22 @@ namespace PlancksoftPOS
                     CapitalAmount = capital;
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم ادخال العمليه", Application.ProductName);
+                        MaterialMessageBox.Show(".تم ادخال العمليه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Transaction was submitted.", Application.ProductName);
+                        MaterialMessageBox.Show("Transaction was submitted.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
                 else
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم نتمكن من ادخال العمليه", Application.ProductName);
+                        MaterialMessageBox.Show(".لم نتمكن من ادخال العمليه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Unable to submit Transaction.", Application.ProductName);
+                        MaterialMessageBox.Show("Unable to submit Transaction.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
 
@@ -9870,12 +9871,12 @@ namespace PlancksoftPOS
                         //dgvVendorItemsPick.DataSource = new DataTable();
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".تمت اضافة الفاتوره للمورد", Application.ProductName);
+                            MaterialMessageBox.Show(".تمت اضافة الفاتوره للمورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             dvgEntryExitItems.Rows.Clear();
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("A new Importer Bill was added.", Application.ProductName);
+                            MaterialMessageBox.Show("A new Importer Bill was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             dvgEntryExitItems.Rows.Clear();
                         }
                     }
@@ -9884,11 +9885,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".الرجاء إختيار مورد", Application.ProductName);
+                        MaterialMessageBox.Show(".الرجاء إختيار مورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Please pick an Importer.", Application.ProductName);
+                        MaterialMessageBox.Show("Please pick an Importer.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -9896,11 +9897,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من اتمام العمليه", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من اتمام العمليه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to commit Transaction.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to commit Transaction.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -9925,11 +9926,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".الاضافه فقط من حساب إداري", this.ProductName);
+                    MaterialMessageBox.Show(".الاضافه فقط من حساب إداري", this.ProductName);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Management can only be done by Administrator Accounts.", this.ProductName);
+                    MaterialMessageBox.Show("Management can only be done by Administrator Accounts.", this.ProductName);
                 }
                 return;
             }
@@ -9955,11 +9956,11 @@ namespace PlancksoftPOS
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم تسجيل الموظف", Application.ProductName);
+                        MaterialMessageBox.Show(".تم تسجيل الموظف", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Employee was registered.", Application.ProductName);
+                        MaterialMessageBox.Show("Employee was registered.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
 
                 }
@@ -9967,11 +9968,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم نتمكن من تسجيل الموظف", Application.ProductName);
+                        MaterialMessageBox.Show(".لم نتمكن من تسجيل الموظف", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Unable to register Employee.", Application.ProductName);
+                        MaterialMessageBox.Show("Unable to register Employee.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -10001,11 +10002,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".التعديل فقط من حساب إداري", this.ProductName);
+                    MaterialMessageBox.Show(".التعديل فقط من حساب إداري", this.ProductName);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Management can only be done through Administrator Accounts.", this.ProductName);
+                    MaterialMessageBox.Show("Management can only be done through Administrator Accounts.", this.ProductName);
                 }
                 return;
             }
@@ -10028,11 +10029,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لا يمكن حذف الموظف", Application.ProductName);
+                        MaterialMessageBox.Show(".لا يمكن حذف الموظف", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Unable to delete Employee.", Application.ProductName);
+                        MaterialMessageBox.Show("Unable to delete Employee.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
                 EditEmployeeName.Text = "";
@@ -10047,11 +10048,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                    MaterialMessageBox.Show(".الرجاء ادخال جميع البيانات!", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Please fill all required data!", Application.ProductName);
+                    MaterialMessageBox.Show("Please fill all required data!", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 EditEmployeeName.Text = "";
                 EditEmployeeSalary.Value = 0;
@@ -10089,11 +10090,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".الإضافه فقط من حساب إداري", this.ProductName);
+                    MaterialMessageBox.Show(".الإضافه فقط من حساب إداري", this.ProductName);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Management can only be done through Administrator Accounts.", this.ProductName);
+                    MaterialMessageBox.Show("Management can only be done through Administrator Accounts.", this.ProductName);
                 }
                 return;
             }
@@ -10121,11 +10122,11 @@ namespace PlancksoftPOS
 
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".تم تسجيل الغياب", Application.ProductName);
+                            MaterialMessageBox.Show(".تم تسجيل الغياب", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("An absence was recorded.", Application.ProductName);
+                            MaterialMessageBox.Show("An absence was recorded.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
 
                     }
@@ -10133,11 +10134,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".لم نتمكن من تسجيل الغياب", Application.ProductName);
+                            MaterialMessageBox.Show(".لم نتمكن من تسجيل الغياب", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("Unable to record Absence.", Application.ProductName);
+                            MaterialMessageBox.Show("Unable to record Absence.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                 } else if (Connection.server.InsertDayOff(EmployeeID, AbsenceDate.Value))
@@ -10159,11 +10160,11 @@ namespace PlancksoftPOS
                     dgvAbsence.Refresh();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم تسجيل الغياب", Application.ProductName);
+                        MaterialMessageBox.Show(".تم تسجيل الغياب", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("An Absence was recorded.", Application.ProductName);
+                        MaterialMessageBox.Show("An Absence was recorded.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -10175,11 +10176,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".التعديل فقط من حساب إداري", this.ProductName);
+                    MaterialMessageBox.Show(".التعديل فقط من حساب إداري", this.ProductName);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Management can only be done through Administrator Accounts.", this.ProductName);
+                    MaterialMessageBox.Show("Management can only be done through Administrator Accounts.", this.ProductName);
                 }
                 return;
             }
@@ -10202,11 +10203,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لا يمكن حذف الغياب", Application.ProductName);
+                        MaterialMessageBox.Show(".لا يمكن حذف الغياب", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Unable to delete Absence.", Application.ProductName);
+                        MaterialMessageBox.Show("Unable to delete Absence.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
                 AbsenceID = 0;
@@ -10220,11 +10221,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".التعديل فقط من حساب إداري", this.ProductName);
+                    MaterialMessageBox.Show(".التعديل فقط من حساب إداري", this.ProductName);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Management can only be done through Administrative Accounts.", this.ProductName);
+                    MaterialMessageBox.Show("Management can only be done through Administrative Accounts.", this.ProductName);
                 }
                 return;
             }
@@ -10257,11 +10258,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لا يمكن حذف الغياب", Application.ProductName);
+                        MaterialMessageBox.Show(".لا يمكن حذف الغياب", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Unable to delete Absence.", Application.ProductName);
+                        MaterialMessageBox.Show("Unable to delete Absence.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
                 AbsenceID = 0;
@@ -10337,11 +10338,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نستطيع حذف الماده", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نستطيع حذف الماده", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to delete Item.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to delete Item.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -10561,11 +10562,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نستطع اختيار العميل", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نستطع اختيار العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to pick Client.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to pick Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -10716,62 +10717,7 @@ namespace PlancksoftPOS
 
         private void lblHamburger_Click(object sender, EventArgs e)
         {
-            hamburger_menu_timer.Start();
-        }
-
-        private void hamburger_menu_timer_Tick(object sender, EventArgs e)
-        {
-            //if (menuExpand)
-            //{
-            //    pnlMenu.Width -= 10;
-
-            //    if (pnlMenu.Width == pnlMenu.MinimumSize.Width)
-            //    {
-            //        menuExpand = false;
-            //        //btnPay.Visible = true;
-            //        //btnClientCard.Visible = true;
-            //        //btnNewInvoice.Visible = true;
-            //        //btnDiscounts.Visible = true;
-            //        //btnOpenCashDrawer.Visible = true;
-            //        //btnEditTotalPrice.Visible = true;
-            //        //btnItemLookup.Visible = true;
-            //        //btnNextBill.Visible = true;
-            //        //btnPreviousBill.Visible = true;
-
-            //        btnMenuCash.Visible = false;
-
-            //        btnMenuSales.Visible = false;
-            //        pnlMenuSalesSub.Visible = false;
-            //        btnMenuSalesSubSales.Visible = false;
-            //        btnMenuSalesSubInvoiceEdit.Visible = false;
-            //        hamburger_menu_timer.Stop();
-            //    }
-            //}
-            //else
-            //{
-            //    pnlMenu.Width += 10;
-            //    if (pnlMenu.Width == pnlMenu.MaximumSize.Width)
-            //    {
-            //        menuExpand = true;
-            //        //btnPay.Visible = true;
-            //        //btnClientCard.Visible = true;
-            //        //btnNewInvoice.Visible = true;
-            //        //btnDiscounts.Visible = true;
-            //        //btnOpenCashDrawer.Visible = true;
-            //        //btnEditTotalPrice.Visible = true;
-            //        //btnItemLookup.Visible = true;
-            //        //btnNextBill.Visible = true;
-            //        //btnPreviousBill.Visible = true;
-
-            //        btnMenuCash.Visible = true;
-
-            //        btnMenuSales.Visible = true;
-            //        pnlMenuSalesSub.Visible = true;
-            //        btnMenuSalesSubSales.Visible = true;
-            //        btnMenuSalesSubInvoiceEdit.Visible = true;
-            //        hamburger_menu_timer.Stop();
-            //    }
-            //}
+            CollapseMenu();
         }
 
         private void btnMenuCash_Click(object sender, EventArgs e)
@@ -10829,11 +10775,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".الرجاء إختيار عميل", Application.ProductName);
+                    MaterialMessageBox.Show(".الرجاء إختيار عميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Please pick a Client.", Application.ProductName);
+                    MaterialMessageBox.Show("Please pick a Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -10848,11 +10794,11 @@ namespace PlancksoftPOS
                     DisplayFavorites();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم حفظ مجلد المفضلات الجديد", Application.ProductName);
+                        MaterialMessageBox.Show(".تم حفظ مجلد المفضلات الجديد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("A new Favorite Category was saved.", Application.ProductName);
+                        MaterialMessageBox.Show("A new Favorite Category was saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -10860,23 +10806,36 @@ namespace PlancksoftPOS
 
         private void pnlMenu_Click(object sender, EventArgs e)
         {
-            ////btnPay.Visible = false;
-            ////btnClientCard.Visible = false;
-            ////btnNewInvoice.Visible = false;
-            ////btnDiscounts.Visible = false;
-            ////btnOpenCashDrawer.Visible = false;
-            ////btnEditTotalPrice.Visible = false;
-            ////btnItemLookup.Visible = false;
-            ////btnNextBill.Visible = false;
-            ////btnPreviousBill.Visible = false;
+            CollapseMenu();
+        }
 
-            //btnMenuCash.Visible = false;
+        private void LoadMenu()
+        {
+            if (Properties.Settings.Default.menuExpanded == false)
+            {
+                pnlMenu.Width = 15;
 
-            //btnMenuSales.Visible = false;
-            //pnlMenuSalesSub.Visible = false;
-            //btnMenuSalesSubSales.Visible = false;
-            //btnMenuSalesSubInvoiceEdit.Visible = false;
-            //hamburger_menu_timer.Start();
+            }
+            else
+            {
+                pnlMenu.Width = 250;
+            }
+        }
+
+        private void CollapseMenu()
+        {
+            if (Properties.Settings.Default.menuExpanded == true)
+            {
+                Properties.Settings.Default.menuExpanded = false;
+                Properties.Settings.Default.Save();
+
+            }
+            else
+            {
+                Properties.Settings.Default.menuExpanded = true;
+                Properties.Settings.Default.Save();
+            }
+            LoadMenu();
         }
 
         private void btnMenuSalesSubEditInvoices_Click(object sender, EventArgs e)
@@ -11064,7 +11023,7 @@ namespace PlancksoftPOS
                 if (pnlMenuTaxesSub.Height == pnlMenuTaxesSub.MinimumSize.Height)
                 {
                     menuTaxesSubExpand = false;
-                    hamburger_menu_settings_sub_timer.Stop();
+                    hamburger_menu_taxes_sub_timer.Stop();
                 }
             }
             else
@@ -11264,11 +11223,11 @@ namespace PlancksoftPOS
                     DisplayWarehouses();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم حفظ المستودع الجديد", Application.ProductName);
+                        MaterialMessageBox.Show(".تم حفظ المستودع الجديد", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("A new Warehouse was saved.", Application.ProductName);
+                        MaterialMessageBox.Show("A new Warehouse was saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -11320,7 +11279,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -11402,7 +11361,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -11447,7 +11406,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -11492,7 +11451,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -11660,11 +11619,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".التعديل فقط من حساب إداري", this.ProductName);
+                    MaterialMessageBox.Show(".التعديل فقط من حساب إداري", this.ProductName);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Management could only be done through Administrative Accounts.", this.ProductName);
+                    MaterialMessageBox.Show("Management could only be done through Administrative Accounts.", this.ProductName);
                 }
                 return;
             }
@@ -11687,11 +11646,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لا يمكن تحديث الموظف", Application.ProductName);
+                        MaterialMessageBox.Show(".لا يمكن تحديث الموظف", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Could not update Employee.", Application.ProductName);
+                        MaterialMessageBox.Show("Could not update Employee.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
                 EditEmployeeName.Text = "";
@@ -11706,11 +11665,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".الرجاء ادخال جميع البيانات!", Application.ProductName);
+                    MaterialMessageBox.Show(".الرجاء ادخال جميع البيانات!", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Please fill all required data!", Application.ProductName);
+                    MaterialMessageBox.Show("Please fill all required data!", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 EditEmployeeName.Text = "";
                 EditEmployeeSalary.Value = 0;
@@ -11766,11 +11725,11 @@ namespace PlancksoftPOS
         //    {
         //        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
         //        {
-        //            MessageBox.Show(".لم نستطيع حذف الماده", Application.ProductName);
+        //            MaterialMessageBox.Show(".لم نستطيع حذف الماده", false, FlexibleMaterialForm.ButtonsPosition.Center);
         //        }
         //        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
         //        {
-        //            MessageBox.Show("Unable to delete Item.", Application.ProductName);
+        //            MaterialMessageBox.Show("Unable to delete Item.", false, FlexibleMaterialForm.ButtonsPosition.Center);
         //        }
         //    }
         //}
@@ -11822,11 +11781,11 @@ namespace PlancksoftPOS
         //            {
         //                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
         //                {
-        //                    MessageBox.Show(".لا يمكن اختيار الماده", Application.ProductName);
+        //                    MaterialMessageBox.Show(".لا يمكن اختيار الماده", false, FlexibleMaterialForm.ButtonsPosition.Center);
         //                }
         //                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
         //                {
-        //                    MessageBox.Show("Unable to pick Item.", Application.ProductName);
+        //                    MaterialMessageBox.Show("Unable to pick Item.", false, FlexibleMaterialForm.ButtonsPosition.Center);
         //                }
         //            }
         //        }
@@ -11877,7 +11836,7 @@ namespace PlancksoftPOS
             catch (Exception ex)
             {
                 this.WindowState = FormWindowState.Maximized;
-                MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
         }
 
@@ -11903,11 +11862,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", Application.ProductName);
+                    MaterialMessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Please enter a valid Address name.", Application.ProductName);
+                    MaterialMessageBox.Show("Please enter a valid Address name.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -11941,7 +11900,7 @@ namespace PlancksoftPOS
                                     }
                                     var wmp = new WindowsMediaPlayer { URL = file };
                                     wmp.controls.play();
-                                    if (MessageBox.Show(" .لا يمكن شراء الماده بسبب نفاذ الكميه " + " اضافة ماده؟ ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                                    if (MaterialMessageBox.Show(" .لا يمكن شراء الماده بسبب نفاذ الكميه " + " اضافة ماده؟ ", false, FlexibleMaterialForm.ButtonsPosition.Center, MessageBoxButtons.OKCancel) == DialogResult.OK)
                                     {
                                         tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
                                         return;
@@ -12013,11 +11972,11 @@ namespace PlancksoftPOS
                     {
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".لا يمكن اضافة الماده", Application.ProductName);
+                            MaterialMessageBox.Show(".لا يمكن اضافة الماده", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("Unable to add Item.", Application.ProductName);
+                            MaterialMessageBox.Show("Unable to add Item.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                 }
@@ -12040,11 +11999,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", Application.ProductName);
+                        MaterialMessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Please enter a valid Address name.", Application.ProductName);
+                        MaterialMessageBox.Show("Please enter a valid Address name.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -12130,16 +12089,16 @@ namespace PlancksoftPOS
                         catch (Exception ex)
                         {
                             this.WindowState = FormWindowState.Maximized;
-                            MessageBox.Show(ex.Message.ToString(), Application.ProductName);
+                            MaterialMessageBox.Show(ex.Message.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
 
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            MessageBox.Show(".لفد قمت باغلاق الصندوق", Application.ProductName);
+                            MaterialMessageBox.Show(".لفد قمت باغلاق الصندوق", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
-                            MessageBox.Show("You have closed the cash register.", Application.ProductName);
+                            MaterialMessageBox.Show("You have closed the cash register.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                         }
                     }
                 }
@@ -12163,11 +12122,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", Application.ProductName);
+                    MaterialMessageBox.Show(".الرجاء إدخال إسم عنوان صحيح", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Please enter a valid Address name.", Application.ProductName);
+                    MaterialMessageBox.Show("Please enter a valid Address name.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -12207,13 +12166,13 @@ namespace PlancksoftPOS
                     {
                         richTextBox4.Text = (" :المجموع كامل " + this.totalAmount);
                         richTextBox5.Text = (" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
-                        MessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), Application.ProductName);
+                        MaterialMessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
                         richTextBox4.Text = (" Total: " + this.totalAmount);
                         richTextBox5.Text = (" Current Bill ID: " + this.CurrentBillNumber);
-                        MessageBox.Show(String.Format("You have opened the cash register with the amount of {0} JOD.", moneyInRegister), Application.ProductName);
+                        MaterialMessageBox.Show(String.Format("You have opened the cash register with the amount of {0} JOD.", moneyInRegister), false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     this.Select();
                 }
@@ -12258,22 +12217,22 @@ namespace PlancksoftPOS
                         {
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                MessageBox.Show(".تعدلت نسبة خصم الأغراض", Application.ProductName);
+                                MaterialMessageBox.Show(".تعدلت نسبة خصم الأغراض", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                MessageBox.Show("Items Discount percentage was altered.", Application.ProductName);
+                                MaterialMessageBox.Show("Items Discount percentage was altered.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                         }
                         else
                         {
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                MessageBox.Show(".تم اضافة الخصم", Application.ProductName);
+                                MaterialMessageBox.Show(".تم اضافة الخصم", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                MessageBox.Show("Discount was added.", Application.ProductName);
+                                MaterialMessageBox.Show("Discount was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
                         }
                     }
@@ -12286,11 +12245,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم نتمكن من اضافة الخصم", Application.ProductName);
+                        MaterialMessageBox.Show(".لم نتمكن من اضافة الخصم", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("Unable to add Discount.", Application.ProductName);
+                        MaterialMessageBox.Show("Unable to add Discount.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
@@ -12576,11 +12535,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من طباعة الفاتوره", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من طباعة الفاتوره", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to print Invoice.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to print Invoice.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -12807,11 +12766,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من طباعة الفاتوره", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من طباعة الفاتوره", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to print Invoice.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to print Invoice.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -13035,10 +12994,10 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من طباعة الفاتوره", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من طباعة الفاتوره", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to print Invoice.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to print Invoice.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -13196,11 +13155,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".لم نتمكن من طباعة تقرير غلق الكاش", Application.ProductName);
+                    MaterialMessageBox.Show(".لم نتمكن من طباعة تقرير غلق الكاش", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("Unable to print Cash Close Report.", Application.ProductName);
+                    MaterialMessageBox.Show("Unable to print Cash Close Report.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }

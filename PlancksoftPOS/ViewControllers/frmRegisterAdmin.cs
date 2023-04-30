@@ -102,11 +102,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم تسجيل الحساب الاداري", Application.ProductName);
+                        MaterialMessageBox.Show(".تم تسجيل الحساب الاداري", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("The Administrative Account was registered.", Application.ProductName);
+                        MaterialMessageBox.Show("The Administrative Account was registered.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     this.Hide();
                     Application.OpenForms[0].Show();
@@ -116,11 +116,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم نتمكن من تسجيل الحساب الاداري");
+                        MaterialMessageBox.Show(".لم نتمكن من تسجيل الحساب الاداري", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("We were unable to register the Administrator account.");
+                        MaterialMessageBox.Show("We were unable to register the Administrator account.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
             }
