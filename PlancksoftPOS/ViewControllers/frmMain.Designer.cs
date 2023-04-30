@@ -755,7 +755,6 @@ namespace PlancksoftPOS
             this.فاتحToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.مظلمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hamburger_menu_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_sales_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_inventory_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_expenses_sub_timer = new System.Windows.Forms.Timer(this.components);
@@ -1912,6 +1911,7 @@ namespace PlancksoftPOS
             // 
             // cashierNameLbl
             // 
+            this.cashierNameLbl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cashierNameLbl.AutoSize = true;
             this.cashierNameLbl.Depth = 0;
             this.cashierNameLbl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -1924,6 +1924,7 @@ namespace PlancksoftPOS
             // 
             // label71
             // 
+            this.label71.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label71.AutoSize = true;
             this.label71.Depth = 0;
             this.label71.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -11168,8 +11169,8 @@ namespace PlancksoftPOS
             this.pnlMenu.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.pnlMenu.Location = new System.Drawing.Point(1667, 88);
             this.pnlMenu.Margin = new System.Windows.Forms.Padding(14);
-            this.pnlMenu.MaximumSize = new System.Drawing.Size(250, 989);
-            this.pnlMenu.MinimumSize = new System.Drawing.Size(250, 990);
+            this.pnlMenu.MaximumSize = new System.Drawing.Size(250, 990);
+            this.pnlMenu.MinimumSize = new System.Drawing.Size(15, 990);
             this.pnlMenu.MouseState = MaterialSkin.MouseState.HOVER;
             this.pnlMenu.Name = "pnlMenu";
             this.pnlMenu.Padding = new System.Windows.Forms.Padding(14);
@@ -12066,17 +12067,20 @@ namespace PlancksoftPOS
             // 
             // btnHamburger
             // 
+            this.btnHamburger.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnHamburger.AutoSize = true;
             this.btnHamburger.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnHamburger.Depth = 0;
             this.btnHamburger.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.btnHamburger.Location = new System.Drawing.Point(0, 432);
+            this.btnHamburger.Location = new System.Drawing.Point(236, 3);
             this.btnHamburger.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnHamburger.Name = "btnHamburger";
-            this.btnHamburger.Size = new System.Drawing.Size(13, 19);
+            this.btnHamburger.Size = new System.Drawing.Size(12, 19);
             this.btnHamburger.TabIndex = 47;
-            this.btnHamburger.Text = "<-";
-            this.btnHamburger.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHamburger.Text = "☰";
+            this.btnHamburger.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnHamburger.Visible = false;
             this.btnHamburger.Click += new System.EventHandler(this.lblHamburger_Click);
             // 
@@ -12222,11 +12226,6 @@ namespace PlancksoftPOS
             this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.الخروجToolStripMenuItem.Text = "الخروج";
             this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
-            // 
-            // hamburger_menu_timer
-            // 
-            this.hamburger_menu_timer.Interval = 10;
-            this.hamburger_menu_timer.Tick += new System.EventHandler(this.hamburger_menu_timer_Tick);
             // 
             // hamburger_menu_sales_sub_timer
             // 
@@ -13244,7 +13243,6 @@ namespace PlancksoftPOS
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private MaterialCard pnlMenu;
-        private System.Windows.Forms.Timer hamburger_menu_timer;
         private MaterialButton btnMenuCash;
         private MaterialLabel btnHamburger;
         private System.Windows.Forms.Timer hamburger_menu_sales_sub_timer;

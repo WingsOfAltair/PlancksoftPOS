@@ -113,11 +113,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".تم ارجاع الماده للمستودع", Application.ProductName);
+                        MaterialMessageBox.Show(".تم ارجاع الماده للمستودع", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("The item was returned to the warehouse.", Application.ProductName);
+                        MaterialMessageBox.Show("The item was returned to the warehouse.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     this.Close();
                 }
@@ -125,11 +125,11 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        MessageBox.Show(".لم يتم ارجاع الماده للمستودع", Application.ProductName);
+                        MaterialMessageBox.Show(".لم يتم ارجاع الماده للمستودع", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        MessageBox.Show("The item was not returned to the warehouse.", Application.ProductName);
+                        MaterialMessageBox.Show("The item was not returned to the warehouse.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     return;
                 }

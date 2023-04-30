@@ -87,11 +87,11 @@ namespace PlancksoftPOS
             {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBox.Show(".المال في الصندوق أقل من مال فتح الصندوق لذلك لا يمكن اتمام العمليه", Application.ProductName);
+                    MaterialMessageBox.Show(".المال في الصندوق أقل من مال فتح الصندوق لذلك لا يمكن اتمام العمليه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MessageBox.Show("The cash amount inside the cash register is less than the opening amount, therefore you cannot complete this operation.", Application.ProductName);
+                    MaterialMessageBox.Show("The cash amount inside the cash register is less than the opening amount, therefore you cannot complete this operation.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
                 return;
             }

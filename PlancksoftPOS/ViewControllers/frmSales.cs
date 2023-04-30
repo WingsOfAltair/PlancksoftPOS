@@ -181,12 +181,12 @@ namespace PlancksoftPOS
                     else
                     {
                         if (!found)
-                            MessageBox.Show(".الرجاء اختيار ماده من الجدول اعلاه", Application.ProductName);
+                            MaterialMessageBox.Show(".الرجاء اختيار ماده من الجدول اعلاه", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please enter a sale rate", Application.ProductName);
+                    MaterialMessageBox.Show("Please enter a sale rate", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
