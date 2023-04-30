@@ -57,7 +57,7 @@
             this.lblEnterAmount.Location = new System.Drawing.Point(3, 64);
             this.lblEnterAmount.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblEnterAmount.Name = "lblEnterAmount";
-            this.lblEnterAmount.Size = new System.Drawing.Size(80, 17);
+            this.lblEnterAmount.Size = new System.Drawing.Size(50, 19);
             this.lblEnterAmount.TabIndex = 26;
             this.lblEnterAmount.Text = "المبلغ الجديد";
             this.lblEnterAmount.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -74,7 +74,7 @@
             this.txtAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtAmount.HideSelection = true;
             this.txtAmount.LeadingIcon = null;
-            this.txtAmount.Location = new System.Drawing.Point(3, 81);
+            this.txtAmount.Location = new System.Drawing.Point(3, 83);
             this.txtAmount.MaxLength = 32767;
             this.txtAmount.MouseState = MaterialSkin.MouseState.OUT;
             this.txtAmount.Name = "txtAmount";
@@ -86,7 +86,7 @@
             this.txtAmount.SelectionLength = 0;
             this.txtAmount.SelectionStart = 0;
             this.txtAmount.ShortcutsEnabled = true;
-            this.txtAmount.Size = new System.Drawing.Size(460, 48);
+            this.txtAmount.Size = new System.Drawing.Size(476, 48);
             this.txtAmount.TabIndex = 41;
             this.txtAmount.TabStop = false;
             this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -395,7 +395,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(466, 422);
+            this.ClientSize = new System.Drawing.Size(482, 461);
             this.Controls.Add(this.btnDecimal);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnClear);
@@ -424,7 +424,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Sizable = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "تعديل السعر";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -176,7 +176,7 @@
             this.lblClientID.AutoSize = true;
             this.lblClientID.Depth = 0;
             this.lblClientID.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblClientID.Location = new System.Drawing.Point(406, 432);
+            this.lblClientID.Location = new System.Drawing.Point(406, 430);
             this.lblClientID.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblClientID.Name = "lblClientID";
             this.lblClientID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;

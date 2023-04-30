@@ -80,7 +80,7 @@
             this.FavoriteCategoryName});
             this.DGVItemsLookup.Location = new System.Drawing.Point(6, 67);
             this.DGVItemsLookup.Name = "DGVItemsLookup";
-            this.DGVItemsLookup.Size = new System.Drawing.Size(1216, 372);
+            this.DGVItemsLookup.Size = new System.Drawing.Size(1250, 372);
             this.DGVItemsLookup.TabIndex = 8;
             this.DGVItemsLookup.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVItemsLookup_RowHeaderMouseDoubleClick);
             // 
@@ -176,7 +176,7 @@
             this.lblItemName.Location = new System.Drawing.Point(91, 448);
             this.lblItemName.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemName.Name = "lblItemName";
-            this.lblItemName.Size = new System.Drawing.Size(66, 17);
+            this.lblItemName.Size = new System.Drawing.Size(40, 19);
             this.lblItemName.TabIndex = 9;
             this.lblItemName.Text = "اسم الماده";
             this.lblItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -206,7 +206,7 @@
             this.txtItemName.SelectionLength = 0;
             this.txtItemName.SelectionStart = 0;
             this.txtItemName.ShortcutsEnabled = true;
-            this.txtItemName.Size = new System.Drawing.Size(252, 48);
+            this.txtItemName.Size = new System.Drawing.Size(284, 48);
             this.txtItemName.TabIndex = 10;
             this.txtItemName.TabStop = false;
             this.txtItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -239,7 +239,7 @@
             this.txtItemBarcode.SelectionLength = 0;
             this.txtItemBarcode.SelectionStart = 0;
             this.txtItemBarcode.ShortcutsEnabled = true;
-            this.txtItemBarcode.Size = new System.Drawing.Size(252, 48);
+            this.txtItemBarcode.Size = new System.Drawing.Size(284, 48);
             this.txtItemBarcode.TabIndex = 12;
             this.txtItemBarcode.TabStop = false;
             this.txtItemBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -257,7 +257,7 @@
             this.lblItemBarcode.Location = new System.Drawing.Point(347, 448);
             this.lblItemBarcode.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemBarcode.Name = "lblItemBarcode";
-            this.lblItemBarcode.Size = new System.Drawing.Size(73, 17);
+            this.lblItemBarcode.Size = new System.Drawing.Size(52, 19);
             this.lblItemBarcode.TabIndex = 11;
             this.lblItemBarcode.Text = "باركود الماده";
             this.lblItemBarcode.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -269,10 +269,10 @@
             this.lblItemQuantity.Depth = 0;
             this.lblItemQuantity.Enabled = false;
             this.lblItemQuantity.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblItemQuantity.Location = new System.Drawing.Point(763, 450);
+            this.lblItemQuantity.Location = new System.Drawing.Point(795, 450);
             this.lblItemQuantity.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemQuantity.Name = "lblItemQuantity";
-            this.lblItemQuantity.Size = new System.Drawing.Size(63, 17);
+            this.lblItemQuantity.Size = new System.Drawing.Size(41, 19);
             this.lblItemQuantity.TabIndex = 14;
             this.lblItemQuantity.Text = "عدد القطع";
             this.lblItemQuantity.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -358,7 +358,7 @@
             this.cbItemType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbItemType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.cbItemType.FormattingEnabled = true;
-            this.cbItemType.Location = new System.Drawing.Point(520, 492);
+            this.cbItemType.Location = new System.Drawing.Point(552, 492);
             this.cbItemType.Name = "cbItemType";
             this.cbItemType.Size = new System.Drawing.Size(184, 21);
             this.cbItemType.TabIndex = 28;
@@ -370,10 +370,10 @@
             this.lblItemType.AutoSize = true;
             this.lblItemType.Depth = 0;
             this.lblItemType.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblItemType.Location = new System.Drawing.Point(578, 450);
+            this.lblItemType.Location = new System.Drawing.Point(610, 450);
             this.lblItemType.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemType.Name = "lblItemType";
-            this.lblItemType.Size = new System.Drawing.Size(84, 17);
+            this.lblItemType.Size = new System.Drawing.Size(54, 19);
             this.lblItemType.TabIndex = 29;
             this.lblItemType.Text = "تصنيف الماده";
             this.lblItemType.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -382,7 +382,7 @@
             // 
             this.nudItemQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nudItemQuantity.Enabled = false;
-            this.nudItemQuantity.Location = new System.Drawing.Point(736, 493);
+            this.nudItemQuantity.Location = new System.Drawing.Point(768, 493);
             this.nudItemQuantity.Maximum = new decimal(new int[] {
             1569325055,
             23283064,
@@ -398,7 +398,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1230, 525);
+            this.ClientSize = new System.Drawing.Size(1262, 525);
             this.Controls.Add(this.nudItemQuantity);
             this.Controls.Add(this.lblItemType);
             this.Controls.Add(this.cbItemType);
@@ -423,7 +423,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Sizable = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "البحث عن المواد";
             ((System.ComponentModel.ISupportInitialize)(this.DGVItemsLookup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnPrint)).EndInit();

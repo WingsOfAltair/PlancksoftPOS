@@ -68,7 +68,6 @@ C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\Interop.WMPLib.dll
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.csproj.ResolveComReference.cache
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmColorPicker.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmMain.resources
-C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmSales.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmRegisterAdmin.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmPickClientLookup.resources
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmPickClient.resources
@@ -156,3 +155,4 @@ C:\PlancksoftPOS\PlancksoftPOS\bin\Debug\zh-Hant\Microsoft.VisualStudio.Services
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.csproj.CopyComplete
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.exe
 C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.pdb
+C:\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmSales.resources

@@ -230,12 +230,24 @@ namespace PlancksoftPOS.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("True")]
-        public bool menuExpanded {
+        public bool sideMenuExpanded {
             get {
-                return ((bool)(this["menuExpanded"]));
+                return ((bool)(this["sideMenuExpanded"]));
             }
             set {
-                this["menuExpanded"] = value;
+                this["sideMenuExpanded"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool actionMenuExpanded {
+            get {
+                return ((bool)(this["actionMenuExpanded"]));
+            }
+            set {
+                this["actionMenuExpanded"] = value;
             }
         }
     }

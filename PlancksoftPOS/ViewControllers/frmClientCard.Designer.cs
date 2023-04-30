@@ -228,12 +228,12 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(3, 660);
+            this.btnClose.Location = new System.Drawing.Point(3, 699);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
             this.btnClose.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnClose.Size = new System.Drawing.Size(653, 36);
+            this.btnClose.Size = new System.Drawing.Size(669, 36);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "الخروج";
             this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -249,12 +249,12 @@
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(3, 624);
+            this.btnClear.Location = new System.Drawing.Point(3, 663);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
             this.btnClear.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnClear.Size = new System.Drawing.Size(653, 36);
+            this.btnClear.Size = new System.Drawing.Size(669, 36);
             this.btnClear.TabIndex = 7;
             this.btnClear.Text = "مسح";
             this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -270,12 +270,12 @@
             this.btnSearch.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSearch.HighEmphasis = true;
             this.btnSearch.Icon = null;
-            this.btnSearch.Location = new System.Drawing.Point(3, 588);
+            this.btnSearch.Location = new System.Drawing.Point(3, 627);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnSearch.Size = new System.Drawing.Size(653, 36);
+            this.btnSearch.Size = new System.Drawing.Size(669, 36);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "البحث";
             this.btnSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -287,7 +287,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(659, 699);
+            this.ClientSize = new System.Drawing.Size(675, 738);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnClose);
@@ -309,7 +309,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Sizable = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "شاشة بطاقة العميل";
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             this.ResumeLayout(false);

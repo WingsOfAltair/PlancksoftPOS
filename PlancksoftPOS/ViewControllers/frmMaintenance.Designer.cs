@@ -46,7 +46,7 @@
             this.lblPlancksoft1.Location = new System.Drawing.Point(3, 64);
             this.lblPlancksoft1.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPlancksoft1.Name = "lblPlancksoft1";
-            this.lblPlancksoft1.Size = new System.Drawing.Size(362, 17);
+            this.lblPlancksoft1.Size = new System.Drawing.Size(259, 19);
             this.lblPlancksoft1.TabIndex = 0;
             this.lblPlancksoft1.Text = " Plancksoft تم تصميم و برمجة هذا النظام من قبل مؤسسة";
             // 
@@ -56,10 +56,10 @@
             this.lblPlancksoft2.Depth = 0;
             this.lblPlancksoft2.Dock = System.Windows.Forms.DockStyle.Top;
             this.lblPlancksoft2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblPlancksoft2.Location = new System.Drawing.Point(3, 81);
+            this.lblPlancksoft2.Location = new System.Drawing.Point(3, 83);
             this.lblPlancksoft2.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPlancksoft2.Name = "lblPlancksoft2";
-            this.lblPlancksoft2.Size = new System.Drawing.Size(308, 17);
+            this.lblPlancksoft2.Size = new System.Drawing.Size(217, 19);
             this.lblPlancksoft2.TabIndex = 1;
             this.lblPlancksoft2.Text = " :للإستفسارات والصيانة, الرجاء الإتصال بالرقم التالي";
             // 
@@ -68,12 +68,12 @@
             this.lblContactNumber.AutoSize = true;
             this.lblContactNumber.Depth = 0;
             this.lblContactNumber.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblContactNumber.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblContactNumber.Location = new System.Drawing.Point(3, 98);
+            this.lblContactNumber.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblContactNumber.Location = new System.Drawing.Point(3, 102);
             this.lblContactNumber.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblContactNumber.Name = "lblContactNumber";
             this.lblContactNumber.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblContactNumber.Size = new System.Drawing.Size(119, 17);
+            this.lblContactNumber.Size = new System.Drawing.Size(134, 19);
             this.lblContactNumber.TabIndex = 2;
             this.lblContactNumber.Text = "+962 77 64 721 66";
             // 
@@ -81,9 +81,9 @@
             // 
             this.pbPlancksoft.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pbPlancksoft.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
-            this.pbPlancksoft.Location = new System.Drawing.Point(3, 237);
+            this.pbPlancksoft.Location = new System.Drawing.Point(3, 276);
             this.pbPlancksoft.Name = "pbPlancksoft";
-            this.pbPlancksoft.Size = new System.Drawing.Size(674, 328);
+            this.pbPlancksoft.Size = new System.Drawing.Size(690, 328);
             this.pbPlancksoft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPlancksoft.TabIndex = 4;
             this.pbPlancksoft.TabStop = false;
@@ -96,12 +96,12 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(3, 201);
+            this.btnClose.Location = new System.Drawing.Point(3, 240);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
             this.btnClose.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnClose.Size = new System.Drawing.Size(674, 36);
+            this.btnClose.Size = new System.Drawing.Size(690, 36);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "إغلاق";
             this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -113,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(680, 568);
+            this.ClientSize = new System.Drawing.Size(696, 607);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pbPlancksoft);
             this.Controls.Add(this.lblContactNumber);
@@ -130,7 +130,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.Sizable = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "عن البرمجية";
             ((System.ComponentModel.ISupportInitialize)(this.pbPlancksoft)).EndInit();
             this.ResumeLayout(false);
