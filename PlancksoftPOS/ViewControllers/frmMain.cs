@@ -260,12 +260,18 @@ namespace PlancksoftPOS
             if (!this.userPermissions.Client_card_edit)
             {
                 if (tabControl1.Contains(tabControl1.TabPages["Agents"]))
+                {
                     tabControl1.TabPages.Remove(tabControl1.TabPages["Agents"]);
+                    btnMenuClientsVendors.Enabled = false;
+                }
             }
             else
             {
                 if (!tabControl1.Contains(tabControl1.TabPages["Agents"]))
+                {
                     tabControl1.TabPages.Add(AgentsTab);
+                    btnMenuClientsVendors.Enabled = true;
+                }
             }
 
             if (tabControl1.Contains(tabControl1.TabPages["Inventory"]))
@@ -275,14 +281,20 @@ namespace PlancksoftPOS
             if (!this.userPermissions.inventory_edit)
             {
                 if (tabControl1.Contains(tabControl1.TabPages["Inventory"]))
+                {
                     tabControl1.TabPages.Remove(tabControl1.TabPages["Inventory"]);
+                    btnMenuInventory.Enabled = false;
+                }
                 ادارةالمستودعToolStripMenuItem.Visible = false;
                 ادارةالمستودعToolStripMenuItem.Enabled = false;
             }
             else
             {
                 if (!tabControl1.Contains(tabControl1.TabPages["Inventory"]))
+                {
                     tabControl1.TabPages.Add(InventoryTab);
+                    btnMenuInventory.Enabled = true;
+                }
                 ادارةالمستودعToolStripMenuItem.Visible = true;
                 ادارةالمستودعToolStripMenuItem.Enabled = true;
             }
@@ -294,12 +306,18 @@ namespace PlancksoftPOS
             if (!this.userPermissions.expenses_add)
             {
                 if (tabControl1.Contains(tabControl1.TabPages["Expenses"]))
+                {
                     tabControl1.TabPages.Remove(tabControl1.TabPages["Expenses"]);
+                    btnMenuExpenses.Enabled = false;
+                }
             }
             else
             {
                 if (!tabControl1.Contains(tabControl1.TabPages["Expenses"]))
+                {
                     tabControl1.TabPages.Add(ExpensesTab);
+                    btnMenuExpenses.Enabled = false;
+                }
             }
 
             if (tabControl1.Contains(tabControl1.TabPages["posUsers"]))
@@ -309,13 +327,17 @@ namespace PlancksoftPOS
             if (!this.userPermissions.users_edit)
             {
                 if (tabControl1.Contains(tabControl1.TabPages["posUsers"]))
+                {
                     tabControl1.TabPages.Remove(tabControl1.TabPages["posUsers"]);
+                    btnMenuUsers.Enabled = false;
+                }
             }
             else
             {
                 if (!tabControl1.Contains(tabControl1.TabPages["posUsers"]))
                 {
                     tabControl1.TabPages.Add(posUsersTab);
+                    btnMenuExpenses.Enabled = true;
                 }
             }
 
@@ -328,25 +350,37 @@ namespace PlancksoftPOS
                 if (tabControl1.Contains(tabControl1.TabPages["Settings"]))
                 {
                     tabControl1.TabPages.Remove(tabControl1.TabPages["Settings"]);
+                    btnMenuSettings.Enabled = false;
                 }
             }
             else
             {
                 if (!tabControl1.Contains(tabControl1.TabPages["Settings"]))
+                {
                     tabControl1.TabPages.Add(SettingsTab);
+                    btnMenuSettings.Enabled = true;
+                }
             }
 
             if (tabControl1.Contains(tabControl1.TabPages["Employees"]))
+            {
                 EmployeesTab = tabControl1.TabPages["Employees"];
+            }
             if (!this.userPermissions.personnel_edit)
             {
                 if (tabControl1.Contains(tabControl1.TabPages["Employees"]))
+                {
                     tabControl1.TabPages.Remove(tabControl1.TabPages["Employees"]);
+                    btnMenuEmployeesAffairs.Enabled = false;
+                }
             }
             else
             {
                 if (!tabControl1.Contains(tabControl1.TabPages["Employees"]))
+                {
                     tabControl1.TabPages.Add(EmployeesTab);
+                    btnMenuEmployeesAffairs.Enabled = true;
+                }
             }
 
             if (tabControl4.Contains(tabControl4.TabPages["EditInvoices"]))
@@ -364,32 +398,68 @@ namespace PlancksoftPOS
             if (!this.userPermissions.receipt_edit)
             {
                 if (tabControl4.Contains(tabControl4.TabPages["EditInvoices"]))
+                {
                     tabControl4.TabPages.Remove(tabControl4.TabPages["EditInvoices"]);
+                    btnMenuSalesSubEditInvoices.Enabled = false;
+                }
                 if (tabControl4.Contains(tabControl4.TabPages["TravelingUntravelingSales"]))
+                {
                     tabControl4.TabPages.Remove(tabControl4.TabPages["TravelingUntravelingSales"]);
+                    btnMenuSalesSubTravelingUntravelingSales.Enabled = false;
+                }
                 if (tabControl4.Contains(tabControl4.TabPages["SoldItems"]))
+                {
                     tabControl4.TabPages.Remove(tabControl4.TabPages["SoldItems"]);
+                    btnMenuSalesSubSoldItems.Enabled = false;
+                }
                 if (tabControl1.Contains(tabControl1.TabPages["IncomingOutgoing"]))
+                {
                     tabControl1.TabPages.Remove(tabControl1.TabPages["IncomingOutgoing"]);
+                    btnMenuIncomingOutgoing.Enabled = false;
+                }
                 if (tabControl1.Contains(tabControl1.TabPages["Sales"]))
+                {
                     tabControl1.TabPages.Remove(tabControl1.TabPages["Sales"]);
+                    btnMenuSales.Enabled = false;
+                }
                 if (tabControl1.Contains(tabControl1.TabPages["Taxes"]))
+                {
                     tabControl1.TabPages.Remove(tabControl1.TabPages["Taxes"]);
+                    btnMenuTaxes.Enabled = false;
+                }
             }
             else
             {
                 if (!tabControl4.Contains(tabControl4.TabPages["EditInvoices"]))
+                {
                     tabControl4.TabPages.Add(EditInvoicesTab);
+                    btnMenuSalesSubEditInvoices.Enabled = true;
+                }
                 if (!tabControl4.Contains(tabControl4.TabPages["TravelingUntravelingSales"]))
+                {
                     tabControl4.TabPages.Add(TravelingUntravelingSalesTab);
+                    btnMenuSalesSubTravelingUntravelingSales.Enabled = true;
+                }
                 if (!tabControl4.Contains(tabControl4.TabPages["SoldItems"]))
+                {
                     tabControl4.TabPages.Add(SoldItemsTab);
+                    btnMenuSalesSubSoldItems.Enabled = true;
+                }
                 if (!tabControl1.Contains(tabControl1.TabPages["IncomingOutgoing"]))
+                {
                     tabControl1.TabPages.Add(IncomingOutgoingTab);
+                    btnMenuIncomingOutgoing.Enabled = true;
+                }
                 if (!tabControl1.Contains(tabControl1.TabPages["Sales"]))
+                {
                     tabControl1.TabPages.Add(SalesTab);
+                    btnMenuSales.Enabled = true;
+                }
                 if (!tabControl1.Contains(tabControl1.TabPages["Taxes"]))
+                {
                     tabControl1.TabPages.Add(TaxesTab);
+                    btnMenuTaxes.Enabled = true;
+                }
             }
 
             if (!this.userPermissions.sell_edit)
