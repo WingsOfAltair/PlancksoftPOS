@@ -12817,9 +12817,9 @@ namespace PlancksoftPOS
                             {
                                 int ii = 1;
                                 ii++;
-                                Item SearchedItem = Connection.server.SearchItems(dgvBillItems.Rows[i].Cells[0].Value.ToString(), "", 0).Item1[0];
+                                Item SearchedItem = Connection.server.SearchItems("", dgvBillItems.Rows[i].Cells["Column21"].Value.ToString(), 0).Item1[0];
                                 itemsInBill.Add(SearchedItem);
-                                string itemString = " " + dgvBillItems.Rows[i].Cells[0].Value + "               " + dgvBillItems.Rows[i].Cells[2].Value + "                    " + dgvBillItems.Rows[i].Cells[5].Value + "";
+                                string itemString = " " + dgvBillItems.Rows[i].Cells["Column20"].Value + "               " + dgvBillItems.Rows[i].Cells["Column23"].Value + "                    " + dgvBillItems.Rows[i].Cells["Column25"].Value + "";
                                 if (IsRtl(itemString))
                                 {
                                     graphic.DrawString(itemString, itemFont,
@@ -12827,7 +12827,7 @@ namespace PlancksoftPOS
                                 }
                                 else
                                 {
-                                    itemString = " " + dgvBillItems.Rows[i].Cells[5].Value + "                    " + dgvBillItems.Rows[i].Cells[2].Value + "               " + dgvBillItems.Rows[i].Cells[0].Value + "";
+                                    itemString = " " + dgvBillItems.Rows[i].Cells["Column25"].Value + "                    " + dgvBillItems.Rows[i].Cells["Column23"].Value + "               " + dgvBillItems.Rows[i].Cells["Column20"].Value + "";
                                     graphic.DrawString(itemString, itemFont,
                                                 black, startX + 15, startY + offsetY);
                                 }
