@@ -55,7 +55,6 @@
             this.فاتحToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.مظلمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
@@ -68,7 +67,7 @@
             this.picLogo.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
             this.picLogo.Location = new System.Drawing.Point(3, 64);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(423, 158);
+            this.picLogo.Size = new System.Drawing.Size(455, 158);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 42;
             this.picLogo.TabStop = false;
@@ -82,7 +81,7 @@
             this.txtUID.FormattingEnabled = true;
             this.txtUID.Location = new System.Drawing.Point(3, 222);
             this.txtUID.Name = "txtUID";
-            this.txtUID.Size = new System.Drawing.Size(423, 21);
+            this.txtUID.Size = new System.Drawing.Size(455, 21);
             this.txtUID.TabIndex = 44;
             // 
             // txtPassword
@@ -109,7 +108,7 @@
             this.txtPassword.SelectionLength = 0;
             this.txtPassword.SelectionStart = 0;
             this.txtPassword.ShortcutsEnabled = true;
-            this.txtPassword.Size = new System.Drawing.Size(423, 48);
+            this.txtPassword.Size = new System.Drawing.Size(455, 48);
             this.txtPassword.TabIndex = 48;
             this.txtPassword.TabStop = false;
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -123,7 +122,7 @@
             this.btn0.Depth = 0;
             this.btn0.HighEmphasis = true;
             this.btn0.Icon = null;
-            this.btn0.Location = new System.Drawing.Point(180, 467);
+            this.btn0.Location = new System.Drawing.Point(208, 469);
             this.btn0.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn0.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn0.Name = "btn0";
@@ -143,7 +142,7 @@
             this.btn1.Depth = 0;
             this.btn1.HighEmphasis = true;
             this.btn1.Icon = null;
-            this.btn1.Location = new System.Drawing.Point(300, 422);
+            this.btn1.Location = new System.Drawing.Point(328, 424);
             this.btn1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn1.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn1.Name = "btn1";
@@ -163,7 +162,7 @@
             this.btn2.Depth = 0;
             this.btn2.HighEmphasis = true;
             this.btn2.Icon = null;
-            this.btn2.Location = new System.Drawing.Point(180, 422);
+            this.btn2.Location = new System.Drawing.Point(208, 424);
             this.btn2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn2.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn2.Name = "btn2";
@@ -183,7 +182,7 @@
             this.btn3.Depth = 0;
             this.btn3.HighEmphasis = true;
             this.btn3.Icon = null;
-            this.btn3.Location = new System.Drawing.Point(59, 422);
+            this.btn3.Location = new System.Drawing.Point(87, 424);
             this.btn3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn3.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn3.Name = "btn3";
@@ -203,7 +202,7 @@
             this.btn4.Depth = 0;
             this.btn4.HighEmphasis = true;
             this.btn4.Icon = null;
-            this.btn4.Location = new System.Drawing.Point(300, 374);
+            this.btn4.Location = new System.Drawing.Point(328, 376);
             this.btn4.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn4.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn4.Name = "btn4";
@@ -223,7 +222,7 @@
             this.btn5.Depth = 0;
             this.btn5.HighEmphasis = true;
             this.btn5.Icon = null;
-            this.btn5.Location = new System.Drawing.Point(180, 374);
+            this.btn5.Location = new System.Drawing.Point(208, 376);
             this.btn5.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn5.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn5.Name = "btn5";
@@ -243,7 +242,7 @@
             this.btn6.Depth = 0;
             this.btn6.HighEmphasis = true;
             this.btn6.Icon = null;
-            this.btn6.Location = new System.Drawing.Point(59, 374);
+            this.btn6.Location = new System.Drawing.Point(87, 376);
             this.btn6.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn6.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn6.Name = "btn6";
@@ -263,7 +262,7 @@
             this.btn7.Depth = 0;
             this.btn7.HighEmphasis = true;
             this.btn7.Icon = null;
-            this.btn7.Location = new System.Drawing.Point(300, 326);
+            this.btn7.Location = new System.Drawing.Point(328, 328);
             this.btn7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn7.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn7.Name = "btn7";
@@ -283,7 +282,7 @@
             this.btn8.Depth = 0;
             this.btn8.HighEmphasis = true;
             this.btn8.Icon = null;
-            this.btn8.Location = new System.Drawing.Point(180, 326);
+            this.btn8.Location = new System.Drawing.Point(208, 328);
             this.btn8.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn8.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn8.Name = "btn8";
@@ -303,7 +302,7 @@
             this.btn9.Depth = 0;
             this.btn9.HighEmphasis = true;
             this.btn9.Icon = null;
-            this.btn9.Location = new System.Drawing.Point(59, 326);
+            this.btn9.Location = new System.Drawing.Point(87, 328);
             this.btn9.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btn9.MouseState = MaterialSkin.MouseState.HOVER;
             this.btn9.Name = "btn9";
@@ -323,7 +322,7 @@
             this.btnClear.Depth = 0;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(58, 467);
+            this.btnClear.Location = new System.Drawing.Point(86, 469);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
@@ -344,12 +343,12 @@
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnExit.HighEmphasis = true;
             this.btnExit.Icon = null;
-            this.btnExit.Location = new System.Drawing.Point(3, 551);
+            this.btnExit.Location = new System.Drawing.Point(3, 577);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnExit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnExit.Name = "btnExit";
             this.btnExit.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnExit.Size = new System.Drawing.Size(423, 36);
+            this.btnExit.Size = new System.Drawing.Size(455, 36);
             this.btnExit.TabIndex = 63;
             this.btnExit.Text = "الخروج";
             this.btnExit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -365,12 +364,12 @@
             this.btnLogin.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnLogin.HighEmphasis = true;
             this.btnLogin.Icon = null;
-            this.btnLogin.Location = new System.Drawing.Point(3, 515);
+            this.btnLogin.Location = new System.Drawing.Point(3, 541);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnLogin.Size = new System.Drawing.Size(423, 36);
+            this.btnLogin.Size = new System.Drawing.Size(455, 36);
             this.btnLogin.TabIndex = 64;
             this.btnLogin.Text = "تسجيل الدخول";
             this.btnLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -381,6 +380,7 @@
             // PlancksoftPOS
             // 
             this.PlancksoftPOS.BalloonTipText = "PlancksoftPOS";
+            this.PlancksoftPOS.ContextMenuStrip = this.Menu;
             this.PlancksoftPOS.Icon = ((System.Drawing.Icon)(resources.GetObject("PlancksoftPOS.Icon")));
             this.PlancksoftPOS.Text = "PlancksoftPOS";
             this.PlancksoftPOS.Visible = true;
@@ -401,14 +401,14 @@
             this.العربيةToolStripMenuItem,
             this.englishToolStripMenuItem});
             this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
-            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.اللغةToolStripMenuItem.Text = "اللغة";
             // 
             // العربيةToolStripMenuItem
             // 
             this.العربيةToolStripMenuItem.CheckOnClick = true;
             this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
-            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.العربيةToolStripMenuItem.Text = "العربية";
             this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
             // 
@@ -416,7 +416,7 @@
             // 
             this.englishToolStripMenuItem.CheckOnClick = true;
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.englishToolStripMenuItem.Text = "English";
             this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
             // 
@@ -426,7 +426,7 @@
             this.فاتحToolStripMenuItem,
             this.مظلمToolStripMenuItem});
             this.المظهرToolStripMenuItem.Name = "المظهرToolStripMenuItem";
-            this.المظهرToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.المظهرToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.المظهرToolStripMenuItem.Text = "المظهر";
             // 
             // فاتحToolStripMenuItem
@@ -446,22 +446,15 @@
             // الخروجToolStripMenuItem
             // 
             this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
-            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.الخروجToolStripMenuItem.Text = "الخروج";
             this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.ContextMenuStrip = this.Menu;
-            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
-            this.notifyIcon1.Text = "PlancksoftPOS";
-            this.notifyIcon1.Visible = true;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(429, 590);
+            this.ClientSize = new System.Drawing.Size(461, 616);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnClear);
@@ -527,6 +520,5 @@
         private System.Windows.Forms.ToolStripMenuItem فاتحToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem مظلمToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
-        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }

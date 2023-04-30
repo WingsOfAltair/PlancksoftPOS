@@ -6826,94 +6826,6 @@ namespace PlancksoftPOS
             nudItemBuyPrice.Select(0, 1);
         }
 
-        public void button5_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                frmPickClientLookup pickClient = new frmPickClientLookup();
-                openedForm = pickClient;
-                pickClient.ShowDialog();
-
-                if (pickClient.pickedClient.ClientName != null)
-                {
-                    DataTable pickedClient = Connection.server.SearchClientsInfo(pickClient.pickedClient.ClientName, Convert.ToString(pickClient.pickedClient.ClientID));
-                    textBox7.Text = pickedClient.Rows[0]["Client Name"].ToString();
-                    numericUpDown2.Value = Convert.ToInt32(pickedClient.Rows[0]["Client ID"].ToString());
-                }
-            } catch(Exception error)
-            {
-                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                {
-                    MaterialMessageBox.Show(".لم نستطع اختيار العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                }
-                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                {
-                    MaterialMessageBox.Show("Unable to pick Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                }
-            }
-        }
-
-        public void button4_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                Item pickedItem = new Item();
-                pickedItem.SetBarCode(DGVClientItems.Rows[ClientItemID].Cells[1].Value.ToString());
-                bool addedItemToClient = Connection.server.AddItemToClient(pickedItem.GetItemBarCode(), Convert.ToInt32(numericUpDown2.Value), ClientPrice.Value);
-
-                if (addedItemToClient)
-                {
-                    textBox7.Text = "";
-                    numericUpDown2.Value = 0;
-                    BuyPrice.Value = 0;
-                    SellPrice.Value = 0;
-                    SellPriceTax.Value = 0;
-                    ClientPrice.Value = 0;
-                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                    {
-                        MaterialMessageBox.Show(".تمت اضافة الماده للعميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    }
-                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                    {
-                        MaterialMessageBox.Show("Client Item was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    }
-                }
-                else
-                {
-                    textBox7.Text = "";
-                    numericUpDown2.Value = 0;
-                    BuyPrice.Value = 0;
-                    SellPrice.Value = 0;
-                    SellPriceTax.Value = 0;
-                    ClientPrice.Value = 0;
-                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                    {
-                        MaterialMessageBox.Show(".لم تتم اضافة الماده للعميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    }
-                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                    {
-                        MaterialMessageBox.Show("Client Item was not added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    }
-                }
-            } catch(Exception error)
-            {
-                textBox7.Text = "";
-                numericUpDown2.Value = 0;
-                BuyPrice.Value = 0;
-                SellPrice.Value = 0;
-                SellPriceTax.Value = 0;
-                ClientPrice.Value = 0;
-                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                {
-                    MaterialMessageBox.Show(".لم تتم اضافة الماده للعميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                }
-                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                {
-                    MaterialMessageBox.Show("Client Item was not added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                }
-            }
-        }
-
         public void pictureBox40_Click(object sender, EventArgs e)
         {
             DGVClientItems.DataSource = Connection.server.RetrieveItems((int)frmLogin.pickedLanguage).Item2;
@@ -11141,6 +11053,83 @@ namespace PlancksoftPOS
             tabControl1.SelectedTab = tabControl1.TabPages["Retrievals"];
         }
 
+        private void selectAllVendors_CheckedChanged(object sender, EventArgs e)
+        {
+            if (selectAllVendors.Checked)
+            {
+                dgvVendors.SelectAll();
+            }
+            else
+            {
+                dgvVendors.ClearSelection();
+            }
+        }
+
+        private void btnClientVendorItemsPriceClient_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmPickClientLookup pickClient = new frmPickClientLookup();
+                openedForm = pickClient;
+                pickClient.ShowDialog();
+
+                if (pickClient.pickedClient.ClientName != null)
+                {
+                    DataTable pickedClient = Connection.server.SearchClientsInfo(pickClient.pickedClient.ClientName, Convert.ToString(pickClient.pickedClient.ClientID));
+                    txtClientNameImportExport.Text = pickedClient.Rows[0]["Client Name"].ToString();
+                    nudClientIDImportExport.Value = Convert.ToInt32(pickedClient.Rows[0]["Client ID"].ToString());
+                }
+            }
+            catch (Exception error)
+            {
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MaterialMessageBox.Show(".لم نستطع اختيار العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MaterialMessageBox.Show("Unable to pick Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
+            }
+        }
+
+        private void btnClientVendorItemsPickClientItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmItemLookup itemLookup = new frmItemLookup(this.itemtypes, this.UID);
+                openedForm = itemLookup;
+                itemLookup.ShowDialog(this);
+                if (itemLookup.dialogResult == DialogResult.OK)
+                {
+                    try
+                    {
+                        if (itemLookup.selectedItem != null)
+                        {
+                            WarehouseEntryExitItemBarCode.Text = itemLookup.selectedItem.GetItemBarCode();
+                            WarehouseEntryExitItemName.Text = itemLookup.selectedItem.GetName();
+                            WarehouseEntryExitList.SelectedIndex = WarehouseEntryExitList.FindStringExact(Connection.server.RetrieveWarehouseName(Convert.ToInt32(itemLookup.selectedItem.Warehouse_ID), (int)frmLogin.pickedLanguage));
+                            EntryExitItemBuyPrice.Value = itemLookup.selectedItem.ItemBuyPrice;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MaterialMessageBox.Show(".لا يمكن اختيار الماده", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        }
+                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MaterialMessageBox.Show("Unable to pick Item.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        }
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+            }
+        }
+
         private void hamburger_menu_employees_affairs_sub_timer_Tick(object sender, EventArgs e)
         {
             if (menuEmployeesAffairsSubExpand)
@@ -11189,8 +11178,8 @@ namespace PlancksoftPOS
 
         private void btnMenuClientsVendorsSubVendoItemsDefinitions_Click(object sender, EventArgs e)
         {
-            tabControl3.SelectedTab = tabControl3.TabPages["AgentsItemsDefinitions"];
-            tabControl1.SelectedTab = tabControl1.TabPages["Agents"];
+            //tabControl3.SelectedTab = tabControl3.TabPages["AgentsItemsDefinitions"];
+            //tabControl1.SelectedTab = tabControl1.TabPages["Agents"];
         }
 
         private void btnMenuClientsVendorsSubVendorBalanceCheck_Click(object sender, EventArgs e)

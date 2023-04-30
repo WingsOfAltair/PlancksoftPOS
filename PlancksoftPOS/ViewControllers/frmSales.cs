@@ -55,12 +55,12 @@ namespace PlancksoftPOS
                 lblItemName.Text = "إسم القطعه";
                 lblItemBarcode.Text = "باركود القطعه";
                 lblDiscountPercentage.Text = "نسبة الخصم بالمئه (رقم)";
-                lblDiscountedItemQuantity.Text = "عدد قطع الخصم)";
-                lblDiscountStart.Text = "تاريخ بدء الخصم)";
-                lblDiscountEnd.Text = "تاريخ إنتهاء الخصم)";
+                lblDiscountedItemQuantity.Text = "عدد قطع الخصم";
+                lblDiscountStart.Text = "تاريخ بدء الخصم";
+                lblDiscountEnd.Text = "تاريخ إنتهاء الخصم";
                 btnDiscountConfirm.Text = "تأكيد الخصم";
-                btnClose.Text = "إغلاق";
                 btnClear.Text = "مسح";
+                btnClose.Text = "إغلاق";
                 searchItemDGV.Columns["dataGridViewTextBoxColumn41"].HeaderText = "رقم القطعة";
                 searchItemDGV.Columns["dataGridViewTextBoxColumn1"].HeaderText = "القطعة";
                 searchItemDGV.Columns["dataGridViewTextBoxColumn2"].HeaderText = "باركود القطعة";
@@ -80,8 +80,8 @@ namespace PlancksoftPOS
                 lblDiscountStart.Text = "Sale start date";
                 lblDiscountEnd.Text = "Sale end date";
                 btnDiscountConfirm.Text = "Commit Sale";
-                btnClose.Text = "Close";
                 btnClear.Text = "Clear";
+                btnClose.Text = "Close";
                 searchItemDGV.Columns["dataGridViewTextBoxColumn41"].HeaderText = "Item ID";
                 searchItemDGV.Columns["dataGridViewTextBoxColumn1"].HeaderText = "Item Name";
                 searchItemDGV.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Item Barcode";
@@ -158,7 +158,7 @@ namespace PlancksoftPOS
             bool found = false;
             foreach (DataGridViewRow item in searchItemDGV.Rows)
             {
-                if (saleRate.Text != "")
+                if (nudDiscountPercentage.Text != "")
                 {
                     if (!item.IsNewRow && !found)
                     {
@@ -167,7 +167,7 @@ namespace PlancksoftPOS
                         {
                             newItem.SetName(item.Cells[1].Value.ToString());
                             newItem.SetBarCode(item.Cells[2].Value.ToString());
-                            newItem.SetSaleRate(Convert.ToInt32(saleRate.Text));
+                            newItem.SetSaleRate(Convert.ToInt32(nudDiscountPercentage.Text));
                             newItem.DateStart = dtpDiscountStart.Value;
                             newItem.DateEnd = dtpDiscountEnd.Value;
                             newItem.QuantityEnd = Convert.ToInt32(nudDiscountItemQuantity.Value);
@@ -204,9 +204,9 @@ namespace PlancksoftPOS
             txtItemName.Select();
         }
 
-        private void saleRate_Enter(object sender, EventArgs e)
+        private void nudDiscountPercentage_Enter(object sender, EventArgs e)
         {
-            saleRate.Select(1, 1);
+            nudDiscountPercentage.Select(1, 1);
         }
 
         private void frmSales_KeyPress(object sender, KeyPressEventArgs e)
@@ -249,7 +249,7 @@ namespace PlancksoftPOS
         {
             txtItemName.Text = "";
             txtItemBarcode.Text = "";
-            saleRate.Value = 0;
+            nudDiscountPercentage.Value = 0;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {

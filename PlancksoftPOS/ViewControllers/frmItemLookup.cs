@@ -11,10 +11,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dependencies;
 using PlancksoftPOS.Properties;
-using System.Reflection.Emit;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Button;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolBar;
 using System.Globalization;
 
 namespace PlancksoftPOS

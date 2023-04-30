@@ -90,36 +90,50 @@ namespace PlancksoftPOS
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            if (txtClientName.Text == "")
+            try
             {
+                if (txtClientName.Text == "")
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".الرجاء إدخال إسم عميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Please enter a valid client name.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                    return;
+                }
+                DataTable RetrievedClients = Connection.server.SearchClients(txtClientName.Text, txtClientID.Text, txtItemName.Text);
+                dgvClients.DataSource = RetrievedClients;
+
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MaterialMessageBox.Show(".الرجاء إدخال إسم عميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    dgvClients.Columns["Column1"].HeaderText = "اسم العميل";
+                    dgvClients.Columns["Column2"].HeaderText = "رمز العميل";
+                    dgvClients.Columns["Column3"].HeaderText = "اسم الماده";
+                    dgvClients.Columns["Column4"].HeaderText = "سعر العميل";
+                    dgvClients.Columns["Column5"].HeaderText = "باركود الماده";
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    MaterialMessageBox.Show("Please enter a valid client name.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    dgvClients.Columns["Column1"].HeaderText = "Client Name";
+                    dgvClients.Columns["Column2"].HeaderText = "Client ID";
+                    dgvClients.Columns["Column3"].HeaderText = "Item Name";
+                    dgvClients.Columns["Column4"].HeaderText = "Client Price";
+                    dgvClients.Columns["Column5"].HeaderText = "Item Barcode";
                 }
-                return;
-            }
-            DataTable RetrievedClients = Connection.server.SearchClients(txtClientName.Text, txtClientID.Text, txtItemName.Text);
-            dgvClients.DataSource = RetrievedClients;
+            } catch (Exception exc)
+            {
 
-            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-            {
-                dgvClients.Columns["Column1"].HeaderText = "اسم العميل";
-                dgvClients.Columns["Column2"].HeaderText = "رمز العميل";
-                dgvClients.Columns["Column3"].HeaderText = "اسم الماده";
-                dgvClients.Columns["Column4"].HeaderText = "سعر العميل";
-                dgvClients.Columns["Column5"].HeaderText = "باركود الماده";
-            }
-            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-            {
-                dgvClients.Columns["Column1"].HeaderText = "Client Name";
-                dgvClients.Columns["Column2"].HeaderText = "Client ID";
-                dgvClients.Columns["Column3"].HeaderText = "Item Name";
-                dgvClients.Columns["Column4"].HeaderText = "Client Price";
-                dgvClients.Columns["Column5"].HeaderText = "Item Barcode";
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MaterialMessageBox.Show(".لم نستطع العثور على ماده خصم للعميل بالبيانات المدخله", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MaterialMessageBox.Show("We were unable to find an item on sale corresponding with the input data.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
             }
         }
 
