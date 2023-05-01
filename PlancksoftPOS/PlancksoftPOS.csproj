@@ -474,8 +474,8 @@
     <None Include="Resources\plancksoft_b_t.png" />
     <None Include="Resources\istockphoto-1166351637-612x612.jpg" />
     <None Include="Resources\password.png" />
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS.disco" />
     <None Include="Resources\hamburger_menu.jpg" />
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS.disco" />
     <Content Include="Resources\pos.ico" />
     <None Include="Resources\point-of-sale.jpg" />
     <None Include="Resources\beep.mp3" />

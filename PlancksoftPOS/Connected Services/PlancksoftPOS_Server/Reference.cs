@@ -562,10 +562,10 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         System.Threading.Tasks.Task<int> AddVendorBillAsync(Dependencies.Bill billToAdd, string cashierName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBillResponse")]
-        bool PayUnpaidBill(int BillNumber, decimal paidAmount, decimal remainderAmount);
+        bool PayUnpaidBill(int BillNumber, decimal paidAmount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayUnpaidBillResponse")]
-        System.Threading.Tasks.Task<bool> PayUnpaidBillAsync(int BillNumber, decimal paidAmount, decimal remainderAmount);
+        System.Threading.Tasks.Task<bool> PayUnpaidBillAsync(int BillNumber, decimal paidAmount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayBillResponse")]
         bool PayBill(Dependencies.Bill billToAdd, string cashierName);
@@ -1463,12 +1463,12 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
             return base.Channel.AddVendorBillAsync(billToAdd, cashierName);
         }
         
-        public bool PayUnpaidBill(int BillNumber, decimal paidAmount, decimal remainderAmount) {
-            return base.Channel.PayUnpaidBill(BillNumber, paidAmount, remainderAmount);
+        public bool PayUnpaidBill(int BillNumber, decimal paidAmount) {
+            return base.Channel.PayUnpaidBill(BillNumber, paidAmount);
         }
         
-        public System.Threading.Tasks.Task<bool> PayUnpaidBillAsync(int BillNumber, decimal paidAmount, decimal remainderAmount) {
-            return base.Channel.PayUnpaidBillAsync(BillNumber, paidAmount, remainderAmount);
+        public System.Threading.Tasks.Task<bool> PayUnpaidBillAsync(int BillNumber, decimal paidAmount) {
+            return base.Channel.PayUnpaidBillAsync(BillNumber, paidAmount);
         }
         
         public bool PayBill(Dependencies.Bill billToAdd, string cashierName) {
