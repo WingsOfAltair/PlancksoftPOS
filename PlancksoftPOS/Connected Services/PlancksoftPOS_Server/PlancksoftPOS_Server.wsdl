@@ -496,11 +496,11 @@
   <wsdl:message name="IPlancksoftPOS_Server_InsertPrinter_OutputMessage">
     <wsdl:part name="parameters" element="tns:InsertPrinterResponse" />
   </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_DeletesClient_InputMessage">
-    <wsdl:part name="parameters" element="tns:DeletesClient" />
+  <wsdl:message name="IPlancksoftPOS_Server_DeleteClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClient" />
   </wsdl:message>
-  <wsdl:message name="IPlancksoftPOS_Server_DeletesClient_OutputMessage">
-    <wsdl:part name="parameters" element="tns:DeletesClientResponse" />
+  <wsdl:message name="IPlancksoftPOS_Server_DeleteClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientResponse" />
   </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_RegisterClient_InputMessage">
     <wsdl:part name="parameters" element="tns:RegisterClient" />
@@ -1025,9 +1025,9 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/InsertPrinter" message="tns:IPlancksoftPOS_Server_InsertPrinter_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/InsertPrinterResponse" message="tns:IPlancksoftPOS_Server_InsertPrinter_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="DeletesClient">
-      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeletesClient" message="tns:IPlancksoftPOS_Server_DeletesClient_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeletesClientResponse" message="tns:IPlancksoftPOS_Server_DeletesClient_OutputMessage" />
+    <wsdl:operation name="DeleteClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteClient" message="tns:IPlancksoftPOS_Server_DeleteClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteClientResponse" message="tns:IPlancksoftPOS_Server_DeleteClient_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RegisterClient">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RegisterClient" message="tns:IPlancksoftPOS_Server_RegisterClient_InputMessage" />
@@ -1893,8 +1893,8 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeletesClient">
-      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/DeletesClient" style="document" />
+    <wsdl:operation name="DeleteClient">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteClient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

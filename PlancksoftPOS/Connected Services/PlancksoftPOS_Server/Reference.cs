@@ -501,11 +501,11 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/InsertPrinter", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/InsertPrinterResponse")]
         System.Threading.Tasks.Task<bool> InsertPrinterAsync(string machineName, string printerName);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeletesClient", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeletesClientResponse")]
-        bool DeletesClient(string ClientID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteClient", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteClientResponse")]
+        bool DeleteClient(string ClientID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeletesClient", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeletesClientResponse")]
-        System.Threading.Tasks.Task<bool> DeletesClientAsync(string ClientID);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteClient", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteClientResponse")]
+        System.Threading.Tasks.Task<bool> DeleteClientAsync(string ClientID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RegisterClient", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RegisterClientResponse")]
         bool RegisterClient(Dependencies.Client ClientToInsert);
@@ -1383,12 +1383,12 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
             return base.Channel.InsertPrinterAsync(machineName, printerName);
         }
         
-        public bool DeletesClient(string ClientID) {
-            return base.Channel.DeletesClient(ClientID);
+        public bool DeleteClient(string ClientID) {
+            return base.Channel.DeleteClient(ClientID);
         }
         
-        public System.Threading.Tasks.Task<bool> DeletesClientAsync(string ClientID) {
-            return base.Channel.DeletesClientAsync(ClientID);
+        public System.Threading.Tasks.Task<bool> DeleteClientAsync(string ClientID) {
+            return base.Channel.DeleteClientAsync(ClientID);
         }
         
         public bool RegisterClient(Dependencies.Client ClientToInsert) {

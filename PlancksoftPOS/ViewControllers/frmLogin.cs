@@ -538,5 +538,11 @@ namespace PlancksoftPOS
                 فاتحToolStripMenuItem.Checked = true;
             }
         }
+
+        private void txtPassword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (Char)Keys.Enter)
+                btnLogin.PerformClick();
+        }
     }
 }

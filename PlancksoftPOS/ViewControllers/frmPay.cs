@@ -311,5 +311,11 @@ namespace PlancksoftPOS
                 }
             }
         }
+
+        private void txtPaidAmount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (Char)Keys.Enter)
+                btnPay.PerformClick();
+        }
     }
 }
