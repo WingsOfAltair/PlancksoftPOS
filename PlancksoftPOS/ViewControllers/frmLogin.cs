@@ -363,9 +363,11 @@ namespace PlancksoftPOS
                 {
                     newAccount.SetAccountName(result.Item2);
                     newAccount.SetAccountAuthority(Convert.ToInt32(result.Item3));
+                    this.ShowIcon = false;
+                    this.ShowInTaskbar = false;
+                    this.Hide();
                     frmMain frm2 = new frmMain(newAccount);
                     frm2.Show();
-                    this.Hide();
                     PlancksoftPOS.Visible = false;
                     Connection.server.LogLogin(txtUID.Text, DateTime.Now);
                 }

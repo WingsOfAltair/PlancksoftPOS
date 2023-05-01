@@ -2806,7 +2806,7 @@ namespace DataAccessLayer
             }
         }
 
-        public bool PayUnpaidBill(int BillNumber, decimal paidAmount, decimal remainderAmount)
+        public bool PayUnpaidBill(int BillNumber, decimal paidAmount)
         {
             try
             {
@@ -2815,8 +2815,7 @@ namespace DataAccessLayer
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@BillID", BillNumber);
-                    cmd.Parameters.AddWithValue("@PaidAmount", paidAmount);
-                    cmd.Parameters.AddWithValue("@RemainderAmount", remainderAmount);
+                    cmd.Parameters.AddWithValue("@paidInstallmentAmount", paidAmount);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
