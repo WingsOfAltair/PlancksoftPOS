@@ -32,7 +32,7 @@ namespace PlancksoftPOS
         public DialogResult dialogResult;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
-        public frmPay(decimal totalAmount = 0)
+        public frmPay(decimal totalAmount = 0, decimal paidAmount = -9999, decimal remainderAmount = -9999, bool postponed = false)
         {
             InitializeComponent();
 
@@ -56,6 +56,13 @@ namespace PlancksoftPOS
             originalTotal = totalAmount;
             txtRequiredAmount.Text = totalAmount.ToString();
             txtRemainderAmount.Text = Convert.ToString(this.paidAmount - this.totalAmount);
+            if (paidAmount != -9999)
+            {
+                this.totalAmount = totalAmount;
+                this.paidAmount = paidAmount;
+                this.remainderAmount = remainderAmount;
+                txtRemainderAmount.Text = Convert.ToString(this.remainderAmount);
+            }
             txtPaidAmount.Select();
 
             rbCash.Checked = true;
@@ -64,6 +71,15 @@ namespace PlancksoftPOS
             if (frmMain.Authority == 1)
             {
                 nudDiscountRate.Maximum = 100;
+            }
+
+            if (postponed)
+            {
+                btnClientPay.Enabled = false;
+                btnClientPay.Visible = false;
+
+                btnDelayPayment.Enabled = false;
+                btnDelayPayment.Visible = false;
             }
         }
 

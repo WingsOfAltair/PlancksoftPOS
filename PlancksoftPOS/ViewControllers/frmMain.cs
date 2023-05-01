@@ -3734,299 +3734,7 @@ namespace PlancksoftPOS
 
         public void pictureBox10_Click(object sender, EventArgs e)
         {
-            if (ItemsPendingPurchase.Rows[0].IsNewRow)
-            {
-                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                {
-                    MaterialMessageBox.Show(".لا بمكتك دفع فاتوره فارغه", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                }
-                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                {
-                    MaterialMessageBox.Show("You cannot pay an empty Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                }
-            }
-            else
-            {
-                frmPay frmPayCash = new frmPay(this.totalAmount);
-                openedForm = frmPayCash;
-                frmPayCash.ShowDialog(this);
-
-                if (frmPayCash.dialogResult == DialogResult.OK)
-                {
-                    this.paidAmount = frmPayCash.moneyPaid;
-                    this.moneyInRegister += this.paidAmount;
-                    this.remainderAmount = this.paidAmount - this.totalAmount;
-                    frmPayCash.Dispose();
-                    List<Item> itemsToAdd = new List<Item>();
-                    foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
-                    {
-                        if (!currentBillRow.IsNewRow)
-                        {
-                            string itemName = currentBillRow.Cells[0].Value.ToString();
-                            string itemBarCode = currentBillRow.Cells[1].Value.ToString();
-                            int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
-                            decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
-                            decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                            Item itemToAdd = new Item();
-                            itemToAdd.SetName(itemName);
-                            itemToAdd.SetBarCode(itemBarCode);
-                            itemToAdd.SetQuantity(itemQuantity);
-                            itemToAdd.SetPrice(itemPrice);
-                            itemToAdd.SetPriceTax(itemPriceTax);
-                            itemsToAdd.Add(itemToAdd);
-                            int newItemQuantity = Connection.server.GetItemQuantity(itemBarCode) - itemQuantity;
-                            bool updatedQuantity = Connection.server.UpdateItemQuantity(new Item(itemName, itemBarCode, newItemQuantity, itemPrice, itemPriceTax, DateTime.Now));
-
-                            Tuple<List<Item>, DataTable> itemsExpirationStock = Connection.server.RetrieveExpireStockToday(DateTime.Now);
-                            if (itemsExpirationStock != null)
-                            {
-                                if (itemsExpirationStock.Item1.Count > 0)
-                                {
-                                    foreach (Item item in itemsExpirationStock.Item1)
-                                    {
-                                        if (item.ItemBarCode == itemBarCode)
-                                        {
-                                            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                                            {
-                                                MaterialMessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                                            }
-                                            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                                            {
-                                                MaterialMessageBox.Show("Item Barcode " + item.ItemBarCode + " is either expired or has less quantity in inventory than defined warning limit.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                                            }
-                                        }
-                                    }
-                                    dgvAlerts.DataSource = itemsExpirationStock.Item2;
-
-                                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                                    {
-                                        dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
-                                        dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
-                                        dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
-                                        dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
-                                        dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
-                                        dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
-                                    }
-                                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                                    {
-                                        dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
-                                        dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
-                                        dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
-                                        dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
-                                        dgvAlerts.Columns["Column46"].HeaderText = "Warning Limit";
-                                        dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    if (switchDebtUnpaidBills.Checked)
-                    {
-                        List<Bill> unpaidBills = new List<Bill>(Connection.server.RetrieveUnpaidBills().Item1);
-                        foreach (Bill billToPay in unpaidBills)
-                        {
-                            if (CurrentBillNumber == billToPay.getBillNumber())
-                            {
-                                if (billToPay.Postponed)
-                                {
-                                    if (Connection.server.PayUnpaidBill(billToPay.getBillNumber(), frmPayCash.paidAmount, frmPayCash.remainderAmount))
-                                    {
-                                        Bill billPaid = Connection.server.SearchBills("", "", CurrentBillNumber).Item1[0];
-                                        printCertainReceipt(billPaid.BillNumber, billPaid.getCashierName(), billPaid.TotalAmount, billPaid.PaidAmount,
-                                            billPaid.RemainderAmount, billPaid.Date);
-                                        CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
-                                        label91.Text = this.CapitalAmount.ToString();
-                                        this.ClientsaleItems.Clear();
-
-                                        ItemsPendingPurchase.Rows.Clear();
-                                        this.totalAmount = 0;
-                                        this.paidAmount = 0;
-                                        this.remainderAmount = 0;
-                                        return;
-                                    }
-
-                                    Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now);
-                                    if (Connection.server.PayBill(billToAdd, this.cashierName))
-                                    {
-                                        // paid bill
-
-                                        printReceipt();
-                                        CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
-                                        label91.Text = this.CapitalAmount.ToString();
-                                        this.ClientsaleItems.Clear();
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    else
-                    {
-                        Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now);
-                        if (Connection.server.PayBill(billToAdd, this.cashierName))
-                        {
-                            // paid bill
-
-                            printReceipt();
-                            CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
-                            label91.Text = this.CapitalAmount.ToString();
-                            this.ClientsaleItems.Clear();
-                        }
-                    }
-                }
-                else if (frmPayCash.dialogResult == DialogResult.Retry)
-                {
-                    List<Item> items = new List<Item>();
-
-                    frmPickClientLookup frmPickClientLookup = new frmPickClientLookup();
-                    frmPickClientLookup.ShowDialog();
-
-                    if (frmPickClientLookup.dialogResult == DialogResult.OK)
-                    {
-                        foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
-                        {
-                            if (!currentBillRow.IsNewRow)
-                            {
-                                string itemName = currentBillRow.Cells[0].Value.ToString();
-                                string itemBarCode = currentBillRow.Cells[1].Value.ToString();
-                                int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
-                                decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
-                                decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                                Item item = new Item();
-                                item.SetName(itemName);
-                                item.SetBarCode(itemBarCode);
-                                item.SetQuantity(itemQuantity);
-                                item.SetPrice(itemPrice);
-                                item.SetPriceTax(itemPriceTax);
-                                items.Add(item);
-                            }
-                        }
-
-                        Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
-                        billToAdd.ClientID = frmPickClientLookup.pickedClient.ClientID;
-                        if (Connection.server.PayBill(billToAdd, this.cashierName))
-                        {
-                            // paid bill
-
-                            printReceipt();
-                            CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
-                            label91.Text = this.CapitalAmount.ToString();
-                            this.ClientsaleItems.Clear();
-                        }
-                    }
-
-                    frmPayCash.Dispose();
-                    this.ClientsaleItems.Clear();
-                }
-                else if (frmPayCash.dialogResult == DialogResult.Ignore)
-                {
-                    List<Item> items = new List<Item>();
-
-                    frmPickClientLookup frmPickClientLookup = new frmPickClientLookup();
-                    frmPickClientLookup.ShowDialog();
-
-                    if (frmPickClientLookup.dialogResult == DialogResult.OK)
-                    {
-                        foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
-                        {
-                            if (!currentBillRow.IsNewRow)
-                            {
-                                string itemName = currentBillRow.Cells[0].Value.ToString();
-                                string itemBarCode = currentBillRow.Cells[1].Value.ToString();
-                                int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
-                                decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
-                                decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                                Item item = new Item();
-                                item.SetName(itemName);
-                                item.SetBarCode(itemBarCode);
-                                item.SetQuantity(itemQuantity);
-                                item.SetPrice(itemPrice);
-                                item.SetPriceTax(itemPriceTax);
-                                items.Add(item);
-                            }
-                        }
-
-                        Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
-                        billToAdd.ClientID = frmPickClientLookup.pickedClient.ClientID;
-                        int UnpaidBillNumber = Connection.server.AddUnpaidBill(billToAdd, this.cashierName);
-                        if (UnpaidBillNumber > -1)
-                        {
-                            this.CurrentBillNumber = Connection.server.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
-                            this.ItemsList = DisplayData();
-                            DisplayFavorites();
-                            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                            {
-                                MaterialMessageBox.Show(".تمت إضافة الفاتوره غير مدفوعه كدين على العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                            }
-                            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                            {
-                                MaterialMessageBox.Show("A new unpaid bill was added as debt to the client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                            }
-                        }
-                        billToAdd.BillNumber = UnpaidBillNumber;
-                        if (switchDebtUnpaidBills.Checked)
-                        {
-                            previousSharedUnpaidBillsList.Push(billToAdd);
-                        }
-                    }
-
-                    frmPayCash.Dispose();
-                    this.ClientsaleItems.Clear();
-                }
-
-                this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
-
-                richTextBox5.ResetText();
-                richTextBox4.ResetText();
-                richTextBox3.ResetText();
-                richTextBox2.ResetText();
-                richTextBox1.ResetText();
-                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                {
-                    richTextBox5.Text = (" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
-                    richTextBox3.Text = (" :المجموع السابق " + this.totalAmount);
-                    richTextBox2.Text = (" :المدفوع السابق " + this.paidAmount);
-                    richTextBox1.Text = (" :الباقي السابق " + this.remainderAmount);
-                }
-                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                {
-                    richTextBox5.Text = (" Current Bill ID: " + this.CurrentBillNumber);
-                    richTextBox3.Text = (" Previous Total: " + this.totalAmount);
-                    richTextBox2.Text = (" Previous Paid: " + this.paidAmount);
-                    richTextBox1.Text = (" Previous Remainder: " + this.remainderAmount);
-                }
-
-                this.saleItems = Connection.server.RetrieveSaleToday(DateTime.Now, 10);
-                ApplyDiscountsToPendingItems();
-
-                if (frmPayCash.dialogResult == DialogResult.Cancel)
-                {
-                    richTextBox1.ResetText();
-                    richTextBox2.ResetText();
-                    richTextBox3.ResetText();
-                    richTextBox4.ResetText();
-                }
-
-                ItemsPendingPurchase.Rows.Clear();
-                this.totalAmount = 0;
-                this.paidAmount = 0;
-                this.remainderAmount = 0;
-
-                int heldDebtBillsCount = Connection.server.RetrieveUnpaidBills().Item1.Count;
-
-                if (heldDebtBillsCount > 0)
-                {
-                    heldBillsCount -= 1;
-                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                    {
-                        label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
-                    }
-                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                    {
-                        label112.Text = " Number of Pending Bills: " + heldBillsCount.ToString();
-                    }
-                }
-            }
+            processPayment();
         }
 
         public void pictureBox12_Click(object sender, EventArgs e)
@@ -7467,7 +7175,7 @@ namespace PlancksoftPOS
                 button7.PerformClick();
         }
 
-        public void label67_MouseClick(object sender, MouseEventArgs e)
+        public void processPayment()
         {
             if (ItemsPendingPurchase.Rows[0].IsNewRow)
             {
@@ -7485,12 +7193,12 @@ namespace PlancksoftPOS
                 frmPay frmPayCash = new frmPay(this.totalAmount);
                 openedForm = frmPayCash;
                 frmPayCash.ShowDialog(this);
+                this.paidAmount = frmPayCash.moneyPaid;
+                this.moneyInRegister += this.paidAmount;
+                this.remainderAmount = this.paidAmount - this.totalAmount;
 
                 if (frmPayCash.dialogResult == DialogResult.OK)
                 {
-                    this.paidAmount = frmPayCash.moneyPaid;
-                    this.moneyInRegister += this.paidAmount;
-                    this.remainderAmount = this.paidAmount - this.totalAmount;
                     frmPayCash.Dispose();
                     List<Item> itemsToAdd = new List<Item>();
                     foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
@@ -7565,7 +7273,7 @@ namespace PlancksoftPOS
                             {
                                 if (billToPay.Postponed)
                                 {
-                                    if (Connection.server.PayUnpaidBill(billToPay.getBillNumber(), frmPayCash.paidAmount, frmPayCash.remainderAmount))
+                                    if (Connection.server.PayUnpaidBill(billToPay.getBillNumber(), frmPayCash.paidAmount))
                                     {
                                         Bill billPaid = Connection.server.SearchBills("", "", CurrentBillNumber).Item1[0];
                                         printCertainReceipt(billPaid.BillNumber, billPaid.getCashierName(), billPaid.TotalAmount, billPaid.PaidAmount,
@@ -7762,6 +7470,11 @@ namespace PlancksoftPOS
                     }
                 }
             }
+        }
+
+        public void label67_MouseClick(object sender, MouseEventArgs e)
+        {
+            processPayment();
         }
 
         public void label93_MouseClick(object sender, MouseEventArgs e)
@@ -8251,299 +7964,7 @@ namespace PlancksoftPOS
             switch (e.KeyCode)
             {
                 case Keys.F1:
-                    if (ItemsPendingPurchase.Rows[0].IsNewRow)
-                    {
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            MaterialMessageBox.Show(".لا بمكتك دفع فاتوره فارغه", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            MaterialMessageBox.Show("You cannot pay an empty Bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                        }
-                    }
-                    else
-                    {
-                        frmPay frmPayCash = new frmPay(this.totalAmount);
-                        openedForm = frmPayCash;
-                        frmPayCash.ShowDialog(this);
-
-                        if (frmPayCash.dialogResult == DialogResult.OK)
-                        {
-                            this.paidAmount = frmPayCash.moneyPaid;
-                            this.moneyInRegister += this.paidAmount;
-                            this.remainderAmount = this.paidAmount - this.totalAmount;
-                            frmPayCash.Dispose();
-                            List<Item> itemsToAdd = new List<Item>();
-                            foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
-                            {
-                                if (!currentBillRow.IsNewRow)
-                                {
-                                    string itemName = currentBillRow.Cells[0].Value.ToString();
-                                    string itemBarCode = currentBillRow.Cells[1].Value.ToString();
-                                    int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
-                                    decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
-                                    decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                                    Item itemToAdd = new Item();
-                                    itemToAdd.SetName(itemName);
-                                    itemToAdd.SetBarCode(itemBarCode);
-                                    itemToAdd.SetQuantity(itemQuantity);
-                                    itemToAdd.SetPrice(itemPrice);
-                                    itemToAdd.SetPriceTax(itemPriceTax);
-                                    itemsToAdd.Add(itemToAdd);
-                                    int newItemQuantity = Connection.server.GetItemQuantity(itemBarCode) - itemQuantity;
-                                    bool updatedQuantity = Connection.server.UpdateItemQuantity(new Item(itemName, itemBarCode, newItemQuantity, itemPrice, itemPriceTax, DateTime.Now));
-
-                                    Tuple<List<Item>, DataTable> itemsExpirationStock = Connection.server.RetrieveExpireStockToday(DateTime.Now);
-                                    if (itemsExpirationStock != null)
-                                    {
-                                        if (itemsExpirationStock.Item1.Count > 0)
-                                        {
-                                            foreach (Item item in itemsExpirationStock.Item1)
-                                            {
-                                                if (item.ItemBarCode == itemBarCode)
-                                                {
-                                                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                                                    {
-                                                        MaterialMessageBox.Show("قطعه باركود " + item.ItemBarCode + " انتهت الصلاحيه أو عدد القطع في المخزون وصل الحد المعرف.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                                                    }
-                                                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                                                    {
-                                                        MaterialMessageBox.Show("Item Barcode " + item.ItemBarCode + " is either expired or has less quantity in inventory than defined warning limit.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                                                    }
-                                                }
-                                            }
-                                            dgvAlerts.DataSource = itemsExpirationStock.Item2;
-
-                                            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                                            {
-                                                dgvAlerts.Columns["Column42"].HeaderText = "باركود الماده";
-                                                dgvAlerts.Columns["Column43"].HeaderText = "إسم الماده";
-                                                dgvAlerts.Columns["Column44"].HeaderText = "تاريخ الإنتاج";
-                                                dgvAlerts.Columns["Column45"].HeaderText = "تاريخ إنتهاء الصلاحيه";
-                                                dgvAlerts.Columns["Column46"].HeaderText = "كمية التحذير";
-                                                dgvAlerts.Columns["Column47"].HeaderText = "الكميه الحاليه";
-                                            }
-                                            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                                            {
-                                                dgvAlerts.Columns["Column42"].HeaderText = "Item Barcode";
-                                                dgvAlerts.Columns["Column43"].HeaderText = "Item Name";
-                                                dgvAlerts.Columns["Column44"].HeaderText = "Production Date";
-                                                dgvAlerts.Columns["Column45"].HeaderText = "Expiration Date";
-                                                dgvAlerts.Columns["Column46"].HeaderText = "Warning Limit";
-                                                dgvAlerts.Columns["Column47"].HeaderText = "Current Quantity";
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            if (switchDebtUnpaidBills.Checked)
-                            {
-                                List<Bill> unpaidBills = new List<Bill>(Connection.server.RetrieveUnpaidBills().Item1);
-                                foreach (Bill billToPay in unpaidBills)
-                                {
-                                    if (CurrentBillNumber == billToPay.getBillNumber())
-                                    {
-                                        if (billToPay.Postponed)
-                                        {
-                                            if (Connection.server.PayUnpaidBill(billToPay.getBillNumber(), frmPayCash.paidAmount, frmPayCash.remainderAmount))
-                                            {
-                                                Bill billPaid = Connection.server.SearchBills("", "", CurrentBillNumber).Item1[0];
-                                                printCertainReceipt(billPaid.BillNumber, billPaid.getCashierName(), billPaid.TotalAmount, billPaid.PaidAmount,
-                                                    billPaid.RemainderAmount, billPaid.Date);
-                                                CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
-                                                label91.Text = this.CapitalAmount.ToString();
-                                                this.ClientsaleItems.Clear();
-
-                                                ItemsPendingPurchase.Rows.Clear();
-                                                this.totalAmount = 0;
-                                                this.paidAmount = 0;
-                                                this.remainderAmount = 0;
-                                                return;
-                                            }
-
-                                            Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now);
-                                            if (Connection.server.PayBill(billToAdd, this.cashierName))
-                                            {
-                                                // paid bill
-
-                                                printReceipt();
-                                                CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
-                                                label91.Text = this.CapitalAmount.ToString();
-                                                this.ClientsaleItems.Clear();
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            else
-                            {
-                                Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now);
-                                if (Connection.server.PayBill(billToAdd, this.cashierName))
-                                {
-                                    // paid bill
-
-                                    printReceipt();
-                                    CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
-                                    label91.Text = this.CapitalAmount.ToString();
-                                    this.ClientsaleItems.Clear();
-                                }
-                            }
-                        }
-                        else if (frmPayCash.dialogResult == DialogResult.Retry)
-                        {
-                            List<Item> items = new List<Item>();
-
-                            frmPickClientLookup frmPickClientLookup = new frmPickClientLookup();
-                            frmPickClientLookup.ShowDialog();
-
-                            if (frmPickClientLookup.dialogResult == DialogResult.OK)
-                            {
-                                foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
-                                {
-                                    if (!currentBillRow.IsNewRow)
-                                    {
-                                        string itemName = currentBillRow.Cells[0].Value.ToString();
-                                        string itemBarCode = currentBillRow.Cells[1].Value.ToString();
-                                        int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
-                                        decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
-                                        decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                                        Item item = new Item();
-                                        item.SetName(itemName);
-                                        item.SetBarCode(itemBarCode);
-                                        item.SetQuantity(itemQuantity);
-                                        item.SetPrice(itemPrice);
-                                        item.SetPriceTax(itemPriceTax);
-                                        items.Add(item);
-                                    }
-                                }
-
-                                Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
-                                billToAdd.ClientID = frmPickClientLookup.pickedClient.ClientID;
-                                if (Connection.server.PayBill(billToAdd, this.cashierName))
-                                {
-                                    // paid bill
-
-                                    printReceipt();
-                                    CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
-                                    label91.Text = this.CapitalAmount.ToString();
-                                    this.ClientsaleItems.Clear();
-                                }
-                            }
-
-                            frmPayCash.Dispose();
-                            this.ClientsaleItems.Clear();
-                        }
-                        else if (frmPayCash.dialogResult == DialogResult.Ignore)
-                        {
-                            List<Item> items = new List<Item>();
-
-                            frmPickClientLookup frmPickClientLookup = new frmPickClientLookup();
-                            frmPickClientLookup.ShowDialog();
-
-                            if (frmPickClientLookup.dialogResult == DialogResult.OK)
-                            {
-                                foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
-                                {
-                                    if (!currentBillRow.IsNewRow)
-                                    {
-                                        string itemName = currentBillRow.Cells[0].Value.ToString();
-                                        string itemBarCode = currentBillRow.Cells[1].Value.ToString();
-                                        int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
-                                        decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
-                                        decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                                        Item item = new Item();
-                                        item.SetName(itemName);
-                                        item.SetBarCode(itemBarCode);
-                                        item.SetQuantity(itemQuantity);
-                                        item.SetPrice(itemPrice);
-                                        item.SetPriceTax(itemPriceTax);
-                                        items.Add(item);
-                                    }
-                                }
-
-                                Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
-                                billToAdd.ClientID = frmPickClientLookup.pickedClient.ClientID;
-                                int UnpaidBillNumber = Connection.server.AddUnpaidBill(billToAdd, this.cashierName);
-                                if (UnpaidBillNumber > -1)
-                                {
-                                    this.CurrentBillNumber = Connection.server.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
-                                    this.ItemsList = DisplayData();
-                                    DisplayFavorites();
-                                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                                    {
-                                        MaterialMessageBox.Show(".تمت إضافة الفاتوره غير مدفوعه كدين على العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                                    }
-                                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                                    {
-                                        MaterialMessageBox.Show("A new unpaid bill was added as debt to the client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                                    }
-                                }
-                                billToAdd.BillNumber = UnpaidBillNumber;
-                                if (switchDebtUnpaidBills.Checked)
-                                {
-                                    previousSharedUnpaidBillsList.Push(billToAdd);
-                                }
-                            }
-
-                            frmPayCash.Dispose();
-                            this.ClientsaleItems.Clear();
-                        }
-
-                        this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
-
-                        richTextBox5.ResetText();
-                        richTextBox4.ResetText();
-                        richTextBox3.ResetText();
-                        richTextBox2.ResetText();
-                        richTextBox1.ResetText();
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            richTextBox5.Text = (" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
-                            richTextBox3.Text = (" :المجموع السابق " + this.totalAmount);
-                            richTextBox2.Text = (" :المدفوع السابق " + this.paidAmount);
-                            richTextBox1.Text = (" :الباقي السابق " + this.remainderAmount);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            richTextBox5.Text = (" Current Bill ID: " + this.CurrentBillNumber);
-                            richTextBox3.Text = (" Previous Total: " + this.totalAmount);
-                            richTextBox2.Text = (" Previous Paid: " + this.paidAmount);
-                            richTextBox1.Text = (" Previous Remainder: " + this.remainderAmount);
-                        }
-
-                        this.saleItems = Connection.server.RetrieveSaleToday(DateTime.Now, 10);
-                        ApplyDiscountsToPendingItems();
-
-                        if (frmPayCash.dialogResult == DialogResult.Cancel)
-                        {
-                            richTextBox1.ResetText();
-                            richTextBox2.ResetText();
-                            richTextBox3.ResetText();
-                            richTextBox4.ResetText();
-                        }
-
-                        ItemsPendingPurchase.Rows.Clear();
-                        this.totalAmount = 0;
-                        this.paidAmount = 0;
-                        this.remainderAmount = 0;
-
-                        int heldDebtBillsCount = Connection.server.RetrieveUnpaidBills().Item1.Count;
-
-                        if (heldDebtBillsCount > 0)
-                        {
-                            heldBillsCount -= 1;
-                            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                            {
-                                label112.Text = heldBillsCount.ToString() + " :عدد الفواتير المعلقه ";
-                            }
-                            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                            {
-                                label112.Text = " Number of Pending Bills: " + heldBillsCount.ToString();
-                            }
-                        }
-                    }
+                    processPayment();
                     break;
 
                 case Keys.F2:
@@ -10667,13 +10088,16 @@ namespace PlancksoftPOS
                         }
                     }
                     Bill billPaid = Connection.server.SearchBills("", "", Convert.ToInt32(row.Cells["dataGridViewTextBoxColumn24"].Value.ToString())).Item1[0];
-                    frmPay frmPayCash = new frmPay(billPaid.TotalAmount);
+                    frmPay frmPayCash = new frmPay((billPaid.TotalAmount - billPaid.PaidAmount), Convert.ToDecimal(row.Cells["ClientBillsPaidAmount"].Value.ToString()), Convert.ToDecimal(row.Cells["ClientBillsRemainderAmount"].Value.ToString()), true);
                     openedForm = frmPayCash;
                     frmPayCash.ShowDialog();
+                    billPaid.TotalAmount = frmPayCash.totalAmount;
+                    billPaid.PaidAmount = frmPayCash.paidAmount;
+                    billPaid.RemainderAmount = frmPayCash.remainderAmount;
 
                     if (frmPayCash.dialogResult == DialogResult.OK)
                     {
-                        if (Connection.server.PayUnpaidBill(Convert.ToInt32(row.Cells["dataGridViewTextBoxColumn24"].Value.ToString()), frmPayCash.paidAmount, frmPayCash.remainderAmount))
+                        if (Connection.server.PayUnpaidBill(Convert.ToInt32(row.Cells["dataGridViewTextBoxColumn24"].Value.ToString()), frmPayCash.paidAmount))
                         {
                             printCertainReceiptDebt(billPaid.BillNumber, billPaid.getCashierName(), billPaid.TotalAmount, billPaid.PaidAmount,
                                 billPaid.RemainderAmount, billPaid.Date);

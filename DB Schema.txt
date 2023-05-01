@@ -11,7 +11,7 @@
 
 USE [PlancksoftPOS]
 GO
-/****** Object:  Table [dbo].[Absence]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[Absence]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -26,9 +26,7 @@ CREATE TABLE [dbo].[Absence](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[Absence] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[BillItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[BillItems]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -42,9 +40,7 @@ CREATE TABLE [dbo].[BillItems](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[BillItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[Bills]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[Bills]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -62,13 +58,12 @@ CREATE TABLE [dbo].[Bills](
 	[paymentByCash] [int] NULL,
 	[unpaid] [int] NOT NULL,
 	[postponed_bill_id] [int] NULL,
-	[ClientID] [int] NULL
+	[ClientID] [int] NULL,
+	[payment_progress] [decimal](18, 2) NULL
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[Bills] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[ClientsItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[ClientsItems]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -82,9 +77,7 @@ CREATE TABLE [dbo].[ClientsItems](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[ClientsItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[ClientsVendors]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[ClientsVendors]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -100,9 +93,7 @@ CREATE TABLE [dbo].[ClientsVendors](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[ClientsVendors] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[Deductions]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[Deductions]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -117,9 +108,7 @@ CREATE TABLE [dbo].[Deductions](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[Deductions] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[Discounts]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[Discounts]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -136,9 +125,7 @@ CREATE TABLE [dbo].[Discounts](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[Discounts] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[Employees]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[Employees]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -154,9 +141,7 @@ CREATE TABLE [dbo].[Employees](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[Employees] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[Expenses]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[Expenses]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -172,9 +157,7 @@ CREATE TABLE [dbo].[Expenses](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[Expenses] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[FavoriteCategories]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[FavoriteCategories]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -187,9 +170,7 @@ CREATE TABLE [dbo].[FavoriteCategories](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[FavoriteCategories] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[Items]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[Items]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -220,9 +201,7 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-ALTER AUTHORIZATION ON [dbo].[Items] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[ItemTypes]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[ItemTypes]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -235,9 +214,7 @@ CREATE TABLE [dbo].[ItemTypes](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[ItemTypes] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[LoginLogout]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[LoginLogout]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -252,9 +229,7 @@ CREATE TABLE [dbo].[LoginLogout](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[LoginLogout] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[PrinterItemType]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[PrinterItemType]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -268,9 +243,7 @@ CREATE TABLE [dbo].[PrinterItemType](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[PrinterItemType] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[Printers]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[Printers]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -284,9 +257,7 @@ CREATE TABLE [dbo].[Printers](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[Printers] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[RegisterHistory]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[RegisterHistory]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -302,9 +273,7 @@ CREATE TABLE [dbo].[RegisterHistory](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RegisterHistory] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[Settings]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[Settings]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -326,9 +295,7 @@ END
 GO
 SET ANSI_PADDING OFF
 GO
-ALTER AUTHORIZATION ON [dbo].[Settings] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[TransactionItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[TransactionItems]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -343,9 +310,7 @@ CREATE TABLE [dbo].[TransactionItems](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[TransactionItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[Transactions]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[Transactions]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -361,9 +326,7 @@ CREATE TABLE [dbo].[Transactions](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[Transactions] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[UserPermissions]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[UserPermissions]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -386,9 +349,7 @@ CREATE TABLE [dbo].[UserPermissions](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[UserPermissions] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[Users]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -408,9 +369,7 @@ CREATE TABLE [dbo].[Users](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[Users] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[VendorBillItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[VendorBillItems]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -424,9 +383,7 @@ CREATE TABLE [dbo].[VendorBillItems](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[VendorBillItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[VendorBills]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[VendorBills]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -442,9 +399,7 @@ CREATE TABLE [dbo].[VendorBills](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[VendorBills] TO  SCHEMA OWNER 
-GO
-/****** Object:  Table [dbo].[Warehouses]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  Table [dbo].[Warehouses]    Script Date: 5/1/2023 12:27:09 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -457,21 +412,9 @@ CREATE TABLE [dbo].[Warehouses](
 ) ON [PRIMARY]
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[Warehouses] TO  SCHEMA OWNER 
-GO
-SET IDENTITY_INSERT [dbo].[PrinterItemType] ON 
-GO
-INSERT [dbo].[PrinterItemType] ([id], [printerID], [itemTypeID]) VALUES (18, 9, 1)
-GO
-INSERT [dbo].[PrinterItemType] ([id], [printerID], [itemTypeID]) VALUES (21, 10, 1)
-GO
-SET IDENTITY_INSERT [dbo].[PrinterItemType] OFF
-GO
 SET IDENTITY_INSERT [dbo].[Printers] ON 
 GO
-INSERT [dbo].[Printers] ([id], [machineName], [printerName]) VALUES (9, N'HASHDOGE', N'Microsoft Print to PDF')
-GO
-INSERT [dbo].[Printers] ([id], [machineName], [printerName]) VALUES (10, N'DESKTOP-PG2PCRV', N'Microsoft Print to PDF')
+INSERT [dbo].[Printers] ([id], [machineName], [printerName]) VALUES (1010, N'DESKTOP-PG2PCRV', N'Canon G3010 series')
 GO
 SET IDENTITY_INSERT [dbo].[Printers] OFF
 GO
@@ -581,7 +524,7 @@ BEGIN
 ALTER TABLE [dbo].[VendorBills] ADD  CONSTRAINT [DF_VendorBills_unpaid]  DEFAULT ((1)) FOR [unpaid]
 END
 GO
-/****** Object:  StoredProcedure [dbo].[AddItemToBill]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddItemToBill]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -602,11 +545,7 @@ BEGIN
 	UPDATE Discounts SET quantity_end = quantity_end - @ItemQuantity WHERE item_barcode = @ItemBarCode
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[AddItemToBill] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[AddItemToBill] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[AddItemToClient]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddItemToClient]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -633,11 +572,7 @@ BEGIN
 		End
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[AddItemToClient] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[AddItemToClient] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[AddItemToVendorBill]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddItemToVendorBill]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -657,11 +592,7 @@ BEGIN
 	INSERT INTO VendorBillItems(bill_id, item_barcode, item_quantity) VALUES (@BillID, @ItemBarCode, @ItemQuantity)
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[AddItemToVendorBill] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[AddItemToVendorBill] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[AddPrinterItemType]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddPrinterItemType]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -681,11 +612,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[AddPrinterItemType] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[AddPrinterItemType] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[AddSaleOnItem]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddSaleOnItem]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -717,11 +644,7 @@ IF NOT EXISTS (SELECT * FROM Discounts
 		End
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[AddSaleOnItem] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[AddSaleOnItem] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[AddUnpaidBill]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddUnpaidBill]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -747,11 +670,7 @@ set @BillID = @bill_id
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[AddUnpaidBill] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[AddUnpaidBill] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[AddVendorBill]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[AddVendorBill]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -776,11 +695,7 @@ set @BillID = @bill_id
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[AddVendorBill] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[AddVendorBill] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[CheckAdmin]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[CheckAdmin]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -799,11 +714,7 @@ DECLARE @cnt INT = (SELECT COUNT(UID)FROM Users Where UID = @UserID AND Authorit
 set @Status = @cnt
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[CheckAdmin] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[CheckAdmin] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[CreateTransaction]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[CreateTransaction]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -829,11 +740,7 @@ BEGIN
 	set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[CreateTransaction] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[CreateTransaction] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[DeleteAbsence]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteAbsence]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -852,11 +759,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[DeleteAbsence] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[DeleteAbsence] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[DeleteClient]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteClient]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -875,11 +778,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[DeleteClient] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[DeleteClient] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[DeleteEmployee]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteEmployee]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -898,11 +797,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[DeleteEmployee] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[DeleteEmployee] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[DeleteFavoriteCategory]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteFavoriteCategory]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -921,11 +816,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[DeleteFavoriteCategory] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[DeleteFavoriteCategory] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[DeleteFavoriteItem]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteFavoriteItem]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -944,11 +835,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[DeleteFavoriteItem] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[DeleteFavoriteItem] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[DeleteItem]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteItem]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -968,11 +855,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[DeleteItem] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[DeleteItem] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[DeleteItemType]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteItemType]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -991,11 +874,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[DeleteItemType] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[DeleteItemType] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[DeletePrinter]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeletePrinter]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1016,11 +895,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[DeletePrinter] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[DeletePrinter] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[DeletePrinterItemType]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeletePrinterItemType]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1040,11 +915,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[DeletePrinterItemType] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[DeletePrinterItemType] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[DeleteUser]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteUser]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1065,11 +936,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[DeleteUser] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[DeleteUser] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[DeleteWarehouse]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteWarehouse]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1088,11 +955,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[DeleteWarehouse] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[DeleteWarehouse] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[GetCapitalAmount]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetCapitalAmount]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1111,11 +974,7 @@ BEGIN
 	set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[GetCapitalAmount] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[GetCapitalAmount] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[GetLastOpenRegisterDate]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetLastOpenRegisterDate]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1134,11 +993,7 @@ BEGIN
 	set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[GetLastOpenRegisterDate] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[GetLastOpenRegisterDate] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[GetOpenRegisterAmount]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetOpenRegisterAmount]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1157,11 +1012,7 @@ BEGIN
 	set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[GetOpenRegisterAmount] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[GetOpenRegisterAmount] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[GetTotalSalesAmount]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetTotalSalesAmount]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1181,11 +1032,7 @@ BEGIN
 	set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[GetTotalSalesAmount] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[GetTotalSalesAmount] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[GetTotalSalesAmountCloseCash]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetTotalSalesAmountCloseCash]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1204,11 +1051,7 @@ BEGIN
 	set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[GetTotalSalesAmountCloseCash] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[GetTotalSalesAmountCloseCash] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[InsertAbsence]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertAbsence]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1229,11 +1072,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[InsertAbsence] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[InsertAbsence] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[InsertDayOff]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertDayOff]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1253,11 +1092,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[InsertDayOff] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[InsertDayOff] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[InsertDeduction]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertDeduction]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1278,11 +1113,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[InsertDeduction] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[InsertDeduction] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[InsertEmployee]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertEmployee]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1304,11 +1135,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[InsertEmployee] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[InsertEmployee] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[InsertExpense]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertExpense]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1330,11 +1157,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[InsertExpense] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[InsertExpense] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[InsertFavoriteCategory]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertFavoriteCategory]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1357,11 +1180,7 @@ IF NOT EXISTS (SELECT * FROM FavoriteCategories
 		End
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[InsertFavoriteCategory] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[InsertFavoriteCategory] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[InsertItem]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertItem]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1394,11 +1213,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[InsertItem] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[InsertItem] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[InsertItemType]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertItemType]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1421,11 +1236,7 @@ IF NOT EXISTS (SELECT * FROM ItemTypes
 		End
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[InsertItemType] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[InsertItemType] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[InsertPrinter]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertPrinter]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1449,11 +1260,7 @@ IF NOT EXISTS (SELECT * FROM Printers
 		End
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[InsertPrinter] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[InsertPrinter] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[InsertWarehouse]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[InsertWarehouse]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1476,11 +1283,7 @@ IF NOT EXISTS (SELECT * FROM Warehouses
 		End
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[InsertWarehouse] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[InsertWarehouse] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[LoginAccount]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[LoginAccount]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1506,11 +1309,7 @@ SET @Name = @name2
 set @Status = @cnt
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[LoginAccount] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[LoginAccount] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[LogLogin]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[LogLogin]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1528,11 +1327,7 @@ BEGIN
 INSERT INTO LoginLogout(cashierName, date, action) VALUES (@cashierName, @Date, 'Login')
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[LogLogin] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[LogLogin] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[LogLogout]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[LogLogout]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1550,11 +1345,7 @@ BEGIN
 INSERT INTO LoginLogout(cashierName, date, action) VALUES (@cashierName, @Date, 'Logout')
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[LogLogout] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[LogLogout] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[PayBill]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[PayBill]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1576,18 +1367,21 @@ ALTER procedure [dbo].[PayBill]
 	@Status int OUTPUT
 AS
 BEGIN
-    INSERT INTO Bills(cashierName, totalAmount, paidAmount, remainderAmount, paymentByCash, date, ported, unpaid, ClientID) VALUES(@cashierName, @totalAmount, @paidAmount, @remainderAmount, @paymentByCash, @Date, 0, 0, @ClientID)
 
+IF @paidAmount >= @totalAmount
+	BEGIN
+		INSERT INTO Bills(cashierName, totalAmount, paidAmount, remainderAmount, paymentByCash, date, ported, unpaid, ClientID) VALUES(@cashierName, @totalAmount, @paidAmount, @remainderAmount, @paymentByCash, @Date, 0, 0, @ClientID)
+	END
+ELSE IF @paidAmount < @totalAmount
+	BEGIN
+		INSERT INTO Bills(cashierName, totalAmount, paidAmount, remainderAmount, paymentByCash, date, ported, unpaid, ClientID, payment_progress) VALUES(@cashierName, @totalAmount, @paidAmount, @remainderAmount, @paymentByCash, @Date, 0, 1, @ClientID, @paidAmount)
+	END 
 DECLARE @bill_id INT = (SELECT TOP 1 id FROM Bills ORDER BY id DESC)
 set @BillID = @bill_id
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[PayBill] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[PayBill] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[PayUnpaidBill]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[PayUnpaidBill]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1599,21 +1393,32 @@ END
 GO
 ALTER procedure [dbo].[PayUnpaidBill]
     @BillID nvarchar(255),
-    @PaidAmount decimal(18, 2),
-    @RemainderAmount decimal(18, 2),
+    @paidInstallmentAmount decimal(18, 2),
 	@Status int OUTPUT
 AS
 BEGIN
-	UPDATE Bills SET paidAmount = @PaidAmount, remainderAmount = @RemainderAmount,unpaid = 0, ported = 0, postponed_bill_id = @BillID WHERE Bills.id = @BillID
+DECLARE @TotalAmount decimal(18, 2) = (SELECT totalAmount FROM Bills Where id = @BillID)
+DECLARE @PaidAmount decimal(18, 2) = (SELECT paidAmount FROM Bills Where id = @BillID)
 
+UPDATE Bills SET paidAmount = (@PaidAmount + @paidInstallmentAmount) WHERE Bills.id = @BillID
+
+DECLARE @TotalAmountAfter decimal(18, 2) = (SELECT totalAmount FROM Bills Where id = @BillID)
+DECLARE @PaidAmountAfter decimal(18, 2) = (SELECT paidAmount FROM Bills Where id = @BillID)
+UPDATE Bills SET remainderAmount = (@TotalAmount - @PaidAmountAfter), postponed_bill_id = @BillID WHERE Bills.id = @BillID
+
+
+IF @PaidAmountAfter >= @TotalAmountAfter
+	BEGIN
+		UPDATE Bills SET unpaid = 0 WHERE Bills.id = @BillID
+	END
+ELSE IF @PaidAmount >= @TotalAmount
+	BEGIN
+		UPDATE Bills SET unpaid = 1 WHERE Bills.id = @BillID
+	END 
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[PayUnpaidBill] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[PayUnpaidBill] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RegisterAccount]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RegisterAccount]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1665,11 +1470,7 @@ BEGIN
 	End
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RegisterAccount] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RegisterAccount] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RegisterAdmin]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RegisterAdmin]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1709,11 +1510,7 @@ IF NOT EXISTS (SELECT * FROM Users
 		End
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RegisterAdmin] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RegisterAdmin] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RegisterClient]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RegisterClient]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1734,11 +1531,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RegisterClient] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RegisterClient] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RegisterVendor]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RegisterVendor]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1759,11 +1552,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RegisterVendor] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RegisterVendor] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveAbsence]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveAbsence]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1785,11 +1574,7 @@ BEGIN
 	ORDER BY Absence.id, Employees.name, Absence.date, Absence.hours
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveAbsence] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveAbsence] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveAccountAuthority]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveAccountAuthority]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1807,11 +1592,7 @@ BEGIN
     SELECT TOP 1 Authority FROM Users WHERE id = @UID
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveAccountAuthority] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveAccountAuthority] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveBillItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveBillItems]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1834,11 +1615,7 @@ BEGIN
 	ORDER by BillItems.item_quantity DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveBillItems] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveBillItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveBillItemsProfit]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveBillItemsProfit]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1863,11 +1640,7 @@ BEGIN
 	GROUP BY Items.ItemBarCode, Items.ItemName, ItemTypes.name, Bills.cashierName, Items.ItemPriceTax ORDER by 'Times Sold', Bills.cashierName, ItemTypes.name DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveBillItemsProfit] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveBillItemsProfit] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveBills]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveBills]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1886,11 +1659,7 @@ BEGIN
 	End as 'Payment Type', date as 'Invoice Date' FROM Bills ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveBills] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveBills] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveCapitalRevenue]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveCapitalRevenue]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1908,11 +1677,7 @@ BEGIN
 	JOIN Bills ON Billitems.bill_id = Bills.id GROUP BY Bills.Date ORDER BY Bills.Date DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveCapitalRevenue] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveCapitalRevenue] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveCashierNames]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveCashierNames]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1928,11 +1693,7 @@ BEGIN
     SELECT cashierName as 'Cashier Name' FROM Users
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveCashierNames] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveCashierNames] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveClientBills]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveClientBills]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1946,7 +1707,7 @@ ALTER procedure [dbo].[RetrieveClientBills]
 	@ClientID int
 AS
 BEGIN
-    SELECT b.id as 'Bill Number', b.cashierName as 'Cashier Name', b.totalAmount as 'Total Amount', b.date as 'Date', CASE b.unpaid WHEN 0 THEN 'Paid'
+    SELECT b.id as 'Bill Number', b.cashierName as 'Cashier Name', b.totalAmount as 'Total Amount', b.paidAmount as 'Paid Amount', b.remainderAmount as 'Remainder Amount', b.date as 'Date', CASE b.unpaid WHEN 0 THEN 'Paid'
 						WHEN 1 THEN 'Unpaid'
 	End as 'Status', b.ClientID, c.ClientName as 'Client ID' FROM Bills b
 	RIGHT JOIN ClientsVendors c ON c.id = b.ClientID
@@ -1954,11 +1715,7 @@ BEGIN
 	ORDER by b.id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveClientBills] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveClientBills] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveClientsList]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveClientsList]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1975,11 +1732,7 @@ BEGIN
     SELECT ClientName as 'Client Name', ID as 'Client ID', ClientPhone as 'Client Phone', ClientAddress as 'Client Address' FROM ClientsVendors WHERE (@ClientName is null or ClientName LIKE '%' + @ClientName + '%') AND vendor = 0 ORDER by ClientName DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveClientsList] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveClientsList] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveEmployees]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveEmployees]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2002,11 +1755,7 @@ BEGIN
 	ORDER by Employees.id, Employees.name DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveEmployees] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveEmployees] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveExpireStockToday]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveExpireStockToday]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2028,11 +1777,7 @@ set @Date2 = DATEADD(Day, 1, @Date2)
 SELECT TOP 1 ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ProductionDate as 'Start Date', ExpirationDate as 'End Date', QuantityWarning as 'Quantity End', ItemQuantity as 'Current Quantity' FROM Items WHERE ((ExpirationDate <= @Date1) OR (QuantityWarning > @CurrentQuantity)) and ItemBarCode = @ItemBarCode ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveExpireStockToday] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveExpireStockToday] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveExports]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveExports]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2049,11 +1794,7 @@ BEGIN
 	JOIN BillItems ON BillItems.item_barcode=Items.ItemBarCode GROUP BY Date ORDER BY Items.Date DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveExports] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveExports] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategories]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategories]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2069,11 +1810,7 @@ BEGIN
     SELECT id as 'Category ID', name as 'Category Name' FROM FavoriteCategories ORDER by id ASC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveFavoriteCategories] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveFavoriteCategories] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategoryIndex]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategoryIndex]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2090,11 +1827,7 @@ BEGIN
     SELECT TOP 1 id as 'Category ID' FROM FavoriteCategories WHERE name = @CategoryName
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveFavoriteCategoryIndex] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveFavoriteCategoryIndex] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategoryName]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategoryName]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2111,11 +1844,7 @@ BEGIN
     SELECT TOP 1 CASE WHEN name IS NULL THEN N'غير مفضله' ELSE name END as 'Category Name' FROM FavoriteCategories WHERE id = @CategoryIndex
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveFavoriteCategoryName] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveFavoriteCategoryName] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteItems]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2132,11 +1861,7 @@ BEGIN
     SELECT id as 'Item ID', ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', ItemPrice as 'Item Price', ItemPriceTax as 'Item Price Tax', Favorite as 'Favorite Category' FROM Items WHERE Favorite = @Category ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveFavoriteItems] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveFavoriteItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveImports]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveImports]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2152,11 +1877,7 @@ BEGIN
     SELECT Items.Date as 'Date', sum(Items.ItemPriceTax * Items.ItemQuantity) as 'Total Cost' FROM Items GROUP BY Date ORDER BY Items.Date DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveImports] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveImports] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItemPictureFromBarCode]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItemPictureFromBarCode]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2173,11 +1894,7 @@ BEGIN
     SELECT TOP 1 Picture as 'Item Picture' FROM Items WHERE ItemBarCode = @ItemBarCode ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItemPictureFromBarCode] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItemPictureFromBarCode] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItems]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2207,11 +1924,7 @@ BEGIN
 		ORDER by I.id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItems] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItemsQuantity]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItemsQuantity]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2240,11 +1953,7 @@ BEGIN
 		end
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItemsQuantity] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItemsQuantity] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItemsQuantityDates]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItemsQuantityDates]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2261,11 +1970,7 @@ BEGIN
     SELECT TOP 1 ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', QuantityWarning as 'Quantity Warning', ProductionDate as 'Production Date', ExpirationDate as 'Expiration Date', EntryDate as 'Entry Date' FROM Items WHERE ItemBarCode = @ItemBarCode ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItemsQuantityDates] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItemsQuantityDates] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItemTypeIndex]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItemTypeIndex]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2282,11 +1987,7 @@ BEGIN
     SELECT TOP 1 id as 'ItemType ID' FROM ItemTypes WHERE name = @ItemTypeName
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItemTypeIndex] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItemTypeIndex] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItemTypeName]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItemTypeName]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2303,11 +2004,7 @@ BEGIN
     SELECT TOP 1 CASE WHEN name IS NULL THEN N'غير مصنف' ELSE name END as 'ItemType Name' FROM ItemTypes WHERE id = @ItemTypeIndex
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItemTypeName] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItemTypeName] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveItemTypes]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveItemTypes]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2323,11 +2020,7 @@ BEGIN
     SELECT id as 'ItemType ID', name as 'ItemType Name' FROM ItemTypes ORDER by id ASC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItemTypes] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveItemTypes] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveLastBillNumber]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveLastBillNumber]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2343,11 +2036,7 @@ BEGIN
 SELECT TOP 1 id as 'Bill Number' FROM Bills ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveLastBillNumber] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveLastBillNumber] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveLastBillNumberByDates]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveLastBillNumberByDates]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2367,11 +2056,7 @@ BEGIN
 SELECT TOP 1 id as 'Bill Number' FROM Bills WHERE ( Date >= @Date1 AND Date <= @Date2) ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveLastBillNumberByDates] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveLastBillNumberByDates] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveLastVendorBillNumberToday]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveLastVendorBillNumberToday]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2391,11 +2076,7 @@ BEGIN
 SELECT TOP 1 id as 'Bill Number' FROM VendorBills WHERE ( Date >= @Date1 AND Date <= @Date2) ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveLastVendorBillNumberToday] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveLastVendorBillNumberToday] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveLeastBoughtItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveLeastBoughtItems]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2413,11 +2094,7 @@ BEGIN
 	JOIN BillItems ON Items.ItemBarCode = BillItems.item_barcode GROUP BY Items.ItemBarCode, Items.ItemName, Items.ItemPrice, Items.ItemPriceTax ORDER BY 'Times Sold' ASC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveLeastBoughtItems] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveLeastBoughtItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveLoginLogoutInfo]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveLoginLogoutInfo]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2438,11 +2115,7 @@ set @Date2 = DATEADD(Day, 1, @Date2)
 	WHERE ( Date >= @Date1 AND Date <= @Date2) ORDER BY id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveLoginLogoutInfo] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveLoginLogoutInfo] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveMostBoughtItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveMostBoughtItems]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2460,11 +2133,7 @@ BEGIN
 	JOIN BillItems ON Items.ItemBarCode = BillItems.item_barcode GROUP BY Items.ItemBarCode, Items.ItemName, Items.ItemPrice, Items.ItemPriceTax ORDER BY 'Times Sold' DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveMostBoughtItems] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveMostBoughtItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrievePortedBills]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrievePortedBills]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2482,11 +2151,7 @@ BEGIN
 	End as 'Payment Type', '' as 'TotalPorted'  FROM Bills WHERE ported = 1 ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrievePortedBills] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrievePortedBills] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrievePrinterItemTypes]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrievePrinterItemTypes]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2506,11 +2171,7 @@ BEGIN
 	ORDER by P.id ASC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrievePrinterItemTypes] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrievePrinterItemTypes] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrievePrinters]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrievePrinters]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2527,11 +2188,7 @@ BEGIN
     SELECT id as 'Printer ID', printerName as 'Printer Name' FROM Printers WHERE machineName = @machineName ORDER by id ASC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrievePrinters] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrievePrinters] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveReturnedItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveReturnedItems]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2552,11 +2209,7 @@ BEGIN
 	ORDER BY TransactionItems.id
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveReturnedItems] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveReturnedItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveSale]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveSale]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2577,11 +2230,7 @@ set @Date2 = DATEADD(Day, 1, @Date2)
 SELECT TOP 1 id as 'Sale ID', item_barcode as 'Item BarCode', sale_rate as 'Sale Rate', start_date as 'Start Date', end_date as 'End Date', quantity_end as 'Quantity End' FROM Discounts WHERE ((start_date <= @Date2 AND end_date >= @Date1) AND (quantity_end > 0)) ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveSale] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveSale] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveSaleItemsQuantity]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveSaleItemsQuantity]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2600,11 +2249,7 @@ GROUP BY Discounts.id, Discounts.item_barcode, Items.ItemQuantity
 ORDER by Discounts.id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveSaleItemsQuantity] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveSaleItemsQuantity] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveSystemSettings]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveSystemSettings]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2620,11 +2265,7 @@ BEGIN
     SELECT TOP 1 * FROM Settings WHERE id = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveSystemSettings] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveSystemSettings] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveTaxZReport]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveTaxZReport]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2644,11 +2285,7 @@ group by Bills.id, bills.cashierName, bills.totalAmount, bills.date
 ORDER by bills.id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveTaxZReport] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveTaxZReport] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveUnpaidBills]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveUnpaidBills]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2667,11 +2304,7 @@ BEGIN
 	End as 'Payment Type', date as 'Invoice Date' FROM Bills WHERE unpaid = 1 ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveUnpaidBills] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveUnpaidBills] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveUnPortedBills]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveUnPortedBills]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2689,11 +2322,7 @@ BEGIN
 	End as 'Payment Type', '' as 'TotalUnPorted'  FROM Bills WHERE ported = 0 ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveUnPortedBills] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveUnPortedBills] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveUserPermissions]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveUserPermissions]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2711,11 +2340,7 @@ BEGIN
     SELECT TOP 1 Client_card_perm as 'Client Card Permission', discount_perm as 'Discount Permission', price_edit_perm as 'Price Edit Permission', receipt_edit_perm as 'Receipt Edit Permission', inventory_edit_perm as 'Inventory Edit Permission', expense_add_perm as 'Expense Add Permission', users_edit_perm as 'Users Edit Permission', settings_edit_perm as 'Settings Edit Permission', personnel_edit_perm as 'Personnel Edit Permission', openclose_edit_perm as 'Open Close Cash Permission', sell_edit_perm as 'Sell Permission' FROM UserPermissions WHERE user_id = @UID
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveUserPermissions] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveUserPermissions] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveUsers]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveUsers]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2731,11 +2356,7 @@ BEGIN
     SELECT cashierName as 'User Name', UID as 'User ID', PWD as 'User Password', Authority as 'User Authority' FROM Users ORDER by Authority, id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveUsers] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveUsers] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveUsersList]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveUsersList]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2751,11 +2372,7 @@ BEGIN
     SELECT cashierName as 'User Name', UID as 'User ID' FROM Users ORDER by Authority, id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveUsersList] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveUsersList] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveVendorBillItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveVendorBillItems]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2773,11 +2390,7 @@ BEGIN
 	JOIN VendorBillItems ON VendorBillItems.bill_id = @BillNumber ORDER BY Items.ItemName
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveVendorBillItems] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveVendorBillItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveVendorBills]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveVendorBills]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2793,11 +2406,7 @@ BEGIN
     SELECT id as 'Bill Number', cashierName as 'Cashier Name', totalAmount as 'Total Amount', date as 'Date' FROM VendorBills WHERE unpaid = 0 ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveVendorBills] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveVendorBills] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveVendorsList]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveVendorsList]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2814,11 +2423,7 @@ BEGIN
     SELECT ClientName as 'Client Name', ID as 'Client ID', ClientPhone as 'Client Phone', ClientAddress as 'Client Address' FROM ClientsVendors WHERE (@ClientName is null or ClientName LIKE '%' + @ClientName + '%') AND vendor = 1 ORDER by ClientName DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveVendorsList] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveVendorsList] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveWarehouseIndex]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveWarehouseIndex]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2835,11 +2440,7 @@ BEGIN
     SELECT TOP 1 id as 'Warehouse ID' FROM Warehouses WHERE name = @WarehouseName
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveWarehouseIndex] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveWarehouseIndex] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveWarehouseName]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveWarehouseName]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2856,11 +2457,7 @@ BEGIN
     SELECT TOP 1 CASE WHEN name IS NULL THEN N'غير موجود' ELSE name END as 'Warehouse Name' FROM Warehouses WHERE id = @WarehouseIndex
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveWarehouseName] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveWarehouseName] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[RetrieveWarehouses]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveWarehouses]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2876,11 +2473,7 @@ BEGIN
     SELECT id as 'Warehouse ID', name as 'Warehouse Name' FROM Warehouses ORDER by id ASC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveWarehouses] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[RetrieveWarehouses] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[ReturnItem]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[ReturnItem]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2910,11 +2503,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[ReturnItem] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[ReturnItem] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[SaveRegisterClose]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[SaveRegisterClose]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2940,11 +2529,7 @@ set @Date2 = DATEADD(Day, 1, @date)
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[SaveRegisterClose] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[SaveRegisterClose] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[SaveRegisterOpen]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[SaveRegisterOpen]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2965,11 +2550,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[SaveRegisterOpen] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[SaveRegisterOpen] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[SearchBills]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchBills]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -2989,11 +2570,7 @@ SELECT id as 'Bill Number', cashierName as 'Cashier Name', totalAmount as 'Total
 	End as 'Payment Type', date as 'Invoice Date' FROM Bills WHERE id = @BillNumber ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[SearchBills] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[SearchBills] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[SearchClients]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchClients]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3017,11 +2594,7 @@ GROUP BY ClientsVendors.id, ClientsVendors.ClientName, ClientsVendors.ID, Items.
 Order by ClientsVendors.id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[SearchClients] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[SearchClients] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[SearchClientsInfo]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchClientsInfo]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3041,11 +2614,7 @@ where (@ClientName is null or ClientsVendors.ClientName LIKE '%' + @ClientName +
 Order by ClientsVendors.id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[SearchClientsInfo] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[SearchClientsInfo] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[SearchExpenses]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchExpenses]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3069,11 +2638,7 @@ Group by id, name, date, employee_id
 Order by date DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[SearchExpenses] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[SearchExpenses] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[SearchInventoryItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchInventoryItems]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3109,11 +2674,7 @@ FROM Items I
 
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[SearchInventoryItems] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[SearchInventoryItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[SearchInventoryItemsWithBarCode]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchInventoryItemsWithBarCode]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3132,11 +2693,7 @@ ItemBarCode = @ItemBarCode
 Order by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[SearchInventoryItemsWithBarCode] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[SearchInventoryItemsWithBarCode] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[SearchItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchItems]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3162,11 +2719,7 @@ LEFT JOIN FavoriteCategories f ON f.id = I.Favorite
 	ORDER by I.id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[SearchItems] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[SearchItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[SearchItemsQuantity]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchItemsQuantity]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3185,11 +2738,7 @@ SELECT ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as '
 Order by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[SearchItemsQuantity] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[SearchItemsQuantity] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[SearchTodayBills]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchTodayBills]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3209,11 +2758,7 @@ set @Date2 = DATEADD(Day, 1, @Date2)
 SELECT id as 'Bill Number', cashierName as 'Cashier Name', totalAmount as 'Total Amount', paidAmount as 'Paid Amount', remainderAmount as 'Remainder Amount', date as 'Date' FROM Bills WHERE ( Date >= @Date1 AND Date <= @Date2) ORDER by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[SearchTodayBills] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[SearchTodayBills] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[SearchWarehouseInventoryItems]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[SearchWarehouseInventoryItems]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3232,11 +2777,7 @@ SELECT ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as '
 Order by id DESC
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[SearchWarehouseInventoryItems] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[SearchWarehouseInventoryItems] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[UpdateBill]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateBill]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3259,11 +2800,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[UpdateBill] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[UpdateBill] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[UpdateEmployee]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateEmployee]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3286,11 +2823,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[UpdateEmployee] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[UpdateEmployee] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[UpdateFavoriteCategory]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateFavoriteCategory]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3310,11 +2843,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[UpdateFavoriteCategory] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[UpdateFavoriteCategory] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[UpdateItem]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateItem]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3348,11 +2877,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[UpdateItem] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[UpdateItem] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[UpdateItemQuantity]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateItemQuantity]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3373,11 +2898,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[UpdateItemQuantity] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[UpdateItemQuantity] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[UpdateItemType]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateItemType]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3397,11 +2918,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[UpdateItemType] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[UpdateItemType] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[UpdateItemWarehouse]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateItemWarehouse]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3437,11 +2954,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[UpdateItemWarehouse] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[UpdateItemWarehouse] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[UpdatePrinter]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdatePrinter]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3461,11 +2974,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[UpdatePrinter] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[UpdatePrinter] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[UpdateSystemSettings]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateSystemSettings]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3490,11 +2999,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[UpdateSystemSettings] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[UpdateSystemSettings] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[UpdateUser]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateUser]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3529,11 +3034,7 @@ BEGIN
 set @Status = 1
 END
 GO
-ALTER AUTHORIZATION ON [dbo].[UpdateUser] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[UpdateUser] TO  SCHEMA OWNER 
-GO
-/****** Object:  StoredProcedure [dbo].[UpdateWarehouse]    Script Date: 4/27/2023 7:38:20 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateWarehouse]    Script Date: 5/1/2023 12:27:10 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -3552,8 +3053,4 @@ BEGIN
     UPDATE Warehouses SET name = @WarehouseName WHERE id = @WarehouseID
 set @Status = 1
 END
-GO
-ALTER AUTHORIZATION ON [dbo].[UpdateWarehouse] TO  SCHEMA OWNER 
-GO
-ALTER AUTHORIZATION ON [dbo].[UpdateWarehouse] TO  SCHEMA OWNER 
 GO
