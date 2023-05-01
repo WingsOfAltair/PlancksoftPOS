@@ -385,7 +385,13 @@ namespace PlancksoftPOS
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            try
+            {
+                Application.Exit();
+            } catch(Exception exc)
+            {
+
+            }
         }
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
@@ -394,40 +400,25 @@ namespace PlancksoftPOS
             {
                 if (pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    MessageBoxManager.Yes = "نعم";
-                    MessageBoxManager.No = "لا";
-                }
-                else if (pickedLanguage == LanguageChoice.Languages.English)
-                {
-                    MessageBoxManager.Yes = "Yes";
-                    MessageBoxManager.No = "No";
-                }
-                MessageBoxManager.Register();
-
-                if (pickedLanguage == LanguageChoice.Languages.Arabic)
-                {
-                    DialogResult status = MessageBox.Show("هل أنت متأكد من رغبتك بالخروج؟", Application.ProductName, MessageBoxButtons.YesNo);
-                    MessageBoxManager.Unregister();
-                    if (status == DialogResult.No)
+                    DialogResult exitDialog = FlexibleMaterialForm.Show(this, "هل أنت متأكد من رغبتك بالخروج؟", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    if (exitDialog == DialogResult.Yes)
+                    {
+                        Environment.Exit(0);
+                    } else if (exitDialog == DialogResult.No)
                     {
                         e.Cancel = true;
-                    }
-                    else
-                    {
-                        Application.Exit();
                     }
                 }
                 else if (pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    DialogResult status = MessageBox.Show("Are you sure you would like to quit?", Application.ProductName, MessageBoxButtons.YesNo);
-                    MessageBoxManager.Unregister();
-                    if (status == DialogResult.No)
+                    DialogResult exitDialog = FlexibleMaterialForm.Show(this, "Are you sure you would like to quit?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    if (exitDialog == DialogResult.Yes)
+                    {
+                        Environment.Exit(0);
+                    }
+                    else if (exitDialog == DialogResult.No)
                     {
                         e.Cancel = true;
-                    }
-                    else
-                    {
-                        Application.Exit();
                     }
                 }
             }

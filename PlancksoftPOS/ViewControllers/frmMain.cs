@@ -3130,7 +3130,13 @@ namespace PlancksoftPOS
 
         public void خروجToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            try
+            {
+                Application.Exit();
+            } catch (Exception exc)
+            {
+
+            }
         }
 
         public void button23_Click(object sender, EventArgs e)
@@ -6316,16 +6322,49 @@ namespace PlancksoftPOS
         {
             switch (e.CloseReason)
             {
-                case CloseReason.UserClosing:
                 case CloseReason.TaskManagerClosing:
                 case CloseReason.WindowsShutDown:
                 case CloseReason.MdiFormClosing:
-                case CloseReason.ApplicationExitCall:
-                case CloseReason.FormOwnerClosing:
                 case CloseReason.None:
                     Properties.Settings.Default.moneyInRegister = this.moneyInRegister;
                     Properties.Settings.Default.Save();
                     Connection.server.LogLogout(this.UID, DateTime.Now);
+                    break;
+                case CloseReason.FormOwnerClosing:
+                case CloseReason.UserClosing:
+                case CloseReason.ApplicationExitCall:
+                    try
+                    {
+                        Properties.Settings.Default.moneyInRegister = this.moneyInRegister;
+                        Properties.Settings.Default.Save();
+                        Connection.server.LogLogout(this.UID, DateTime.Now);
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            DialogResult exitDialog = FlexibleMaterialForm.Show(this, "هل أنت متأكد من رغبتك بالخروج؟", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                            if (exitDialog == DialogResult.Yes)
+                            {
+                                Environment.Exit(0);
+                            }
+                            else if (exitDialog == DialogResult.No)
+                            {
+                                e.Cancel = true;
+                            }
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            DialogResult exitDialog = FlexibleMaterialForm.Show(this, "Are you sure you would like to quit?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                            if (exitDialog == DialogResult.Yes)
+                            {
+                                Environment.Exit(0);
+                            }
+                            else if (exitDialog == DialogResult.No)
+                            {
+                                e.Cancel = true;
+                            }
+                        }
+                    }
+                    catch (Exception error)
+                    { }
                     break;
             }
         }
