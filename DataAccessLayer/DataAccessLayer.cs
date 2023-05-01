@@ -2494,7 +2494,7 @@ namespace DataAccessLayer
             }
         }
 
-        public bool DeletesClient(string ClientID)
+        public bool DeleteClient(string ClientID)
         {
             try
             {

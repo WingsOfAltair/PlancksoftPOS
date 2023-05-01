@@ -130,13 +130,13 @@ namespace PlancksoftPOS
         {
             e.Handled = !(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar));
             if (e.KeyChar == (Char)Keys.Enter)
-                btnClear.PerformClick();
+                btnRegisterAdmin.PerformClick();
         }
 
         private void txtAdminName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
-                btnClear.PerformClick();
+                btnRegisterAdmin.PerformClick();
         }
 
         private void btnClose_Click(object sender, EventArgs e)

@@ -1239,17 +1239,17 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeletesClient">
+  <xs:element name="DeleteClient">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="ClientID" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="DeletesClientResponse">
+  <xs:element name="DeleteClientResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="DeletesClientResult" type="xs:boolean" />
+        <xs:element minOccurs="0" name="DeleteClientResult" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

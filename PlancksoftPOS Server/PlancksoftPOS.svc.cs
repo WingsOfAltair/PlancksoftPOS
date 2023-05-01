@@ -331,9 +331,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.InsertPrinter(machineName, printerName);
         }
-        public bool DeletesClient(string ClientID)
+        public bool DeleteClient(string ClientID)
         {
-            return DAL.DeletesClient(ClientID);
+            return DAL.DeleteClient(ClientID);
         }
         public bool RegisterClient(Client ClientToInsert)
         {

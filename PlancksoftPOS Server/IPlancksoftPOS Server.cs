@@ -172,7 +172,7 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool InsertPrinter(string machineName, string printerName);
         [OperationContract]
-        bool DeletesClient(string ClientID);
+        bool DeleteClient(string ClientID);
         [OperationContract]
         bool RegisterClient(Client ClientToInsert);
         [OperationContract]

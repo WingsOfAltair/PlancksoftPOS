@@ -1198,12 +1198,14 @@ namespace PlancksoftPOS
                         label83.Text = "رمز العميل";
                         label18.Text = "رقم تلفون";
                         label21.Text = "العنوان";
-                        button31.Text = "حفظ العميل";
+                        btnClientAdd.Text = "حفظ العميل";
                         groupBox15.Text = "جدول العملاء";
                         dgvClients.Columns["Column27"].HeaderText = "إسم العميل";
                         dgvClients.Columns["ClientIDDelete"].HeaderText = "رمز العميل";
                         dgvClients.Columns["Column38"].HeaderText = "رقم العميل";
                         dgvClients.Columns["Column39"].HeaderText = "عنوان العميل";
+                        btnClientDelete.Text = "حذف العميل";
+                        btnClientBalanceCheck.Text = "إضافة العميل";
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["AgentsItemsDefinitions"]))
                     {
@@ -1776,12 +1778,14 @@ namespace PlancksoftPOS
                         label83.Text = "Client ID";
                         label18.Text = "Phone Number";
                         label21.Text = "Address";
-                        button31.Text = "Save Client";
+                        btnClientAdd.Text = "Save Client";
                         groupBox15.Text = "Clients Grid";
                         dgvClients.Columns["Column27"].HeaderText = "Client Name";
                         dgvClients.Columns["ClientIDDelete"].HeaderText = "Client ID";
                         dgvClients.Columns["Column38"].HeaderText = "Phone Number";
                         dgvClients.Columns["Column39"].HeaderText = "Client Address";
+                        btnClientDelete.Text = "Delete Client";
+                        btnClientBalanceCheck.Text = "Check Balance Summary";
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["AgentsItemsDefinitions"]))
                     {
@@ -6417,7 +6421,7 @@ namespace PlancksoftPOS
             }
         }
 
-        public void button31_Click(object sender, EventArgs e)
+        public void btnClientAdd_Click(object sender, EventArgs e)
         {
             try
             {
@@ -6480,41 +6484,6 @@ namespace PlancksoftPOS
                 }
             }
             catch(Exception error)
-            { }
-        }
-
-        public void button30_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (Connection.server.DeletesClient(dgvClients.CurrentRow.Cells["ClientIDDelete"].Value.ToString()))
-                {
-                    DataTable retrievedClients = Connection.server.GetRetrieveClients();
-
-                    dgvClients.DataSource = retrievedClients;
-
-                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                    {
-                        MaterialMessageBox.Show(".تم حذف العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    }
-                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                    {
-                        MaterialMessageBox.Show("Client was deleted.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    }
-                }
-                else
-                {
-                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                    {
-                        MaterialMessageBox.Show(".لم نستطع حذف العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    }
-                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                    {
-                        MaterialMessageBox.Show("Unable to delete Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    }
-                }
-            }
-            catch (Exception error)
             { }
         }
 
@@ -6807,7 +6776,7 @@ namespace PlancksoftPOS
         {
             try
             {
-                if (Connection.server.DeletesClient(dgvVendors.CurrentRow.Cells["VendorClientID"].Value.ToString()))
+                if (Connection.server.DeleteClient(dgvVendors.CurrentRow.Cells["VendorClientID"].Value.ToString()))
                 {
                     DataTable retrievedClients = Connection.server.GetRetrieveVendors();
 
@@ -7130,25 +7099,25 @@ namespace PlancksoftPOS
         public void ClientName_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
-                button31.PerformClick();
+                btnClientAdd.PerformClick();
         }
 
         public void ClientID_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
-                button31.PerformClick();
+                btnClientAdd.PerformClick();
         }
 
         public void ClientPhone_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
-                button31.PerformClick();
+                btnClientAdd.PerformClick();
         }
 
         public void ClientAddress_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (Char)Keys.Enter)
-                button31.PerformClick();
+                btnClientAdd.PerformClick();
         }
 
         public void VendorName_KeyPress(object sender, KeyPressEventArgs e)
@@ -10625,6 +10594,39 @@ namespace PlancksoftPOS
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnClientDelete_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tabControl3.SelectedTab = tabControl3.TabPages["ClientBalanceCheck"];
+                int Index = dgvClients.CurrentCell.RowIndex;
+                string clientName = dgvClients.Rows[Index].Cells["Column27"].Value.ToString();
+                int clientID = Convert.ToInt32(dgvClients.Rows[Index].Cells["ClientIDDelete"].Value.ToString());
+
+                if (Connection.server.DeleteClient(clientID.ToString()))
+                {
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".تم حذف العميل بنجاح", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Client was deleted successfully.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                }
+            }
+            catch (Exception exc)
+            {
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MaterialMessageBox.Show(".لم نستطع حذف العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                } else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MaterialMessageBox.Show("We were unable to delete the client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
+            }
         }
 
         private void hamburger_menu_employees_affairs_sub_timer_Tick(object sender, EventArgs e)
