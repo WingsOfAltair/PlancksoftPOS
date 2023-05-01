@@ -791,20 +791,28 @@ namespace PlancksoftPOS
 
                 this.CurrentBillNumber = Connection.server.RetrieveLastBillNumberToday().getBillNumber() + 1;
 
-                if (dt.Rows[0]["SystemPhone"].ToString() == "")
+                if (dt.Rows[0]["SystemName"].ToString() == "" || dt.Rows[0]["SystemPhone"].ToString() == "")
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        if (MessageBox.Show(".بعض الاعدادات بدون قيم, الرجاء وضع قيمه لها في الاعدادات " + " اضافة ماده؟ ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        DialogResult settingsDialog = FlexibleMaterialForm.Show(this, ".بعض الاعدادات بدون قيم, الرجاء وضع قيمه لها في الاعدادات ", " اضافة ماده؟ ", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        if (settingsDialog == DialogResult.Yes)
                         {
+                            if (!Properties.Settings.Default.sideMenuExpanded)
+                                CollapseSideMenu();
+                            hamburger_menu_settings_sub_timer.Start();
                             tabControl1.SelectedTab = tabControl1.TabPages["Settings"];
                             return;
                         }
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        if (MessageBox.Show("Some system preferences are not set. Please set the proper values in the settings area." + " Add Item? ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        DialogResult settingsDialog = FlexibleMaterialForm.Show(this, "Some system preferences are not set. Please set the proper values in the settings area.", " Add Item? ", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        if (settingsDialog == DialogResult.Yes)
                         {
+                            if (!Properties.Settings.Default.sideMenuExpanded)
+                                CollapseSideMenu();
+                            hamburger_menu_settings_sub_timer.Start();
                             tabControl1.SelectedTab = tabControl1.TabPages["Settings"];
                             return;
                         }
@@ -5283,7 +5291,8 @@ namespace PlancksoftPOS
                     wmp.controls.play();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        if (MessageBox.Show(" لا يوجد تعريف للماده في المستودع, هل تريد اضافة الماده؟ " + " اضافة ماده؟ ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        DialogResult addItemDialog = FlexibleMaterialForm.Show(this, " لا يوجد تعريف للماده في المستودع, هل تريد اضافة الماده؟ ", " إضافة ماده؟ ", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        if (addItemDialog == DialogResult.Yes)
                         {
                             tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
                             txtItemBarCode.Text = ScannedBarCode;
@@ -5299,7 +5308,8 @@ namespace PlancksoftPOS
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        if (MessageBox.Show("Item is not defined in the inventory, would you like to add it?" + " Add Item? ", Application.ProductName, MessageBoxButtons.OKCancel) == DialogResult.OK)
+                        DialogResult addItemDialog = FlexibleMaterialForm.Show(this, "Item is not defined in the inventory, would you like to add it?", " Add Item? ", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        if (addItemDialog == DialogResult.Yes)
                         {
                             tabControl1.SelectedTab = tabControl1.TabPages["Inventory"];
                             txtItemBarCode.Text = ScannedBarCode;
