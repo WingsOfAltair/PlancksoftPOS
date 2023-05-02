@@ -2333,7 +2333,7 @@ namespace PlancksoftPOS
             this.EditInvoices.Location = new System.Drawing.Point(4, 34);
             this.EditInvoices.Name = "EditInvoices";
             this.EditInvoices.Padding = new System.Windows.Forms.Padding(3);
-            this.EditInvoices.Size = new System.Drawing.Size(1607, 907);
+            this.EditInvoices.Size = new System.Drawing.Size(1867, 907);
             this.EditInvoices.TabIndex = 3;
             this.EditInvoices.Text = "التعديل على الفواتير";
             this.EditInvoices.UseVisualStyleBackColor = true;
@@ -2352,7 +2352,7 @@ namespace PlancksoftPOS
             this.groupBox30.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox30.Name = "groupBox30";
             this.groupBox30.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox30.Size = new System.Drawing.Size(1601, 901);
+            this.groupBox30.Size = new System.Drawing.Size(1861, 901);
             this.groupBox30.TabIndex = 0;
             this.groupBox30.Text = "لائحة الفواتير";
             // 
@@ -2368,7 +2368,7 @@ namespace PlancksoftPOS
             this.panel12.MouseState = MaterialSkin.MouseState.HOVER;
             this.panel12.Name = "panel12";
             this.panel12.Padding = new System.Windows.Forms.Padding(14);
-            this.panel12.Size = new System.Drawing.Size(1482, 788);
+            this.panel12.Size = new System.Drawing.Size(1742, 788);
             this.panel12.TabIndex = 49;
             // 
             // dgvBillsEdit
@@ -2390,7 +2390,7 @@ namespace PlancksoftPOS
             this.dgvBillsEdit.Name = "dgvBillsEdit";
             this.dgvBillsEdit.ReadOnly = true;
             this.dgvBillsEdit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvBillsEdit.Size = new System.Drawing.Size(1454, 760);
+            this.dgvBillsEdit.Size = new System.Drawing.Size(1714, 760);
             this.dgvBillsEdit.TabIndex = 28;
             this.dgvBillsEdit.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvBillsEdit_RowHeaderMouseClick);
             // 
@@ -2464,7 +2464,7 @@ namespace PlancksoftPOS
             this.panel11.MouseState = MaterialSkin.MouseState.HOVER;
             this.panel11.Name = "panel11";
             this.panel11.Padding = new System.Windows.Forms.Padding(14);
-            this.panel11.Size = new System.Drawing.Size(1482, 85);
+            this.panel11.Size = new System.Drawing.Size(1742, 85);
             this.panel11.TabIndex = 48;
             // 
             // BillsEditButton
@@ -2475,7 +2475,7 @@ namespace PlancksoftPOS
             this.BillsEditButton.Depth = 0;
             this.BillsEditButton.HighEmphasis = true;
             this.BillsEditButton.Icon = null;
-            this.BillsEditButton.Location = new System.Drawing.Point(573, 30);
+            this.BillsEditButton.Location = new System.Drawing.Point(833, 30);
             this.BillsEditButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.BillsEditButton.MouseState = MaterialSkin.MouseState.HOVER;
             this.BillsEditButton.Name = "BillsEditButton";
@@ -2500,7 +2500,7 @@ namespace PlancksoftPOS
             this.BillsCashierName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsCashierName.HideSelection = true;
             this.BillsCashierName.LeadingIcon = null;
-            this.BillsCashierName.Location = new System.Drawing.Point(1131, 46);
+            this.BillsCashierName.Location = new System.Drawing.Point(1391, 46);
             this.BillsCashierName.MaxLength = 32767;
             this.BillsCashierName.MouseState = MaterialSkin.MouseState.OUT;
             this.BillsCashierName.Name = "BillsCashierName";
@@ -2525,7 +2525,7 @@ namespace PlancksoftPOS
             this.BillEditNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BillEditNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillEditNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillEditNumber.Location = new System.Drawing.Point(1339, 46);
+            this.BillEditNumber.Location = new System.Drawing.Point(1599, 46);
             this.BillEditNumber.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2549,7 +2549,7 @@ namespace PlancksoftPOS
             this.label11.Depth = 0;
             this.label11.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label11.Location = new System.Drawing.Point(1188, 8);
+            this.label11.Location = new System.Drawing.Point(1448, 8);
             this.label11.MouseState = MaterialSkin.MouseState.HOVER;
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(48, 19);
@@ -2563,7 +2563,7 @@ namespace PlancksoftPOS
             this.label13.Depth = 0;
             this.label13.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label13.Location = new System.Drawing.Point(1362, 8);
+            this.label13.Location = new System.Drawing.Point(1622, 8);
             this.label13.MouseState = MaterialSkin.MouseState.HOVER;
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(48, 19);
@@ -2577,7 +2577,7 @@ namespace PlancksoftPOS
             this.label9.Depth = 0;
             this.label9.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label9.Location = new System.Drawing.Point(1005, 8);
+            this.label9.Location = new System.Drawing.Point(1265, 8);
             this.label9.MouseState = MaterialSkin.MouseState.HOVER;
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 19);
@@ -2590,7 +2590,7 @@ namespace PlancksoftPOS
             this.BillsRemainderAmount.DecimalPlaces = 2;
             this.BillsRemainderAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsRemainderAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsRemainderAmount.Location = new System.Drawing.Point(705, 46);
+            this.BillsRemainderAmount.Location = new System.Drawing.Point(965, 46);
             this.BillsRemainderAmount.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2612,7 +2612,7 @@ namespace PlancksoftPOS
             this.BillsTotalAmount.DecimalPlaces = 2;
             this.BillsTotalAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsTotalAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsTotalAmount.Location = new System.Drawing.Point(989, 46);
+            this.BillsTotalAmount.Location = new System.Drawing.Point(1249, 46);
             this.BillsTotalAmount.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2635,7 +2635,7 @@ namespace PlancksoftPOS
             this.label12.Depth = 0;
             this.label12.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label12.Location = new System.Drawing.Point(726, 8);
+            this.label12.Location = new System.Drawing.Point(986, 8);
             this.label12.MouseState = MaterialSkin.MouseState.HOVER;
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(48, 19);
@@ -2649,7 +2649,7 @@ namespace PlancksoftPOS
             this.label10.Depth = 0;
             this.label10.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label10.Location = new System.Drawing.Point(862, 8);
+            this.label10.Location = new System.Drawing.Point(1122, 8);
             this.label10.MouseState = MaterialSkin.MouseState.HOVER;
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(56, 19);
@@ -2662,7 +2662,7 @@ namespace PlancksoftPOS
             this.BillsPaidAmount.DecimalPlaces = 2;
             this.BillsPaidAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BillsPaidAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BillsPaidAmount.Location = new System.Drawing.Point(847, 46);
+            this.BillsPaidAmount.Location = new System.Drawing.Point(1107, 46);
             this.BillsPaidAmount.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -2686,7 +2686,7 @@ namespace PlancksoftPOS
             this.panel10.Depth = 0;
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel10.Location = new System.Drawing.Point(1496, 14);
+            this.panel10.Location = new System.Drawing.Point(1756, 14);
             this.panel10.Margin = new System.Windows.Forms.Padding(14);
             this.panel10.MouseState = MaterialSkin.MouseState.HOVER;
             this.panel10.Name = "panel10";
@@ -2733,7 +2733,7 @@ namespace PlancksoftPOS
             this.groupBox29.Controls.Add(this.pictureBox28);
             this.groupBox29.Depth = 0;
             this.groupBox29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox29.Location = new System.Drawing.Point(245, 3);
+            this.groupBox29.Location = new System.Drawing.Point(505, 3);
             this.groupBox29.Margin = new System.Windows.Forms.Padding(14);
             this.groupBox29.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox29.Name = "groupBox29";
@@ -2843,7 +2843,7 @@ namespace PlancksoftPOS
             this.TravelingUntravelingSales.Controls.Add(this.groupBox25);
             this.TravelingUntravelingSales.Location = new System.Drawing.Point(4, 34);
             this.TravelingUntravelingSales.Name = "TravelingUntravelingSales";
-            this.TravelingUntravelingSales.Size = new System.Drawing.Size(1607, 907);
+            this.TravelingUntravelingSales.Size = new System.Drawing.Size(1867, 907);
             this.TravelingUntravelingSales.TabIndex = 1;
             this.TravelingUntravelingSales.Text = "المبيعات المرحله و الغير مرحله";
             this.TravelingUntravelingSales.UseVisualStyleBackColor = true;
@@ -2863,7 +2863,7 @@ namespace PlancksoftPOS
             this.groupBox26.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox26.Name = "groupBox26";
             this.groupBox26.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox26.Size = new System.Drawing.Size(1614, 626);
+            this.groupBox26.Size = new System.Drawing.Size(1874, 626);
             this.groupBox26.TabIndex = 1;
             this.groupBox26.Text = "المبيعات المرحله";
             // 
@@ -2881,7 +2881,7 @@ namespace PlancksoftPOS
             this.panel16.MouseState = MaterialSkin.MouseState.HOVER;
             this.panel16.Name = "panel16";
             this.panel16.Padding = new System.Windows.Forms.Padding(14);
-            this.panel16.Size = new System.Drawing.Size(1504, 605);
+            this.panel16.Size = new System.Drawing.Size(1764, 605);
             this.panel16.TabIndex = 35;
             // 
             // dgvPortedSales
@@ -2906,7 +2906,7 @@ namespace PlancksoftPOS
             this.dgvPortedSales.Name = "dgvPortedSales";
             this.dgvPortedSales.ReadOnly = true;
             this.dgvPortedSales.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvPortedSales.Size = new System.Drawing.Size(1504, 491);
+            this.dgvPortedSales.Size = new System.Drawing.Size(1764, 491);
             this.dgvPortedSales.TabIndex = 31;
             // 
             // dataGridViewTextBoxColumn11
@@ -2974,7 +2974,7 @@ namespace PlancksoftPOS
             this.panel15.Controls.Add(this.pictureBox7);
             this.panel15.Depth = 0;
             this.panel15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel15.Location = new System.Drawing.Point(1507, 18);
+            this.panel15.Location = new System.Drawing.Point(1767, 18);
             this.panel15.Margin = new System.Windows.Forms.Padding(14);
             this.panel15.MouseState = MaterialSkin.MouseState.HOVER;
             this.panel15.Name = "panel15";
@@ -3025,7 +3025,7 @@ namespace PlancksoftPOS
             this.groupBox25.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox25.Name = "groupBox25";
             this.groupBox25.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox25.Size = new System.Drawing.Size(1614, 734);
+            this.groupBox25.Size = new System.Drawing.Size(1874, 734);
             this.groupBox25.TabIndex = 1;
             this.groupBox25.Text = "المبيعات الغير المرحله";
             // 
@@ -3043,7 +3043,7 @@ namespace PlancksoftPOS
             this.panel14.MouseState = MaterialSkin.MouseState.HOVER;
             this.panel14.Name = "panel14";
             this.panel14.Padding = new System.Windows.Forms.Padding(14);
-            this.panel14.Size = new System.Drawing.Size(1501, 572);
+            this.panel14.Size = new System.Drawing.Size(1761, 572);
             this.panel14.TabIndex = 35;
             // 
             // dgvUnPortedSales
@@ -3068,7 +3068,7 @@ namespace PlancksoftPOS
             this.dgvUnPortedSales.Name = "dgvUnPortedSales";
             this.dgvUnPortedSales.ReadOnly = true;
             this.dgvUnPortedSales.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvUnPortedSales.Size = new System.Drawing.Size(1501, 569);
+            this.dgvUnPortedSales.Size = new System.Drawing.Size(1761, 569);
             this.dgvUnPortedSales.TabIndex = 31;
             // 
             // dataGridViewTextBoxColumn6
@@ -3136,7 +3136,7 @@ namespace PlancksoftPOS
             this.panel13.Controls.Add(this.pictureBox4);
             this.panel13.Depth = 0;
             this.panel13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.panel13.Location = new System.Drawing.Point(1504, 18);
+            this.panel13.Location = new System.Drawing.Point(1764, 18);
             this.panel13.Margin = new System.Windows.Forms.Padding(14);
             this.panel13.MouseState = MaterialSkin.MouseState.HOVER;
             this.panel13.Name = "panel13";
@@ -3180,7 +3180,7 @@ namespace PlancksoftPOS
             this.SoldItems.Location = new System.Drawing.Point(4, 34);
             this.SoldItems.Name = "SoldItems";
             this.SoldItems.Padding = new System.Windows.Forms.Padding(3);
-            this.SoldItems.Size = new System.Drawing.Size(1607, 907);
+            this.SoldItems.Size = new System.Drawing.Size(1867, 907);
             this.SoldItems.TabIndex = 2;
             this.SoldItems.Text = "جرد الكميات المباعه";
             // 
@@ -3205,7 +3205,7 @@ namespace PlancksoftPOS
             this.groupBox28.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox28.Name = "groupBox28";
             this.groupBox28.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox28.Size = new System.Drawing.Size(1601, 87);
+            this.groupBox28.Size = new System.Drawing.Size(1861, 87);
             this.groupBox28.TabIndex = 0;
             this.groupBox28.Text = "البحث";
             // 
@@ -3233,7 +3233,7 @@ namespace PlancksoftPOS
             this.label38.Depth = 0;
             this.label38.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label38.Location = new System.Drawing.Point(1175, 19);
+            this.label38.Location = new System.Drawing.Point(1435, 19);
             this.label38.MouseState = MaterialSkin.MouseState.HOVER;
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(29, 19);
@@ -3247,7 +3247,7 @@ namespace PlancksoftPOS
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(1310, 46);
+            this.comboBox2.Location = new System.Drawing.Point(1570, 46);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(213, 21);
             this.comboBox2.TabIndex = 35;
@@ -3259,7 +3259,7 @@ namespace PlancksoftPOS
             this.label37.Depth = 0;
             this.label37.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label37.Location = new System.Drawing.Point(1383, 19);
+            this.label37.Location = new System.Drawing.Point(1643, 19);
             this.label37.MouseState = MaterialSkin.MouseState.HOVER;
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(48, 19);
@@ -3273,7 +3273,7 @@ namespace PlancksoftPOS
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1091, 46);
+            this.comboBox1.Location = new System.Drawing.Point(1351, 46);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(213, 21);
             this.comboBox1.TabIndex = 33;
@@ -3285,7 +3285,7 @@ namespace PlancksoftPOS
             this.dateTimePicker3.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker3.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker3.Location = new System.Drawing.Point(679, 47);
+            this.dateTimePicker3.Location = new System.Drawing.Point(939, 47);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePicker3.RightToLeftLayout = true;
@@ -3299,7 +3299,7 @@ namespace PlancksoftPOS
             this.label3.Depth = 0;
             this.label3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label3.Location = new System.Drawing.Point(718, 20);
+            this.label3.Location = new System.Drawing.Point(978, 20);
             this.label3.MouseState = MaterialSkin.MouseState.HOVER;
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 19);
@@ -3313,7 +3313,7 @@ namespace PlancksoftPOS
             this.dateTimePicker4.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker4.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker4.Location = new System.Drawing.Point(885, 47);
+            this.dateTimePicker4.Location = new System.Drawing.Point(1145, 47);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePicker4.RightToLeftLayout = true;
@@ -3327,7 +3327,7 @@ namespace PlancksoftPOS
             this.label5.Depth = 0;
             this.label5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label5.Location = new System.Drawing.Point(926, 20);
+            this.label5.Location = new System.Drawing.Point(1186, 20);
             this.label5.MouseState = MaterialSkin.MouseState.HOVER;
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 19);
@@ -3340,7 +3340,7 @@ namespace PlancksoftPOS
             this.pictureBox30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox30.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox30.Image = global::PlancksoftPOS.Properties.Resources.search;
-            this.pictureBox30.Location = new System.Drawing.Point(1536, 31);
+            this.pictureBox30.Location = new System.Drawing.Point(1796, 31);
             this.pictureBox30.Name = "pictureBox30";
             this.pictureBox30.Size = new System.Drawing.Size(47, 39);
             this.pictureBox30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -3363,7 +3363,7 @@ namespace PlancksoftPOS
             this.groupBox27.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox27.Name = "groupBox27";
             this.groupBox27.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox27.Size = new System.Drawing.Size(1602, 782);
+            this.groupBox27.Size = new System.Drawing.Size(1862, 782);
             this.groupBox27.TabIndex = 1;
             // 
             // dgvItemProfit
@@ -3388,7 +3388,7 @@ namespace PlancksoftPOS
             this.dgvItemProfit.Name = "dgvItemProfit";
             this.dgvItemProfit.ReadOnly = true;
             this.dgvItemProfit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvItemProfit.Size = new System.Drawing.Size(1491, 759);
+            this.dgvItemProfit.Size = new System.Drawing.Size(1751, 759);
             this.dgvItemProfit.TabIndex = 34;
             // 
             // dataGridViewTextBoxColumn16
@@ -3453,7 +3453,7 @@ namespace PlancksoftPOS
             this.pictureBox29.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox29.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox29.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox29.Location = new System.Drawing.Point(1504, 20);
+            this.pictureBox29.Location = new System.Drawing.Point(1764, 20);
             this.pictureBox29.Name = "pictureBox29";
             this.pictureBox29.Size = new System.Drawing.Size(101, 102);
             this.pictureBox29.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -4499,7 +4499,7 @@ namespace PlancksoftPOS
             this.InventoryQuantify.Controls.Add(this.groupBox46);
             this.InventoryQuantify.Location = new System.Drawing.Point(4, 34);
             this.InventoryQuantify.Name = "InventoryQuantify";
-            this.InventoryQuantify.Size = new System.Drawing.Size(1585, 885);
+            this.InventoryQuantify.Size = new System.Drawing.Size(1845, 885);
             this.InventoryQuantify.TabIndex = 4;
             this.InventoryQuantify.Text = "جرد المستودعات";
             this.InventoryQuantify.UseVisualStyleBackColor = true;
@@ -4521,7 +4521,7 @@ namespace PlancksoftPOS
             this.groupBox45.Name = "groupBox45";
             this.groupBox45.Padding = new System.Windows.Forms.Padding(14);
             this.groupBox45.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox45.Size = new System.Drawing.Size(1611, 79);
+            this.groupBox45.Size = new System.Drawing.Size(1871, 79);
             this.groupBox45.TabIndex = 23;
             this.groupBox45.Text = "البحث عن المستودع";
             // 
@@ -4533,7 +4533,7 @@ namespace PlancksoftPOS
             this.button13.Depth = 0;
             this.button13.HighEmphasis = true;
             this.button13.Icon = null;
-            this.button13.Location = new System.Drawing.Point(1514, 35);
+            this.button13.Location = new System.Drawing.Point(1774, 35);
             this.button13.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button13.MouseState = MaterialSkin.MouseState.HOVER;
             this.button13.Name = "button13";
@@ -4551,7 +4551,7 @@ namespace PlancksoftPOS
             this.WarehousesQuantityList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.WarehousesQuantityList.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.WarehousesQuantityList.FormattingEnabled = true;
-            this.WarehousesQuantityList.Location = new System.Drawing.Point(1249, 47);
+            this.WarehousesQuantityList.Location = new System.Drawing.Point(1509, 47);
             this.WarehousesQuantityList.Name = "WarehousesQuantityList";
             this.WarehousesQuantityList.Size = new System.Drawing.Size(235, 24);
             this.WarehousesQuantityList.TabIndex = 17;
@@ -4563,7 +4563,7 @@ namespace PlancksoftPOS
             this.label47.Depth = 0;
             this.label47.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label47.Location = new System.Drawing.Point(1335, 27);
+            this.label47.Location = new System.Drawing.Point(1595, 27);
             this.label47.MouseState = MaterialSkin.MouseState.HOVER;
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(38, 19);
@@ -4587,7 +4587,7 @@ namespace PlancksoftPOS
             this.groupBox46.Name = "groupBox46";
             this.groupBox46.Padding = new System.Windows.Forms.Padding(14);
             this.groupBox46.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox46.Size = new System.Drawing.Size(1611, 925);
+            this.groupBox46.Size = new System.Drawing.Size(1871, 925);
             this.groupBox46.TabIndex = 22;
             this.groupBox46.Text = "مخزون البضائع في المستودع";
             // 
@@ -4597,7 +4597,7 @@ namespace PlancksoftPOS
             this.pictureBox47.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox47.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox47.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox47.Location = new System.Drawing.Point(1514, 21);
+            this.pictureBox47.Location = new System.Drawing.Point(1774, 21);
             this.pictureBox47.Name = "pictureBox47";
             this.pictureBox47.Size = new System.Drawing.Size(64, 45);
             this.pictureBox47.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -4629,7 +4629,7 @@ namespace PlancksoftPOS
             this.dgvWarehouseInventory.Name = "dgvWarehouseInventory";
             this.dgvWarehouseInventory.ReadOnly = true;
             this.dgvWarehouseInventory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvWarehouseInventory.Size = new System.Drawing.Size(1496, 772);
+            this.dgvWarehouseInventory.Size = new System.Drawing.Size(1756, 772);
             this.dgvWarehouseInventory.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn32
@@ -4709,7 +4709,7 @@ namespace PlancksoftPOS
             this.IncomingOutgoingItems.Controls.Add(this.groupBox48);
             this.IncomingOutgoingItems.Location = new System.Drawing.Point(4, 34);
             this.IncomingOutgoingItems.Name = "IncomingOutgoingItems";
-            this.IncomingOutgoingItems.Size = new System.Drawing.Size(1585, 885);
+            this.IncomingOutgoingItems.Size = new System.Drawing.Size(1845, 885);
             this.IncomingOutgoingItems.TabIndex = 5;
             this.IncomingOutgoingItems.Text = "سند إدخال و إخراج";
             this.IncomingOutgoingItems.UseVisualStyleBackColor = true;
@@ -4755,7 +4755,7 @@ namespace PlancksoftPOS
             this.groupBox48.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox48.Name = "groupBox48";
             this.groupBox48.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox48.Size = new System.Drawing.Size(1585, 885);
+            this.groupBox48.Size = new System.Drawing.Size(1845, 885);
             this.groupBox48.TabIndex = 48;
             this.groupBox48.Text = "اضافة سند إدخال و إخراج";
             // 
@@ -4767,7 +4767,7 @@ namespace PlancksoftPOS
             this.btnPickClientForImportExport.Depth = 0;
             this.btnPickClientForImportExport.HighEmphasis = true;
             this.btnPickClientForImportExport.Icon = null;
-            this.btnPickClientForImportExport.Location = new System.Drawing.Point(1477, 156);
+            this.btnPickClientForImportExport.Location = new System.Drawing.Point(1737, 156);
             this.btnPickClientForImportExport.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPickClientForImportExport.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPickClientForImportExport.Name = "btnPickClientForImportExport";
@@ -4792,7 +4792,7 @@ namespace PlancksoftPOS
             this.txtClientNameImportExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClientNameImportExport.HideSelection = true;
             this.txtClientNameImportExport.LeadingIcon = null;
-            this.txtClientNameImportExport.Location = new System.Drawing.Point(222, 77);
+            this.txtClientNameImportExport.Location = new System.Drawing.Point(482, 77);
             this.txtClientNameImportExport.MaxLength = 32767;
             this.txtClientNameImportExport.MouseState = MaterialSkin.MouseState.OUT;
             this.txtClientNameImportExport.Name = "txtClientNameImportExport";
@@ -4816,7 +4816,7 @@ namespace PlancksoftPOS
             this.nudClientIDImportExport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nudClientIDImportExport.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudClientIDImportExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.nudClientIDImportExport.Location = new System.Drawing.Point(-181, 105);
+            this.nudClientIDImportExport.Location = new System.Drawing.Point(79, 105);
             this.nudClientIDImportExport.Maximum = new decimal(new int[] {
             1241513983,
             370409800,
@@ -4834,7 +4834,7 @@ namespace PlancksoftPOS
             this.lblClientIDImportExport.Depth = 0;
             this.lblClientIDImportExport.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblClientIDImportExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.lblClientIDImportExport.Location = new System.Drawing.Point(5, 78);
+            this.lblClientIDImportExport.Location = new System.Drawing.Point(265, 78);
             this.lblClientIDImportExport.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblClientIDImportExport.Name = "lblClientIDImportExport";
             this.lblClientIDImportExport.Size = new System.Drawing.Size(46, 19);
@@ -4848,7 +4848,7 @@ namespace PlancksoftPOS
             this.lblClientNameImportExport.Depth = 0;
             this.lblClientNameImportExport.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblClientNameImportExport.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.lblClientNameImportExport.Location = new System.Drawing.Point(404, 55);
+            this.lblClientNameImportExport.Location = new System.Drawing.Point(664, 55);
             this.lblClientNameImportExport.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblClientNameImportExport.Name = "lblClientNameImportExport";
             this.lblClientNameImportExport.Size = new System.Drawing.Size(43, 19);
@@ -4863,7 +4863,7 @@ namespace PlancksoftPOS
             this.button15.Depth = 0;
             this.button15.HighEmphasis = true;
             this.button15.Icon = null;
-            this.button15.Location = new System.Drawing.Point(1484, 348);
+            this.button15.Location = new System.Drawing.Point(1744, 348);
             this.button15.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button15.MouseState = MaterialSkin.MouseState.HOVER;
             this.button15.Name = "button15";
@@ -4884,7 +4884,7 @@ namespace PlancksoftPOS
             this.button36.Depth = 0;
             this.button36.HighEmphasis = true;
             this.button36.Icon = null;
-            this.button36.Location = new System.Drawing.Point(1494, 300);
+            this.button36.Location = new System.Drawing.Point(1754, 300);
             this.button36.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button36.MouseState = MaterialSkin.MouseState.HOVER;
             this.button36.Name = "button36";
@@ -4905,7 +4905,7 @@ namespace PlancksoftPOS
             this.button38.Depth = 0;
             this.button38.HighEmphasis = true;
             this.button38.Icon = null;
-            this.button38.Location = new System.Drawing.Point(1489, 252);
+            this.button38.Location = new System.Drawing.Point(1749, 252);
             this.button38.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button38.MouseState = MaterialSkin.MouseState.HOVER;
             this.button38.Name = "button38";
@@ -4926,7 +4926,7 @@ namespace PlancksoftPOS
             this.button14.Depth = 0;
             this.button14.HighEmphasis = true;
             this.button14.Icon = null;
-            this.button14.Location = new System.Drawing.Point(1488, 204);
+            this.button14.Location = new System.Drawing.Point(1748, 204);
             this.button14.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button14.MouseState = MaterialSkin.MouseState.HOVER;
             this.button14.Name = "button14";
@@ -4946,7 +4946,7 @@ namespace PlancksoftPOS
             this.label46.Depth = 0;
             this.label46.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label46.Location = new System.Drawing.Point(653, 82);
+            this.label46.Location = new System.Drawing.Point(913, 82);
             this.label46.MouseState = MaterialSkin.MouseState.HOVER;
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(49, 19);
@@ -4959,7 +4959,7 @@ namespace PlancksoftPOS
             this.EntryExitItemBuyPrice.DecimalPlaces = 2;
             this.EntryExitItemBuyPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EntryExitItemBuyPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.EntryExitItemBuyPrice.Location = new System.Drawing.Point(621, 105);
+            this.EntryExitItemBuyPrice.Location = new System.Drawing.Point(881, 105);
             this.EntryExitItemBuyPrice.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -4995,7 +4995,7 @@ namespace PlancksoftPOS
             this.dvgEntryExitItems.Location = new System.Drawing.Point(7, 131);
             this.dvgEntryExitItems.Name = "dvgEntryExitItems";
             this.dvgEntryExitItems.ReadOnly = true;
-            this.dvgEntryExitItems.Size = new System.Drawing.Size(1437, 710);
+            this.dvgEntryExitItems.Size = new System.Drawing.Size(1697, 710);
             this.dvgEntryExitItems.TabIndex = 49;
             this.dvgEntryExitItems.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dvgEntryExitItems_RowHeaderMouseClick);
             // 
@@ -5078,7 +5078,7 @@ namespace PlancksoftPOS
             this.WarehouseEntryExitList.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarehouseEntryExitList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.WarehouseEntryExitList.FormattingEnabled = true;
-            this.WarehouseEntryExitList.Location = new System.Drawing.Point(886, 51);
+            this.WarehouseEntryExitList.Location = new System.Drawing.Point(1146, 51);
             this.WarehouseEntryExitList.Name = "WarehouseEntryExitList";
             this.WarehouseEntryExitList.Size = new System.Drawing.Size(137, 21);
             this.WarehouseEntryExitList.TabIndex = 46;
@@ -5090,7 +5090,7 @@ namespace PlancksoftPOS
             this.label103.Depth = 0;
             this.label103.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label103.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label103.Location = new System.Drawing.Point(920, 25);
+            this.label103.Location = new System.Drawing.Point(1180, 25);
             this.label103.MouseState = MaterialSkin.MouseState.HOVER;
             this.label103.Name = "label103";
             this.label103.Size = new System.Drawing.Size(38, 19);
@@ -5107,7 +5107,7 @@ namespace PlancksoftPOS
             this.EntryExitType.Items.AddRange(new object[] {
             "ادخال Import",
             "اخراج Export"});
-            this.EntryExitType.Location = new System.Drawing.Point(653, 51);
+            this.EntryExitType.Location = new System.Drawing.Point(913, 51);
             this.EntryExitType.Name = "EntryExitType";
             this.EntryExitType.Size = new System.Drawing.Size(227, 21);
             this.EntryExitType.TabIndex = 11;
@@ -5119,7 +5119,7 @@ namespace PlancksoftPOS
             this.label53.Depth = 0;
             this.label53.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label53.Location = new System.Drawing.Point(1435, 23);
+            this.label53.Location = new System.Drawing.Point(1695, 23);
             this.label53.MouseState = MaterialSkin.MouseState.HOVER;
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(45, 19);
@@ -5138,7 +5138,7 @@ namespace PlancksoftPOS
             this.WarehouseEntryExitItemBarCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarehouseEntryExitItemBarCode.HideSelection = true;
             this.WarehouseEntryExitItemBarCode.LeadingIcon = null;
-            this.WarehouseEntryExitItemBarCode.Location = new System.Drawing.Point(1146, 51);
+            this.WarehouseEntryExitItemBarCode.Location = new System.Drawing.Point(1406, 51);
             this.WarehouseEntryExitItemBarCode.MaxLength = 32767;
             this.WarehouseEntryExitItemBarCode.MouseState = MaterialSkin.MouseState.OUT;
             this.WarehouseEntryExitItemBarCode.Name = "WarehouseEntryExitItemBarCode";
@@ -5169,7 +5169,7 @@ namespace PlancksoftPOS
             this.WarehouseEntryExitItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarehouseEntryExitItemName.HideSelection = true;
             this.WarehouseEntryExitItemName.LeadingIcon = null;
-            this.WarehouseEntryExitItemName.Location = new System.Drawing.Point(1367, 50);
+            this.WarehouseEntryExitItemName.Location = new System.Drawing.Point(1627, 50);
             this.WarehouseEntryExitItemName.MaxLength = 32767;
             this.WarehouseEntryExitItemName.MouseState = MaterialSkin.MouseState.OUT;
             this.WarehouseEntryExitItemName.Name = "WarehouseEntryExitItemName";
@@ -5195,7 +5195,7 @@ namespace PlancksoftPOS
             this.EntryExitProductionDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryExitProductionDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryExitProductionDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EntryExitProductionDate.Location = new System.Drawing.Point(237, 33);
+            this.EntryExitProductionDate.Location = new System.Drawing.Point(497, 33);
             this.EntryExitProductionDate.Name = "EntryExitProductionDate";
             this.EntryExitProductionDate.Size = new System.Drawing.Size(199, 20);
             this.EntryExitProductionDate.TabIndex = 8;
@@ -5207,7 +5207,7 @@ namespace PlancksoftPOS
             this.label48.Depth = 0;
             this.label48.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label48.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label48.Location = new System.Drawing.Point(1201, 25);
+            this.label48.Location = new System.Drawing.Point(1461, 25);
             this.label48.MouseState = MaterialSkin.MouseState.HOVER;
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(57, 19);
@@ -5221,7 +5221,7 @@ namespace PlancksoftPOS
             this.label79.Depth = 0;
             this.label79.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label79.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label79.Location = new System.Drawing.Point(299, 2);
+            this.label79.Location = new System.Drawing.Point(559, 2);
             this.label79.MouseState = MaterialSkin.MouseState.HOVER;
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(52, 19);
@@ -5233,7 +5233,7 @@ namespace PlancksoftPOS
             this.EntryExitWarningQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EntryExitWarningQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EntryExitWarningQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.EntryExitWarningQuantity.Location = new System.Drawing.Point(442, 33);
+            this.EntryExitWarningQuantity.Location = new System.Drawing.Point(702, 33);
             this.EntryExitWarningQuantity.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -5256,7 +5256,7 @@ namespace PlancksoftPOS
             this.EntryExitExpirationDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryExitExpirationDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryExitExpirationDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EntryExitExpirationDate.Location = new System.Drawing.Point(942, 105);
+            this.EntryExitExpirationDate.Location = new System.Drawing.Point(1202, 105);
             this.EntryExitExpirationDate.Name = "EntryExitExpirationDate";
             this.EntryExitExpirationDate.Size = new System.Drawing.Size(199, 20);
             this.EntryExitExpirationDate.TabIndex = 9;
@@ -5268,7 +5268,7 @@ namespace PlancksoftPOS
             this.EntryExitEntryDate.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryExitEntryDate.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.EntryExitEntryDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EntryExitEntryDate.Location = new System.Drawing.Point(737, 105);
+            this.EntryExitEntryDate.Location = new System.Drawing.Point(997, 105);
             this.EntryExitEntryDate.Name = "EntryExitEntryDate";
             this.EntryExitEntryDate.Size = new System.Drawing.Size(199, 20);
             this.EntryExitEntryDate.TabIndex = 10;
@@ -5280,7 +5280,7 @@ namespace PlancksoftPOS
             this.label94.Depth = 0;
             this.label94.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label94.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label94.Location = new System.Drawing.Point(503, 3);
+            this.label94.Location = new System.Drawing.Point(763, 3);
             this.label94.MouseState = MaterialSkin.MouseState.HOVER;
             this.label94.Name = "label94";
             this.label94.Size = new System.Drawing.Size(45, 19);
@@ -5294,7 +5294,7 @@ namespace PlancksoftPOS
             this.label96.Depth = 0;
             this.label96.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label96.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label96.Location = new System.Drawing.Point(982, 85);
+            this.label96.Location = new System.Drawing.Point(1242, 85);
             this.label96.MouseState = MaterialSkin.MouseState.HOVER;
             this.label96.Name = "label96";
             this.label96.Size = new System.Drawing.Size(89, 19);
@@ -5308,7 +5308,7 @@ namespace PlancksoftPOS
             this.label97.Depth = 0;
             this.label97.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label97.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label97.Location = new System.Drawing.Point(1041, 25);
+            this.label97.Location = new System.Drawing.Point(1301, 25);
             this.label97.MouseState = MaterialSkin.MouseState.HOVER;
             this.label97.Name = "label97";
             this.label97.Size = new System.Drawing.Size(46, 19);
@@ -5320,7 +5320,7 @@ namespace PlancksoftPOS
             this.EntryExitItemQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.EntryExitItemQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.EntryExitItemQuantity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.EntryExitItemQuantity.Location = new System.Drawing.Point(1029, 52);
+            this.EntryExitItemQuantity.Location = new System.Drawing.Point(1289, 52);
             this.EntryExitItemQuantity.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -5343,7 +5343,7 @@ namespace PlancksoftPOS
             this.label98.Depth = 0;
             this.label98.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label98.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label98.Location = new System.Drawing.Point(804, 85);
+            this.label98.Location = new System.Drawing.Point(1064, 85);
             this.label98.MouseState = MaterialSkin.MouseState.HOVER;
             this.label98.Name = "label98";
             this.label98.Size = new System.Drawing.Size(56, 19);
@@ -5357,7 +5357,7 @@ namespace PlancksoftPOS
             this.label101.Depth = 0;
             this.label101.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label101.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label101.Location = new System.Drawing.Point(723, 25);
+            this.label101.Location = new System.Drawing.Point(983, 25);
             this.label101.MouseState = MaterialSkin.MouseState.HOVER;
             this.label101.Name = "label101";
             this.label101.Size = new System.Drawing.Size(39, 19);
@@ -5371,7 +5371,7 @@ namespace PlancksoftPOS
             this.AddTypes.Location = new System.Drawing.Point(4, 34);
             this.AddTypes.Name = "AddTypes";
             this.AddTypes.Padding = new System.Windows.Forms.Padding(3);
-            this.AddTypes.Size = new System.Drawing.Size(1585, 885);
+            this.AddTypes.Size = new System.Drawing.Size(1845, 885);
             this.AddTypes.TabIndex = 1;
             this.AddTypes.Text = "إضافة صنف";
             // 
@@ -5388,7 +5388,7 @@ namespace PlancksoftPOS
             this.flowLayoutPanel3.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1579, 879);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1839, 879);
             this.flowLayoutPanel3.TabIndex = 0;
             this.flowLayoutPanel3.WrapContents = false;
             // 
@@ -5398,7 +5398,7 @@ namespace PlancksoftPOS
             this.label29.Depth = 0;
             this.label29.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label29.Location = new System.Drawing.Point(1475, 0);
+            this.label29.Location = new System.Drawing.Point(1735, 0);
             this.label29.MouseState = MaterialSkin.MouseState.HOVER;
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(97, 19);
@@ -5416,7 +5416,7 @@ namespace PlancksoftPOS
             this.ItemTypeEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemTypeEntry.HideSelection = true;
             this.ItemTypeEntry.LeadingIcon = null;
-            this.ItemTypeEntry.Location = new System.Drawing.Point(1221, 22);
+            this.ItemTypeEntry.Location = new System.Drawing.Point(1481, 22);
             this.ItemTypeEntry.MaxLength = 32767;
             this.ItemTypeEntry.MouseState = MaterialSkin.MouseState.OUT;
             this.ItemTypeEntry.Name = "ItemTypeEntry";
@@ -5442,7 +5442,7 @@ namespace PlancksoftPOS
             this.label30.Depth = 0;
             this.label30.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label30.Location = new System.Drawing.Point(1482, 73);
+            this.label30.Location = new System.Drawing.Point(1742, 73);
             this.label30.MouseState = MaterialSkin.MouseState.HOVER;
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(90, 19);
@@ -5454,7 +5454,7 @@ namespace PlancksoftPOS
             this.pictureBox39.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox39.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox39.Image = global::PlancksoftPOS.Properties.Resources.plus;
-            this.pictureBox39.Location = new System.Drawing.Point(1504, 95);
+            this.pictureBox39.Location = new System.Drawing.Point(1764, 95);
             this.pictureBox39.Name = "pictureBox39";
             this.pictureBox39.Size = new System.Drawing.Size(68, 49);
             this.pictureBox39.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -5468,7 +5468,7 @@ namespace PlancksoftPOS
             this.AddFavorites.Controls.Add(this.flowLayoutPanel1);
             this.AddFavorites.Location = new System.Drawing.Point(4, 34);
             this.AddFavorites.Name = "AddFavorites";
-            this.AddFavorites.Size = new System.Drawing.Size(1585, 885);
+            this.AddFavorites.Size = new System.Drawing.Size(1845, 885);
             this.AddFavorites.TabIndex = 2;
             this.AddFavorites.Text = "إضافة مجلد مفضلات";
             // 
@@ -5485,7 +5485,7 @@ namespace PlancksoftPOS
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1585, 885);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1845, 885);
             this.flowLayoutPanel1.TabIndex = 0;
             this.flowLayoutPanel1.WrapContents = false;
             // 
@@ -5495,7 +5495,7 @@ namespace PlancksoftPOS
             this.label22.Depth = 0;
             this.label22.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label22.Location = new System.Drawing.Point(1482, 0);
+            this.label22.Location = new System.Drawing.Point(1742, 0);
             this.label22.MouseState = MaterialSkin.MouseState.HOVER;
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(96, 19);
@@ -5513,7 +5513,7 @@ namespace PlancksoftPOS
             this.FavoriteCategoryEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FavoriteCategoryEntry.HideSelection = true;
             this.FavoriteCategoryEntry.LeadingIcon = null;
-            this.FavoriteCategoryEntry.Location = new System.Drawing.Point(1227, 22);
+            this.FavoriteCategoryEntry.Location = new System.Drawing.Point(1487, 22);
             this.FavoriteCategoryEntry.MaxLength = 32767;
             this.FavoriteCategoryEntry.MouseState = MaterialSkin.MouseState.OUT;
             this.FavoriteCategoryEntry.Name = "FavoriteCategoryEntry";
@@ -5539,7 +5539,7 @@ namespace PlancksoftPOS
             this.label23.Depth = 0;
             this.label23.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label23.Location = new System.Drawing.Point(1501, 73);
+            this.label23.Location = new System.Drawing.Point(1761, 73);
             this.label23.MouseState = MaterialSkin.MouseState.HOVER;
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(77, 19);
@@ -5551,7 +5551,7 @@ namespace PlancksoftPOS
             this.pictureBox36.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox36.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox36.Image = global::PlancksoftPOS.Properties.Resources.plus;
-            this.pictureBox36.Location = new System.Drawing.Point(1510, 95);
+            this.pictureBox36.Location = new System.Drawing.Point(1770, 95);
             this.pictureBox36.Name = "pictureBox36";
             this.pictureBox36.Size = new System.Drawing.Size(68, 49);
             this.pictureBox36.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -5565,7 +5565,7 @@ namespace PlancksoftPOS
             this.AddWarehouses.Controls.Add(this.flowLayoutPanel2);
             this.AddWarehouses.Location = new System.Drawing.Point(4, 34);
             this.AddWarehouses.Name = "AddWarehouses";
-            this.AddWarehouses.Size = new System.Drawing.Size(1585, 885);
+            this.AddWarehouses.Size = new System.Drawing.Size(1845, 885);
             this.AddWarehouses.TabIndex = 3;
             this.AddWarehouses.Text = "إضافة مستودع";
             // 
@@ -5582,7 +5582,7 @@ namespace PlancksoftPOS
             this.flowLayoutPanel2.ForeColor = System.Drawing.Color.White;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1585, 885);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1845, 885);
             this.flowLayoutPanel2.TabIndex = 0;
             this.flowLayoutPanel2.WrapContents = false;
             // 
@@ -5592,7 +5592,7 @@ namespace PlancksoftPOS
             this.label26.Depth = 0;
             this.label26.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label26.Location = new System.Drawing.Point(1498, 0);
+            this.label26.Location = new System.Drawing.Point(1758, 0);
             this.label26.MouseState = MaterialSkin.MouseState.HOVER;
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(80, 19);
@@ -5610,7 +5610,7 @@ namespace PlancksoftPOS
             this.WarehouseEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WarehouseEntry.HideSelection = true;
             this.WarehouseEntry.LeadingIcon = null;
-            this.WarehouseEntry.Location = new System.Drawing.Point(1227, 22);
+            this.WarehouseEntry.Location = new System.Drawing.Point(1487, 22);
             this.WarehouseEntry.MaxLength = 32767;
             this.WarehouseEntry.MouseState = MaterialSkin.MouseState.OUT;
             this.WarehouseEntry.Name = "WarehouseEntry";
@@ -5636,7 +5636,7 @@ namespace PlancksoftPOS
             this.label27.Depth = 0;
             this.label27.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label27.Location = new System.Drawing.Point(1493, 73);
+            this.label27.Location = new System.Drawing.Point(1753, 73);
             this.label27.MouseState = MaterialSkin.MouseState.HOVER;
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(85, 19);
@@ -5648,7 +5648,7 @@ namespace PlancksoftPOS
             this.pictureBox38.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox38.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox38.Image = global::PlancksoftPOS.Properties.Resources.plus;
-            this.pictureBox38.Location = new System.Drawing.Point(1510, 95);
+            this.pictureBox38.Location = new System.Drawing.Point(1770, 95);
             this.pictureBox38.Name = "pictureBox38";
             this.pictureBox38.Size = new System.Drawing.Size(68, 49);
             this.pictureBox38.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -6000,7 +6000,7 @@ namespace PlancksoftPOS
             this.AddExpenses.Location = new System.Drawing.Point(4, 34);
             this.AddExpenses.Name = "AddExpenses";
             this.AddExpenses.Padding = new System.Windows.Forms.Padding(3);
-            this.AddExpenses.Size = new System.Drawing.Size(1613, 913);
+            this.AddExpenses.Size = new System.Drawing.Size(1873, 913);
             this.AddExpenses.TabIndex = 1;
             this.AddExpenses.Text = "إضافة مصروف";
             // 
@@ -6021,7 +6021,7 @@ namespace PlancksoftPOS
             this.groupBox33.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox33.Name = "groupBox33";
             this.groupBox33.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox33.Size = new System.Drawing.Size(1607, 907);
+            this.groupBox33.Size = new System.Drawing.Size(1867, 907);
             this.groupBox33.TabIndex = 0;
             // 
             // button3
@@ -6032,7 +6032,7 @@ namespace PlancksoftPOS
             this.button3.Depth = 0;
             this.button3.HighEmphasis = true;
             this.button3.Icon = null;
-            this.button3.Location = new System.Drawing.Point(1415, 165);
+            this.button3.Location = new System.Drawing.Point(1675, 165);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button3.MouseState = MaterialSkin.MouseState.HOVER;
             this.button3.Name = "button3";
@@ -6053,7 +6053,7 @@ namespace PlancksoftPOS
             this.button2.Depth = 0;
             this.button2.HighEmphasis = true;
             this.button2.Icon = null;
-            this.button2.Location = new System.Drawing.Point(1481, 165);
+            this.button2.Location = new System.Drawing.Point(1741, 165);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button2.MouseState = MaterialSkin.MouseState.HOVER;
             this.button2.Name = "button2";
@@ -6072,7 +6072,7 @@ namespace PlancksoftPOS
             this.numericUpDown1.DecimalPlaces = 2;
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.numericUpDown1.Location = new System.Drawing.Point(1368, 105);
+            this.numericUpDown1.Location = new System.Drawing.Point(1628, 105);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             -1981284353,
             -1966660860,
@@ -6091,7 +6091,7 @@ namespace PlancksoftPOS
             this.label20.Depth = 0;
             this.label20.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label20.Location = new System.Drawing.Point(1436, 78);
+            this.label20.Location = new System.Drawing.Point(1696, 78);
             this.label20.MouseState = MaterialSkin.MouseState.HOVER;
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(63, 19);
@@ -6110,7 +6110,7 @@ namespace PlancksoftPOS
             this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox4.HideSelection = true;
             this.textBox4.LeadingIcon = null;
-            this.textBox4.Location = new System.Drawing.Point(1368, 39);
+            this.textBox4.Location = new System.Drawing.Point(1628, 39);
             this.textBox4.MaxLength = 32767;
             this.textBox4.MouseState = MaterialSkin.MouseState.OUT;
             this.textBox4.Name = "textBox4";
@@ -6137,7 +6137,7 @@ namespace PlancksoftPOS
             this.label19.Depth = 0;
             this.label19.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label19.Location = new System.Drawing.Point(1436, 12);
+            this.label19.Location = new System.Drawing.Point(1696, 12);
             this.label19.MouseState = MaterialSkin.MouseState.HOVER;
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(59, 19);
@@ -7196,7 +7196,7 @@ namespace PlancksoftPOS
             this.DaysOff.Controls.Add(this.groupBox51);
             this.DaysOff.Location = new System.Drawing.Point(4, 34);
             this.DaysOff.Name = "DaysOff";
-            this.DaysOff.Size = new System.Drawing.Size(1613, 913);
+            this.DaysOff.Size = new System.Drawing.Size(1873, 913);
             this.DaysOff.TabIndex = 1;
             this.DaysOff.Text = "الإجازات";
             this.DaysOff.UseVisualStyleBackColor = true;
@@ -7220,7 +7220,7 @@ namespace PlancksoftPOS
             this.groupBox51.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox51.Name = "groupBox51";
             this.groupBox51.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox51.Size = new System.Drawing.Size(1613, 913);
+            this.groupBox51.Size = new System.Drawing.Size(1873, 913);
             this.groupBox51.TabIndex = 2;
             this.groupBox51.Text = "جدول الاجازات اليوميه";
             // 
@@ -7232,7 +7232,7 @@ namespace PlancksoftPOS
             this.button33.Depth = 0;
             this.button33.HighEmphasis = true;
             this.button33.Icon = null;
-            this.button33.Location = new System.Drawing.Point(1017, 29);
+            this.button33.Location = new System.Drawing.Point(1277, 29);
             this.button33.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button33.MouseState = MaterialSkin.MouseState.HOVER;
             this.button33.Name = "button33";
@@ -7248,7 +7248,7 @@ namespace PlancksoftPOS
             // AbsenceTo
             // 
             this.AbsenceTo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AbsenceTo.Location = new System.Drawing.Point(1107, 43);
+            this.AbsenceTo.Location = new System.Drawing.Point(1367, 43);
             this.AbsenceTo.Name = "AbsenceTo";
             this.AbsenceTo.Size = new System.Drawing.Size(200, 22);
             this.AbsenceTo.TabIndex = 34;
@@ -7260,7 +7260,7 @@ namespace PlancksoftPOS
             this.label110.Depth = 0;
             this.label110.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label110.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label110.Location = new System.Drawing.Point(1169, 16);
+            this.label110.Location = new System.Drawing.Point(1429, 16);
             this.label110.MouseState = MaterialSkin.MouseState.HOVER;
             this.label110.Name = "label110";
             this.label110.Size = new System.Drawing.Size(45, 19);
@@ -7270,7 +7270,7 @@ namespace PlancksoftPOS
             // AbsenceFrom
             // 
             this.AbsenceFrom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AbsenceFrom.Location = new System.Drawing.Point(1313, 43);
+            this.AbsenceFrom.Location = new System.Drawing.Point(1573, 43);
             this.AbsenceFrom.Name = "AbsenceFrom";
             this.AbsenceFrom.Size = new System.Drawing.Size(200, 22);
             this.AbsenceFrom.TabIndex = 31;
@@ -7282,7 +7282,7 @@ namespace PlancksoftPOS
             this.label108.Depth = 0;
             this.label108.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label108.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label108.Location = new System.Drawing.Point(1380, 16);
+            this.label108.Location = new System.Drawing.Point(1640, 16);
             this.label108.MouseState = MaterialSkin.MouseState.HOVER;
             this.label108.Name = "label108";
             this.label108.Size = new System.Drawing.Size(43, 19);
@@ -7303,7 +7303,7 @@ namespace PlancksoftPOS
             this.Column61});
             this.dgvAbsence.Location = new System.Drawing.Point(6, 81);
             this.dgvAbsence.Name = "dgvAbsence";
-            this.dgvAbsence.Size = new System.Drawing.Size(1598, 865);
+            this.dgvAbsence.Size = new System.Drawing.Size(1858, 865);
             this.dgvAbsence.TabIndex = 0;
             this.dgvAbsence.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvAbsence_RowHeaderMouseClick);
             // 
@@ -7341,7 +7341,7 @@ namespace PlancksoftPOS
             this.pictureBox48.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox48.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox48.Image = global::PlancksoftPOS.Properties.Resources.search;
-            this.pictureBox48.Location = new System.Drawing.Point(1529, 36);
+            this.pictureBox48.Location = new System.Drawing.Point(1789, 36);
             this.pictureBox48.Name = "pictureBox48";
             this.pictureBox48.Size = new System.Drawing.Size(32, 27);
             this.pictureBox48.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -7355,7 +7355,7 @@ namespace PlancksoftPOS
             this.pictureBox43.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox43.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox43.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox43.Location = new System.Drawing.Point(1567, 36);
+            this.pictureBox43.Location = new System.Drawing.Point(1827, 36);
             this.pictureBox43.Name = "pictureBox43";
             this.pictureBox43.Size = new System.Drawing.Size(36, 27);
             this.pictureBox43.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -7780,7 +7780,7 @@ namespace PlancksoftPOS
             this.ClientBalanceCheck.Location = new System.Drawing.Point(4, 34);
             this.ClientBalanceCheck.Name = "ClientBalanceCheck";
             this.ClientBalanceCheck.Padding = new System.Windows.Forms.Padding(3);
-            this.ClientBalanceCheck.Size = new System.Drawing.Size(1613, 913);
+            this.ClientBalanceCheck.Size = new System.Drawing.Size(1873, 913);
             this.ClientBalanceCheck.TabIndex = 3;
             this.ClientBalanceCheck.Text = "كشف حساب العميل";
             // 
@@ -7799,7 +7799,7 @@ namespace PlancksoftPOS
             this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard1.Name = "materialCard1";
             this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(1612, 583);
+            this.materialCard1.Size = new System.Drawing.Size(1872, 583);
             this.materialCard1.TabIndex = 5;
             this.materialCard1.Text = "المواد المشتراه بالفاتوره";
             // 
@@ -7809,7 +7809,7 @@ namespace PlancksoftPOS
             this.btnPrintClientBillItems.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.btnPrintClientBillItems.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrintClientBillItems.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.btnPrintClientBillItems.Location = new System.Drawing.Point(1512, 19);
+            this.btnPrintClientBillItems.Location = new System.Drawing.Point(1772, 19);
             this.btnPrintClientBillItems.Name = "btnPrintClientBillItems";
             this.btnPrintClientBillItems.Size = new System.Drawing.Size(100, 66);
             this.btnPrintClientBillItems.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -7835,7 +7835,7 @@ namespace PlancksoftPOS
             this.dgvClientBillItems.Name = "dgvClientBillItems";
             this.dgvClientBillItems.ReadOnly = true;
             this.dgvClientBillItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvClientBillItems.Size = new System.Drawing.Size(1506, 547);
+            this.dgvClientBillItems.Size = new System.Drawing.Size(1766, 547);
             this.dgvClientBillItems.TabIndex = 29;
             // 
             // dataGridViewTextBoxColumn20
@@ -7885,7 +7885,7 @@ namespace PlancksoftPOS
             this.materialCard2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialCard2.Name = "materialCard2";
             this.materialCard2.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard2.Size = new System.Drawing.Size(1610, 329);
+            this.materialCard2.Size = new System.Drawing.Size(1870, 329);
             this.materialCard2.TabIndex = 6;
             this.materialCard2.Text = "لائحة الفواتير";
             // 
@@ -7897,7 +7897,7 @@ namespace PlancksoftPOS
             this.btnPayDebtBill.Depth = 0;
             this.btnPayDebtBill.HighEmphasis = true;
             this.btnPayDebtBill.Icon = null;
-            this.btnPayDebtBill.Location = new System.Drawing.Point(1523, 121);
+            this.btnPayDebtBill.Location = new System.Drawing.Point(1783, 121);
             this.btnPayDebtBill.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPayDebtBill.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPayDebtBill.Name = "btnPayDebtBill";
@@ -7934,7 +7934,7 @@ namespace PlancksoftPOS
             this.dgvClientBills.Name = "dgvClientBills";
             this.dgvClientBills.ReadOnly = true;
             this.dgvClientBills.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvClientBills.Size = new System.Drawing.Size(1503, 311);
+            this.dgvClientBills.Size = new System.Drawing.Size(1763, 311);
             this.dgvClientBills.TabIndex = 28;
             this.dgvClientBills.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvClientBills_RowHeaderMouseClick);
             // 
@@ -8018,7 +8018,7 @@ namespace PlancksoftPOS
             this.btnPrintClientBills.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.btnPrintClientBills.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnPrintClientBills.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.btnPrintClientBills.Location = new System.Drawing.Point(1509, 21);
+            this.btnPrintClientBills.Location = new System.Drawing.Point(1769, 21);
             this.btnPrintClientBills.Name = "btnPrintClientBills";
             this.btnPrintClientBills.Size = new System.Drawing.Size(98, 91);
             this.btnPrintClientBills.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -8033,7 +8033,7 @@ namespace PlancksoftPOS
             this.ImporterDefinitions.Location = new System.Drawing.Point(4, 34);
             this.ImporterDefinitions.Name = "ImporterDefinitions";
             this.ImporterDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.ImporterDefinitions.Size = new System.Drawing.Size(1613, 913);
+            this.ImporterDefinitions.Size = new System.Drawing.Size(1873, 913);
             this.ImporterDefinitions.TabIndex = 2;
             this.ImporterDefinitions.Text = "تعريف مورد";
             // 
@@ -8234,7 +8234,7 @@ namespace PlancksoftPOS
             this.groupBox40.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox40.Name = "groupBox40";
             this.groupBox40.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox40.Size = new System.Drawing.Size(696, 968);
+            this.groupBox40.Size = new System.Drawing.Size(956, 968);
             this.groupBox40.TabIndex = 6;
             this.groupBox40.Text = "تسجيل الموردين";
             // 
@@ -8250,7 +8250,7 @@ namespace PlancksoftPOS
             this.VendorName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.VendorName.HideSelection = true;
             this.VendorName.LeadingIcon = null;
-            this.VendorName.Location = new System.Drawing.Point(261, 44);
+            this.VendorName.Location = new System.Drawing.Point(521, 44);
             this.VendorName.MaxLength = 10;
             this.VendorName.MouseState = MaterialSkin.MouseState.OUT;
             this.VendorName.Name = "VendorName";
@@ -8277,7 +8277,7 @@ namespace PlancksoftPOS
             this.button7.Depth = 0;
             this.button7.HighEmphasis = true;
             this.button7.Icon = null;
-            this.button7.Location = new System.Drawing.Point(448, 250);
+            this.button7.Location = new System.Drawing.Point(708, 250);
             this.button7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button7.MouseState = MaterialSkin.MouseState.HOVER;
             this.button7.Name = "button7";
@@ -8302,7 +8302,7 @@ namespace PlancksoftPOS
             this.VendorAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.VendorAddress.HideSelection = true;
             this.VendorAddress.LeadingIcon = null;
-            this.VendorAddress.Location = new System.Drawing.Point(257, 193);
+            this.VendorAddress.Location = new System.Drawing.Point(517, 193);
             this.VendorAddress.MaxLength = 32767;
             this.VendorAddress.MouseState = MaterialSkin.MouseState.OUT;
             this.VendorAddress.Name = "VendorAddress";
@@ -8334,7 +8334,7 @@ namespace PlancksoftPOS
             this.VendorPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.VendorPhone.HideSelection = true;
             this.VendorPhone.LeadingIcon = null;
-            this.VendorPhone.Location = new System.Drawing.Point(261, 117);
+            this.VendorPhone.Location = new System.Drawing.Point(521, 117);
             this.VendorPhone.MaxLength = 10;
             this.VendorPhone.MouseState = MaterialSkin.MouseState.OUT;
             this.VendorPhone.Name = "VendorPhone";
@@ -8362,7 +8362,7 @@ namespace PlancksoftPOS
             this.label39.Depth = 0;
             this.label39.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label39.Location = new System.Drawing.Point(463, 173);
+            this.label39.Location = new System.Drawing.Point(723, 173);
             this.label39.MouseState = MaterialSkin.MouseState.HOVER;
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(29, 19);
@@ -8377,7 +8377,7 @@ namespace PlancksoftPOS
             this.label40.Depth = 0;
             this.label40.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label40.Location = new System.Drawing.Point(454, 94);
+            this.label40.Location = new System.Drawing.Point(714, 94);
             this.label40.MouseState = MaterialSkin.MouseState.HOVER;
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(38, 19);
@@ -8387,7 +8387,7 @@ namespace PlancksoftPOS
             // VendorID
             // 
             this.VendorID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.VendorID.Location = new System.Drawing.Point(261, 107);
+            this.VendorID.Location = new System.Drawing.Point(521, 107);
             this.VendorID.Maximum = new decimal(new int[] {
             -1486618625,
             232830643,
@@ -8408,7 +8408,7 @@ namespace PlancksoftPOS
             this.label41.Depth = 0;
             this.label41.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label41.Location = new System.Drawing.Point(452, 22);
+            this.label41.Location = new System.Drawing.Point(712, 22);
             this.label41.MouseState = MaterialSkin.MouseState.HOVER;
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(44, 19);
@@ -8423,7 +8423,7 @@ namespace PlancksoftPOS
             this.label42.Depth = 0;
             this.label42.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label42.Location = new System.Drawing.Point(452, 80);
+            this.label42.Location = new System.Drawing.Point(712, 80);
             this.label42.MouseState = MaterialSkin.MouseState.HOVER;
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(47, 19);
@@ -8439,7 +8439,7 @@ namespace PlancksoftPOS
             this.ImporterBalanceChecks.Location = new System.Drawing.Point(4, 34);
             this.ImporterBalanceChecks.Name = "ImporterBalanceChecks";
             this.ImporterBalanceChecks.Padding = new System.Windows.Forms.Padding(3);
-            this.ImporterBalanceChecks.Size = new System.Drawing.Size(1613, 913);
+            this.ImporterBalanceChecks.Size = new System.Drawing.Size(1873, 913);
             this.ImporterBalanceChecks.TabIndex = 4;
             this.ImporterBalanceChecks.Text = "كشف حساب مورد";
             // 
@@ -8458,7 +8458,7 @@ namespace PlancksoftPOS
             this.groupBox42.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox42.Name = "groupBox42";
             this.groupBox42.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox42.Size = new System.Drawing.Size(1612, 654);
+            this.groupBox42.Size = new System.Drawing.Size(1872, 654);
             this.groupBox42.TabIndex = 3;
             this.groupBox42.Text = "المواد المشتراه بالفاتوره";
             // 
@@ -8468,7 +8468,7 @@ namespace PlancksoftPOS
             this.pictureBox35.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox35.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox35.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox35.Location = new System.Drawing.Point(1512, 19);
+            this.pictureBox35.Location = new System.Drawing.Point(1772, 19);
             this.pictureBox35.Name = "pictureBox35";
             this.pictureBox35.Size = new System.Drawing.Size(100, 66);
             this.pictureBox35.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -8495,7 +8495,7 @@ namespace PlancksoftPOS
             this.dgvVendorBillItems.Name = "dgvVendorBillItems";
             this.dgvVendorBillItems.ReadOnly = true;
             this.dgvVendorBillItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvVendorBillItems.Size = new System.Drawing.Size(1506, 518);
+            this.dgvVendorBillItems.Size = new System.Drawing.Size(1766, 518);
             this.dgvVendorBillItems.TabIndex = 29;
             // 
             // dataGridViewTextBoxColumn34
@@ -8544,7 +8544,7 @@ namespace PlancksoftPOS
             this.groupBox43.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox43.Name = "groupBox43";
             this.groupBox43.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox43.Size = new System.Drawing.Size(1610, 329);
+            this.groupBox43.Size = new System.Drawing.Size(1870, 329);
             this.groupBox43.TabIndex = 4;
             this.groupBox43.Text = "لائحة الفواتير";
             // 
@@ -8567,7 +8567,7 @@ namespace PlancksoftPOS
             this.dgvVendorBills.Name = "dgvVendorBills";
             this.dgvVendorBills.ReadOnly = true;
             this.dgvVendorBills.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvVendorBills.Size = new System.Drawing.Size(1503, 311);
+            this.dgvVendorBills.Size = new System.Drawing.Size(1763, 311);
             this.dgvVendorBills.TabIndex = 28;
             this.dgvVendorBills.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvVendorBills_RowHeaderMouseClick);
             // 
@@ -8609,7 +8609,7 @@ namespace PlancksoftPOS
             this.pictureBox45.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox45.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox45.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox45.Location = new System.Drawing.Point(1509, 21);
+            this.pictureBox45.Location = new System.Drawing.Point(1769, 21);
             this.pictureBox45.Name = "pictureBox45";
             this.pictureBox45.Size = new System.Drawing.Size(98, 91);
             this.pictureBox45.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -8625,7 +8625,7 @@ namespace PlancksoftPOS
             this.AgentsItemsDefinitions.Location = new System.Drawing.Point(4, 34);
             this.AgentsItemsDefinitions.Name = "AgentsItemsDefinitions";
             this.AgentsItemsDefinitions.Padding = new System.Windows.Forms.Padding(3);
-            this.AgentsItemsDefinitions.Size = new System.Drawing.Size(1613, 913);
+            this.AgentsItemsDefinitions.Size = new System.Drawing.Size(1873, 913);
             this.AgentsItemsDefinitions.TabIndex = 1;
             this.AgentsItemsDefinitions.Text = "تعريف مواد العميل";
             // 
@@ -8656,7 +8656,7 @@ namespace PlancksoftPOS
             this.groupBox34.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox34.Name = "groupBox34";
             this.groupBox34.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox34.Size = new System.Drawing.Size(1615, 469);
+            this.groupBox34.Size = new System.Drawing.Size(1875, 469);
             this.groupBox34.TabIndex = 1;
             this.groupBox34.Text = "تعريف مواد العميل";
             // 
@@ -8668,7 +8668,7 @@ namespace PlancksoftPOS
             this.btnClientVendorItemsPickClientItem.Depth = 0;
             this.btnClientVendorItemsPickClientItem.HighEmphasis = true;
             this.btnClientVendorItemsPickClientItem.Icon = null;
-            this.btnClientVendorItemsPickClientItem.Location = new System.Drawing.Point(1340, 145);
+            this.btnClientVendorItemsPickClientItem.Location = new System.Drawing.Point(1600, 145);
             this.btnClientVendorItemsPickClientItem.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClientVendorItemsPickClientItem.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClientVendorItemsPickClientItem.Name = "btnClientVendorItemsPickClientItem";
@@ -8689,7 +8689,7 @@ namespace PlancksoftPOS
             this.btnClientVendorItemsPriceClient.Depth = 0;
             this.btnClientVendorItemsPriceClient.HighEmphasis = true;
             this.btnClientVendorItemsPriceClient.Icon = null;
-            this.btnClientVendorItemsPriceClient.Location = new System.Drawing.Point(1504, 145);
+            this.btnClientVendorItemsPriceClient.Location = new System.Drawing.Point(1764, 145);
             this.btnClientVendorItemsPriceClient.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClientVendorItemsPriceClient.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClientVendorItemsPriceClient.Name = "btnClientVendorItemsPriceClient";
@@ -8714,7 +8714,7 @@ namespace PlancksoftPOS
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox7.HideSelection = true;
             this.textBox7.LeadingIcon = null;
-            this.textBox7.Location = new System.Drawing.Point(1212, 38);
+            this.textBox7.Location = new System.Drawing.Point(1472, 38);
             this.textBox7.MaxLength = 32767;
             this.textBox7.MouseState = MaterialSkin.MouseState.OUT;
             this.textBox7.Name = "textBox7";
@@ -8738,7 +8738,7 @@ namespace PlancksoftPOS
             this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numericUpDown2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.numericUpDown2.Location = new System.Drawing.Point(1211, 116);
+            this.numericUpDown2.Location = new System.Drawing.Point(1471, 116);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             1241513983,
             370409800,
@@ -8756,7 +8756,7 @@ namespace PlancksoftPOS
             this.lblClientVendorItemsClientID.Depth = 0;
             this.lblClientVendorItemsClientID.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblClientVendorItemsClientID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.lblClientVendorItemsClientID.Location = new System.Drawing.Point(1397, 89);
+            this.lblClientVendorItemsClientID.Location = new System.Drawing.Point(1657, 89);
             this.lblClientVendorItemsClientID.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblClientVendorItemsClientID.Name = "lblClientVendorItemsClientID";
             this.lblClientVendorItemsClientID.Size = new System.Drawing.Size(46, 19);
@@ -8770,7 +8770,7 @@ namespace PlancksoftPOS
             this.lblClientVendorItemsClientName.Depth = 0;
             this.lblClientVendorItemsClientName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblClientVendorItemsClientName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.lblClientVendorItemsClientName.Location = new System.Drawing.Point(1394, 16);
+            this.lblClientVendorItemsClientName.Location = new System.Drawing.Point(1654, 16);
             this.lblClientVendorItemsClientName.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblClientVendorItemsClientName.Name = "lblClientVendorItemsClientName";
             this.lblClientVendorItemsClientName.Size = new System.Drawing.Size(43, 19);
@@ -8783,7 +8783,7 @@ namespace PlancksoftPOS
             this.ClientPrice.DecimalPlaces = 2;
             this.ClientPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClientPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.ClientPrice.Location = new System.Drawing.Point(298, 99);
+            this.ClientPrice.Location = new System.Drawing.Point(558, 99);
             this.ClientPrice.Maximum = new decimal(new int[] {
             1661992959,
             1808227885,
@@ -8801,7 +8801,7 @@ namespace PlancksoftPOS
             this.lblClientVendorItemsClientSellPrice.Depth = 0;
             this.lblClientVendorItemsClientSellPrice.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblClientVendorItemsClientSellPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.lblClientVendorItemsClientSellPrice.Location = new System.Drawing.Point(456, 72);
+            this.lblClientVendorItemsClientSellPrice.Location = new System.Drawing.Point(716, 72);
             this.lblClientVendorItemsClientSellPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblClientVendorItemsClientSellPrice.Name = "lblClientVendorItemsClientSellPrice";
             this.lblClientVendorItemsClientSellPrice.Size = new System.Drawing.Size(61, 19);
@@ -8814,7 +8814,7 @@ namespace PlancksoftPOS
             this.SellPriceTax.DecimalPlaces = 2;
             this.SellPriceTax.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SellPriceTax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.SellPriceTax.Location = new System.Drawing.Point(298, 46);
+            this.SellPriceTax.Location = new System.Drawing.Point(558, 46);
             this.SellPriceTax.Maximum = new decimal(new int[] {
             -1304428545,
             434162106,
@@ -8832,7 +8832,7 @@ namespace PlancksoftPOS
             this.lblClientVendorItemsSellPriceTax.Depth = 0;
             this.lblClientVendorItemsSellPriceTax.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblClientVendorItemsSellPriceTax.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.lblClientVendorItemsSellPriceTax.Location = new System.Drawing.Point(425, 16);
+            this.lblClientVendorItemsSellPriceTax.Location = new System.Drawing.Point(685, 16);
             this.lblClientVendorItemsSellPriceTax.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblClientVendorItemsSellPriceTax.Name = "lblClientVendorItemsSellPriceTax";
             this.lblClientVendorItemsSellPriceTax.Size = new System.Drawing.Size(90, 19);
@@ -8845,7 +8845,7 @@ namespace PlancksoftPOS
             this.SellPrice.DecimalPlaces = 2;
             this.SellPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SellPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.SellPrice.Location = new System.Drawing.Point(751, 97);
+            this.SellPrice.Location = new System.Drawing.Point(1011, 97);
             this.SellPrice.Maximum = new decimal(new int[] {
             1241513983,
             370409800,
@@ -8862,7 +8862,7 @@ namespace PlancksoftPOS
             this.BuyPrice.DecimalPlaces = 2;
             this.BuyPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BuyPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.BuyPrice.Location = new System.Drawing.Point(751, 43);
+            this.BuyPrice.Location = new System.Drawing.Point(1011, 43);
             this.BuyPrice.Maximum = new decimal(new int[] {
             -469762049,
             -590869294,
@@ -8880,7 +8880,7 @@ namespace PlancksoftPOS
             this.lblClientVendorItemsSellPrice.Depth = 0;
             this.lblClientVendorItemsSellPrice.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblClientVendorItemsSellPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.lblClientVendorItemsSellPrice.Location = new System.Drawing.Point(876, 72);
+            this.lblClientVendorItemsSellPrice.Location = new System.Drawing.Point(1136, 72);
             this.lblClientVendorItemsSellPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblClientVendorItemsSellPrice.Name = "lblClientVendorItemsSellPrice";
             this.lblClientVendorItemsSellPrice.Size = new System.Drawing.Size(90, 19);
@@ -8894,7 +8894,7 @@ namespace PlancksoftPOS
             this.lblClientVendorItemsBuyPrice.Depth = 0;
             this.lblClientVendorItemsBuyPrice.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblClientVendorItemsBuyPrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.lblClientVendorItemsBuyPrice.Location = new System.Drawing.Point(909, 16);
+            this.lblClientVendorItemsBuyPrice.Location = new System.Drawing.Point(1169, 16);
             this.lblClientVendorItemsBuyPrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblClientVendorItemsBuyPrice.Name = "lblClientVendorItemsBuyPrice";
             this.lblClientVendorItemsBuyPrice.Size = new System.Drawing.Size(49, 19);
@@ -8915,7 +8915,7 @@ namespace PlancksoftPOS
             this.groupBox23.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox23.Name = "groupBox23";
             this.groupBox23.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox23.Size = new System.Drawing.Size(1615, 444);
+            this.groupBox23.Size = new System.Drawing.Size(1875, 444);
             this.groupBox23.TabIndex = 0;
             this.groupBox23.Text = "جدول المواد";
             // 
@@ -8925,7 +8925,7 @@ namespace PlancksoftPOS
             this.pictureBox40.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox40.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox40.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox40.Location = new System.Drawing.Point(1576, 21);
+            this.pictureBox40.Location = new System.Drawing.Point(1836, 21);
             this.pictureBox40.Name = "pictureBox40";
             this.pictureBox40.Size = new System.Drawing.Size(36, 27);
             this.pictureBox40.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -8957,7 +8957,7 @@ namespace PlancksoftPOS
             this.DGVClientItems.Name = "DGVClientItems";
             this.DGVClientItems.ReadOnly = true;
             this.DGVClientItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.DGVClientItems.Size = new System.Drawing.Size(1607, 387);
+            this.DGVClientItems.Size = new System.Drawing.Size(1867, 387);
             this.DGVClientItems.TabIndex = 1;
             this.DGVClientItems.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVClientItems_RowHeaderMouseClick);
             // 
@@ -10864,7 +10864,7 @@ namespace PlancksoftPOS
             this.printersSettings.Location = new System.Drawing.Point(4, 25);
             this.printersSettings.Name = "printersSettings";
             this.printersSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.printersSettings.Size = new System.Drawing.Size(1613, 922);
+            this.printersSettings.Size = new System.Drawing.Size(1873, 922);
             this.printersSettings.TabIndex = 1;
             this.printersSettings.Text = "الطابعات";
             this.printersSettings.UseVisualStyleBackColor = true;
@@ -10875,7 +10875,7 @@ namespace PlancksoftPOS
             this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(1607, 916);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(1867, 916);
             this.flowLayoutPanel4.TabIndex = 0;
             // 
             // Retrievals

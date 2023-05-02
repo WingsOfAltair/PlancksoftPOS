@@ -12109,9 +12109,9 @@ namespace PlancksoftPOS
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        frmReceipt receipt = new frmReceipt(bitm, itemsInBill, true);
-                        openedForm = receipt;
-                        receipt.ShowDialog();
+                        //frmReceipt receipt = new frmReceipt(bitm, itemsInBill, true);
+                        //openedForm = receipt;
+                        //receipt.ShowDialog();
                     }
                     finally
                     {
@@ -12180,178 +12180,195 @@ namespace PlancksoftPOS
                 decimal remainder = remainderAmount;
                 string InvoiceDate = invoiceDate.ToString();
 
-                int lineHeight = 20;
-                int height = 220;
+                Bill bill = new Bill();
+                bill = Connection.server.SearchBills("", "", Convert.ToInt32(dgvBills.SelectedRows[0].Cells["Column15"].Value)).Item1[0];
+                List<Item> itemsInBill = new List<Item>();
 
                 for (int i = 0; i < dgvBillItems.Rows.Count; i++)
                 {
-                    if (!dgvBillItems.Rows[i].IsNewRow)
-                    {
-                        height += lineHeight;
-                    }
+                    Item SearchedItem = Connection.server.SearchItems("", dgvBillItems.Rows[i].Cells["Column21"].Value.ToString(), 0).Item1[0];
+                    itemsInBill.Add(SearchedItem);
                 }
+                bill.ItemsBought = itemsInBill;
 
-                Bitmap bitm = new Bitmap(354, height + 350);
-                StringFormat format = new StringFormat(StringFormatFlags.DirectionRightToLeft);
-                using (Graphics graphic = Graphics.FromImage(bitm))
-                {
-                    int startX = 0;
-                    int startY = 0;
-                    int offsetY = 0;
-                    Font newfont2 = null;
-                    Font itemFont = null;
-                    SolidBrush black = null;
-                    SolidBrush white = null;
+                //ReceiptPrinter receiptPrinter = new ReceiptPrinter(bill, shopName.Text, "Address", shopPhone.Text);
 
-                    try
-                    {
-                        //Font newfont = new Font("Arial Black", 8);
-                        newfont2 = new Font("Calibri", 9, FontStyle.Bold);
-                        itemFont = new Font("Calibri", 9, FontStyle.Bold);
+                frmReceipt receipt = new frmReceipt(bill, shopName.Text, "Address Text", shopPhone.Text, true);
+                openedForm = receipt;
+                receipt.ShowDialog();
 
-                        black = new SolidBrush(Color.Black);
-                        white = new SolidBrush(Color.White);
+                //int lineHeight = 20;
+                //int height = 220;
 
-                        //PointF point = new PointF(40f, 2f);
+                //for (int i = 0; i < dgvBillItems.Rows.Count; i++)
+                //{
+                //    if (!dgvBillItems.Rows[i].IsNewRow)
+                //    {
+                //        height += lineHeight;
+                //    }
+                //}
 
+                //Bitmap bitm = new Bitmap(354, height + 350);
+                //StringFormat format = new StringFormat(StringFormatFlags.DirectionRightToLeft);
+                //using (Graphics graphic = Graphics.FromImage(bitm))
+                //{
+                //    int startX = 0;
+                //    int startY = 0;
+                //    int offsetY = 0;
+                //    Font newfont2 = null;
+                //    Font itemFont = null;
+                //    SolidBrush black = null;
+                //    SolidBrush white = null;
 
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        graphic.FillRectangle(white, 0, 0, bitm.Width, bitm.Height);
-                        graphic.DrawString(this.shopPhone.Text, newfont2, black, (bitm.Width / 2) - Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString()), startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        graphic.DrawString(welcome2, newfont2, black, (bitm.Width / 2) - (welcome2.Length + 5), startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        graphic.DrawString(welcome, newfont2, black, (bitm.Width / 2) - (welcome.Length + 10), startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        if (IncludeLogoInReceipt)
-                        {
-                            try
-                            {
-                                if (!Convert.IsDBNull(dt.Rows[0]["SystemLogo"]))
-                                {
-                                    StoreLogo = (Byte[])(dt.Rows[0]["SystemLogo"]);
-                                    var stream = new MemoryStream(StoreLogo);
-                                    graphic.DrawImage(ResizeImage(new Bitmap(stream), 150, 150), (bitm.Width / 2) - 75, 0);
-                                }
-                                else
-                                {
-                                    graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 75, 0);
-                                }
-                            }
-                            catch (Exception err)
-                            {
-                                graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 75, 0);
-                            }
+                //    try
+                //    {
+                //        //Font newfont = new Font("Arial Black", 8);
+                //        newfont2 = new Font("Calibri", 9, FontStyle.Bold);
+                //        itemFont = new Font("Calibri", 9, FontStyle.Bold);
 
-                            offsetY = offsetY + lineHeight;
-                        }
-                        graphic.DrawString(InvoiceNo, newfont2, black, (bitm.Width / 2) - InvoiceNo.Length, startY + offsetY);
-                        offsetY = offsetY + lineHeight;
+                //        black = new SolidBrush(Color.Black);
+                //        white = new SolidBrush(Color.White);
 
-                        //PointF pointPrice = new PointF(15f, 45f);
-                        graphic.DrawString("" + InvoiceDate + "", newfont2, black, (bitm.Width / 2) - (InvoiceDate.Length + 7), startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        graphic.DrawString(cashierNamePrint, newfont2, black, (bitm.Width / 2) - cashierNamePrint.Length, startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString("  إسم المنتج      " + "               الكمية      " + "          السعر ", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("          Item Name " + "               Quantity      " + "  Price      ", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
-                        //PointF pointPname = new PointF(10f, 65f);
-                        //PointF pointBar = new PointF(10f, 65f);
-
-                        offsetY = offsetY + lineHeight;
+                //        //PointF point = new PointF(40f, 2f);
 
 
-                        List<Item> itemsInBill = new List<Item>();
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+                //        graphic.FillRectangle(white, 0, 0, bitm.Width, bitm.Height);
+                //        graphic.DrawString(this.shopPhone.Text, newfont2, black, (bitm.Width / 2) - Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString()), startY + offsetY);
+                //        offsetY = offsetY + lineHeight;
+                //        graphic.DrawString(welcome2, newfont2, black, (bitm.Width / 2) - (welcome2.Length + 5), startY + offsetY);
+                //        offsetY = offsetY + lineHeight;
+                //        graphic.DrawString(welcome, newfont2, black, (bitm.Width / 2) - (welcome.Length + 10), startY + offsetY);
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+                //        if (IncludeLogoInReceipt)
+                //        {
+                //            try
+                //            {
+                //                if (!Convert.IsDBNull(dt.Rows[0]["SystemLogo"]))
+                //                {
+                //                    StoreLogo = (Byte[])(dt.Rows[0]["SystemLogo"]);
+                //                    var stream = new MemoryStream(StoreLogo);
+                //                    graphic.DrawImage(ResizeImage(new Bitmap(stream), 150, 150), (bitm.Width / 2) - 75, 0);
+                //                }
+                //                else
+                //                {
+                //                    graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 75, 0);
+                //                }
+                //            }
+                //            catch (Exception err)
+                //            {
+                //                graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 75, 0);
+                //            }
 
-                        for (int i = 0; i < dgvBillItems.Rows.Count; i++)
-                        {
-                            if (!dgvBillItems.Rows[i].IsNewRow)
-                            {
-                                int ii = 1;
-                                ii++;
-                                Item SearchedItem = Connection.server.SearchItems("", dgvBillItems.Rows[i].Cells["Column21"].Value.ToString(), 0).Item1[0];
-                                itemsInBill.Add(SearchedItem);
-                                string itemString = " "  + dgvBillItems.Rows[i].Cells["Column25"].Value + "               " + dgvBillItems.Rows[i].Cells["Column23"].Value + "                    " + dgvBillItems.Rows[i].Cells["Column20"].Value;
-                                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                                {
-                                    graphic.DrawString(itemString, itemFont,
-                                                black, startX + 15, startY + offsetY);
-                                }
-                                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                                {
-                                    itemString = " " + dgvBillItems.Rows[i].Cells["Column20"].Value + "                    " + dgvBillItems.Rows[i].Cells["Column23"].Value + "               " + dgvBillItems.Rows[i].Cells["Column25"].Value;
-                                    graphic.DrawString(itemString, itemFont,
-                                                black, startX + 15, startY + offsetY);
-                                }
-                                offsetY = offsetY + lineHeight;
-                            }
-                        }
-                        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString("الإجمالي :" + gross + "" + "                           " + "الخصم :" + discount + "", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("Gross :" + gross + "" + "                           " + "Discount :" + discount + "", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString("الصافي :" + net + "" + "                         " + "المدفوع :" + amountPaid + "", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("Net :" + net + "" + "                         " + "Paid :" + amountPaid + "", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString("الباقي :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("Remainder :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        frmReceipt receipt = new frmReceipt(bitm, itemsInBill, true);
-                        openedForm = receipt;
-                        receipt.ShowDialog();
-                    }
-                    finally
-                    {
-                        black.Dispose();
-                        white.Dispose();
-                        itemFont.Dispose();
-                        newfont2.Dispose();
-                    }
-                }
+                //            offsetY = offsetY + lineHeight;
+                //        }
+                //        graphic.DrawString(InvoiceNo, newfont2, black, (bitm.Width / 2) - InvoiceNo.Length, startY + offsetY);
+                //        offsetY = offsetY + lineHeight;
+
+                //        //PointF pointPrice = new PointF(15f, 45f);
+                //        graphic.DrawString("" + InvoiceDate + "", newfont2, black, (bitm.Width / 2) - (InvoiceDate.Length + 7), startY + offsetY);
+                //        offsetY = offsetY + lineHeight;
+                //        graphic.DrawString(cashierNamePrint, newfont2, black, (bitm.Width / 2) - cashierNamePrint.Length, startY + offsetY);
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+                //        offsetY = offsetY + lineHeight;
+
+                //        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                //        {
+                //            graphic.DrawString("  إسم المنتج      " + "               الكمية      " + "          السعر ", newfont2, black, startX + 15, startY + offsetY);
+                //        }
+                //        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                //        {
+                //            graphic.DrawString("          Item Name " + "               Quantity      " + "  Price      ", newfont2, black, startX + 15, startY + offsetY);
+                //        }
+                //        offsetY = offsetY + lineHeight;
+                //        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
+                //        //PointF pointPname = new PointF(10f, 65f);
+                //        //PointF pointBar = new PointF(10f, 65f);
+
+                //        offsetY = offsetY + lineHeight;
+
+
+                //        List<Item> itemsInBill = new List<Item>();
+
+                //        for (int i = 0; i < dgvBillItems.Rows.Count; i++)
+                //        {
+                //            if (!dgvBillItems.Rows[i].IsNewRow)
+                //            {
+                //                int ii = 1;
+                //                ii++;
+                //                Item SearchedItem = Connection.server.SearchItems("", dgvBillItems.Rows[i].Cells["Column21"].Value.ToString(), 0).Item1[0];
+                //                itemsInBill.Add(SearchedItem);
+                //                string itemString = " "  + dgvBillItems.Rows[i].Cells["Column25"].Value + "               " + dgvBillItems.Rows[i].Cells["Column23"].Value + "                    " + dgvBillItems.Rows[i].Cells["Column20"].Value;
+                //                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                //                {
+                //                    graphic.DrawString(itemString, itemFont,
+                //                                black, startX + 15, startY + offsetY);
+                //                }
+                //                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                //                {
+                //                    itemString = " " + dgvBillItems.Rows[i].Cells["Column20"].Value + "                    " + dgvBillItems.Rows[i].Cells["Column23"].Value + "               " + dgvBillItems.Rows[i].Cells["Column25"].Value;
+                //                    graphic.DrawString(itemString, itemFont,
+                //                                black, startX + 15, startY + offsetY);
+                //                }
+                //                offsetY = offsetY + lineHeight;
+                //            }
+                //        }
+                //        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
+                //        offsetY = offsetY + lineHeight;
+                //        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                //        {
+                //            graphic.DrawString("الإجمالي :" + gross + "" + "                           " + "الخصم :" + discount + "", newfont2, black, startX + 15, startY + offsetY);
+                //        }
+                //        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                //        {
+                //            graphic.DrawString("Gross :" + gross + "" + "                           " + "Discount :" + discount + "", newfont2, black, startX + 15, startY + offsetY);
+                //        }
+                //        offsetY = offsetY + lineHeight;
+                //        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                //        {
+                //            graphic.DrawString("الصافي :" + net + "" + "                         " + "المدفوع :" + amountPaid + "", newfont2, black, startX + 15, startY + offsetY);
+                //        }
+                //        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                //        {
+                //            graphic.DrawString("Net :" + net + "" + "                         " + "Paid :" + amountPaid + "", newfont2, black, startX + 15, startY + offsetY);
+                //        }
+                //        offsetY = offsetY + lineHeight;
+                //        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                //        {
+                //            graphic.DrawString("الباقي :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
+                //        }
+                //        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                //        {
+                //            graphic.DrawString("Remainder :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
+                //        }
+                //        offsetY = offsetY + lineHeight;
+                //        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
+                //        offsetY = offsetY + lineHeight;
+                //        frmReceipt receipt = new frmReceipt(bitm, itemsInBill, true);
+                //        openedForm = receipt;
+                //        receipt.ShowDialog();
+                //    }
+                //    finally
+                //    {
+                //        black.Dispose();
+                //        white.Dispose();
+                //        itemFont.Dispose();
+                //        newfont2.Dispose();
+                //    }
+                //}
 
                 using (MemoryStream Mmst = new MemoryStream())
                 {
@@ -12359,10 +12376,10 @@ namespace PlancksoftPOS
                     {
                         try
                         {
-                            System.IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts");
+                            //System.IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts");
                         }
                         catch (Exception error) { }
-                        bitm.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\Receipt " + this.CurrentBillNumber.ToString() + ".jpeg", ImageFormat.Jpeg);
+                        //bitm.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\Receipt " + this.CurrentBillNumber.ToString() + ".jpeg", ImageFormat.Jpeg);
                     }
                     catch (Exception error)
                     {
@@ -12571,9 +12588,9 @@ namespace PlancksoftPOS
                         offsetY = offsetY + lineHeight;
                         graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
                         offsetY = offsetY + lineHeight;
-                        frmReceipt receipt = new frmReceipt(bitm, itemsInBill, true);
-                        openedForm = receipt;
-                        receipt.ShowDialog();
+                        //frmReceipt receipt = new frmReceipt(bitm, itemsInBill, true);
+                        //openedForm = receipt;
+                        //receipt.ShowDialog();
                     }
                     finally
                     {
@@ -12742,9 +12759,9 @@ namespace PlancksoftPOS
                             graphic.DrawString("Total Cash in Register: " + Convert.ToDecimal(openRegisterAmount + totalSalesAmount).ToString(), newfont2, black, 0, startY + offsetY);
                         }
                         offsetY = offsetY + lineHeight;
-                        frmReceipt receipt = new frmReceipt(bitm, new List<Item>(), false);
-                        openedForm = receipt;
-                        receipt.ShowDialog();
+                        //frmReceipt receipt = new frmReceipt(bitm, new List<Item>(), false);
+                        //openedForm = receipt;
+                        //receipt.ShowDialog();
                     }
                     finally
                     {

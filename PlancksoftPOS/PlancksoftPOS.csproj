@@ -139,6 +139,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\ReceiptPrinter.cs" />
     <Compile Include="Classes\ThemeSchemeChoice.cs" />
     <Compile Include="Classes\LanguageChoice.cs" />
     <Compile Include="Connected Services\PlancksoftPOS_Server\Reference.cs">
