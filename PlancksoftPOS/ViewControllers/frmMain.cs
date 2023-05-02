@@ -10117,16 +10117,21 @@ namespace PlancksoftPOS
                     frmPay frmPayCash = new frmPay((billPaid.TotalAmount - billPaid.PaidAmount), Convert.ToDecimal(row.Cells["ClientBillsPaidAmount"].Value.ToString()), Convert.ToDecimal(row.Cells["ClientBillsRemainderAmount"].Value.ToString()), true);
                     openedForm = frmPayCash;
                     frmPayCash.ShowDialog();
-                    billPaid.TotalAmount = frmPayCash.totalAmount;
-                    billPaid.PaidAmount = frmPayCash.paidAmount;
-                    billPaid.RemainderAmount = frmPayCash.remainderAmount;
+
+                    List<Item> itemsInBill = new List<Item>();
+
+                    for (int i = 0; i < dgvClientBillItems.Rows.Count; i++)
+                    {
+                        Item SearchedItem = Connection.server.SearchItems("", dgvClientBillItems.Rows[i].Cells["Column21"].Value.ToString(), 0).Item1[0];
+                        itemsInBill.Add(SearchedItem);
+                    }
+                    billPaid.ItemsBought = itemsInBill;
 
                     if (frmPayCash.dialogResult == DialogResult.OK)
                     {
                         if (Connection.server.PayUnpaidBill(Convert.ToInt32(row.Cells["dataGridViewTextBoxColumn24"].Value.ToString()), frmPayCash.paidAmount))
                         {
-                            printCertainReceiptDebt(billPaid.BillNumber, billPaid.getCashierName(), billPaid.TotalAmount, billPaid.PaidAmount,
-                                billPaid.RemainderAmount, billPaid.Date);
+                            printCertainReceiptDebt(billPaid);
 
                             CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
                             label91.Text = this.CapitalAmount.ToString();
@@ -10730,6 +10735,20 @@ namespace PlancksoftPOS
                     hamburger_menu_expenses_sub_timer.Stop();
                 }
             }
+        }
+
+        private void btnPrintClientBills_Click(object sender, EventArgs e)
+        {
+            Bill billPaid = Connection.server.SearchBills("", "", Convert.ToInt32(dgvClientBills.SelectedRows[0].Cells["dataGridViewTextBoxColumn24"].Value.ToString())).Item1[0];
+            List<Item> itemsInBill = new List<Item>();
+
+            for (int i = 0; i < dgvClientBillItems.Rows.Count; i++)
+            {
+                Item SearchedItem = Connection.server.SearchItems("", dgvClientBillItems.Rows[i].Cells["Column21"].Value.ToString(), 0).Item1[0];
+                itemsInBill.Add(SearchedItem);
+            }
+            billPaid.ItemsBought = itemsInBill;
+            printCertainReceiptDebt(billPaid);
         }
 
         private void btnMenuClientsVendorsSubVendoItemsDefinitions_Click(object sender, EventArgs e)
@@ -11928,7 +11947,7 @@ namespace PlancksoftPOS
             }
         }
 
-        public void printCertainReceiptDebt(int BillNumber, string cashierName, decimal totalAmount, decimal paidAmount, decimal remainderAmount, DateTime invoiceDate)
+        public void printCertainReceiptDebt(Bill bill)
         {
             try
             {
@@ -11939,250 +11958,11 @@ namespace PlancksoftPOS
                 decimal discount = gross - net;
                 decimal amountPaid = paidAmount;
                 decimal remainder = remainderAmount;
-                string InvoiceDate = invoiceDate.ToString();
-
-                Bill bill = new Bill();
-                bill = Connection.server.SearchBills("", "", Convert.ToInt32(BillNumber)).Item1[0];
-                List<Item> itemsInBill = new List<Item>();
-
-                for (int i = 0; i < dgvClientBillItems.Rows.Count; i++)
-                {
-                    Item SearchedItem = Connection.server.SearchItems("", dgvClientBillItems.Rows[i].Cells["Column21"].Value.ToString(), 0).Item1[0];
-                    itemsInBill.Add(SearchedItem);
-                }
-                bill.ItemsBought = itemsInBill;
-                bill.SetCashierName(cashierName);
+                string InvoiceDate = bill.getDate().ToString();
 
                 frmReceipt receipt = new frmReceipt(bill, txtStoreName.Text, txtStoreAddress.Text, txtStorePhone.Text, true);
                 openedForm = receipt;
                 receipt.ShowDialog();
-            }
-            catch (Exception error)
-            {
-                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                {
-                    MaterialMessageBox.Show(".لم نتمكن من طباعة الفاتوره", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                }
-                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                {
-                    MaterialMessageBox.Show("Unable to print Invoice.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                }
-            }
-            try
-            {
-                DataTable dt = Connection.server.RetrieveSystemSettings();
-
-                string welcome2 = this.PlancksoftPOSName;
-                string welcome = "";
-                string InvoiceNo = "";
-                string cashierNamePrint = "";
-                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                {
-                    welcome = "شكرا لزيارتك متجرنا ";
-                    InvoiceNo = "" + BillNumber.ToString() + "رقم الفاتورة الحالية ";
-                    cashierNamePrint = cashierName + " :اسم الكاشير";
-                }
-                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                {
-                    welcome = "Thank you for visiting our store ";
-                    InvoiceNo = "Current Bill Number: " + BillNumber.ToString();
-                    cashierNamePrint = " Cashier Name:" + cashierName;
-                }
-                decimal gross = Convert.ToDecimal(totalAmount);
-                decimal net = Convert.ToDecimal(totalAmount);
-                decimal discount = gross - net;
-                decimal amountPaid = paidAmount;
-                decimal remainder = remainderAmount;
-                string InvoiceDate = invoiceDate.ToString();
-
-                int lineHeight = 20;
-                int height = 220;
-
-                for (int i = 0; i < dgvClientBillItems.Rows.Count; i++)
-                {
-                    if (!dgvClientBillItems.Rows[i].IsNewRow)
-                    {
-                        height += lineHeight;
-                    }
-                }
-
-                Bitmap bitm = new Bitmap(354, height + 350);
-                StringFormat format = new StringFormat(StringFormatFlags.DirectionRightToLeft);
-                using (Graphics graphic = Graphics.FromImage(bitm))
-                {
-                    int startX = 0;
-                    int startY = 0;
-                    int offsetY = 0;
-                    Font newfont2 = null;
-                    Font itemFont = null;
-                    SolidBrush black = null;
-                    SolidBrush white = null;
-
-                    try
-                    {
-                        //Font newfont = new Font("Arial Black", 8);
-                        newfont2 = new Font("Calibri", 9, FontStyle.Bold);
-                        itemFont = new Font("Calibri", 9, FontStyle.Bold);
-
-                        black = new SolidBrush(Color.Black);
-                        white = new SolidBrush(Color.White);
-
-                        //PointF point = new PointF(40f, 2f);
-
-
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        graphic.FillRectangle(white, 0, 0, bitm.Width, bitm.Height);
-                        graphic.DrawString(this.txtStorePhone.Text, newfont2, black, (bitm.Width / 2) - Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString()), startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        graphic.DrawString(welcome2, newfont2, black, (bitm.Width / 2) - (welcome2.Length + 5), startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        graphic.DrawString(welcome, newfont2, black, (bitm.Width / 2) - (welcome.Length + 10), startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        if (IncludeLogoInReceipt)
-                        {
-                            try
-                            {
-                                if (!Convert.IsDBNull(dt.Rows[0]["SystemLogo"]))
-                                {
-                                    StoreLogo = (Byte[])(dt.Rows[0]["SystemLogo"]);
-                                    var stream = new MemoryStream(StoreLogo);
-                                    graphic.DrawImage(ResizeImage(new Bitmap(stream), 150, 150), (bitm.Width / 2) - 75, 0);
-                                }
-                                else
-                                {
-                                    graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 75, 0);
-                                }
-                            }
-                            catch (Exception err)
-                            {
-                                graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 75, 0);
-                            }
-
-                            offsetY = offsetY + lineHeight;
-                        }
-                        graphic.DrawString(InvoiceNo, newfont2, black, (bitm.Width / 2) - InvoiceNo.Length, startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-
-                        //PointF pointPrice = new PointF(15f, 45f);
-                        graphic.DrawString("" + InvoiceDate + "", newfont2, black, (bitm.Width / 2) - (InvoiceDate.Length + 7), startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        graphic.DrawString(cashierNamePrint, newfont2, black, (bitm.Width / 2) - cashierNamePrint.Length, startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-                        offsetY = offsetY + lineHeight;
-
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString("  إسم المنتج      " + "               الكمية      " + "          السعر ", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("  Price      " + "               Quantity      " + "          Item Name ", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
-                        //PointF pointPname = new PointF(10f, 65f);
-                        //PointF pointBar = new PointF(10f, 65f);
-
-                        offsetY = offsetY + lineHeight;
-
-
-                        List<Item> itemsInBill = new List<Item>();
-
-                        for (int i = 0; i < dgvClientBillItems.Rows.Count; i++)
-                        {
-                            if (!dgvClientBillItems.Rows[i].IsNewRow)
-                            {
-                                int ii = 1;
-                                ii++;
-                                Item SearchedItem = Connection.server.SearchItems("", dgvClientBillItems.Rows[i].Cells["dataGridViewTextBoxColumn21"].Value.ToString(), 0).Item1[0];
-                                itemsInBill.Add(SearchedItem);
-                                string itemString = " " + SearchedItem.ItemName1 + "               " + SearchedItem.ItemQuantity1 + "                    " + SearchedItem.GetPriceTax() + "";
-                                if (IsRtl(itemString))
-                                {
-                                    graphic.DrawString(itemString, itemFont,
-                                                black, startX + 15, startY + offsetY);
-                                }
-                                else
-                                {
-                                    itemString = " " + SearchedItem.GetPriceTax() + "                    " + SearchedItem.ItemQuantity1 + "               " + SearchedItem.ItemName1 + "";
-                                    graphic.DrawString(itemString, itemFont,
-                                                black, startX + 15, startY + offsetY);
-                                }
-                                offsetY = offsetY + lineHeight;
-                            }
-                        }
-                        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString("الإجمالي :" + gross + "" + "                           " + "الخصم :" + discount + "", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("Gross :" + gross + "" + "                           " + "Discount :" + discount + "", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString("الصافي :" + net + "" + "                         " + "المدفوع :" + amountPaid + "", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("Net :" + net + "" + "                         " + "Paid :" + amountPaid + "", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString("الباقي :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("Remainder :" + remainder + "", newfont2, black, startX + 15, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        graphic.DrawString("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------", newfont2, black, startX, startY + offsetY);
-                        offsetY = offsetY + lineHeight;
-                        //frmReceipt receipt = new frmReceipt(bitm, itemsInBill, true);
-                        //openedForm = receipt;
-                        //receipt.ShowDialog();
-                    }
-                    finally
-                    {
-                        black.Dispose();
-                        white.Dispose();
-                        itemFont.Dispose();
-                        newfont2.Dispose();
-                    }
-                }
-
-                using (MemoryStream Mmst = new MemoryStream())
-                {
-                    try
-                    {
-                        try
-                        {
-                            System.IO.Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts");
-                        }
-                        catch (Exception error) { }
-                        bitm.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\Receipt " + this.CurrentBillNumber.ToString() + ".jpeg", ImageFormat.Jpeg);
-                    }
-                    catch (Exception error)
-                    {
-                    }
-                }
             }
             catch (Exception error)
             {

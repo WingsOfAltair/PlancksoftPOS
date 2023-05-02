@@ -222,6 +222,7 @@ namespace PlancksoftPOS
             Offset = Offset + largeinc;
             string DrawnBy = shopName + ": " + shopPhone + " - " + shopAddress;//"Plancksoft: +962 77 64 72 166 - Deir Al Asal Street, Khalda, Amman, Jordan.";
             DrawSimpleString(DrawnBy, minifont, Offset, 15);
+            this.Close(); // remove when image set to PB is done.
         }
 
         private void frmReceipt_Load(object sender, EventArgs e)

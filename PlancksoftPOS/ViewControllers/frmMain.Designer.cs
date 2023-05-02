@@ -662,6 +662,8 @@ namespace PlancksoftPOS
             this.switchThemeScheme = new MaterialSkin.Controls.MaterialSwitch();
             this.button1 = new MaterialSkin.Controls.MaterialButton();
             this.groupBox9 = new MaterialSkin.Controls.MaterialCard();
+            this.txtStoreAddress = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblStoreAddress = new MaterialSkin.Controls.MaterialLabel();
             this.txtStorePhone = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblStoreName = new MaterialSkin.Controls.MaterialLabel();
             this.txtStoreName = new MaterialSkin.Controls.MaterialTextBox2();
@@ -767,8 +769,6 @@ namespace PlancksoftPOS
             this.hamburger_menu_clients_affairs_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_taxes_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_settings_sub_timer = new System.Windows.Forms.Timer(this.components);
-            this.txtStoreAddress = new MaterialSkin.Controls.MaterialTextBox2();
-            this.lblStoreAddress = new MaterialSkin.Controls.MaterialLabel();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -8026,6 +8026,7 @@ namespace PlancksoftPOS
             this.btnPrintClientBills.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btnPrintClientBills.TabIndex = 29;
             this.btnPrintClientBills.TabStop = false;
+            this.btnPrintClientBills.Click += new System.EventHandler(this.btnPrintClientBills_Click);
             // 
             // ImporterDefinitions
             // 
@@ -10612,6 +10613,49 @@ namespace PlancksoftPOS
             this.groupBox9.TabIndex = 35;
             this.groupBox9.Text = "الإعدادات الأساسية";
             // 
+            // txtStoreAddress
+            // 
+            this.txtStoreAddress.AnimateReadOnly = false;
+            this.txtStoreAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtStoreAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtStoreAddress.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtStoreAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtStoreAddress.Depth = 0;
+            this.txtStoreAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStoreAddress.HideSelection = true;
+            this.txtStoreAddress.LeadingIcon = null;
+            this.txtStoreAddress.Location = new System.Drawing.Point(17, 188);
+            this.txtStoreAddress.MaxLength = 32767;
+            this.txtStoreAddress.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtStoreAddress.Name = "txtStoreAddress";
+            this.txtStoreAddress.PasswordChar = '\0';
+            this.txtStoreAddress.PrefixSuffixText = null;
+            this.txtStoreAddress.ReadOnly = false;
+            this.txtStoreAddress.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtStoreAddress.SelectedText = "";
+            this.txtStoreAddress.SelectionLength = 0;
+            this.txtStoreAddress.SelectionStart = 0;
+            this.txtStoreAddress.ShortcutsEnabled = true;
+            this.txtStoreAddress.Size = new System.Drawing.Size(437, 48);
+            this.txtStoreAddress.TabIndex = 30;
+            this.txtStoreAddress.TabStop = false;
+            this.txtStoreAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtStoreAddress.TrailingIcon = null;
+            this.txtStoreAddress.UseSystemPasswordChar = false;
+            // 
+            // lblStoreAddress
+            // 
+            this.lblStoreAddress.AutoSize = true;
+            this.lblStoreAddress.Depth = 0;
+            this.lblStoreAddress.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblStoreAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblStoreAddress.Location = new System.Drawing.Point(17, 168);
+            this.lblStoreAddress.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblStoreAddress.Name = "lblStoreAddress";
+            this.lblStoreAddress.Size = new System.Drawing.Size(29, 19);
+            this.lblStoreAddress.TabIndex = 31;
+            this.lblStoreAddress.Text = "العنوان";
+            // 
             // txtStorePhone
             // 
             this.txtStorePhone.AnimateReadOnly = false;
@@ -12357,49 +12401,6 @@ namespace PlancksoftPOS
             // 
             this.hamburger_menu_settings_sub_timer.Interval = 10;
             this.hamburger_menu_settings_sub_timer.Tick += new System.EventHandler(this.hamburger_menu_settings_sub_timer_Tick_1);
-            // 
-            // txtStoreAddress
-            // 
-            this.txtStoreAddress.AnimateReadOnly = false;
-            this.txtStoreAddress.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
-            this.txtStoreAddress.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
-            this.txtStoreAddress.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.txtStoreAddress.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.txtStoreAddress.Depth = 0;
-            this.txtStoreAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStoreAddress.HideSelection = true;
-            this.txtStoreAddress.LeadingIcon = null;
-            this.txtStoreAddress.Location = new System.Drawing.Point(17, 188);
-            this.txtStoreAddress.MaxLength = 32767;
-            this.txtStoreAddress.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtStoreAddress.Name = "txtStoreAddress";
-            this.txtStoreAddress.PasswordChar = '\0';
-            this.txtStoreAddress.PrefixSuffixText = null;
-            this.txtStoreAddress.ReadOnly = false;
-            this.txtStoreAddress.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtStoreAddress.SelectedText = "";
-            this.txtStoreAddress.SelectionLength = 0;
-            this.txtStoreAddress.SelectionStart = 0;
-            this.txtStoreAddress.ShortcutsEnabled = true;
-            this.txtStoreAddress.Size = new System.Drawing.Size(437, 48);
-            this.txtStoreAddress.TabIndex = 30;
-            this.txtStoreAddress.TabStop = false;
-            this.txtStoreAddress.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.txtStoreAddress.TrailingIcon = null;
-            this.txtStoreAddress.UseSystemPasswordChar = false;
-            // 
-            // lblStoreAddress
-            // 
-            this.lblStoreAddress.AutoSize = true;
-            this.lblStoreAddress.Depth = 0;
-            this.lblStoreAddress.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblStoreAddress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.lblStoreAddress.Location = new System.Drawing.Point(17, 168);
-            this.lblStoreAddress.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblStoreAddress.Name = "lblStoreAddress";
-            this.lblStoreAddress.Size = new System.Drawing.Size(29, 19);
-            this.lblStoreAddress.TabIndex = 31;
-            this.lblStoreAddress.Text = "العنوان";
             // 
             // frmMain
             // 
