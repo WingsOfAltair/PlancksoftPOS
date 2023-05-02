@@ -16,9 +16,10 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveSystemSettings();
         }
-        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax)
+        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone,
+            string SystemAddress, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax)
         {
-            return DAL.UpdateSystemSettings(SystemName, SystemLogo, SystemPhone, SystemReceiptBlankSpaces, SystemIncludeLogoInReceipt, SystemTax);
+            return DAL.UpdateSystemSettings(SystemName, SystemLogo, SystemPhone, SystemAddress, SystemReceiptBlankSpaces, SystemIncludeLogoInReceipt, SystemTax);
         }
         public string RetrieveItemTypeName(int ItemTypeIndex, int locale)
         {

@@ -45,6 +45,7 @@
         <xs:element minOccurs="0" name="SystemName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="SystemLogo" nillable="true" type="xs:base64Binary" />
         <xs:element minOccurs="0" name="SystemPhone" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SystemAddress" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="SystemReceiptBlankSpaces" type="xs:int" />
         <xs:element minOccurs="0" name="SystemIncludeLogoInReceipt" type="xs:int" />
         <xs:element minOccurs="0" name="SystemTax" type="xs:decimal" />

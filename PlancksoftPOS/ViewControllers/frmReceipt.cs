@@ -135,13 +135,13 @@ namespace PlancksoftPOS
             Offset = Offset + largeinc + 10;
             DrawAtStart("Invoice Number: " + Bill.BillNumber, Offset);
 
-            if (!String.Equals(this.shopAddress, "N/A"))
+            if (!String.Equals(this.shopAddress, ""))
             {
                 Offset = Offset + mediuminc;
                 DrawAtStart("Address: " + this.shopAddress, Offset);
             }
 
-            if (!String.Equals(this.shopPhone, "N/A"))
+            if (!String.Equals(this.shopPhone, ""))
             {
                 Offset = Offset + mediuminc;
                 DrawAtStart("Phone # : " + this.shopPhone, Offset);
@@ -189,14 +189,15 @@ namespace PlancksoftPOS
             //}
 
             Offset = Offset + smallinc;
-            InsertHeaderStyleItem(" Amount Payable: ", Bill.getTotalAmount().ToString(), Offset); // GrossTotal.CValue
+            InsertItem(" Amount Paid: ", Bill.getPaidAmount().ToString(), Offset);
+            InsertHeaderStyleItem(" Amount Remainder: ", Bill.getRemainderAmount().ToString(), Offset); // GrossTotal.CValue
 
             Offset = Offset + largeinc;
-            String address = shopAddress;
+            String address = Bill.ClientAddress;
             DrawSimpleString("Address: " + address, minifont, Offset, 15);
 
             Offset = Offset + smallinc;
-            String number = "Tel: " + shopPhone;// + " - OR - " + shop.Phone2;
+            String number = "Tel: " + Bill.ClientPhone;// + " - OR - " + shop.Phone2;
             DrawSimpleString(number, minifont, Offset, 35);
 
             Offset = Offset + 7;
@@ -211,12 +212,15 @@ namespace PlancksoftPOS
             underLine = "-------------------------------------";
             DrawLine(underLine, largefont, Offset, 0);
 
+            //Offset += (2 * mediuminc);
+            //string tip = "TIP: -----------------------------";
+            //InsertItem(tip, "", Offset);
             Offset += (2 * mediuminc);
-            string tip = "TIP: -----------------------------";
-            InsertItem(tip, "", Offset);
+            string cashier = "Cashier: " + Bill.getCashierName(); ;
+            InsertItem(cashier, "", Offset);
 
             Offset = Offset + largeinc;
-            string DrawnBy = shopName + ": " + shopPhone;//"Meganos Softwares: 0312-0459491 - OR - 0321-6228321";
+            string DrawnBy = shopName + ": " + shopPhone + " - " + shopAddress;//"Plancksoft: +962 77 64 72 166 - Deir Al Asal Street, Khalda, Amman, Jordan.";
             DrawSimpleString(DrawnBy, minifont, Offset, 15);
         }
 

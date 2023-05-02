@@ -14,7 +14,8 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         DataTable RetrieveSystemSettings();
         [OperationContract]
-        bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax);
+        bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone,
+            string SystemAddress, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax);
         [OperationContract]
         string RetrieveItemTypeName(int ItemTypeIndex, int locale);
         [OperationContract]
