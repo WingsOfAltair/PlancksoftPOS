@@ -135,16 +135,22 @@ namespace PlancksoftPOS
             Offset = Offset + largeinc + 10;
             DrawAtStart("Invoice Number: " + Bill.BillNumber, Offset);
 
-            if (!String.Equals(this.shopAddress, ""))
+            if (!String.Equals(Bill.ClientName, ""))
             {
                 Offset = Offset + mediuminc;
-                DrawAtStart("Address: " + this.shopAddress, Offset);
+                DrawAtStart("Name: " + Bill.ClientName, Offset);
             }
 
-            if (!String.Equals(this.shopPhone, ""))
+            if (!String.Equals(Bill.ClientAddress, ""))
             {
                 Offset = Offset + mediuminc;
-                DrawAtStart("Phone # : " + this.shopPhone, Offset);
+                DrawAtStart("Address: " + Bill.ClientAddress, Offset);
+            }
+
+            if (!String.Equals(Bill.ClientPhone, ""))
+            {
+                Offset = Offset + mediuminc;
+                DrawAtStart("Phone # : " + Bill.ClientPhone, Offset);
             }
 
             Offset = Offset + mediuminc;
@@ -189,16 +195,17 @@ namespace PlancksoftPOS
             //}
 
             Offset = Offset + smallinc;
-            InsertItem(" Amount Paid: ", Bill.getPaidAmount().ToString(), Offset);
-            InsertHeaderStyleItem(" Amount Remainder: ", Bill.getRemainderAmount().ToString(), Offset); // GrossTotal.CValue
+            InsertItem(" Paid Amount: ", Bill.getPaidAmount().ToString(), Offset);
+            Offset = Offset + smallinc;
+            InsertHeaderStyleItem(" Remainder Amount: ", Bill.getRemainderAmount().ToString(), Offset); // GrossTotal.CValue
 
             Offset = Offset + largeinc;
-            String address = Bill.ClientAddress;
-            DrawSimpleString("Address: " + address, minifont, Offset, 15);
+            //String address = Bill.ClientAddress;
+            //DrawSimpleString("Address: " + address, minifont, Offset, 15);
 
             Offset = Offset + smallinc;
-            String number = "Tel: " + Bill.ClientPhone;// + " - OR - " + shop.Phone2;
-            DrawSimpleString(number, minifont, Offset, 35);
+            //String number = "Tel: " + Bill.ClientPhone;// + " - OR - " + shop.Phone2;
+            //DrawSimpleString(number, minifont, Offset, 35);
 
             Offset = Offset + 7;
             underLine = "-------------------------------------";

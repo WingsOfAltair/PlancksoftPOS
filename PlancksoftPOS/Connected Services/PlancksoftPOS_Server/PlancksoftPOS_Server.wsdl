@@ -28,6 +28,12 @@
   <wsdl:message name="IPlancksoftPOS_Server_UpdateSystemSettings_OutputMessage">
     <wsdl:part name="parameters" element="tns:UpdateSystemSettingsResponse" />
   </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveBillSoldBItemQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBillSoldBItemQuantity" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveBillSoldBItemQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBillSoldBItemQuantityResponse" />
+  </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_RetrieveItemTypeName_InputMessage">
     <wsdl:part name="parameters" element="tns:RetrieveItemTypeName" />
   </wsdl:message>
@@ -713,6 +719,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateSystemSettings" message="tns:IPlancksoftPOS_Server_UpdateSystemSettings_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateSystemSettingsResponse" message="tns:IPlancksoftPOS_Server_UpdateSystemSettings_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RetrieveBillSoldBItemQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillSoldBItemQuantity" message="tns:IPlancksoftPOS_Server_RetrieveBillSoldBItemQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillSoldBItemQuantityResponse" message="tns:IPlancksoftPOS_Server_RetrieveBillSoldBItemQuantity_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RetrieveItemTypeName">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemTypeName" message="tns:IPlancksoftPOS_Server_RetrieveItemTypeName_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveItemTypeNameResponse" message="tns:IPlancksoftPOS_Server_RetrieveItemTypeName_OutputMessage" />
@@ -1184,6 +1194,15 @@
     </wsdl:operation>
     <wsdl:operation name="UpdateSystemSettings">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateSystemSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveBillSoldBItemQuantity">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillSoldBItemQuantity" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

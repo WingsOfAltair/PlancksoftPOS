@@ -17,6 +17,8 @@ namespace PlancksoftPOS_Server
         bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone,
             string SystemAddress, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax);
         [OperationContract]
+        int RetrieveBillSoldBItemQuantity(int BillNumber, string itemBarcode);
+        [OperationContract]
         string RetrieveItemTypeName(int ItemTypeIndex, int locale);
         [OperationContract]
         string RetrieveWarehouseName(int WarehouseIndex, int locale);

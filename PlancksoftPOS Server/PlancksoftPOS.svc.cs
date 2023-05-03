@@ -21,6 +21,10 @@ namespace PlancksoftPOS_Server
         {
             return DAL.UpdateSystemSettings(SystemName, SystemLogo, SystemPhone, SystemAddress, SystemReceiptBlankSpaces, SystemIncludeLogoInReceipt, SystemTax);
         }
+        public int RetrieveBillSoldBItemQuantity(int BillNumber, string itemBarcode)
+        {
+            return DAL.RetrieveBillSoldBItemQuantity(BillNumber, itemBarcode);
+        }
         public string RetrieveItemTypeName(int ItemTypeIndex, int locale)
         {
             return DAL.RetrieveItemTypeName(ItemTypeIndex, locale);
