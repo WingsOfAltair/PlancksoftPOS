@@ -26,6 +26,12 @@ namespace Dependencies
         public string cashierName;
         [DataMember]
         public bool paybycash;
+        [DataMember]
+        private string clientName;
+        [DataMember]
+        private string clientPhone;
+        [DataMember]
+        private string clientAddress;
 
         [DataMember]
         public int BillNumber { get => billNumber; set => billNumber = value; }
@@ -45,6 +51,9 @@ namespace Dependencies
         public bool Postponed { get => postponed; set => postponed = value; }
         [DataMember]
         public int ClientID { get => clientID; set => clientID = value; }
+        public string ClientName { get => clientName; set => clientName = value; }
+        public string ClientPhone { get => clientPhone; set => clientPhone = value; }
+        public string ClientAddress { get => clientAddress; set => clientAddress = value; }
 
         public Bill()
         {

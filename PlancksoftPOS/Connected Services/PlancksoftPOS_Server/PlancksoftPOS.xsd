@@ -138,7 +138,10 @@
       <xs:element minOccurs="0" name="TotalAmount" type="xs:decimal" />
       <xs:element minOccurs="0" name="billNumber" type="xs:int" />
       <xs:element minOccurs="0" name="cashierName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="clientAddress" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="clientID" type="xs:int" />
+      <xs:element minOccurs="0" name="clientName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="clientPhone" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="date" type="xs:dateTime" />
       <xs:element minOccurs="0" name="itemsBought" nillable="true" type="tns:ArrayOfItem" />
       <xs:element minOccurs="0" name="paidAmount" type="xs:decimal" />

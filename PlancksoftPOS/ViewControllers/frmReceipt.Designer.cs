@@ -29,20 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmReceipt));
-            this.pbReceipt = new System.Windows.Forms.PictureBox();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.btnPickClient = new MaterialSkin.Controls.MaterialButton();
+            this.pbReceipt = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pbReceipt)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pbReceipt
-            // 
-            this.pbReceipt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pbReceipt.Location = new System.Drawing.Point(0, 0);
-            this.pbReceipt.Name = "pbReceipt";
-            this.pbReceipt.Size = new System.Drawing.Size(348, 1050);
-            this.pbReceipt.TabIndex = 0;
-            this.pbReceipt.TabStop = false;
             // 
             // printDocument1
             // 
@@ -56,12 +47,12 @@
             this.btnPickClient.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnPickClient.HighEmphasis = true;
             this.btnPickClient.Icon = null;
-            this.btnPickClient.Location = new System.Drawing.Point(0, 0);
+            this.btnPickClient.Location = new System.Drawing.Point(3, 64);
             this.btnPickClient.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPickClient.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPickClient.Name = "btnPickClient";
             this.btnPickClient.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnPickClient.Size = new System.Drawing.Size(348, 36);
+            this.btnPickClient.Size = new System.Drawing.Size(342, 36);
             this.btnPickClient.TabIndex = 75;
             this.btnPickClient.Text = "X";
             this.btnPickClient.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -69,15 +60,23 @@
             this.btnPickClient.UseVisualStyleBackColor = true;
             this.btnPickClient.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // pbReceipt
+            // 
+            this.pbReceipt.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pbReceipt.Location = new System.Drawing.Point(3, 100);
+            this.pbReceipt.Name = "pbReceipt";
+            this.pbReceipt.Size = new System.Drawing.Size(342, 865);
+            this.pbReceipt.TabIndex = 76;
+            this.pbReceipt.TabStop = false;
+            // 
             // frmReceipt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 1050);
             this.ControlBox = false;
-            this.Controls.Add(this.btnPickClient);
             this.Controls.Add(this.pbReceipt);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Controls.Add(this.btnPickClient);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmReceipt";
             this.ShowIcon = false;
@@ -92,8 +91,8 @@
         }
 
         #endregion
-        internal System.Windows.Forms.PictureBox pbReceipt;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private MaterialSkin.Controls.MaterialButton btnPickClient;
+        internal System.Windows.Forms.PictureBox pbReceipt;
     }
 }

@@ -55,7 +55,35 @@ namespace DataAccessLayer
             }
         }
 
-        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax)
+        public int RetrieveBillSoldBItemQuantity(int BillNumber, string itemBarcode)
+        {
+            try
+            {
+                int SoldItemQuantity = -1;
+                using (SqlCommand cmd = new SqlCommand("RetrieveBillSoldBItemQuantity", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@BillNumber", BillNumber);
+                    cmd.Parameters.AddWithValue("@itemBarcode    ", itemBarcode);
+                    cmd.Parameters.Add("@SoldItemQuantity", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    SoldItemQuantity = Convert.ToInt32(cmd.Parameters["@SoldItemQuantity"].Value);
+                    connection.Close();
+                }
+                return Convert.ToInt32(SoldItemQuantity);
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }
+
+        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, string SystemAddress,
+            int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax)
         {
             try
             {
@@ -66,6 +94,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@SystemName", SystemName);
                     cmd.Parameters.AddWithValue("@SystemLogo    ", SystemLogo);
                     cmd.Parameters.AddWithValue("@SystemPhone    ", SystemPhone);
+                    cmd.Parameters.AddWithValue("@SystemAddress    ", SystemAddress);
                     cmd.Parameters.AddWithValue("@SystemReceiptBlankSpaces    ", SystemReceiptBlankSpaces);
                     cmd.Parameters.AddWithValue("@SystemIncludeLogoInReceipt    ", SystemIncludeLogoInReceipt);
                     cmd.Parameters.AddWithValue("@SystemTax    ", SystemTax);
@@ -3467,6 +3496,10 @@ namespace DataAccessLayer
                     bill.SetTotalAmount(Convert.ToDecimal(Item["Total Amount"].ToString()));
                     bill.SetPaidAmount(Convert.ToDecimal(Item["Paid Amount"].ToString()));
                     bill.SetRemainderAmount(Convert.ToDecimal(Item["Remainder Amount"].ToString()));
+                    bill.SetDate(Convert.ToDateTime(Item["Invoice Date"].ToString()));
+                    bill.ClientName = Item["Client Name"].ToString();
+                    bill.ClientPhone = Item["Client Phone"].ToString();
+                    bill.ClientAddress = Item["Client Address"].ToString();
                     Bills.Add(bill);
                 }
                 return Tuple.Create(Bills, dt);
