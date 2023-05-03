@@ -6,29 +6,35 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PlancksoftPOS
 {
     public partial class frmReceipt : MaterialForm
     {
         Connection connection = null;
-        List<Dependencies.Item> ItemsInBill;
+        List<Item> ItemsInBill;
+        bool rePrint = false;
         bool MultiPrint = false;
+        Bitmap bitmap = null;
 
         private PrintDocument PrintDocument;
         private Graphics graphics;
+        private Graphics bitmapGraphic;
         private int InitialHeight = 360;
         Bill Bill;
         string shopName;
         string shopAddress;
         string shopPhone;
-        public frmReceipt(Bill bill, string shopName, string shopAddress, string shopPhone, bool multiPrint)
+        public frmReceipt(Bill bill, string shopName, string shopAddress, string shopPhone, bool multiPrint, bool rePrint = false)
         {
             InitializeComponent();
             connection = new Connection();
@@ -38,12 +44,10 @@ namespace PlancksoftPOS
             this.shopName = shopName;
             this.shopAddress = shopAddress;
             this.shopPhone = shopPhone;
-            //this.Height = receiptImage.Height;
-            //this.Width = receiptImage.Width;
-            //this.pbReceipt.Image = receiptImage;
-            //this.pbReceipt.Height = receiptImage.Height;
-            //this.pbReceipt.Width = receiptImage.Width;
+            this.rePrint = rePrint;
             AdjustHeight();
+            bitmap = new Bitmap(342, InitialHeight + 865, PixelFormat.Format32bppArgb);
+            bitmapGraphic = Graphics.FromImage(bitmap);
         }
         private void AdjustHeight()
         {
@@ -61,6 +65,8 @@ namespace PlancksoftPOS
 
             graphics.DrawString(text, minifont,
                      new SolidBrush(Color.Black), startX + 5, startY + Offset);
+            bitmapGraphic.DrawString(text, minifont,
+                     new SolidBrush(Color.Black), startX + 5, startY + Offset);
         }
         void InsertItem(string key, string value, int Offset)
         {
@@ -71,7 +77,13 @@ namespace PlancksoftPOS
             graphics.DrawString(key, minifont,
                          new SolidBrush(Color.Black), startX + 5, startY + Offset);
 
+            bitmapGraphic.DrawString(key, minifont,
+                     new SolidBrush(Color.Black), startX + 5, startY + Offset);
+
             graphics.DrawString(value, minifont,
+                 new SolidBrush(Color.Black), startX + 130, startY + Offset);
+
+            bitmapGraphic.DrawString(value, minifont,
                      new SolidBrush(Color.Black), startX + 130, startY + Offset);
         }
         void InsertHeaderStyleItem(string key, string value, int Offset)
@@ -83,7 +95,13 @@ namespace PlancksoftPOS
             graphics.DrawString(key, itemfont,
                          new SolidBrush(Color.Black), startX + 5, startY + Offset);
 
+            bitmapGraphic.DrawString(key, itemfont,
+                         new SolidBrush(Color.Black), startX + 5, startY + Offset);
+
             graphics.DrawString(value, itemfont,
+                 new SolidBrush(Color.Black), startX + 130, startY + Offset);
+
+            bitmapGraphic.DrawString(value, itemfont,
                      new SolidBrush(Color.Black), startX + 130, startY + Offset);
         }
         void DrawLine(string text, Font font, int Offset, int xOffset)
@@ -92,12 +110,16 @@ namespace PlancksoftPOS
             int startY = 5;
             graphics.DrawString(text, font,
                      new SolidBrush(Color.Black), startX + xOffset, startY + Offset);
+            bitmapGraphic.DrawString(text, font,
+                     new SolidBrush(Color.Black), startX + xOffset, startY + Offset);
         }
         void DrawSimpleString(string text, Font font, int Offset, int xOffset)
         {
             int startX = 10;
             int startY = 5;
             graphics.DrawString(text, font,
+                     new SolidBrush(Color.Black), startX + xOffset, startY + Offset);
+            bitmapGraphic.DrawString(text, font,
                      new SolidBrush(Color.Black), startX + xOffset, startY + Offset);
         }
 
@@ -108,7 +130,6 @@ namespace PlancksoftPOS
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-            //e.Graphics.DrawImage(pbReceipt.Image, 0, 0);
             graphics = e.Graphics;
             Font minifont = new Font("Arial", 5);
             Font itemfont = new Font("Arial", 6);
@@ -118,12 +139,16 @@ namespace PlancksoftPOS
             int Offset = 10;
             int smallinc = 10, mediuminc = 12, largeinc = 15;
 
-            Image image = Properties.Resources.plancksoft_b_t;
+            System.Drawing.Image image = Properties.Resources.plancksoft_b_t;
             e.Graphics.DrawImage(image, 0 + 80, 0 + Offset, 100, 30);
+            bitmapGraphic.DrawImage(image, 0 + 80, 0 + Offset, 100, 30);
 
             Offset = Offset + largeinc + 40;
 
             graphics.DrawString("Welcome to " + shopName, largefont,
+                  new SolidBrush(Color.Black), 0 + 22, 0 + Offset);
+
+            bitmapGraphic.DrawString("Welcome to " + shopName, largefont,
                   new SolidBrush(Color.Black), 0 + 22, 0 + Offset);
 
             Offset = Offset + largeinc + 10;
@@ -133,7 +158,14 @@ namespace PlancksoftPOS
 
             Offset = Offset + largeinc + 10;
             Offset = Offset + largeinc + 10;
-            DrawAtStart("Invoice Number: " + Bill.BillNumber, Offset);
+            if (rePrint)
+            {
+                DrawAtStart("Reprint of Invoice Number: " + Bill.BillNumber, Offset);
+            }
+            else
+            {
+                DrawAtStart("Invoice Number: " + Bill.BillNumber, Offset);
+            }
 
             if (!String.Equals(Bill.ClientName, ""))
             {
@@ -229,7 +261,35 @@ namespace PlancksoftPOS
             Offset = Offset + largeinc;
             string DrawnBy = shopName + ": " + shopPhone + " - " + shopAddress;//"Plancksoft: +962 77 64 72 166 - Deir Al Asal Street, Khalda, Amman, Jordan.";
             DrawSimpleString(DrawnBy, minifont, Offset, 15);
-            this.Close(); // remove when image set to PB is done.
+
+
+            pbReceipt.Image = bitmap;
+            using (MemoryStream Mmst = new MemoryStream())
+            {
+                try
+                {
+                    try
+                    {
+                        Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts");
+                    }
+                    catch (Exception error) { }
+
+                    bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\Receipt " + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + " " + DateTime.Today.Hour +
+                        "-" + DateTime.Today.Minute + "-" + DateTime.Today.Second + "-" + DateTime.Today.Millisecond + " Receipt " +
+                        Bill.getBillNumber() + ".png", ImageFormat.Png);
+                }
+                catch (Exception error)
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        FlexibleMaterialForm.Show(this, ".لم نستطع حفظ نسخه من الفاتورة في مخزن الفواتير داخل سطح المكتب", "خطأ في حفظ  نسخه من الفاتوره", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        FlexibleMaterialForm.Show(this, "We were unable to save a copy of the receipt in the receipt storage inside the Desktop.", "A problem has occured while saving the receipt.", MessageBoxButtons.OK, MessageBoxIcon.Error, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                }
+            }
         }
 
         private void frmReceipt_Load(object sender, EventArgs e)

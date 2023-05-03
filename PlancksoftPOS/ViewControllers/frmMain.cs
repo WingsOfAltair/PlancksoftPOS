@@ -4761,7 +4761,7 @@ namespace PlancksoftPOS
                     billPaid.ItemsBought = itemsInBill;
 
 
-                    printCertainReceipt(billPaid);
+                    printCertainReceipt(billPaid, true);
                 } else
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -10764,7 +10764,7 @@ namespace PlancksoftPOS
                 itemsInBill.Add(SearchedItem);
             }
             billPaid.ItemsBought = itemsInBill;
-            printCertainReceipt(billPaid);
+            printCertainReceipt(billPaid, true);
         }
 
         private void btnMenuClientsVendorsSubVendoItemsDefinitions_Click(object sender, EventArgs e)
@@ -11963,7 +11963,7 @@ namespace PlancksoftPOS
             }
         }
 
-        public void printCertainReceipt(Bill bill)
+        public void printCertainReceipt(Bill bill, bool rePrint = false)
         {
             try
             {
@@ -11976,7 +11976,7 @@ namespace PlancksoftPOS
                 decimal remainder = remainderAmount;
                 string InvoiceDate = bill.getDate().ToString();
 
-                frmReceipt receipt = new frmReceipt(bill, txtStoreName.Text, txtStoreAddress.Text, txtStorePhone.Text, true);
+                frmReceipt receipt = new frmReceipt(bill, txtStoreName.Text, txtStoreAddress.Text, txtStorePhone.Text, true, rePrint);
                 openedForm = receipt;
                 receipt.ShowDialog();
             }
