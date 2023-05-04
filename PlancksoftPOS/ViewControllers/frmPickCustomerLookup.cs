@@ -27,6 +27,8 @@ namespace PlancksoftPOS
         public int ID = 0;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
+        public bool eligible = false;
+
         public frmPickClientLookup()
         {
             InitializeComponent();
@@ -35,20 +37,46 @@ namespace PlancksoftPOS
 
             frmLogin.pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
 
+            DataTable RetrievedClients = Connection.server.SearchClientsInfo("", "");
+
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
+
+                if (RetrievedClients == null || RetrievedClients.Rows.Count < 1)
+                {
+                    FlexibleMaterialForm.Show(this, ".الرحاء تعريف عميل للحصول على تخويل للدخول", "!لا يوجد تعريف مسبق لعميل",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, false,
+                        FlexibleMaterialForm.ButtonsPosition.Center);
+                    this.Close();
+                    return;
+                } else
+                {
+                    this.eligible = true;
+                }
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
+
+                if (RetrievedClients == null || RetrievedClients.Rows.Count < 1)
+                {
+                    FlexibleMaterialForm.Show(this, "Please define a client to be eligible for entry.", "No predefined defined clients!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, false,
+                        FlexibleMaterialForm.ButtonsPosition.Center);
+                    this.Close();
+                    return;
+                }
+                else
+                {
+                    this.eligible = true;
+                }
             }
 
             applyLocalizationOnUI();
 
-            DataTable RetrievedClients = Connection.server.SearchClientsInfo("", "");
             DGVClients.DataSource = RetrievedClients;
         }
 
@@ -183,35 +211,17 @@ namespace PlancksoftPOS
 
         private void frmPickClientLookup_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
+            if (!Program.exited)
             {
-                if (pickedLanguage == LanguageChoice.Languages.Arabic)
-                {
-                    DialogResult exitDialog = FlexibleMaterialForm.Show(this, "هل أنت متأكد من رغبتك بالخروج؟", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    if (exitDialog == DialogResult.Yes)
-                    {
-                        this.Close();
-                    }
-                    else if (exitDialog == DialogResult.No)
-                    {
-                        e.Cancel = true;
-                    }
-                }
-                else if (pickedLanguage == LanguageChoice.Languages.English)
-                {
-                    DialogResult exitDialog = FlexibleMaterialForm.Show(this, "Are you sure you would like to quit?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    if (exitDialog == DialogResult.Yes)
-                    {
-                        this.Close();
-                    }
-                    else if (exitDialog == DialogResult.No)
-                    {
-                        e.Cancel = true;
-                    }
-                }
+                Program.exited = true;
+                this.Close();
             }
-            catch (Exception error)
-            { }
+        }
+
+        private void frmPickClientLookup_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.exited = false;
+            Program.materialSkinManager.RemoveFormToManage(this);
         }
     }
 }

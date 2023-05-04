@@ -23,7 +23,7 @@ namespace Dependencies
         [DataMember]
         public DateTime date;
         [DataMember]
-        public string cashierName;
+        private string cashierName;
         [DataMember]
         public bool paybycash;
         [DataMember]
@@ -54,6 +54,7 @@ namespace Dependencies
         public string ClientName { get => clientName; set => clientName = value; }
         public string ClientPhone { get => clientPhone; set => clientPhone = value; }
         public string ClientAddress { get => clientAddress; set => clientAddress = value; }
+        public string CashierName { get => cashierName; set => cashierName = value; }
 
         public Bill()
         {
@@ -74,7 +75,7 @@ namespace Dependencies
             Date = date;
         }
 
-        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, List<Item> itemsBought, bool paybycash, DateTime date)
+        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, List<Item> itemsBought, bool paybycash, DateTime date, string cashierName)
         {
             if (BillNumber > -1)
             {
@@ -86,6 +87,7 @@ namespace Dependencies
             ItemsBought = itemsBought;
             PayByCash = paybycash;
             Date = date;
+            CashierName = cashierName;
         }
 
         public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, List<Item> itemsBought, DateTime date)
@@ -103,7 +105,7 @@ namespace Dependencies
 
         public string getCashierName()
         {
-            return this.cashierName;
+            return this.CashierName;
         }
 
         public int getBillNumber()
@@ -138,7 +140,7 @@ namespace Dependencies
 
         public void SetCashierName(string cashierName)
         {
-            this.cashierName = cashierName;
+            this.CashierName = cashierName;
         }
 
         public void SetBillNumber(int BillNumber)

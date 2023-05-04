@@ -16,6 +16,8 @@ namespace PlancksoftPOS
         
         static public MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
 
+        static public bool exited = false;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

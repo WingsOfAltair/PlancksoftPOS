@@ -145,5 +145,11 @@ namespace PlancksoftPOS
             colorDialogResult = DialogResult.OK;
             this.Close();
         }
+
+        private void frmColorPicker_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.exited = false;
+            Program.materialSkinManager.RemoveFormToManage(this);
+        }
     }
 }

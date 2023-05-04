@@ -3488,19 +3488,19 @@ namespace DataAccessLayer
                 adapter.Fill(dt);
 
                 dt.TableName = "Bills";
-                foreach (DataRow Item in dt.Rows)
+                foreach (DataRow Bill in dt.Rows)
                 {
-                    Bill bill = new Bill();
-                    bill.SetBillNumber(Convert.ToInt32(Item["Bill Number"].ToString()));
-                    bill.SetCashierName(Item["Cashier Name"].ToString());
-                    bill.SetTotalAmount(Convert.ToDecimal(Item["Total Amount"].ToString()));
-                    bill.SetPaidAmount(Convert.ToDecimal(Item["Paid Amount"].ToString()));
-                    bill.SetRemainderAmount(Convert.ToDecimal(Item["Remainder Amount"].ToString()));
-                    bill.SetDate(Convert.ToDateTime(Item["Invoice Date"].ToString()));
-                    bill.ClientName = Item["Client Name"].ToString();
-                    bill.ClientPhone = Item["Client Phone"].ToString();
-                    bill.ClientAddress = Item["Client Address"].ToString();
-                    Bills.Add(bill);
+                    Bill newBill = new Bill();
+                    newBill.SetBillNumber(Convert.ToInt32(Bill["Bill Number"].ToString()));
+                    newBill.SetCashierName(Bill["Cashier Name"].ToString());
+                    newBill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
+                    newBill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
+                    newBill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
+                    newBill.SetDate(Convert.ToDateTime(Bill["Invoice Date"].ToString()));
+                    newBill.ClientName = Bill["Client Name"].ToString();
+                    newBill.ClientPhone = Bill["Client Phone"].ToString();
+                    newBill.ClientAddress = Bill["Client Address"].ToString();
+                    Bills.Add(newBill);
                 }
                 return Tuple.Create(Bills, dt);
             }
