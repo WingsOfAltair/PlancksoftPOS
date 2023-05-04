@@ -237,6 +237,7 @@
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "إختيار العميل";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPickClientLookup_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.DGVClients)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

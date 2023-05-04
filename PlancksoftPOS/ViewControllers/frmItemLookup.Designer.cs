@@ -30,6 +30,18 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItemLookup));
             this.DGVItemsLookup = new System.Windows.Forms.DataGridView();
+            this.lblItemName = new MaterialSkin.Controls.MaterialLabel();
+            this.txtItemName = new MaterialSkin.Controls.MaterialTextBox2();
+            this.txtItemBarcode = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblItemBarcode = new MaterialSkin.Controls.MaterialLabel();
+            this.lblItemQuantity = new MaterialSkin.Controls.MaterialLabel();
+            this.btnSearch = new MaterialSkin.Controls.MaterialButton();
+            this.btnClear = new MaterialSkin.Controls.MaterialButton();
+            this.BtnPrint = new System.Windows.Forms.PictureBox();
+            this.btnClose = new MaterialSkin.Controls.MaterialButton();
+            this.cbItemType = new System.Windows.Forms.ComboBox();
+            this.lblItemType = new MaterialSkin.Controls.MaterialLabel();
+            this.nudItemQuantity = new System.Windows.Forms.NumericUpDown();
             this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,18 +55,6 @@
             this.ItemTypeName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FavoriteCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FavoriteCategoryName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblItemName = new MaterialSkin.Controls.MaterialLabel();
-            this.txtItemName = new MaterialSkin.Controls.MaterialTextBox2();
-            this.txtItemBarcode = new MaterialSkin.Controls.MaterialTextBox2();
-            this.lblItemBarcode = new MaterialSkin.Controls.MaterialLabel();
-            this.lblItemQuantity = new MaterialSkin.Controls.MaterialLabel();
-            this.btnSearch = new MaterialSkin.Controls.MaterialButton();
-            this.btnClear = new MaterialSkin.Controls.MaterialButton();
-            this.BtnPrint = new System.Windows.Forms.PictureBox();
-            this.btnClose = new MaterialSkin.Controls.MaterialButton();
-            this.cbItemType = new System.Windows.Forms.ComboBox();
-            this.lblItemType = new MaterialSkin.Controls.MaterialLabel();
-            this.nudItemQuantity = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.DGVItemsLookup)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnPrint)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudItemQuantity)).BeginInit();
@@ -83,88 +83,6 @@
             this.DGVItemsLookup.Size = new System.Drawing.Size(1250, 372);
             this.DGVItemsLookup.TabIndex = 8;
             this.DGVItemsLookup.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVItemsLookup_RowHeaderMouseDoubleClick);
-            // 
-            // ItemID
-            // 
-            this.ItemID.DataPropertyName = "Item ID";
-            this.ItemID.HeaderText = "رقم القطعه";
-            this.ItemID.Name = "ItemID";
-            this.ItemID.Visible = false;
-            // 
-            // ItemName
-            // 
-            this.ItemName.DataPropertyName = "Item Name";
-            this.ItemName.HeaderText = "اسم القطعه";
-            this.ItemName.Name = "ItemName";
-            // 
-            // ItemBarCode
-            // 
-            this.ItemBarCode.DataPropertyName = "Item BarCode";
-            this.ItemBarCode.HeaderText = "باركود القطعه";
-            this.ItemBarCode.Name = "ItemBarCode";
-            // 
-            // ItemQuantity
-            // 
-            this.ItemQuantity.DataPropertyName = "Item Quantity";
-            this.ItemQuantity.HeaderText = "عدد القطعه";
-            this.ItemQuantity.Name = "ItemQuantity";
-            // 
-            // ItemBuyPrice
-            // 
-            this.ItemBuyPrice.DataPropertyName = "Item Buy Price";
-            this.ItemBuyPrice.HeaderText = "سعر الشراء";
-            this.ItemBuyPrice.Name = "ItemBuyPrice";
-            // 
-            // ItemPrice
-            // 
-            this.ItemPrice.DataPropertyName = "Item Price";
-            this.ItemPrice.HeaderText = "سعر البيع";
-            this.ItemPrice.Name = "ItemPrice";
-            // 
-            // ItemPriceTax
-            // 
-            this.ItemPriceTax.DataPropertyName = "Item Price Tax";
-            this.ItemPriceTax.HeaderText = "سعر البيع مع الضريبه";
-            this.ItemPriceTax.Name = "ItemPriceTax";
-            // 
-            // WarehouseID
-            // 
-            this.WarehouseID.DataPropertyName = "Warehouse ID";
-            this.WarehouseID.HeaderText = "رقم المستودع";
-            this.WarehouseID.Name = "WarehouseID";
-            this.WarehouseID.Visible = false;
-            // 
-            // Warehouse
-            // 
-            this.Warehouse.DataPropertyName = "InventoryItemWarehouse";
-            this.Warehouse.HeaderText = "المستودع";
-            this.Warehouse.Name = "Warehouse";
-            // 
-            // ItemType
-            // 
-            this.ItemType.DataPropertyName = "Item Type";
-            this.ItemType.HeaderText = "رقم تصنيف الماده";
-            this.ItemType.Name = "ItemType";
-            this.ItemType.Visible = false;
-            // 
-            // ItemTypeName
-            // 
-            this.ItemTypeName.DataPropertyName = "InventoryItemType";
-            this.ItemTypeName.HeaderText = "تصنيف الماده";
-            this.ItemTypeName.Name = "ItemTypeName";
-            // 
-            // FavoriteCategory
-            // 
-            this.FavoriteCategory.DataPropertyName = "Favorite Category Number";
-            this.FavoriteCategory.HeaderText = "رقم المجلد المفضل";
-            this.FavoriteCategory.Name = "FavoriteCategory";
-            this.FavoriteCategory.Visible = false;
-            // 
-            // FavoriteCategoryName
-            // 
-            this.FavoriteCategoryName.DataPropertyName = "Favorite Category";
-            this.FavoriteCategoryName.HeaderText = "المجلد المفضل";
-            this.FavoriteCategoryName.Name = "FavoriteCategoryName";
             // 
             // lblItemName
             // 
@@ -206,7 +124,7 @@
             this.txtItemName.SelectionLength = 0;
             this.txtItemName.SelectionStart = 0;
             this.txtItemName.ShortcutsEnabled = true;
-            this.txtItemName.Size = new System.Drawing.Size(284, 48);
+            this.txtItemName.Size = new System.Drawing.Size(300, 48);
             this.txtItemName.TabIndex = 10;
             this.txtItemName.TabStop = false;
             this.txtItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -239,7 +157,7 @@
             this.txtItemBarcode.SelectionLength = 0;
             this.txtItemBarcode.SelectionStart = 0;
             this.txtItemBarcode.ShortcutsEnabled = true;
-            this.txtItemBarcode.Size = new System.Drawing.Size(284, 48);
+            this.txtItemBarcode.Size = new System.Drawing.Size(300, 48);
             this.txtItemBarcode.TabIndex = 12;
             this.txtItemBarcode.TabStop = false;
             this.txtItemBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -269,7 +187,7 @@
             this.lblItemQuantity.Depth = 0;
             this.lblItemQuantity.Enabled = false;
             this.lblItemQuantity.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblItemQuantity.Location = new System.Drawing.Point(795, 450);
+            this.lblItemQuantity.Location = new System.Drawing.Point(811, 450);
             this.lblItemQuantity.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemQuantity.Name = "lblItemQuantity";
             this.lblItemQuantity.Size = new System.Drawing.Size(41, 19);
@@ -358,7 +276,7 @@
             this.cbItemType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbItemType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.cbItemType.FormattingEnabled = true;
-            this.cbItemType.Location = new System.Drawing.Point(552, 492);
+            this.cbItemType.Location = new System.Drawing.Point(568, 492);
             this.cbItemType.Name = "cbItemType";
             this.cbItemType.Size = new System.Drawing.Size(184, 21);
             this.cbItemType.TabIndex = 28;
@@ -370,7 +288,7 @@
             this.lblItemType.AutoSize = true;
             this.lblItemType.Depth = 0;
             this.lblItemType.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblItemType.Location = new System.Drawing.Point(610, 450);
+            this.lblItemType.Location = new System.Drawing.Point(626, 450);
             this.lblItemType.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemType.Name = "lblItemType";
             this.lblItemType.Size = new System.Drawing.Size(54, 19);
@@ -382,7 +300,7 @@
             // 
             this.nudItemQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nudItemQuantity.Enabled = false;
-            this.nudItemQuantity.Location = new System.Drawing.Point(768, 493);
+            this.nudItemQuantity.Location = new System.Drawing.Point(784, 493);
             this.nudItemQuantity.Maximum = new decimal(new int[] {
             1569325055,
             23283064,
@@ -394,11 +312,106 @@
             this.nudItemQuantity.Visible = false;
             this.nudItemQuantity.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nudItemQuantity_KeyPress);
             // 
+            // ItemID
+            // 
+            this.ItemID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemID.DataPropertyName = "Item ID";
+            this.ItemID.HeaderText = "رقم القطعه";
+            this.ItemID.Name = "ItemID";
+            this.ItemID.Visible = false;
+            // 
+            // ItemName
+            // 
+            this.ItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemName.DataPropertyName = "Item Name";
+            this.ItemName.HeaderText = "اسم القطعه";
+            this.ItemName.Name = "ItemName";
+            // 
+            // ItemBarCode
+            // 
+            this.ItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemBarCode.DataPropertyName = "Item BarCode";
+            this.ItemBarCode.HeaderText = "باركود القطعه";
+            this.ItemBarCode.Name = "ItemBarCode";
+            // 
+            // ItemQuantity
+            // 
+            this.ItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemQuantity.DataPropertyName = "Item Quantity";
+            this.ItemQuantity.HeaderText = "عدد القطعه";
+            this.ItemQuantity.Name = "ItemQuantity";
+            // 
+            // ItemBuyPrice
+            // 
+            this.ItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemBuyPrice.DataPropertyName = "Item Buy Price";
+            this.ItemBuyPrice.HeaderText = "سعر الشراء";
+            this.ItemBuyPrice.Name = "ItemBuyPrice";
+            // 
+            // ItemPrice
+            // 
+            this.ItemPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemPrice.DataPropertyName = "Item Price";
+            this.ItemPrice.HeaderText = "سعر البيع";
+            this.ItemPrice.Name = "ItemPrice";
+            // 
+            // ItemPriceTax
+            // 
+            this.ItemPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemPriceTax.DataPropertyName = "Item Price Tax";
+            this.ItemPriceTax.HeaderText = "سعر البيع مع الضريبه";
+            this.ItemPriceTax.Name = "ItemPriceTax";
+            // 
+            // WarehouseID
+            // 
+            this.WarehouseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.WarehouseID.DataPropertyName = "Warehouse ID";
+            this.WarehouseID.HeaderText = "رقم المستودع";
+            this.WarehouseID.Name = "WarehouseID";
+            this.WarehouseID.Visible = false;
+            // 
+            // Warehouse
+            // 
+            this.Warehouse.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Warehouse.DataPropertyName = "InventoryItemWarehouse";
+            this.Warehouse.HeaderText = "المستودع";
+            this.Warehouse.Name = "Warehouse";
+            // 
+            // ItemType
+            // 
+            this.ItemType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemType.DataPropertyName = "Item Type";
+            this.ItemType.HeaderText = "رقم تصنيف الماده";
+            this.ItemType.Name = "ItemType";
+            this.ItemType.Visible = false;
+            // 
+            // ItemTypeName
+            // 
+            this.ItemTypeName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ItemTypeName.DataPropertyName = "InventoryItemType";
+            this.ItemTypeName.HeaderText = "تصنيف الماده";
+            this.ItemTypeName.Name = "ItemTypeName";
+            // 
+            // FavoriteCategory
+            // 
+            this.FavoriteCategory.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FavoriteCategory.DataPropertyName = "Favorite Category Number";
+            this.FavoriteCategory.HeaderText = "رقم المجلد المفضل";
+            this.FavoriteCategory.Name = "FavoriteCategory";
+            this.FavoriteCategory.Visible = false;
+            // 
+            // FavoriteCategoryName
+            // 
+            this.FavoriteCategoryName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FavoriteCategoryName.DataPropertyName = "Favorite Category";
+            this.FavoriteCategoryName.HeaderText = "المجلد المفضل";
+            this.FavoriteCategoryName.Name = "FavoriteCategoryName";
+            // 
             // frmItemLookup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 525);
+            this.ClientSize = new System.Drawing.Size(1278, 519);
             this.Controls.Add(this.nudItemQuantity);
             this.Controls.Add(this.lblItemType);
             this.Controls.Add(this.cbItemType);
@@ -425,6 +438,7 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "البحث عن المواد";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmItemLookup_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.DGVItemsLookup)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.BtnPrint)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nudItemQuantity)).EndInit();
@@ -436,6 +450,18 @@
         #endregion
 
         public System.Windows.Forms.DataGridView DGVItemsLookup;
+        private MaterialSkin.Controls.MaterialLabel lblItemName;
+        private MaterialSkin.Controls.MaterialTextBox2 txtItemName;
+        private MaterialSkin.Controls.MaterialTextBox2 txtItemBarcode;
+        private MaterialSkin.Controls.MaterialLabel lblItemBarcode;
+        private MaterialSkin.Controls.MaterialLabel lblItemQuantity;
+        private MaterialSkin.Controls.MaterialButton btnSearch;
+        private MaterialSkin.Controls.MaterialButton btnClear;
+        public System.Windows.Forms.PictureBox BtnPrint;
+        private MaterialSkin.Controls.MaterialButton btnClose;
+        public System.Windows.Forms.ComboBox cbItemType;
+        private MaterialSkin.Controls.MaterialLabel lblItemType;
+        private System.Windows.Forms.NumericUpDown nudItemQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemID;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemBarCode;
@@ -449,17 +475,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemTypeName;
         private System.Windows.Forms.DataGridViewTextBoxColumn FavoriteCategory;
         private System.Windows.Forms.DataGridViewTextBoxColumn FavoriteCategoryName;
-        private MaterialSkin.Controls.MaterialLabel lblItemName;
-        private MaterialSkin.Controls.MaterialTextBox2 txtItemName;
-        private MaterialSkin.Controls.MaterialTextBox2 txtItemBarcode;
-        private MaterialSkin.Controls.MaterialLabel lblItemBarcode;
-        private MaterialSkin.Controls.MaterialLabel lblItemQuantity;
-        private MaterialSkin.Controls.MaterialButton btnSearch;
-        private MaterialSkin.Controls.MaterialButton btnClear;
-        public System.Windows.Forms.PictureBox BtnPrint;
-        private MaterialSkin.Controls.MaterialButton btnClose;
-        public System.Windows.Forms.ComboBox cbItemType;
-        private MaterialSkin.Controls.MaterialLabel lblItemType;
-        private System.Windows.Forms.NumericUpDown nudItemQuantity;
     }
 }

@@ -81,9 +81,9 @@
             // 
             this.pbPlancksoft.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.pbPlancksoft.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
-            this.pbPlancksoft.Location = new System.Drawing.Point(3, 276);
+            this.pbPlancksoft.Location = new System.Drawing.Point(3, 164);
             this.pbPlancksoft.Name = "pbPlancksoft";
-            this.pbPlancksoft.Size = new System.Drawing.Size(690, 328);
+            this.pbPlancksoft.Size = new System.Drawing.Size(706, 328);
             this.pbPlancksoft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbPlancksoft.TabIndex = 4;
             this.pbPlancksoft.TabStop = false;
@@ -96,12 +96,12 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(3, 240);
+            this.btnClose.Location = new System.Drawing.Point(3, 128);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
             this.btnClose.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnClose.Size = new System.Drawing.Size(690, 36);
+            this.btnClose.Size = new System.Drawing.Size(706, 36);
             this.btnClose.TabIndex = 5;
             this.btnClose.Text = "إغلاق";
             this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -113,7 +113,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(696, 607);
+            this.ClientSize = new System.Drawing.Size(712, 495);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.pbPlancksoft);
             this.Controls.Add(this.lblContactNumber);
@@ -132,6 +132,7 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "عن البرمجية";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMaintenance_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pbPlancksoft)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

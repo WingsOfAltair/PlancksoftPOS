@@ -36,7 +36,6 @@
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.txtUID = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblPassword = new MaterialSkin.Controls.MaterialLabel();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.btnRegisterAdmin = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
@@ -44,12 +43,12 @@
             // 
             this.lblUID.AutoSize = true;
             this.lblUID.Depth = 0;
-            this.lblUID.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblUID.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblUID.Location = new System.Drawing.Point(4, 73);
             this.lblUID.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblUID.Name = "lblUID";
             this.lblUID.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblUID.Size = new System.Drawing.Size(130, 17);
+            this.lblUID.Size = new System.Drawing.Size(91, 19);
             this.lblUID.TabIndex = 2;
             this.lblUID.Text = "رمز المستخدم الإداري";
             this.lblUID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -120,12 +119,12 @@
             // 
             this.lblAdminName.AutoSize = true;
             this.lblAdminName.Depth = 0;
-            this.lblAdminName.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblAdminName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblAdminName.Location = new System.Drawing.Point(4, 215);
             this.lblAdminName.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblAdminName.Name = "lblAdminName";
             this.lblAdminName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblAdminName.Size = new System.Drawing.Size(227, 17);
+            this.lblAdminName.Size = new System.Drawing.Size(137, 19);
             this.lblAdminName.TabIndex = 5;
             this.lblAdminName.Text = "اسم المستخدم (رئيس قسم الصيانه)";
             this.lblAdminName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -207,28 +206,15 @@
             // 
             this.lblPassword.AutoSize = true;
             this.lblPassword.Depth = 0;
-            this.lblPassword.Font = new System.Drawing.Font("IRANYekanMobileFN", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblPassword.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblPassword.Location = new System.Drawing.Point(4, 144);
             this.lblPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPassword.Name = "lblPassword";
             this.lblPassword.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblPassword.Size = new System.Drawing.Size(82, 17);
+            this.lblPassword.Size = new System.Drawing.Size(55, 19);
             this.lblPassword.TabIndex = 76;
             this.lblPassword.Text = "الكلمه السريه";
             this.lblPassword.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // materialCard1
-            // 
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Depth = 0;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(-5, 1);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(375, 58);
-            this.materialCard1.TabIndex = 77;
             // 
             // btnRegisterAdmin
             // 
@@ -254,9 +240,7 @@
             // frmRegisterAdmin
             // 
             this.ClientSize = new System.Drawing.Size(369, 403);
-            this.ControlBox = false;
             this.Controls.Add(this.btnRegisterAdmin);
-            this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.lblPassword);
             this.Controls.Add(this.txtUID);
             this.Controls.Add(this.btnClear);
@@ -269,6 +253,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmRegisterAdmin_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -283,7 +268,6 @@
         private MaterialSkin.Controls.MaterialButton btnClear;
         private MaterialSkin.Controls.MaterialTextBox2 txtUID;
         private MaterialSkin.Controls.MaterialLabel lblPassword;
-        private MaterialSkin.Controls.MaterialCard materialCard1;
         private MaterialSkin.Controls.MaterialButton btnRegisterAdmin;
     }
 }

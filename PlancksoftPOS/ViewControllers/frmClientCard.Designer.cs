@@ -34,16 +34,16 @@
             this.lblItemName = new MaterialSkin.Controls.MaterialLabel();
             this.txtItemName = new MaterialSkin.Controls.MaterialTextBox2();
             this.dgvClients = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtClientID = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblClientID = new MaterialSkin.Controls.MaterialLabel();
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.btnSearch = new MaterialSkin.Controls.MaterialButton();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,7 +70,7 @@
             this.txtClientName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtClientName.HideSelection = true;
             this.txtClientName.LeadingIcon = null;
-            this.txtClientName.Location = new System.Drawing.Point(187, 74);
+            this.txtClientName.Location = new System.Drawing.Point(66, 74);
             this.txtClientName.MaxLength = 32767;
             this.txtClientName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtClientName.Name = "txtClientName";
@@ -82,7 +82,7 @@
             this.txtClientName.SelectionLength = 0;
             this.txtClientName.SelectionStart = 0;
             this.txtClientName.ShortcutsEnabled = true;
-            this.txtClientName.Size = new System.Drawing.Size(401, 48);
+            this.txtClientName.Size = new System.Drawing.Size(619, 48);
             this.txtClientName.TabIndex = 1;
             this.txtClientName.TabStop = false;
             this.txtClientName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -113,7 +113,7 @@
             this.txtItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtItemName.HideSelection = true;
             this.txtItemName.LeadingIcon = null;
-            this.txtItemName.Location = new System.Drawing.Point(187, 182);
+            this.txtItemName.Location = new System.Drawing.Point(66, 182);
             this.txtItemName.MaxLength = 32767;
             this.txtItemName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtItemName.Name = "txtItemName";
@@ -125,7 +125,7 @@
             this.txtItemName.SelectionLength = 0;
             this.txtItemName.SelectionStart = 0;
             this.txtItemName.ShortcutsEnabled = true;
-            this.txtItemName.Size = new System.Drawing.Size(401, 48);
+            this.txtItemName.Size = new System.Drawing.Size(619, 48);
             this.txtItemName.TabIndex = 5;
             this.txtItemName.TabStop = false;
             this.txtItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -144,39 +144,9 @@
             this.Column4});
             this.dgvClients.Location = new System.Drawing.Point(9, 236);
             this.dgvClients.Name = "dgvClients";
-            this.dgvClients.Size = new System.Drawing.Size(579, 341);
+            this.dgvClients.Size = new System.Drawing.Size(676, 421);
             this.dgvClients.TabIndex = 5;
             this.dgvClients.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvClients_RowHeaderMouseDoubleClick);
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "Client Name";
-            this.Column1.HeaderText = "اسم العميل";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Client ID";
-            this.Column2.HeaderText = "رمز العميل";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.DataPropertyName = "Item Name";
-            this.Column3.HeaderText = "اسم الماده";
-            this.Column3.Name = "Column3";
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "Item BarCode";
-            this.Column5.HeaderText = "باركود الماده";
-            this.Column5.Name = "Column5";
-            // 
-            // Column4
-            // 
-            this.Column4.DataPropertyName = "Client Price";
-            this.Column4.HeaderText = "سعر العميل";
-            this.Column4.Name = "Column4";
             // 
             // txtClientID
             // 
@@ -189,7 +159,7 @@
             this.txtClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtClientID.HideSelection = true;
             this.txtClientID.LeadingIcon = null;
-            this.txtClientID.Location = new System.Drawing.Point(187, 128);
+            this.txtClientID.Location = new System.Drawing.Point(66, 128);
             this.txtClientID.MaxLength = 32767;
             this.txtClientID.MouseState = MaterialSkin.MouseState.OUT;
             this.txtClientID.Name = "txtClientID";
@@ -201,7 +171,7 @@
             this.txtClientID.SelectionLength = 0;
             this.txtClientID.SelectionStart = 0;
             this.txtClientID.ShortcutsEnabled = true;
-            this.txtClientID.Size = new System.Drawing.Size(401, 48);
+            this.txtClientID.Size = new System.Drawing.Size(619, 48);
             this.txtClientID.TabIndex = 3;
             this.txtClientID.TabStop = false;
             this.txtClientID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -228,12 +198,12 @@
             this.btnClose.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(3, 699);
+            this.btnClose.Location = new System.Drawing.Point(3, 738);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
             this.btnClose.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnClose.Size = new System.Drawing.Size(669, 36);
+            this.btnClose.Size = new System.Drawing.Size(685, 36);
             this.btnClose.TabIndex = 6;
             this.btnClose.Text = "الخروج";
             this.btnClose.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -249,12 +219,12 @@
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(3, 663);
+            this.btnClear.Location = new System.Drawing.Point(3, 702);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
             this.btnClear.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnClear.Size = new System.Drawing.Size(669, 36);
+            this.btnClear.Size = new System.Drawing.Size(685, 36);
             this.btnClear.TabIndex = 7;
             this.btnClear.Text = "مسح";
             this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -270,12 +240,12 @@
             this.btnSearch.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSearch.HighEmphasis = true;
             this.btnSearch.Icon = null;
-            this.btnSearch.Location = new System.Drawing.Point(3, 627);
+            this.btnSearch.Location = new System.Drawing.Point(3, 666);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnSearch.Size = new System.Drawing.Size(669, 36);
+            this.btnSearch.Size = new System.Drawing.Size(685, 36);
             this.btnSearch.TabIndex = 8;
             this.btnSearch.Text = "البحث";
             this.btnSearch.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -283,11 +253,46 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.DataPropertyName = "Client Name";
+            this.Column1.HeaderText = "اسم العميل";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.DataPropertyName = "Client ID";
+            this.Column2.HeaderText = "رمز العميل";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.DataPropertyName = "Item Name";
+            this.Column3.HeaderText = "اسم الماده";
+            this.Column3.Name = "Column3";
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.DataPropertyName = "Item BarCode";
+            this.Column5.HeaderText = "باركود الماده";
+            this.Column5.Name = "Column5";
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.DataPropertyName = "Client Price";
+            this.Column4.HeaderText = "سعر العميل";
+            this.Column4.Name = "Column4";
+            // 
             // frmClientCard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 738);
+            this.ClientSize = new System.Drawing.Size(691, 777);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnClose);
@@ -311,6 +316,7 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "شاشة بطاقة العميل";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmClientCard_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgvClients)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -324,15 +330,15 @@
         private MaterialSkin.Controls.MaterialLabel lblItemName;
         private MaterialSkin.Controls.MaterialTextBox2 txtItemName;
         public System.Windows.Forms.DataGridView dgvClients;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private MaterialSkin.Controls.MaterialTextBox2 txtClientID;
         private MaterialSkin.Controls.MaterialLabel lblClientID;
         private MaterialSkin.Controls.MaterialButton btnClose;
         private MaterialSkin.Controls.MaterialButton btnClear;
         private MaterialSkin.Controls.MaterialButton btnSearch;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
     }
 }

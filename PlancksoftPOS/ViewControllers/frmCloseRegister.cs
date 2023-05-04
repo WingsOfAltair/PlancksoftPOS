@@ -117,5 +117,38 @@ namespace PlancksoftPOS
                 this.Close();
             }
         }
+
+        private void frmCloseRegister_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            try
+            {
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    DialogResult exitDialog = FlexibleMaterialForm.Show(this, "هل أنت متأكد من رغبتك بالخروج؟", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    if (exitDialog == DialogResult.Yes)
+                    {
+                        this.Close();
+                    }
+                    else if (exitDialog == DialogResult.No)
+                    {
+                        e.Cancel = true;
+                    }
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    DialogResult exitDialog = FlexibleMaterialForm.Show(this, "Are you sure you would like to quit?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    if (exitDialog == DialogResult.Yes)
+                    {
+                        this.Close();
+                    }
+                    else if (exitDialog == DialogResult.No)
+                    {
+                        e.Cancel = true;
+                    }
+                }
+            }
+            catch (Exception error)
+            { }
+        }
     }
 }

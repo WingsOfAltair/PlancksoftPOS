@@ -416,7 +416,7 @@
             this.cbWithDiscount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbWithDiscount.AutoSize = true;
             this.cbWithDiscount.Depth = 0;
-            this.cbWithDiscount.Location = new System.Drawing.Point(884, 290);
+            this.cbWithDiscount.Location = new System.Drawing.Point(900, 290);
             this.cbWithDiscount.Margin = new System.Windows.Forms.Padding(0);
             this.cbWithDiscount.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cbWithDiscount.MouseState = MaterialSkin.MouseState.HOVER;
@@ -433,7 +433,7 @@
             // 
             this.nudDiscountRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nudDiscountRate.Enabled = false;
-            this.nudDiscountRate.Location = new System.Drawing.Point(871, 326);
+            this.nudDiscountRate.Location = new System.Drawing.Point(887, 326);
             this.nudDiscountRate.Maximum = new decimal(new int[] {
             10,
             0,
@@ -450,7 +450,7 @@
             this.lblPercentage.AutoSize = true;
             this.lblPercentage.Depth = 0;
             this.lblPercentage.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblPercentage.Location = new System.Drawing.Point(936, 326);
+            this.lblPercentage.Location = new System.Drawing.Point(952, 326);
             this.lblPercentage.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPercentage.Name = "lblPercentage";
             this.lblPercentage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -463,7 +463,7 @@
             this.rbCash.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rbCash.AutoSize = true;
             this.rbCash.Depth = 0;
-            this.rbCash.Location = new System.Drawing.Point(885, 216);
+            this.rbCash.Location = new System.Drawing.Point(901, 216);
             this.rbCash.Margin = new System.Windows.Forms.Padding(0);
             this.rbCash.MouseLocation = new System.Drawing.Point(-1, -1);
             this.rbCash.MouseState = MaterialSkin.MouseState.HOVER;
@@ -480,7 +480,7 @@
             this.rbVisa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rbVisa.AutoSize = true;
             this.rbVisa.Depth = 0;
-            this.rbVisa.Location = new System.Drawing.Point(871, 253);
+            this.rbVisa.Location = new System.Drawing.Point(887, 253);
             this.rbVisa.Margin = new System.Windows.Forms.Padding(0);
             this.rbVisa.MouseLocation = new System.Drawing.Point(-1, -1);
             this.rbVisa.MouseState = MaterialSkin.MouseState.HOVER;
@@ -500,7 +500,7 @@
             this.btnPay.Depth = 0;
             this.btnPay.HighEmphasis = true;
             this.btnPay.Icon = null;
-            this.btnPay.Location = new System.Drawing.Point(687, 228);
+            this.btnPay.Location = new System.Drawing.Point(703, 228);
             this.btnPay.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPay.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPay.Name = "btnPay";
@@ -521,7 +521,7 @@
             this.btnDelayPayment.Depth = 0;
             this.btnDelayPayment.HighEmphasis = true;
             this.btnDelayPayment.Icon = null;
-            this.btnDelayPayment.Location = new System.Drawing.Point(673, 269);
+            this.btnDelayPayment.Location = new System.Drawing.Point(689, 269);
             this.btnDelayPayment.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnDelayPayment.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelayPayment.Name = "btnDelayPayment";
@@ -542,7 +542,7 @@
             this.btnCancel.Depth = 0;
             this.btnCancel.HighEmphasis = true;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(687, 310);
+            this.btnCancel.Location = new System.Drawing.Point(703, 310);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";
@@ -583,7 +583,7 @@
             this.btnClientPay.Depth = 0;
             this.btnClientPay.HighEmphasis = true;
             this.btnClientPay.Icon = null;
-            this.btnClientPay.Location = new System.Drawing.Point(526, 228);
+            this.btnClientPay.Location = new System.Drawing.Point(542, 228);
             this.btnClientPay.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClientPay.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClientPay.Name = "btnClientPay";
@@ -600,7 +600,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(972, 423);
+            this.ClientSize = new System.Drawing.Size(988, 417);
             this.Controls.Add(this.btnClientPay);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnCancel);
@@ -641,6 +641,7 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "إغلاق الكاش";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmPay_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.nudDiscountRate)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

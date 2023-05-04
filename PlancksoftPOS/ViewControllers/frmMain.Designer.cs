@@ -9962,13 +9962,14 @@ namespace PlancksoftPOS
             this.switchDarkTheme.Controls.Add(this.DarkPrimaryColor);
             this.switchDarkTheme.Controls.Add(this.switchThemeScheme);
             this.switchDarkTheme.Depth = 0;
+            this.switchDarkTheme.Dock = System.Windows.Forms.DockStyle.Right;
             this.switchDarkTheme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.switchDarkTheme.Location = new System.Drawing.Point(1375, 328);
+            this.switchDarkTheme.Location = new System.Drawing.Point(869, 66);
             this.switchDarkTheme.Margin = new System.Windows.Forms.Padding(14);
             this.switchDarkTheme.MouseState = MaterialSkin.MouseState.HOVER;
             this.switchDarkTheme.Name = "switchDarkTheme";
             this.switchDarkTheme.Padding = new System.Windows.Forms.Padding(14);
-            this.switchDarkTheme.Size = new System.Drawing.Size(492, 440);
+            this.switchDarkTheme.Size = new System.Drawing.Size(492, 800);
             this.switchDarkTheme.TabIndex = 30;
             // 
             // AccentColorPanel
@@ -10580,12 +10581,12 @@ namespace PlancksoftPOS
             this.button1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.button1.HighEmphasis = true;
             this.button1.Icon = null;
-            this.button1.Location = new System.Drawing.Point(14, 866);
+            this.button1.Location = new System.Drawing.Point(650, 866);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button1.MouseState = MaterialSkin.MouseState.HOVER;
             this.button1.Name = "button1";
             this.button1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.button1.Size = new System.Drawing.Size(1839, 36);
+            this.button1.Size = new System.Drawing.Size(711, 36);
             this.button1.TabIndex = 96;
             this.button1.Text = "حفظ الإعدادات";
             this.button1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -10603,13 +10604,14 @@ namespace PlancksoftPOS
             this.groupBox9.Controls.Add(this.txtStoreName);
             this.groupBox9.Controls.Add(this.lblStorePhone);
             this.groupBox9.Depth = 0;
+            this.groupBox9.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox9.Location = new System.Drawing.Point(1375, 60);
+            this.groupBox9.Location = new System.Drawing.Point(1361, 66);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(14);
             this.groupBox9.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox9.Size = new System.Drawing.Size(492, 265);
+            this.groupBox9.Size = new System.Drawing.Size(492, 836);
             this.groupBox9.TabIndex = 35;
             this.groupBox9.Text = "الإعدادات الأساسية";
             // 
@@ -10748,13 +10750,14 @@ namespace PlancksoftPOS
             this.groupBox2.Controls.Add(this.button29);
             this.groupBox2.Controls.Add(this.picLogoStore);
             this.groupBox2.Depth = 0;
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox2.Location = new System.Drawing.Point(1136, 114);
+            this.groupBox2.Location = new System.Drawing.Point(414, 66);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(14);
             this.groupBox2.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox2.Size = new System.Drawing.Size(236, 265);
+            this.groupBox2.Size = new System.Drawing.Size(236, 836);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.Text = "صورة المتجر";
             // 
@@ -10798,13 +10801,14 @@ namespace PlancksoftPOS
             this.groupBox5.Controls.Add(this.receiptSpacingnud);
             this.groupBox5.Controls.Add(this.IncludeLogoReceipt);
             this.groupBox5.Depth = 0;
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Left;
             this.groupBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox5.Location = new System.Drawing.Point(972, 2);
+            this.groupBox5.Location = new System.Drawing.Point(14, 66);
             this.groupBox5.Margin = new System.Windows.Forms.Padding(14);
             this.groupBox5.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox5.Size = new System.Drawing.Size(400, 111);
+            this.groupBox5.Size = new System.Drawing.Size(400, 836);
             this.groupBox5.TabIndex = 34;
             this.groupBox5.Text = "الطابعات";
             // 
@@ -10866,23 +10870,24 @@ namespace PlancksoftPOS
             this.groupBox18.Controls.Add(this.nudTaxRate);
             this.groupBox18.Controls.Add(this.label78);
             this.groupBox18.Depth = 0;
+            this.groupBox18.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox18.Location = new System.Drawing.Point(1375, 2);
+            this.groupBox18.Location = new System.Drawing.Point(14, 14);
             this.groupBox18.Margin = new System.Windows.Forms.Padding(14);
             this.groupBox18.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox18.Size = new System.Drawing.Size(492, 52);
+            this.groupBox18.Size = new System.Drawing.Size(1839, 52);
             this.groupBox18.TabIndex = 0;
             this.groupBox18.Text = "الضرائب";
             // 
             // nudTaxRate
             // 
-            this.nudTaxRate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nudTaxRate.DecimalPlaces = 2;
+            this.nudTaxRate.Dock = System.Windows.Forms.DockStyle.Right;
             this.nudTaxRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudTaxRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.nudTaxRate.Location = new System.Drawing.Point(14, 17);
+            this.nudTaxRate.Location = new System.Drawing.Point(1503, 14);
             this.nudTaxRate.Maximum = new decimal(new int[] {
             276447231,
             23283,
@@ -10894,12 +10899,12 @@ namespace PlancksoftPOS
             // 
             // label78
             // 
-            this.label78.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label78.AutoSize = true;
             this.label78.Depth = 0;
+            this.label78.Dock = System.Windows.Forms.DockStyle.Right;
             this.label78.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label78.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label78.Location = new System.Drawing.Point(258, 18);
+            this.label78.Location = new System.Drawing.Point(1729, 14);
             this.label78.MouseState = MaterialSkin.MouseState.HOVER;
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(96, 19);
