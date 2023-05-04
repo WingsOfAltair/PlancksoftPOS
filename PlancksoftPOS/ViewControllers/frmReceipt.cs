@@ -280,13 +280,13 @@ namespace PlancksoftPOS
                     }
                     catch (Exception error) { }
 
-                    bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\Receipt\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + " " + DateTime.Today.Hour +
-                        "-" + DateTime.Today.Minute + "-" + DateTime.Today.Second + "-" + DateTime.Today.Millisecond + " Transparent Receipt " +
+                    bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + " " + DateTime.Today.Hour +
+                        "-" + DateTime.Today.Minute + "-" + DateTime.Today.Second + "-" + DateTime.Today.Millisecond + " Receipt " +
                         Bill.getBillNumber() + ".png", ImageFormat.Png);
 
-                    bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\Receipt\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + " " + DateTime.Today.Hour +
-                        "-" + DateTime.Today.Minute + "-" + DateTime.Today.Second + "-" + DateTime.Today.Millisecond + " Receipt " +
-                        Bill.getBillNumber() + ".jpeg", ImageFormat.Jpeg);
+                    //bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + " " + DateTime.Today.Hour +
+                    //    "-" + DateTime.Today.Minute + "-" + DateTime.Today.Second + "-" + DateTime.Today.Millisecond + " Receipt " +
+                    //    Bill.getBillNumber() + ".jpeg", ImageFormat.Jpeg);
                 }
                 catch (Exception error)
                 {
