@@ -48,6 +48,7 @@ namespace PlancksoftPOS
             AdjustHeight();
             bitmap = new Bitmap(342, InitialHeight + 865, PixelFormat.Format32bppArgb);
             bitmapGraphic = Graphics.FromImage(bitmap);
+            bitmapGraphic.DrawRectangle(new Pen(Color.White), 0, 0, 342, InitialHeight + 865);
         }
         private void AdjustHeight()
         {
@@ -336,6 +337,12 @@ namespace PlancksoftPOS
                     printDocument1.Print();
                 }
             }
+        }
+
+        private void frmReceipt_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.exited = false;
+            Program.materialSkinManager.RemoveFormToManage(this);
         }
     }
 }

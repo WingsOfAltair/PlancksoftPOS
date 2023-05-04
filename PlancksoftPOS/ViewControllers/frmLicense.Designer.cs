@@ -129,6 +129,7 @@
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLicense_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmLicense_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 

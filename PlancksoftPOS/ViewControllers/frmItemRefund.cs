@@ -143,35 +143,17 @@ namespace PlancksoftPOS
 
         private void frmItemRefund_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
+            if (!Program.exited)
             {
-                if (pickedLanguage == LanguageChoice.Languages.Arabic)
-                {
-                    DialogResult exitDialog = FlexibleMaterialForm.Show(this, "هل أنت متأكد من رغبتك بالخروج؟", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    if (exitDialog == DialogResult.Yes)
-                    {
-                        this.Close();
-                    }
-                    else if (exitDialog == DialogResult.No)
-                    {
-                        e.Cancel = true;
-                    }
-                }
-                else if (pickedLanguage == LanguageChoice.Languages.English)
-                {
-                    DialogResult exitDialog = FlexibleMaterialForm.Show(this, "Are you sure you would like to quit?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    if (exitDialog == DialogResult.Yes)
-                    {
-                        this.Close();
-                    }
-                    else if (exitDialog == DialogResult.No)
-                    {
-                        e.Cancel = true;
-                    }
-                }
+                Program.exited = true;
+                this.Close();
             }
-            catch (Exception error)
-            { }
+        }
+
+        private void frmItemRefund_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.exited = false;
+            Program.materialSkinManager.RemoveFormToManage(this);
         }
     }
 }

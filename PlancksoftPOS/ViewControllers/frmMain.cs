@@ -6352,28 +6352,34 @@ namespace PlancksoftPOS
                         Properties.Settings.Default.moneyInRegister = this.moneyInRegister;
                         Properties.Settings.Default.Save();
                         Connection.server.LogLogout(this.UID, DateTime.Now);
-                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+
+                        if (!Program.exited)
                         {
-                            DialogResult exitDialog = FlexibleMaterialForm.Show(this, "هل أنت متأكد من رغبتك بالخروج؟", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
-                            if (exitDialog == DialogResult.Yes)
+                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                Environment.Exit(0);
+                                DialogResult exitDialog = FlexibleMaterialForm.Show(this, "هل أنت متأكد من رغبتك بالخروج؟", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                                if (exitDialog == DialogResult.Yes)
+                                {
+                                    Program.exited = true;
+                                    Environment.Exit(0);
+                                }
+                                else if (exitDialog == DialogResult.No)
+                                {
+                                    e.Cancel = true;
+                                }
                             }
-                            else if (exitDialog == DialogResult.No)
+                            else if (pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                e.Cancel = true;
-                            }
-                        }
-                        else if (pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            DialogResult exitDialog = FlexibleMaterialForm.Show(this, "Are you sure you would like to quit?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
-                            if (exitDialog == DialogResult.Yes)
-                            {
-                                Environment.Exit(0);
-                            }
-                            else if (exitDialog == DialogResult.No)
-                            {
-                                e.Cancel = true;
+                                DialogResult exitDialog = FlexibleMaterialForm.Show(this, "Are you sure you would like to quit?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
+                                if (exitDialog == DialogResult.Yes)
+                                {
+                                    Program.exited = true;
+                                    Environment.Exit(0);
+                                }
+                                else if (exitDialog == DialogResult.No)
+                                {
+                                    e.Cancel = true;
+                                }
                             }
                         }
                     }
@@ -10727,6 +10733,11 @@ namespace PlancksoftPOS
                     hamburger_menu_employees_affairs_sub_timer.Stop();
                 }
             }
+        }
+
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.materialSkinManager.RemoveFormToManage(this);
         }
 
         private void hamburger_menu_expenses_sub_timer_Tick(object sender, EventArgs e)

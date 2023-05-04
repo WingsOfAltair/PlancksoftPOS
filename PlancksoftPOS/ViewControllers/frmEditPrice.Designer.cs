@@ -86,7 +86,7 @@
             this.txtAmount.SelectionLength = 0;
             this.txtAmount.SelectionStart = 0;
             this.txtAmount.ShortcutsEnabled = true;
-            this.txtAmount.Size = new System.Drawing.Size(492, 48);
+            this.txtAmount.Size = new System.Drawing.Size(508, 48);
             this.txtAmount.TabIndex = 41;
             this.txtAmount.TabStop = false;
             this.txtAmount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -395,7 +395,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(498, 392);
+            this.ClientSize = new System.Drawing.Size(514, 398);
             this.Controls.Add(this.btnDecimal);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnClear);

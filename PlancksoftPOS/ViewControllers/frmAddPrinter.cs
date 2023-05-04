@@ -98,7 +98,17 @@ namespace PlancksoftPOS
 
         private void frmAddPrinter_FormClosed(object sender, FormClosedEventArgs e)
         {
+            Program.exited = false;
             Program.materialSkinManager.RemoveFormToManage(this);
+        }
+
+        private void frmAddPrinter_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!Program.exited)
+            {
+                Program.exited = true;
+                this.Close();
+            }
         }
     }
 }

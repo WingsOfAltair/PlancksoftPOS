@@ -64,7 +64,7 @@
             this.rtbDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.rtbDescription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.rtbDescription.LeaveOnEnterKey = true;
-            this.rtbDescription.Location = new System.Drawing.Point(54, 96);
+            this.rtbDescription.Location = new System.Drawing.Point(70, 96);
             this.rtbDescription.MouseState = MaterialSkin.MouseState.HOVER;
             this.rtbDescription.Name = "rtbDescription";
             this.rtbDescription.ReadOnly = true;
@@ -88,7 +88,7 @@
             this.lblEnterMoneyAmountInCash.AutoSize = true;
             this.lblEnterMoneyAmountInCash.Depth = 0;
             this.lblEnterMoneyAmountInCash.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblEnterMoneyAmountInCash.Location = new System.Drawing.Point(54, 284);
+            this.lblEnterMoneyAmountInCash.Location = new System.Drawing.Point(70, 284);
             this.lblEnterMoneyAmountInCash.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblEnterMoneyAmountInCash.Name = "lblEnterMoneyAmountInCash";
             this.lblEnterMoneyAmountInCash.Size = new System.Drawing.Size(97, 19);
@@ -119,12 +119,12 @@
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnCancel.HighEmphasis = true;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(3, 392);
+            this.btnCancel.Location = new System.Drawing.Point(3, 431);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnCancel.Size = new System.Drawing.Size(800, 36);
+            this.btnCancel.Size = new System.Drawing.Size(816, 36);
             this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "إغلاق";
             this.btnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -140,12 +140,12 @@
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSubmit.HighEmphasis = true;
             this.btnSubmit.Icon = null;
-            this.btnSubmit.Location = new System.Drawing.Point(3, 356);
+            this.btnSubmit.Location = new System.Drawing.Point(3, 395);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSubmit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnSubmit.Size = new System.Drawing.Size(800, 36);
+            this.btnSubmit.Size = new System.Drawing.Size(816, 36);
             this.btnSubmit.TabIndex = 2;
             this.btnSubmit.Text = "إتمام";
             this.btnSubmit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -161,12 +161,12 @@
             this.btnClear.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(3, 320);
+            this.btnClear.Location = new System.Drawing.Point(3, 359);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
             this.btnClear.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnClear.Size = new System.Drawing.Size(800, 36);
+            this.btnClear.Size = new System.Drawing.Size(816, 36);
             this.btnClear.TabIndex = 1;
             this.btnClear.Text = "مسح";
             this.btnClear.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -178,7 +178,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(806, 431);
+            this.ClientSize = new System.Drawing.Size(822, 470);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnCancel);
@@ -201,6 +201,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "إغلاق الكاش";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmCloseRegister_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmCloseRegister_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);

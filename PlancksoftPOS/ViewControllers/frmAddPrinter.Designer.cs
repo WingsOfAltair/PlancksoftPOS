@@ -44,7 +44,7 @@
             this.cbItemTypes.Location = new System.Drawing.Point(102, 67);
             this.cbItemTypes.MaxDropDownItems = 100;
             this.cbItemTypes.Name = "cbItemTypes";
-            this.cbItemTypes.Size = new System.Drawing.Size(532, 21);
+            this.cbItemTypes.Size = new System.Drawing.Size(564, 21);
             this.cbItemTypes.TabIndex = 0;
             // 
             // btnAddItemType
@@ -56,12 +56,12 @@
             this.btnAddItemType.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnAddItemType.HighEmphasis = true;
             this.btnAddItemType.Icon = null;
-            this.btnAddItemType.Location = new System.Drawing.Point(3, 93);
+            this.btnAddItemType.Location = new System.Drawing.Point(3, 131);
             this.btnAddItemType.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnAddItemType.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddItemType.Name = "btnAddItemType";
             this.btnAddItemType.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnAddItemType.Size = new System.Drawing.Size(634, 36);
+            this.btnAddItemType.Size = new System.Drawing.Size(666, 36);
             this.btnAddItemType.TabIndex = 1;
             this.btnAddItemType.Text = "إضافة صتف";
             this.btnAddItemType.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -77,12 +77,12 @@
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnCancel.HighEmphasis = true;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(3, 129);
+            this.btnCancel.Location = new System.Drawing.Point(3, 167);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnCancel.Size = new System.Drawing.Size(634, 36);
+            this.btnCancel.Size = new System.Drawing.Size(666, 36);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "إلغاء";
             this.btnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -106,7 +106,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 168);
+            this.ClientSize = new System.Drawing.Size(672, 206);
             this.Controls.Add(this.cbItemTypes);
             this.Controls.Add(this.btnAddItemType);
             this.Controls.Add(this.btnCancel);
@@ -124,6 +124,7 @@
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "إضافة صنف مواد لطابعة";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddPrinter_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddPrinter_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

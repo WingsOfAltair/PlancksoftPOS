@@ -105,5 +105,11 @@ namespace PlancksoftPOS
             catch (Exception error)
             { }
         }
+
+        private void frmMaintenance_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.exited = false;
+            Program.materialSkinManager.RemoveFormToManage(this);
+        }
     }
 }

@@ -300,6 +300,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Color Picker";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmColorPicker_FormClosed);
             this.Load += new System.EventHandler(this.frmColorPicker_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmColorPicker_MouseDown);
             this.contextMenuStrip1.ResumeLayout(false);
