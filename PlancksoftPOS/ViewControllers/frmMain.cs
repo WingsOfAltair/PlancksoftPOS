@@ -75,10 +75,10 @@ namespace PlancksoftPOS
         Label plusFavoriteLbl, FavoriteLbl;
         Label plusPrinterLbl, PrinterLbl;
         List<FlowLayoutPanel> flowLayoutPanels = new List<FlowLayoutPanel>();
-        Button saveItemTypesBtn;
-        Button saveWarehousesBtn;
-        Button saveFavoritesBtn;
-        Button savePrintersBtn;
+        MaterialButton saveItemTypesBtn;
+        MaterialButton saveWarehousesBtn;
+        MaterialButton saveFavoritesBtn;
+        MaterialButton savePrintersBtn;
         byte[] StoreLogo = null;
         List<ContextMenu> PrintersMenus = null;
 
@@ -2055,7 +2055,7 @@ namespace PlancksoftPOS
             ItemTypeLbl.Font = new Font(plusItemTypeLbl.Font.FontFamily, 14);
             flowLayoutPanel3.Controls.Add(ItemTypeLbl);
 
-            saveItemTypesBtn = new Button();
+            saveItemTypesBtn = new MaterialButton();
             saveItemTypesBtn.Name = "SaveItemTypesButton";
             saveItemTypesBtn.Tag = "SaveItemTypesButton";
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -2169,7 +2169,7 @@ namespace PlancksoftPOS
             WarehouseLbl.Font = new Font(plusWarehouseLbl.Font.FontFamily, 14);
             flowLayoutPanel2.Controls.Add(WarehouseLbl);
 
-            saveWarehousesBtn = new Button();
+            saveWarehousesBtn = new MaterialButton();
             saveWarehousesBtn.Name = "SaveWarehousesButton";
             saveWarehousesBtn.Tag = "SaveWarehousesButton";
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -2286,7 +2286,7 @@ namespace PlancksoftPOS
             FavoriteLbl.Font = new Font(plusFavoriteLbl.Font.FontFamily, 14);
             flowLayoutPanel1.Controls.Add(FavoriteLbl);
 
-            saveFavoritesBtn = new Button();
+            saveFavoritesBtn = new MaterialButton();
             saveFavoritesBtn.Name = "SaveFavoritesButton";
             saveFavoritesBtn.Tag = "SaveFavoritesButton";
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -2996,7 +2996,7 @@ namespace PlancksoftPOS
             PrinterLbl.Font = new Font(plusPrinterLbl.Font.FontFamily, 14);
             flowLayoutPanel4.Controls.Add(PrinterLbl);
 
-            savePrintersBtn = new Button();
+            savePrintersBtn = new MaterialButton();
             savePrintersBtn.Name = "SavePrintersButton";
             savePrintersBtn.Tag = "SavePrintersButton";
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
