@@ -48,7 +48,7 @@ namespace PlancksoftPOS
             AdjustHeight();
             bitmap = new Bitmap(342, InitialHeight + 865, PixelFormat.Format32bppArgb);
             bitmapGraphic = Graphics.FromImage(bitmap);
-            bitmapGraphic.DrawRectangle(new Pen(Color.White), 0, 0, 342, InitialHeight + 865);
+            bitmapGraphic.FillRectangle(Brushes.White, 0, 0, bitmap.Width, bitmap.Height);
         }
         private void AdjustHeight()
         {
@@ -274,10 +274,19 @@ namespace PlancksoftPOS
                         Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts");
                     }
                     catch (Exception error) { }
+                    try
+                    {
+                        Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day);
+                    }
+                    catch (Exception error) { }
 
-                    bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\Receipt " + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + " " + DateTime.Today.Hour +
-                        "-" + DateTime.Today.Minute + "-" + DateTime.Today.Second + "-" + DateTime.Today.Millisecond + " Receipt " +
+                    bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\Receipt\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + " " + DateTime.Today.Hour +
+                        "-" + DateTime.Today.Minute + "-" + DateTime.Today.Second + "-" + DateTime.Today.Millisecond + " Transparent Receipt " +
                         Bill.getBillNumber() + ".png", ImageFormat.Png);
+
+                    bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\Receipt\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + " " + DateTime.Today.Hour +
+                        "-" + DateTime.Today.Minute + "-" + DateTime.Today.Second + "-" + DateTime.Today.Millisecond + " Receipt " +
+                        Bill.getBillNumber() + ".jpeg", ImageFormat.Jpeg);
                 }
                 catch (Exception error)
                 {

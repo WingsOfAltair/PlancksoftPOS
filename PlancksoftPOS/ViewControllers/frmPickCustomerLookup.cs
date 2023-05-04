@@ -27,6 +27,8 @@ namespace PlancksoftPOS
         public int ID = 0;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
+        public bool eligible = false;
+
         public frmPickClientLookup()
         {
             InitializeComponent();
@@ -35,20 +37,46 @@ namespace PlancksoftPOS
 
             frmLogin.pickedLanguage = (LanguageChoice.Languages)Settings.Default.pickedLanguage;
 
+            DataTable RetrievedClients = Connection.server.SearchClientsInfo("", "");
+
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
+
+                if (RetrievedClients == null || RetrievedClients.Rows.Count < 1)
+                {
+                    FlexibleMaterialForm.Show(this, ".الرحاء تعريف عميل للحصول على تخويل للدخول", "!لا يوجد تعريف مسبق لعميل",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, false,
+                        FlexibleMaterialForm.ButtonsPosition.Center);
+                    this.Close();
+                    return;
+                } else
+                {
+                    this.eligible = true;
+                }
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
+
+                if (RetrievedClients == null || RetrievedClients.Rows.Count < 1)
+                {
+                    FlexibleMaterialForm.Show(this, "Please define a client to be eligible for entry.", "No predefined defined clients!",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, false,
+                        FlexibleMaterialForm.ButtonsPosition.Center);
+                    this.Close();
+                    return;
+                }
+                else
+                {
+                    this.eligible = true;
+                }
             }
 
             applyLocalizationOnUI();
 
-            DataTable RetrievedClients = Connection.server.SearchClientsInfo("", "");
             DGVClients.DataSource = RetrievedClients;
         }
 

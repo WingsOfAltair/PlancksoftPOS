@@ -7243,8 +7243,9 @@ namespace PlancksoftPOS
                     {
                         if (!currentBillRow.IsNewRow)
                         {
-                            string itemName = currentBillRow.Cells[0].Value.ToString();
                             string itemBarCode = currentBillRow.Cells[1].Value.ToString();
+                            Item itemRetrieved = Connection.server.SearchItems("", itemBarCode, 0).Item1[0];
+                            string itemName = itemRetrieved.ItemName1;
                             int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
                             decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
                             decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
@@ -7254,6 +7255,7 @@ namespace PlancksoftPOS
                             itemToAdd.SetQuantity(itemQuantity);
                             itemToAdd.SetPrice(itemPrice);
                             itemToAdd.SetPriceTax(itemPriceTax);
+                            itemToAdd.SetItemTypeID(itemRetrieved.GetItemTypeeID());
                             itemsToAdd.Add(itemToAdd);
                             int newItemQuantity = Connection.server.GetItemQuantity(itemBarCode) - itemQuantity;
                             bool updatedQuantity = Connection.server.UpdateItemQuantity(new Item(itemName, itemBarCode, newItemQuantity, itemPrice, itemPriceTax, DateTime.Now));
@@ -7335,7 +7337,7 @@ namespace PlancksoftPOS
                                         return;
                                     }
 
-                                    Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now);
+                                    Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now, this.cashierName);
                                     if (Connection.server.PayBill(billToAdd, this.cashierName))
                                     {
                                         // paid bill
@@ -7351,7 +7353,7 @@ namespace PlancksoftPOS
                     }
                     else
                     {
-                        Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now);
+                        Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now, this.cashierName);
                         if (Connection.server.PayBill(billToAdd, this.cashierName))
                         {
                             // paid bill
@@ -7368,44 +7370,40 @@ namespace PlancksoftPOS
                     List<Item> items = new List<Item>();
 
                     frmPickClientLookup frmPickClientLookup = new frmPickClientLookup();
-                    frmPickClientLookup.ShowDialog();
-
-                    if (frmPickClientLookup.dialogResult == DialogResult.OK)
+                    if (frmPickClientLookup != null && !frmPickClientLookup.IsDisposed)
                     {
-                        foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
+                        frmPickClientLookup.ShowDialog();
+
+                        if (frmPickClientLookup.dialogResult == DialogResult.OK)
                         {
-                            if (!currentBillRow.IsNewRow)
+                            foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
                             {
-                                string itemName = currentBillRow.Cells[0].Value.ToString();
-                                string itemBarCode = currentBillRow.Cells[1].Value.ToString();
-                                int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
-                                decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
-                                decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                                Item item = new Item();
-                                item.SetName(itemName);
-                                item.SetBarCode(itemBarCode);
-                                item.SetQuantity(itemQuantity);
-                                item.SetPrice(itemPrice);
-                                item.SetPriceTax(itemPriceTax);
-                                items.Add(item);
+                                if (!currentBillRow.IsNewRow)
+                                {
+                                    Item item = Connection.server.SearchItems("", currentBillRow.Cells[1].Value.ToString(), 0).Item1[0];
+                                    item.SetQuantity(Convert.ToInt32(currentBillRow.Cells[2].Value.ToString()));
+                                    items.Add(item);
+                                }
+                            }
+
+                            Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, frmPayCash.paybycash, DateTime.Now, this.cashierName);
+                            billToAdd.ClientID = frmPickClientLookup.pickedClient.ClientID;
+                            if (Connection.server.PayBill(billToAdd, this.cashierName))
+                            {
+                                // paid bill
+
+                                printCertainReceipt(billToAdd);
+                                CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
+                                label91.Text = this.CapitalAmount.ToString();
+
+                                frmPayCash.Dispose();
+                                this.ClientsaleItems.Clear();
                             }
                         }
-
-                        Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
-                        billToAdd.ClientID = frmPickClientLookup.pickedClient.ClientID;
-                        if (Connection.server.PayBill(billToAdd, this.cashierName))
-                        {
-                            // paid bill
-
-                            printCertainReceipt(billToAdd);
-                            CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
-                            label91.Text = this.CapitalAmount.ToString();
-                            this.ClientsaleItems.Clear();
-                        }
+                    } else
+                    {
+                        processPayment();
                     }
-
-                    frmPayCash.Dispose();
-                    this.ClientsaleItems.Clear();
                 }
                 else if (frmPayCash.dialogResult == DialogResult.Ignore)
                 {
