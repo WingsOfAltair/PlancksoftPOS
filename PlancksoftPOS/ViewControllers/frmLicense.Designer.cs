@@ -18,7 +18,6 @@
             this.btnClose = new MaterialSkin.Controls.MaterialButton();
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.btnActivate = new MaterialSkin.Controls.MaterialButton();
-            this.materialCard1 = new MaterialSkin.Controls.MaterialCard();
             this.SuspendLayout();
             // 
             // txtLicenseKey
@@ -116,24 +115,9 @@
             this.btnActivate.UseVisualStyleBackColor = true;
             this.btnActivate.Click += new System.EventHandler(this.btnActivate_Click);
             // 
-            // materialCard1
-            // 
-            this.materialCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialCard1.Depth = 0;
-            this.materialCard1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialCard1.Location = new System.Drawing.Point(-7, -2);
-            this.materialCard1.Margin = new System.Windows.Forms.Padding(14);
-            this.materialCard1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialCard1.Name = "materialCard1";
-            this.materialCard1.Padding = new System.Windows.Forms.Padding(14);
-            this.materialCard1.Size = new System.Drawing.Size(711, 66);
-            this.materialCard1.TabIndex = 53;
-            // 
             // frmLicense
             // 
             this.ClientSize = new System.Drawing.Size(695, 238);
-            this.ControlBox = false;
-            this.Controls.Add(this.materialCard1);
             this.Controls.Add(this.btnActivate);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnClose);
@@ -144,6 +128,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmLicense_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,6 +138,5 @@
         private MaterialSkin.Controls.MaterialButton btnClose;
         private MaterialSkin.Controls.MaterialButton btnClear;
         private MaterialSkin.Controls.MaterialButton btnActivate;
-        private MaterialSkin.Controls.MaterialCard materialCard1;
     }
 }
