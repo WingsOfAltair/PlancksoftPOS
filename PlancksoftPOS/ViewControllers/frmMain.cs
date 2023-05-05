@@ -10150,6 +10150,8 @@ namespace PlancksoftPOS
                     {
                         if (Connection.server.PayUnpaidBill(Convert.ToInt32(row.Cells["dataGridViewTextBoxColumn24"].Value.ToString()), frmPayCash.paidAmount))
                         {
+                            billPaid = Connection.server.SearchBills("", "", Convert.ToInt32(row.Cells["dataGridViewTextBoxColumn24"].Value.ToString())).Item1[0];
+                            billPaid.ItemsBought = itemsInBill; 
                             printCertainReceipt(billPaid);
 
                             CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
