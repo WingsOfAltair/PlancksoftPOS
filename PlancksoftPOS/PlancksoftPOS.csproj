@@ -476,6 +476,10 @@
     <None Include="Resources\istockphoto-1166351637-612x612.jpg" />
     <None Include="Resources\password.png" />
     <None Include="Resources\hamburger_menu.jpg" />
+    <None Include="Resources\%24this.Icon.ico" />
+    <None Include="Resources\closeRegisterBtn.Image.jpg" />
+    <None Include="Resources\openRegisterBtn.Image.jpg" />
+    <None Include="Resources\PlancksoftPOS.Icon.ico" />
     <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS.disco" />
     <Content Include="Resources\pos.ico" />
     <None Include="Resources\point-of-sale.jpg" />

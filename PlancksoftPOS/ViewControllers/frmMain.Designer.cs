@@ -1,4 +1,5 @@
 ﻿using MaterialSkin.Controls;
+using System.Windows.Forms;
 
 namespace PlancksoftPOS
 {
@@ -29,14 +30,14 @@ namespace PlancksoftPOS
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.ادارةالمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.اضافةمادهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.اضافةصنفToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.اضافةمستودعToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.اضافةمستودعToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.aToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.خروجToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.ادارةالمستودعToolStripMenuItem = new ToolStripMenuItem();
+            this.اضافةمادهToolStripMenuItem = new ToolStripMenuItem();
+            this.اضافةصنفToolStripMenuItem = new ToolStripMenuItem();
+            this.اضافةمستودعToolStripMenuItem = new ToolStripMenuItem();
+            this.اضافةمستودعToolStripMenuItem1 = new ToolStripMenuItem();
+            this.aToolStripMenuItem = new ToolStripMenuItem();
+            this.خروجToolStripMenuItem1 = new ToolStripMenuItem();
+            this.tabControl1 = new MaterialSkin.Controls.MaterialTabControl();
             this.Cash = new System.Windows.Forms.TabPage();
             this.groupBox1 = new MaterialSkin.Controls.MaterialCard();
             this.pnlOpenCloseCash = new MaterialSkin.Controls.MaterialCard();
@@ -46,7 +47,7 @@ namespace PlancksoftPOS
             this.label66 = new MaterialSkin.Controls.MaterialLabel();
             this.openRegisterBtn = new System.Windows.Forms.PictureBox();
             this.closeRegisterBtn = new System.Windows.Forms.PictureBox();
-            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabControl2 = new MaterialSkin.Controls.MaterialTabControl();
             this.groupBox3 = new MaterialSkin.Controls.MaterialCard();
             this.ItemsPendingPurchase = new System.Windows.Forms.DataGridView();
             this.pendingPurchaseItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -86,7 +87,7 @@ namespace PlancksoftPOS
             this.label45 = new MaterialSkin.Controls.MaterialLabel();
             this.picLogo = new System.Windows.Forms.PictureBox();
             this.Sales = new System.Windows.Forms.TabPage();
-            this.tabControl4 = new System.Windows.Forms.TabControl();
+            this.tabControl4 = new MaterialSkin.Controls.MaterialTabControl();
             this.InvoicesSales = new System.Windows.Forms.TabPage();
             this.groupBox14 = new MaterialSkin.Controls.MaterialCard();
             this.panel9 = new MaterialSkin.Controls.MaterialCard();
@@ -208,7 +209,7 @@ namespace PlancksoftPOS
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
             this.Inventory = new System.Windows.Forms.TabPage();
             this.groupBox6 = new MaterialSkin.Controls.MaterialCard();
-            this.tabControl6 = new System.Windows.Forms.TabControl();
+            this.tabControl6 = new MaterialSkin.Controls.MaterialTabControl();
             this.posInventory = new System.Windows.Forms.TabPage();
             this.groupBox8 = new MaterialSkin.Controls.MaterialCard();
             this.panel17 = new MaterialSkin.Controls.MaterialCard();
@@ -330,25 +331,25 @@ namespace PlancksoftPOS
             this.label98 = new MaterialSkin.Controls.MaterialLabel();
             this.label101 = new MaterialSkin.Controls.MaterialLabel();
             this.AddTypes = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel3 = new MaterialSkin.Controls.MaterialListView();
             this.label29 = new MaterialSkin.Controls.MaterialLabel();
             this.ItemTypeEntry = new MaterialSkin.Controls.MaterialTextBox2();
             this.label30 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox39 = new System.Windows.Forms.PictureBox();
             this.AddFavorites = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel1 = new MaterialSkin.Controls.MaterialListView();
             this.label22 = new MaterialSkin.Controls.MaterialLabel();
             this.FavoriteCategoryEntry = new MaterialSkin.Controls.MaterialTextBox2();
             this.label23 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox36 = new System.Windows.Forms.PictureBox();
             this.AddWarehouses = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new MaterialSkin.Controls.MaterialListView();
             this.label26 = new MaterialSkin.Controls.MaterialLabel();
             this.WarehouseEntry = new MaterialSkin.Controls.MaterialTextBox2();
             this.label27 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox38 = new System.Windows.Forms.PictureBox();
             this.Expenses = new System.Windows.Forms.TabPage();
-            this.tabControl5 = new System.Windows.Forms.TabControl();
+            this.tabControl5 = new MaterialSkin.Controls.MaterialTabControl();
             this.SearchExpenses = new System.Windows.Forms.TabPage();
             this.groupBox31 = new MaterialSkin.Controls.MaterialCard();
             this.pictureBox34 = new System.Windows.Forms.PictureBox();
@@ -401,7 +402,7 @@ namespace PlancksoftPOS
             this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Employees = new System.Windows.Forms.TabPage();
-            this.tabControl8 = new System.Windows.Forms.TabControl();
+            this.tabControl8 = new MaterialSkin.Controls.MaterialTabControl();
             this.EmployeesManagement = new System.Windows.Forms.TabPage();
             this.groupBox49 = new MaterialSkin.Controls.MaterialCard();
             this.groupBox50 = new MaterialSkin.Controls.MaterialCard();
@@ -458,7 +459,7 @@ namespace PlancksoftPOS
             this.pictureBox48 = new System.Windows.Forms.PictureBox();
             this.pictureBox43 = new System.Windows.Forms.PictureBox();
             this.Agents = new System.Windows.Forms.TabPage();
-            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabControl3 = new MaterialSkin.Controls.MaterialTabControl();
             this.AgentsDefinitions = new System.Windows.Forms.TabPage();
             this.groupBox15 = new MaterialSkin.Controls.MaterialCard();
             this.selectAllClients = new System.Windows.Forms.CheckBox();
@@ -579,7 +580,7 @@ namespace PlancksoftPOS
             this.Column47 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox41 = new System.Windows.Forms.PictureBox();
             this.Taxes = new System.Windows.Forms.TabPage();
-            this.tabControl7 = new System.Windows.Forms.TabControl();
+            this.tabControl7 = new MaterialSkin.Controls.MaterialTabControl();
             this.TaxZReport = new System.Windows.Forms.TabPage();
             this.groupBox44 = new MaterialSkin.Controls.MaterialCard();
             this.pictureBox46 = new System.Windows.Forms.PictureBox();
@@ -623,7 +624,7 @@ namespace PlancksoftPOS
             this.UserAuthority = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.Settings = new System.Windows.Forms.TabPage();
-            this.tabControl9 = new System.Windows.Forms.TabControl();
+            this.tabControl9 = new MaterialSkin.Controls.MaterialTabControl();
             this.posSettings = new System.Windows.Forms.TabPage();
             this.groupBox24 = new MaterialSkin.Controls.MaterialCard();
             this.switchDarkTheme = new MaterialSkin.Controls.MaterialCard();
@@ -679,7 +680,7 @@ namespace PlancksoftPOS
             this.nudTaxRate = new System.Windows.Forms.NumericUpDown();
             this.label78 = new MaterialSkin.Controls.MaterialLabel();
             this.printersSettings = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel4 = new MaterialSkin.Controls.MaterialListView();
             this.Retrievals = new System.Windows.Forms.TabPage();
             this.groupBox47 = new MaterialSkin.Controls.MaterialCard();
             this.dgvReturnedItems = new System.Windows.Forms.DataGridView();
@@ -754,14 +755,14 @@ namespace PlancksoftPOS
             this.lastBillNumberUpdaterTimer = new System.Windows.Forms.Timer(this.components);
             this.updateSystem = new System.Windows.Forms.Timer(this.components);
             this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
-            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.المظهرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.فاتحToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.مظلمToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Menu = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.اللغةToolStripMenuItem = new ToolStripMenuItem();
+            this.العربيةToolStripMenuItem = new ToolStripMenuItem();
+            this.englishToolStripMenuItem = new ToolStripMenuItem();
+            this.المظهرToolStripMenuItem = new ToolStripMenuItem();
+            this.فاتحToolStripMenuItem = new ToolStripMenuItem();
+            this.مظلمToolStripMenuItem = new ToolStripMenuItem();
+            this.الخروجToolStripMenuItem = new ToolStripMenuItem();
             this.hamburger_menu_sales_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_inventory_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_expenses_sub_timer = new System.Windows.Forms.Timer(this.components);
@@ -1031,6 +1032,7 @@ namespace PlancksoftPOS
             // 
             // ادارةالمستودعToolStripMenuItem
             // 
+            this.ادارةالمستودعToolStripMenuItem.AutoSize = false;
             this.ادارةالمستودعToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.اضافةمادهToolStripMenuItem,
             this.اضافةصنفToolStripMenuItem,
@@ -1044,6 +1046,7 @@ namespace PlancksoftPOS
             // 
             // اضافةمادهToolStripMenuItem
             // 
+            this.اضافةمادهToolStripMenuItem.AutoSize = false;
             this.اضافةمادهToolStripMenuItem.ForeColor = System.Drawing.Color.Salmon;
             this.اضافةمادهToolStripMenuItem.Name = "اضافةمادهToolStripMenuItem";
             this.اضافةمادهToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
@@ -1052,6 +1055,7 @@ namespace PlancksoftPOS
             // 
             // اضافةصنفToolStripMenuItem
             // 
+            this.اضافةصنفToolStripMenuItem.AutoSize = false;
             this.اضافةصنفToolStripMenuItem.ForeColor = System.Drawing.Color.Salmon;
             this.اضافةصنفToolStripMenuItem.Name = "اضافةصنفToolStripMenuItem";
             this.اضافةصنفToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
@@ -1060,6 +1064,7 @@ namespace PlancksoftPOS
             // 
             // اضافةمستودعToolStripMenuItem
             // 
+            this.اضافةمستودعToolStripMenuItem.AutoSize = false;
             this.اضافةمستودعToolStripMenuItem.ForeColor = System.Drawing.Color.Coral;
             this.اضافةمستودعToolStripMenuItem.Name = "اضافةمستودعToolStripMenuItem";
             this.اضافةمستودعToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
@@ -1068,6 +1073,7 @@ namespace PlancksoftPOS
             // 
             // اضافةمستودعToolStripMenuItem1
             // 
+            this.اضافةمستودعToolStripMenuItem1.AutoSize = false;
             this.اضافةمستودعToolStripMenuItem1.ForeColor = System.Drawing.Color.Salmon;
             this.اضافةمستودعToolStripMenuItem1.Name = "اضافةمستودعToolStripMenuItem1";
             this.اضافةمستودعToolStripMenuItem1.Size = new System.Drawing.Size(177, 22);
@@ -1076,6 +1082,7 @@ namespace PlancksoftPOS
             // 
             // aToolStripMenuItem
             // 
+            this.aToolStripMenuItem.AutoSize = false;
             this.aToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.aToolStripMenuItem.ForeColor = System.Drawing.Color.Tomato;
             this.aToolStripMenuItem.Name = "aToolStripMenuItem";
@@ -1085,6 +1092,7 @@ namespace PlancksoftPOS
             // 
             // خروجToolStripMenuItem1
             // 
+            this.خروجToolStripMenuItem1.AutoSize = false;
             this.خروجToolStripMenuItem1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.خروجToolStripMenuItem1.ForeColor = System.Drawing.Color.OrangeRed;
             this.خروجToolStripMenuItem1.Name = "خروجToolStripMenuItem1";
@@ -1106,10 +1114,13 @@ namespace PlancksoftPOS
             this.tabControl1.Controls.Add(this.posUsers);
             this.tabControl1.Controls.Add(this.Settings);
             this.tabControl1.Controls.Add(this.Retrievals);
+            this.tabControl1.Depth = 0;
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(54, 30);
             this.tabControl1.Location = new System.Drawing.Point(13, 88);
+            this.tabControl1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
             this.tabControl1.SelectedIndex = 0;
@@ -1122,6 +1133,7 @@ namespace PlancksoftPOS
             // 
             // Cash
             // 
+            this.Cash.BackColor = System.Drawing.Color.White;
             this.Cash.Controls.Add(this.groupBox1);
             this.Cash.Location = new System.Drawing.Point(4, 34);
             this.Cash.Name = "Cash";
@@ -1129,7 +1141,6 @@ namespace PlancksoftPOS
             this.Cash.Size = new System.Drawing.Size(1881, 951);
             this.Cash.TabIndex = 0;
             this.Cash.Text = "الكاش";
-            this.Cash.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -1259,10 +1270,13 @@ namespace PlancksoftPOS
             this.tabControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl2.Depth = 0;
             this.tabControl2.Enabled = false;
             this.tabControl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl2.ItemSize = new System.Drawing.Size(100, 18);
             this.tabControl2.Location = new System.Drawing.Point(3, 132);
+            this.tabControl2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabControl2.Multiline = true;
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tabControl2.RightToLeftLayout = true;
@@ -1796,6 +1810,7 @@ namespace PlancksoftPOS
             // 
             // Sales
             // 
+            this.Sales.BackColor = System.Drawing.Color.White;
             this.Sales.Controls.Add(this.tabControl4);
             this.Sales.Location = new System.Drawing.Point(4, 34);
             this.Sales.Name = "Sales";
@@ -1803,7 +1818,6 @@ namespace PlancksoftPOS
             this.Sales.Size = new System.Drawing.Size(1881, 951);
             this.Sales.TabIndex = 1;
             this.Sales.Text = "المبيعات";
-            this.Sales.UseVisualStyleBackColor = true;
             // 
             // tabControl4
             // 
@@ -1811,9 +1825,12 @@ namespace PlancksoftPOS
             this.tabControl4.Controls.Add(this.EditInvoices);
             this.tabControl4.Controls.Add(this.TravelingUntravelingSales);
             this.tabControl4.Controls.Add(this.SoldItems);
+            this.tabControl4.Depth = 0;
             this.tabControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl4.ItemSize = new System.Drawing.Size(60, 30);
             this.tabControl4.Location = new System.Drawing.Point(3, 3);
+            this.tabControl4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabControl4.Multiline = true;
             this.tabControl4.Name = "tabControl4";
             this.tabControl4.RightToLeftLayout = true;
             this.tabControl4.SelectedIndex = 0;
@@ -2330,6 +2347,7 @@ namespace PlancksoftPOS
             // 
             // EditInvoices
             // 
+            this.EditInvoices.BackColor = System.Drawing.Color.White;
             this.EditInvoices.Controls.Add(this.groupBox30);
             this.EditInvoices.Controls.Add(this.groupBox29);
             this.EditInvoices.Location = new System.Drawing.Point(4, 34);
@@ -2338,7 +2356,6 @@ namespace PlancksoftPOS
             this.EditInvoices.Size = new System.Drawing.Size(1867, 907);
             this.EditInvoices.TabIndex = 3;
             this.EditInvoices.Text = "التعديل على الفواتير";
-            this.EditInvoices.UseVisualStyleBackColor = true;
             // 
             // groupBox30
             // 
@@ -2841,6 +2858,7 @@ namespace PlancksoftPOS
             // 
             // TravelingUntravelingSales
             // 
+            this.TravelingUntravelingSales.BackColor = System.Drawing.Color.White;
             this.TravelingUntravelingSales.Controls.Add(this.groupBox26);
             this.TravelingUntravelingSales.Controls.Add(this.groupBox25);
             this.TravelingUntravelingSales.Location = new System.Drawing.Point(4, 34);
@@ -2848,7 +2866,6 @@ namespace PlancksoftPOS
             this.TravelingUntravelingSales.Size = new System.Drawing.Size(1867, 907);
             this.TravelingUntravelingSales.TabIndex = 1;
             this.TravelingUntravelingSales.Text = "المبيعات المرحله و الغير مرحله";
-            this.TravelingUntravelingSales.UseVisualStyleBackColor = true;
             // 
             // groupBox26
             // 
@@ -3465,13 +3482,13 @@ namespace PlancksoftPOS
             // 
             // Inventory
             // 
+            this.Inventory.BackColor = System.Drawing.Color.White;
             this.Inventory.Controls.Add(this.groupBox6);
             this.Inventory.Location = new System.Drawing.Point(4, 34);
             this.Inventory.Name = "Inventory";
             this.Inventory.Size = new System.Drawing.Size(1881, 951);
             this.Inventory.TabIndex = 2;
             this.Inventory.Text = "المستودع";
-            this.Inventory.UseVisualStyleBackColor = true;
             // 
             // groupBox6
             // 
@@ -3496,9 +3513,12 @@ namespace PlancksoftPOS
             this.tabControl6.Controls.Add(this.AddTypes);
             this.tabControl6.Controls.Add(this.AddFavorites);
             this.tabControl6.Controls.Add(this.AddWarehouses);
+            this.tabControl6.Depth = 0;
             this.tabControl6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl6.ItemSize = new System.Drawing.Size(64, 30);
             this.tabControl6.Location = new System.Drawing.Point(14, 14);
+            this.tabControl6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabControl6.Multiline = true;
             this.tabControl6.Name = "tabControl6";
             this.tabControl6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tabControl6.RightToLeftLayout = true;
@@ -3508,6 +3528,7 @@ namespace PlancksoftPOS
             // 
             // posInventory
             // 
+            this.posInventory.BackColor = System.Drawing.Color.White;
             this.posInventory.Controls.Add(this.groupBox8);
             this.posInventory.Controls.Add(this.groupBox7);
             this.posInventory.Location = new System.Drawing.Point(4, 34);
@@ -3516,7 +3537,6 @@ namespace PlancksoftPOS
             this.posInventory.Size = new System.Drawing.Size(1845, 885);
             this.posInventory.TabIndex = 0;
             this.posInventory.Text = "المستودع";
-            this.posInventory.UseVisualStyleBackColor = true;
             // 
             // groupBox8
             // 
@@ -4497,6 +4517,7 @@ namespace PlancksoftPOS
             // 
             // InventoryQuantify
             // 
+            this.InventoryQuantify.BackColor = System.Drawing.Color.White;
             this.InventoryQuantify.Controls.Add(this.groupBox45);
             this.InventoryQuantify.Controls.Add(this.groupBox46);
             this.InventoryQuantify.Location = new System.Drawing.Point(4, 34);
@@ -4504,7 +4525,6 @@ namespace PlancksoftPOS
             this.InventoryQuantify.Size = new System.Drawing.Size(1845, 885);
             this.InventoryQuantify.TabIndex = 4;
             this.InventoryQuantify.Text = "جرد المستودعات";
-            this.InventoryQuantify.UseVisualStyleBackColor = true;
             // 
             // groupBox45
             // 
@@ -4708,13 +4728,13 @@ namespace PlancksoftPOS
             // 
             // IncomingOutgoingItems
             // 
+            this.IncomingOutgoingItems.BackColor = System.Drawing.Color.White;
             this.IncomingOutgoingItems.Controls.Add(this.groupBox48);
             this.IncomingOutgoingItems.Location = new System.Drawing.Point(4, 34);
             this.IncomingOutgoingItems.Name = "IncomingOutgoingItems";
             this.IncomingOutgoingItems.Size = new System.Drawing.Size(1845, 885);
             this.IncomingOutgoingItems.TabIndex = 5;
             this.IncomingOutgoingItems.Text = "سند إدخال و إخراج";
-            this.IncomingOutgoingItems.UseVisualStyleBackColor = true;
             // 
             // groupBox48
             // 
@@ -5379,20 +5399,28 @@ namespace PlancksoftPOS
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.AutoScroll = true;
-            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flowLayoutPanel3.AutoSizeTable = false;
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.flowLayoutPanel3.Controls.Add(this.label29);
             this.flowLayoutPanel3.Controls.Add(this.ItemTypeEntry);
             this.flowLayoutPanel3.Controls.Add(this.label30);
             this.flowLayoutPanel3.Controls.Add(this.pictureBox39);
+            this.flowLayoutPanel3.Depth = 0;
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel3.ForeColor = System.Drawing.Color.White;
+            this.flowLayoutPanel3.FullRowSelect = true;
+            this.flowLayoutPanel3.HideSelection = false;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel3.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.flowLayoutPanel3.MouseState = MaterialSkin.MouseState.OUT;
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.OwnerDraw = true;
             this.flowLayoutPanel3.Size = new System.Drawing.Size(1839, 879);
             this.flowLayoutPanel3.TabIndex = 0;
-            this.flowLayoutPanel3.WrapContents = false;
+            this.flowLayoutPanel3.UseCompatibleStateImageBehavior = false;
+            this.flowLayoutPanel3.View = System.Windows.Forms.View.Details;
             // 
             // label29
             // 
@@ -5476,20 +5504,28 @@ namespace PlancksoftPOS
             // 
             // flowLayoutPanel1
             // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flowLayoutPanel1.AutoSizeTable = false;
+            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.flowLayoutPanel1.Controls.Add(this.label22);
             this.flowLayoutPanel1.Controls.Add(this.FavoriteCategoryEntry);
             this.flowLayoutPanel1.Controls.Add(this.label23);
             this.flowLayoutPanel1.Controls.Add(this.pictureBox36);
+            this.flowLayoutPanel1.Depth = 0;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.FullRowSelect = true;
+            this.flowLayoutPanel1.HideSelection = false;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.flowLayoutPanel1.MouseState = MaterialSkin.MouseState.OUT;
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.OwnerDraw = true;
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1845, 885);
             this.flowLayoutPanel1.TabIndex = 0;
-            this.flowLayoutPanel1.WrapContents = false;
+            this.flowLayoutPanel1.UseCompatibleStateImageBehavior = false;
+            this.flowLayoutPanel1.View = System.Windows.Forms.View.Details;
             // 
             // label22
             // 
@@ -5573,20 +5609,28 @@ namespace PlancksoftPOS
             // 
             // flowLayoutPanel2
             // 
-            this.flowLayoutPanel2.AutoScroll = true;
-            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.flowLayoutPanel2.AutoSizeTable = false;
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.flowLayoutPanel2.Controls.Add(this.label26);
             this.flowLayoutPanel2.Controls.Add(this.WarehouseEntry);
             this.flowLayoutPanel2.Controls.Add(this.label27);
             this.flowLayoutPanel2.Controls.Add(this.pictureBox38);
+            this.flowLayoutPanel2.Depth = 0;
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.ForeColor = System.Drawing.Color.White;
+            this.flowLayoutPanel2.FullRowSelect = true;
+            this.flowLayoutPanel2.HideSelection = false;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+            this.flowLayoutPanel2.MinimumSize = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel2.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.flowLayoutPanel2.MouseState = MaterialSkin.MouseState.OUT;
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.OwnerDraw = true;
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1845, 885);
             this.flowLayoutPanel2.TabIndex = 0;
-            this.flowLayoutPanel2.WrapContents = false;
+            this.flowLayoutPanel2.UseCompatibleStateImageBehavior = false;
+            this.flowLayoutPanel2.View = System.Windows.Forms.View.Details;
             // 
             // label26
             // 
@@ -5660,21 +5704,24 @@ namespace PlancksoftPOS
             // 
             // Expenses
             // 
+            this.Expenses.BackColor = System.Drawing.Color.White;
             this.Expenses.Controls.Add(this.tabControl5);
             this.Expenses.Location = new System.Drawing.Point(4, 34);
             this.Expenses.Name = "Expenses";
             this.Expenses.Size = new System.Drawing.Size(1881, 951);
             this.Expenses.TabIndex = 3;
             this.Expenses.Text = "المصروفات";
-            this.Expenses.UseVisualStyleBackColor = true;
             // 
             // tabControl5
             // 
             this.tabControl5.Controls.Add(this.SearchExpenses);
             this.tabControl5.Controls.Add(this.AddExpenses);
+            this.tabControl5.Depth = 0;
             this.tabControl5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl5.ItemSize = new System.Drawing.Size(131, 30);
             this.tabControl5.Location = new System.Drawing.Point(0, 0);
+            this.tabControl5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabControl5.Multiline = true;
             this.tabControl5.Name = "tabControl5";
             this.tabControl5.RightToLeftLayout = true;
             this.tabControl5.SelectedIndex = 0;
@@ -6148,7 +6195,7 @@ namespace PlancksoftPOS
             // 
             // IncomingOutgoing
             // 
-            this.IncomingOutgoing.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.IncomingOutgoing.BackColor = System.Drawing.Color.White;
             this.IncomingOutgoing.Controls.Add(this.groupBox21);
             this.IncomingOutgoing.Controls.Add(this.groupBox20);
             this.IncomingOutgoing.Controls.Add(this.groupBox19);
@@ -6442,21 +6489,24 @@ namespace PlancksoftPOS
             // 
             // Employees
             // 
+            this.Employees.BackColor = System.Drawing.Color.White;
             this.Employees.Controls.Add(this.tabControl8);
             this.Employees.Location = new System.Drawing.Point(4, 34);
             this.Employees.Name = "Employees";
             this.Employees.Size = new System.Drawing.Size(1881, 951);
             this.Employees.TabIndex = 10;
             this.Employees.Text = "شؤون الموظفين";
-            this.Employees.UseVisualStyleBackColor = true;
             // 
             // tabControl8
             // 
             this.tabControl8.Controls.Add(this.EmployeesManagement);
             this.tabControl8.Controls.Add(this.DaysOff);
+            this.tabControl8.Depth = 0;
             this.tabControl8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl8.ItemSize = new System.Drawing.Size(93, 30);
             this.tabControl8.Location = new System.Drawing.Point(0, 0);
+            this.tabControl8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabControl8.Multiline = true;
             this.tabControl8.Name = "tabControl8";
             this.tabControl8.RightToLeftLayout = true;
             this.tabControl8.SelectedIndex = 0;
@@ -6465,6 +6515,7 @@ namespace PlancksoftPOS
             // 
             // EmployeesManagement
             // 
+            this.EmployeesManagement.BackColor = System.Drawing.Color.White;
             this.EmployeesManagement.Controls.Add(this.groupBox49);
             this.EmployeesManagement.Controls.Add(this.groupBox52);
             this.EmployeesManagement.Location = new System.Drawing.Point(4, 34);
@@ -6473,7 +6524,6 @@ namespace PlancksoftPOS
             this.EmployeesManagement.Size = new System.Drawing.Size(1873, 913);
             this.EmployeesManagement.TabIndex = 0;
             this.EmployeesManagement.Text = "إدارة الموظفين";
-            this.EmployeesManagement.UseVisualStyleBackColor = true;
             // 
             // groupBox49
             // 
@@ -7195,13 +7245,13 @@ namespace PlancksoftPOS
             // 
             // DaysOff
             // 
+            this.DaysOff.BackColor = System.Drawing.Color.White;
             this.DaysOff.Controls.Add(this.groupBox51);
             this.DaysOff.Location = new System.Drawing.Point(4, 34);
             this.DaysOff.Name = "DaysOff";
             this.DaysOff.Size = new System.Drawing.Size(1873, 913);
             this.DaysOff.TabIndex = 1;
             this.DaysOff.Text = "الإجازات";
-            this.DaysOff.UseVisualStyleBackColor = true;
             // 
             // groupBox51
             // 
@@ -7367,13 +7417,13 @@ namespace PlancksoftPOS
             // 
             // Agents
             // 
+            this.Agents.BackColor = System.Drawing.Color.White;
             this.Agents.Controls.Add(this.tabControl3);
             this.Agents.Location = new System.Drawing.Point(4, 34);
             this.Agents.Name = "Agents";
             this.Agents.Size = new System.Drawing.Size(1881, 951);
             this.Agents.TabIndex = 4;
             this.Agents.Text = "شؤون العملاء";
-            this.Agents.UseVisualStyleBackColor = true;
             // 
             // tabControl3
             // 
@@ -7382,9 +7432,12 @@ namespace PlancksoftPOS
             this.tabControl3.Controls.Add(this.ImporterDefinitions);
             this.tabControl3.Controls.Add(this.ImporterBalanceChecks);
             this.tabControl3.Controls.Add(this.AgentsItemsDefinitions);
+            this.tabControl3.Depth = 0;
             this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl3.ItemSize = new System.Drawing.Size(88, 30);
             this.tabControl3.Location = new System.Drawing.Point(0, 0);
+            this.tabControl3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabControl3.Multiline = true;
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.RightToLeftLayout = true;
             this.tabControl3.SelectedIndex = 0;
@@ -7395,7 +7448,7 @@ namespace PlancksoftPOS
             // 
             // AgentsDefinitions
             // 
-            this.AgentsDefinitions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.AgentsDefinitions.BackColor = System.Drawing.Color.White;
             this.AgentsDefinitions.Controls.Add(this.groupBox15);
             this.AgentsDefinitions.Controls.Add(this.groupBox17);
             this.AgentsDefinitions.Location = new System.Drawing.Point(4, 34);
@@ -7776,7 +7829,7 @@ namespace PlancksoftPOS
             // 
             // ClientBalanceCheck
             // 
-            this.ClientBalanceCheck.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.ClientBalanceCheck.BackColor = System.Drawing.Color.White;
             this.ClientBalanceCheck.Controls.Add(this.materialCard1);
             this.ClientBalanceCheck.Controls.Add(this.materialCard2);
             this.ClientBalanceCheck.Location = new System.Drawing.Point(4, 34);
@@ -8030,7 +8083,7 @@ namespace PlancksoftPOS
             // 
             // ImporterDefinitions
             // 
-            this.ImporterDefinitions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.ImporterDefinitions.BackColor = System.Drawing.Color.White;
             this.ImporterDefinitions.Controls.Add(this.groupBox39);
             this.ImporterDefinitions.Controls.Add(this.groupBox40);
             this.ImporterDefinitions.Location = new System.Drawing.Point(4, 34);
@@ -8622,7 +8675,7 @@ namespace PlancksoftPOS
             // 
             // AgentsItemsDefinitions
             // 
-            this.AgentsItemsDefinitions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.AgentsItemsDefinitions.BackColor = System.Drawing.Color.White;
             this.AgentsItemsDefinitions.Controls.Add(this.groupBox34);
             this.AgentsItemsDefinitions.Controls.Add(this.groupBox23);
             this.AgentsItemsDefinitions.Location = new System.Drawing.Point(4, 34);
@@ -9164,9 +9217,12 @@ namespace PlancksoftPOS
             // tabControl7
             // 
             this.tabControl7.Controls.Add(this.TaxZReport);
+            this.tabControl7.Depth = 0;
             this.tabControl7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl7.ItemSize = new System.Drawing.Size(101, 30);
             this.tabControl7.Location = new System.Drawing.Point(3, 3);
+            this.tabControl7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabControl7.Multiline = true;
             this.tabControl7.Name = "tabControl7";
             this.tabControl7.RightToLeftLayout = true;
             this.tabControl7.SelectedIndex = 0;
@@ -9883,8 +9939,11 @@ namespace PlancksoftPOS
             // 
             this.tabControl9.Controls.Add(this.posSettings);
             this.tabControl9.Controls.Add(this.printersSettings);
+            this.tabControl9.Depth = 0;
             this.tabControl9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl9.Location = new System.Drawing.Point(0, 0);
+            this.tabControl9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.tabControl9.Multiline = true;
             this.tabControl9.Name = "tabControl9";
             this.tabControl9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tabControl9.RightToLeftLayout = true;
@@ -9894,6 +9953,7 @@ namespace PlancksoftPOS
             // 
             // posSettings
             // 
+            this.posSettings.BackColor = System.Drawing.Color.White;
             this.posSettings.Controls.Add(this.groupBox24);
             this.posSettings.Location = new System.Drawing.Point(4, 25);
             this.posSettings.Name = "posSettings";
@@ -9901,7 +9961,6 @@ namespace PlancksoftPOS
             this.posSettings.Size = new System.Drawing.Size(1873, 922);
             this.posSettings.TabIndex = 0;
             this.posSettings.Text = "إعدادات البرمجية";
-            this.posSettings.UseVisualStyleBackColor = true;
             // 
             // groupBox24
             // 
@@ -10913,6 +10972,7 @@ namespace PlancksoftPOS
             // 
             // printersSettings
             // 
+            this.printersSettings.BackColor = System.Drawing.Color.White;
             this.printersSettings.Controls.Add(this.flowLayoutPanel4);
             this.printersSettings.Location = new System.Drawing.Point(4, 25);
             this.printersSettings.Name = "printersSettings";
@@ -10920,26 +10980,36 @@ namespace PlancksoftPOS
             this.printersSettings.Size = new System.Drawing.Size(1873, 922);
             this.printersSettings.TabIndex = 1;
             this.printersSettings.Text = "الطابعات";
-            this.printersSettings.UseVisualStyleBackColor = true;
             // 
             // flowLayoutPanel4
             // 
+            this.flowLayoutPanel4.AutoSizeTable = false;
+            this.flowLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.flowLayoutPanel4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.flowLayoutPanel4.Depth = 0;
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel4.FullRowSelect = true;
+            this.flowLayoutPanel4.HideSelection = false;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel4.MinimumSize = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel4.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.flowLayoutPanel4.MouseState = MaterialSkin.MouseState.OUT;
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.OwnerDraw = true;
             this.flowLayoutPanel4.Size = new System.Drawing.Size(1867, 916);
             this.flowLayoutPanel4.TabIndex = 0;
+            this.flowLayoutPanel4.UseCompatibleStateImageBehavior = false;
+            this.flowLayoutPanel4.View = System.Windows.Forms.View.Details;
             // 
             // Retrievals
             // 
+            this.Retrievals.BackColor = System.Drawing.Color.White;
             this.Retrievals.Controls.Add(this.groupBox47);
             this.Retrievals.Location = new System.Drawing.Point(4, 34);
             this.Retrievals.Name = "Retrievals";
             this.Retrievals.Size = new System.Drawing.Size(1881, 951);
             this.Retrievals.TabIndex = 11;
             this.Retrievals.Text = "المرجعات";
-            this.Retrievals.UseVisualStyleBackColor = true;
             // 
             // groupBox47
             // 
@@ -12309,16 +12379,20 @@ namespace PlancksoftPOS
             // 
             // Menu
             // 
+            this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.Menu.Depth = 0;
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.اللغةToolStripMenuItem,
             this.المظهرToolStripMenuItem,
             this.الخروجToolStripMenuItem});
+            this.Menu.MouseState = MaterialSkin.MouseState.HOVER;
             this.Menu.Name = "Menu";
             this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Menu.Size = new System.Drawing.Size(110, 70);
             // 
             // اللغةToolStripMenuItem
             // 
+            this.اللغةToolStripMenuItem.AutoSize = false;
             this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.العربيةToolStripMenuItem,
             this.englishToolStripMenuItem});
@@ -12328,6 +12402,7 @@ namespace PlancksoftPOS
             // 
             // العربيةToolStripMenuItem
             // 
+            this.العربيةToolStripMenuItem.AutoSize = false;
             this.العربيةToolStripMenuItem.CheckOnClick = true;
             this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
             this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
@@ -12336,6 +12411,7 @@ namespace PlancksoftPOS
             // 
             // englishToolStripMenuItem
             // 
+            this.englishToolStripMenuItem.AutoSize = false;
             this.englishToolStripMenuItem.CheckOnClick = true;
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
             this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
@@ -12344,6 +12420,7 @@ namespace PlancksoftPOS
             // 
             // المظهرToolStripMenuItem
             // 
+            this.المظهرToolStripMenuItem.AutoSize = false;
             this.المظهرToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.فاتحToolStripMenuItem,
             this.مظلمToolStripMenuItem});
@@ -12353,6 +12430,7 @@ namespace PlancksoftPOS
             // 
             // فاتحToolStripMenuItem
             // 
+            this.فاتحToolStripMenuItem.AutoSize = false;
             this.فاتحToolStripMenuItem.Name = "فاتحToolStripMenuItem";
             this.فاتحToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.فاتحToolStripMenuItem.Text = "فاتح";
@@ -12360,6 +12438,7 @@ namespace PlancksoftPOS
             // 
             // مظلمToolStripMenuItem
             // 
+            this.مظلمToolStripMenuItem.AutoSize = false;
             this.مظلمToolStripMenuItem.Name = "مظلمToolStripMenuItem";
             this.مظلمToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.مظلمToolStripMenuItem.Text = "مظلم";
@@ -12367,6 +12446,7 @@ namespace PlancksoftPOS
             // 
             // الخروجToolStripMenuItem
             // 
+            this.الخروجToolStripMenuItem.AutoSize = false;
             this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
             this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.الخروجToolStripMenuItem.Text = "الخروج";
@@ -12724,13 +12804,13 @@ namespace PlancksoftPOS
 
         #endregion
 
-        public System.Windows.Forms.MenuStrip menuStrip1;
-        public System.Windows.Forms.TabControl tabControl1;
+        public MenuStrip menuStrip1;
+        public MaterialTabControl tabControl1;
         public System.Windows.Forms.TabPage Cash;
         public MaterialCard groupBox1;
         public System.Windows.Forms.TabPage Sales;
-        public System.Windows.Forms.ToolStripMenuItem aToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem خروجToolStripMenuItem1;
+        public ToolStripMenuItem aToolStripMenuItem;
+        public ToolStripMenuItem خروجToolStripMenuItem1;
         public System.Windows.Forms.TabPage Inventory;
         public System.Windows.Forms.TabPage Expenses;
         public System.Windows.Forms.TabPage Agents;
@@ -12764,7 +12844,7 @@ namespace PlancksoftPOS
         public System.Windows.Forms.DataGridView dgvExports;
         public System.Windows.Forms.PictureBox pictureBox23;
         public System.Windows.Forms.PictureBox pictureBox22;
-        public System.Windows.Forms.TabControl tabControl3;
+        public MaterialTabControl tabControl3;
         public System.Windows.Forms.TabPage AgentsDefinitions;
         public MaterialCard groupBox15;
         public MaterialCard groupBox16;
@@ -12780,7 +12860,7 @@ namespace PlancksoftPOS
         public System.Windows.Forms.NumericUpDown pendingPurchaseNewPrice;
         public MaterialSkin.Controls.MaterialButton button23;
         public MaterialLabel richTextBox6;
-        public System.Windows.Forms.TabControl tabControl4;
+        public MaterialTabControl tabControl4;
         public System.Windows.Forms.TabPage InvoicesSales;
         public MaterialCard groupBox13;
         public System.Windows.Forms.NumericUpDown nudBillNumberSearch;
@@ -12803,7 +12883,7 @@ namespace PlancksoftPOS
         public System.Windows.Forms.PictureBox pictureBox4;
         public System.Windows.Forms.PictureBox pictureBox5;
         public System.Windows.Forms.Timer itemBarCodeEntryTimer;
-        public System.Windows.Forms.TabControl tabControl2;
+        public MaterialTabControl tabControl2;
         public System.Windows.Forms.PictureBox pictureBox9;
         public System.Windows.Forms.PictureBox pictureBox8;
         public System.Windows.Forms.DataGridView dgvLoginLogout;
@@ -12847,7 +12927,7 @@ namespace PlancksoftPOS
         public MaterialLabel label10;
         public System.Windows.Forms.NumericUpDown BillEditNumber;
         public MaterialLabel label13;
-        public System.Windows.Forms.TabControl tabControl5;
+        public MaterialTabControl tabControl5;
         public System.Windows.Forms.TabPage SearchExpenses;
         public MaterialCard groupBox31;
         public System.Windows.Forms.DateTimePicker dateTimePicker7;
@@ -12899,7 +12979,7 @@ namespace PlancksoftPOS
         public MaterialCheckbox Client_card_edit;
         public MaterialCheckbox settings_edit;
         public MaterialCheckbox users_edit;
-        public System.Windows.Forms.TabControl tabControl6;
+        public MaterialTabControl tabControl6;
         public System.Windows.Forms.TabPage posInventory;
         public MaterialCard groupBox7;
         public MaterialTextBox2 nudItemBarCodeSearch;
@@ -12944,27 +13024,27 @@ namespace PlancksoftPOS
         public System.Windows.Forms.TabPage AddTypes;
         public System.Windows.Forms.TabPage AddFavorites;
         public System.Windows.Forms.TabPage AddWarehouses;
-        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        public MaterialListView flowLayoutPanel3;
         public MaterialLabel label29;
         public MaterialTextBox2 ItemTypeEntry;
         public MaterialLabel label30;
         public System.Windows.Forms.PictureBox pictureBox39;
-        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        public MaterialListView flowLayoutPanel1;
         public MaterialLabel label22;
         public MaterialTextBox2 FavoriteCategoryEntry;
         public MaterialLabel label23;
         public System.Windows.Forms.PictureBox pictureBox36;
-        public System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        public MaterialListView flowLayoutPanel2;
         public MaterialLabel label26;
         public MaterialTextBox2 WarehouseEntry;
         public MaterialLabel label27;
         public System.Windows.Forms.PictureBox pictureBox38;
-        public System.Windows.Forms.ToolStripMenuItem ادارةالمستودعToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem اضافةصنفToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem اضافةمستودعToolStripMenuItem;
-        public System.Windows.Forms.ToolStripMenuItem اضافةمستودعToolStripMenuItem1;
+        public ToolStripMenuItem ادارةالمستودعToolStripMenuItem;
+        public ToolStripMenuItem اضافةصنفToolStripMenuItem;
+        public ToolStripMenuItem اضافةمستودعToolStripMenuItem;
+        public ToolStripMenuItem اضافةمستودعToolStripMenuItem1;
         public MaterialCard groupBox36;
-        public System.Windows.Forms.ToolStripMenuItem اضافةمادهToolStripMenuItem;
+        public ToolStripMenuItem اضافةمادهToolStripMenuItem;
         public System.Windows.Forms.TabPage Alerts;
         public MaterialCard groupBox37;
         public System.Windows.Forms.DataGridView dgvAlerts;
@@ -12994,7 +13074,7 @@ namespace PlancksoftPOS
         public System.Windows.Forms.DataGridView dgvVendorBills;
         public System.Windows.Forms.PictureBox pictureBox45;
         public System.Windows.Forms.TabPage Taxes;
-        public System.Windows.Forms.TabControl tabControl7;
+        public MaterialTabControl tabControl7;
         public System.Windows.Forms.TabPage TaxZReport;
         public MaterialCard groupBox44;
         public System.Windows.Forms.DataGridView dgvTaxZReport;
@@ -13031,7 +13111,7 @@ namespace PlancksoftPOS
         public System.Windows.Forms.NumericUpDown EntryExitItemBuyPrice;
         public System.Windows.Forms.TabPage Employees;
         public MaterialCheckbox personnel_edit;
-        public System.Windows.Forms.TabControl tabControl8;
+        public MaterialTabControl tabControl8;
         public System.Windows.Forms.TabPage EmployeesManagement;
         public System.Windows.Forms.TabPage DaysOff;
         public MaterialCard groupBox49;
@@ -13224,11 +13304,11 @@ namespace PlancksoftPOS
         private System.Windows.Forms.Timer lastBillNumberUpdaterTimer;
         private System.Windows.Forms.Timer updateSystem;
         private System.Windows.Forms.NotifyIcon PlancksoftPOS;
-        private System.Windows.Forms.ContextMenuStrip Menu;
-        private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
+        private MaterialContextMenuStrip Menu;
+        private ToolStripMenuItem اللغةToolStripMenuItem;
+        private ToolStripMenuItem العربيةToolStripMenuItem;
+        private ToolStripMenuItem englishToolStripMenuItem;
+        private ToolStripMenuItem الخروجToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column48;
@@ -13250,10 +13330,10 @@ namespace PlancksoftPOS
         private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemTypeNumber;
         private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemPicture;
-        private System.Windows.Forms.TabControl tabControl9;
+        private MaterialTabControl tabControl9;
         private System.Windows.Forms.TabPage posSettings;
         private System.Windows.Forms.TabPage printersSettings;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private MaterialListView flowLayoutPanel4;
         private MaterialCheckbox cbSalesDateSearch;
         private MaterialCheckbox cbQuantifyDateSearch;
         private MaterialSkin.Controls.MaterialButton button17;
@@ -13332,9 +13412,9 @@ namespace PlancksoftPOS
         public System.Windows.Forms.DataGridViewTextBoxColumn Column26;
         public System.Windows.Forms.PictureBox pictureBox27;
         public System.Windows.Forms.PictureBox pictureBox24;
-        private System.Windows.Forms.ToolStripMenuItem المظهرToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem فاتحToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem مظلمToolStripMenuItem;
+        private ToolStripMenuItem المظهرToolStripMenuItem;
+        private ToolStripMenuItem فاتحToolStripMenuItem;
+        private ToolStripMenuItem مظلمToolStripMenuItem;
         public MaterialCheckbox sell_edit;
         public MaterialLabel lblDarkPrimaryColor;
         public MaterialTextBox2 DarkPrimaryColor;

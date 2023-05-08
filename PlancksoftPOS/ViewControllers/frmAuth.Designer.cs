@@ -43,12 +43,12 @@
             this.btnSubmit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSubmit.HighEmphasis = true;
             this.btnSubmit.Icon = null;
-            this.btnSubmit.Location = new System.Drawing.Point(3, 161);
+            this.btnSubmit.Location = new System.Drawing.Point(3, 128);
             this.btnSubmit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSubmit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSubmit.Name = "btnSubmit";
             this.btnSubmit.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnSubmit.Size = new System.Drawing.Size(819, 36);
+            this.btnSubmit.Size = new System.Drawing.Size(835, 36);
             this.btnSubmit.TabIndex = 1;
             this.btnSubmit.Text = "إتمام";
             this.btnSubmit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -64,12 +64,12 @@
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnCancel.HighEmphasis = true;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(3, 197);
+            this.btnCancel.Location = new System.Drawing.Point(3, 164);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnCancel.Size = new System.Drawing.Size(819, 36);
+            this.btnCancel.Size = new System.Drawing.Size(835, 36);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "إغلاق";
             this.btnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -103,7 +103,7 @@
             this.txtAccountPassword.SelectionLength = 0;
             this.txtAccountPassword.SelectionStart = 0;
             this.txtAccountPassword.ShortcutsEnabled = true;
-            this.txtAccountPassword.Size = new System.Drawing.Size(813, 48);
+            this.txtAccountPassword.Size = new System.Drawing.Size(829, 48);
             this.txtAccountPassword.TabIndex = 0;
             this.txtAccountPassword.TabStop = false;
             this.txtAccountPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -114,7 +114,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(825, 236);
+            this.ClientSize = new System.Drawing.Size(841, 203);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.txtAccountPassword);
