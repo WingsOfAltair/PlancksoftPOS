@@ -58,22 +58,22 @@ namespace PlancksoftPOS
         public string ScannedBarCode = "";
         public bool timerstarted = false, registerOpen = false, IncludeLogoInReceipt = false;
         decimal capital, taxRate;
-        TextBox AddItemType;
-        List<TextBox> ItemTypeNamestxt = new List<TextBox>();
+        MaterialTextBox2 AddItemType;
+        List<MaterialTextBox2> ItemTypeNamestxt = new List<MaterialTextBox2>();
         PictureBox plusItemTypePB, minusItemTypePB;
         System.Windows.Forms.Label plusItemTypeLbl, ItemTypeLbl;
         TextBox AddWarehouse;
-        List<TextBox> WarehouseNamestxt = new List<TextBox>();
+        List<MaterialTextBox2> WarehouseNamestxt = new List<MaterialTextBox2>();
         PictureBox plusWarehousePB, minusWarehousePB;
         Label plusWarehouseLbl, WarehouseLbl;
-        TextBox AddFavorite;
-        TextBox AddPrinter;
-        List<TextBox> FavoriteNamestxt = new List<TextBox>();
+        MaterialTextBox2 AddFavorite;
+        MaterialTextBox2 AddPrinter;
+        List<MaterialTextBox2> FavoriteNamestxt = new List<MaterialTextBox2>();
         List<TreeView> PrintersNamesTV = new List<TreeView>();
         PictureBox plusFavoritePB, minusFavoritePB;
         PictureBox plusPrinterPB, minusPrinterPB;
-        Label plusFavoriteLbl, FavoriteLbl;
-        Label plusPrinterLbl, PrinterLbl;
+        MaterialLabel plusFavoriteLbl, FavoriteLbl;
+        MaterialLabel plusPrinterLbl, PrinterLbl;
         List<FlowLayoutPanel> flowLayoutPanels = new List<FlowLayoutPanel>();
         MaterialButton saveItemTypesBtn;
         MaterialButton saveWarehousesBtn;
@@ -2028,7 +2028,7 @@ namespace PlancksoftPOS
             plusItemTypeLbl.Font = new Font(plusItemTypeLbl.Font.FontFamily, 14);
             flowLayoutPanel3.Controls.Add(plusItemTypeLbl);
 
-            AddItemType = new TextBox();
+            AddItemType = new MaterialTextBox2();
             AddItemType.Text = "";
             AddItemType.Size = new Size(351, 20);
             flowLayoutPanel3.Controls.Add(AddItemType);
@@ -2097,7 +2097,7 @@ namespace PlancksoftPOS
                 minusItemTypePB.Click += (sender, e) => { DeleteItemTypeHandler(sender, e, itemtype.Key); };
                 flowLayoutPanel3.Controls.Add(minusItemTypePB);
 
-                TextBox tempItemtypetxt = new TextBox();
+                MaterialTextBox2 tempItemtypetxt = new MaterialTextBox2();
                 tempItemtypetxt.Name = itemtype.Value;
                 tempItemtypetxt.Text = itemtype.Value;
                 tempItemtypetxt.Tag = itemtype.Key;
@@ -2212,7 +2212,7 @@ namespace PlancksoftPOS
                 minusWarehousePB.Click += (sender, e) => { DeleteWarehouseHandler(sender, e, warehouse.Key); };
                 flowLayoutPanel2.Controls.Add(minusWarehousePB);
 
-                TextBox tempWarehousetxt = new TextBox();
+                MaterialTextBox2 tempWarehousetxt = new MaterialTextBox2();
                 tempWarehousetxt.Name = warehouse.Value;
                 tempWarehousetxt.Text = warehouse.Value;
                 tempWarehousetxt.Tag = warehouse.Key;
@@ -2246,7 +2246,7 @@ namespace PlancksoftPOS
             for (int z = 0; z < flowLayoutPanels.Count; z++)
                 flowLayoutPanels[z].Controls.Clear();
 
-            plusFavoriteLbl = new Label();
+            plusFavoriteLbl = new MaterialLabel();
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 plusFavoriteLbl.Text = "إضافة مجلد مفضل جديد";
@@ -2259,7 +2259,7 @@ namespace PlancksoftPOS
             plusFavoriteLbl.Font = new Font(plusFavoriteLbl.Font.FontFamily, 14);
             flowLayoutPanel1.Controls.Add(plusFavoriteLbl);
 
-            AddFavorite = new TextBox();
+            AddFavorite = new MaterialTextBox2();
             AddFavorite.Text = "";
             AddFavorite.Size = new Size(351, 20);
             flowLayoutPanel1.Controls.Add(AddFavorite);
@@ -2273,7 +2273,7 @@ namespace PlancksoftPOS
             plusFavoritePB.Click += (sender, e) => { AddFavoritesHandler(sender, e); };
             flowLayoutPanel1.Controls.Add(plusFavoritePB);
 
-            FavoriteLbl = new Label();
+            FavoriteLbl = new MaterialLabel();
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 FavoriteLbl.Text = "مجلدات المفضلات المضافه";
@@ -2325,7 +2325,7 @@ namespace PlancksoftPOS
                 minusFavoritePB.Click += (sender, e) => { DeleteFavoritesHandler(sender, e, favorite.Key); };
                 flowLayoutPanel1.Controls.Add(minusFavoritePB);
 
-                TextBox tempFavoritetxt = new TextBox();
+                MaterialTextBox2 tempFavoritetxt = new MaterialTextBox2();
                 tempFavoritetxt.Name = favorite.Value;
                 tempFavoritetxt.Text = favorite.Value;
                 tempFavoritetxt.Tag = favorite.Key;
@@ -2956,7 +2956,7 @@ namespace PlancksoftPOS
 
             flowLayoutPanel4.Controls.Clear();
 
-            plusPrinterLbl = new Label();
+            plusPrinterLbl = new MaterialLabel();
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 plusPrinterLbl.Text = "إضافة طابعة جديدة";
@@ -2969,7 +2969,7 @@ namespace PlancksoftPOS
             plusPrinterLbl.Font = new Font(plusPrinterLbl.Font.FontFamily, 14);
             flowLayoutPanel4.Controls.Add(plusPrinterLbl);
 
-            AddPrinter = new TextBox();
+            AddPrinter = new MaterialTextBox2();
             AddPrinter.Text = "";
             AddPrinter.Size = new Size(351, 20);
             flowLayoutPanel4.Controls.Add(AddPrinter);
@@ -2983,7 +2983,7 @@ namespace PlancksoftPOS
             plusPrinterPB.Click += (sender, e) => { AddPrintersHandler(sender, e); };
             flowLayoutPanel4.Controls.Add(plusPrinterPB);
 
-            PrinterLbl = new Label();
+            PrinterLbl = new MaterialLabel();
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 PrinterLbl.Text = "الطابعات المضافه";
@@ -3057,13 +3057,17 @@ namespace PlancksoftPOS
                 MenuItem deleteItemTypeFromPrinter = null;
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    addItemTypeToPrinter = new MenuItem("إضافة صنف مواد للطابعة");
-                    deleteItemTypeFromPrinter = new MenuItem("حذف صنف مواد من الطابعة");
+                    addItemTypeToPrinter = new MenuItem();
+                    addItemTypeToPrinter.Text = "إضافة صنف مواد للطابعة";
+                    deleteItemTypeFromPrinter = new MenuItem();
+                    deleteItemTypeFromPrinter.Text = "حذف صنف مواد من الطابعة";
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    addItemTypeToPrinter = new MenuItem("Add Item Type to Printer");
-                    deleteItemTypeFromPrinter = new MenuItem("Delete Item Type from Printer");
+                    addItemTypeToPrinter = new MenuItem();
+                    addItemTypeToPrinter.Text = "Add Item Type to Printer";
+                    deleteItemTypeFromPrinter = new MenuItem();
+                    deleteItemTypeFromPrinter.Text = "Delete Item Type from Printer";
                 }
                 addItemTypeToPrinter.Click += (sender, e) => { addItemTypePrinter_Click(sender, e, PrinterCount); };
                 deleteItemTypeFromPrinter.Click += (sender, e) => { deleteItemTypePrinter_Click(sender, e, PrinterCount); };
