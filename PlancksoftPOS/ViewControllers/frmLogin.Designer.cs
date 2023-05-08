@@ -49,7 +49,7 @@ namespace PlancksoftPOS
             this.btnExit = new MaterialSkin.Controls.MaterialButton();
             this.btnLogin = new MaterialSkin.Controls.MaterialButton();
             this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
-            this.Menu = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.Menu = new MaterialSkin.Controls.MaterialContextMenuStrip();
             this.اللغةToolStripMenuItem = new MaterialToolStripMenuItem();
             this.العربيةToolStripMenuItem = new MaterialToolStripMenuItem();
             this.englishToolStripMenuItem = new MaterialToolStripMenuItem();
