@@ -3487,7 +3487,7 @@ namespace PlancksoftPOS
                     frmAuth.ShowDialog();
                     if (frmAuth.dialogResult == DialogResult.OK)
                     {
-                        if (MD5Encryption.Encrypt(MD5Encryption.Encrypt(frmAuth.password, "PlancksoftPOS"), "PlancksoftPOS") == PWD)
+                        if (Dependencies.MD5Encryption.Encrypt(Dependencies.MD5Encryption.Encrypt(frmAuth.password, "PlancksoftPOS"), "PlancksoftPOS") == PWD)
                         {
                             if (txtItemName.Text != "" && txtItemBarCode.Text != "")
                             {
@@ -3616,7 +3616,7 @@ namespace PlancksoftPOS
                     frmAuth.ShowDialog();
                     if (frmAuth.dialogResult == DialogResult.OK)
                     {
-                        if (MD5Encryption.Encrypt(MD5Encryption.Encrypt(frmAuth.password, "PlancksoftPOS"), "PlancksoftPOS") == PWD)
+                        if (Dependencies.MD5Encryption.Encrypt(Dependencies.MD5Encryption.Encrypt(frmAuth.password, "PlancksoftPOS"), "PlancksoftPOS") == PWD)
                         {
                             int deletedCount = 0;
                             foreach (DataGridViewRow row in DgvInventory.Rows)
@@ -4363,7 +4363,7 @@ namespace PlancksoftPOS
                 frmAuth.ShowDialog();
                 if (frmAuth.dialogResult == DialogResult.OK)
                 {
-                    if (MD5Encryption.Encrypt(MD5Encryption.Encrypt(frmAuth.password, "PlancksoftPOS"), "PlancksoftPOS") == PWD)
+                    if (Dependencies.MD5Encryption.Encrypt(Dependencies.MD5Encryption.Encrypt(frmAuth.password, "PlancksoftPOS"), "PlancksoftPOS") == PWD)
                     {
                         if (txtUserNameAdd.Text != "" && txtUserIDAdd.Text != "" && txtUserPasswordAdd.Text != "")
                         {
@@ -4383,7 +4383,7 @@ namespace PlancksoftPOS
                             Account newAccount = new Account();
                             newAccount.SetAccountName(txtUserNameAdd.Text);
                             newAccount.SetAccountUID(txtUserIDAdd.Text);
-                            newAccount.SetAccountPWD(MD5Encryption.Encrypt(txtUserPasswordAdd.Text, "PlancksoftPOS"));
+                            newAccount.SetAccountPWD(Dependencies.MD5Encryption.Encrypt(txtUserPasswordAdd.Text, "PlancksoftPOS"));
                             newAccount.SetAccountAuthority(Convert.ToInt32(cbAdminOrNotAdd.Checked));
                             newAccount.Client_card_edit = Client_card_edit.Checked;
                             newAccount.discount_edit = discount_edit.Checked;
@@ -4466,7 +4466,7 @@ namespace PlancksoftPOS
                 frmAuth.ShowDialog();
                 if (frmAuth.dialogResult == DialogResult.OK)
                 {
-                    if (MD5Encryption.Encrypt(MD5Encryption.Encrypt(frmAuth.password, "PlancksoftPOS"), "PlancksoftPOS") == PWD)
+                    if (Dependencies.MD5Encryption.Encrypt(Dependencies.MD5Encryption.Encrypt(frmAuth.password, "PlancksoftPOS"), "PlancksoftPOS") == PWD)
                     {
                         if (txtUserNameAdd.Text != "" && txtUserIDAdd.Text != "")
                         {
@@ -4487,7 +4487,7 @@ namespace PlancksoftPOS
                             newAccount.SetAccountName(txtUserNameAdd.Text);
                             newAccount.SetAccountUID(txtUserIDAdd.Text);
                             if (txtUserPasswordAdd.Text != "")
-                                newAccount.SetAccountPWD(MD5Encryption.Encrypt(txtUserPasswordAdd.Text, "PlancksoftPOS"));
+                                newAccount.SetAccountPWD(Dependencies.MD5Encryption.Encrypt(txtUserPasswordAdd.Text, "PlancksoftPOS"));
                             newAccount.SetAccountAuthority(Convert.ToInt32(cbAdminOrNotAdd.Checked));
                             newAccount.Client_card_edit = Client_card_edit.Checked;
                             newAccount.discount_edit = discount_edit.Checked;
@@ -4581,7 +4581,7 @@ namespace PlancksoftPOS
                 frmAuth.ShowDialog();
                 if (frmAuth.dialogResult == DialogResult.OK)
                 {
-                    if (MD5Encryption.Encrypt(MD5Encryption.Encrypt(frmAuth.password, "PlancksoftPOS"), "PlancksoftPOS") == PWD)
+                    if (Dependencies.MD5Encryption.Encrypt(Dependencies.MD5Encryption.Encrypt(frmAuth.password, "PlancksoftPOS"), "PlancksoftPOS") == PWD)
                     {
                         if (txtUserIDAdd.Text != "")
                         {

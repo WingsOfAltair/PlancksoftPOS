@@ -84,7 +84,7 @@ namespace PlancksoftPOS
             {
                 Account newAccount = new Account();
                 newAccount.SetAccountUID(txtUID.Text);
-                newAccount.SetAccountPWD(MD5Encryption.Encrypt(txtPassword.Text, "PlancksoftPOS"));
+                newAccount.SetAccountPWD(Dependencies.MD5Encryption.Encrypt(txtPassword.Text, "PlancksoftPOS"));
                 newAccount.SetAccountName(txtAdminName.Text);
                 newAccount.Client_card_edit = true;
                 newAccount.discount_edit = true;

@@ -95,13 +95,13 @@ namespace PlancksoftPOS
                     else if (pickedLanguage == LanguageChoice.Languages.English)
                         MaterialMessageBox.Show("The system's license validity duration has ended. Please contact technical support to purchase a new valid license.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
-                if (Decrypt256(Settings.Default.LicenseKey) != GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount))
+                if (Decrypt256(Settings.Default.LicenseKey) != GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value()))
                 {
                     PlancksoftPOS.Visible = false;
                     frmLicense frm0 = new frmLicense();
                     frm0.ShowDialog();
                 }
-                if (Decrypt256(Settings.Default.LicenseKey) == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount))
+                if (Decrypt256(Settings.Default.LicenseKey) == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value()))
                 {
                     if (!Connection.server.CheckConnection())
                     {
@@ -354,7 +354,7 @@ namespace PlancksoftPOS
             }
             Account newAccount = new Account();
             newAccount.SetAccountUID(txtUID.Text);
-            newAccount.SetAccountPWD(MD5Encryption.Encrypt(txtPassword.Text, "PlancksoftPOS"));
+            newAccount.SetAccountPWD(Dependencies.MD5Encryption.Encrypt(txtPassword.Text, "PlancksoftPOS"));
 
             Tuple<bool, string, bool> result = Connection.server.Login(newAccount);
             if (result.Item1)
