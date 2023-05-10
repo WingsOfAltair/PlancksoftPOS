@@ -87,26 +87,32 @@ namespace Dependencies
         //Return a hardware identifier
         private static string identifier(string wmiClass, string wmiProperty)
         {
-            string result = "";
-            System.Management.ManagementClass mc =
-        new System.Management.ManagementClass(wmiClass);
-            System.Management.ManagementObjectCollection moc = mc.GetInstances();
-            foreach (System.Management.ManagementObject mo in moc)
+            try
             {
-                //Only get the first one
-                if (result == "")
+                string result = "";
+                System.Management.ManagementClass mc =
+            new System.Management.ManagementClass(wmiClass);
+                System.Management.ManagementObjectCollection moc = mc.GetInstances();
+                foreach (System.Management.ManagementObject mo in moc)
                 {
-                    try
+                    //Only get the first one
+                    if (result == "")
                     {
-                        result = mo[wmiProperty].ToString();
-                        break;
-                    }
-                    catch
-                    {
+                        try
+                        {
+                            result = mo[wmiProperty].ToString();
+                            break;
+                        }
+                        catch
+                        {
+                        }
                     }
                 }
+                return result;
+            } catch (Exception ex)
+            {
+                return "";
             }
-            return result;
         }
         private static string cpuId()
         {
