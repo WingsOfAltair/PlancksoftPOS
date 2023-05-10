@@ -15,7 +15,7 @@ namespace PlancksoftPOS
             Thread t = new Thread((ThreadStart)(() => {
                 try
                 {
-                    string LicenseKey = MD5Encryption.Encrypt(Environment.MachineName + Environment.UserName + Application.ProductName, "PlancksoftPOS");
+                    string LicenseKey = MD5Encryption.Encrypt(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount, "PlancksoftPOS");
                     Console.WriteLine(LicenseKey);
                     Console.WriteLine("Done. Paste your clipboard content to the key generator software.");
                     Clipboard.SetText(LicenseKey);

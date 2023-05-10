@@ -105,9 +105,9 @@ namespace PlancksoftPOS
 
         private void btnActivate_Click(object sender, EventArgs e)
         {
-            if (txtLicenseKey.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|1"))
+            if (txtLicenseKey.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "|1"))
             {
-                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
+                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount));
                 Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(1).ToString());
                 Settings.Default.Save();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -120,9 +120,9 @@ namespace PlancksoftPOS
                 }
                 this.Close();
             }
-            else if (txtLicenseKey.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|2"))
+            else if (txtLicenseKey.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "|2"))
             {
-                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
+                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount));
                 Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(6).ToString());
                 Settings.Default.Save();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -135,9 +135,9 @@ namespace PlancksoftPOS
                 }
                 this.Close();
             }
-            else if (txtLicenseKey.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|3"))
+            else if (txtLicenseKey.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "|3"))
             {
-                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
+                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount));
                 Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddYears(1).ToString());
                 Settings.Default.Save();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -150,9 +150,9 @@ namespace PlancksoftPOS
                 }
                 this.Close();
             }
-            else if (txtLicenseKey.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + "|4"))
+            else if (txtLicenseKey.Text == GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "|4"))
             {
-                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName));
+                Settings.Default["LicenseKey"] = Encrypt256(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount));
                 Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(1000).ToString());
                 Settings.Default.Save();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
