@@ -20,7 +20,7 @@ namespace Dependencies
             {
                 fingerPrint = GetHash("CPU >> " + cpuId() + "\nBIOS >> " +
             biosId() + "\nBASE >> " + baseId() +
-            //"\nDISK >> "+ diskId() + "\nVIDEO >> " + 
+            "\nDISK >> "+ diskId() + "\nVIDEO >> " + 
             videoId() + "\nMAC >> " + macId()
                                      );
             }
