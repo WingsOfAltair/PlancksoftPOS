@@ -14,3 +14,6 @@ C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Release\Plancksof
 C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Release\PlancksoftPOS License Information Fetcher.csproj.CoreCompileInputs.cache
 C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Release\PlancksoftPOS License Information Fetcher.exe
 C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Release\PlancksoftPOS License Information Fetcher.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Release\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Release\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Release\PlancksoftPOS License Information Fetcher.csproj.CopyComplete

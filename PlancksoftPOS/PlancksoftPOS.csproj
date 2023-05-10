@@ -270,7 +270,6 @@
     </Compile>
     <Compile Include="Classes\LPrinter.cs" />
     <Compile Include="Classes\MassageBoxManager.cs" />
-    <Compile Include="Classes\MD5Encryption.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Classes\RawPrinterHelper.cs" />
@@ -500,13 +499,13 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\PlancksoftPOS_Server\" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Dependencies\Dependencies.csproj">
       <Project>{123458db-b615-47e7-a917-c3d7e67cabd2}</Project>
       <Name>Dependencies</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\PlancksoftPOS_Server\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

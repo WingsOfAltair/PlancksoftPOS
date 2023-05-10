@@ -1,4 +1,5 @@
 ﻿using System;
+using Dependencies;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,22 +13,26 @@ namespace PlancksoftPOS
     {
         static void Main(string[] args)
         {
-            Thread t = new Thread((ThreadStart)(() => {
+            Thread t = new Thread((ThreadStart)(() =>
+            {
                 try
                 {
-                    string LicenseKey = MD5Encryption.Encrypt(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount, "PlancksoftPOS");
+                    string LicenseKey = MD5Encryption.Encrypt(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value(), "PlancksoftPOS");
                     Console.WriteLine(LicenseKey);
                     Console.WriteLine("Done. Paste your clipboard content to the key generator software.");
                     Clipboard.SetText(LicenseKey);
 
                     Console.ReadLine();
-                } catch (Exception e)
+                }
+                catch (Exception e)
                 {
                     Console.WriteLine("Unable to create License Key data.");
                     Console.ReadLine();
                 }
-            }));
+            }))
+            {
 
+            };
             t.SetApartmentState(ApartmentState.STA);
             t.Start();
             t.Join();
