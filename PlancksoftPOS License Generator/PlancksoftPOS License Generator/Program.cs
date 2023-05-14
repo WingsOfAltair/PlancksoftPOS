@@ -28,7 +28,7 @@ namespace PlancksoftPOS_LicenseGen
                     string OptionDuration = Console.ReadLine();
                     if (OptionDuration != null && OptionDuration.Trim() != "")
                     {
-                        string LicenseKey = GetHash256Str(MD5Encryption.Decrypt(Hash, "PlancksoftPOS") + "|" + OptionDuration);
+                        string LicenseKey = MD5Encryption.Encrypt(GetHash256Str(MD5Encryption.Decrypt(Hash, "PlancksoftPOS") + "|" + OptionDuration), "PlancksoftPOS");
                         Console.WriteLine(LicenseKey);
                         Console.WriteLine("Done. Activate/PASTE into your PlancksoftPOS software copy using this License Key now.");
                         Clipboard.SetText(LicenseKey);
