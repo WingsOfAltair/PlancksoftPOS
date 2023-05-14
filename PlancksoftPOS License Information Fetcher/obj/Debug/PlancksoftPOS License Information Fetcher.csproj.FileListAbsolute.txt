@@ -25,3 +25,6 @@ C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftP
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\Dependencies.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\Dependencies.pdb
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.csproj.CopyComplete
+C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\Dependencies.dll
+C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\Dependencies.pdb
+C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.csproj.CopyComplete

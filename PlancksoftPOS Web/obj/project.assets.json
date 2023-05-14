@@ -8,24 +8,19 @@
     "net7.0": []
   },
   "packageFolders": {
-    "C:\\Users\\basha\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\basha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj",
+      "projectUniqueName": "C:\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj",
       "projectName": "PlancksoftPOS Web",
-      "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj",
+      "projectPath": "C:\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj",
       "packagesPath": "C:\\Users\\basha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Web\\obj\\",
+      "outputPath": "C:\\PlancksoftPOS\\PlancksoftPOS Web\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\basha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

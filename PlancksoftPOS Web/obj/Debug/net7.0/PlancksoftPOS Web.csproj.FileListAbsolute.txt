@@ -29,3 +29,34 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\ne
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\PlancksoftPOS Web.pdb
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\PlancksoftPOS Web.genruntimeconfig.cache
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\ref\PlancksoftPOS Web.dll
+C:\PlancksoftPOS\PlancksoftPOS Web\bin\Debug\net7.0\appsettings.Development.json
+C:\PlancksoftPOS\PlancksoftPOS Web\bin\Debug\net7.0\appsettings.json
+C:\PlancksoftPOS\PlancksoftPOS Web\bin\Debug\net7.0\PlancksoftPOS Web.staticwebassets.runtime.json
+C:\PlancksoftPOS\PlancksoftPOS Web\bin\Debug\net7.0\PlancksoftPOS Web.exe
+C:\PlancksoftPOS\PlancksoftPOS Web\bin\Debug\net7.0\PlancksoftPOS Web.deps.json
+C:\PlancksoftPOS\PlancksoftPOS Web\bin\Debug\net7.0\PlancksoftPOS Web.runtimeconfig.json
+C:\PlancksoftPOS\PlancksoftPOS Web\bin\Debug\net7.0\PlancksoftPOS Web.dll
+C:\PlancksoftPOS\PlancksoftPOS Web\bin\Debug\net7.0\PlancksoftPOS Web.pdb
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\PlancksoftPOS Web.csproj.AssemblyReference.cache
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\PlancksoftPOS Web.GeneratedMSBuildEditorConfig.editorconfig
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\PlancksoftPOS Web.AssemblyInfoInputs.cache
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\PlancksoftPOS Web.AssemblyInfo.cs
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\PlancksoftPOS Web.csproj.CoreCompileInputs.cache
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\PlancksoftPOS Web.MvcApplicationPartsAssemblyInfo.cache
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\PlancksoftPOS Web.RazorAssemblyInfo.cache
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\PlancksoftPOS Web.RazorAssemblyInfo.cs
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\staticwebassets\msbuild.PlancksoftPOS Web.Microsoft.AspNetCore.StaticWebAssets.props
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\staticwebassets\msbuild.build.PlancksoftPOS Web.props
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\staticwebassets\msbuild.buildMultiTargeting.PlancksoftPOS Web.props
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\staticwebassets\msbuild.buildTransitive.PlancksoftPOS Web.props
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\staticwebassets.pack.json
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\staticwebassets.build.json
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\staticwebassets.development.json
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\scopedcss\bundle\PlancksoftPOS Web.styles.css
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\scopedcss\projectbundle\PlancksoftPOS Web.bundle.scp.css
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\PlancksoftPOS Web.dll
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\refint\PlancksoftPOS Web.dll
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\PlancksoftPOS Web.pdb
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\PlancksoftPOS Web.genruntimeconfig.cache
+C:\PlancksoftPOS\PlancksoftPOS Web\obj\Debug\net7.0\ref\PlancksoftPOS Web.dll

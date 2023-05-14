@@ -25,3 +25,6 @@ C:\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\bin\Debug\Dependencies.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\bin\Debug\Dependencies.pdb
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\PlancksoftPOS License Generator.csproj.CopyComplete
+C:\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\bin\Debug\Dependencies.dll
+C:\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\bin\Debug\Dependencies.pdb
+C:\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\PlancksoftPOS License Generator.csproj.CopyComplete
