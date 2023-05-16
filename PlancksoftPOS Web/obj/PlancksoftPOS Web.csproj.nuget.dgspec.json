@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj": {}
+    "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj": {}
   },
   "projects": {
-    "C:\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj": {
+    "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj",
+        "projectUniqueName": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj",
         "projectName": "PlancksoftPOS Web",
-        "projectPath": "C:\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj",
+        "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj",
         "packagesPath": "C:\\Users\\basha\\.nuget\\packages\\",
-        "outputPath": "C:\\PlancksoftPOS\\PlancksoftPOS Web\\obj\\",
+        "outputPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\basha\\AppData\\Roaming\\NuGet\\NuGet.Config",
