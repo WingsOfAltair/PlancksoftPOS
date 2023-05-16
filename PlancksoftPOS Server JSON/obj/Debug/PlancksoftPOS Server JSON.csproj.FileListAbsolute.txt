@@ -22,7 +22,6 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Dependencies.pdb
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Azure.Core.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Microsoft.Bcl.AsyncInterfaces.xml
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Newtonsoft.Json.pdb
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Newtonsoft.Json.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Buffers.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Diagnostics.DiagnosticSource.xml
