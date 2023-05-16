@@ -34,3 +34,5 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\obj\Debug\Data
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\bin\Debug\Newtonsoft.Json.xml
