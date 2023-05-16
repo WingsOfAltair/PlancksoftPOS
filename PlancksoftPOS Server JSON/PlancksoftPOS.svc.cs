@@ -7,6 +7,8 @@ using System.ServiceModel;
 using Dependencies.Models;
 using System.Web.Script.Serialization;
 using System.Globalization;
+using System.ServiceModel.Web;
+using System.Web.Script.Services;
 
 namespace PlancksoftPOS_Server
 {
@@ -15,6 +17,7 @@ namespace PlancksoftPOS_Server
     public class PlancksoftPOS_Server : IPlancksoftPOS_Server
     {
         DataAccessLayer.DataAccessLayer DAL = new DataAccessLayer.DataAccessLayer();
+
         public string CheckConnection()
         {
             return new JavaScriptSerializer().Serialize(DAL.CheckConnection());
