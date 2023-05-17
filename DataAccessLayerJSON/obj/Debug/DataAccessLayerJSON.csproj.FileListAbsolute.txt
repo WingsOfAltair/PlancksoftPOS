@@ -1,0 +1,11 @@
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayerJSON\bin\Debug\DataAccessLayer.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayerJSON\bin\Debug\DataAccessLayer.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayerJSON\bin\Debug\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayerJSON\bin\Debug\Newtonsoft.Json.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayerJSON\bin\Debug\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayerJSON\bin\Debug\Newtonsoft.Json.xml
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayerJSON\obj\Debug\DataAccessLayerJSON.csproj.AssemblyReference.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayerJSON\obj\Debug\DataAccessLayerJSON.csproj.CoreCompileInputs.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayerJSON\obj\Debug\DataAccessLayerJSON.csproj.CopyComplete
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayerJSON\obj\Debug\DataAccessLayer.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayerJSON\obj\Debug\DataAccessLayer.pdb

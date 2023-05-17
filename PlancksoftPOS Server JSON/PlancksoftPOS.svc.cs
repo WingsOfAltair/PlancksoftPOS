@@ -16,7 +16,7 @@ namespace PlancksoftPOS_Server
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
     public class PlancksoftPOS_Server : IPlancksoftPOS_Server
     {
-        DataAccessLayer.DataAccessLayer DAL = new DataAccessLayer.DataAccessLayer();
+        DataAccessLayerJSON.DataAccessLayerJSON DAL = new DataAccessLayerJSON.DataAccessLayerJSON();
 
         public string CheckConnection()
         {
