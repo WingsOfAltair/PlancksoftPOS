@@ -142,13 +142,13 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="PlancksoftPOS.svc" />
+    <Content Include="PlancksoftPOSJSON_Server.svc" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPlancksoftPOS Server.cs" />
-    <Compile Include="PlancksoftPOS.svc.cs">
-      <DependentUpon>PlancksoftPOS.svc</DependentUpon>
+    <Compile Include="IPlancksoftPOSJSON_Server.cs" />
+    <Compile Include="PlancksoftPOSJSON_Server.svc.cs">
+      <DependentUpon>PlancksoftPOSJSON_Server.svc</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

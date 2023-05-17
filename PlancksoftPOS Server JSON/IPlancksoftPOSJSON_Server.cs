@@ -6,10 +6,10 @@ using Dependencies;
 using System.ServiceModel.Web;
 using System.Web.Script.Services;
 
-namespace PlancksoftPOS_Server
+namespace PlancksoftPOSJSON_Server
 {
     [ServiceContract]
-    public interface IPlancksoftPOS_Server
+    public interface IPlancksoftPOSJSON_Server
     {
         [OperationContract]
         [
