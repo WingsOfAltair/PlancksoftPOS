@@ -165,9 +165,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
-      <Project>{06ba2dd3-8d9b-4bf1-864b-a83cc4685837}</Project>
-      <Name>DataAccessLayer</Name>
+    <ProjectReference Include="..\DataAccessLayerJSON\DataAccessLayerJSON.csproj">
+      <Project>{a0f5c1a3-f956-4fbf-ba97-f9dc706f178b}</Project>
+      <Name>DataAccessLayerJSON</Name>
     </ProjectReference>
     <ProjectReference Include="..\Dependencies\Dependencies.csproj">
       <Project>{123458db-b615-47e7-a917-c3d7e67cabd2}</Project>

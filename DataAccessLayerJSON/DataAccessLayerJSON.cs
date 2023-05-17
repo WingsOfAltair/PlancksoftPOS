@@ -3,10 +3,12 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Collections.Generic;
 using Dependencies;
+using Dependencies.Models;
+using Newtonsoft.Json;
 
-namespace DataAccessLayer
+namespace DataAccessLayerJSON
 {
-    public class DataAccessLayer
+    public class DataAccessLayerJSON
     {
         public static string ComputerName = "(local)";
         public static string DBName = "PlancksoftPOS";
@@ -18,20 +20,36 @@ namespace DataAccessLayer
         public int Status;
         public string Name;
 
-        public bool CheckConnection()
+        public string SerializeDataTableToJSON(DataTable dt)
+        {
+            List<Dictionary<string, object>> rows = new List<Dictionary<string, object>>();
+            Dictionary<string, object> row;
+            foreach (DataRow dr in dt.Rows)
+            {
+                row = new Dictionary<string, object>();
+                foreach (DataColumn col in dt.Columns)
+                {
+                    row.Add(col.ColumnName, dr[col]);
+                }
+                rows.Add(row);
+            }
+            return JsonConvert.SerializeObject(rows);
+        }
+
+        public Response CheckConnection()
         {
             try
             {
                 connection.Open();
-                return true;
+                return new Response("Database Server is up.", true);
             }
             catch (Exception e)
             {
-                return false;
+                return new Response("Database Server is down.", false);
             }
         }
 
-        public DataTable RetrieveSystemSettings()
+        public Response RetrieveSystemSettings()
         {
             try
             {
@@ -45,17 +63,17 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "SystemSettings";
-                return dt;
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
                 dt.TableName = "SystemSettings";
-                return dt;
+                return new Response("Failed to Retrieve system settings.", false);
             }
         }
 
-        public int RetrieveBillSoldBItemQuantity(int BillNumber, string itemBarcode)
+        public Response RetrieveBillSoldBItemQuantity(int BillNumber, string itemBarcode)
         {
             try
             {
@@ -74,15 +92,15 @@ namespace DataAccessLayer
                     SoldItemQuantity = Convert.ToInt32(cmd.Parameters["@SoldItemQuantity"].Value);
                     connection.Close();
                 }
-                return Convert.ToInt32(SoldItemQuantity);
+                return new Response(SoldItemQuantity, true);
             }
             catch (Exception ex)
             {
-                return -1;
+                return new Response(-1, false);
             }
         }
 
-        public bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, string SystemAddress,
+        public Response UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone, string SystemAddress,
             int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax)
         {
             try
@@ -106,15 +124,15 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not update system settings.", false);
             }
         }
 
-        public string RetrieveItemTypeName(int ItemTypeIndex, int locale)
+        public Response RetrieveItemTypeName(int ItemTypeIndex, int locale)
         {
             try
             {
@@ -147,15 +165,15 @@ namespace DataAccessLayer
                         Name = "Unclassified";
                     }
                 }
-                return Name;
+                return new Response(Name, true);
             }
             catch (Exception ex)
             {
-                return "";
+                return new Response("Could not Retrieve Item Type name.", false);
             }
         }
 
-        public string RetrieveWarehouseName(int WarehouseIndex, int locale)
+        public Response RetrieveWarehouseName(int WarehouseIndex, int locale)
         {
             try
             {
@@ -188,15 +206,15 @@ namespace DataAccessLayer
                         Name = "Inexistent";
                     }
                 }
-                return Name;
+                return new Response(Name, true);
             }
             catch (Exception ex)
             {
-                return "";
+                return new Response("Could not Retrieve Warehouse name.", false);
             }
         }
 
-        public string RetrieveFavoriteCategoryName(int CategoryIndex, int locale)
+        public Response RetrieveFavoriteCategoryName(int CategoryIndex, int locale)
         {
             try
             {
@@ -223,21 +241,20 @@ namespace DataAccessLayer
                     if ((LanguageChoice.Languages)locale == LanguageChoice.Languages.Arabic)
                     {
                         Name = "غير مفضله";
-                    }
-                    else if ((LanguageChoice.Languages)locale == LanguageChoice.Languages.English)
+                    } else if ((LanguageChoice.Languages)locale == LanguageChoice.Languages.English)
                     {
                         Name = "Not Favorited";
                     }
                 }
-                return Name;
+                return new Response(Name, true);
             }
             catch (Exception ex)
             {
-                return "";
+                return new Response("Could not Retrieve Favorite Category name.", false);
             }
         }
 
-        public List<string> RetrieveCashierNames()
+        public Response RetrieveCashierNames()
         {
             try
             {
@@ -257,16 +274,16 @@ namespace DataAccessLayer
                 {
                     CashierNames.Add(Cashier["Cashier Name"].ToString());
                 }
-                return CashierNames;
+                return new Response(CashierNames, true);
             }
             catch (Exception ex)
             {
                 List<string> CashierNames = new List<string>();
-                return CashierNames;
+                return new Response("Could not Retrieve cashier names", false);
             }
         }
 
-        public int RetrieveItemTypeID(string ItemTypeName)
+        public Response RetrieveItemTypeID(string ItemTypeName)
         {
             try
             {
@@ -288,15 +305,15 @@ namespace DataAccessLayer
                 {
                     Index = Convert.ToInt32(ItemType["ItemType ID"].ToString());
                 }
-                return Index;
+                return new Response(Index, true);
             }
             catch (Exception ex)
             {
-                return 0;
+                return new Response(0, false);
             }
         }
 
-        public int RetrieveWarehouseID(string WarehouseName)
+        public Response RetrieveWarehouseID(string WarehouseName)
         {
             try
             {
@@ -318,15 +335,15 @@ namespace DataAccessLayer
                 {
                     Index = Convert.ToInt32(Warehouse["Warehouse ID"].ToString());
                 }
-                return Index;
+                return new Response(Index, true);
             }
             catch (Exception ex)
             {
-                return 0;
+                return new Response(0, false);
             }
         }
 
-        public int RetrieveFavoriteCategoryID(string CategoryName)
+        public Response RetrieveFavoriteCategoryID(string CategoryName)
         {
             try
             {
@@ -348,15 +365,15 @@ namespace DataAccessLayer
                 {
                     Index = Convert.ToInt32(Category["Category ID"].ToString());
                 }
-                return Index;
+                return new Response(Index, true);
             }
             catch (Exception ex)
             {
-                return 0;
+                return new Response(0, false);
             }
         }
 
-        public List<ItemType> RetrieveItemTypes()
+        public Response RetrieveItemTypes()
         {
             try
             {
@@ -374,16 +391,16 @@ namespace DataAccessLayer
                 {
                     ItemTypes.Add(new ItemType(Convert.ToInt32(ItemType["ItemType ID"].ToString()), ItemType["ItemType Name"].ToString()));
                 }
-                return ItemTypes;
+                return new Response(ItemTypes, true);
             }
             catch (Exception ex)
             {
                 List<ItemType> ItemTypes = new List<ItemType>();
-                return ItemTypes;
+                return new Response("Could not Retrieve item types.", false);
             }
         }
 
-        public List<ItemType> RetrievePrinterItemTypes(int printerID)
+        public Response RetrievePrinterItemTypes(int printerID)
         {
             try
             {
@@ -401,16 +418,16 @@ namespace DataAccessLayer
                 {
                     ItemTypes.Add(new ItemType(Convert.ToInt32(ItemType["ItemType ID"].ToString()), ItemType["ItemType Name"].ToString()));
                 }
-                return ItemTypes;
+                return new Response(ItemTypes, true);
             }
             catch (Exception ex)
             {
                 List<ItemType> ItemTypes = new List<ItemType>();
-                return ItemTypes;
+                return new Response("Could not Retrieve Printer Item Types.", false);
             }
         }
 
-        public List<Warehouse> RetrieveWarehouses()
+        public Response RetrieveWarehouses()
         {
             try
             {
@@ -428,16 +445,16 @@ namespace DataAccessLayer
                 {
                     Warehouses.Add(new Warehouse(Convert.ToInt32(Warehouse["Warehouse ID"].ToString()), Warehouse["Warehouse Name"].ToString()));
                 }
-                return Warehouses;
+                return new Response(Warehouses, true);
             }
             catch (Exception ex)
             {
                 List<Warehouse> Warehouses = new List<Warehouse>();
-                return Warehouses;
+                return new Response("Could not Retrieve Warehouses.", false);
             }
         }
 
-        public List<Category> RetrieveFavoriteCategories()
+        public Response RetrieveFavoriteCategories()
         {
             try
             {
@@ -455,16 +472,16 @@ namespace DataAccessLayer
                 {
                     Categories.Add(new Category(Convert.ToInt32(Category["Category ID"].ToString()), Category["Category Name"].ToString()));
                 }
-                return Categories;
+                return new Response(Categories, true);
             }
             catch (Exception ex)
             {
                 List<Category> Categories = new List<Category>();
-                return Categories;
+                return new Response("Could not Retrieve Favorite Categories.", false);
             }
         }
 
-        public List<Printer> RetrievePrinters(string machineName)
+        public Response RetrievePrinters(string machineName)
         {
             try
             {
@@ -482,16 +499,16 @@ namespace DataAccessLayer
                 {
                     Printers.Add(new Printer(Convert.ToInt32(Printer["Printer ID"].ToString()), Printer["Printer Name"].ToString()));
                 }
-                return Printers;
+                return new Response(Printers, true);
             }
             catch (Exception ex)
             {
                 List<Printer> Printers = new List<Printer>();
-                return Printers;
+                return new Response("Could not Retrieve Printers.", false);
             }
         }
 
-        public DataTable RetrieveLoginLogoutInfo(DateTime Date)
+        public Response RetrieveLoginLogoutInfo(DateTime Date)
         {
             try
             {
@@ -511,17 +528,17 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "LoginLogoutInfo";
-                return dt;
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
                 dt.TableName = "LoginLogoutInfo";
-                return dt;
+                return new Response("Could not Retrieve Login Logout Information.", false);
             }
         }
 
-        public Tuple<List<Account>, DataTable> RetrieveUsersList()
+        public Response RetrieveUsersList()
         {
             try
             {
@@ -531,7 +548,7 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-
+                
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -543,18 +560,18 @@ namespace DataAccessLayer
                     account.SetAccountName(Account["User Name"].ToString());
                     Accounts.Add(account);
                 }
-                return Tuple.Create(Accounts, dt);
+                return new Response(Tuple.Create(Accounts, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Account> Accounts = new List<Account>();
                 DataTable dt = new DataTable();
                 dt.TableName = "UsersList";
-                return Tuple.Create(Accounts, dt);
+                return new Response("Could not Retrieve Users List.", false);
             }
         }
 
-        public DataTable GetRetrieveClients()
+        public Response GetRetrieveClients()
         {
             try
             {
@@ -568,17 +585,17 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "ClientsList";
-                return dt;
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
                 dt.TableName = "ClientsList";
-                return dt;
+                return new Response("Could not Retrieve Clients.", false);
             }
         }
 
-        public DataTable GetRetrieveVendors()
+        public Response GetRetrieveVendors()
         {
             try
             {
@@ -592,18 +609,18 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "VendorsList";
-
-                return dt;
+                
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
                 dt.TableName = "VendorsList";
-                return dt;
+                return new Response("Could not Retrieve Vendors.", false);
             }
         }
 
-        public bool CheckAdmin()
+        public Response CheckAdmin()
         {
             try
             {
@@ -621,16 +638,16 @@ namespace DataAccessLayer
 
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not check for Administrator status.", false);
             }
         }
 
-        public bool RegisterAdmin(Account AccountToRegister)
+        public Response RegisterAdmin(Account AccountToRegister)
         {
             try
             {
@@ -659,12 +676,12 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not register Administrator account.", false);
             }
         }
 
@@ -706,7 +723,7 @@ namespace DataAccessLayer
                     if (connection != null && connection.State == ConnectionState.Closed)
                         connection.Open();
                     cmd.ExecuteNonQuery();
-
+                    
                     connection.Close();
                 }
             }
@@ -716,7 +733,7 @@ namespace DataAccessLayer
             }
         }
 
-        public Tuple<bool, string, bool> Login(Account AccountToLogin)
+        public Response Login(Account AccountToLogin)
         {
             try
             {
@@ -739,16 +756,16 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     Name = cmd.Parameters["@Name"].Value.ToString();
                     connection.Close();
-                    return Tuple.Create(Convert.ToBoolean(Status), Name, Convert.ToBoolean(Authority));
+                    return new Response(Tuple.Create(Convert.ToBoolean(Status), Name, Convert.ToBoolean(Authority)), true);
                 }
             }
             catch (Exception ex)
             {
-                return Tuple.Create(false, "", false);
+                return new Response("Could not Log In.", false);
             }
         }
 
-        public bool Register(Account AccountToRegister, string UID, int AdminOrNot)
+        public Response Register(Account AccountToRegister, string UID, int AdminOrNot)
         {
             try
             {
@@ -781,12 +798,12 @@ namespace DataAccessLayer
                             cmd.ExecuteNonQuery();
                             Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                             connection.Close();
-                            return Convert.ToBoolean(Status);
+                            return new Response(Convert.ToBoolean(Status), true);
                         }
                     }
                     catch (Exception ex)
                     {
-                        return false;
+                        return new Response("Could not Register an Adminsitrator Account.", false);
                     }
                 }
                 using (SqlCommand cmd = new SqlCommand("RegisterAccount", connection))
@@ -815,16 +832,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Register an Account.", false);
             }
         }
 
-        public bool DeleteFavoriteItem(string ItemBarCode)
+        public Response DeleteFavoriteItem(string ItemBarCode)
         {
             try
             {
@@ -841,15 +858,15 @@ namespace DataAccessLayer
                 cmd.ExecuteNonQuery();
                 Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                 connection.Close();
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Delete Favorite Item.", false);
             }
         }
 
-        public bool AddPrinterItemType(int printerID, int itemTypeID)
+        public Response AddPrinterItemType(int printerID, int itemTypeID)
         {
             try
             {
@@ -867,15 +884,15 @@ namespace DataAccessLayer
                 cmd.ExecuteNonQuery();
                 Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                 connection.Close();
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Add Printer Item Type.", false);
             }
         }
 
-        public bool DeletePrinterItemType(int printerID, int itemTypeID)
+        public Response DeletePrinterItemType(int printerID, int itemTypeID)
         {
             try
             {
@@ -893,15 +910,15 @@ namespace DataAccessLayer
                 cmd.ExecuteNonQuery();
                 Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                 connection.Close();
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Delete Printer Item Type.", false);
             }
         }
 
-        public bool DeletePrinter(string machineName, int printerID)
+        public Response DeletePrinter(string machineName, int printerID)
         {
             try
             {
@@ -919,15 +936,15 @@ namespace DataAccessLayer
                 cmd.ExecuteNonQuery();
                 Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                 connection.Close();
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not delete Printer.", false);
             }
         }
 
-        public bool AddFavoriteItem(string ItemName, string ItemBarCode, int ItemQuantity, decimal ItemPrice, decimal ItemPriceTax, decimal Category, DateTime Date)
+        public Response AddFavoriteItem(string ItemName, string ItemBarCode, int ItemQuantity, decimal ItemPrice, decimal ItemPriceTax, decimal Category, DateTime Date)
         {
             try
             {
@@ -950,15 +967,15 @@ namespace DataAccessLayer
                 cmd.ExecuteNonQuery();
                 Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                 connection.Close();
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Add Favorite Item.", false);
             }
         }
 
-        public bool AddPrinter(string printerName)
+        public Response AddPrinter(string printerName)
         {
             try
             {
@@ -975,15 +992,15 @@ namespace DataAccessLayer
                 cmd.ExecuteNonQuery();
                 Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                 connection.Close();
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Add Printer.", false);
             }
         }
 
-        public bool SaveRegisterClose(string cashierName, decimal moneyInRegister)
+        public Response SaveRegisterClose(string cashierName, decimal moneyInRegister)
         {
             try
             {
@@ -1002,15 +1019,15 @@ namespace DataAccessLayer
                 cmd.ExecuteNonQuery();
                 Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                 connection.Close();
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Save Register Closing.", false);
             }
         }
 
-        public bool SaveRegisterOpen(string cashierName, decimal moneyInRegister)
+        public Response SaveRegisterOpen(string cashierName, decimal moneyInRegister)
         {
             try
             {
@@ -1029,15 +1046,15 @@ namespace DataAccessLayer
                 cmd.ExecuteNonQuery();
                 Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                 connection.Close();
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Save Register Opening.", false);
             }
         }
 
-        public Tuple<List<Item>, DataTable> SearchWarehouseInventoryItems(int WarehouseID)
+        public Response SearchWarehouseInventoryItems(int WarehouseID)
         {
             try
             {
@@ -1054,7 +1071,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "WarehouseInventoryItems";
-
+                
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item item = new Item();
@@ -1065,18 +1082,18 @@ namespace DataAccessLayer
                     item.SetPriceTax(Convert.ToDecimal(Item["Item Price Tax"].ToString()));
                     Items.Add(item);
                 }
-                return Tuple.Create(Items, dt);
+                return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
                 dt.TableName = "WarehouseInventoryItems";
-                return Tuple.Create(Items, dt);
+                return new Response("Could not Search Warehouse Inventory Items.", false);
             }
         }
 
-        public Tuple<List<Item>, DataTable> SearchInventoryItems(string ItemName = "", string ItemBarCode = "", int locale = 1)
+        public Response SearchInventoryItems(string ItemName = "", string ItemBarCode = "", int locale = 1)
         {
             try
             {
@@ -1086,7 +1103,7 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-
+                
                 if (ItemName != "")
                     cmd.Parameters.AddWithValue("@ItemName", ItemName);
                 if (ItemBarCode != "")
@@ -1096,7 +1113,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "InventoryItems";
-
+                
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item item = new Item();
@@ -1108,18 +1125,18 @@ namespace DataAccessLayer
                     item.SetPriceTax(Convert.ToDecimal(Item["Item Price Tax"].ToString()));
                     Items.Add(item);
                 }
-                return Tuple.Create(Items, dt);
+                return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
                 dt.TableName = "InventoryItems";
-                return Tuple.Create(Items, dt);
+                return new Response("Could not Search Inventory Items", false);
             }
         }
 
-        public Item SearchInventoryItemsWithBarCode(string ItemBarCode = "")
+        public Response SearchInventoryItemsWithBarCode(string ItemBarCode = "")
         {
             try
             {
@@ -1129,14 +1146,14 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-
+                
                 if (ItemBarCode != "")
                     cmd.Parameters.AddWithValue("@ItemBarCode", ItemBarCode);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "InventoryItemsWithBarCode";
-
+                
                 foreach (DataRow ItemFound in dt.Rows)
                 {
                     Item.SetID(Int32.Parse(ItemFound["Item ID"].ToString()));
@@ -1145,18 +1162,18 @@ namespace DataAccessLayer
                     Item.SetQuantity(Convert.ToInt32(ItemFound["Item Quantity"].ToString()));
                     Item.SetPrice(Convert.ToDecimal(ItemFound["Item Price"].ToString()));
                     Item.SetPriceTax(Convert.ToDecimal(ItemFound["Item Price Tax"].ToString()));
-                    return Item;
+                    return new Response(Item, true);
                 }
                 return null;
             }
             catch (Exception ex)
             {
                 Item Item = new Item();
-                return Item;
+                return new Response("Could not find item.", false);
             }
         }
 
-        public Tuple<List<Bill>, DataTable> RetrieveUnPortedBills()
+        public Response RetrieveUnPortedBills()
         {
             try
             {
@@ -1170,7 +1187,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "UnPortedBills";
-
+                
                 foreach (DataRow Bill in dt.Rows)
                 {
                     Bill bill = new Bill();
@@ -1181,18 +1198,18 @@ namespace DataAccessLayer
                     bill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
                     Bills.Add(bill);
                 }
-                return Tuple.Create(Bills, dt);
+                return new Response(Tuple.Create(Bills, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
                 dt.TableName = "UnPortedBills";
-                return Tuple.Create(Bills, dt);
+                return new Response("Could not Retrieve Unported Bills", false);
             }
         }
 
-        public Tuple<List<Bill>, DataTable> RetrievePortedBills()
+        public Response RetrievePortedBills()
         {
             try
             {
@@ -1206,7 +1223,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "PortedBills";
-
+                
                 foreach (DataRow Bill in dt.Rows)
                 {
                     Bill bill = new Bill();
@@ -1217,18 +1234,18 @@ namespace DataAccessLayer
                     bill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
                     Bills.Add(bill);
                 }
-                return Tuple.Create(Bills, dt);
+                return new Response(Tuple.Create(Bills, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
                 dt.TableName = "PortedBills";
-                return Tuple.Create(Bills, dt);
+                return new Response("Could not Retrieve Ported Bills.", false);
             }
         }
 
-        public Tuple<List<Bill>, DataTable> RetrieveUnpaidBills()
+        public Response RetrieveUnpaidBills()
         {
             try
             {
@@ -1242,7 +1259,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "UnpaidBills";
-
+                
                 foreach (DataRow Bill in dt.Rows)
                 {
                     Bill bill = new Bill();
@@ -1253,22 +1270,22 @@ namespace DataAccessLayer
                     bill.Postponed = true;
                     Bills.Add(bill);
                 }
-                foreach (Bill bill in Bills)
+                foreach(Bill bill in Bills)
                 {
-                    bill.ItemsBought = RetrieveBillItems(bill.getBillNumber()).Item1;
+                    bill.ItemsBought = (List<Item>)RetrieveBillItems(bill.getBillNumber()).ResponseMessage;
                 }
-                return Tuple.Create(Bills, dt);
+                return new Response(Tuple.Create(Bills, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
                 dt.TableName = "VendorBills";
-                return Tuple.Create(Bills, dt);
+                return new Response("Could not Retrieve Unpaid Bills.", false);
             }
         }
 
-        public Tuple<List<Bill>, DataTable> RetrieveVendorBills()
+        public Response RetrieveVendorBills()
         {
             try
             {
@@ -1282,7 +1299,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "VendorBills";
-
+                
                 foreach (DataRow Bill in dt.Rows)
                 {
                     Bill bill = new Bill();
@@ -1292,18 +1309,18 @@ namespace DataAccessLayer
                     bill.SetDate(Convert.ToDateTime(Bill["Date"].ToString()));
                     Bills.Add(bill);
                 }
-                return Tuple.Create(Bills, dt);
+                return new Response(Tuple.Create(Bills, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
                 dt.TableName = "VendorBills";
-                return Tuple.Create(Bills, dt);
+                return new Response("Could not Retrieve Vendor Bills.", false);
             }
         }
 
-        public DataTable RetrieveTaxZReport()
+        public Response RetrieveTaxZReport()
         {
             try
             {
@@ -1316,17 +1333,17 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "TaxZReport";
-                return dt;
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
                 dt.TableName = "TaxZReport";
-                return dt;
+                return new Response("Could not Retrieve Tax Z Report.", false);
             }
         }
 
-        public Tuple<List<Bill>, DataTable> RetrieveBills()
+        public Response RetrieveBills()
         {
             try
             {
@@ -1340,7 +1357,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Bills";
-
+                
                 foreach (DataRow Bill in dt.Rows)
                 {
                     Bill bill = new Bill();
@@ -1352,18 +1369,18 @@ namespace DataAccessLayer
                     bill.SetDate(Convert.ToDateTime(Bill["Invoice Date"].ToString()));
                     Bills.Add(bill);
                 }
-                return Tuple.Create(Bills, dt);
+                return new Response(Tuple.Create(Bills, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
                 dt.TableName = "Bills";
-                return Tuple.Create(Bills, dt);
+                return new Response("Could not Retrieve Bills.", false);
             }
         }
 
-        public Tuple<List<Item>, DataTable> RetrieveCapitalRevenue()
+        public Response RetrieveCapitalRevenue()
         {
             try
             {
@@ -1377,19 +1394,19 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "CapitalRevenue";
-
-                return Tuple.Create(Items, dt);
+                
+                return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
                 dt.TableName = "CapitalRevenue";
-                return Tuple.Create(Items, dt);
+                return new Response("Could not Retrieve Capital Revenue.", false);
             }
         }
 
-        public Tuple<List<Item>, DataTable> RetrieveExports()
+        public Response RetrieveExports()
         {
             try
             {
@@ -1403,19 +1420,19 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Exports";
-
-                return Tuple.Create(Items, dt);
+                
+                return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
                 dt.TableName = "Exports";
-                return Tuple.Create(Items, dt);
+                return new Response("Could not Retrieve Exports.", false);
             }
         }
 
-        public Tuple<List<Item>, DataTable> RetrieveImports()
+        public Response RetrieveImports()
         {
             try
             {
@@ -1429,19 +1446,19 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Imports";
-
-                return Tuple.Create(Items, dt);
+                
+                return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
                 dt.TableName = "Imports";
-                return Tuple.Create(Items, dt);
+                return new Response("Could not Retrieve Imports.", false);
             }
         }
 
-        public Tuple<List<Item>, DataTable> RetrieveLeastBoughtItems()
+        public Response RetrieveLeastBoughtItems()
         {
             try
             {
@@ -1455,7 +1472,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "LeastBoughtItems";
-
+                
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item item = new Item();
@@ -1466,18 +1483,18 @@ namespace DataAccessLayer
                     item.SetPriceTax(Convert.ToDecimal(Item["Item Price Tax"].ToString()));
                     Items.Add(item);
                 }
-                return Tuple.Create(Items, dt);
+                return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
                 dt.TableName = "LeastBoughtItems";
-                return Tuple.Create(Items, dt);
+                return new Response("Could not Retrieve Least Bought Items.", false);
             }
         }
 
-        public Tuple<List<Item>, DataTable> RetrieveMostBoughtItems()
+        public Response RetrieveMostBoughtItems()
         {
             try
             {
@@ -1491,7 +1508,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "MostBoughtItems";
-
+                
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item item = new Item();
@@ -1502,18 +1519,18 @@ namespace DataAccessLayer
                     item.SetPriceTax(Convert.ToDecimal(Item["Item Price Tax"].ToString()));
                     Items.Add(item);
                 }
-                return Tuple.Create(Items, dt);
+                return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
                 dt.TableName = "MostBoughtItems";
-                return Tuple.Create(Items, dt);
+                return new Response("Could not Retrieve Most Bought Items.", false);
             }
         }
 
-        public int RetrieveAccountAuthority(string UserID = "")
+        public Response RetrieveAccountAuthority(string UserID = "")
         {
             try
             {
@@ -1531,15 +1548,15 @@ namespace DataAccessLayer
                 adapter.Fill(dt);
                 dt.TableName = "AccountAuthority";
 
-                return Convert.ToInt32(dt.Rows[0]["Authority"].ToString());
+                return new Response(Convert.ToInt32(dt.Rows[0]["Authority"].ToString()), true);
             }
             catch (Exception ex)
             {
-                return 0;
+                return new Response(0, false);
             }
         }
 
-        public Account RetrieveUserPermissions(string UserID = "")
+        public Response RetrieveUserPermissions(string UserID = "")
         {
             try
             {
@@ -1556,7 +1573,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "UserPermissions";
-
+                
                 foreach (DataRow Permission in dt.Rows)
                 {
                     User.Client_card_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Client Card Permission"].ToString()));
@@ -1571,16 +1588,16 @@ namespace DataAccessLayer
                     User.openclose_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Open Close Cash Permission"].ToString()));
                     User.sell_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Sell Permission"].ToString()));
                 }
-                return User;
+                return new Response(User, true);
             }
             catch (Exception ex)
             {
                 Account User = new Account();
-                return User;
+                return new Response(User, false);
             }
         }
 
-        public Item RetrieveItemPictureFromBarCode(string ItemBarCode)
+        public Response RetrieveItemPictureFromBarCode(string ItemBarCode)
         {
             try
             {
@@ -1597,7 +1614,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "ItemPictureFromBarCode";
-
+                
                 foreach (DataRow ItemInfo in dt.Rows)
                 {
                     if (!Convert.IsDBNull(ItemInfo["Item Picture"]))
@@ -1605,16 +1622,16 @@ namespace DataAccessLayer
                         Item.picture = (Byte[])(ItemInfo["Item Picture"]);
                     }
                 }
-                return Item;
+                return new Response(Item, true);
             }
             catch (Exception ex)
             {
                 Item Item = new Item();
-                return Item;
+                return new Response(Item, false);
             }
         }
 
-        public Item RetrieveItemsQuantityDates(string ItemBarCode)
+        public Response RetrieveItemsQuantityDates(string ItemBarCode)
         {
             try
             {
@@ -1631,7 +1648,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "ItemsQuantityDates";
-
+                
                 foreach (DataRow ItemInfo in dt.Rows)
                 {
                     Item.SetName(ItemInfo["Item Name"].ToString());
@@ -1642,16 +1659,16 @@ namespace DataAccessLayer
                     Item.ExpirationDate = Convert.ToDateTime(ItemInfo["Expiration Date"].ToString());
                     Item.EntryDate = Convert.ToDateTime(ItemInfo["Entry Date"].ToString());
                 }
-                return Item;
+                return new Response(Item, true);
             }
             catch (Exception ex)
             {
                 Item Item = new Item();
-                return Item;
+                return new Response(Item, false);
             }
         }
 
-        public Tuple<List<Item>, DataTable> RetrieveItems(int locale)
+        public Response RetrieveItems(int locale)
         {
             try
             {
@@ -1666,7 +1683,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Items";
-
+                
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item item = new Item();
@@ -1683,18 +1700,18 @@ namespace DataAccessLayer
                     item.SetItemTypeName(Item["InventoryItemType"].ToString());
                     Items.Add(item);
                 }
-                return Tuple.Create(Items, dt);
+                return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
                 dt.TableName = "Items";
-                return Tuple.Create(Items, dt);
+                return new Response("Could not Retrieve Items.", false);
             }
         }
 
-        public DataTable RetrieveEmployees()
+        public Response RetrieveEmployees()
         {
             try
             {
@@ -1707,18 +1724,18 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Employees";
-                return dt;
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 Account[] Users = new Account[0];
                 DataTable dt = new DataTable();
                 dt.TableName = "Employees";
-                return dt;
+                return new Response("Could not Retrieve Employees.", false);
             }
         }
 
-        public Tuple<List<Account>, DataTable> RetrieveUsers()
+        public Response RetrieveUsers()
         {
             try
             {
@@ -1732,7 +1749,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Users";
-
+                
                 foreach (DataRow User in dt.Rows)
                 {
                     Account user = new Account();
@@ -1742,18 +1759,18 @@ namespace DataAccessLayer
                     user.SetAccountAuthority(Convert.ToInt32(User["User Authority"].ToString()));
                     Users.Add(user);
                 }
-                return Tuple.Create(Users, dt);
+                return new Response(Tuple.Create(Users, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Account> Users = new List<Account>();
                 DataTable dt = new DataTable();
                 dt.TableName = "Users";
-                return Tuple.Create(Users, dt);
+                return new Response("Could not Retrieve Users.", false);
             }
         }
 
-        public DataTable RetrieveVendorBillItems(int BillNumber)
+        public Response RetrieveVendorBillItems(int BillNumber)
         {
             try
             {
@@ -1767,17 +1784,17 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "VendorBillItems";
-                return dt;
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
                 dt.TableName = "VendorBillItems";
-                return dt;
+                return new Response("Could not Retrieve Vendor Bill Items.", false);
             }
         }
 
-        public DataTable RetrieveClientBills(int ClientID)
+        public Response RetrieveClientBills(int ClientID)
         {
             try
             {
@@ -1791,17 +1808,17 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "ClientBills";
-                return dt;
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
                 dt.TableName = "ClientBills";
-                return dt;
+                return new Response("Could not Retrieve Client Bills.", false);
             }
         }
 
-        public Tuple<List<Item>, DataTable> RetrieveBillItems(int BillNumber)
+        public Response RetrieveBillItems(int BillNumber)
         {
             try
             {
@@ -1816,7 +1833,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "BillItems";
-
+                
                 foreach (DataRow FavoriteItem in dt.Rows)
                 {
                     Item billItems = new Item();
@@ -1827,18 +1844,18 @@ namespace DataAccessLayer
                     billItems.SetPriceTax(Convert.ToDecimal(FavoriteItem["Item Price Tax"].ToString()));
                     BillItems.Add(billItems);
                 }
-                return Tuple.Create(BillItems, dt);
+                return new Response(Tuple.Create(BillItems, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
                 dt.TableName = "BillItems";
-                return Tuple.Create(Items, dt);
+                return new Response("Could not Retrieve Bill Items.", false);
             }
         }
 
-        public DataTable RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName)
+        public Response RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName)
         {
             try
             {
@@ -1858,17 +1875,17 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "BillItemsProfit";
-                return dt;
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
                 dt.TableName = "BillItemsProfit";
-                return dt;
+                return new Response("Could not Retrieve Bill Items Profit", false);
             }
         }
 
-        public DataTable RetrieveReturnedItems()
+        public Response RetrieveReturnedItems()
         {
             try
             {
@@ -1881,17 +1898,17 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "ReturnedItems";
-                return dt;
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
                 dt.TableName = "ReturnedItems";
-                return dt;
+                return new Response("Could not Retrieve Returned Items.", false);
             }
         }
 
-        public Tuple<List<Item>, DataTable> RetrieveFavoriteItems(int Category)
+        public Response RetrieveFavoriteItems(int Category)
         {
             try
             {
@@ -1906,7 +1923,7 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "FavoriteItems";
-
+                
                 foreach (DataRow FavoriteItem in dt.Rows)
                 {
                     Item favoriteItem = new Item();
@@ -1919,18 +1936,18 @@ namespace DataAccessLayer
                     favoriteItem.SetFavoriteCategory(Convert.ToInt32(FavoriteItem["Favorite Category"].ToString()));
                     FavoriteItems.Add(favoriteItem);
                 }
-                return Tuple.Create(FavoriteItems, dt);
+                return new Response(Tuple.Create(FavoriteItems, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
                 dt.TableName = "FavoriteItems";
-                return Tuple.Create(Items, dt);
+                return new Response("Could not Retrieve Favorite Items.", false);
             }
         }
 
-        public decimal GetCapitalAmount()
+        public Response GetCapitalAmount()
         {
             try
             {
@@ -1949,23 +1966,23 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                     decimal Amount = Convert.ToDecimal(cmd.Parameters["@Amount"].Value.ToString());
-                    return Amount;
+                    return new Response(Amount, true);
                 }
             }
             catch (Exception ex)
             {
-                return 0;
+                return new Response(0, false);
             }
         }
 
-        public decimal GetOpenRegisterAmount()
+        public Response GetOpenRegisterAmount()
         {
             try
             {
                 using (SqlCommand cmd = new SqlCommand("GetOpenRegisterAmount", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
+                    
                     cmd.Parameters.Add("@Amount", SqlDbType.Decimal).Direction = ParameterDirection.Output;
                     cmd.Parameters["@Amount"].Precision = 18;
                     cmd.Parameters["@Amount"].Scale = 2;
@@ -1977,23 +1994,23 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                     decimal Amount = Convert.ToDecimal(cmd.Parameters["@Amount"].Value.ToString());
-                    return Amount;
+                    return new Response(Amount, true);
                 }
             }
             catch (Exception ex)
             {
-                return 0;
+                return new Response(0, false);
             }
         }
 
-        public decimal GetTotalSalesAmountCloseCash()
+        public Response GetTotalSalesAmountCloseCash()
         {
             try
             {
                 using (SqlCommand cmd = new SqlCommand("GetTotalSalesAmountCloseCash", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
+                    
                     cmd.Parameters.Add("@Amount", SqlDbType.Decimal).Direction = ParameterDirection.Output;
                     cmd.Parameters["@Amount"].Precision = 18;
                     cmd.Parameters["@Amount"].Scale = 2;
@@ -2005,16 +2022,16 @@ namespace DataAccessLayer
                     decimal Amount = Convert.ToDecimal(cmd.Parameters["@Amount"].Value.ToString());
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Amount;
+                    return new Response(Amount, true);
                 }
             }
             catch (Exception ex)
             {
-                return 0;
+                return new Response(0, false);
             }
         }
 
-        public decimal GetTotalSalesAmount()
+        public Response GetTotalSalesAmount()
         {
             try
             {
@@ -2034,16 +2051,16 @@ namespace DataAccessLayer
                     decimal Amount = Convert.ToDecimal(cmd.Parameters["@Amount"].Value.ToString());
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Amount;
+                    return new Response(Amount, true);
                 }
             }
             catch (Exception ex)
             {
-                return 0;
+                return new Response(0, false);
             }
         }
 
-        public string GetLastOpenRegisterDate()
+        public Response GetLastOpenRegisterDate()
         {
             try
             {
@@ -2059,16 +2076,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToDateTime(cmd.Parameters["@Date"].Value.ToString()).ToShortDateString();
+                    return new Response(Convert.ToDateTime(cmd.Parameters["@Date"].Value.ToString()).ToShortDateString(), true);
                 }
             }
             catch (Exception ex)
             {
-                return "error.";
+                return new Response("error.", false);
             }
         }
 
-        public bool InsertExpense(string ExpenseName, decimal ExpenseCost, string EmployeeName, DateTime Date)
+        public Response InsertExpense(string ExpenseName, decimal ExpenseCost, string EmployeeName, DateTime Date)
         {
             try
             {
@@ -2087,16 +2104,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Insert Expense.", false);
             }
         }
 
-        public bool InsertDeduction(int EmployeeID, DateTime Date, decimal Deduction)
+        public Response InsertDeduction(int EmployeeID, DateTime Date, decimal Deduction)
         {
             try
             {
@@ -2114,16 +2131,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Insert Deduction.", false);
             }
         }
 
-        public bool InsertDayOff(int EmployeeID, DateTime Date)
+        public Response InsertDayOff(int EmployeeID, DateTime Date)
         {
             try
             {
@@ -2140,16 +2157,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Insert Day Off.", false);
             }
         }
 
-        public bool InsertAbsence(int EmployeeID, DateTime Date, int Hours)
+        public Response InsertAbsence(int EmployeeID, DateTime Date, int Hours)
         {
             try
             {
@@ -2167,16 +2184,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Insert Absence.", false);
             }
         }
 
-        public bool InsertEmployee(string EmployeeName, decimal Salary, string Phone, string Address)
+        public Response InsertEmployee(string EmployeeName, decimal Salary, string Phone, string Address)
         {
             try
             {
@@ -2195,16 +2212,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Insert Employee.", false);
             }
         }
 
-        public bool InsertItem(Item ItemToInsert)
+        public Response InsertItem(Item ItemToInsert)
         {
             try
             {
@@ -2235,16 +2252,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Insert Item.", false);
             }
         }
 
-        public bool DeleteItemType(int ItemTypeID)
+        public Response DeleteItemType(int ItemTypeID)
         {
             try
             {
@@ -2261,15 +2278,15 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Delete Item Type.", false);
             }
         }
 
-        public bool DeleteWarehouse(int WarehouseID)
+        public Response DeleteWarehouse(int WarehouseID)
         {
             try
             {
@@ -2286,15 +2303,15 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Delete Warehouse.", false);
             }
         }
 
-        public bool DeleteFavoriteCategory(int FavoriteCategoryID)
+        public Response DeleteFavoriteCategory(int FavoriteCategoryID)
         {
             try
             {
@@ -2311,15 +2328,15 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Delete Favorite Category.", false);
             }
         }
 
-        public bool UpdateItemTypes(int ItemTypeID, string ItemTypeName)
+        public Response UpdateItemTypes(int ItemTypeID, string ItemTypeName)
         {
             try
             {
@@ -2337,15 +2354,15 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Update Item Types.", false);
             }
         }
 
-        public bool UpdateWarehouses(int WarehouseID, string WarehouseName)
+        public Response UpdateWarehouses(int WarehouseID, string WarehouseName)
         {
             try
             {
@@ -2363,15 +2380,15 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Update Warehouses.", false);
             }
         }
 
-        public bool UpdateFavoriteCategories(int FavoriteCategoryID, string FavoriteCategory)
+        public Response UpdateFavoriteCategories(int FavoriteCategoryID, string FavoriteCategory)
         {
             try
             {
@@ -2389,15 +2406,15 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Update Favorite Categories.", false);
             }
         }
 
-        public bool UpdatePrinters(int printerID, string printerName)
+        public Response UpdatePrinters(int printerID, string printerName)
         {
             try
             {
@@ -2415,15 +2432,15 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Update Printers.", false);
             }
         }
 
-        public bool InsertItemType(string ItemTypeName)
+        public Response InsertItemType(string ItemTypeName)
         {
             try
             {
@@ -2440,15 +2457,15 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Insert Item Type.", false);
             }
         }
 
-        public bool InsertWarehouse(string WarehouseName)
+        public Response InsertWarehouse(string WarehouseName)
         {
             try
             {
@@ -2465,15 +2482,15 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Insert Warehouse.", false);
             }
         }
 
-        public bool InsertFavoriteCategory(string FavoriteCategory)
+        public Response InsertFavoriteCategory(string FavoriteCategory)
         {
             try
             {
@@ -2490,15 +2507,15 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Insert Favoriote Category.", false);
             }
         }
 
-        public bool InsertPrinter(string machineName, string printerName)
+        public Response InsertPrinter(string machineName, string printerName)
         {
             try
             {
@@ -2516,22 +2533,22 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Insert Printer.", false);
             }
         }
 
-        public bool DeleteClient(string ClientID)
+        public Response DeleteClient(string ClientID)
         {
             try
             {
                 using (SqlCommand cmd = new SqlCommand("DeleteClient", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
+                    
                     cmd.Parameters.AddWithValue("@ClientID", ClientID);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -2540,16 +2557,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Delete Client.", false);
             }
         }
 
-        public bool RegisterClient(Client ClientToInsert)
+        public Response RegisterClient(Client ClientToInsert)
         {
             try
             {
@@ -2567,16 +2584,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Register Client.", false);
             }
         }
 
-        public bool RegisterVendor(Client ClientToInsert)
+        public Response RegisterVendor(Client ClientToInsert)
         {
             try
             {
@@ -2595,16 +2612,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Register Vendor.", false);
             }
         }
 
-        public bool DeleteAbsence(int AbsenceID)
+        public Response DeleteAbsence(int AbsenceID)
         {
             try
             {
@@ -2620,16 +2637,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Delete Absence.", false);
             }
         }
 
-        public bool DeleteEmployee(int EmployeeID)
+        public Response DeleteEmployee(int EmployeeID)
         {
             try
             {
@@ -2645,16 +2662,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Delete Employee.", false);
             }
         }
 
-        public bool DeleteUser(Account UserToUpdate, string cashierName)
+        public Response DeleteUser(Account UserToUpdate, string cashierName)
         {
             try
             {
@@ -2670,16 +2687,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Delete User.", false);
             }
         }
 
-        public bool AddSaleOnItems(List<Item> saleItems)
+        public Response AddSaleOnItems(List<Item> saleItems)
         {
             try
             {
@@ -2704,15 +2721,15 @@ namespace DataAccessLayer
 
                     }
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Add Sale on Item.", false);
             }
         }
 
-        public bool AddItemToClient(string ItemBarCode, int ClientID, decimal ClientPrice)
+        public Response AddItemToClient(string ItemBarCode, int ClientID, decimal ClientPrice)
         {
             try
             {
@@ -2731,16 +2748,16 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
 
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Add Item to Client.", false);
             }
         }
 
-        public int AddVendorBill(Bill billToAdd, string cashierName)
+        public Response AddVendorBill(Bill billToAdd, string cashierName)
         {
             try
             {
@@ -2778,16 +2795,16 @@ namespace DataAccessLayer
                         }
                     }
 
-                    return BillID;
+                    return new Response(BillID, true);
                 }
             }
             catch (Exception ex)
             {
-                return -1;
+                return new Response("Could not Add Vendor Bill.", false);
             }
         }
 
-        public int AddUnpaidBill(Bill billToAdd, string cashierName)
+        public Response AddUnpaidBill(Bill billToAdd, string cashierName)
         {
             try
             {
@@ -2826,17 +2843,16 @@ namespace DataAccessLayer
                         }
                     }
 
-                    return BillID;
+                    return new Response(BillID, false);
                 }
             }
             catch (Exception ex)
             {
-                throw ex;
-                return -1;
+                return new Response("Could not Add Unpaid Bill.", false);
             }
         }
 
-        public bool PayUnpaidBill(int BillNumber, decimal paidAmount)
+        public Response PayUnpaidBill(int BillNumber, decimal paidAmount)
         {
             try
             {
@@ -2854,16 +2870,16 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
 
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Pay Unpaid Bill.", false);
             }
         }
 
-        public bool PayBill(Bill billToAdd, string cashierName)
+        public Response PayBill(Bill billToAdd, string cashierName)
         {
             try
             {
@@ -2887,8 +2903,8 @@ namespace DataAccessLayer
                     int BillID = Convert.ToInt32(cmd.Parameters["@BillID"].Value);
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-
-                    foreach (Item itemToAdd in billToAdd.ItemsBought)
+                    
+                    foreach(Item itemToAdd in billToAdd.ItemsBought)
                     {
                         using (SqlCommand cmd2 = new SqlCommand("AddItemToBill", connection))
                         {
@@ -2905,16 +2921,16 @@ namespace DataAccessLayer
                         }
                     }
 
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Pay Bill.", false);
             }
         }
 
-        public bool UpdateEmployee(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address)
+        public Response UpdateEmployee(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address)
         {
             try
             {
@@ -2934,16 +2950,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Update Employee.", false);
             }
         }
 
-        public bool UpdateUser(Account UserToUpdate, string cashierName, int AdminOrNot)
+        public Response UpdateUser(Account UserToUpdate, string cashierName, int AdminOrNot)
         {
             try
             {
@@ -2974,16 +2990,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Update User.", false);
             }
         }
 
-        public bool UpdateBill(int BillNumber, string CashierName, decimal TotalAmount, decimal PaidAmount, decimal RemainderAmount)
+        public Response UpdateBill(int BillNumber, string CashierName, decimal TotalAmount, decimal PaidAmount, decimal RemainderAmount)
         {
             try
             {
@@ -3004,16 +3020,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Update Bill.", false);
             }
         }
 
-        public bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName)
+        public Response ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName)
         {
             try
             {
@@ -3034,15 +3050,15 @@ namespace DataAccessLayer
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Return Item.", false);
             }
         }
 
-        public bool UpdateItemWarehouse(List<Item> ItemsToUpdate, string EmployeeName, int EntryExitType)
+        public Response UpdateItemWarehouse(List<Item> ItemsToUpdate, string EmployeeName, int EntryExitType)
         {
             try
             {
@@ -3055,10 +3071,10 @@ namespace DataAccessLayer
 
                 }
 
-                using (SqlCommand cmd = new SqlCommand("CreateTransaction", connection))
+                    using (SqlCommand cmd = new SqlCommand("CreateTransaction", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
+                    
                     cmd.Parameters.AddWithValue("@EntryExitType", EntryExitType);
                     cmd.Parameters.AddWithValue("@Date", DateTime.Now);
                     cmd.Parameters.AddWithValue("@cashierName", EmployeeName);
@@ -3074,8 +3090,7 @@ namespace DataAccessLayer
                     connection.Close();
                 }
 
-                foreach (Item ItemToUpdate in ItemsToUpdate)
-                {
+                foreach (Item ItemToUpdate in ItemsToUpdate) {
 
                     using (SqlCommand cmd = new SqlCommand("UpdateItemWarehouse", connection))
                     {
@@ -3102,15 +3117,15 @@ namespace DataAccessLayer
                         connection.Close();
                     }
                 }
-                return Convert.ToBoolean(Status);
+                return new Response(Convert.ToBoolean(Status), true);
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Update Item Warehouse.", false);
             }
         }
 
-        public bool UpdateItem(Item ItemToUpdate)
+        public Response UpdateItem(Item ItemToUpdate)
         {
             try
             {
@@ -3142,23 +3157,23 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Update Item.", false);
             }
         }
 
-        public bool UpdateItemQuantity(Item ItemToUpdate)
+        public Response UpdateItemQuantity(Item ItemToUpdate)
         {
             try
             {
                 using (SqlCommand cmd = new SqlCommand("UpdateItemQuantity", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
-
+                    
                     cmd.Parameters.AddWithValue("@ItemBarCode", ItemToUpdate.GetItemBarCode());
                     cmd.Parameters.AddWithValue("@ItemQuantity", ItemToUpdate.GetQuantity().ToString());
                     cmd.Parameters.AddWithValue("@Date", DateTime.Now);
@@ -3169,16 +3184,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Update Item Quantity.", false);
             }
         }
 
-        public bool DeleteItem(string ItemBarCode)
+        public Response DeleteItem(string ItemBarCode)
         {
             try
             {
@@ -3193,16 +3208,16 @@ namespace DataAccessLayer
                     cmd.ExecuteNonQuery();
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
                     connection.Close();
-                    return Convert.ToBoolean(Status);
+                    return new Response(Convert.ToBoolean(Status), true);
                 }
             }
             catch (Exception ex)
             {
-                return false;
+                return new Response("Could not Delete Item.", false);
             }
         }
 
-        public Bill RetrieveLastVendorBillNumberToday(DateTime Date)
+        public Response RetrieveLastVendorBillNumberToday(DateTime Date)
         {
             try
             {
@@ -3221,21 +3236,21 @@ namespace DataAccessLayer
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-
+                
                 foreach (DataRow Item in dt.Rows)
                 {
                     Bill.SetBillNumber(Convert.ToInt32(Item["Bill Number"].ToString()));
                 }
-                return Bill;
+                return new Response(Bill, true);
             }
             catch (Exception ex)
             {
                 Bill Bill = new Bill();
-                return Bill;
+                return new Response("Could not Retrieve Last Vendor Bill Number Today.", false);
             }
         }
 
-        public Bill RetrieveLastBillNumberToday()
+        public Response RetrieveLastBillNumberToday()
         {
             try
             {
@@ -3249,21 +3264,21 @@ namespace DataAccessLayer
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-
+                
                 foreach (DataRow Item in dt.Rows)
                 {
                     Bill.SetBillNumber(Convert.ToInt32(Item["Bill Number"].ToString()));
                 }
-                return Bill;
+                return new Response(Bill, true);
             }
             catch (Exception ex)
             {
                 Bill Bill = new Bill();
-                return Bill;
+                return new Response("Could not Retrieve Last Bill Number Today.", false);
             }
         }
 
-        public List<Item> RetrieveItemsQuantity(string ItemBarCode = "")
+        public Response RetrieveItemsQuantity(string ItemBarCode = "")
         {
             try
             {
@@ -3279,7 +3294,7 @@ namespace DataAccessLayer
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-
+                
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item itemexpire = new Item();
@@ -3287,16 +3302,16 @@ namespace DataAccessLayer
                     itemexpire.ItemQuantity = Convert.ToInt32(Item["Item Quantity"].ToString());
                     expireItems.Add(itemexpire);
                 }
-                return expireItems;
+                return new Response(expireItems, true);
             }
             catch (Exception ex)
             {
                 List<Item> saleItems = new List<Item>();
-                return saleItems;
+                return new Response("Could not Retrieve Items Quantity.", false);
             }
         }
 
-        public List<Item> RetrieveSaleItemsQuantity()
+        public Response RetrieveSaleItemsQuantity()
         {
             try
             {
@@ -3306,11 +3321,11 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-
+                
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-
+                
                 foreach (DataRow Item in dt.Rows)
                 {
                     Item itemsale = new Item();
@@ -3318,21 +3333,21 @@ namespace DataAccessLayer
                     itemsale.QuantityEnd = Convert.ToInt32(Item["Quantity End"].ToString());
                     saleItems.Add(itemsale);
                 }
-                return saleItems;
+                return new Response(saleItems, true);
             }
             catch (Exception ex)
             {
                 List<Item> saleItems = new List<Item>();
-                return saleItems;
+                return new Response("Could not Retrieve Sale Items Quantity.", false);
             }
         }
 
-        public Tuple<List<Item>, DataTable> RetrieveExpireStockToday(DateTime Date)
+        public Response RetrieveExpireStockToday(DateTime Date)
         {
             try
             {
                 List<Item> expireItems = new List<Item>();
-                List<Item> quantity_items = RetrieveItemsQuantity();
+                List<Item> quantity_items = (List<Item>)RetrieveItemsQuantity().ResponseMessage;
 
                 foreach (Item expire_item in quantity_items)
                 {
@@ -3366,25 +3381,25 @@ namespace DataAccessLayer
                         itemexpire.SetQuantity(Convert.ToInt32(Item["Current Quantity"].ToString()));
                         expireItems.Add(itemexpire);
                     }
-                    return Tuple.Create(expireItems, dt);
+                    return new Response(Tuple.Create(expireItems, SerializeDataTableToJSON(dt)), true);
                 }
-                return Tuple.Create(expireItems, new DataTable());
+                return new Response(Tuple.Create(expireItems, SerializeDataTableToJSON(new DataTable())), true);
             }
             catch (Exception ex)
             {
                 List<Item> expireItems = new List<Item>();
                 DataTable dt = new DataTable();
                 dt.TableName = "ExpireStockToday";
-                return Tuple.Create(expireItems, dt);
+                return new Response("Could not Retrieve Expiring Stock Today.", false);
             }
         }
 
-        public List<Item> RetrieveSaleToday(DateTime Date, int QuantityEnd = 0)
+        public Response RetrieveSaleToday(DateTime Date, int QuantityEnd = 0)
         {
             try
             {
                 List<Item> saleItems = new List<Item>();
-                List<Item> quantity_items = RetrieveSaleItemsQuantity();
+                List<Item> quantity_items = (List<Item>)RetrieveSaleItemsQuantity().ResponseMessage;
 
                 foreach (Item sale_item in quantity_items)
                 {
@@ -3417,16 +3432,16 @@ namespace DataAccessLayer
                         saleItems.Add(itemsale);
                     }
                 }
-                return saleItems;
+                return new Response(saleItems, true);
             }
             catch (Exception ex)
             {
                 List<Item> saleItems = new List<Item>();
-                return saleItems;
+                return new Response("Could not Retrieve Sale Today.", false);
             }
         }
 
-        public Tuple<List<Bill>, DataTable> SearchTodayBills(DateTime Date)
+        public Response SearchTodayBills(DateTime Date)
         {
             try
             {
@@ -3457,18 +3472,18 @@ namespace DataAccessLayer
                     bill.SetDate(Convert.ToDateTime(Item["Date"].ToString()));
                     Bills.Add(bill);
                 }
-                return Tuple.Create(Bills, dt);
+                return new Response(Tuple.Create(Bills, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
                 dt.TableName = "TodayBills";
-                return Tuple.Create(Bills, dt);
+                return new Response("Could not Search Today Bills.", false);
             }
         }
 
-        public Tuple<List<Bill>, DataTable> SearchBills(string dateFrom, string dateTo, int BillNumber = 0)
+        public Response SearchBills(string dateFrom, string dateTo, int BillNumber = 0)
         {
             try
             {
@@ -3504,18 +3519,18 @@ namespace DataAccessLayer
                     newBill.ClientAddress = Bill["Client Address"].ToString();
                     Bills.Add(newBill);
                 }
-                return Tuple.Create(Bills, dt);
+                return new Response(Tuple.Create(Bills, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
                 dt.TableName = "Bills";
-                return Tuple.Create(Bills, dt);
+                return new Response("Could not Search Bills.", false);
             }
         }
 
-        public int GetItemQuantity(string ItemBarCode = "")
+        public Response GetItemQuantity(string ItemBarCode = "")
         {
             try
             {
@@ -3536,15 +3551,15 @@ namespace DataAccessLayer
                 {
                     Quantity = Convert.ToInt32(Item["Item Quantity"].ToString());
                 }
-                return Quantity;
+                return new Response(Quantity, true);
             }
             catch (Exception ex)
             {
-                return 0;
+                return new Response(0, false);
             }
         }
 
-        public DataTable RetrieveAbsence(DateTime Date1, DateTime Date2)
+        public Response RetrieveAbsence(DateTime Date1, DateTime Date2)
         {
             try
             {
@@ -3553,7 +3568,7 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-
+                
                 cmd.Parameters.AddWithValue("@Date1", Date1);
                 cmd.Parameters.AddWithValue("@Date2", Date2);
 
@@ -3561,17 +3576,17 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Absence";
-                return dt;
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
                 dt.TableName = "Absence";
-                return dt;
+                return new Response("Could not Retrieve Absence.", false);
             }
         }
 
-        public DataTable SearchExpenses(string Date1, string Date2, string ExpenseName = "", string EmployeeID = "")
+        public Response SearchExpenses(string Date1, string Date2, string ExpenseName = "", string EmployeeID = "")
         {
             try
             {
@@ -3592,17 +3607,17 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Expenses";
-                return dt;
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
                 dt.TableName = "Expenses";
-                return dt;
+                return new Response("Could not Search Expenses.", false);
             }
         }
 
-        public Tuple<List<Item>, DataTable> SearchItems(string ItemName = "", string ItemBarCode = "", int ItemType = 0)
+        public Response SearchItems(string ItemName = "", string ItemBarCode = "", int ItemType = 0)
         {
             try
             {
@@ -3636,18 +3651,18 @@ namespace DataAccessLayer
                     item.SetItemTypeID(Convert.ToInt32(Item["Item Type"].ToString()));
                     Items.Add(item);
                 }
-                return Tuple.Create(Items, dt);
+                return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {
                 List<Item> Items = new List<Item>();
                 DataTable dt = new DataTable();
                 dt.TableName = "Items";
-                return Tuple.Create(Items, dt);
+                return new Response("Could not Search Items.", false);
             }
         }
 
-        public DataTable SearchClients(string ClientName = "", string ClientID = "", string itemName = "")
+        public Response SearchClients(string ClientName = "", string ClientID = "", string itemName = "")
         {
             try
             {
@@ -3667,17 +3682,17 @@ namespace DataAccessLayer
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "Clients";
-                return dt;
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 Item[] Items = new Item[0];
                 DataTable dt = new DataTable();
-                return dt;
+                return new Response("Could not Search Clients.", false);
             }
         }
 
-        public DataTable SearchClientsInfo(string ClientName = "", string ClientID = "")
+        public Response SearchClientsInfo(string ClientName = "", string ClientID = "")
         {
             try
             {
@@ -3696,13 +3711,13 @@ namespace DataAccessLayer
                 adapter.Fill(dt);
                 dt.TableName = "ClientsInfo";
 
-                return dt;
+                return new Response(SerializeDataTableToJSON(dt), true);
             }
             catch (Exception ex)
             {
                 DataTable dt = new DataTable();
                 dt.TableName = "ClientsInfo";
-                return dt;
+                return new Response("Could not Search Clients Information.", false);
             }
         }
     }
