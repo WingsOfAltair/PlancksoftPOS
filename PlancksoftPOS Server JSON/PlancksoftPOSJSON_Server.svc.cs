@@ -10,11 +10,11 @@ using System.Globalization;
 using System.ServiceModel.Web;
 using System.Web.Script.Services;
 
-namespace PlancksoftPOS_Server
+namespace PlancksoftPOSJSON_Server
 {
     [ServiceBehavior(MaxItemsInObjectGraph = int.MaxValue)]
     [AspNetCompatibilityRequirements(RequirementsMode = AspNetCompatibilityRequirementsMode.Allowed)]
-    public class PlancksoftPOS_Server : IPlancksoftPOS_Server
+    public class PlancksoftPOSJSON_Server : IPlancksoftPOSJSON_Server
     {
         DataAccessLayerJSON.DataAccessLayerJSON DAL = new DataAccessLayerJSON.DataAccessLayerJSON();
 

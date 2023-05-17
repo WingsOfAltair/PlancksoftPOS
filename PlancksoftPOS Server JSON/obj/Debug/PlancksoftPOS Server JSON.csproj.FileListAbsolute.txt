@@ -1,5 +1,3 @@
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.AssemblyReference.cache
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.CoreCompileInputs.cache
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\PlancksoftPOS Server JSON.dll.config
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\PlancksoftPOS Server JSON.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\PlancksoftPOS Server JSON.pdb
@@ -33,6 +31,8 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Json.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.ValueTuple.xml
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.AssemblyReference.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.CoreCompileInputs.cache
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.CopyComplete
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.pdb
