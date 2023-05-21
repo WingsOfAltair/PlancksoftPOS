@@ -34,3 +34,5 @@ C:\PlancksoftPOS\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CoreCompileI
 C:\PlancksoftPOS\DataAccessLayer\obj\Release\DataAccessLayer.csproj.CopyComplete
 C:\PlancksoftPOS\DataAccessLayer\obj\Release\DataAccessLayer.dll
 C:\PlancksoftPOS\DataAccessLayer\obj\Release\DataAccessLayer.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\bin\Release\Newtonsoft.Json.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\bin\Release\Newtonsoft.Json.xml
