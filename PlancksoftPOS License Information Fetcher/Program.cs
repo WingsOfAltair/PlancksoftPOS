@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Management;
 
 namespace PlancksoftPOS
 {
@@ -17,7 +18,7 @@ namespace PlancksoftPOS
             {
                 try
                 {
-                    string LicenseKey = MD5Encryption.Encrypt(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value(), "PlancksoftPOS");
+                    string LicenseKey = MD5Encryption.Encrypt(Environment.MachineName + "_" + Environment.UserName + "_" + Application.ProductName + "_" + Environment.ProcessorCount + "_" + Dependencies.Security.InstallationID.getOfflineInstallId(), "PlancksoftPOS");
                     Console.WriteLine(LicenseKey);
                     Console.WriteLine("Done. Paste your clipboard content to the key generator software.");
                     Clipboard.SetText(LicenseKey);
