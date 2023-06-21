@@ -58,22 +58,22 @@ namespace PlancksoftPOS
         public string ScannedBarCode = "";
         public bool timerstarted = false, registerOpen = false, IncludeLogoInReceipt = false;
         decimal capital, taxRate;
-        MaterialTextBox2 AddItemType;
-        List<MaterialTextBox2> ItemTypeNamestxt = new List<MaterialTextBox2>();
+        TextBox AddItemType;
+        List<Label> ItemTypeNamestxt = new List<Label>();
         PictureBox plusItemTypePB, minusItemTypePB;
-        System.Windows.Forms.Label plusItemTypeLbl, ItemTypeLbl;
+        Label plusItemTypeLbl, ItemTypeLbl;
         TextBox AddWarehouse;
-        List<MaterialTextBox2> WarehouseNamestxt = new List<MaterialTextBox2>();
+        List<Label> WarehouseNamestxt = new List<Label>();
         PictureBox plusWarehousePB, minusWarehousePB;
         Label plusWarehouseLbl, WarehouseLbl;
-        MaterialTextBox2 AddFavorite;
-        MaterialTextBox2 AddPrinter;
-        List<MaterialTextBox2> FavoriteNamestxt = new List<MaterialTextBox2>();
+        TextBox AddFavorite;
+        TextBox AddPrinter;
+        List<Label> FavoriteNamestxt = new List<Label>();
         List<TreeView> PrintersNamesTV = new List<TreeView>();
         PictureBox plusFavoritePB, minusFavoritePB;
         PictureBox plusPrinterPB, minusPrinterPB;
-        MaterialLabel plusFavoriteLbl, FavoriteLbl;
-        MaterialLabel plusPrinterLbl, PrinterLbl;
+        Label plusFavoriteLbl, FavoriteLbl;
+        Label plusPrinterLbl, PrinterLbl;
         List<FlowLayoutPanel> flowLayoutPanels = new List<FlowLayoutPanel>();
         MaterialButton saveItemTypesBtn;
         MaterialButton saveWarehousesBtn;
@@ -1099,19 +1099,16 @@ namespace PlancksoftPOS
                     {
                         tabControl6.TabPages["AddTypes"].Text = "إضافة صنف";
                         label29.Text = "إضافة تصنيف مواد جديد";
-                        label30.Text = "أصناف المواد المضافه";
                     }
                     if (tabControl6.Contains(tabControl6.TabPages["AddFavorites"]))
                     {
                         tabControl6.TabPages["AddFavorites"].Text = "إضافة مجلد مفضلات";
-                        label22.Text = "اضافة مجلد مفضل جديد";
-                        label23.Text = "المفضلات المضافه";
+                        label22.Text = "إضافة مجلد مفضل جديد";
                     }
                     if (tabControl6.Contains(tabControl6.TabPages["AddWarehouses"]))
                     {
                         tabControl6.TabPages["AddWarehouses"].Text = "إضافة مستودع";
                         label26.Text = "إضافة مستودع جديد";
-                        label27.Text = "المستودعات المضافه";
                     }
                 }
                 if (tabControl1.Contains(tabControl1.TabPages["Expenses"]))
@@ -1679,19 +1676,16 @@ namespace PlancksoftPOS
                     {
                         tabControl6.TabPages["AddTypes"].Text = "Add an Item Type";
                         label29.Text = "Add new Item Type";
-                        label30.Text = "Added Item Types";
                     }
                     if (tabControl6.Contains(tabControl6.TabPages["AddFavorites"]))
                     {
                         tabControl6.TabPages["AddFavorites"].Text = "Add a Favorite Category";
                         label22.Text = "Add a new Favorite Category";
-                        label23.Text = "Added Favorite Categories";
                     }
                     if (tabControl6.Contains(tabControl6.TabPages["AddWarehouses"]))
                     {
                         tabControl6.TabPages["AddWarehouses"].Text = "Add a Warehouse";
                         label26.Text = "Add a new Warehouse";
-                        label27.Text = "Added Warehouses";
                     }
                 }
                 if (tabControl1.Contains(tabControl1.TabPages["Expenses"]))
@@ -2028,7 +2022,7 @@ namespace PlancksoftPOS
             plusItemTypeLbl.Font = new Font(plusItemTypeLbl.Font.FontFamily, 14);
             flowLayoutPanel3.Controls.Add(plusItemTypeLbl);
 
-            AddItemType = new MaterialTextBox2();
+            AddItemType = new TextBox();
             AddItemType.Text = "";
             AddItemType.Size = new Size(351, 20);
             flowLayoutPanel3.Controls.Add(AddItemType);
@@ -2097,11 +2091,12 @@ namespace PlancksoftPOS
                 minusItemTypePB.Click += (sender, e) => { DeleteItemTypeHandler(sender, e, itemtype.Key); };
                 flowLayoutPanel3.Controls.Add(minusItemTypePB);
 
-                MaterialTextBox2 tempItemtypetxt = new MaterialTextBox2();
+                Label tempItemtypetxt = new Label();
                 tempItemtypetxt.Name = itemtype.Value;
                 tempItemtypetxt.Text = itemtype.Value;
                 tempItemtypetxt.Tag = itemtype.Key;
                 tempItemtypetxt.Size = new Size(340, 20);
+                tempItemtypetxt.ForeColor = Color.Black;
                 ItemTypeNamestxt.Add(tempItemtypetxt);
                 flowLayoutPanel3.Controls.Add(tempItemtypetxt);
                 tabControl2.TabPages.Add(itemtype.Value);
@@ -2212,11 +2207,12 @@ namespace PlancksoftPOS
                 minusWarehousePB.Click += (sender, e) => { DeleteWarehouseHandler(sender, e, warehouse.Key); };
                 flowLayoutPanel2.Controls.Add(minusWarehousePB);
 
-                MaterialTextBox2 tempWarehousetxt = new MaterialTextBox2();
+                Label tempWarehousetxt = new Label();
                 tempWarehousetxt.Name = warehouse.Value;
                 tempWarehousetxt.Text = warehouse.Value;
                 tempWarehousetxt.Tag = warehouse.Key;
                 tempWarehousetxt.Size = new Size(340, 20);
+                tempWarehousetxt.ForeColor = Color.Black;
                 WarehouseNamestxt.Add(tempWarehousetxt);
                 flowLayoutPanel2.Controls.Add(tempWarehousetxt);
                 tabControl2.TabPages.Add(warehouse.Value);
@@ -2246,7 +2242,7 @@ namespace PlancksoftPOS
             for (int z = 0; z < flowLayoutPanels.Count; z++)
                 flowLayoutPanels[z].Controls.Clear();
 
-            plusFavoriteLbl = new MaterialLabel();
+            plusFavoriteLbl = new Label();
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 plusFavoriteLbl.Text = "إضافة مجلد مفضل جديد";
@@ -2259,7 +2255,7 @@ namespace PlancksoftPOS
             plusFavoriteLbl.Font = new Font(plusFavoriteLbl.Font.FontFamily, 14);
             flowLayoutPanel1.Controls.Add(plusFavoriteLbl);
 
-            AddFavorite = new MaterialTextBox2();
+            AddFavorite = new TextBox();
             AddFavorite.Text = "";
             AddFavorite.Size = new Size(351, 20);
             flowLayoutPanel1.Controls.Add(AddFavorite);
@@ -2273,7 +2269,7 @@ namespace PlancksoftPOS
             plusFavoritePB.Click += (sender, e) => { AddFavoritesHandler(sender, e); };
             flowLayoutPanel1.Controls.Add(plusFavoritePB);
 
-            FavoriteLbl = new MaterialLabel();
+            FavoriteLbl = new Label();
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 FavoriteLbl.Text = "مجلدات المفضلات المضافه";
@@ -2325,11 +2321,12 @@ namespace PlancksoftPOS
                 minusFavoritePB.Click += (sender, e) => { DeleteFavoritesHandler(sender, e, favorite.Key); };
                 flowLayoutPanel1.Controls.Add(minusFavoritePB);
 
-                MaterialTextBox2 tempFavoritetxt = new MaterialTextBox2();
+                Label tempFavoritetxt = new Label();
                 tempFavoritetxt.Name = favorite.Value;
                 tempFavoritetxt.Text = favorite.Value;
                 tempFavoritetxt.Tag = favorite.Key;
                 tempFavoritetxt.Size = new Size(340, 20);
+                tempFavoritetxt.ForeColor = Color.Black;
                 FavoriteNamestxt.Add(tempFavoritetxt);
                 flowLayoutPanel1.Controls.Add(tempFavoritetxt);
                 tabControl2.TabPages.Add(favorite.Value);
@@ -2969,7 +2966,7 @@ namespace PlancksoftPOS
             plusPrinterLbl.Font = new Font(plusPrinterLbl.Font.FontFamily, 14);
             flowLayoutPanel4.Controls.Add(plusPrinterLbl);
 
-            AddPrinter = new MaterialTextBox2();
+            AddPrinter = new TextBox();
             AddPrinter.Text = "";
             AddPrinter.Size = new Size(351, 20);
             flowLayoutPanel4.Controls.Add(AddPrinter);
@@ -10275,20 +10272,22 @@ namespace PlancksoftPOS
 
         public void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (Char)Keys.Enter)
+            FavoriteCategoryInsert();
+        }
+
+        private void FavoriteCategoryInsert()
+        {
+            bool addedFavoriteCategory = Connection.server.InsertFavoriteCategory(ItemTypeEntry.Text);
+            if (addedFavoriteCategory)
             {
-                bool addedFavoriteCategory = Connection.server.InsertFavoriteCategory(FavoriteCategoryEntry.Text);
-                if (addedFavoriteCategory)
+                DisplayFavorites();
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    DisplayFavorites();
-                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                    {
-                        MaterialMessageBox.Show(".تم حفظ مجلد المفضلات الجديد", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    }
-                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                    {
-                        MaterialMessageBox.Show("A new Favorite Category was saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    }
+                    MaterialMessageBox.Show(".تم حفظ مجلد المفضلات الجديد", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MaterialMessageBox.Show("A new Favorite Category was saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -10744,6 +10743,27 @@ namespace PlancksoftPOS
             Program.materialSkinManager.RemoveFormToManage(this);
         }
 
+        private void FavoriteCategoryEntry_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                FavoriteCategoryInsert();
+
+        }
+
+        private void ItemTypeEntry_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+                ItemTypeInsert();
+        }
+
+        private void WarehouseEntry_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                WarehouseInsert();
+            }
+        }
+
         private void hamburger_menu_expenses_sub_timer_Tick(object sender, EventArgs e)
         {
             if (menuExpensesSubExpand)
@@ -10878,22 +10898,19 @@ namespace PlancksoftPOS
             }
         }
 
-        public void textBox5_KeyPress(object sender, KeyPressEventArgs e)
+        private void WarehouseInsert()
         {
-            if (e.KeyChar == (Char)Keys.Enter)
+            bool addedWarehouse = Connection.server.InsertWarehouse(WarehouseEntry.Text);
+            if (addedWarehouse)
             {
-                bool addedWarehouse = Connection.server.InsertWarehouse(WarehouseEntry.Text);
-                if (addedWarehouse)
+                DisplayWarehouses();
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    DisplayWarehouses();
-                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                    {
-                        MaterialMessageBox.Show(".تم حفظ المستودع الجديد", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    }
-                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                    {
-                        MaterialMessageBox.Show("A new Warehouse was saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    }
+                    MaterialMessageBox.Show(".تم حفظ المستودع الجديد", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MaterialMessageBox.Show("A new Warehouse was saved.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
         }
@@ -11260,15 +11277,12 @@ namespace PlancksoftPOS
             ApplyDiscountsToPendingItems();
         }
 
-        public void textBox6_KeyPress(object sender, KeyPressEventArgs e)
+        public void ItemTypeInsert()
         {
-            if (e.KeyChar == (Char)Keys.Enter)
+            bool addedItemType = Connection.server.InsertItemType(FavoriteCategoryEntry.Text);
+            if (addedItemType)
             {
-                bool addedItemType = Connection.server.InsertItemType(ItemTypeEntry.Text);
-                if (addedItemType)
-                {
-                    DisplayItemTypes();
-                }
+                DisplayItemTypes();
             }
         }
 
@@ -11518,9 +11532,9 @@ namespace PlancksoftPOS
 
         public void pictureBox39_Click(object sender, EventArgs e)
         {
-            if (ItemTypeEntry.Text.Trim().Length > 0)
+            if (FavoriteCategoryEntry.Text.Trim().Length > 0)
             {
-                bool addedItemType = Connection.server.InsertItemType(ItemTypeEntry.Text);
+                bool addedItemType = Connection.server.InsertItemType(FavoriteCategoryEntry.Text);
                 if (addedItemType)
                 {
                     DisplayItemTypes();
@@ -11778,9 +11792,9 @@ namespace PlancksoftPOS
 
         public void pictureBox36_Click(object sender, EventArgs e)
         {
-            if (FavoriteCategoryEntry.Text.Trim().Length > 0)
+            if (ItemTypeEntry.Text.Trim().Length > 0)
             {
-                bool addedFavoriteCategory = Connection.server.InsertFavoriteCategory(FavoriteCategoryEntry.Text);
+                bool addedFavoriteCategory = Connection.server.InsertFavoriteCategory(ItemTypeEntry.Text);
                 if (addedFavoriteCategory)
                 {
                     DisplayFavorites();
