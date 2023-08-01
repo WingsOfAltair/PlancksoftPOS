@@ -28,7 +28,19 @@ namespace PlancksoftPOSJSON_Server
             WebInvoke
             (
                 Method = "POST",
-                UriTemplate = "RetrieveSystemSettings",
+                UriTemplate = "RetrieveSaleByDate",
+                RequestFormat = WebMessageFormat.Json,
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedRequest
+            )
+        ]
+        string RetrieveSaleByDate(DateTime StartDate, DateTime EndDate);      
+        [OperationContract]
+        [
+            WebInvoke
+            (
+                Method = "POST",
+                UriTemplate = "RetrieveSaleByDate",
                 RequestFormat = WebMessageFormat.Json,
                 ResponseFormat = WebMessageFormat.Json,
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
@@ -1253,6 +1265,42 @@ namespace PlancksoftPOSJSON_Server
             WebInvoke
             (
                 Method = "POST",
+                UriTemplate = "RetrieveTotalActiveItems",
+                RequestFormat = WebMessageFormat.Json,
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedRequest
+            )
+        ]
+        string RetrieveTotalActiveItems(DateTime ExpirationDate);  
+        [OperationContract]
+        [
+            WebInvoke
+            (
+                Method = "POST",
+                UriTemplate = "RetrieveClientCount",
+                RequestFormat = WebMessageFormat.Json,
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedRequest
+            )
+        ]
+        string RetrieveClientCount();       
+        [OperationContract]
+        [
+            WebInvoke
+            (
+                Method = "POST",
+                UriTemplate = "RetrieveBillsCountByDate",
+                RequestFormat = WebMessageFormat.Json,
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedRequest
+            )
+        ]
+        string RetrieveBillsCountByDate(DateTime StartDate, DateTime EndDate);    
+        [OperationContract]
+        [
+            WebInvoke
+            (
+                Method = "POST",
                 UriTemplate = "RetrieveLastBillNumberToday",
                 RequestFormat = WebMessageFormat.Json,
                 ResponseFormat = WebMessageFormat.Json,
@@ -1314,6 +1362,18 @@ namespace PlancksoftPOSJSON_Server
             (
                 Method = "POST",
                 UriTemplate = "SearchTodayBills",
+                RequestFormat = WebMessageFormat.Json,
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedRequest
+            )
+        ]
+        string RetrieveSaleDateRange(DateTime StartDate, DateTime EndDate, int QuantityEnd = 0);
+        [OperationContract]
+        [
+            WebInvoke
+            (
+                Method = "POST",
+                UriTemplate = "RetrieveSaleDateRange",
                 RequestFormat = WebMessageFormat.Json,
                 ResponseFormat = WebMessageFormat.Json,
                 BodyStyle = WebMessageBodyStyle.WrappedRequest

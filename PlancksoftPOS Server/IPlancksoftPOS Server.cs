@@ -12,6 +12,8 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool CheckConnection();
         [OperationContract]
+        DataTable RetrieveSaleByDate(DateTime StartDate, DateTime EndDate);
+        [OperationContract]
         DataTable RetrieveSystemSettings();
         [OperationContract]
         bool UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone,
@@ -217,6 +219,8 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         Bill RetrieveLastVendorBillNumberToday(DateTime Date);
         [OperationContract]
+        int RetrieveBillsCountByDate(DateTime StartDate, DateTime EndDate);   
+        [OperationContract]
         Bill RetrieveLastBillNumberToday();
         [OperationContract]
         List<Item> RetrieveItemsQuantity(string ItemBarCode = "");
@@ -224,6 +228,8 @@ namespace PlancksoftPOS_Server
         List<Item> RetrieveSaleItemsQuantity();
         [OperationContract]
         Tuple<List<Item>, DataTable> RetrieveExpireStockToday(DateTime Date);
+        [OperationContract]
+        List<Item> RetrieveSaleDateRange(DateTime StartDate, DateTime EndDate, int QuantityEnd = 0);     
         [OperationContract]
         List<Item> RetrieveSaleToday(DateTime Date, int QuantityEnd = 0);
         [OperationContract]

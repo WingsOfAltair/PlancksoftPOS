@@ -9,6 +9,7 @@ using System.Web.Script.Serialization;
 using System.Globalization;
 using System.ServiceModel.Web;
 using System.Web.Script.Services;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace PlancksoftPOSJSON_Server
 {
@@ -21,6 +22,10 @@ namespace PlancksoftPOSJSON_Server
         public string CheckConnection()
         {
             return new JavaScriptSerializer().Serialize(DAL.CheckConnection());
+        }
+        public string RetrieveSaleByDate(DateTime StartDate, DateTime EndDate)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveSaleByDate(StartDate, EndDate));
         }
         public string RetrieveSystemSettings()
         {
@@ -430,6 +435,18 @@ namespace PlancksoftPOSJSON_Server
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveLastVendorBillNumberToday(Date));
         }
+        public string RetrieveTotalActiveItems(DateTime ExpirationDate)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveTotalActiveItems(ExpirationDate));
+        } 
+        public string RetrieveClientCount()
+        {
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveClientCount());
+        }   
+        public string RetrieveBillsCountByDate(DateTime StartDate, DateTime EndDate)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveBillsCountByDate(StartDate, EndDate));
+        }  
         public string RetrieveLastBillNumberToday()
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveLastBillNumberToday());
@@ -446,6 +463,10 @@ namespace PlancksoftPOSJSON_Server
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveExpireStockToday(Date));
         }
+        public string RetrieveSaleDateRange(DateTime StartDate, DateTime EndDate, int QuantityEnd = 0)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveSaleDateRange(StartDate, EndDate, QuantityEnd));
+        }  
         public string RetrieveSaleToday(DateTime Date, int QuantityEnd = 0)
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveSaleToday(Date, QuantityEnd));

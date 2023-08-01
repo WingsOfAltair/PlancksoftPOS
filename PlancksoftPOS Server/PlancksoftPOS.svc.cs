@@ -12,6 +12,10 @@ namespace PlancksoftPOS_Server
         {
             return DAL.CheckConnection();
         }
+        public DataTable RetrieveSaleByDate(DateTime StartDate, DateTime EndDate)
+        {
+            return DAL.RetrieveSaleByDate(StartDate, EndDate);
+        }    
         public DataTable RetrieveSystemSettings()
         {
             return DAL.RetrieveSystemSettings();
@@ -420,6 +424,10 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveLastVendorBillNumberToday(Date);
         }
+        public int RetrieveBillsCountByDate(DateTime StartDate, DateTime EndDate)
+        {
+            return DAL.RetrieveBillsCountByDate(StartDate, EndDate);
+        }  
         public Bill RetrieveLastBillNumberToday()
         {
             return DAL.RetrieveLastBillNumberToday();
@@ -436,6 +444,10 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveExpireStockToday(Date);
         }
+        public List<Item> RetrieveSaleDateRange(DateTime StartDate, DateTime EndDate, int QuantityEnd = 0)
+        {
+            return DAL.RetrieveSaleDateRange(StartDate, EndDate, QuantityEnd);
+        }  
         public List<Item> RetrieveSaleToday(DateTime Date, int QuantityEnd = 0)
         {
             return DAL.RetrieveSaleToday(Date, QuantityEnd);

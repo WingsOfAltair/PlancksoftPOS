@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Dependencies;
 using Dependencies.Models;
 using Newtonsoft.Json;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace DataAccessLayerJSON
 {
@@ -48,6 +49,39 @@ namespace DataAccessLayerJSON
                 return new Response("Database Server is down.", false);
             }
         }
+
+        public Response RetrieveSaleByDate(DateTime StartDate, DateTime EndDate)
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveSaleByDate", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                if (StartDate != null)
+                {
+                    cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                }
+                if (EndDate != null)
+                {
+                    cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                }
+
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "SaleByDate";
+                return new Response(SerializeDataTableToJSON(dt), true);
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.TableName = "SaleByDate";
+                return new Response("Failed to retrieve sales by date.", false);
+            }
+        }  
 
         public Response RetrieveSystemSettings()
         {
@@ -3250,6 +3284,39 @@ namespace DataAccessLayerJSON
             }
         }
 
+        public Response RetrieveBillsCountByDate(DateTime StartDate, DateTime EndDate)
+        {
+            try
+            {
+                int BillsCount = 0;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveBillsCountByDate", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                if (StartDate != null)
+                {
+                    cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                    cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                }
+
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                
+                foreach (DataRow Item in dt.Rows)
+                {
+                    BillsCount = (Convert.ToInt32(Item["Bills Count"].ToString()));
+                }
+                return new Response(BillsCount, true);
+            }
+            catch (Exception ex)
+            {
+                return new Response("Could not Retrieve Last Bill Number Today.", false);
+            }
+        }  
+
         public Response RetrieveLastBillNumberToday()
         {
             try
@@ -3342,6 +3409,56 @@ namespace DataAccessLayerJSON
             }
         }
 
+        public Response RetrieveTotalActiveItems(DateTime ExpirationDate)
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveTotalActiveItems", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                cmd.Parameters.AddWithValue("@ExpireDate", ExpirationDate);
+
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "TotalActiveItems";
+                return new Response(SerializeDataTableToJSON(dt), true);
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.TableName = "TotalActiveItems";
+                return new Response("Could not Retrieve Total Active Items Count.", false);
+            }
+        }   
+
+        public Response RetrieveClientCount()
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveClientCount", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "ClientCount";
+                return new Response(SerializeDataTableToJSON(dt), true);
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.TableName = "ClientCount";
+                return new Response("Could not Retrieve Client Count.", false);
+            }
+        }  
+
         public Response RetrieveExpireStockToday(DateTime Date)
         {
             try
@@ -3393,6 +3510,53 @@ namespace DataAccessLayerJSON
                 return new Response("Could not Retrieve Expiring Stock Today.", false);
             }
         }
+
+        public Response RetrieveSaleDateRange(DateTime StartDate, DateTime EndDate, int QuantityEnd = 0)
+        {
+            try
+            {
+                List<Item> saleItems = new List<Item>();
+                List<Item> quantity_items = (List<Item>)RetrieveSaleItemsQuantity().ResponseMessage;
+
+                foreach (Item sale_item in quantity_items)
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlCommand cmd = new SqlCommand("RetrieveSaleDateRange", connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    if (StartDate != null)
+                    {
+                        cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                        cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                    }
+
+                    cmd.Parameters.AddWithValue("@QuantityEnd", sale_item.QuantityEnd);
+
+                    adapter.SelectCommand = cmd;
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dt.TableName = "SaleDateRange";
+                    foreach (DataRow Item in dt.Rows)
+                    {
+                        Item itemsale = new Item();
+                        itemsale.SetBarCode(Item["Item BarCode"].ToString());
+                        itemsale.SetSaleRate(Convert.ToInt32(Item["Sale Rate"].ToString()));
+                        itemsale.DateStart = Convert.ToDateTime(Item["Start Date"].ToString());
+                        itemsale.DateEnd = Convert.ToDateTime(Item["End Date"].ToString());
+                        itemsale.QuantityEnd = Convert.ToInt32(Item["Quantity End"].ToString());
+                        saleItems.Add(itemsale);
+                    }
+                }
+                return new Response(saleItems, true);
+            }
+            catch (Exception ex)
+            {
+                List<Item> saleItems = new List<Item>();
+                return new Response("Could not Retrieve Sale using Date Range.", false);
+            }
+        }  
 
         public Response RetrieveSaleToday(DateTime Date, int QuantityEnd = 0)
         {

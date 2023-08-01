@@ -31,6 +31,37 @@ namespace DataAccessLayer
             }
         }
 
+        public DataTable RetrieveSaleByDate(DateTime StartDate, DateTime EndDate)
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                using (SqlCommand cmd = new SqlCommand("RetrieveSaleByDate", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    if (StartDate != null)
+                    {
+                        cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                    }
+                    if (EndDate != null)
+                    {
+                        cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                    }
+
+                    adapter.SelectCommand = cmd;
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dt.TableName = "SaleByDate";
+                    return dt;
+                }
+            } catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.TableName = "SaleByDate";
+                return dt;
+            }
+        }
+
         public DataTable RetrieveSystemSettings()
         {
             try
@@ -3235,6 +3266,39 @@ namespace DataAccessLayer
             }
         }
 
+        public int RetrieveBillsCountByDate(DateTime StartDate, DateTime EndDate)
+        {
+            try
+            {
+                int BillsCount = -1;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveBillsCountByDate", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                if (StartDate != null)
+                {
+                    cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                    cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                }
+
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                foreach (DataRow Item in dt.Rows)
+                {
+                    BillsCount = (Convert.ToInt32(Item["Bills Count"].ToString()));
+                }
+                return BillsCount;
+            }
+            catch (Exception ex)
+            {
+                return -1;
+            }
+        }  
+
         public Bill RetrieveLastBillNumberToday()
         {
             try
@@ -3406,6 +3470,53 @@ namespace DataAccessLayer
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
                     dt.TableName = "SaleToday";
+                    foreach (DataRow Item in dt.Rows)
+                    {
+                        Item itemsale = new Item();
+                        itemsale.SetBarCode(Item["Item BarCode"].ToString());
+                        itemsale.SetSaleRate(Convert.ToInt32(Item["Sale Rate"].ToString()));
+                        itemsale.DateStart = Convert.ToDateTime(Item["Start Date"].ToString());
+                        itemsale.DateEnd = Convert.ToDateTime(Item["End Date"].ToString());
+                        itemsale.QuantityEnd = Convert.ToInt32(Item["Quantity End"].ToString());
+                        saleItems.Add(itemsale);
+                    }
+                }
+                return saleItems;
+            }
+            catch (Exception ex)
+            {
+                List<Item> saleItems = new List<Item>();
+                return saleItems;
+            }
+        }  
+
+        public List<Item> RetrieveSaleDateRange(DateTime StartDate, DateTime EndDate, int QuantityEnd = 0)
+        {
+            try
+            {
+                List<Item> saleItems = new List<Item>();
+                List<Item> quantity_items = RetrieveSaleItemsQuantity();
+
+                foreach (Item sale_item in quantity_items)
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlCommand cmd = new SqlCommand("RetrieveSaleDateRange", connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    if (StartDate != null)
+                    {
+                        cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                        cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                    }
+
+                    cmd.Parameters.AddWithValue("@QuantityEnd", sale_item.QuantityEnd);
+
+                    adapter.SelectCommand = cmd;
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dt.TableName = "SaleDateRange";
                     foreach (DataRow Item in dt.Rows)
                     {
                         Item itemsale = new Item();
