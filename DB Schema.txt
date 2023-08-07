@@ -11,6 +11,408 @@
 
 USE [PlancksoftPOS]
 GO
+/****** Object:  Table [dbo].[Absence]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Absence]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Absence](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[emp_id] [int] NOT NULL,
+	[date] [date] NOT NULL,
+	[hours] [int] NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[BillItems]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[BillItems]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[BillItems](
+	[bill_id] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[item_barcode] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[item_quantity] [int] NOT NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[Bills]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Bills]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Bills](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[cashierName] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[totalAmount] [decimal](18, 2) NOT NULL,
+	[paidAmount] [decimal](18, 2) NOT NULL,
+	[remainderAmount] [decimal](18, 2) NOT NULL,
+	[date] [date] NULL,
+	[ported] [int] NULL,
+	[paymentByCash] [int] NULL,
+	[unpaid] [int] NOT NULL,
+	[postponed_bill_id] [int] NULL,
+	[ClientID] [int] NULL,
+	[payment_progress] [decimal](18, 2) NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[ClientsItems]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ClientsItems]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[ClientsItems](
+	[Client_id] [int] NOT NULL,
+	[item_barcode] [int] NOT NULL,
+	[item_price] [decimal](18, 2) NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[ClientsVendors]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ClientsVendors]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[ClientsVendors](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[ClientName] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[vendor] [int] NOT NULL,
+	[ClientPhone] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[ClientAddress] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[Deductions]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Deductions]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Deductions](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[emp_id] [int] NOT NULL,
+	[deduction] [decimal](18, 2) NOT NULL,
+	[date] [date] NOT NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[Discounts]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Discounts]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Discounts](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[item_barcode] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[sale_rate] [int] NOT NULL,
+	[start_date] [datetime] NULL,
+	[end_date] [datetime] NULL,
+	[quantity_end] [int] NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[Employees]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Employees]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Employees](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[salary] [decimal](18, 2) NULL,
+	[phone] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[address] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[Expenses]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Expenses]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Expenses](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[cost] [decimal](18, 2) NOT NULL,
+	[employee_id] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[date] [datetime] NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[FavoriteCategories]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[FavoriteCategories]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[FavoriteCategories](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[Items]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Items]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Items](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[ItemName] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[ItemBarCode] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[ItemQuantity] [int] NOT NULL,
+	[ItemPrice] [decimal](18, 2) NOT NULL,
+	[ItemPriceTax] [decimal](18, 2) NOT NULL,
+	[Favorite] [int] NULL,
+	[Date] [date] NULL,
+	[ItemBuyPrice] [decimal](18, 2) NULL,
+	[Picture] [varbinary](max) NULL,
+	[Warehouse_id] [int] NULL,
+	[ItemType] [int] NULL,
+	[QuantityWarning] [int] NULL,
+	[ProductionDate] [date] NULL,
+	[ExpirationDate] [date] NULL,
+	[EntryDate] [date] NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+END
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[ItemTypes]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ItemTypes]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[ItemTypes](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[LoginLogout]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LoginLogout]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[LoginLogout](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[cashierName] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[date] [datetime] NULL,
+	[action] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[PrinterItemType]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PrinterItemType]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[PrinterItemType](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[printerID] [int] NOT NULL,
+	[itemTypeID] [int] NOT NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[Printers]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Printers]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Printers](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[machineName] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[printerName] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[RegisterHistory]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegisterHistory]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[RegisterHistory](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[cashier_name] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[date] [datetime] NULL,
+	[openorclose] [int] NULL,
+	[moneyInRegister] [decimal](18, 2) NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[Settings]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Settings]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Settings](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[SystemName] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[SystemLogo] [varbinary](max) NULL,
+	[SystemPhone] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[SystemReceiptBlankSpaces] [int] NOT NULL,
+	[SystemIncludeLogoInReceipt] [int] NOT NULL,
+	[SystemTax] [decimal](18, 2) NOT NULL,
+	[SystemAddress] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+END
+GO
+SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[TransactionItems]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[TransactionItems]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[TransactionItems](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[item_barcode] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[item_quantity] [int] NOT NULL,
+	[transaction_id] [int] NOT NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[Transactions]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Transactions]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Transactions](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[cashierName] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[type] [int] NOT NULL,
+	[date] [date] NOT NULL,
+	[time] [time](7) NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[UserPermissions]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UserPermissions]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[UserPermissions](
+	[user_id] [int] NOT NULL,
+	[Client_card_perm] [int] NOT NULL,
+	[discount_perm] [int] NOT NULL,
+	[price_edit_perm] [int] NOT NULL,
+	[receipt_edit_perm] [int] NOT NULL,
+	[inventory_edit_perm] [int] NOT NULL,
+	[expense_add_perm] [int] NOT NULL,
+	[users_edit_perm] [int] NOT NULL,
+	[settings_edit_perm] [int] NOT NULL,
+	[personnel_edit_perm] [int] NOT NULL,
+	[openclose_edit_perm] [int] NOT NULL,
+	[sell_edit_perm] [int] NOT NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[Users]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Users]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Users](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[cashierName] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[UID] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[PWD] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[Authority] [int] NULL,
+ CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
+(
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[VendorBillItems]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[VendorBillItems]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[VendorBillItems](
+	[bill_id] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[item_barcode] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NULL,
+	[item_quantity] [int] NOT NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[VendorBills]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[VendorBills]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[VendorBills](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[cashierName] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL,
+	[totalAmount] [decimal](18, 2) NOT NULL,
+	[date] [date] NULL,
+	[unpaid] [int] NULL
+) ON [PRIMARY]
+END
+GO
+/****** Object:  Table [dbo].[Warehouses]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[Warehouses]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[Warehouses](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[name] [nvarchar](255) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL
+) ON [PRIMARY]
+END
+GO
 SET IDENTITY_INSERT [dbo].[FavoriteCategories] ON 
 GO
 INSERT [dbo].[FavoriteCategories] ([id], [name]) VALUES (1, N'Chips')
@@ -294,4 +696,2760 @@ GO
 INSERT [dbo].[Warehouses] ([id], [name]) VALUES (2, N'sdfghj')
 GO
 SET IDENTITY_INSERT [dbo].[Warehouses] OFF
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_BillItems_item_quantity]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[BillItems] ADD  CONSTRAINT [DF_BillItems_item_quantity]  DEFAULT ((0)) FOR [item_quantity]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Bills_unpaid]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Bills] ADD  CONSTRAINT [DF_Bills_unpaid]  DEFAULT ((0)) FOR [unpaid]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Deductions_emp_id]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Deductions] ADD  CONSTRAINT [DF_Deductions_emp_id]  DEFAULT ((0)) FOR [emp_id]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Discounts_quantity_end]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Discounts] ADD  CONSTRAINT [DF_Discounts_quantity_end]  DEFAULT ((0)) FOR [quantity_end]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Employees_salary]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Employees] ADD  CONSTRAINT [DF_Employees_salary]  DEFAULT ((0)) FOR [salary]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Items_ItemQuantity]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Items] ADD  CONSTRAINT [DF_Items_ItemQuantity]  DEFAULT ((0)) FOR [ItemQuantity]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Items_ItemPrice]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Items] ADD  CONSTRAINT [DF_Items_ItemPrice]  DEFAULT ((0)) FOR [ItemPrice]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Items_ItemPriceTax]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Items] ADD  CONSTRAINT [DF_Items_ItemPriceTax]  DEFAULT ((0)) FOR [ItemPriceTax]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Items_Favorite]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Items] ADD  CONSTRAINT [DF_Items_Favorite]  DEFAULT ((0)) FOR [Favorite]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Items_Warehouse_id]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Items] ADD  CONSTRAINT [DF_Items_Warehouse_id]  DEFAULT ((0)) FOR [Warehouse_id]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Items_ItemType]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Items] ADD  CONSTRAINT [DF_Items_ItemType]  DEFAULT ((0)) FOR [ItemType]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Items_QuantityWarning]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Items] ADD  CONSTRAINT [DF_Items_QuantityWarning]  DEFAULT ((0)) FOR [QuantityWarning]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Settings_SystemName]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Settings] ADD  CONSTRAINT [DF_Settings_SystemName]  DEFAULT (N'PlancksoftPOS') FOR [SystemName]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Settings_SystemReceiptBlankSpaces]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Settings] ADD  CONSTRAINT [DF_Settings_SystemReceiptBlankSpaces]  DEFAULT ((0)) FOR [SystemReceiptBlankSpaces]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Settings_SystemIncludeLogoInReceipt]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Settings] ADD  CONSTRAINT [DF_Settings_SystemIncludeLogoInReceipt]  DEFAULT ((0)) FOR [SystemIncludeLogoInReceipt]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Settings_SystemTax]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Settings] ADD  CONSTRAINT [DF_Settings_SystemTax]  DEFAULT ((0)) FOR [SystemTax]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_TransactionItems_item_quantity]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[TransactionItems] ADD  CONSTRAINT [DF_TransactionItems_item_quantity]  DEFAULT ((0)) FOR [item_quantity]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_Users_Authority]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_Authority]  DEFAULT ((0)) FOR [Authority]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_VendorBillItems_item_quantity]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[VendorBillItems] ADD  CONSTRAINT [DF_VendorBillItems_item_quantity]  DEFAULT ((0)) FOR [item_quantity]
+END
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DF_VendorBills_unpaid]') AND type = 'D')
+BEGIN
+ALTER TABLE [dbo].[VendorBills] ADD  CONSTRAINT [DF_VendorBills_unpaid]  DEFAULT ((1)) FOR [unpaid]
+END
+GO
+/****** Object:  StoredProcedure [dbo].[AddItemToBill]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AddItemToBill]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[AddItemToBill] AS' 
+END
+GO
+ALTER procedure [dbo].[AddItemToBill]
+    @BillID int,
+	@ItemBarCode nvarchar(255),
+	@ItemQuantity int
+AS
+BEGIN
+    
+	INSERT INTO BillItems(bill_id, item_barcode, item_quantity) VALUES (@BillID, @ItemBarCode, @ItemQuantity)
+	UPDATE Discounts SET quantity_end = quantity_end - @ItemQuantity WHERE item_barcode = @ItemBarCode
+END
+GO
+/****** Object:  StoredProcedure [dbo].[AddItemToClient]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AddItemToClient]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[AddItemToClient] AS' 
+END
+GO
+ALTER procedure [dbo].[AddItemToClient]
+    @ClientID int,
+	@ItemBarCode nvarchar(255),
+	@ItemPrice decimal(18, 2),
+	@Status int OUTPUT
+AS
+BEGIN
+    IF NOT EXISTS (SELECT * FROM ClientsItems 
+		WHERE Client_id = @ClientID
+		AND item_barcode = @ItemBarCode
+		AND item_price = @ItemPrice)
+		BEGIN
+			INSERT INTO ClientsItems(Client_id, item_barcode, item_price) VALUES (@ClientID, @ItemBarCode, @ItemPrice)
+			set @Status = 1
+		End
+END
+GO
+/****** Object:  StoredProcedure [dbo].[AddItemToVendorBill]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AddItemToVendorBill]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[AddItemToVendorBill] AS' 
+END
+GO
+ALTER procedure [dbo].[AddItemToVendorBill]
+    @BillID int,
+	@ItemBarCode nvarchar(255),
+	@ItemQuantity int
+AS
+BEGIN
+    
+	INSERT INTO VendorBillItems(bill_id, item_barcode, item_quantity) VALUES (@BillID, @ItemBarCode, @ItemQuantity)
+END
+GO
+/****** Object:  StoredProcedure [dbo].[AddPrinterItemType]    Script Date: 8/7/2023 4:28:44 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AddPrinterItemType]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[AddPrinterItemType] AS' 
+END
+GO
+ALTER procedure [dbo].[AddPrinterItemType]
+	@printer_id int,
+	@itemType_id nvarchar,
+	@Status int OUTPUT
+AS
+BEGIN
+	INSERT INTO PrinterItemType(printerID, itemTypeID)VALUES(@printer_id, @itemType_id)
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[AddSaleOnItem]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AddSaleOnItem]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[AddSaleOnItem] AS' 
+END
+GO
+ALTER procedure [dbo].[AddSaleOnItem]
+    @ItemBarCode nvarchar(255),
+    @saleRate int,
+	@StartDate Date,
+	@EndDate Date,
+	@QuantityEnd int = 0,
+	@Status int OUTPUT
+AS
+BEGIN
+IF NOT EXISTS (SELECT * FROM Discounts 
+		WHERE item_barcode = @ItemBarCode
+		AND (( start_date >= @StartDate AND end_date <= @EndDate)) OR quantity_end < @QuantityEnd)
+		BEGIN
+			INSERT INTO Discounts(item_barcode, sale_rate, start_date, end_date, quantity_end) VALUES(@ItemBarCode, @saleRate, @StartDate, @EndDate, @QuantityEnd)
+			set @Status = 1
+		End
+		Else
+		Begin
+			UPDATE Discounts SET sale_rate = @saleRate, quantity_end = @QuantityEnd WHERE item_barcode = @ItemBarCode
+		End
+END
+GO
+/****** Object:  StoredProcedure [dbo].[AddUnpaidBill]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AddUnpaidBill]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[AddUnpaidBill] AS' 
+END
+GO
+ALTER procedure [dbo].[AddUnpaidBill]
+    @cashierName nvarchar(255),
+	@totalAmount decimal(18, 2),
+	@Date Date,
+	@ClientID int,
+	@BillID int OUTPUT,
+	@Status int OUTPUT
+AS
+BEGIN
+	INSERT INTO Bills(cashierName, totalAmount, paidAmount, remainderAmount, paymentByCash, date, unpaid, ClientID) VALUES(@cashierName, @totalAmount, 0, @totalAmount, 1, @Date, 1, @ClientID)
+
+DECLARE @bill_id INT = (SELECT TOP 1 Bills.id FROM Bills WHERE Bills.id = SCOPE_IDENTITY() ORDER BY Bills.id DESC)
+set @BillID = @bill_id
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[AddVendorBill]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[AddVendorBill]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[AddVendorBill] AS' 
+END
+GO
+ALTER procedure [dbo].[AddVendorBill]
+    @cashierName nvarchar(255),
+	@totalAmount decimal(18, 2),
+	@Date Date,
+	@BillID int OUTPUT,
+	@Status int OUTPUT
+AS
+BEGIN
+	INSERT INTO VendorBills(cashierName, totalAmount, date) VALUES(@cashierName, @totalAmount, @Date)
+
+DECLARE @bill_id INT = (SELECT TOP 1 id FROM VendorBills ORDER BY id DESC)
+set @BillID = @bill_id
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[CheckAdmin]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CheckAdmin]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[CheckAdmin] AS' 
+END
+GO
+ALTER procedure [dbo].[CheckAdmin]
+    @UserID nvarchar(255),
+	@Status int OUTPUT
+AS
+BEGIN
+DECLARE @cnt INT = (SELECT COUNT(UID)FROM Users Where UID = @UserID AND Authority='1')
+set @Status = @cnt
+END
+GO
+/****** Object:  StoredProcedure [dbo].[CreateTransaction]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[CreateTransaction]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[CreateTransaction] AS' 
+END
+GO
+ALTER procedure [dbo].[CreateTransaction]
+	@EntryExitType int,
+	@cost decimal(18, 2),
+	@Date Date,
+	@cashierName nvarchar(255),
+	@TransactionID int OUTPUT,
+	@Status int OUTPUT
+AS
+BEGIN
+	INSERT INTO Transactions(cashierName, date, type, time) VALUES (@cashierName, @Date, @EntryExitType, getdate())
+	set @TransactionID = (SELECT TOP 1 id FROM Transactions WHERE cashierName = @cashierName AND date = @Date AND type = @EntryExitType ORDER BY id DESC)
+	if @EntryExitType = 0
+		INSERT INTO Expenses(name, cost, employee_id, date) VALUES (convert(nvarchar, N' سند ادخال ') + convert(nvarchar, @TransactionID), @cost, @cashierName, GETDATE())
+	set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteAbsence]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DeleteAbsence]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[DeleteAbsence] AS' 
+END
+GO
+ALTER procedure [dbo].[DeleteAbsence]
+    @AbsenceID int,
+    @Status int OUTPUT
+AS
+BEGIN
+    DELETE Absence WHERE id = @AbsenceID
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteClient]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DeleteClient]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[DeleteClient] AS' 
+END
+GO
+ALTER procedure [dbo].[DeleteClient]
+    @ClientID nvarchar(255),
+    @Status int OUTPUT
+AS
+BEGIN
+    DELETE ClientsVendors WHERE ID = @ClientID
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteEmployee]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DeleteEmployee]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[DeleteEmployee] AS' 
+END
+GO
+ALTER procedure [dbo].[DeleteEmployee]
+    @EmployeeID nvarchar(255),
+    @Status int OUTPUT
+AS
+BEGIN
+    DELETE Employees WHERE id = @EmployeeID
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteFavoriteCategory]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DeleteFavoriteCategory]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[DeleteFavoriteCategory] AS' 
+END
+GO
+ALTER procedure [dbo].[DeleteFavoriteCategory]
+	@CategoryID int,
+	@Status int OUTPUT
+AS
+BEGIN
+    DELETE FROM FavoriteCategories WHERE id = @CategoryID
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteFavoriteItem]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DeleteFavoriteItem]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[DeleteFavoriteItem] AS' 
+END
+GO
+ALTER procedure [dbo].[DeleteFavoriteItem]
+@item_barcode nvarchar(255),
+@Status int OUTPUT
+AS
+BEGIN
+    UPDATE Items SET Favorite = '0' WHERE ItemBarCode = @item_barcode
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteItem]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DeleteItem]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[DeleteItem] AS' 
+END
+GO
+ALTER procedure [dbo].[DeleteItem]
+    @ItemBarCode nvarchar(255),
+    @Status int OUTPUT
+AS
+BEGIN
+    DELETE Items WHERE ItemBarCode = @ItemBarCode
+	DELETE Discounts WHERE item_barcode = @ItemBarCode
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteItemType]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DeleteItemType]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[DeleteItemType] AS' 
+END
+GO
+ALTER procedure [dbo].[DeleteItemType]
+	@ItemTypeID int,
+	@Status int OUTPUT
+AS
+BEGIN
+    DELETE FROM ItemTypes WHERE id = @ItemTypeID
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeletePrinter]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DeletePrinter]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[DeletePrinter] AS' 
+END
+GO
+ALTER procedure [dbo].[DeletePrinter]
+	@printer_id int,
+	@machine_name nvarchar(255),
+	@Status int OUTPUT
+AS
+BEGIN
+	DELETE FROM PrinterItemType WHERE printerID = @printer_id
+    DELETE FROM Printers WHERE id = @printer_id AND machineName = @machine_name
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeletePrinterItemType]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DeletePrinterItemType]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[DeletePrinterItemType] AS' 
+END
+GO
+ALTER procedure [dbo].[DeletePrinterItemType]
+	@printer_id int,
+	@itemType_id nvarchar,
+	@Status int OUTPUT
+AS
+BEGIN
+    DELETE FROM PrinterItemType WHERE printerID = @printer_id AND itemTypeID = @itemType_id
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteUser]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DeleteUser]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[DeleteUser] AS' 
+END
+GO
+ALTER procedure [dbo].[DeleteUser]
+    @UserID nvarchar(255),
+    @Status int OUTPUT
+AS
+BEGIN
+	DECLARE @UID INT = (SELECT id FROM Users Where UID = @UserID)
+    DELETE Users WHERE UID = @UserID
+	DELETE FROM UserPermissions WHERE user_id = @UID
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[DeleteWarehouse]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DeleteWarehouse]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[DeleteWarehouse] AS' 
+END
+GO
+ALTER procedure [dbo].[DeleteWarehouse]
+	@WarehouseID int,
+	@Status int OUTPUT
+AS
+BEGIN
+    DELETE FROM Warehouses WHERE id = @WarehouseID
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetCapitalAmount]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetCapitalAmount]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GetCapitalAmount] AS' 
+END
+GO
+ALTER procedure [dbo].[GetCapitalAmount]
+	@Amount decimal(18, 2) OUTPUT,
+	@Status int OUTPUT
+AS
+BEGIN
+	set @Amount = (SELECT (SumOfInventory.SumOfInventory - cost.cost) + Revenue.Revenue from (SELECT sum(Items.ItemPriceTax * Items.ItemQuantity) as SumOfInventory From Items Where Items.ItemQuantity >= 0) as SumOfInventory, (SELECT sum(Expenses.cost) as cost FROM Expenses) as cost, (SELECT sum(Bills.paidAmount - Bills.remainderAmount) as Revenue FROM Bills) as Revenue)
+	set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetLastOpenRegisterDate]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetLastOpenRegisterDate]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GetLastOpenRegisterDate] AS' 
+END
+GO
+ALTER procedure [dbo].[GetLastOpenRegisterDate]
+	@Date date OUTPUT,
+	@Status int OUTPUT
+AS
+BEGIN
+	set @Date = (SELECT TOP 1 date FROM RegisterHistory WHERE openorclose = 1 ORDER BY date DESC)
+	set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetOpenRegisterAmount]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetOpenRegisterAmount]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GetOpenRegisterAmount] AS' 
+END
+GO
+ALTER procedure [dbo].[GetOpenRegisterAmount]
+	@Amount decimal(18, 2) OUTPUT,
+	@Status int OUTPUT
+AS
+BEGIN
+	set @Amount = (SELECT TOP 1 moneyInRegister FROM RegisterHistory WHERE openorclose = 1 ORDER BY date DESC)
+	set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetTotalSalesAmount]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetTotalSalesAmount]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GetTotalSalesAmount] AS' 
+END
+GO
+ALTER procedure [dbo].[GetTotalSalesAmount]
+	@Date date,
+	@Amount decimal(18, 2) OUTPUT,
+	@Status int OUTPUT
+AS
+BEGIN
+	set @Amount = (SELECT sum(totalAmount) FROM Bills WHERE ported = 0 AND date = @Date)
+	set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[GetTotalSalesAmountCloseCash]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GetTotalSalesAmountCloseCash]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GetTotalSalesAmountCloseCash] AS' 
+END
+GO
+ALTER procedure [dbo].[GetTotalSalesAmountCloseCash]
+	@Amount decimal(18, 2) OUTPUT,
+	@Status int OUTPUT
+AS
+BEGIN
+	set @Amount = (SELECT sum(totalAmount) FROM Bills WHERE ported = 0)
+	set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[InsertAbsence]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[InsertAbsence]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[InsertAbsence] AS' 
+END
+GO
+ALTER procedure [dbo].[InsertAbsence]
+	@EmpID int,
+	@Date date,
+	@Hours int,
+	@Status int OUTPUT
+AS
+BEGIN
+	INSERT INTO Absence(emp_id, date, hours) VALUES (@EmpID, @Date, @Hours)
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[InsertDayOff]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[InsertDayOff]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[InsertDayOff] AS' 
+END
+GO
+ALTER procedure [dbo].[InsertDayOff]
+	@EmpID int,
+	@Date date,
+	@Status int OUTPUT
+AS
+BEGIN
+	INSERT INTO Absence(emp_id, date, hours) VALUES (@EmpID, @Date, 8)
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[InsertDeduction]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[InsertDeduction]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[InsertDeduction] AS' 
+END
+GO
+ALTER procedure [dbo].[InsertDeduction]
+	@EmpID int,
+	@Date date,
+	@Deduction decimal(18, 2),
+	@Status int OUTPUT
+AS
+BEGIN
+	INSERT INTO Deductions(emp_id, date, deduction) VALUES (@EmpID, @Date, @Deduction)
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[InsertEmployee]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[InsertEmployee]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[InsertEmployee] AS' 
+END
+GO
+ALTER procedure [dbo].[InsertEmployee]
+    @EmployeeName nvarchar(255),
+	@Salary decimal(18, 2),
+	@Phone nvarchar(255),
+	@Address nvarchar(255),
+	@Status int OUTPUT
+AS
+BEGIN
+    INSERT INTO Employees(name, salary, phone, address) VALUES (@EmployeeName, @Salary, @Phone, @Address)
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[InsertExpense]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[InsertExpense]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[InsertExpense] AS' 
+END
+GO
+ALTER procedure [dbo].[InsertExpense]
+	@ExpenseName nvarchar(255),
+	@ExpenseCost decimal(18, 2),
+	@EmployeeID nvarchar(255),
+	@Date date,
+	@Status int OUTPUT
+AS
+BEGIN
+    INSERT INTO Expenses(name, cost, employee_id, date) VALUES (@ExpenseName, @ExpenseCost, @EmployeeID, @Date)
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[InsertFavoriteCategory]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[InsertFavoriteCategory]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[InsertFavoriteCategory] AS' 
+END
+GO
+ALTER procedure [dbo].[InsertFavoriteCategory]
+	@CategoryName nvarchar(255) = NULL,
+	@Status int OUTPUT
+AS
+BEGIN
+IF NOT EXISTS (SELECT * FROM FavoriteCategories 
+		WHERE name = @CategoryName)
+		BEGIN
+			INSERT INTO FavoriteCategories(name) VALUES (@CategoryName)
+			set @Status = 1
+		End
+END
+GO
+/****** Object:  StoredProcedure [dbo].[InsertItem]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[InsertItem]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[InsertItem] AS' 
+END
+GO
+ALTER procedure [dbo].[InsertItem]
+    @ItemName nvarchar(255),
+    @ItemBarCode nvarchar(255),
+	@Quantity int,
+	@BuyPrice decimal(18, 2),
+	@Price decimal(18, 2),
+	@PriceTax decimal(18, 2),
+	@ItemTypeID nvarchar(255),
+	@WarehouseID nvarchar(255),
+	@Favorite nvarchar(255),
+	@Date Date,
+	@Picture varbinary(MAX) = NULL,
+	@WarningQuantity int = 0,
+	@ProductionDate date = NULL,
+	@ExpirationDate date = NULL,
+	@EntryDate date = NULL,
+	@Status int OUTPUT
+AS
+BEGIN
+    INSERT INTO Items(ItemName, ItemBarCode, ItemQuantity, ItemBuyPrice, ItemPrice, ItemPriceTax, ItemType, Warehouse_id, Favorite, Date, Picture, QuantityWarning, ProductionDate, ExpirationDate, EntryDate) VALUES(@ItemName, @ItemBarCode, @Quantity, @BuyPrice, @Price, @PriceTax, @ItemTypeID, @WarehouseID, @Favorite, @Date, @Picture, @WarningQuantity, @ProductionDate, @ExpirationDate, @EntryDate)
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[InsertItemType]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[InsertItemType]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[InsertItemType] AS' 
+END
+GO
+ALTER procedure [dbo].[InsertItemType]
+	@ItemTypeName nvarchar(255) = NULL,
+	@Status int OUTPUT
+AS
+BEGIN
+IF NOT EXISTS (SELECT * FROM ItemTypes 
+		WHERE name = @ItemTypeName)
+		BEGIN
+			INSERT INTO ItemTypes(name) VALUES (@ItemTypeName)
+			set @Status = 1
+		End
+END
+GO
+/****** Object:  StoredProcedure [dbo].[InsertPrinter]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[InsertPrinter]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[InsertPrinter] AS' 
+END
+GO
+ALTER procedure [dbo].[InsertPrinter]
+	@MachineName nvarchar(255) = NULL,
+	@PrinterName nvarchar(255) = NULL,
+	@Status int OUTPUT
+AS
+BEGIN
+IF NOT EXISTS (SELECT * FROM Printers 
+		WHERE printerName = @PrinterName AND machineName = @MachineName)
+		BEGIN
+			INSERT INTO Printers(machineName, printerName) VALUES (@MachineName, @PrinterName)
+			set @Status = 1
+		End
+END
+GO
+/****** Object:  StoredProcedure [dbo].[InsertWarehouse]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[InsertWarehouse]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[InsertWarehouse] AS' 
+END
+GO
+ALTER procedure [dbo].[InsertWarehouse]
+	@WarehouseName nvarchar(255) = NULL,
+	@Status int OUTPUT
+AS
+BEGIN
+IF NOT EXISTS (SELECT * FROM Warehouses 
+		WHERE name = @WarehouseName)
+		BEGIN
+			INSERT INTO Warehouses(name) VALUES (@WarehouseName)
+			set @Status = 1
+		End
+END
+GO
+/****** Object:  StoredProcedure [dbo].[LoginAccount]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LoginAccount]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[LoginAccount] AS' 
+END
+GO
+ALTER procedure [dbo].[LoginAccount]
+    @UserID nvarchar(255),
+    @UserPWD nvarchar(255),
+	@Name nvarchar(255) OUTPUT,
+	@Authority int OUTPUT,
+	@Status int OUTPUT
+AS
+BEGIN
+DECLARE @cnt INT = (SELECT COUNT(UID)FROM Users Where UID = @UserID AND PWD = @UserPWD)
+DECLARE @name2 nvarchar(250) = (SELECT cashierName FROM Users Where UID = @UserID AND PWD = @UserPWD)
+DECLARE @authority2 int = (SELECT authority FROM Users WHERE UID = @UserID AND PWD = @UserPWD)
+Set @Authority = @authority2
+SET @Name = @name2
+set @Status = @cnt
+END
+GO
+/****** Object:  StoredProcedure [dbo].[LogLogin]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LogLogin]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[LogLogin] AS' 
+END
+GO
+ALTER procedure [dbo].[LogLogin]
+	@cashierName nvarchar(255),
+	@Date datetime
+AS
+BEGIN
+INSERT INTO LoginLogout(cashierName, date, action) VALUES (@cashierName, @Date, 'Login')
+END
+GO
+/****** Object:  StoredProcedure [dbo].[LogLogout]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[LogLogout]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[LogLogout] AS' 
+END
+GO
+ALTER procedure [dbo].[LogLogout]
+	@cashierName nvarchar(255),
+	@Date datetime
+AS
+BEGIN
+INSERT INTO LoginLogout(cashierName, date, action) VALUES (@cashierName, @Date, 'Logout')
+END
+GO
+/****** Object:  StoredProcedure [dbo].[PayBill]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PayBill]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[PayBill] AS' 
+END
+GO
+ALTER procedure [dbo].[PayBill]
+    @cashierName nvarchar(255),
+	@totalAmount decimal(18, 2),
+	@paidAmount decimal(18, 2),
+	@remainderAmount decimal(18, 2),
+	@paymentByCash int = 1,
+	@Date Date,
+	@ClientID int,
+	@BillID int OUTPUT,
+	@Status int OUTPUT
+AS
+BEGIN
+
+IF @paidAmount >= @totalAmount
+	BEGIN
+		INSERT INTO Bills(cashierName, totalAmount, paidAmount, remainderAmount, paymentByCash, date, ported, unpaid, ClientID) VALUES(@cashierName, @totalAmount, @paidAmount, @remainderAmount, @paymentByCash, @Date, 0, 0, @ClientID)
+	END
+ELSE IF @paidAmount < @totalAmount
+	BEGIN
+		INSERT INTO Bills(cashierName, totalAmount, paidAmount, remainderAmount, paymentByCash, date, ported, unpaid, ClientID, payment_progress) VALUES(@cashierName, @totalAmount, @paidAmount, @remainderAmount, @paymentByCash, @Date, 0, 1, @ClientID, @paidAmount)
+	END 
+DECLARE @bill_id INT = (SELECT TOP 1 id FROM Bills ORDER BY id DESC)
+set @BillID = @bill_id
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[PayUnpaidBill]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[PayUnpaidBill]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[PayUnpaidBill] AS' 
+END
+GO
+ALTER procedure [dbo].[PayUnpaidBill]
+    @BillID nvarchar(255),
+    @paidInstallmentAmount decimal(18, 2),
+	@Status int OUTPUT
+AS
+BEGIN
+DECLARE @TotalAmount decimal(18, 2) = (SELECT totalAmount FROM Bills Where id = @BillID)
+DECLARE @PaidAmount decimal(18, 2) = (SELECT paidAmount FROM Bills Where id = @BillID)
+
+UPDATE Bills SET paidAmount = (@PaidAmount + @paidInstallmentAmount) WHERE Bills.id = @BillID
+
+DECLARE @TotalAmountAfter decimal(18, 2) = (SELECT totalAmount FROM Bills Where id = @BillID)
+DECLARE @PaidAmountAfter decimal(18, 2) = (SELECT paidAmount FROM Bills Where id = @BillID)
+UPDATE Bills SET remainderAmount = (@TotalAmount - @PaidAmountAfter), postponed_bill_id = @BillID WHERE Bills.id = @BillID
+
+
+IF @PaidAmountAfter >= @TotalAmountAfter
+	BEGIN
+		UPDATE Bills SET unpaid = 0 WHERE Bills.id = @BillID
+	END
+ELSE IF @PaidAmount >= @TotalAmount
+	BEGIN
+		UPDATE Bills SET unpaid = 1 WHERE Bills.id = @BillID
+	END 
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RegisterAccount]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegisterAccount]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RegisterAccount] AS' 
+END
+GO
+ALTER procedure [dbo].[RegisterAccount]
+    @UserName nvarchar(255),
+    @UserID nvarchar(255),
+    @UserPWD nvarchar(255),
+	@AdminAcc nvarchar(255),
+	@ClientCardEditPerm nvarchar(255),
+	@discountEditPerm nvarchar(255),
+	@priceEditPerm nvarchar(255),
+	@receiptEditPerm nvarchar(255),
+	@inventoryEditPerm nvarchar(255),
+	@expensesEditPerm nvarchar(255),
+	@usersEditPerm nvarchar(255),
+	@settingsEditPerm nvarchar(255),
+	@personnelEditPerm nvarchar(255),
+	@opencloseEditPerm nvarchar(255),
+	@sellEditPerm nvarchar(255),
+	@Status int OUTPUT
+AS
+BEGIN
+	DECLARE @cnt INT = (SELECT COUNT(UID)FROM Users Where UID = @UserID)
+	DECLARE @cnt2 INT = (SELECT COUNT(UID)FROM Users Where UID = @AdminAcc AND Authority = '1')
+	IF @cnt < 1
+	BEGIN
+		if @cnt2 = 1
+		BEGIN
+			INSERT INTO Users(cashierName, UID, PWD)
+			VALUES (@UserName, @UserID, @UserPWD)
+			DECLARE @UID INT = (SELECT id FROM Users Where UID = @UserID)
+			INSERT INTO UserPermissions(user_id, Client_card_perm, discount_perm, price_edit_perm, receipt_edit_perm, inventory_edit_perm, expense_add_perm, users_edit_perm, settings_edit_perm, personnel_edit_perm, openclose_edit_perm, sell_edit_perm) VALUES (@UID, @ClientCardEditPerm, @discountEditPerm, @priceEditPerm, @receiptEditPerm, @inventoryEditPerm, @expensesEditPerm, @usersEditPerm, @settingsEditPerm, @personnelEditPerm, @opencloseEditPerm, @sellEditPerm)
+			set @Status = 1
+		END
+		Else
+		Begin
+			set @Status = 0
+		End
+	End
+	Else
+	BEGIN
+		set @Status = 0
+	End
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RegisterAdmin]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegisterAdmin]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RegisterAdmin] AS' 
+END
+GO
+ALTER procedure [dbo].[RegisterAdmin]
+    @UserName nvarchar(255),
+    @UserID nvarchar(255),
+    @UserPWD nvarchar(255),
+	@ClientCardEditPerm nvarchar(255),
+	@discountEditPerm nvarchar(255),
+	@priceEditPerm nvarchar(255),
+	@receiptEditPerm nvarchar(255),
+	@inventoryEditPerm nvarchar(255),
+	@expensesEditPerm nvarchar(255),
+	@usersEditPerm nvarchar(255),
+	@settingsEditPerm nvarchar(255),
+	@personnelEditPerm nvarchar(255),
+	@opencloseEditPerm nvarchar(255),
+	@sellEditPerm nvarchar(255),
+	@Status int OUTPUT
+AS
+BEGIN
+IF NOT EXISTS (SELECT * FROM Users 
+		WHERE cashierName = @UserName and
+		UID = @UserID and PWD = @UserPWD and Authority = '1')
+		BEGIN
+			INSERT INTO Users(cashierName, UID, PWD, Authority)
+			VALUES (@UserName, @UserID, @UserPWD, '1')
+			DECLARE @UID INT = (SELECT id FROM Users Where UID = @UserID)
+			INSERT INTO UserPermissions(user_id, Client_card_perm, discount_perm, price_edit_perm, receipt_edit_perm, inventory_edit_perm, expense_add_perm, users_edit_perm, settings_edit_perm, personnel_edit_perm, openclose_edit_perm, sell_edit_perm) VALUES (@UID, @ClientCardEditPerm, @discountEditPerm, @priceEditPerm, @receiptEditPerm, @inventoryEditPerm, @expensesEditPerm, @usersEditPerm, @settingsEditPerm, @personnelEditPerm, @opencloseEditPerm, @sellEditPerm)
+			set @Status = 1
+		End
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RegisterClient]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegisterClient]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RegisterClient] AS' 
+END
+GO
+ALTER procedure [dbo].[RegisterClient]
+    @ClientName nvarchar(255),
+	@ClientPhone nvarchar(255),
+	@ClientAddress nvarchar(255),
+	@Status int OUTPUT
+AS
+BEGIN
+    INSERT INTO ClientsVendors(ClientName, vendor, ClientPhone, ClientAddress) VALUES (@ClientName, 0, @ClientPhone, @ClientAddress)
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RegisterVendor]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RegisterVendor]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RegisterVendor] AS' 
+END
+GO
+ALTER procedure [dbo].[RegisterVendor]
+    @ClientName nvarchar(255),
+	@ClientPhone nvarchar(255),
+	@ClientAddress nvarchar(255),
+	@Status int OUTPUT
+AS
+BEGIN
+    INSERT INTO ClientsVendors(ClientName, vendor, ClientPhone, ClientAddress) VALUES (@ClientName, 1, @ClientPhone, @ClientAddress)
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveAbsence]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveAbsence]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveAbsence] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveAbsence]
+	@Date1 date,
+	@Date2 date
+AS
+BEGIN
+    SELECT DISTINCT Absence.id as 'Absence ID', Employees.name as 'Employee Name', Absence.date as 'Absence Date', Absence.hours as 'Absence Hours' FROM Absence
+	JOIN Employees ON Employees.id = Absence.emp_id
+	WHERE Absence.date >= @Date1 AND Absence.date <= @Date2
+	GROUP BY Absence.id, Employees.name, Absence.date, Absence.hours
+	ORDER BY Absence.id, Employees.name, Absence.date, Absence.hours
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveAccountAuthority]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveAccountAuthority]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveAccountAuthority] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveAccountAuthority]
+	@UserID nvarchar(255)
+AS
+BEGIN
+	DECLARE @UID INT = (SELECT id FROM Users Where UID = @UserID)		
+    SELECT TOP 1 Authority FROM Users WHERE id = @UID
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveBillItems]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveBillItems]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveBillItems] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveBillItems]
+	@BillNumber int
+AS
+BEGIN
+    SELECT DISTINCT Items.ItemName as 'Item Name', Items.ItemBarCode as 'Item BarCode', BillItems.item_quantity as 'Times Sold', sum(BillItems.item_quantity) as 'Sold Quantity', Items.ItemPrice as 'Item Price', Items.ItemPriceTax as 'Item Price Tax' FROM BillItems
+	INNER JOIN Items ON Items.ItemBarCode = Billitems.item_barcode
+	LEFT JOIN TransactionItems ON TransactionItems.item_barcode = BillItems.item_barcode
+	LEFT JOIN Transactions ON Transactions.id = TransactionItems.transaction_id AND Transactions.type = 0
+	WHERE BillItems.bill_id = @BillNumber
+	GROUP BY Items.ItemName, Items.ItemBarCode, BillItems.item_quantity, Items.ItemPrice, Items.ItemPriceTax
+	ORDER by BillItems.item_quantity DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveBillItemsProfit]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveBillItemsProfit]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveBillItemsProfit] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveBillItemsProfit]
+	@Date1 Datetime = NULL,
+	@Date2 datetime = NULL,
+	@ItemTypeID int = NULL,
+	@cashierName nvarchar(255) = NULL
+AS
+BEGIN
+    SELECT Items.ItemName as 'Item Name', Items.ItemBarCode as 'Item BarCode', ItemTypes.name as 'Item Type', Bills.cashierName as 'Cashier Name', Items.ItemPriceTax as 'Item Price Tax', sum(BillItems.item_quantity) as 'Times Sold', sum(Items.ItemPriceTax * BillItems.item_quantity) as 'Item Profit' FROM Items
+	INNER JOIN BillItems ON 1=1
+	INNER JOIN Bills ON BillItems.bill_id = Bills.id
+	LEFT JOIN ItemTypes ON ItemTypes.id = Items.ItemType
+	WHERE BillItems.item_barcode = Items.ItemBarCode AND (Bills.Date >= @Date1 AND Bills.Date <= @Date2) AND (@cashierName is NULL or Bills.cashierName = @cashierName) AND (@ItemTypeID is null or Items.ItemType = @ItemTypeID)
+	GROUP BY Items.ItemBarCode, Items.ItemName, ItemTypes.name, Bills.cashierName, Items.ItemPriceTax ORDER by 'Times Sold', Bills.cashierName, ItemTypes.name DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveBills]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveBills]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveBills] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveBills]
+AS
+BEGIN
+    SELECT id as 'Bill Number', cashierName as 'Cashier Name', totalAmount as 'Total Amount', paidAmount as 'Paid Amount', remainderAmount as 'Remainder Amount', 
+	CASE paymentByCash WHEN 0 THEN 'Visa'
+						WHEN 1 THEN 'Cash'
+	End as 'Payment Type', date as 'Invoice Date' FROM Bills ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveBillsCountByDate]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveBillsCountByDate]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveBillsCountByDate] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveBillsCountByDate]
+	@StartDate Datetime = NULL,
+	@EndDate datetime = NULL
+AS
+set @StartDate = DATEADD(Day, -1, @StartDate)
+set @EndDate = DATEADD(Day, 1, @EndDate)
+BEGIN
+SELECT count(id) as 'Bills Count' FROM Bills WHERE ( Date >= @StartDate AND Date <= @EndDate) GROUP BY id ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveBillSoldBItemQuantity]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveBillSoldBItemQuantity]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveBillSoldBItemQuantity] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveBillSoldBItemQuantity]
+@BillNumber int,
+@itemBarcode nvarchar(255),
+@SoldItemQuantity int OUTPUT
+AS
+BEGIN
+    Set  @SoldItemQuantity = (SELECT DISTINCT i.item_quantity FROM BILLS b LEFT JOIN BillItems i ON b.id = i.bill_id WHERE b.id = @BillNumber AND i.item_barcode = @itemBarcode)
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveCapitalRevenue]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveCapitalRevenue]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveCapitalRevenue] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveCapitalRevenue]
+AS
+BEGIN
+	SELECT Bills.Date as 'Date', sum((Items.ItemPriceTax - Items.ItemBuyPrice) * Items.ItemQuantity) as 'Total Revenue' FROM Items
+	JOIN BillItems ON BillItems.item_barcode=Items.ItemBarCode
+	JOIN Bills ON Billitems.bill_id = Bills.id GROUP BY Bills.Date ORDER BY Bills.Date DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveCashierNames]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveCashierNames]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveCashierNames] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveCashierNames]
+AS
+BEGIN
+    SELECT cashierName as 'Cashier Name' FROM Users
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveClientBills]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveClientBills]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveClientBills] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveClientBills]
+	@ClientID int
+AS
+BEGIN
+    SELECT b.id as 'Bill Number', b.cashierName as 'Cashier Name', b.totalAmount as 'Total Amount', b.paidAmount as 'Paid Amount', b.remainderAmount as 'Remainder Amount', b.date as 'Date', CASE b.unpaid WHEN 0 THEN 'Paid'
+						WHEN 1 THEN 'Unpaid'
+	End as 'Status', b.ClientID, c.ClientName as 'Client ID' FROM Bills b
+	RIGHT JOIN ClientsVendors c ON c.id = b.ClientID
+	WHERE b.ClientID = @ClientID
+	ORDER by b.id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveClientCount]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveClientCount]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveClientCount] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveClientCount]
+AS
+BEGIN
+    SELECT COUNT (c.id) as 'Client Count'
+	FROM ClientsVendors c
+	GROUP BY c.id
+	ORDER by c.id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveClientsList]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveClientsList]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveClientsList] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveClientsList]
+	@ClientName nvarchar(255) = NULL
+AS
+BEGIN
+    SELECT ClientName as 'Client Name', ID as 'Client ID', ClientPhone as 'Client Phone', ClientAddress as 'Client Address' FROM ClientsVendors WHERE (@ClientName is null or ClientName LIKE '%' + @ClientName + '%') AND vendor = 0 ORDER by ClientName DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveEmployees]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveEmployees]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveEmployees] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveEmployees]
+AS
+BEGIN
+	Declare @Date1 date
+	Declare @Date2 date
+	Set @Date1 = Dateadd(Day, -30, GETDATE())
+	Set @Date2 = Dateadd(Day, 0, GetDATE())
+    SELECT Employees.id as 'Employee ID', Employees.name as 'Employee Name', Employees.salary as 'Employee Salary', salary - sum(Deductions.deduction) as 'Deducted Salary', Employees.phone as 'Employee Phone', Employees.address as 'Employee Address' FROM Employees
+	LEFT JOIN Deductions ON Deductions.emp_id = Employees.id AND Deductions.date >= @Date1 AND Deductions.date <= @Date2
+	GROUP BY Employees.id, Employees.name, Employees.salary, Employees.phone, Employees.address
+	ORDER by Employees.id, Employees.name DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveExpireStockToday]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveExpireStockToday]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveExpireStockToday] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveExpireStockToday]
+	@Date1 Datetime = NULL,
+	@Date2 datetime = NULL,
+	@ItemBarCode nvarchar(255) = NULL,
+	@CurrentQuantity int = 0
+AS
+BEGIN
+set @Date1 = DATEADD(Day, -1, @Date1)
+set @Date2 = DATEADD(Day, 1, @Date2)
+SELECT TOP 1 ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ProductionDate as 'Start Date', ExpirationDate as 'End Date', QuantityWarning as 'Quantity End', ItemQuantity as 'Current Quantity' FROM Items WHERE ((ExpirationDate <= @Date1) OR (QuantityWarning > @CurrentQuantity)) and ItemBarCode = @ItemBarCode ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveExports]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveExports]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveExports] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveExports]
+AS
+BEGIN
+	SELECT Items.Date as 'Date', sum(Items.ItemPriceTax * Items.ItemQuantity) as 'Total Cost' FROM Items
+	JOIN BillItems ON BillItems.item_barcode=Items.ItemBarCode GROUP BY Date ORDER BY Items.Date DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategories]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveFavoriteCategories]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveFavoriteCategories] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveFavoriteCategories]
+AS
+BEGIN
+    SELECT id as 'Category ID', name as 'Category Name' FROM FavoriteCategories ORDER by id ASC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategoryIndex]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveFavoriteCategoryIndex]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveFavoriteCategoryIndex] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveFavoriteCategoryIndex]
+@CategoryName nvarchar(255)
+AS
+BEGIN
+    SELECT TOP 1 id as 'Category ID' FROM FavoriteCategories WHERE name = @CategoryName
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteCategoryName]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveFavoriteCategoryName]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveFavoriteCategoryName] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveFavoriteCategoryName]
+@CategoryIndex nvarchar(255)
+AS
+BEGIN
+    SELECT TOP 1 CASE WHEN name IS NULL THEN N'غير مفضله' ELSE name END as 'Category Name' FROM FavoriteCategories WHERE id = @CategoryIndex
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveFavoriteItems]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveFavoriteItems]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveFavoriteItems] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveFavoriteItems]
+	@Category int = NULL
+AS
+BEGIN
+    SELECT id as 'Item ID', ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', ItemPrice as 'Item Price', ItemPriceTax as 'Item Price Tax', Favorite as 'Favorite Category' FROM Items WHERE Favorite = @Category ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveImports]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveImports]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveImports] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveImports]
+AS
+BEGIN
+    SELECT Items.Date as 'Date', sum(Items.ItemPriceTax * Items.ItemQuantity) as 'Total Cost' FROM Items GROUP BY Date ORDER BY Items.Date DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveItemPictureFromBarCode]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveItemPictureFromBarCode]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveItemPictureFromBarCode] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveItemPictureFromBarCode]
+	@ItemBarCode nvarchar(255) = NULL
+AS
+BEGIN
+    SELECT TOP 1 Picture as 'Item Picture' FROM Items WHERE ItemBarCode = @ItemBarCode ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveItems]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveItems]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveItems] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveItems]
+	@Locale int = 1
+AS
+BEGIN
+	if @Locale = 0
+		SELECT I.ID as 'Item ID', ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', ItemBuyPrice as 'Item Buy Price', ItemPrice as 'Item Price', ItemPriceTax as 'Item Price Tax', Favorite as 'Favorite Category Number', CASE WHEN F.name IS NULL THEN N'غير مفضله' ELSE F.name END as 'Favorite Category', Warehouse_id as 'Warehouse ID', CASE WHEN W.name IS NULL THEN N'غير موجود' ELSE W.name END as 'InventoryItemWarehouse', ItemType as 'Item Type', CASE WHEN T.name IS NULL THEN N'غير مصنف' ELSE T.name END as 'InventoryItemType', Picture as 'Item Picture'
+		FROM Items I
+		LEFT JOIN FavoriteCategories f ON f.id = I.Favorite
+		LEFT JOIN Warehouses w ON w.id = I.Warehouse_id
+		LEFT JOIN ItemTypes T ON T.id = I.ItemType
+		ORDER by I.id DESC
+	else if @Locale = 1
+		SELECT I.ID as 'Item ID', ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', ItemBuyPrice as 'Item Buy Price', ItemPrice as 'Item Price', ItemPriceTax as 'Item Price Tax', Favorite as 'Favorite Category Number', CASE WHEN F.name IS NULL THEN N'Not Favorited' ELSE F.name END as 'Favorite Category', Warehouse_id as 'Warehouse ID', CASE WHEN W.name IS NULL THEN N'Inexistent' ELSE W.name END as 'InventoryItemWarehouse', ItemType as 'Item Type', CASE WHEN T.name IS NULL THEN N'Unclassified' ELSE T.name END as 'InventoryItemType', Picture as 'Item Picture'
+		FROM Items I
+		LEFT JOIN FavoriteCategories f ON f.id = I.Favorite
+		LEFT JOIN Warehouses w ON w.id = I.Warehouse_id
+		LEFT JOIN ItemTypes T ON T.id = I.ItemType
+		ORDER by I.id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveItemsQuantity]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveItemsQuantity]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveItemsQuantity] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveItemsQuantity]
+	@ItemBarCode nvarchar(255) = ''
+AS
+BEGIN
+	if @ItemBarCode = ''
+		begin
+			SELECT ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity' FROM Items
+			GROUP BY id, ItemBarCode, ItemQuantity
+			ORDER BY id
+		end
+	else
+		begin
+			SELECT ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity' FROM Items
+			WHERE ItemBarCode = @ItemBarCode
+			GROUP BY id, ItemBarCode, ItemQuantity
+			ORDER BY id
+		end
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveItemsQuantityDates]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveItemsQuantityDates]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveItemsQuantityDates] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveItemsQuantityDates]
+	@ItemBarCode nvarchar(255) = NULL
+AS
+BEGIN
+    SELECT TOP 1 ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', QuantityWarning as 'Quantity Warning', ProductionDate as 'Production Date', ExpirationDate as 'Expiration Date', EntryDate as 'Entry Date' FROM Items WHERE ItemBarCode = @ItemBarCode ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveItemTypeIndex]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveItemTypeIndex]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveItemTypeIndex] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveItemTypeIndex]
+@ItemTypeName nvarchar(255)
+AS
+BEGIN
+    SELECT TOP 1 id as 'ItemType ID' FROM ItemTypes WHERE name = @ItemTypeName
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveItemTypeName]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveItemTypeName]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveItemTypeName] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveItemTypeName]
+@ItemTypeIndex nvarchar(255)
+AS
+BEGIN
+    SELECT TOP 1 CASE WHEN name IS NULL THEN N'غير مصنف' ELSE name END as 'ItemType Name' FROM ItemTypes WHERE id = @ItemTypeIndex
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveItemTypes]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveItemTypes]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveItemTypes] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveItemTypes]
+AS
+BEGIN
+    SELECT id as 'ItemType ID', name as 'ItemType Name' FROM ItemTypes ORDER by id ASC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveLastBillNumber]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveLastBillNumber]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveLastBillNumber] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveLastBillNumber]
+AS
+BEGIN
+SELECT TOP 1 id as 'Bill Number' FROM Bills ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveLastBillNumberByDates]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveLastBillNumberByDates]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveLastBillNumberByDates] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveLastBillNumberByDates]
+	@Date1 Datetime = NULL,
+	@Date2 datetime = NULL
+AS
+set @Date1 = DATEADD(Day, -1, @Date1)
+set @Date2 = DATEADD(Day, 1, @Date2)
+BEGIN
+SELECT TOP 1 id as 'Bill Number' FROM Bills WHERE ( Date >= @Date1 AND Date <= @Date2) ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveLastVendorBillNumberToday]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveLastVendorBillNumberToday]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveLastVendorBillNumberToday] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveLastVendorBillNumberToday]
+	@Date1 Datetime = NULL,
+	@Date2 datetime = NULL
+AS
+set @Date1 = DATEADD(Day, -1, @Date1)
+set @Date2 = DATEADD(Day, 1, @Date2)
+BEGIN
+SELECT TOP 1 id as 'Bill Number' FROM VendorBills WHERE ( Date >= @Date1 AND Date <= @Date2) ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveLeastBoughtItems]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveLeastBoughtItems]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveLeastBoughtItems] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveLeastBoughtItems]
+AS
+BEGIN
+	
+    SELECT TOP 100 Items.ItemName as 'Item Name', Items.ItemBarCode as 'Item BarCode', sum(BillItems.item_quantity) as 'Times Sold', Items.ItemPrice as 'Item Price', Items.ItemPriceTax as 'Item Price Tax' FROM Items
+	JOIN BillItems ON Items.ItemBarCode = BillItems.item_barcode GROUP BY Items.ItemBarCode, Items.ItemName, Items.ItemPrice, Items.ItemPriceTax ORDER BY 'Times Sold' ASC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveLoginLogoutInfo]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveLoginLogoutInfo]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveLoginLogoutInfo] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveLoginLogoutInfo]
+	@Date1 Datetime = NULL,
+	@Date2 datetime = NULL
+AS
+BEGIN
+set @Date1 = DATEADD(Day, -1, @Date1)
+set @Date2 = DATEADD(Day, 1, @Date2)
+    SELECT cashierName as 'Cashier Name', date as 'Date', action as 'Action' FROM LoginLogout
+	WHERE ( Date >= @Date1 AND Date <= @Date2) ORDER BY id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveMostBoughtItems]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveMostBoughtItems]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveMostBoughtItems] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveMostBoughtItems]
+AS
+BEGIN
+	
+    SELECT TOP 100 Items.ItemName as 'Item Name', Items.ItemBarCode as 'Item BarCode', sum(BillItems.item_quantity) as 'Times Sold', Items.ItemPrice as 'Item Price', Items.ItemPriceTax as 'Item Price Tax' FROM Items
+	JOIN BillItems ON Items.ItemBarCode = BillItems.item_barcode GROUP BY Items.ItemBarCode, Items.ItemName, Items.ItemPrice, Items.ItemPriceTax ORDER BY 'Times Sold' DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrievePortedBills]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrievePortedBills]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrievePortedBills] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrievePortedBills]
+AS
+BEGIN
+    SELECT id as 'Bill Number', cashierName as 'Cashier Name', totalAmount as 'Total Amount', paidAmount as 'Paid Amount', remainderAmount as 'Remainder Amount', CASE paymentByCash WHEN 0 THEN 'Visa'
+						WHEN 1 THEN 'Cash'
+	End as 'Payment Type', '' as 'TotalPorted'  FROM Bills WHERE ported = 1 ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrievePrinterItemTypes]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrievePrinterItemTypes]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrievePrinterItemTypes] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrievePrinterItemTypes]
+	@printerID int
+AS
+BEGIN
+    SELECT P.itemTypeID as 'ItemType ID', I.name as 'ItemType Name' FROM PrinterItemType P
+	LEFT JOIN ItemTypes I ON I.id = P.itemTypeID
+	WHERE printerID = @printerID 
+	ORDER by P.id ASC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrievePrinters]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrievePrinters]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrievePrinters] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrievePrinters]
+	@machineName nvarchar(255)
+AS
+BEGIN
+    SELECT id as 'Printer ID', printerName as 'Printer Name' FROM Printers WHERE machineName = @machineName ORDER by id ASC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveReturnedItems]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveReturnedItems]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveReturnedItems] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveReturnedItems]
+AS
+BEGIN
+	Declare @TransactionID int
+	SELECT TransactionItems.transaction_id as 'Transaction ID', Transactions.cashierName as 'Cashier Name', Items.ItemName as 'Item Name', TransactionItems.item_barcode as 'Item BarCode', TransactionItems.item_quantity as 'Item Quantity' FROM TransactionItems
+	INNER JOIN Transactions ON Transactions.id = TransactionItems.transaction_id AND Transactions.type = 2
+	INNER JOIN Items ON Items.ItemBarCode = TransactionItems.item_barcode
+	WHERE TransactionItems.transaction_id = Transactions.id
+	ORDER BY TransactionItems.id
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveSale]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveSale]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveSale] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveSale]
+	@Date1 Datetime = NULL,
+	@Date2 datetime = NULL,
+	@QuantityEnd int = 0
+AS
+BEGIN
+set @Date1 = DATEADD(Day, -1, @Date1)
+set @Date2 = DATEADD(Day, 1, @Date2)
+SELECT TOP 1 id as 'Sale ID', item_barcode as 'Item BarCode', sale_rate as 'Sale Rate', start_date as 'Start Date', end_date as 'End Date', quantity_end as 'Quantity End' FROM Discounts WHERE ((start_date <= @Date2 AND end_date >= @Date1) AND (quantity_end > 0)) ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveSaleByDate]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveSaleByDate]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveSaleByDate] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveSaleByDate]
+	@StartDate Datetime = NULL,
+	@EndDate datetime = NULL
+AS
+BEGIN
+set @StartDate = DATEADD(Day, -1, @StartDate)
+set @EndDate = DATEADD(Day, 1, @EndDate)
+SELECT b.id as 'Sale ID', b.cashierName as 'Cashier Name', b.totalAmount as 'Total Amount', b.paidAmount as 'Amount Paid', b.remainderAmount as 'Remainder Amount',
+b.date as 'Sale Date', CASE b.paymentByCash WHEN 0 THEN 'Visa'
+						WHEN 1 THEN 'Cash'
+	End as 'Payment Type', c.ClientName 
+	FROM Bills b
+	LEFT JOIN ClientsVendors c ON b.ClientID = c.id
+	WHERE (b.date <= @EndDate AND b.date >= @StartDate) ORDER by b.id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveSaleDateRange]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveSaleDateRange]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveSaleDateRange] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveSaleDateRange]
+	@StartDate Datetime = NULL,
+	@EndDate datetime = NULL,
+	@QuantityEnd int = 0
+AS
+BEGIN
+set @StartDate = DATEADD(Day, -1, @StartDate)
+set @EndDate = DATEADD(Day, 1, @EndDate)
+SELECT id as 'Sale ID', item_barcode as 'Item BarCode', sale_rate as 'Sale Rate', start_date as 'Start Date', end_date as 'End Date', quantity_end as 'Quantity End' FROM Discounts WHERE ((start_date <= @EndDate AND end_date >= @StartDate) AND (quantity_end > 0)) ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveSaleItemsQuantity]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveSaleItemsQuantity]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveSaleItemsQuantity] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveSaleItemsQuantity]
+AS
+BEGIN
+SELECT Discounts.id as 'Sale ID', Discounts.item_barcode as 'Item BarCode', Items.ItemQuantity as 'Quantity End' FROM Discounts
+JOIN Items ON Items.ItemBarCode = Discounts.item_barcode
+GROUP BY Discounts.id, Discounts.item_barcode, Items.ItemQuantity
+ORDER by Discounts.id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveSystemSettings]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveSystemSettings]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveSystemSettings] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveSystemSettings]
+AS
+BEGIN
+    SELECT TOP 1 * FROM Settings WHERE id = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveTaxZReport]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveTaxZReport]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveTaxZReport] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveTaxZReport]
+AS
+BEGIN
+    SELECT bills.id as 'Bill Number', cashierName as 'Cashier Name', totalAmount as 'Total Amount', sum(items.ItemPriceTax - items.ItemPrice)  as 'Tax', bills.date as 'Date', '' as 'TaxTotal' FROM Bills
+inner join billitems on bills.id = billitems.bill_id
+inner join items on billitems.item_barcode = items.ItemBarCode
+group by Bills.id, bills.cashierName, bills.totalAmount, bills.date
+ORDER by bills.id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveTotalActiveItems]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveTotalActiveItems]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveTotalActiveItems] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveTotalActiveItems]
+	@ExpireDate datetime = NULL
+AS
+BEGIN
+set @ExpireDate = DATEADD(Day, 1, @ExpireDate)
+SELECT count(id) FROM Items WHERE ((ExpirationDate > @ExpireDate) OR (QuantityWarning < ItemQuantity)) GROUP BY id ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveUnpaidBills]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveUnpaidBills]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveUnpaidBills] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveUnpaidBills]
+AS
+BEGIN
+    SELECT id as 'Bill Number', cashierName as 'Cashier Name', date as 'Date', totalAmount as 'Total Amount', paidAmount as 'Paid Amount', remainderAmount as 'Remainder Amount', 
+	CASE paymentByCash WHEN 0 THEN 'Visa'
+						WHEN 1 THEN 'Cash'
+	End as 'Payment Type', date as 'Invoice Date' FROM Bills WHERE unpaid = 1 ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveUnPortedBills]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveUnPortedBills]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveUnPortedBills] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveUnPortedBills]
+AS
+BEGIN
+    SELECT id as 'Bill Number', cashierName as 'Cashier Name', totalAmount as 'Total Amount', paidAmount as 'Paid Amount', remainderAmount as 'Remainder Amount', CASE paymentByCash WHEN 0 THEN 'Visa'
+						WHEN 1 THEN 'Cash'
+	End as 'Payment Type', '' as 'TotalUnPorted'  FROM Bills WHERE ported = 0 ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveUserPermissions]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveUserPermissions]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveUserPermissions] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveUserPermissions]
+	@UserID nvarchar(255)
+AS
+BEGIN
+	DECLARE @UID INT = (SELECT id FROM Users Where UID = @UserID)		
+    SELECT TOP 1 Client_card_perm as 'Client Card Permission', discount_perm as 'Discount Permission', price_edit_perm as 'Price Edit Permission', receipt_edit_perm as 'Receipt Edit Permission', inventory_edit_perm as 'Inventory Edit Permission', expense_add_perm as 'Expense Add Permission', users_edit_perm as 'Users Edit Permission', settings_edit_perm as 'Settings Edit Permission', personnel_edit_perm as 'Personnel Edit Permission', openclose_edit_perm as 'Open Close Cash Permission', sell_edit_perm as 'Sell Permission' FROM UserPermissions WHERE user_id = @UID
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveUsers]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveUsers]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveUsers] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveUsers]
+AS
+BEGIN
+    SELECT cashierName as 'User Name', UID as 'User ID', PWD as 'User Password', Authority as 'User Authority' FROM Users ORDER by Authority, id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveUsersList]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveUsersList]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveUsersList] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveUsersList]
+AS
+BEGIN
+    SELECT cashierName as 'User Name', UID as 'User ID' FROM Users ORDER by Authority, id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveVendorBillItems]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveVendorBillItems]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveVendorBillItems] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveVendorBillItems]
+	@BillNumber int
+AS
+BEGIN
+    SELECT DISTINCT Items.ItemName as 'Item Name', Items.ItemBarCode as 'Item BarCode', VendorBillItems.item_quantity as 'Item Buy Quantity', Items.ItemBuyPrice as 'Item Buy Price' FROM Items
+	JOIN VendorBillItems ON VendorBillItems.bill_id = @BillNumber ORDER BY Items.ItemName
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveVendorBills]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveVendorBills]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveVendorBills] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveVendorBills]
+AS
+BEGIN
+    SELECT id as 'Bill Number', cashierName as 'Cashier Name', totalAmount as 'Total Amount', date as 'Date' FROM VendorBills WHERE unpaid = 0 ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveVendorsList]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveVendorsList]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveVendorsList] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveVendorsList]
+	@ClientName nvarchar(255) = NULL
+AS
+BEGIN
+    SELECT ClientName as 'Client Name', ID as 'Client ID', ClientPhone as 'Client Phone', ClientAddress as 'Client Address' FROM ClientsVendors WHERE (@ClientName is null or ClientName LIKE '%' + @ClientName + '%') AND vendor = 1 ORDER by ClientName DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveWarehouseIndex]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveWarehouseIndex]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveWarehouseIndex] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveWarehouseIndex]
+@WarehouseName nvarchar(255)
+AS
+BEGIN
+    SELECT TOP 1 id as 'Warehouse ID' FROM Warehouses WHERE name = @WarehouseName
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveWarehouseName]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveWarehouseName]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveWarehouseName] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveWarehouseName]
+@WarehouseIndex nvarchar(255)
+AS
+BEGIN
+    SELECT TOP 1 CASE WHEN name IS NULL THEN N'غير موجود' ELSE name END as 'Warehouse Name' FROM Warehouses WHERE id = @WarehouseIndex
+END
+GO
+/****** Object:  StoredProcedure [dbo].[RetrieveWarehouses]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[RetrieveWarehouses]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[RetrieveWarehouses] AS' 
+END
+GO
+ALTER procedure [dbo].[RetrieveWarehouses]
+AS
+BEGIN
+    SELECT id as 'Warehouse ID', name as 'Warehouse Name' FROM Warehouses ORDER by id ASC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[ReturnItem]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[ReturnItem]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[ReturnItem] AS' 
+END
+GO
+ALTER procedure [dbo].[ReturnItem]
+	@ItemName nvarchar(255),
+	@ItemBarCode nvarchar(255),
+	@ItemQuantity int,
+	@cashierName nvarchar(255),
+	@Date date,
+	@Status int OUTPUT
+AS
+BEGIN
+	UPDATE Items SET ItemQuantity = @ItemQuantity WHERE ItemBarCode = @ItemBarCode AND ItemName = @ItemName
+	INSERT INTO Transactions(cashierName, date, type, time) VALUES (@cashierName, @Date, 2, convert(time, getdate(), 108))
+	Declare @TransactionID int
+	set @TransactionID = (SELECT TOP 1 id FROM Transactions WHERE cashierName = @cashierName AND date = @Date AND type = 2 ORDER BY id DESC)
+	Declare @oldquantity int = (SELECT ItemQuantity FROM Items WHERE ItemBarCode = @ItemBarCode AND ItemName = @ItemName)
+	Set @oldquantity = @oldquantity + @ItemQuantity
+	UPDATE Items Set ItemQuantity = @oldquantity, Date = @Date WHERE ItemBarCode = @ItemBarCode and ItemName = @ItemName
+	INSERT INTO TransactionItems(item_barcode, item_quantity, transaction_id) VALUES (@ItemBarCode, @ItemQuantity, @TransactionID)
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SaveRegisterClose]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SaveRegisterClose]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[SaveRegisterClose] AS' 
+END
+GO
+ALTER procedure [dbo].[SaveRegisterClose]
+@cashier_name nvarchar(255),
+@moneyInRegister decimal,
+@date datetime,
+@Date1 Date = NULL,
+@Date2 Date = NULL,
+@Status int OUTPUT
+AS
+BEGIN
+set @Date1 = DATEADD(Day, -1, @date)
+set @Date2 = DATEADD(Day, 1, @date)
+    INSERT RegisterHistory(cashier_name, moneyInRegister, date, openorclose) VALUES (@cashier_name, @moneyInRegister, @date, 0)
+	UPDATE Bills SET ported = 1 WHERE (date >= @Date1 AND date <= @Date2) or ported = 0
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SaveRegisterOpen]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SaveRegisterOpen]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[SaveRegisterOpen] AS' 
+END
+GO
+ALTER procedure [dbo].[SaveRegisterOpen]
+@cashier_name nvarchar(255),
+@moneyInRegister decimal,
+@date datetime,
+@Status int OUTPUT
+AS
+BEGIN
+    INSERT RegisterHistory(cashier_name, moneyInRegister, date, openorclose) VALUES (@cashier_name, @moneyInRegister, @date, 1)
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SearchBills]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SearchBills]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[SearchBills] AS' 
+END
+GO
+ALTER procedure [dbo].[SearchBills]
+	@BillNumber int
+AS
+BEGIN
+SELECT b.id as 'Bill Number', b.cashierName as 'Cashier Name', b.totalAmount as 'Total Amount', b.paidAmount as 'Paid Amount', b.remainderAmount as 'Remainder Amount', 
+	CASE b.paymentByCash WHEN 0 THEN 'Visa'
+						WHEN 1 THEN 'Cash'
+	End as 'Payment Type', b.date as 'Invoice Date', c.ClientName as 'Client Name', c.ClientPhone as 'Client Phone', c.ClientAddress as 'Client Address' FROM Bills b
+	LEFT JOIN ClientsVendors c ON c.id = b.ClientID
+	WHERE b.id = @BillNumber ORDER by b.id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SearchClients]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SearchClients]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[SearchClients] AS' 
+END
+GO
+ALTER procedure [dbo].[SearchClients]
+	@ClientName nvarchar(255) = NULL,
+	@ClientID int = 0,
+	@itemBarCode nvarchar(255) = NULL
+AS
+BEGIN
+select ClientsVendors.ClientName as 'Client Name', ClientsVendors.ID as 'Client ID', Items.ItemName as 'Item Name', Items.ItemBarCode as 'Item BarCode', ClientsItems.item_price as 'Client Price' From ClientsVendors
+LEFT JOIN ClientsItems ON ClientsItems.Client_id = ClientsVendors.ID
+LEFT JOIN Items ON Items.ItemBarCode = ClientsItems.item_barcode
+where (@ClientName is null or ClientsVendors.ClientName LIKE '%' + @ClientName + '%') or (@ClientID is null or ClientsVendors.ID = @ClientID) or (@itemBarCode is null or ClientsItems.item_barcode LIKE '%' + @itemBarCode + '%') and vendor = 0
+GROUP BY ClientsVendors.id, ClientsVendors.ClientName, ClientsVendors.ID, Items.ItemName, Items.ItemBarCode, ClientsItems.item_price
+Order by ClientsVendors.id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SearchClientsInfo]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SearchClientsInfo]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[SearchClientsInfo] AS' 
+END
+GO
+ALTER procedure [dbo].[SearchClientsInfo]
+	@ClientName nvarchar(255) = NULL,
+	@ClientID nvarchar(255) = NULL
+AS
+BEGIN
+select ClientsVendors.id as 'Client ID', ClientsVendors.ClientName as 'Client Name' From ClientsVendors
+where (@ClientName is null or ClientsVendors.ClientName LIKE '%' + @ClientName + '%') and (@ClientID is null or ClientsVendors.ID LIKE '%' + @ClientID + '%')
+Order by ClientsVendors.id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SearchExpenses]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SearchExpenses]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[SearchExpenses] AS' 
+END
+GO
+ALTER procedure [dbo].[SearchExpenses]
+	@ExpenseName nvarchar(255) = NULL,
+	@EmployeeID nvarchar(255) = NULL,
+	@Date1 Datetime = NULL,
+	@Date2 datetime = NULL
+AS
+BEGIN
+set @Date1 = DATEADD(Day, -1, @Date1)
+select id as 'Expense ID', name as 'Expense Name', employee_id as 'Employee ID', sum(cost) as 'Expense Cost', date as 'Expense Date' From Expenses where 
+(@ExpenseName is null or name LIKE '%' + @ExpenseName + '%') and ( @EmployeeID is null or employee_id LIKE '%' + @EmployeeID + '%') and ( date >= @Date1 AND date <= @Date2)
+Group by id, name, date, employee_id
+Order by date DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SearchInventoryItems]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SearchInventoryItems]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[SearchInventoryItems] AS' 
+END
+GO
+ALTER procedure [dbo].[SearchInventoryItems]
+	@ItemName nvarchar(255) = NULL,
+	@ItemBarCode nvarchar(255) = NULL,
+	@Locale int = 1
+AS
+BEGIN
+
+if @Locale = 0
+SELECT I.ID as 'Item ID', ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', ItemBuyPrice as 'Item Buy Price', ItemPrice as 'Item Price', ItemPriceTax as 'Item Price Tax', Favorite as 'Favorite Category Number', CASE WHEN F.name IS NULL THEN N'غير مفضله' ELSE F.name END as 'Favorite Category', Warehouse_id as 'Warehouse ID', CASE WHEN W.name IS NULL THEN N'غير موجود' ELSE W.name END as 'InventoryItemWarehouse', ItemType as 'Item Type', CASE WHEN T.name IS NULL THEN N'غير مصنف' ELSE T.name END as 'InventoryItemType', Picture as 'Item Picture'
+FROM Items I
+		LEFT JOIN FavoriteCategories f ON f.id = I.Favorite
+		LEFT JOIN Warehouses w ON w.id = I.Warehouse_id
+		LEFT JOIN ItemTypes T ON T.id = I.ItemType
+		WHERE (@ItemName is null or ItemName LIKE '%' + @ItemName + '%') and ( @ItemBarCode is null or ItemBarCode LIKE '%' + @ItemBarCode + '%')
+		ORDER by I.id DESC
+	else if @Locale = 1
+	SELECT I.ID as 'Item ID', ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', ItemBuyPrice as 'Item Buy Price', ItemPrice as 'Item Price', ItemPriceTax as 'Item Price Tax', Favorite as 'Favorite Category Number', CASE WHEN F.name IS NULL THEN N'Not Favorited' ELSE F.name END as 'Favorite Category', Warehouse_id as 'Warehouse ID', CASE WHEN W.name IS NULL THEN N'Inexistent' ELSE W.name END as 'InventoryItemWarehouse', ItemType as 'Item Type', CASE WHEN T.name IS NULL THEN N'Unclassified' ELSE T.name END as 'InventoryItemType', Picture as 'Item Picture'
+FROM Items I
+		LEFT JOIN FavoriteCategories f ON f.id = I.Favorite
+		LEFT JOIN Warehouses w ON w.id = I.Warehouse_id
+		LEFT JOIN ItemTypes T ON T.id = I.ItemType
+		WHERE (@ItemName is null or ItemName LIKE '%' + @ItemName + '%') and ( @ItemBarCode is null or ItemBarCode LIKE '%' + @ItemBarCode + '%')
+		ORDER by I.id DESC
+
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SearchInventoryItemsWithBarCode]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SearchInventoryItemsWithBarCode]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[SearchInventoryItemsWithBarCode] AS' 
+END
+GO
+ALTER procedure [dbo].[SearchInventoryItemsWithBarCode]
+	@ItemBarCode nvarchar(255)
+AS
+BEGIN
+SELECT id as 'Item ID', ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', ItemBuyPrice as 'Item Buy Price', ItemPrice as 'Item Price', ItemPriceTax as 'Item Price Tax', Favorite as 'Favorite Category', Warehouse_id as 'Warehouse ID', ItemType as 'Item Type', Picture as 'Picture' FROM Items where 
+ItemBarCode = @ItemBarCode
+Order by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SearchItems]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SearchItems]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[SearchItems] AS' 
+END
+GO
+ALTER procedure [dbo].[SearchItems]
+	@ItemName nvarchar(255) = NULL,
+	@ItemBarCode nvarchar(255) = NULL,
+	@ItemType nvarchar(255) = NULL
+AS
+BEGIN
+SELECT I.ID as 'Item ID', I.ItemName as 'Item Name', I.ItemBarCode as 'Item BarCode', I.ItemQuantity as 'Item Quantity', I.ItemBuyPrice as 'Item Buy Price', I.ItemPrice as 'Item Price', I.ItemPriceTax as 'Item Price Tax', I.Favorite as 'Favorite Category Number', CASE WHEN F.name IS NULL THEN N'غير مفضله' ELSE F.name END as 'Favorite Category', I.Warehouse_id as 'Warehouse ID', CASE WHEN W.name IS NULL THEN N'غير موجود' ELSE W.name END as 'InventoryItemWarehouse', I.ItemType as 'Item Type', CASE WHEN T.name IS NULL THEN N'غير مصنف' ELSE T.name END as 'InventoryItemType'
+FROM Items I
+LEFT JOIN FavoriteCategories f ON f.id = I.Favorite
+	LEFT JOIN Warehouses w ON w.id = I.Warehouse_id
+	LEFT JOIN ItemTypes T ON T.id = I.ItemType
+	where 
+(@ItemName is null or ItemName LIKE '%' + @ItemName + '%') and ( @ItemBarCode is null or ItemBarCode LIKE '%' + @ItemBarCode + '%') and ( @ItemType is null or ItemType LIKE '%' + @ItemType + '%')
+	ORDER by I.id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SearchItemsQuantity]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SearchItemsQuantity]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[SearchItemsQuantity] AS' 
+END
+GO
+ALTER procedure [dbo].[SearchItemsQuantity]
+	@ItemBarCode nvarchar(255) = NULL
+AS
+BEGIN
+SELECT ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', ItemBuyPrice as 'Item Buy Price', ItemPrice as 'Item Price', ItemPriceTax as 'Item Price Tax', Favorite as 'Favorite Category', Warehouse_id as 'Warehouse ID', ItemType as 'Item Type' FROM Items where 
+( @ItemBarCode is null or ItemBarCode =  @ItemBarCode )
+Order by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SearchTodayBills]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SearchTodayBills]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[SearchTodayBills] AS' 
+END
+GO
+ALTER procedure [dbo].[SearchTodayBills]
+	@Date1 Datetime = NULL,
+	@Date2 datetime = NULL
+AS
+BEGIN
+set @Date1 = DATEADD(Day, -1, @Date1)
+set @Date2 = DATEADD(Day, 1, @Date2)
+SELECT id as 'Bill Number', cashierName as 'Cashier Name', totalAmount as 'Total Amount', paidAmount as 'Paid Amount', remainderAmount as 'Remainder Amount', date as 'Date' FROM Bills WHERE ( Date >= @Date1 AND Date <= @Date2) ORDER by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[SearchWarehouseInventoryItems]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[SearchWarehouseInventoryItems]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[SearchWarehouseInventoryItems] AS' 
+END
+GO
+ALTER procedure [dbo].[SearchWarehouseInventoryItems]
+	@WarehouseID int = 0
+AS
+BEGIN
+SELECT ItemName as 'Item Name', ItemBarCode as 'Item BarCode', ItemQuantity as 'Item Quantity', ItemBuyPrice as 'Item Buy Price', ItemPrice as 'Item Price', ItemPriceTax as 'Item Price Tax', Favorite as 'Favorite Category', Warehouse_id as 'Warehouse ID', ItemType as 'Item Type' FROM Items where 
+(Warehouse_id = @WarehouseID)
+Order by id DESC
+END
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateBill]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UpdateBill]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[UpdateBill] AS' 
+END
+GO
+ALTER procedure [dbo].[UpdateBill]
+@BillNumber int,
+@CashierName nvarchar(255),
+@TotalAmount decimal(18,2),
+@PaidAmount decimal(18,2),
+@RemainderAmount decimal(18,2),
+	@Status int OUTPUT
+AS
+BEGIN
+    UPDATE Bills Set cashierName = @CashierName, totalAmount = @TotalAmount, paidAmount = @PaidAmount, remainderAmount = @RemainderAmount WHERE Bills.id = @BillNumber
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateEmployee]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UpdateEmployee]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[UpdateEmployee] AS' 
+END
+GO
+ALTER procedure [dbo].[UpdateEmployee]
+	@EmployeeID int,
+	@EmployeeName nvarchar(255),
+	@Salary decimal(18, 2),
+	@Phone nvarchar(255),
+	@Address nvarchar(255),
+	@Status int OUTPUT
+AS
+BEGIN
+    UPDATE Employees Set name = @EmployeeName, salary = @Salary, phone = @Phone, address = @Address WHERE id = @EmployeeID
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateFavoriteCategory]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UpdateFavoriteCategory]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[UpdateFavoriteCategory] AS' 
+END
+GO
+ALTER procedure [dbo].[UpdateFavoriteCategory]
+	@CategoryID int,
+	@CategoryName nvarchar(255) = NULL,
+	@Status int OUTPUT
+AS
+BEGIN
+    UPDATE FavoriteCategories SET name = @CategoryName WHERE id = @CategoryID
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateItem]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UpdateItem]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[UpdateItem] AS' 
+END
+GO
+ALTER procedure [dbo].[UpdateItem]
+	@ItemName nvarchar(255),
+	@ItemBarCode nvarchar(255),
+	@ItemNewBarCode nvarchar(255),
+	@ItemQuantity int,
+	@ItemBuyPrice decimal(18, 2),
+	@ItemPrice decimal(18, 2),
+	@ItemPriceTax decimal(18, 2),
+	@ItemTypeID nvarchar(255),
+	@WarehouseID nvarchar(255),
+	@Favorite nvarchar(255),
+	@Date Date,
+	@Picture varbinary(MAX) = NULL,
+	@WarningQuantity int = 0,
+	@ProductionDate date = NULL,
+	@ExpirationDate date = NULL,
+	@EntryDate date = NULL,
+	@Status int OUTPUT
+AS
+BEGIN
+    UPDATE Items Set ItemName = @ItemName, ItemBarCode = @ItemNewBarCode, ItemQuantity = @ItemQuantity, ItemBuyPrice = @ItemBuyPrice, ItemPrice = @ItemPrice, ItemPriceTax = @ItemPriceTax, Warehouse_id = @WarehouseID, ItemType = @ItemTypeID, Favorite = @Favorite, Date = @Date, Picture = @Picture, QuantityWarning = @WarningQuantity, ProductionDate = @ProductionDate, ExpirationDate = @ExpirationDate, EntryDate = @EntryDate WHERE ItemBarCode = @ItemBarCode
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateItemQuantity]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UpdateItemQuantity]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[UpdateItemQuantity] AS' 
+END
+GO
+ALTER procedure [dbo].[UpdateItemQuantity]
+	@ItemBarCode nvarchar(255),
+	@ItemQuantity nvarchar(255),
+	@Date Date,
+	@Status int OUTPUT
+AS
+BEGIN
+    UPDATE Items Set ItemQuantity = @ItemQuantity, Date = @Date WHERE ItemBarCode = @ItemBarCode
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateItemType]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UpdateItemType]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[UpdateItemType] AS' 
+END
+GO
+ALTER procedure [dbo].[UpdateItemType]
+	@ItemTypeID int,
+	@ItemTypeName nvarchar(255) = NULL,
+	@Status int OUTPUT
+AS
+BEGIN
+    UPDATE ItemTypes SET name = @ItemTypeName WHERE id = @ItemTypeID
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateItemWarehouse]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UpdateItemWarehouse]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[UpdateItemWarehouse] AS' 
+END
+GO
+ALTER procedure [dbo].[UpdateItemWarehouse]
+	@ItemName nvarchar(255),
+	@ItemBarCode nvarchar(255),
+	@ItemQuantity int,
+	@ItemBuyPrice decimal(18, 2),
+	@WarehouseID nvarchar(255),
+	@EntryExitType int,
+	@Date Date,
+	@TransactionID int,
+	@WarningQuantity int = 0,
+	@ProductionDate date = NULL,
+	@ExpirationDate date = NULL,
+	@EntryDate date = NULL,
+	@Status int OUTPUT
+AS
+BEGIN
+	Declare @oldquantity int = (SELECT ItemQuantity FROM Items WHERE ItemBarCode = @ItemBarCode)
+	if @EntryExitType = 0
+		Set @ItemQuantity = @oldquantity + @ItemQuantity
+	else if @EntryExitType = 1
+		Set @ItemQuantity = @oldquantity - @ItemQuantity
+    UPDATE Items Set ItemName = @ItemName, ItemBarCode = @ItemBarCode, ItemQuantity = @ItemQuantity, ItemBuyPrice = @ItemBuyPrice, Warehouse_id = @WarehouseID, Date = @Date, QuantityWarning = @WarningQuantity, ProductionDate = @ProductionDate, ExpirationDate = @ExpirationDate, EntryDate = @EntryDate WHERE ItemBarCode = @ItemBarCode
+	INSERT INTO TransactionItems(item_barcode, item_quantity, transaction_id) VALUES (@ItemBarCode, @ItemQuantity, @TransactionID)
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[UpdatePrinter]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UpdatePrinter]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[UpdatePrinter] AS' 
+END
+GO
+ALTER procedure [dbo].[UpdatePrinter]
+	@PrinterID int,
+	@PrinterName nvarchar(255) = NULL,
+	@Status int OUTPUT
+AS
+BEGIN
+    UPDATE Printers SET printerName = @PrinterName WHERE id = @PrinterID
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateSystemSettings]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UpdateSystemSettings]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[UpdateSystemSettings] AS' 
+END
+GO
+ALTER procedure [dbo].[UpdateSystemSettings]
+@SystemName nvarchar(255),
+@SystemLogo varbinary(MAX),
+@SystemPhone nvarchar(255),
+@SystemAddress nvarchar(255),
+@SystemReceiptBlankSpaces int,
+@SystemIncludeLogoInReceipt int,
+@SystemTax decimal(18, 2),
+	@Status int OUTPUT
+AS
+BEGIN
+    UPDATE Settings Set SystemName = @SystemName, SystemLogo = @SystemLogo, SystemPhone = @SystemPhone, SystemAddress = @SystemAddress, SystemReceiptBlankSpaces = @SystemReceiptBlankSpaces,
+	SystemIncludeLogoInReceipt = @SystemIncludeLogoInReceipt, SystemTax = @SystemTax WHERE Settings.id = 1
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateUser]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UpdateUser]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[UpdateUser] AS' 
+END
+GO
+ALTER procedure [dbo].[UpdateUser]
+	@UserName nvarchar(255),
+	@UserID nvarchar(255),
+	@UserPWD nvarchar(255) = NULL,
+	@UserAuthority nvarchar(255),
+	@ClientCardEditPerm nvarchar(255),
+	@discountEditPerm nvarchar(255),
+	@priceEditPerm nvarchar(255),
+	@receiptEditPerm nvarchar(255),
+	@inventoryEditPerm nvarchar(255),
+	@expensesEditPerm nvarchar(255),
+	@usersEditPerm nvarchar(255),
+	@settingsEditPerm nvarchar(255),
+	@personnelEditPerm nvarchar(255),
+	@opencloseEditPerm nvarchar(255),
+	@sellEditPerm nvarchar(255),
+	@Status int OUTPUT
+AS
+BEGIN
+	UPDATE Users Set UID = @UserID, PWD = CASE WHEN ISNULL(@UserPWD, '') = '' THEN PWD ELSE @UserPWD END, cashierName = @UserName, Authority = @UserAuthority WHERE UID = @UserID
+	DECLARE @UID INT = (SELECT id FROM Users Where UID = @UserID)
+	UPDATE UserPermissions SET Client_card_perm = @ClientCardEditPerm, discount_perm = @discountEditPerm, price_edit_perm = @priceEditPerm, receipt_edit_perm = @receiptEditPerm, inventory_edit_perm = @inventoryEditPerm, expense_add_perm = @expensesEditPerm, users_edit_perm = @usersEditPerm, settings_edit_perm = @settingsEditPerm, personnel_edit_perm = @personnelEditPerm, openclose_edit_perm = @opencloseEditPerm, sell_edit_perm = @sellEditPerm WHERE user_id = @UID
+set @Status = 1
+END
+GO
+/****** Object:  StoredProcedure [dbo].[UpdateWarehouse]    Script Date: 8/7/2023 4:28:45 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[UpdateWarehouse]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[UpdateWarehouse] AS' 
+END
+GO
+ALTER procedure [dbo].[UpdateWarehouse]
+	@WarehouseID int,
+	@WarehouseName nvarchar(255) = NULL,
+	@Status int OUTPUT
+AS
+BEGIN
+    UPDATE Warehouses SET name = @WarehouseName WHERE id = @WarehouseID
+set @Status = 1
+END
 GO
