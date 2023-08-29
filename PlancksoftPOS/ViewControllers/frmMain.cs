@@ -9297,7 +9297,6 @@ namespace PlancksoftPOS
                                 newItem.SetWarehouseID(WarehouseID);
                             }
                             else newItem.SetWarehouseID(0);
-                            Connection.server.UpdateItemQuantity(newItem);
                             this.totalVendorAmount += newItem.GetBuyPrice() * newItem.GetQuantity();
                             itemsToAdd.Add(newItem);
                         }
