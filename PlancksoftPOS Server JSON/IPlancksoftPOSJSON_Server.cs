@@ -40,7 +40,7 @@ namespace PlancksoftPOSJSON_Server
             WebInvoke
             (
                 Method = "POST",
-                UriTemplate = "RetrieveSaleByDate",
+                UriTemplate = "RetrieveSystemSettings",
                 RequestFormat = WebMessageFormat.Json,
                 ResponseFormat = WebMessageFormat.Json,
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
