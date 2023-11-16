@@ -786,42 +786,11 @@ namespace DataAccessLayerJSON
                         connection.Open();
                     cmd.ExecuteNonQuery();
 
-                    int ID = Convert.ToInt32(cmd.Parameters["@ID"].Value);
-                    Name = cmd.Parameters["@Name"].Value.ToString();
-                    string UID = cmd.Parameters["@UID"].Value.ToString();
                     int Authority = Convert.ToInt32(cmd.Parameters["@Authority"].Value);
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    Name = cmd.Parameters["@Name"].Value.ToString();
                     connection.Close();
-                    Account User = new Account();
-                    SqlDataAdapter adapter = new SqlDataAdapter();
-                    SqlCommand commmandd = new SqlCommand("RetrieveUserPermissions", connection)
-                    {
-                        CommandType = CommandType.StoredProcedure
-                    };
-                    commmandd.Parameters.AddWithValue("@UserID", AccountToLogin.GetAccountUID());
-                    adapter.SelectCommand = commmandd;
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dt.TableName = "UserPermissions";
-                    foreach (DataRow Permission in dt.Rows)
-                    {
-                        User.Client_card_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Client Card Permission"].ToString()));
-                        User.discount_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Discount Permission"].ToString()));
-                        User.price_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Price Edit Permission"].ToString()));
-                        User.receipt_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Receipt Edit Permission"].ToString()));
-                        User.inventory_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Inventory Edit Permission"].ToString()));
-                        User.expenses_add = Convert.ToBoolean(Convert.ToInt32(Permission["Expense Add Permission"].ToString()));
-                        User.users_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Users Edit Permission"].ToString()));
-                        User.settings_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Settings Edit Permission"].ToString()));
-                        User.personnel_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Personnel Edit Permission"].ToString()));
-                        User.openclose_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Open Close Cash Permission"].ToString()));
-                        User.sell_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Sell Permission"].ToString()));
-                    }
-                    User.SetAccountAuthority(Authority);
-                    User.SetAccountUID(UID);
-                    User.SetAccountName(Name);
-
-                    return new Response(Tuple.Create(Convert.ToBoolean(Status), ID, User), true);
+                    return new Response(Tuple.Create(Convert.ToBoolean(Status), Name, Convert.ToBoolean(Authority)), true);
                 }
             }
             catch (Exception ex)
