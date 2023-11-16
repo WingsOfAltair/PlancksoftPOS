@@ -1,0 +1,26 @@
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\PublisherApi.exe
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\appsettings.Development.json
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\appsettings.json
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\PublisherApi.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\PublisherApi.deps.json
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\PublisherApi.runtimeconfig.json
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\PublisherApi.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\Microsoft.OpenApi.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\System.Data.SqlClient.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\runtimes\win-arm64\native\sni.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\runtimes\win-x64\native\sni.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\runtimes\win-x86\native\sni.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\DataAccessLayer.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\PlancksoftPOS Server JSON.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\Newtonsoft.Json.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\DataAccessLayer.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\PlancksoftPOS Server JSON.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\PlancksoftPOS Server JSON.dll.config
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Release\net5.0\PubTmp\Out\Newtonsoft.Json.xml

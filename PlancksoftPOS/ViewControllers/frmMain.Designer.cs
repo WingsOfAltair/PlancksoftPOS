@@ -1,4 +1,5 @@
 ﻿using MaterialSkin.Controls;
+using System;
 using System.Windows.Forms;
 
 namespace PlancksoftPOS
@@ -330,20 +331,23 @@ namespace PlancksoftPOS
             this.label98 = new MaterialSkin.Controls.MaterialLabel();
             this.label101 = new MaterialSkin.Controls.MaterialLabel();
             this.AddTypes = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.label22 = new MaterialSkin.Controls.MaterialLabel();
-            this.ItemTypeEntry = new System.Windows.Forms.TextBox();
-            this.pictureBox36 = new System.Windows.Forms.PictureBox();
-            this.AddFavorites = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel3 = new MaterialSkin.Controls.MaterialListView();
             this.label29 = new MaterialSkin.Controls.MaterialLabel();
-            this.FavoriteCategoryEntry = new System.Windows.Forms.TextBox();
-            this.pictureBox39 = new System.Windows.Forms.PictureBox();
+            this.ItemTypeEntry = new MaterialSkin.Controls.MaterialTextBox2();
+            this.label30 = new MaterialSkin.Controls.MaterialLabel();
+            this.ItemTypeAddButton = new System.Windows.Forms.PictureBox();
+            this.AddFavorites = new System.Windows.Forms.TabPage();
+            this.flowLayoutPanel1 = new MaterialSkin.Controls.MaterialListView();
+            this.label22 = new MaterialSkin.Controls.MaterialLabel();
+            this.FavoriteCategoryEntry = new MaterialSkin.Controls.MaterialTextBox2();
+            this.label23 = new MaterialSkin.Controls.MaterialLabel();
+            this.FavoriteCategoryAddButton = new System.Windows.Forms.PictureBox();
             this.AddWarehouses = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel2 = new MaterialSkin.Controls.MaterialListView();
             this.label26 = new MaterialSkin.Controls.MaterialLabel();
-            this.WarehouseEntry = new System.Windows.Forms.TextBox();
-            this.pictureBox38 = new System.Windows.Forms.PictureBox();
+            this.WarehouseEntry = new MaterialSkin.Controls.MaterialTextBox2();
+            this.label27 = new MaterialSkin.Controls.MaterialLabel();
+            this.WarehouseAddButton = new System.Windows.Forms.PictureBox();
             this.Expenses = new System.Windows.Forms.TabPage();
             this.tabControl5 = new MaterialSkin.Controls.MaterialTabControl();
             this.SearchExpenses = new System.Windows.Forms.TabPage();
@@ -401,6 +405,10 @@ namespace PlancksoftPOS
             this.tabControl8 = new MaterialSkin.Controls.MaterialTabControl();
             this.EmployeesManagement = new System.Windows.Forms.TabPage();
             this.groupBox49 = new MaterialSkin.Controls.MaterialCard();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.DateEmployeeTo = new System.Windows.Forms.DateTimePicker();
+            this.DateEmployeeFrom = new System.Windows.Forms.DateTimePicker();
             this.groupBox50 = new MaterialSkin.Controls.MaterialCard();
             this.button35 = new MaterialSkin.Controls.MaterialButton();
             this.button37 = new MaterialSkin.Controls.MaterialButton();
@@ -676,7 +684,7 @@ namespace PlancksoftPOS
             this.nudTaxRate = new System.Windows.Forms.NumericUpDown();
             this.label78 = new MaterialSkin.Controls.MaterialLabel();
             this.printersSettings = new System.Windows.Forms.TabPage();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel4 = new MaterialSkin.Controls.MaterialListView();
             this.Retrievals = new System.Windows.Forms.TabPage();
             this.groupBox47 = new MaterialSkin.Controls.MaterialCard();
             this.dgvReturnedItems = new System.Windows.Forms.DataGridView();
@@ -869,13 +877,13 @@ namespace PlancksoftPOS
             ((System.ComponentModel.ISupportInitialize)(this.EntryExitItemQuantity)).BeginInit();
             this.AddTypes.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemTypeAddButton)).BeginInit();
             this.AddFavorites.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FavoriteCategoryAddButton)).BeginInit();
             this.AddWarehouses.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WarehouseAddButton)).BeginInit();
             this.Expenses.SuspendLayout();
             this.tabControl5.SuspendLayout();
             this.SearchExpenses.SuspendLayout();
@@ -5379,57 +5387,98 @@ namespace PlancksoftPOS
             // 
             // flowLayoutPanel3
             // 
+            this.flowLayoutPanel3.AutoSizeTable = false;
             this.flowLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.flowLayoutPanel3.Controls.Add(this.label22);
+            this.flowLayoutPanel3.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.flowLayoutPanel3.Controls.Add(this.label29);
             this.flowLayoutPanel3.Controls.Add(this.ItemTypeEntry);
-            this.flowLayoutPanel3.Controls.Add(this.pictureBox36);
+            this.flowLayoutPanel3.Controls.Add(this.label30);
+            this.flowLayoutPanel3.Controls.Add(this.ItemTypeAddButton);
+            this.flowLayoutPanel3.Depth = 0;
             this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel3.ForeColor = System.Drawing.Color.White;
+            this.flowLayoutPanel3.FullRowSelect = true;
+            this.flowLayoutPanel3.HideSelection = false;
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel3.MinimumSize = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel3.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.flowLayoutPanel3.MouseState = MaterialSkin.MouseState.OUT;
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.OwnerDraw = true;
             this.flowLayoutPanel3.Size = new System.Drawing.Size(1867, 907);
-            this.flowLayoutPanel3.TabIndex = 13;
+            this.flowLayoutPanel3.TabIndex = 0;
+            this.flowLayoutPanel3.UseCompatibleStateImageBehavior = false;
+            this.flowLayoutPanel3.View = System.Windows.Forms.View.Details;
             // 
-            // label22
+            // label29
             // 
-            this.label22.AutoSize = true;
-            this.label22.Depth = 0;
-            this.label22.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label22.Location = new System.Drawing.Point(1767, 0);
-            this.label22.MouseState = MaterialSkin.MouseState.HOVER;
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(97, 19);
-            this.label22.TabIndex = 10;
-            this.label22.Text = "إضافة تصنيف مواد جديد";
-            this.label22.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label29.AutoSize = true;
+            this.label29.Depth = 0;
+            this.label29.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.label29.Location = new System.Drawing.Point(1735, 0);
+            this.label29.MouseState = MaterialSkin.MouseState.HOVER;
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(97, 19);
+            this.label29.TabIndex = 10;
+            this.label29.Text = "إضافة تصنيف مواد جديد";
             // 
             // ItemTypeEntry
             // 
+            this.ItemTypeEntry.AnimateReadOnly = false;
+            this.ItemTypeEntry.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.ItemTypeEntry.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.ItemTypeEntry.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ItemTypeEntry.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.ItemTypeEntry.Depth = 0;
             this.ItemTypeEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ItemTypeEntry.Location = new System.Drawing.Point(1513, 22);
+            this.ItemTypeEntry.HideSelection = true;
+            this.ItemTypeEntry.LeadingIcon = null;
+            this.ItemTypeEntry.Location = new System.Drawing.Point(1481, 22);
+            this.ItemTypeEntry.MaxLength = 32767;
+            this.ItemTypeEntry.MouseState = MaterialSkin.MouseState.OUT;
             this.ItemTypeEntry.Name = "ItemTypeEntry";
+            this.ItemTypeEntry.PasswordChar = '\0';
+            this.ItemTypeEntry.PrefixSuffixText = null;
+            this.ItemTypeEntry.ReadOnly = false;
             this.ItemTypeEntry.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ItemTypeEntry.Size = new System.Drawing.Size(351, 20);
+            this.ItemTypeEntry.SelectedText = "";
+            this.ItemTypeEntry.SelectionLength = 0;
+            this.ItemTypeEntry.SelectionStart = 0;
+            this.ItemTypeEntry.ShortcutsEnabled = true;
+            this.ItemTypeEntry.Size = new System.Drawing.Size(351, 48);
             this.ItemTypeEntry.TabIndex = 0;
             this.ItemTypeEntry.TabStop = false;
-            this.ItemTypeEntry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ItemTypeEntry_KeyPress);
+            this.ItemTypeEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ItemTypeEntry.TrailingIcon = null;
+            this.ItemTypeEntry.UseSystemPasswordChar = false;
+            this.ItemTypeEntry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ItemTypeInsertKeyPress);
             // 
-            // pictureBox36
+            // label30
             // 
-            this.pictureBox36.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox36.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox36.Image = global::PlancksoftPOS.Properties.Resources.plus;
-            this.pictureBox36.Location = new System.Drawing.Point(1796, 48);
-            this.pictureBox36.Name = "pictureBox36";
-            this.pictureBox36.Size = new System.Drawing.Size(68, 49);
-            this.pictureBox36.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox36.TabIndex = 0;
-            this.pictureBox36.TabStop = false;
-            this.pictureBox36.Click += new System.EventHandler(this.pictureBox35_Click);
+            this.label30.AutoSize = true;
+            this.label30.Depth = 0;
+            this.label30.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label30.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.label30.Location = new System.Drawing.Point(1742, 73);
+            this.label30.MouseState = MaterialSkin.MouseState.HOVER;
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(90, 19);
+            this.label30.TabIndex = 11;
+            this.label30.Text = "أصناف المواد المضافه";
+            // 
+            // ItemTypeAddButton
+            // 
+            this.ItemTypeAddButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.ItemTypeAddButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ItemTypeAddButton.Image = global::PlancksoftPOS.Properties.Resources.plus;
+            this.ItemTypeAddButton.Location = new System.Drawing.Point(1764, 95);
+            this.ItemTypeAddButton.Name = "ItemTypeAddButton";
+            this.ItemTypeAddButton.Size = new System.Drawing.Size(68, 49);
+            this.ItemTypeAddButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.ItemTypeAddButton.TabIndex = 0;
+            this.ItemTypeAddButton.TabStop = false;
+            this.ItemTypeAddButton.Click += new System.EventHandler(this.ItemTypeAddButton_Click);
             // 
             // AddFavorites
             // 
@@ -5443,56 +5492,98 @@ namespace PlancksoftPOS
             // 
             // flowLayoutPanel1
             // 
+            this.flowLayoutPanel1.AutoSizeTable = false;
             this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.flowLayoutPanel1.Controls.Add(this.label29);
+            this.flowLayoutPanel1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.flowLayoutPanel1.Controls.Add(this.label22);
             this.flowLayoutPanel1.Controls.Add(this.FavoriteCategoryEntry);
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox39);
+            this.flowLayoutPanel1.Controls.Add(this.label23);
+            this.flowLayoutPanel1.Controls.Add(this.FavoriteCategoryAddButton);
+            this.flowLayoutPanel1.Depth = 0;
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.ForeColor = System.Drawing.Color.White;
+            this.flowLayoutPanel1.FullRowSelect = true;
+            this.flowLayoutPanel1.HideSelection = false;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.MinimumSize = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.flowLayoutPanel1.MouseState = MaterialSkin.MouseState.OUT;
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.OwnerDraw = true;
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1873, 913);
-            this.flowLayoutPanel1.TabIndex = 2;
+            this.flowLayoutPanel1.TabIndex = 0;
+            this.flowLayoutPanel1.UseCompatibleStateImageBehavior = false;
+            this.flowLayoutPanel1.View = System.Windows.Forms.View.Details;
             // 
-            // label29
+            // label22
             // 
-            this.label29.AutoSize = true;
-            this.label29.Depth = 0;
-            this.label29.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label29.Location = new System.Drawing.Point(1774, 0);
-            this.label29.MouseState = MaterialSkin.MouseState.HOVER;
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(96, 19);
-            this.label29.TabIndex = 10;
-            this.label29.Text = "إضافة مجلد مفضل جديد";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.label22.AutoSize = true;
+            this.label22.Depth = 0;
+            this.label22.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.label22.Location = new System.Drawing.Point(1742, 0);
+            this.label22.MouseState = MaterialSkin.MouseState.HOVER;
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(96, 19);
+            this.label22.TabIndex = 10;
+            this.label22.Text = "اضافة مجلد مفضل جديد";
             // 
             // FavoriteCategoryEntry
             // 
+            this.FavoriteCategoryEntry.AnimateReadOnly = false;
+            this.FavoriteCategoryEntry.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.FavoriteCategoryEntry.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.FavoriteCategoryEntry.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.FavoriteCategoryEntry.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.FavoriteCategoryEntry.Depth = 0;
             this.FavoriteCategoryEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FavoriteCategoryEntry.Location = new System.Drawing.Point(1519, 22);
+            this.FavoriteCategoryEntry.HideSelection = true;
+            this.FavoriteCategoryEntry.LeadingIcon = null;
+            this.FavoriteCategoryEntry.Location = new System.Drawing.Point(1487, 22);
+            this.FavoriteCategoryEntry.MaxLength = 32767;
+            this.FavoriteCategoryEntry.MouseState = MaterialSkin.MouseState.OUT;
             this.FavoriteCategoryEntry.Name = "FavoriteCategoryEntry";
+            this.FavoriteCategoryEntry.PasswordChar = '\0';
+            this.FavoriteCategoryEntry.PrefixSuffixText = null;
+            this.FavoriteCategoryEntry.ReadOnly = false;
             this.FavoriteCategoryEntry.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.FavoriteCategoryEntry.Size = new System.Drawing.Size(351, 20);
+            this.FavoriteCategoryEntry.SelectedText = "";
+            this.FavoriteCategoryEntry.SelectionLength = 0;
+            this.FavoriteCategoryEntry.SelectionStart = 0;
+            this.FavoriteCategoryEntry.ShortcutsEnabled = true;
+            this.FavoriteCategoryEntry.Size = new System.Drawing.Size(351, 48);
             this.FavoriteCategoryEntry.TabIndex = 0;
             this.FavoriteCategoryEntry.TabStop = false;
-            this.FavoriteCategoryEntry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FavoriteCategoryEntry_KeyPress);
+            this.FavoriteCategoryEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.FavoriteCategoryEntry.TrailingIcon = null;
+            this.FavoriteCategoryEntry.UseSystemPasswordChar = false;
+            this.FavoriteCategoryEntry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FavoriteCategoryKeyPress);
             // 
-            // pictureBox39
+            // label23
             // 
-            this.pictureBox39.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox39.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox39.Image = global::PlancksoftPOS.Properties.Resources.plus;
-            this.pictureBox39.Location = new System.Drawing.Point(1802, 48);
-            this.pictureBox39.Name = "pictureBox39";
-            this.pictureBox39.Size = new System.Drawing.Size(68, 49);
-            this.pictureBox39.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox39.TabIndex = 0;
-            this.pictureBox39.TabStop = false;
+            this.label23.AutoSize = true;
+            this.label23.Depth = 0;
+            this.label23.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.label23.Location = new System.Drawing.Point(1761, 73);
+            this.label23.MouseState = MaterialSkin.MouseState.HOVER;
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(77, 19);
+            this.label23.TabIndex = 11;
+            this.label23.Text = "المفضلات المضافه";
+            // 
+            // FavoriteCategoryAddButton
+            // 
+            this.FavoriteCategoryAddButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.FavoriteCategoryAddButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.FavoriteCategoryAddButton.Image = global::PlancksoftPOS.Properties.Resources.plus;
+            this.FavoriteCategoryAddButton.Location = new System.Drawing.Point(1770, 95);
+            this.FavoriteCategoryAddButton.Name = "FavoriteCategoryAddButton";
+            this.FavoriteCategoryAddButton.Size = new System.Drawing.Size(68, 49);
+            this.FavoriteCategoryAddButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.FavoriteCategoryAddButton.TabIndex = 0;
+            this.FavoriteCategoryAddButton.TabStop = false;
+            this.FavoriteCategoryAddButton.Click += new System.EventHandler(this.FavoriteCategoryAddButton_Click);
             // 
             // AddWarehouses
             // 
@@ -5506,18 +5597,28 @@ namespace PlancksoftPOS
             // 
             // flowLayoutPanel2
             // 
+            this.flowLayoutPanel2.AutoSizeTable = false;
             this.flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.flowLayoutPanel2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.flowLayoutPanel2.Controls.Add(this.label26);
             this.flowLayoutPanel2.Controls.Add(this.WarehouseEntry);
-            this.flowLayoutPanel2.Controls.Add(this.pictureBox38);
+            this.flowLayoutPanel2.Controls.Add(this.label27);
+            this.flowLayoutPanel2.Controls.Add(this.WarehouseAddButton);
+            this.flowLayoutPanel2.Depth = 0;
             this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel2.ForeColor = System.Drawing.Color.White;
+            this.flowLayoutPanel2.FullRowSelect = true;
+            this.flowLayoutPanel2.HideSelection = false;
             this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel2.MinimumSize = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel2.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.flowLayoutPanel2.MouseState = MaterialSkin.MouseState.OUT;
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.OwnerDraw = true;
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1873, 913);
             this.flowLayoutPanel2.TabIndex = 0;
+            this.flowLayoutPanel2.UseCompatibleStateImageBehavior = false;
+            this.flowLayoutPanel2.View = System.Windows.Forms.View.Details;
             // 
             // label26
             // 
@@ -5525,38 +5626,69 @@ namespace PlancksoftPOS
             this.label26.Depth = 0;
             this.label26.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label26.Location = new System.Drawing.Point(1790, 0);
+            this.label26.Location = new System.Drawing.Point(1758, 0);
             this.label26.MouseState = MaterialSkin.MouseState.HOVER;
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(80, 19);
             this.label26.TabIndex = 10;
             this.label26.Text = "إضافة مستودع جديد";
-            this.label26.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // WarehouseEntry
             // 
+            this.WarehouseEntry.AnimateReadOnly = false;
+            this.WarehouseEntry.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.WarehouseEntry.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
             this.WarehouseEntry.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.WarehouseEntry.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.WarehouseEntry.Depth = 0;
             this.WarehouseEntry.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WarehouseEntry.Location = new System.Drawing.Point(1519, 22);
+            this.WarehouseEntry.HideSelection = true;
+            this.WarehouseEntry.LeadingIcon = null;
+            this.WarehouseEntry.Location = new System.Drawing.Point(1487, 22);
+            this.WarehouseEntry.MaxLength = 32767;
+            this.WarehouseEntry.MouseState = MaterialSkin.MouseState.OUT;
             this.WarehouseEntry.Name = "WarehouseEntry";
+            this.WarehouseEntry.PasswordChar = '\0';
+            this.WarehouseEntry.PrefixSuffixText = null;
+            this.WarehouseEntry.ReadOnly = false;
             this.WarehouseEntry.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.WarehouseEntry.Size = new System.Drawing.Size(351, 20);
+            this.WarehouseEntry.SelectedText = "";
+            this.WarehouseEntry.SelectionLength = 0;
+            this.WarehouseEntry.SelectionStart = 0;
+            this.WarehouseEntry.ShortcutsEnabled = true;
+            this.WarehouseEntry.Size = new System.Drawing.Size(351, 48);
             this.WarehouseEntry.TabIndex = 0;
             this.WarehouseEntry.TabStop = false;
-            this.WarehouseEntry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WarehouseEntry_KeyPress);
+            this.WarehouseEntry.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.WarehouseEntry.TrailingIcon = null;
+            this.WarehouseEntry.UseSystemPasswordChar = false;
+            this.WarehouseEntry.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.WarehouseInsertKeyPress);
             // 
-            // pictureBox38
+            // label27
             // 
-            this.pictureBox38.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox38.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox38.Image = global::PlancksoftPOS.Properties.Resources.plus;
-            this.pictureBox38.Location = new System.Drawing.Point(1802, 48);
-            this.pictureBox38.Name = "pictureBox38";
-            this.pictureBox38.Size = new System.Drawing.Size(68, 49);
-            this.pictureBox38.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox38.TabIndex = 0;
-            this.pictureBox38.TabStop = false;
-            this.pictureBox38.Click += new System.EventHandler(this.pictureBox38_Click);
+            this.label27.AutoSize = true;
+            this.label27.Depth = 0;
+            this.label27.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label27.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.label27.Location = new System.Drawing.Point(1753, 73);
+            this.label27.MouseState = MaterialSkin.MouseState.HOVER;
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(85, 19);
+            this.label27.TabIndex = 11;
+            this.label27.Text = "المستودعات المضافه";
+            // 
+            // WarehouseAddButton
+            // 
+            this.WarehouseAddButton.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.WarehouseAddButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.WarehouseAddButton.Image = global::PlancksoftPOS.Properties.Resources.plus;
+            this.WarehouseAddButton.Location = new System.Drawing.Point(1770, 95);
+            this.WarehouseAddButton.Name = "WarehouseAddButton";
+            this.WarehouseAddButton.Size = new System.Drawing.Size(68, 49);
+            this.WarehouseAddButton.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.WarehouseAddButton.TabIndex = 0;
+            this.WarehouseAddButton.TabStop = false;
+            this.WarehouseAddButton.Click += new System.EventHandler(this.WarehouseAddButton_Click);
             // 
             // Expenses
             // 
@@ -6386,6 +6518,10 @@ namespace PlancksoftPOS
             this.groupBox49.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox49.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox49.Controls.Add(this.label2);
+            this.groupBox49.Controls.Add(this.label1);
+            this.groupBox49.Controls.Add(this.DateEmployeeTo);
+            this.groupBox49.Controls.Add(this.DateEmployeeFrom);
             this.groupBox49.Controls.Add(this.groupBox50);
             this.groupBox49.Controls.Add(this.dgvEmployees);
             this.groupBox49.Controls.Add(this.pictureBox2);
@@ -6399,6 +6535,38 @@ namespace PlancksoftPOS
             this.groupBox49.Size = new System.Drawing.Size(910, 908);
             this.groupBox49.TabIndex = 1;
             this.groupBox49.Text = "جدول الموظفين";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(477, 26);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(26, 16);
+            this.label2.TabIndex = 41;
+            this.label2.Text = "To";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(791, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 16);
+            this.label1.TabIndex = 40;
+            this.label1.Text = "From";
+            // 
+            // DateEmployeeTo
+            // 
+            this.DateEmployeeTo.Location = new System.Drawing.Point(208, 21);
+            this.DateEmployeeTo.Name = "DateEmployeeTo";
+            this.DateEmployeeTo.Size = new System.Drawing.Size(263, 22);
+            this.DateEmployeeTo.TabIndex = 39;
+            // 
+            // DateEmployeeFrom
+            // 
+            this.DateEmployeeFrom.Location = new System.Drawing.Point(514, 21);
+            this.DateEmployeeFrom.Name = "DateEmployeeFrom";
+            this.DateEmployeeFrom.Size = new System.Drawing.Size(262, 22);
+            this.DateEmployeeFrom.TabIndex = 38;
             // 
             // groupBox50
             // 
@@ -10839,14 +11007,23 @@ namespace PlancksoftPOS
             // 
             // flowLayoutPanel4
             // 
+            this.flowLayoutPanel4.AutoSizeTable = false;
             this.flowLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.flowLayoutPanel4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.flowLayoutPanel4.Depth = 0;
             this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel4.FullRowSelect = true;
+            this.flowLayoutPanel4.HideSelection = false;
             this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel4.MinimumSize = new System.Drawing.Size(200, 100);
+            this.flowLayoutPanel4.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.flowLayoutPanel4.MouseState = MaterialSkin.MouseState.OUT;
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.OwnerDraw = true;
             this.flowLayoutPanel4.Size = new System.Drawing.Size(1867, 916);
             this.flowLayoutPanel4.TabIndex = 0;
+            this.flowLayoutPanel4.UseCompatibleStateImageBehavior = false;
+            this.flowLayoutPanel4.View = System.Windows.Forms.View.Details;
             // 
             // Retrievals
             // 
@@ -12478,15 +12655,15 @@ namespace PlancksoftPOS
             this.AddTypes.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
             this.flowLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox36)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ItemTypeAddButton)).EndInit();
             this.AddFavorites.ResumeLayout(false);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox39)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FavoriteCategoryAddButton)).EndInit();
             this.AddWarehouses.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox38)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.WarehouseAddButton)).EndInit();
             this.Expenses.ResumeLayout(false);
             this.tabControl5.ResumeLayout(false);
             this.SearchExpenses.ResumeLayout(false);
@@ -12519,6 +12696,7 @@ namespace PlancksoftPOS
             this.tabControl8.ResumeLayout(false);
             this.EmployeesManagement.ResumeLayout(false);
             this.groupBox49.ResumeLayout(false);
+            this.groupBox49.PerformLayout();
             this.groupBox50.ResumeLayout(false);
             this.groupBox50.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SalaryDeduction)).EndInit();
@@ -12646,6 +12824,16 @@ namespace PlancksoftPOS
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void ItemTypeInsertKeyPress(object sender, KeyPressEventArgs e)
+        {
+            ItemTypeInsert();
+        }
+
+        private void FavoriteCategoryKeyPress(object sender, KeyPressEventArgs e)
+        {
+            FavoriteCategoryInsert();
         }
 
         #endregion
@@ -12869,9 +13057,21 @@ namespace PlancksoftPOS
         public System.Windows.Forms.TabPage AddTypes;
         public System.Windows.Forms.TabPage AddFavorites;
         public System.Windows.Forms.TabPage AddWarehouses;
-        public FlowLayoutPanel flowLayoutPanel2;
-        public TextBox WarehouseEntry;
-        public System.Windows.Forms.PictureBox pictureBox38;
+        public MaterialListView flowLayoutPanel3;
+        public MaterialLabel label29;
+        public MaterialTextBox2 ItemTypeEntry;
+        public MaterialLabel label30;
+        public System.Windows.Forms.PictureBox ItemTypeAddButton;
+        public MaterialListView flowLayoutPanel1;
+        public MaterialLabel label22;
+        public MaterialTextBox2 FavoriteCategoryEntry;
+        public MaterialLabel label23;
+        public System.Windows.Forms.PictureBox FavoriteCategoryAddButton;
+        public MaterialListView flowLayoutPanel2;
+        public MaterialLabel label26;
+        public MaterialTextBox2 WarehouseEntry;
+        public MaterialLabel label27;
+        public System.Windows.Forms.PictureBox WarehouseAddButton;
         public ToolStripMenuItem ادارةالمستودعToolStripMenuItem;
         public ToolStripMenuItem اضافةصنفToolStripMenuItem;
         public ToolStripMenuItem اضافةمستودعToolStripMenuItem;
@@ -13166,7 +13366,7 @@ namespace PlancksoftPOS
         private MaterialTabControl tabControl9;
         private System.Windows.Forms.TabPage posSettings;
         private System.Windows.Forms.TabPage printersSettings;
-        private FlowLayoutPanel flowLayoutPanel4;
+        private MaterialListView flowLayoutPanel4;
         private MaterialCheckbox cbSalesDateSearch;
         private MaterialCheckbox cbQuantifyDateSearch;
         private MaterialSkin.Controls.MaterialButton button17;
@@ -13382,15 +13582,10 @@ namespace PlancksoftPOS
         private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         public MaterialTextBox2 txtStoreAddress;
         public MaterialLabel lblStoreAddress;
-        public MaterialLabel label26;
-        public FlowLayoutPanel flowLayoutPanel3;
-        public MaterialLabel label22;
-        public TextBox ItemTypeEntry;
-        public PictureBox pictureBox36;
-        public FlowLayoutPanel flowLayoutPanel1;
-        public MaterialLabel label29;
-        public TextBox FavoriteCategoryEntry;
-        public PictureBox pictureBox39;
+        private Label label2;
+        private Label label1;
+        public DateTimePicker DateEmployeeTo;
+        public DateTimePicker DateEmployeeFrom;
     }
 }
 

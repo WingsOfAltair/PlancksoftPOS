@@ -12,10 +12,6 @@ namespace PlancksoftPOS_Server
         {
             return DAL.CheckConnection();
         }
-        public DataTable RetrieveSaleByDate(DateTime StartDate, DateTime EndDate)
-        {
-            return DAL.RetrieveSaleByDate(StartDate, EndDate);
-        }    
         public DataTable RetrieveSystemSettings()
         {
             return DAL.RetrieveSystemSettings();
@@ -224,9 +220,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveItems(locale);
         }
-        public DataTable RetrieveEmployees()
+        public DataTable RetrieveEmployees(DateTime DateFrom, DateTime DateTo)
         {
-            return DAL.RetrieveEmployees();
+            return DAL.RetrieveEmployees(DateFrom, DateTo);
         }
         public Tuple<List<Account>, DataTable> RetrieveUsers()
         {
@@ -424,10 +420,6 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveLastVendorBillNumberToday(Date);
         }
-        public int RetrieveBillsCountByDate(DateTime StartDate, DateTime EndDate)
-        {
-            return DAL.RetrieveBillsCountByDate(StartDate, EndDate);
-        }  
         public Bill RetrieveLastBillNumberToday()
         {
             return DAL.RetrieveLastBillNumberToday();
@@ -444,10 +436,6 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveExpireStockToday(Date);
         }
-        public List<Item> RetrieveSaleDateRange(DateTime StartDate, DateTime EndDate, int QuantityEnd = 0)
-        {
-            return DAL.RetrieveSaleDateRange(StartDate, EndDate, QuantityEnd);
-        }  
         public List<Item> RetrieveSaleToday(DateTime Date, int QuantityEnd = 0)
         {
             return DAL.RetrieveSaleToday(Date, QuantityEnd);

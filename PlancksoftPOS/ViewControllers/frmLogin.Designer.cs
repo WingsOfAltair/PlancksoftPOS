@@ -50,13 +50,13 @@ namespace PlancksoftPOS
             this.btnLogin = new MaterialSkin.Controls.MaterialButton();
             this.PlancksoftPOS = new System.Windows.Forms.NotifyIcon(this.components);
             this.Menu = new MaterialSkin.Controls.MaterialContextMenuStrip();
-            this.اللغةToolStripMenuItem = new MaterialSkin.Controls.MaterialToolStripMenuItem();
-            this.العربيةToolStripMenuItem = new MaterialSkin.Controls.MaterialToolStripMenuItem();
-            this.englishToolStripMenuItem = new MaterialSkin.Controls.MaterialToolStripMenuItem();
-            this.المظهرToolStripMenuItem = new MaterialSkin.Controls.MaterialToolStripMenuItem();
-            this.فاتحToolStripMenuItem = new MaterialSkin.Controls.MaterialToolStripMenuItem();
-            this.مظلمToolStripMenuItem = new MaterialSkin.Controls.MaterialToolStripMenuItem();
-            this.الخروجToolStripMenuItem = new MaterialSkin.Controls.MaterialToolStripMenuItem();
+            this.اللغةToolStripMenuItem = new MaterialToolStripMenuItem();
+            this.العربيةToolStripMenuItem = new MaterialToolStripMenuItem();
+            this.englishToolStripMenuItem = new MaterialToolStripMenuItem();
+            this.المظهرToolStripMenuItem = new MaterialToolStripMenuItem();
+            this.فاتحToolStripMenuItem = new MaterialToolStripMenuItem();
+            this.مظلمToolStripMenuItem = new MaterialToolStripMenuItem();
+            this.الخروجToolStripMenuItem = new MaterialToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.picLogo)).BeginInit();
             this.Menu.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +69,7 @@ namespace PlancksoftPOS
             this.picLogo.Image = global::PlancksoftPOS.Properties.Resources.plancksoft_b_t;
             this.picLogo.Location = new System.Drawing.Point(3, 64);
             this.picLogo.Name = "picLogo";
-            this.picLogo.Size = new System.Drawing.Size(679, 158);
+            this.picLogo.Size = new System.Drawing.Size(615, 158);
             this.picLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picLogo.TabIndex = 42;
             this.picLogo.TabStop = false;
@@ -83,7 +83,7 @@ namespace PlancksoftPOS
             this.txtUID.FormattingEnabled = true;
             this.txtUID.Location = new System.Drawing.Point(3, 222);
             this.txtUID.Name = "txtUID";
-            this.txtUID.Size = new System.Drawing.Size(679, 21);
+            this.txtUID.Size = new System.Drawing.Size(615, 21);
             this.txtUID.TabIndex = 44;
             // 
             // txtPassword
@@ -110,7 +110,7 @@ namespace PlancksoftPOS
             this.txtPassword.SelectionLength = 0;
             this.txtPassword.SelectionStart = 0;
             this.txtPassword.ShortcutsEnabled = true;
-            this.txtPassword.Size = new System.Drawing.Size(679, 48);
+            this.txtPassword.Size = new System.Drawing.Size(615, 48);
             this.txtPassword.TabIndex = 48;
             this.txtPassword.TabStop = false;
             this.txtPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -346,12 +346,12 @@ namespace PlancksoftPOS
             this.btnExit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnExit.HighEmphasis = true;
             this.btnExit.Icon = null;
-            this.btnExit.Location = new System.Drawing.Point(3, 689);
+            this.btnExit.Location = new System.Drawing.Point(3, 760);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnExit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnExit.Name = "btnExit";
             this.btnExit.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnExit.Size = new System.Drawing.Size(679, 36);
+            this.btnExit.Size = new System.Drawing.Size(615, 36);
             this.btnExit.TabIndex = 63;
             this.btnExit.Text = "الخروج";
             this.btnExit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -367,12 +367,12 @@ namespace PlancksoftPOS
             this.btnLogin.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnLogin.HighEmphasis = true;
             this.btnLogin.Icon = null;
-            this.btnLogin.Location = new System.Drawing.Point(3, 653);
+            this.btnLogin.Location = new System.Drawing.Point(3, 724);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnLogin.Size = new System.Drawing.Size(679, 36);
+            this.btnLogin.Size = new System.Drawing.Size(615, 36);
             this.btnLogin.TabIndex = 64;
             this.btnLogin.Text = "تسجيل الدخول";
             this.btnLogin.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -390,20 +390,16 @@ namespace PlancksoftPOS
             // 
             // Menu
             // 
-            this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.Menu.Depth = 0;
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.اللغةToolStripMenuItem,
             this.المظهرToolStripMenuItem,
             this.الخروجToolStripMenuItem});
-            this.Menu.MouseState = MaterialSkin.MouseState.HOVER;
             this.Menu.Name = "Menu";
             this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.Menu.Size = new System.Drawing.Size(110, 70);
             // 
             // اللغةToolStripMenuItem
             // 
-            this.اللغةToolStripMenuItem.AutoSize = false;
             this.اللغةToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.العربيةToolStripMenuItem,
             this.englishToolStripMenuItem});
@@ -413,7 +409,6 @@ namespace PlancksoftPOS
             // 
             // العربيةToolStripMenuItem
             // 
-            this.العربيةToolStripMenuItem.AutoSize = false;
             this.العربيةToolStripMenuItem.CheckOnClick = true;
             this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
             this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
@@ -422,7 +417,6 @@ namespace PlancksoftPOS
             // 
             // englishToolStripMenuItem
             // 
-            this.englishToolStripMenuItem.AutoSize = false;
             this.englishToolStripMenuItem.CheckOnClick = true;
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
             this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
@@ -431,7 +425,6 @@ namespace PlancksoftPOS
             // 
             // المظهرToolStripMenuItem
             // 
-            this.المظهرToolStripMenuItem.AutoSize = false;
             this.المظهرToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.فاتحToolStripMenuItem,
             this.مظلمToolStripMenuItem});
@@ -441,7 +434,6 @@ namespace PlancksoftPOS
             // 
             // فاتحToolStripMenuItem
             // 
-            this.فاتحToolStripMenuItem.AutoSize = false;
             this.فاتحToolStripMenuItem.Name = "فاتحToolStripMenuItem";
             this.فاتحToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.فاتحToolStripMenuItem.Text = "فاتح";
@@ -449,7 +441,6 @@ namespace PlancksoftPOS
             // 
             // مظلمToolStripMenuItem
             // 
-            this.مظلمToolStripMenuItem.AutoSize = false;
             this.مظلمToolStripMenuItem.Name = "مظلمToolStripMenuItem";
             this.مظلمToolStripMenuItem.Size = new System.Drawing.Size(102, 22);
             this.مظلمToolStripMenuItem.Text = "مظلم";
@@ -457,7 +448,6 @@ namespace PlancksoftPOS
             // 
             // الخروجToolStripMenuItem
             // 
-            this.الخروجToolStripMenuItem.AutoSize = false;
             this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
             this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(109, 22);
             this.الخروجToolStripMenuItem.Text = "الخروج";
@@ -467,7 +457,7 @@ namespace PlancksoftPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(685, 728);
+            this.ClientSize = new System.Drawing.Size(621, 799);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnClear);
@@ -524,6 +514,7 @@ namespace PlancksoftPOS
         private MaterialSkin.Controls.MaterialButton btnExit;
         private MaterialSkin.Controls.MaterialButton btnLogin;
         private System.Windows.Forms.NotifyIcon PlancksoftPOS;
+        private System.Windows.Forms.ContextMenuStrip Menu;
         private MaterialToolStripMenuItem اللغةToolStripMenuItem;
         private MaterialToolStripMenuItem العربيةToolStripMenuItem;
         private MaterialToolStripMenuItem englishToolStripMenuItem;
@@ -531,6 +522,5 @@ namespace PlancksoftPOS
         private MaterialToolStripMenuItem فاتحToolStripMenuItem;
         private MaterialToolStripMenuItem مظلمToolStripMenuItem;
         private MaterialToolStripMenuItem الخروجToolStripMenuItem;
-        private MaterialContextMenuStrip Menu;
     }
 }

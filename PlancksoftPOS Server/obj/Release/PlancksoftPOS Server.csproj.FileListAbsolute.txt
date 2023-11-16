@@ -34,3 +34,15 @@ C:\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.csproj.Co
 C:\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.csproj.CopyComplete
 C:\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.dll
 C:\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server\bin\PlancksoftPOS Server.dll.config
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server\bin\PlancksoftPOS Server.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server\bin\PlancksoftPOS Server.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server\bin\DataAccessLayer.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server\bin\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server\bin\DataAccessLayer.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server\bin\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.csproj.AssemblyReference.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.csproj.CoreCompileInputs.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.csproj.CopyComplete
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.pdb

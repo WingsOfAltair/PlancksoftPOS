@@ -791,23 +791,18 @@ namespace DataAccessLayerJSON
                     string UID = cmd.Parameters["@UID"].Value.ToString();
                     int Authority = Convert.ToInt32(cmd.Parameters["@Authority"].Value);
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
-
                     connection.Close();
-
                     Account User = new Account();
                     SqlDataAdapter adapter = new SqlDataAdapter();
                     SqlCommand commmandd = new SqlCommand("RetrieveUserPermissions", connection)
                     {
                         CommandType = CommandType.StoredProcedure
                     };
-
                     commmandd.Parameters.AddWithValue("@UserID", AccountToLogin.GetAccountUID());
-
                     adapter.SelectCommand = commmandd;
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
                     dt.TableName = "UserPermissions";
-
                     foreach (DataRow Permission in dt.Rows)
                     {
                         User.Client_card_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Client Card Permission"].ToString()));
@@ -1781,7 +1776,7 @@ namespace DataAccessLayerJSON
             }
         }
 
-        public Response RetrieveEmployees()
+        public Response RetrieveEmployees(DateTime DateFrom, DateTime DateTo)
         {
             try
             {
@@ -1790,6 +1785,10 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+
+                cmd.Parameters.AddWithValue("@Date1", DateFrom);
+                cmd.Parameters.AddWithValue("@Date2", DateTo);
+
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -2414,8 +2413,8 @@ namespace DataAccessLayerJSON
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@WarehouseID", ItemTypeID);
-                    cmd.Parameters.AddWithValue("@WarehouseName", ItemTypeName);
+                    cmd.Parameters.AddWithValue("@ItemTypeID", ItemTypeID);
+                    cmd.Parameters.AddWithValue("@ItemTypeName", ItemTypeName);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
@@ -2488,7 +2487,7 @@ namespace DataAccessLayerJSON
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("UpdatePrinters", connection))
+                using (SqlCommand cmd = new SqlCommand("UpdatePrinter", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -2714,6 +2713,31 @@ namespace DataAccessLayerJSON
             {
                 return new Response("Could not Delete Absence.", false);
             }
+        }      
+
+        public Response DeleteDeduction(int DeductionID)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("DeleteDeduction", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@DeductionID", DeductionID);
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                    return new Response(Convert.ToBoolean(Status), true);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Response("Could not Delete Deduction.", false);
+            }
         }
 
         public Response DeleteEmployee(int EmployeeID)
@@ -2838,6 +2862,7 @@ namespace DataAccessLayerJSON
                     cmd.Parameters.AddWithValue("@cashierName", cashierName);
                     cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
                     cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
+                    cmd.Parameters.AddWithValue("@IsVendor", Convert.ToInt32(billToAdd.IsVendor));
                     cmd.Parameters.Add("@BillID", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -3026,6 +3051,58 @@ namespace DataAccessLayerJSON
             catch (Exception ex)
             {
                 return new Response("Could not Update Employee.", false);
+            }
+        }    
+
+        public Response UpdateAbsence(int AbsenceID, int Hours)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateAbsence", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@AbsenceID", AbsenceID);
+                    cmd.Parameters.AddWithValue("@Hours", Hours);
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                    return new Response(Convert.ToBoolean(Status), true);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Response("Could not Update Absence.", false);
+            }
+        }   
+
+        public Response UpdateDeduction(int DeductionID, decimal DeductionAmount)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateDeduction", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@DeductionID", DeductionID);
+                    cmd.Parameters.AddWithValue("@DeductionAmount", DeductionAmount);
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                    return new Response(Convert.ToBoolean(Status), true);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Response("Could not Update Absence.", false);
             }
         }
 

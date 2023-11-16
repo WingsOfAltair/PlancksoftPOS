@@ -22,3 +22,9 @@ C:\PlancksoftPOS\Dependencies\obj\Release\Dependencies.csproj.AssemblyReference.
 C:\PlancksoftPOS\Dependencies\obj\Release\Dependencies.csproj.CoreCompileInputs.cache
 C:\PlancksoftPOS\Dependencies\obj\Release\Dependencies.dll
 C:\PlancksoftPOS\Dependencies\obj\Release\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\Dependencies\bin\Release\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\Dependencies\bin\Release\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\Dependencies\obj\Release\Dependencies.csproj.AssemblyReference.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\Dependencies\obj\Release\Dependencies.csproj.CoreCompileInputs.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\Dependencies\obj\Release\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\Dependencies\obj\Release\Dependencies.pdb

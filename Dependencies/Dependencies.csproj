@@ -56,7 +56,6 @@
     <Compile Include="Models\Warehouse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Security\FingerPrint.cs" />
-    <Compile Include="Security\InstallationID.cs" />
     <Compile Include="Security\MD5Encryption.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

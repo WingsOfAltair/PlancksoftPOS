@@ -31,37 +31,6 @@ namespace DataAccessLayer
             }
         }
 
-        public DataTable RetrieveSaleByDate(DateTime StartDate, DateTime EndDate)
-        {
-            try
-            {
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                using (SqlCommand cmd = new SqlCommand("RetrieveSaleByDate", connection))
-                {
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    if (StartDate != null)
-                    {
-                        cmd.Parameters.AddWithValue("@StartDate", StartDate);
-                    }
-                    if (EndDate != null)
-                    {
-                        cmd.Parameters.AddWithValue("@EndDate", EndDate);
-                    }
-
-                    adapter.SelectCommand = cmd;
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-                    dt.TableName = "SaleByDate";
-                    return dt;
-                }
-            } catch (Exception ex)
-            {
-                DataTable dt = new DataTable();
-                dt.TableName = "SaleByDate";
-                return dt;
-            }
-        }
-
         public DataTable RetrieveSystemSettings()
         {
             try
@@ -82,6 +51,37 @@ namespace DataAccessLayer
             {
                 DataTable dt = new DataTable();
                 dt.TableName = "SystemSettings";
+                return dt;
+            }
+        }
+
+        public DataTable RetrieveSaleByDate(DateTime StartDate, DateTime EndDate)
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                using (SqlCommand cmd = new SqlCommand("RetrieveSaleByDate", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    if (StartDate != null)
+                    {
+                        cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                    }
+                    if (EndDate != null)
+                    {
+                        cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                    }
+                    adapter.SelectCommand = cmd;
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dt.TableName = "SaleByDate";
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.TableName = "SaleByDate";
                 return dt;
             }
         }
@@ -1725,7 +1725,7 @@ namespace DataAccessLayer
             }
         }
 
-        public DataTable RetrieveEmployees()
+        public DataTable RetrieveEmployees(DateTime DateFrom, DateTime DateTo)
         {
             try
             {
@@ -1734,6 +1734,8 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                cmd.Parameters.AddWithValue("@Date1", DateFrom);
+                cmd.Parameters.AddWithValue("@Date2", DateTo);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -3276,17 +3278,14 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
-
                 if (StartDate != null)
                 {
                     cmd.Parameters.AddWithValue("@StartDate", StartDate);
                     cmd.Parameters.AddWithValue("@EndDate", EndDate);
                 }
-
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
-
                 foreach (DataRow Item in dt.Rows)
                 {
                     BillsCount = (Convert.ToInt32(Item["Bills Count"].ToString()));
@@ -3297,7 +3296,7 @@ namespace DataAccessLayer
             {
                 return -1;
             }
-        }  
+        }
 
         public Bill RetrieveLastBillNumberToday()
         {
@@ -3488,7 +3487,7 @@ namespace DataAccessLayer
                 List<Item> saleItems = new List<Item>();
                 return saleItems;
             }
-        }  
+        }
 
         public List<Item> RetrieveSaleDateRange(DateTime StartDate, DateTime EndDate, int QuantityEnd = 0)
         {
@@ -3496,7 +3495,6 @@ namespace DataAccessLayer
             {
                 List<Item> saleItems = new List<Item>();
                 List<Item> quantity_items = RetrieveSaleItemsQuantity();
-
                 foreach (Item sale_item in quantity_items)
                 {
                     SqlDataAdapter adapter = new SqlDataAdapter();
@@ -3504,15 +3502,12 @@ namespace DataAccessLayer
                     {
                         CommandType = CommandType.StoredProcedure
                     };
-
                     if (StartDate != null)
                     {
                         cmd.Parameters.AddWithValue("@StartDate", StartDate);
                         cmd.Parameters.AddWithValue("@EndDate", EndDate);
                     }
-
                     cmd.Parameters.AddWithValue("@QuantityEnd", sale_item.QuantityEnd);
-
                     adapter.SelectCommand = cmd;
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);

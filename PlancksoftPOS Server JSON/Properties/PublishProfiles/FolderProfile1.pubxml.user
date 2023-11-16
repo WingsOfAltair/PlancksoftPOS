@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121.
+-->
+<Project>
+  <PropertyGroup>
+    <_PublishTargetUrl>C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\app.publish\</_PublishTargetUrl>
+    <History>True|2023-06-06T18:34:33.6332063Z;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Azure.Core.dll">
+      <publishTime>06/01/2023 02:28:55</publishTime>
+    </File>
+    <File Include="bin/DataAccessLayer.dll">
+      <publishTime>06/06/2023 23:34:31</publishTime>
+    </File>
+    <File Include="bin/DataAccessLayer.pdb">
+      <publishTime>06/06/2023 23:34:31</publishTime>
+    </File>
+    <File Include="bin/Dependencies.dll">
+      <publishTime>06/06/2023 23:20:22</publishTime>
+    </File>
+    <File Include="bin/Dependencies.pdb">
+      <publishTime>06/06/2023 23:20:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
+      <publishTime>06/01/2023 02:28:56</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>06/01/2023 02:28:56</publishTime>
+    </File>
+    <File Include="bin/PlancksoftPOS Server JSON.dll">
+      <publishTime>06/06/2023 23:34:31</publishTime>
+    </File>
+    <File Include="bin/PlancksoftPOS Server JSON.pdb">
+      <publishTime>06/06/2023 23:34:31</publishTime>
+    </File>
+    <File Include="bin/System.Buffers.dll">
+      <publishTime>06/01/2023 02:28:56</publishTime>
+    </File>
+    <File Include="bin/System.Diagnostics.DiagnosticSource.dll">
+      <publishTime>06/01/2023 02:28:56</publishTime>
+    </File>
+    <File Include="bin/System.Memory.Data.dll">
+      <publishTime>06/01/2023 02:28:56</publishTime>
+    </File>
+    <File Include="bin/System.Memory.dll">
+      <publishTime>06/01/2023 02:28:56</publishTime>
+    </File>
+    <File Include="bin/System.Numerics.Vectors.dll">
+      <publishTime>06/01/2023 02:28:56</publishTime>
+    </File>
+    <File Include="bin/System.Runtime.CompilerServices.Unsafe.dll">
+      <publishTime>06/01/2023 02:28:57</publishTime>
+    </File>
+    <File Include="bin/System.Text.Encodings.Web.dll">
+      <publishTime>06/01/2023 02:28:57</publishTime>
+    </File>
+    <File Include="bin/System.Text.Json.dll">
+      <publishTime>06/01/2023 02:28:57</publishTime>
+    </File>
+    <File Include="bin/System.Threading.Tasks.Extensions.dll">
+      <publishTime>06/01/2023 02:28:57</publishTime>
+    </File>
+    <File Include="bin/System.ValueTuple.dll">
+      <publishTime>06/01/2023 02:28:57</publishTime>
+    </File>
+    <File Include="PlancksoftPOSJSON_Server.svc">
+      <publishTime>06/01/2023 02:28:54</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>06/06/2023 23:34:32</publishTime>
+    </File>
+  </ItemGroup>
+</Project>
