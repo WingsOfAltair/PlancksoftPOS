@@ -220,9 +220,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveItems(locale);
         }
-        public DataTable RetrieveEmployees()
+        public DataTable RetrieveEmployees(DateTime DateFrom, DateTime DateTo)
         {
-            return DAL.RetrieveEmployees();
+            return DAL.RetrieveEmployees(DateFrom, DateTo);
         }
         public Tuple<List<Account>, DataTable> RetrieveUsers()
         {

@@ -21,17 +21,17 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://localhost/PlancksoftPOS/PlancksoftPOS.svc" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://localhost:50612/PlancksoftPOS.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="PlancksoftPOS.xsd" MetadataType="Schema" ID="dc5743d5-3a03-40f0-b0ca-7e0f402c9366" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?xsd=xsd5" />
-    <MetadataFile FileName="PlancksoftPOS_Server.wsdl" MetadataType="Wsdl" ID="83068d1f-cf97-4c3b-a7c7-d91c008b785a" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?wsdl" />
-    <MetadataFile FileName="PlancksoftPOS1.xsd" MetadataType="Schema" ID="47961703-380e-4b07-9979-c595b0f8083f" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?xsd=xsd0" />
-    <MetadataFile FileName="PlancksoftPOS2.xsd" MetadataType="Schema" ID="8bc13b53-c5b4-41f4-88ed-8e2a18afa302" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?xsd=xsd1" />
-    <MetadataFile FileName="PlancksoftPOS.disco" MetadataType="Disco" ID="bea47987-70a3-450a-bcc5-3cef79fcf76e" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?disco" />
-    <MetadataFile FileName="PlancksoftPOS3.xsd" MetadataType="Schema" ID="60d84864-18e9-4391-9335-3eb6a55a019a" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?xsd=xsd3" />
-    <MetadataFile FileName="PlancksoftPOS4.xsd" MetadataType="Schema" ID="9ada0637-defe-433a-9f75-294da3d3a7f6" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?xsd=xsd2" />
-    <MetadataFile FileName="PlancksoftPOS5.xsd" MetadataType="Schema" ID="a6057aa9-6cbf-4086-a8a9-547b731a761d" SourceId="1" SourceUrl="http://localhost/PlancksoftPOS/PlancksoftPOS.svc?xsd=xsd4" />
+    <MetadataFile FileName="PlancksoftPOS6.xsd" MetadataType="Schema" ID="4e3c828a-9505-47d9-97d7-16caf052ae9a" SourceId="1" SourceUrl="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd0" />
+    <MetadataFile FileName="PlancksoftPOS61.xsd" MetadataType="Schema" ID="67797657-7d88-47e1-9a2f-7fdebf09246c" SourceId="1" SourceUrl="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd3" />
+    <MetadataFile FileName="PlancksoftPOS62.xsd" MetadataType="Schema" ID="0f336097-4ac7-458a-afbd-9d8a1b85d5ed" SourceId="1" SourceUrl="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd2" />
+    <MetadataFile FileName="PlancksoftPOS_Server1.wsdl" MetadataType="Wsdl" ID="cc161605-db03-4dcd-ba34-6a1de7637a74" SourceId="1" SourceUrl="http://localhost:50612/PlancksoftPOS.svc?wsdl" />
+    <MetadataFile FileName="PlancksoftPOS63.xsd" MetadataType="Schema" ID="16f5fe57-46ab-4948-baf9-f2dc31b19f34" SourceId="1" SourceUrl="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd5" />
+    <MetadataFile FileName="PlancksoftPOS64.xsd" MetadataType="Schema" ID="53a37e61-c8dd-4d85-92c1-5ba9d3761bad" SourceId="1" SourceUrl="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd4" />
+    <MetadataFile FileName="PlancksoftPOS1.disco" MetadataType="Disco" ID="3b438502-239c-4616-8936-b1c850394a1b" SourceId="1" SourceUrl="http://localhost:50612/PlancksoftPOS.svc?disco" />
+    <MetadataFile FileName="PlancksoftPOS65.xsd" MetadataType="Schema" ID="b18d4194-d191-46ad-864c-a9ba9b85e3db" SourceId="1" SourceUrl="http://localhost:50612/PlancksoftPOS.svc?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

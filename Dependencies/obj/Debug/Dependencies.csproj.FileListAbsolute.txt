@@ -22,3 +22,14 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\Dependencies\obj\Debug\Depende
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\Dependencies\obj\Debug\Dependencies.csproj.CoreCompileInputs.cache
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\Dependencies\obj\Debug\Dependencies.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\Dependencies\obj\Debug\Dependencies.pdb
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\Dependencies\bin\Debug\Dependencies.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\Dependencies\bin\Debug\Dependencies.pdb
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\Dependencies\obj\Debug\Dependencies.csproj.CoreCompileInputs.cache
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\Dependencies\obj\Debug\Dependencies.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\Dependencies\obj\Debug\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\Dependencies\bin\Debug\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\Dependencies\bin\Debug\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\Dependencies\obj\Debug\Dependencies.csproj.AssemblyReference.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\Dependencies\obj\Debug\Dependencies.csproj.CoreCompileInputs.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\Dependencies\obj\Debug\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\Dependencies\obj\Debug\Dependencies.pdb

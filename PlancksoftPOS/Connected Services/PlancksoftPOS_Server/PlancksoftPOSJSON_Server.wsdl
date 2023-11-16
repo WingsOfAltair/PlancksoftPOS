@@ -1,0 +1,1213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="PlancksoftPOSJSON_Server" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:51861/PlancksoftPOSJSON_Server.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:51861/PlancksoftPOSJSON_Server.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:51861/PlancksoftPOSJSON_Server.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Dependencies" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RegisterVendor_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterVendor" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RegisterVendor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterVendorResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteAbsence_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAbsence" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteAbsence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAbsenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_AddSaleOnItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddSaleOnItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_AddSaleOnItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddSaleOnItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_AddItemToClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddItemToClient" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_AddItemToClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddItemToClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_AddUnpaidBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddUnpaidBill" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_AddUnpaidBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddUnpaidBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_AddVendorBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddVendorBill" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_AddVendorBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddVendorBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_PayUnpaidBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:PayUnpaidBill" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_PayUnpaidBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PayUnpaidBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_PayBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:PayBill" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_PayBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:PayBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateBill_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBill" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateBill_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateBillResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_ReturnItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnItem" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_ReturnItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReturnItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateItemWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateItemWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItem" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateItemQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemQuantity" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateItemQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteItem" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveLastVendorBillNumberToday_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveLastVendorBillNumberToday" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveLastVendorBillNumberToday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveLastVendorBillNumberTodayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveTotalActiveItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveTotalActiveItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveTotalActiveItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveTotalActiveItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveClientCount_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveClientCount" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveClientCount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveClientCountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveBillsCountByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBillsCountByDate" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveBillsCountByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBillsCountByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveLastBillNumberToday_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveLastBillNumberToday" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveLastBillNumberToday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveLastBillNumberTodayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItemsQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemsQuantity" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItemsQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemsQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveSaleItemsQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSaleItemsQuantity" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveSaleItemsQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSaleItemsQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveExpireStockToday_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveExpireStockToday" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveExpireStockToday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveExpireStockTodayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveSaleToday_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSaleToday" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveSaleToday_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSaleTodayResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveSaleDateRange_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSaleDateRange" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveSaleDateRange_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSaleDateRangeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchTodayBills_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchTodayBills" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchTodayBills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchTodayBillsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchBills_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchBills" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchBills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchBillsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetItemQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemQuantity" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetItemQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetItemQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveAbsence_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAbsence" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveAbsence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAbsenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchExpenses_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchExpenses" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchExpenses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchExpensesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchClients" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchClientsInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchClientsInfo" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchClientsInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchClientsInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveSaleByDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSaleByDate" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveSaleByDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSaleByDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveSystemSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSystemSettings" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveSystemSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveSystemSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateSystemSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSystemSettings" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateSystemSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSystemSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveBillSoldBItemQuantity_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBillSoldBItemQuantity" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveBillSoldBItemQuantity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBillSoldBItemQuantityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItemTypeName_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemTypeName" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItemTypeName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemTypeNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveWarehouseName_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveWarehouseName" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveWarehouseName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveWarehouseNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveFavoriteCategoryName_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveFavoriteCategoryName" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveFavoriteCategoryName_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveFavoriteCategoryNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveCashierNames_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveCashierNames" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveCashierNames_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveCashierNamesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItemTypeID_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemTypeID" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItemTypeID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemTypeIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveWarehouseID_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveWarehouseID" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveWarehouseID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveWarehouseIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveFavoriteCategoryID_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveFavoriteCategoryID" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveFavoriteCategoryID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveFavoriteCategoryIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrievePrinterItemTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePrinterItemTypes" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrievePrinterItemTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePrinterItemTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItemTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemTypes" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItemTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveWarehouses_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveWarehouses" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveWarehouses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveWarehousesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveFavoriteCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveFavoriteCategories" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveFavoriteCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveFavoriteCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrievePrinters_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePrinters" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrievePrinters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePrintersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveLoginLogoutInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveLoginLogoutInfo" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveLoginLogoutInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveLoginLogoutInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveUsersList_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveUsersList" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveUsersList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveUsersListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetRetrieveClients_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRetrieveClients" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetRetrieveClients_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRetrieveClientsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetRetrieveVendors_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetRetrieveVendors" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetRetrieveVendors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetRetrieveVendorsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_CheckAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_CheckAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RegisterAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RegisterAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_LogLogout_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogLogout" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_LogLogout_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogLogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_LogLogin_InputMessage">
+    <wsdl:part name="parameters" element="tns:LogLogin" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_LogLogin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LogLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_Login_InputMessage">
+    <wsdl:part name="parameters" element="tns:Login" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_Login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_Register_InputMessage">
+    <wsdl:part name="parameters" element="tns:Register" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_Register_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_AddPrinterItemType_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddPrinterItemType" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_AddPrinterItemType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddPrinterItemTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeletePrinterItemType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePrinterItemType" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeletePrinterItemType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePrinterItemTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeletePrinter_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePrinter" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeletePrinter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeletePrinterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteFavoriteItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFavoriteItem" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteFavoriteItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFavoriteItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_AddFavoriteItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddFavoriteItem" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_AddFavoriteItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddFavoriteItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SaveRegisterClose_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRegisterClose" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SaveRegisterClose_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRegisterCloseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SaveRegisterOpen_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRegisterOpen" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SaveRegisterOpen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveRegisterOpenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchWarehouseInventoryItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchWarehouseInventoryItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchWarehouseInventoryItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchWarehouseInventoryItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchInventoryItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchInventoryItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchInventoryItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchInventoryItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchInventoryItemsWithBarCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchInventoryItemsWithBarCode" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_SearchInventoryItemsWithBarCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchInventoryItemsWithBarCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveUnPortedBills_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveUnPortedBills" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveUnPortedBills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveUnPortedBillsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrievePortedBills_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePortedBills" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrievePortedBills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrievePortedBillsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveUnpaidBills_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveUnpaidBills" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveUnpaidBills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveUnpaidBillsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveVendorBills_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveVendorBills" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveVendorBills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveVendorBillsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveTaxZReport_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveTaxZReport" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveTaxZReport_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveTaxZReportResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveBills_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBills" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveBills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBillsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveCapitalRevenue_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveCapitalRevenue" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveCapitalRevenue_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveCapitalRevenueResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveExports_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveExports" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveExports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveExportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveImports_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveImports" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveImports_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveImportsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveLeastBoughtItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveLeastBoughtItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveLeastBoughtItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveLeastBoughtItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveMostBoughtItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveMostBoughtItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveMostBoughtItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveMostBoughtItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveAccountAuthority_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAccountAuthority" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveAccountAuthority_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveAccountAuthorityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveUserPermissions_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveUserPermissions" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveUserPermissions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveUserPermissionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItemPictureFromBarCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemPictureFromBarCode" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItemPictureFromBarCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemPictureFromBarCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItemsQuantityDates_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemsQuantityDates" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItemsQuantityDates_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemsQuantityDatesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveEmployees_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveEmployees" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveEmployees_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveEmployeesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveUsers" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveClientBills_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveClientBills" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveClientBills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveClientBillsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveVendorBillItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveVendorBillItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveVendorBillItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveVendorBillItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveBillItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBillItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveBillItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBillItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveBillItemsProfit_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBillItemsProfit" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveBillItemsProfit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveBillItemsProfitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveReturnedItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveReturnedItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveReturnedItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveReturnedItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveFavoriteItems_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveFavoriteItems" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RetrieveFavoriteItems_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveFavoriteItemsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetCapitalAmount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCapitalAmount" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetCapitalAmount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCapitalAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetOpenRegisterAmount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpenRegisterAmount" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetOpenRegisterAmount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetOpenRegisterAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetTotalSalesAmountCloseCash_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalSalesAmountCloseCash" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetTotalSalesAmountCloseCash_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalSalesAmountCloseCashResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetTotalSalesAmount_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalSalesAmount" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetTotalSalesAmount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTotalSalesAmountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetLastOpenRegisterDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastOpenRegisterDate" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_GetLastOpenRegisterDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastOpenRegisterDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertExpense_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertExpense" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertExpense_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertExpenseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertDeduction_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDeduction" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertDeduction_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDeductionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertDayOff_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDayOff" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertDayOff_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertDayOffResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertAbsence_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertAbsence" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertAbsence_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertAbsenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertEmployee_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmployee" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertEmployee_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertEmployeeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertItem_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertItem" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertItem_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteItemType_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteItemType" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteItemType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteItemTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteFavoriteCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFavoriteCategory" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteFavoriteCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteFavoriteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateItemTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemTypes" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateItemTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateItemTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateWarehouses_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWarehouses" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateWarehouses_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWarehousesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateFavoriteCategories_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFavoriteCategories" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdateFavoriteCategories_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFavoriteCategoriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdatePrinters_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePrinters" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_UpdatePrinters_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdatePrintersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertItemType_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertItemType" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertItemType_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertItemTypeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertWarehouse_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertWarehouse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertWarehouse_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertWarehouseResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertFavoriteCategory_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertFavoriteCategory" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertFavoriteCategory_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertFavoriteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertPrinter_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPrinter" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_InsertPrinter_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertPrinterResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClient" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_DeleteClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteClientResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RegisterClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterClient" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOSJSON_Server_RegisterClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegisterClientResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IPlancksoftPOSJSON_Server">
+    <wsdl:operation name="RegisterVendor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RegisterVendor" message="tns:IPlancksoftPOSJSON_Server_RegisterVendor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RegisterVendorResponse" message="tns:IPlancksoftPOSJSON_Server_RegisterVendor_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAbsence">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteAbsence" message="tns:IPlancksoftPOSJSON_Server_DeleteAbsence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteAbsenceResponse" message="tns:IPlancksoftPOSJSON_Server_DeleteAbsence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteEmployee" message="tns:IPlancksoftPOSJSON_Server_DeleteEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteEmployeeResponse" message="tns:IPlancksoftPOSJSON_Server_DeleteEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteUser" message="tns:IPlancksoftPOSJSON_Server_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteUserResponse" message="tns:IPlancksoftPOSJSON_Server_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSaleOnItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/AddSaleOnItems" message="tns:IPlancksoftPOSJSON_Server_AddSaleOnItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/AddSaleOnItemsResponse" message="tns:IPlancksoftPOSJSON_Server_AddSaleOnItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddItemToClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/AddItemToClient" message="tns:IPlancksoftPOSJSON_Server_AddItemToClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/AddItemToClientResponse" message="tns:IPlancksoftPOSJSON_Server_AddItemToClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddUnpaidBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/AddUnpaidBill" message="tns:IPlancksoftPOSJSON_Server_AddUnpaidBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/AddUnpaidBillResponse" message="tns:IPlancksoftPOSJSON_Server_AddUnpaidBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVendorBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/AddVendorBill" message="tns:IPlancksoftPOSJSON_Server_AddVendorBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/AddVendorBillResponse" message="tns:IPlancksoftPOSJSON_Server_AddVendorBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PayUnpaidBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/PayUnpaidBill" message="tns:IPlancksoftPOSJSON_Server_PayUnpaidBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/PayUnpaidBillResponse" message="tns:IPlancksoftPOSJSON_Server_PayUnpaidBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="PayBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/PayBill" message="tns:IPlancksoftPOSJSON_Server_PayBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/PayBillResponse" message="tns:IPlancksoftPOSJSON_Server_PayBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateEmployee" message="tns:IPlancksoftPOSJSON_Server_UpdateEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateEmployeeResponse" message="tns:IPlancksoftPOSJSON_Server_UpdateEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateUser" message="tns:IPlancksoftPOSJSON_Server_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateUserResponse" message="tns:IPlancksoftPOSJSON_Server_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBill">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateBill" message="tns:IPlancksoftPOSJSON_Server_UpdateBill_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateBillResponse" message="tns:IPlancksoftPOSJSON_Server_UpdateBill_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReturnItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/ReturnItem" message="tns:IPlancksoftPOSJSON_Server_ReturnItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/ReturnItemResponse" message="tns:IPlancksoftPOSJSON_Server_ReturnItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemWarehouse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateItemWarehouse" message="tns:IPlancksoftPOSJSON_Server_UpdateItemWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateItemWarehouseResponse" message="tns:IPlancksoftPOSJSON_Server_UpdateItemWarehouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateItem" message="tns:IPlancksoftPOSJSON_Server_UpdateItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateItemResponse" message="tns:IPlancksoftPOSJSON_Server_UpdateItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateItemQuantity" message="tns:IPlancksoftPOSJSON_Server_UpdateItemQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateItemQuantityResponse" message="tns:IPlancksoftPOSJSON_Server_UpdateItemQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteItem" message="tns:IPlancksoftPOSJSON_Server_DeleteItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteItemResponse" message="tns:IPlancksoftPOSJSON_Server_DeleteItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveLastVendorBillNumberToday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveLastVendorBillNumberToday" message="tns:IPlancksoftPOSJSON_Server_RetrieveLastVendorBillNumberToday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveLastVendorBillNumberTodayResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveLastVendorBillNumberToday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTotalActiveItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveTotalActiveItems" message="tns:IPlancksoftPOSJSON_Server_RetrieveTotalActiveItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveTotalActiveItemsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveTotalActiveItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveClientCount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveClientCount" message="tns:IPlancksoftPOSJSON_Server_RetrieveClientCount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveClientCountResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveClientCount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveBillsCountByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveBillsCountByDate" message="tns:IPlancksoftPOSJSON_Server_RetrieveBillsCountByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveBillsCountByDateResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveBillsCountByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveLastBillNumberToday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveLastBillNumberToday" message="tns:IPlancksoftPOSJSON_Server_RetrieveLastBillNumberToday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveLastBillNumberTodayResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveLastBillNumberToday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveItemsQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItemsQuantity" message="tns:IPlancksoftPOSJSON_Server_RetrieveItemsQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItemsQuantityResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveItemsQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSaleItemsQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveSaleItemsQuantity" message="tns:IPlancksoftPOSJSON_Server_RetrieveSaleItemsQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveSaleItemsQuantityResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveSaleItemsQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveExpireStockToday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveExpireStockToday" message="tns:IPlancksoftPOSJSON_Server_RetrieveExpireStockToday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveExpireStockTodayResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveExpireStockToday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSaleToday">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveSaleToday" message="tns:IPlancksoftPOSJSON_Server_RetrieveSaleToday_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveSaleTodayResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveSaleToday_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSaleDateRange">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveSaleDateRange" message="tns:IPlancksoftPOSJSON_Server_RetrieveSaleDateRange_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveSaleDateRangeResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveSaleDateRange_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchTodayBills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchTodayBills" message="tns:IPlancksoftPOSJSON_Server_SearchTodayBills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchTodayBillsResponse" message="tns:IPlancksoftPOSJSON_Server_SearchTodayBills_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchBills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchBills" message="tns:IPlancksoftPOSJSON_Server_SearchBills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchBillsResponse" message="tns:IPlancksoftPOSJSON_Server_SearchBills_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItemQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetItemQuantity" message="tns:IPlancksoftPOSJSON_Server_GetItemQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetItemQuantityResponse" message="tns:IPlancksoftPOSJSON_Server_GetItemQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAbsence">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveAbsence" message="tns:IPlancksoftPOSJSON_Server_RetrieveAbsence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveAbsenceResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveAbsence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchExpenses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchExpenses" message="tns:IPlancksoftPOSJSON_Server_SearchExpenses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchExpensesResponse" message="tns:IPlancksoftPOSJSON_Server_SearchExpenses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchItems" message="tns:IPlancksoftPOSJSON_Server_SearchItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchItemsResponse" message="tns:IPlancksoftPOSJSON_Server_SearchItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchClients" message="tns:IPlancksoftPOSJSON_Server_SearchClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchClientsResponse" message="tns:IPlancksoftPOSJSON_Server_SearchClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchClientsInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchClientsInfo" message="tns:IPlancksoftPOSJSON_Server_SearchClientsInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchClientsInfoResponse" message="tns:IPlancksoftPOSJSON_Server_SearchClientsInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSaleByDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveSaleByDate" message="tns:IPlancksoftPOSJSON_Server_RetrieveSaleByDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveSaleByDateResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveSaleByDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveSystemSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveSystemSettings" message="tns:IPlancksoftPOSJSON_Server_RetrieveSystemSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveSystemSettingsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveSystemSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSystemSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateSystemSettings" message="tns:IPlancksoftPOSJSON_Server_UpdateSystemSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateSystemSettingsResponse" message="tns:IPlancksoftPOSJSON_Server_UpdateSystemSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveBillSoldBItemQuantity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveBillSoldBItemQuantity" message="tns:IPlancksoftPOSJSON_Server_RetrieveBillSoldBItemQuantity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveBillSoldBItemQuantityResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveBillSoldBItemQuantity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveItemTypeName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItemTypeName" message="tns:IPlancksoftPOSJSON_Server_RetrieveItemTypeName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItemTypeNameResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveItemTypeName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveWarehouseName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveWarehouseName" message="tns:IPlancksoftPOSJSON_Server_RetrieveWarehouseName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveWarehouseNameResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveWarehouseName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveFavoriteCategoryName">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveFavoriteCategoryName" message="tns:IPlancksoftPOSJSON_Server_RetrieveFavoriteCategoryName_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveFavoriteCategoryNameResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveFavoriteCategoryName_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCashierNames">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveCashierNames" message="tns:IPlancksoftPOSJSON_Server_RetrieveCashierNames_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveCashierNamesResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveCashierNames_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveItemTypeID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItemTypeID" message="tns:IPlancksoftPOSJSON_Server_RetrieveItemTypeID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItemTypeIDResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveItemTypeID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveWarehouseID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveWarehouseID" message="tns:IPlancksoftPOSJSON_Server_RetrieveWarehouseID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveWarehouseIDResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveWarehouseID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveFavoriteCategoryID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveFavoriteCategoryID" message="tns:IPlancksoftPOSJSON_Server_RetrieveFavoriteCategoryID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveFavoriteCategoryIDResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveFavoriteCategoryID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePrinterItemTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrievePrinterItemTypes" message="tns:IPlancksoftPOSJSON_Server_RetrievePrinterItemTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrievePrinterItemTypesResponse" message="tns:IPlancksoftPOSJSON_Server_RetrievePrinterItemTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveItemTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItemTypes" message="tns:IPlancksoftPOSJSON_Server_RetrieveItemTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItemTypesResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveItemTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveWarehouses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveWarehouses" message="tns:IPlancksoftPOSJSON_Server_RetrieveWarehouses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveWarehousesResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveWarehouses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveFavoriteCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveFavoriteCategories" message="tns:IPlancksoftPOSJSON_Server_RetrieveFavoriteCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveFavoriteCategoriesResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveFavoriteCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePrinters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrievePrinters" message="tns:IPlancksoftPOSJSON_Server_RetrievePrinters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrievePrintersResponse" message="tns:IPlancksoftPOSJSON_Server_RetrievePrinters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveLoginLogoutInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveLoginLogoutInfo" message="tns:IPlancksoftPOSJSON_Server_RetrieveLoginLogoutInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveLoginLogoutInfoResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveLoginLogoutInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUsersList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveUsersList" message="tns:IPlancksoftPOSJSON_Server_RetrieveUsersList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveUsersListResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveUsersList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRetrieveClients">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetRetrieveClients" message="tns:IPlancksoftPOSJSON_Server_GetRetrieveClients_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetRetrieveClientsResponse" message="tns:IPlancksoftPOSJSON_Server_GetRetrieveClients_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetRetrieveVendors">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetRetrieveVendors" message="tns:IPlancksoftPOSJSON_Server_GetRetrieveVendors_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetRetrieveVendorsResponse" message="tns:IPlancksoftPOSJSON_Server_GetRetrieveVendors_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/CheckAdmin" message="tns:IPlancksoftPOSJSON_Server_CheckAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/CheckAdminResponse" message="tns:IPlancksoftPOSJSON_Server_CheckAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RegisterAdmin" message="tns:IPlancksoftPOSJSON_Server_RegisterAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RegisterAdminResponse" message="tns:IPlancksoftPOSJSON_Server_RegisterAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogLogout">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/LogLogout" message="tns:IPlancksoftPOSJSON_Server_LogLogout_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/LogLogoutResponse" message="tns:IPlancksoftPOSJSON_Server_LogLogout_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="LogLogin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/LogLogin" message="tns:IPlancksoftPOSJSON_Server_LogLogin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/LogLoginResponse" message="tns:IPlancksoftPOSJSON_Server_LogLogin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/Login" message="tns:IPlancksoftPOSJSON_Server_Login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/LoginResponse" message="tns:IPlancksoftPOSJSON_Server_Login_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Register">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/Register" message="tns:IPlancksoftPOSJSON_Server_Register_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RegisterResponse" message="tns:IPlancksoftPOSJSON_Server_Register_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddPrinterItemType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/AddPrinterItemType" message="tns:IPlancksoftPOSJSON_Server_AddPrinterItemType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/AddPrinterItemTypeResponse" message="tns:IPlancksoftPOSJSON_Server_AddPrinterItemType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrinterItemType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeletePrinterItemType" message="tns:IPlancksoftPOSJSON_Server_DeletePrinterItemType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeletePrinterItemTypeResponse" message="tns:IPlancksoftPOSJSON_Server_DeletePrinterItemType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePrinter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeletePrinter" message="tns:IPlancksoftPOSJSON_Server_DeletePrinter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeletePrinterResponse" message="tns:IPlancksoftPOSJSON_Server_DeletePrinter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFavoriteItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteFavoriteItem" message="tns:IPlancksoftPOSJSON_Server_DeleteFavoriteItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteFavoriteItemResponse" message="tns:IPlancksoftPOSJSON_Server_DeleteFavoriteItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddFavoriteItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/AddFavoriteItem" message="tns:IPlancksoftPOSJSON_Server_AddFavoriteItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/AddFavoriteItemResponse" message="tns:IPlancksoftPOSJSON_Server_AddFavoriteItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRegisterClose">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SaveRegisterClose" message="tns:IPlancksoftPOSJSON_Server_SaveRegisterClose_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SaveRegisterCloseResponse" message="tns:IPlancksoftPOSJSON_Server_SaveRegisterClose_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveRegisterOpen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SaveRegisterOpen" message="tns:IPlancksoftPOSJSON_Server_SaveRegisterOpen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SaveRegisterOpenResponse" message="tns:IPlancksoftPOSJSON_Server_SaveRegisterOpen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchWarehouseInventoryItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchWarehouseInventoryItems" message="tns:IPlancksoftPOSJSON_Server_SearchWarehouseInventoryItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchWarehouseInventoryItemsResponse" message="tns:IPlancksoftPOSJSON_Server_SearchWarehouseInventoryItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchInventoryItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchInventoryItems" message="tns:IPlancksoftPOSJSON_Server_SearchInventoryItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchInventoryItemsResponse" message="tns:IPlancksoftPOSJSON_Server_SearchInventoryItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchInventoryItemsWithBarCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchInventoryItemsWithBarCode" message="tns:IPlancksoftPOSJSON_Server_SearchInventoryItemsWithBarCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/SearchInventoryItemsWithBarCodeResponse" message="tns:IPlancksoftPOSJSON_Server_SearchInventoryItemsWithBarCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUnPortedBills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveUnPortedBills" message="tns:IPlancksoftPOSJSON_Server_RetrieveUnPortedBills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveUnPortedBillsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveUnPortedBills_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrievePortedBills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrievePortedBills" message="tns:IPlancksoftPOSJSON_Server_RetrievePortedBills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrievePortedBillsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrievePortedBills_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUnpaidBills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveUnpaidBills" message="tns:IPlancksoftPOSJSON_Server_RetrieveUnpaidBills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveUnpaidBillsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveUnpaidBills_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveVendorBills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveVendorBills" message="tns:IPlancksoftPOSJSON_Server_RetrieveVendorBills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveVendorBillsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveVendorBills_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveTaxZReport">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveTaxZReport" message="tns:IPlancksoftPOSJSON_Server_RetrieveTaxZReport_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveTaxZReportResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveTaxZReport_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveBills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveBills" message="tns:IPlancksoftPOSJSON_Server_RetrieveBills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveBillsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveBills_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveCapitalRevenue">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveCapitalRevenue" message="tns:IPlancksoftPOSJSON_Server_RetrieveCapitalRevenue_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveCapitalRevenueResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveCapitalRevenue_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveExports">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveExports" message="tns:IPlancksoftPOSJSON_Server_RetrieveExports_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveExportsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveExports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveImports">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveImports" message="tns:IPlancksoftPOSJSON_Server_RetrieveImports_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveImportsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveImports_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveLeastBoughtItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveLeastBoughtItems" message="tns:IPlancksoftPOSJSON_Server_RetrieveLeastBoughtItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveLeastBoughtItemsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveLeastBoughtItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveMostBoughtItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveMostBoughtItems" message="tns:IPlancksoftPOSJSON_Server_RetrieveMostBoughtItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveMostBoughtItemsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveMostBoughtItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveAccountAuthority">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveAccountAuthority" message="tns:IPlancksoftPOSJSON_Server_RetrieveAccountAuthority_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveAccountAuthorityResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveAccountAuthority_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUserPermissions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveUserPermissions" message="tns:IPlancksoftPOSJSON_Server_RetrieveUserPermissions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveUserPermissionsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveUserPermissions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveItemPictureFromBarCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItemPictureFromBarCode" message="tns:IPlancksoftPOSJSON_Server_RetrieveItemPictureFromBarCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItemPictureFromBarCodeResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveItemPictureFromBarCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveItemsQuantityDates">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItemsQuantityDates" message="tns:IPlancksoftPOSJSON_Server_RetrieveItemsQuantityDates_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItemsQuantityDatesResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveItemsQuantityDates_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItems" message="tns:IPlancksoftPOSJSON_Server_RetrieveItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveItemsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveEmployees">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveEmployees" message="tns:IPlancksoftPOSJSON_Server_RetrieveEmployees_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveEmployeesResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveEmployees_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveUsers" message="tns:IPlancksoftPOSJSON_Server_RetrieveUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveUsersResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveClientBills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveClientBills" message="tns:IPlancksoftPOSJSON_Server_RetrieveClientBills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveClientBillsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveClientBills_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveVendorBillItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveVendorBillItems" message="tns:IPlancksoftPOSJSON_Server_RetrieveVendorBillItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveVendorBillItemsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveVendorBillItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveBillItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveBillItems" message="tns:IPlancksoftPOSJSON_Server_RetrieveBillItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveBillItemsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveBillItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveBillItemsProfit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveBillItemsProfit" message="tns:IPlancksoftPOSJSON_Server_RetrieveBillItemsProfit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveBillItemsProfitResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveBillItemsProfit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveReturnedItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveReturnedItems" message="tns:IPlancksoftPOSJSON_Server_RetrieveReturnedItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveReturnedItemsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveReturnedItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveFavoriteItems">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveFavoriteItems" message="tns:IPlancksoftPOSJSON_Server_RetrieveFavoriteItems_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RetrieveFavoriteItemsResponse" message="tns:IPlancksoftPOSJSON_Server_RetrieveFavoriteItems_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCapitalAmount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetCapitalAmount" message="tns:IPlancksoftPOSJSON_Server_GetCapitalAmount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetCapitalAmountResponse" message="tns:IPlancksoftPOSJSON_Server_GetCapitalAmount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOpenRegisterAmount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetOpenRegisterAmount" message="tns:IPlancksoftPOSJSON_Server_GetOpenRegisterAmount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetOpenRegisterAmountResponse" message="tns:IPlancksoftPOSJSON_Server_GetOpenRegisterAmount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalSalesAmountCloseCash">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetTotalSalesAmountCloseCash" message="tns:IPlancksoftPOSJSON_Server_GetTotalSalesAmountCloseCash_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetTotalSalesAmountCloseCashResponse" message="tns:IPlancksoftPOSJSON_Server_GetTotalSalesAmountCloseCash_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTotalSalesAmount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetTotalSalesAmount" message="tns:IPlancksoftPOSJSON_Server_GetTotalSalesAmount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetTotalSalesAmountResponse" message="tns:IPlancksoftPOSJSON_Server_GetTotalSalesAmount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastOpenRegisterDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetLastOpenRegisterDate" message="tns:IPlancksoftPOSJSON_Server_GetLastOpenRegisterDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/GetLastOpenRegisterDateResponse" message="tns:IPlancksoftPOSJSON_Server_GetLastOpenRegisterDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertExpense">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertExpense" message="tns:IPlancksoftPOSJSON_Server_InsertExpense_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertExpenseResponse" message="tns:IPlancksoftPOSJSON_Server_InsertExpense_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertDeduction">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertDeduction" message="tns:IPlancksoftPOSJSON_Server_InsertDeduction_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertDeductionResponse" message="tns:IPlancksoftPOSJSON_Server_InsertDeduction_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertDayOff">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertDayOff" message="tns:IPlancksoftPOSJSON_Server_InsertDayOff_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertDayOffResponse" message="tns:IPlancksoftPOSJSON_Server_InsertDayOff_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertAbsence">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertAbsence" message="tns:IPlancksoftPOSJSON_Server_InsertAbsence_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertAbsenceResponse" message="tns:IPlancksoftPOSJSON_Server_InsertAbsence_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertEmployee">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertEmployee" message="tns:IPlancksoftPOSJSON_Server_InsertEmployee_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertEmployeeResponse" message="tns:IPlancksoftPOSJSON_Server_InsertEmployee_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertItem">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertItem" message="tns:IPlancksoftPOSJSON_Server_InsertItem_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertItemResponse" message="tns:IPlancksoftPOSJSON_Server_InsertItem_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteItemType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteItemType" message="tns:IPlancksoftPOSJSON_Server_DeleteItemType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteItemTypeResponse" message="tns:IPlancksoftPOSJSON_Server_DeleteItemType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteWarehouse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteWarehouse" message="tns:IPlancksoftPOSJSON_Server_DeleteWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteWarehouseResponse" message="tns:IPlancksoftPOSJSON_Server_DeleteWarehouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteFavoriteCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteFavoriteCategory" message="tns:IPlancksoftPOSJSON_Server_DeleteFavoriteCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteFavoriteCategoryResponse" message="tns:IPlancksoftPOSJSON_Server_DeleteFavoriteCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateItemTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateItemTypes" message="tns:IPlancksoftPOSJSON_Server_UpdateItemTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateItemTypesResponse" message="tns:IPlancksoftPOSJSON_Server_UpdateItemTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWarehouses">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateWarehouses" message="tns:IPlancksoftPOSJSON_Server_UpdateWarehouses_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateWarehousesResponse" message="tns:IPlancksoftPOSJSON_Server_UpdateWarehouses_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateFavoriteCategories">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateFavoriteCategories" message="tns:IPlancksoftPOSJSON_Server_UpdateFavoriteCategories_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdateFavoriteCategoriesResponse" message="tns:IPlancksoftPOSJSON_Server_UpdateFavoriteCategories_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdatePrinters">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdatePrinters" message="tns:IPlancksoftPOSJSON_Server_UpdatePrinters_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/UpdatePrintersResponse" message="tns:IPlancksoftPOSJSON_Server_UpdatePrinters_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertItemType">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertItemType" message="tns:IPlancksoftPOSJSON_Server_InsertItemType_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertItemTypeResponse" message="tns:IPlancksoftPOSJSON_Server_InsertItemType_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertWarehouse">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertWarehouse" message="tns:IPlancksoftPOSJSON_Server_InsertWarehouse_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertWarehouseResponse" message="tns:IPlancksoftPOSJSON_Server_InsertWarehouse_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertFavoriteCategory">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertFavoriteCategory" message="tns:IPlancksoftPOSJSON_Server_InsertFavoriteCategory_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertFavoriteCategoryResponse" message="tns:IPlancksoftPOSJSON_Server_InsertFavoriteCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertPrinter">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertPrinter" message="tns:IPlancksoftPOSJSON_Server_InsertPrinter_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/InsertPrinterResponse" message="tns:IPlancksoftPOSJSON_Server_InsertPrinter_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteClient" message="tns:IPlancksoftPOSJSON_Server_DeleteClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/DeleteClientResponse" message="tns:IPlancksoftPOSJSON_Server_DeleteClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RegisterClient" message="tns:IPlancksoftPOSJSON_Server_RegisterClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOSJSON_Server/RegisterClientResponse" message="tns:IPlancksoftPOSJSON_Server_RegisterClient_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:service name="PlancksoftPOSJSON_Server" />
+</wsdl:definitions>

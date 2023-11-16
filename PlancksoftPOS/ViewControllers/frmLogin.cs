@@ -95,13 +95,13 @@ namespace PlancksoftPOS
                     else if (pickedLanguage == LanguageChoice.Languages.English)
                         MaterialMessageBox.Show("The system's license validity duration has ended. Please contact technical support to purchase a new valid license.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
-                if (Settings.Default.LicenseKey != MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + "_" + Environment.UserName + "_" + Application.ProductName + "_" + Environment.ProcessorCount + "_" + Dependencies.Security.InstallationID.getOfflineInstallId()), "PlancksoftPOS"))
+                if (Settings.Default.LicenseKey != MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value()), "PlancksoftPOS"))
                 {
                     PlancksoftPOS.Visible = false;
                     frmLicense frm0 = new frmLicense();
                     frm0.ShowDialog();
                 }
-                if (Settings.Default.LicenseKey == MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + "_" + Environment.UserName + "_" + Application.ProductName + "_" + Environment.ProcessorCount + "_" + Dependencies.Security.InstallationID.getOfflineInstallId()), "PlancksoftPOS"))
+                if (Settings.Default.LicenseKey == MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value()), "PlancksoftPOS"))
                 {
                     if (!Connection.server.CheckConnection())
                     {

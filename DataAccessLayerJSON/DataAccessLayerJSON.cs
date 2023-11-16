@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using Dependencies;
 using Dependencies.Models;
 using Newtonsoft.Json;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace DataAccessLayerJSON
 {
@@ -48,6 +49,39 @@ namespace DataAccessLayerJSON
                 return new Response("Database Server is down.", false);
             }
         }
+
+        public Response RetrieveSaleByDate(DateTime StartDate, DateTime EndDate)
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveSaleByDate", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                if (StartDate != null)
+                {
+                    cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                }
+                if (EndDate != null)
+                {
+                    cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                }
+
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "SaleByDate";
+                return new Response(SerializeDataTableToJSON(dt), true);
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.TableName = "SaleByDate";
+                return new Response("Failed to retrieve sales by date.", false);
+            }
+        }  
 
         public Response RetrieveSystemSettings()
         {
@@ -752,11 +786,42 @@ namespace DataAccessLayerJSON
                         connection.Open();
                     cmd.ExecuteNonQuery();
 
+                    int ID = Convert.ToInt32(cmd.Parameters["@ID"].Value);
+                    Name = cmd.Parameters["@Name"].Value.ToString();
+                    string UID = cmd.Parameters["@UID"].Value.ToString();
                     int Authority = Convert.ToInt32(cmd.Parameters["@Authority"].Value);
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
-                    Name = cmd.Parameters["@Name"].Value.ToString();
                     connection.Close();
-                    return new Response(Tuple.Create(Convert.ToBoolean(Status), Name, Convert.ToBoolean(Authority)), true);
+                    Account User = new Account();
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlCommand commmandd = new SqlCommand("RetrieveUserPermissions", connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    commmandd.Parameters.AddWithValue("@UserID", AccountToLogin.GetAccountUID());
+                    adapter.SelectCommand = commmandd;
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dt.TableName = "UserPermissions";
+                    foreach (DataRow Permission in dt.Rows)
+                    {
+                        User.Client_card_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Client Card Permission"].ToString()));
+                        User.discount_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Discount Permission"].ToString()));
+                        User.price_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Price Edit Permission"].ToString()));
+                        User.receipt_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Receipt Edit Permission"].ToString()));
+                        User.inventory_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Inventory Edit Permission"].ToString()));
+                        User.expenses_add = Convert.ToBoolean(Convert.ToInt32(Permission["Expense Add Permission"].ToString()));
+                        User.users_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Users Edit Permission"].ToString()));
+                        User.settings_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Settings Edit Permission"].ToString()));
+                        User.personnel_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Personnel Edit Permission"].ToString()));
+                        User.openclose_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Open Close Cash Permission"].ToString()));
+                        User.sell_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Sell Permission"].ToString()));
+                    }
+                    User.SetAccountAuthority(Authority);
+                    User.SetAccountUID(UID);
+                    User.SetAccountName(Name);
+
+                    return new Response(Tuple.Create(Convert.ToBoolean(Status), ID, User), true);
                 }
             }
             catch (Exception ex)
@@ -1711,7 +1776,7 @@ namespace DataAccessLayerJSON
             }
         }
 
-        public Response RetrieveEmployees()
+        public Response RetrieveEmployees(DateTime DateFrom, DateTime DateTo)
         {
             try
             {
@@ -1720,6 +1785,10 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+
+                cmd.Parameters.AddWithValue("@Date1", DateFrom);
+                cmd.Parameters.AddWithValue("@Date2", DateTo);
+
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -2344,8 +2413,8 @@ namespace DataAccessLayerJSON
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@WarehouseID", ItemTypeID);
-                    cmd.Parameters.AddWithValue("@WarehouseName", ItemTypeName);
+                    cmd.Parameters.AddWithValue("@ItemTypeID", ItemTypeID);
+                    cmd.Parameters.AddWithValue("@ItemTypeName", ItemTypeName);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
@@ -2418,7 +2487,7 @@ namespace DataAccessLayerJSON
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("UpdatePrinters", connection))
+                using (SqlCommand cmd = new SqlCommand("UpdatePrinter", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
@@ -2644,6 +2713,31 @@ namespace DataAccessLayerJSON
             {
                 return new Response("Could not Delete Absence.", false);
             }
+        }      
+
+        public Response DeleteDeduction(int DeductionID)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("DeleteDeduction", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@DeductionID", DeductionID);
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                    return new Response(Convert.ToBoolean(Status), true);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Response("Could not Delete Deduction.", false);
+            }
         }
 
         public Response DeleteEmployee(int EmployeeID)
@@ -2768,6 +2862,7 @@ namespace DataAccessLayerJSON
                     cmd.Parameters.AddWithValue("@cashierName", cashierName);
                     cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
                     cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
+                    cmd.Parameters.AddWithValue("@IsVendor", Convert.ToInt32(billToAdd.IsVendor));
                     cmd.Parameters.Add("@BillID", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -2956,6 +3051,58 @@ namespace DataAccessLayerJSON
             catch (Exception ex)
             {
                 return new Response("Could not Update Employee.", false);
+            }
+        }    
+
+        public Response UpdateAbsence(int AbsenceID, int Hours)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateAbsence", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@AbsenceID", AbsenceID);
+                    cmd.Parameters.AddWithValue("@Hours", Hours);
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                    return new Response(Convert.ToBoolean(Status), true);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Response("Could not Update Absence.", false);
+            }
+        }   
+
+        public Response UpdateDeduction(int DeductionID, decimal DeductionAmount)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateDeduction", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@DeductionID", DeductionID);
+                    cmd.Parameters.AddWithValue("@DeductionAmount", DeductionAmount);
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                    return new Response(Convert.ToBoolean(Status), true);
+                }
+            }
+            catch (Exception ex)
+            {
+                return new Response("Could not Update Absence.", false);
             }
         }
 
@@ -3175,7 +3322,7 @@ namespace DataAccessLayerJSON
                     cmd.CommandType = CommandType.StoredProcedure;
                     
                     cmd.Parameters.AddWithValue("@ItemBarCode", ItemToUpdate.GetItemBarCode());
-                    cmd.Parameters.AddWithValue("@ItemQuantity", ItemToUpdate.GetQuantity().ToString());
+                    cmd.Parameters.AddWithValue("@ItemQuantity", ItemToUpdate.GetQuantity());
                     cmd.Parameters.AddWithValue("@Date", DateTime.Now);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -3249,6 +3396,39 @@ namespace DataAccessLayerJSON
                 return new Response("Could not Retrieve Last Vendor Bill Number Today.", false);
             }
         }
+
+        public Response RetrieveBillsCountByDate(DateTime StartDate, DateTime EndDate)
+        {
+            try
+            {
+                int BillsCount = 0;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveBillsCountByDate", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                if (StartDate != null)
+                {
+                    cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                    cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                }
+
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                
+                foreach (DataRow Item in dt.Rows)
+                {
+                    BillsCount = (Convert.ToInt32(Item["Bills Count"].ToString()));
+                }
+                return new Response(BillsCount, true);
+            }
+            catch (Exception ex)
+            {
+                return new Response("Could not Retrieve Last Bill Number Today.", false);
+            }
+        }  
 
         public Response RetrieveLastBillNumberToday()
         {
@@ -3342,6 +3522,56 @@ namespace DataAccessLayerJSON
             }
         }
 
+        public Response RetrieveTotalActiveItems(DateTime ExpirationDate)
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveTotalActiveItems", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                cmd.Parameters.AddWithValue("@ExpireDate", ExpirationDate);
+
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "TotalActiveItems";
+                return new Response(SerializeDataTableToJSON(dt), true);
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.TableName = "TotalActiveItems";
+                return new Response("Could not Retrieve Total Active Items Count.", false);
+            }
+        }   
+
+        public Response RetrieveClientCount()
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveClientCount", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "ClientCount";
+                return new Response(SerializeDataTableToJSON(dt), true);
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.TableName = "ClientCount";
+                return new Response("Could not Retrieve Client Count.", false);
+            }
+        }  
+
         public Response RetrieveExpireStockToday(DateTime Date)
         {
             try
@@ -3393,6 +3623,53 @@ namespace DataAccessLayerJSON
                 return new Response("Could not Retrieve Expiring Stock Today.", false);
             }
         }
+
+        public Response RetrieveSaleDateRange(DateTime StartDate, DateTime EndDate, int QuantityEnd = 0)
+        {
+            try
+            {
+                List<Item> saleItems = new List<Item>();
+                List<Item> quantity_items = (List<Item>)RetrieveSaleItemsQuantity().ResponseMessage;
+
+                foreach (Item sale_item in quantity_items)
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlCommand cmd = new SqlCommand("RetrieveSaleDateRange", connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+
+                    if (StartDate != null)
+                    {
+                        cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                        cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                    }
+
+                    cmd.Parameters.AddWithValue("@QuantityEnd", sale_item.QuantityEnd);
+
+                    adapter.SelectCommand = cmd;
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dt.TableName = "SaleDateRange";
+                    foreach (DataRow Item in dt.Rows)
+                    {
+                        Item itemsale = new Item();
+                        itemsale.SetBarCode(Item["Item BarCode"].ToString());
+                        itemsale.SetSaleRate(Convert.ToInt32(Item["Sale Rate"].ToString()));
+                        itemsale.DateStart = Convert.ToDateTime(Item["Start Date"].ToString());
+                        itemsale.DateEnd = Convert.ToDateTime(Item["End Date"].ToString());
+                        itemsale.QuantityEnd = Convert.ToInt32(Item["Quantity End"].ToString());
+                        saleItems.Add(itemsale);
+                    }
+                }
+                return new Response(saleItems, true);
+            }
+            catch (Exception ex)
+            {
+                List<Item> saleItems = new List<Item>();
+                return new Response("Could not Retrieve Sale using Date Range.", false);
+            }
+        }  
 
         public Response RetrieveSaleToday(DateTime Date, int QuantityEnd = 0)
         {

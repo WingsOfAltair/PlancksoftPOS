@@ -115,7 +115,7 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         Tuple<List<Item>, DataTable> RetrieveItems(int locale);
         [OperationContract]
-        DataTable RetrieveEmployees();
+        DataTable RetrieveEmployees(DateTime DateFrom, DateTime DateTo);
         [OperationContract]
         Tuple<List<Account>, DataTable> RetrieveUsers();
         [OperationContract]

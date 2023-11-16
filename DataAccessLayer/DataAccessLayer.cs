@@ -55,6 +55,37 @@ namespace DataAccessLayer
             }
         }
 
+        public DataTable RetrieveSaleByDate(DateTime StartDate, DateTime EndDate)
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                using (SqlCommand cmd = new SqlCommand("RetrieveSaleByDate", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    if (StartDate != null)
+                    {
+                        cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                    }
+                    if (EndDate != null)
+                    {
+                        cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                    }
+                    adapter.SelectCommand = cmd;
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dt.TableName = "SaleByDate";
+                    return dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                DataTable dt = new DataTable();
+                dt.TableName = "SaleByDate";
+                return dt;
+            }
+        }
+
         public int RetrieveBillSoldBItemQuantity(int BillNumber, string itemBarcode)
         {
             try
@@ -1694,7 +1725,7 @@ namespace DataAccessLayer
             }
         }
 
-        public DataTable RetrieveEmployees()
+        public DataTable RetrieveEmployees(DateTime DateFrom, DateTime DateTo)
         {
             try
             {
@@ -1703,6 +1734,8 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                cmd.Parameters.AddWithValue("@Date1", DateFrom);
+                cmd.Parameters.AddWithValue("@Date2", DateTo);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -3160,7 +3193,7 @@ namespace DataAccessLayer
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@ItemBarCode", ItemToUpdate.GetItemBarCode());
-                    cmd.Parameters.AddWithValue("@ItemQuantity", ItemToUpdate.GetQuantity().ToString());
+                    cmd.Parameters.AddWithValue("@ItemQuantity", ItemToUpdate.GetQuantity());
                     cmd.Parameters.AddWithValue("@Date", DateTime.Now);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -3232,6 +3265,36 @@ namespace DataAccessLayer
             {
                 Bill Bill = new Bill();
                 return Bill;
+            }
+        }
+
+        public int RetrieveBillsCountByDate(DateTime StartDate, DateTime EndDate)
+        {
+            try
+            {
+                int BillsCount = -1;
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveBillsCountByDate", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                if (StartDate != null)
+                {
+                    cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                    cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                }
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                foreach (DataRow Item in dt.Rows)
+                {
+                    BillsCount = (Convert.ToInt32(Item["Bills Count"].ToString()));
+                }
+                return BillsCount;
+            }
+            catch (Exception ex)
+            {
+                return -1;
             }
         }
 
@@ -3406,6 +3469,49 @@ namespace DataAccessLayer
                     DataTable dt = new DataTable();
                     adapter.Fill(dt);
                     dt.TableName = "SaleToday";
+                    foreach (DataRow Item in dt.Rows)
+                    {
+                        Item itemsale = new Item();
+                        itemsale.SetBarCode(Item["Item BarCode"].ToString());
+                        itemsale.SetSaleRate(Convert.ToInt32(Item["Sale Rate"].ToString()));
+                        itemsale.DateStart = Convert.ToDateTime(Item["Start Date"].ToString());
+                        itemsale.DateEnd = Convert.ToDateTime(Item["End Date"].ToString());
+                        itemsale.QuantityEnd = Convert.ToInt32(Item["Quantity End"].ToString());
+                        saleItems.Add(itemsale);
+                    }
+                }
+                return saleItems;
+            }
+            catch (Exception ex)
+            {
+                List<Item> saleItems = new List<Item>();
+                return saleItems;
+            }
+        }
+
+        public List<Item> RetrieveSaleDateRange(DateTime StartDate, DateTime EndDate, int QuantityEnd = 0)
+        {
+            try
+            {
+                List<Item> saleItems = new List<Item>();
+                List<Item> quantity_items = RetrieveSaleItemsQuantity();
+                foreach (Item sale_item in quantity_items)
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter();
+                    SqlCommand cmd = new SqlCommand("RetrieveSaleDateRange", connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    };
+                    if (StartDate != null)
+                    {
+                        cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                        cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                    }
+                    cmd.Parameters.AddWithValue("@QuantityEnd", sale_item.QuantityEnd);
+                    adapter.SelectCommand = cmd;
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dt.TableName = "SaleDateRange";
                     foreach (DataRow Item in dt.Rows)
                     {
                         Item itemsale = new Item();

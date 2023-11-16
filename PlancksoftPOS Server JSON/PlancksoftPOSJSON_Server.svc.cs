@@ -9,6 +9,7 @@ using System.Web.Script.Serialization;
 using System.Globalization;
 using System.ServiceModel.Web;
 using System.Web.Script.Services;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace PlancksoftPOSJSON_Server
 {
@@ -21,6 +22,10 @@ namespace PlancksoftPOSJSON_Server
         public string CheckConnection()
         {
             return new JavaScriptSerializer().Serialize(DAL.CheckConnection());
+        }
+        public string RetrieveSaleByDate(DateTime StartDate, DateTime EndDate)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveSaleByDate(StartDate, EndDate));
         }
         public string RetrieveSystemSettings()
         {
@@ -88,7 +93,7 @@ namespace PlancksoftPOSJSON_Server
             return new JavaScriptSerializer().Serialize(DAL.RetrieveLoginLogoutInfo(Date));
         }
         public string RetrieveUsersList()
-        { 
+        {  
             return new JavaScriptSerializer().Serialize(DAL.RetrieveUsersList()); 
         }
         public string GetRetrieveClients()
@@ -230,9 +235,9 @@ namespace PlancksoftPOSJSON_Server
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveItems(locale));
         }
-        public string RetrieveEmployees()
+        public string RetrieveEmployees(DateTime DateFrom, DateTime DateTo)
         {
-            return new JavaScriptSerializer().Serialize(DAL.RetrieveEmployees());
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveEmployees(DateFrom, DateTo));
         }
         public string RetrieveUsers()
         {
@@ -361,6 +366,10 @@ namespace PlancksoftPOSJSON_Server
         public string DeleteAbsence(int AbsenceID)
         {
             return new JavaScriptSerializer().Serialize(DAL.DeleteAbsence(AbsenceID));
+        }   
+        public string DeleteDeduction(int DeductionID)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.DeleteDeduction(DeductionID));
         }
         public string DeleteEmployee(int EmployeeID)
         {
@@ -397,6 +406,14 @@ namespace PlancksoftPOSJSON_Server
         public string UpdateEmployee(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address)
         {
             return new JavaScriptSerializer().Serialize(DAL.UpdateEmployee(EmployeeID, EmployeeName, Salary, Phone, Address));
+        } 
+        public string UpdateAbsence(int AbsenceID, int Hours)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.UpdateAbsence(AbsenceID, Hours));
+        }  
+        public string UpdateDeduction(int DeductionID, int DeductionAmount)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.UpdateDeduction(DeductionID, DeductionAmount));
         }
         public string UpdateUser(Account UserToUpdate, string cashierName, int AdminOrNot)
         {
@@ -430,6 +447,18 @@ namespace PlancksoftPOSJSON_Server
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveLastVendorBillNumberToday(Date));
         }
+        public string RetrieveTotalActiveItems(DateTime ExpirationDate)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveTotalActiveItems(ExpirationDate));
+        } 
+        public string RetrieveClientCount()
+        {
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveClientCount());
+        }   
+        public string RetrieveBillsCountByDate(DateTime StartDate, DateTime EndDate)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveBillsCountByDate(StartDate, EndDate));
+        }  
         public string RetrieveLastBillNumberToday()
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveLastBillNumberToday());
@@ -446,6 +475,10 @@ namespace PlancksoftPOSJSON_Server
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveExpireStockToday(Date));
         }
+        public string RetrieveSaleDateRange(DateTime StartDate, DateTime EndDate, int QuantityEnd = 0)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveSaleDateRange(StartDate, EndDate, QuantityEnd));
+        }  
         public string RetrieveSaleToday(DateTime Date, int QuantityEnd = 0)
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveSaleToday(Date, QuantityEnd));

@@ -1,0 +1,139 @@
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.csproj.AssemblyReference.cache
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.AssemblyInfoInputs.cache
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.AssemblyInfo.cs
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.csproj.CoreCompileInputs.cache
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.MvcApplicationPartsAssemblyInfo.cs
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.MvcApplicationPartsAssemblyInfo.cache
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\appsettings.Development.json
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\appsettings.json
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.exe
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.deps.json
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.runtimeconfig.json
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.runtimeconfig.dev.json
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\ref\PublisherApi.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.pdb
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Microsoft.OpenApi.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\DataAccessLayer.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Dependencies.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PlancksoftPOS Server JSON.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Newtonsoft.Json.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\DataAccessLayer.pdb
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PlancksoftPOS Server JSON.pdb
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PlancksoftPOS Server JSON.dll.config
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Dependencies.pdb
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Newtonsoft.Json.xml
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\scopedcss\bundle\PublisherApi.styles.css
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\staticwebassets\PublisherApi.StaticWebAssets.Manifest.cache
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.RazorTargetAssemblyInfo.cache
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.csproj.CopyComplete
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\ref\PublisherApi.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.pdb
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.genruntimeconfig.cache
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\System.Data.SqlClient.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\appsettings.json
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.exe
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.deps.json
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.runtimeconfig.json
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.runtimeconfig.dev.json
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\DataAccessLayer.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PlancksoftPOS Server JSON.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\DataAccessLayer.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PlancksoftPOS Server JSON.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PlancksoftPOS Server JSON.dll.config
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Newtonsoft.Json.xml
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.csproj.AssemblyReference.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.AssemblyInfoInputs.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.AssemblyInfo.cs
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.csproj.CoreCompileInputs.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\scopedcss\bundle\PublisherApi.styles.css
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\staticwebassets\PublisherApi.StaticWebAssets.Manifest.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\staticwebassets\PublisherApi.StaticWebAssets.Pack.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\staticwebassets\msbuild.PublisherApi.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\staticwebassets\msbuild.build.PublisherApi.props
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.PublisherApi.props
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.PublisherApi.props
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.RazorTargetAssemblyInfo.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.csproj.CopyComplete
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\refint\PublisherApi.dll
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.pdb
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.genruntimeconfig.cache
+C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\ref\PublisherApi.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\appsettings.Development.json
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\appsettings.json
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.exe
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.deps.json
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.runtimeconfig.json
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.runtimeconfig.dev.json
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PublisherApi.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\System.Data.SqlClient.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\DataAccessLayer.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PlancksoftPOS Server JSON.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\DataAccessLayer.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PlancksoftPOS Server JSON.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\PlancksoftPOS Server JSON.dll.config
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\bin\Debug\net5.0\Newtonsoft.Json.xml
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.csproj.AssemblyReference.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.AssemblyInfoInputs.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.AssemblyInfo.cs
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.csproj.CoreCompileInputs.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\scopedcss\bundle\PublisherApi.styles.css
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\staticwebassets\PublisherApi.StaticWebAssets.Manifest.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\staticwebassets\PublisherApi.StaticWebAssets.Pack.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\staticwebassets\msbuild.PublisherApi.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\staticwebassets\msbuild.build.PublisherApi.props
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\staticwebassets\msbuild.buildMultiTargeting.PublisherApi.props
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\staticwebassets\msbuild.buildTransitive.PublisherApi.props
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.RazorTargetAssemblyInfo.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.csproj.CopyComplete
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\refint\PublisherApi.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.genruntimeconfig.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\ref\PublisherApi.dll

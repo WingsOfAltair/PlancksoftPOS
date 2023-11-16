@@ -11,6 +11,8 @@ namespace Dependencies
     public class Bill
     {
         [DataMember]
+        public bool isVendor;
+        [DataMember]
         private bool postponed;
         [DataMember]
         private int clientID;
@@ -55,6 +57,7 @@ namespace Dependencies
         public string ClientPhone { get => clientPhone; set => clientPhone = value; }
         public string ClientAddress { get => clientAddress; set => clientAddress = value; }
         public string CashierName { get => cashierName; set => cashierName = value; }
+        public bool IsVendor { get => isVendor; set => isVendor = value; }
 
         public Bill()
         {
