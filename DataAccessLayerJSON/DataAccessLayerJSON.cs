@@ -1745,6 +1745,31 @@ namespace DataAccessLayerJSON
             }
         }
 
+        public Response RetrieveEmployeesData()
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveEmployeesData", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "EmployeesData";
+                return new Response(SerializeDataTableToJSON(dt), true);
+            }
+            catch (Exception ex)
+            {
+                Account[] Users = new Account[0];
+                DataTable dt = new DataTable();
+                dt.TableName = "EmployeesData";
+                return new Response("Could not Retrieve Employees Data.", false);
+            }
+        }
+
         public Response RetrieveEmployees(DateTime DateFrom, DateTime DateTo)
         {
             try
