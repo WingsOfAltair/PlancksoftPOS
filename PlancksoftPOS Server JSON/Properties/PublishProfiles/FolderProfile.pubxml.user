@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\PlancksoftPOSJSON</_PublishTargetUrl>
-    <History>True|2023-11-16T06:30:48.7665313Z;True|2023-11-16T09:24:17.7466047+03:00;True|2023-11-16T09:20:26.2715981+03:00;True|2023-11-16T09:19:50.8640213+03:00;True|2023-11-16T09:19:17.8395547+03:00;True|2023-11-16T09:18:50.6838951+03:00;True|2023-11-16T09:15:10.9476132+03:00;True|2023-11-16T09:12:02.9914081+03:00;True|2023-10-08T18:12:32.4312423+03:00;True|2023-06-06T06:03:59.4116616+03:00;True|2023-06-06T05:44:55.3226308+03:00;True|2023-05-17T20:28:21.9279755+03:00;True|2023-05-17T20:23:37.0433887+03:00;False|2023-05-17T20:22:50.6899649+03:00;</History>
+    <History>True|2023-11-16T06:22:00.3919906Z;True|2023-11-16T09:17:05.3338288+03:00;True|2023-10-08T18:12:32.4312423+03:00;True|2023-06-06T06:03:59.4116616+03:00;True|2023-06-06T05:44:55.3226308+03:00;True|2023-05-17T20:28:21.9279755+03:00;True|2023-05-17T20:23:37.0433887+03:00;False|2023-05-17T20:22:50.6899649+03:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -13,10 +13,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/26/2023 15:50:59</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>11/16/2023 09:30:48</publishTime>
+      <publishTime>11/16/2023 09:21:59</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>11/16/2023 09:30:48</publishTime>
+      <publishTime>11/16/2023 09:21:59</publishTime>
     </File>
     <File Include="bin/Dependencies.dll">
       <publishTime>11/11/2023 16:29:38</publishTime>
@@ -31,10 +31,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/26/2023 15:51:00</publishTime>
     </File>
     <File Include="bin/PlancksoftPOS Server JSON.dll">
-      <publishTime>11/16/2023 09:30:48</publishTime>
+      <publishTime>11/16/2023 09:21:59</publishTime>
     </File>
     <File Include="bin/PlancksoftPOS Server JSON.pdb">
-      <publishTime>11/16/2023 09:30:48</publishTime>
+      <publishTime>11/16/2023 09:21:59</publishTime>
     </File>
     <File Include="bin/System.Buffers.dll">
       <publishTime>08/26/2023 15:51:00</publishTime>
@@ -82,7 +82,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/26/2023 15:50:58</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/16/2023 09:12:02</publishTime>
+      <publishTime>11/16/2023 09:17:04</publishTime>
     </File>
   </ItemGroup>
 </Project>

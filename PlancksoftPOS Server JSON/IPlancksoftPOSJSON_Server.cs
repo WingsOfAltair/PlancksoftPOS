@@ -666,6 +666,18 @@ namespace PlancksoftPOSJSON_Server
             WebInvoke
             (
                 Method = "POST",
+                UriTemplate = "RetrieveEmployeesData",
+                RequestFormat = WebMessageFormat.Json,
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedRequest
+            )
+        ]
+        string RetrieveEmployeesData();
+        [OperationContract]
+        [
+            WebInvoke
+            (
+                Method = "POST",
                 UriTemplate = "RetrieveUsers",
                 RequestFormat = WebMessageFormat.Json,
                 ResponseFormat = WebMessageFormat.Json,
