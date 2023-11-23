@@ -2524,8 +2524,9 @@ ALTER procedure [dbo].[RetrieveUserPermissions]
 	@UserID nvarchar(255)
 AS
 BEGIN
-	DECLARE @UID INT = (SELECT id FROM Users Where UID = @UserID)		
-    SELECT TOP 1 Client_card_perm as 'Client Card Permission', discount_perm as 'Discount Permission', price_edit_perm as 'Price Edit Permission', receipt_edit_perm as 'Receipt Edit Permission', inventory_edit_perm as 'Inventory Edit Permission', expense_add_perm as 'Expense Add Permission', users_edit_perm as 'Users Edit Permission', settings_edit_perm as 'Settings Edit Permission', personnel_edit_perm as 'Personnel Edit Permission', openclose_edit_perm as 'Open Close Cash Permission', sell_edit_perm as 'Sell Permission' FROM UserPermissions WHERE user_id = @UID
+	DECLARE @UID INT = (SELECT id FROM Users Where UID = @UserID)	
+	DECLARE @UserAuthority INT = (SELECT Users.Authority FROM Users Where UID = @UserID)
+    SELECT TOP 1 @UserAuthority as 'Authority', Client_card_perm as 'Client Card Permission', discount_perm as 'Discount Permission', price_edit_perm as 'Price Edit Permission', receipt_edit_perm as 'Receipt Edit Permission', inventory_edit_perm as 'Inventory Edit Permission', expense_add_perm as 'Expense Add Permission', users_edit_perm as 'Users Edit Permission', settings_edit_perm as 'Settings Edit Permission', personnel_edit_perm as 'Personnel Edit Permission', openclose_edit_perm as 'Open Close Cash Permission', sell_edit_perm as 'Sell Permission' FROM UserPermissions WHERE user_id = @UID
 END
 GO
 /****** Object:  StoredProcedure [dbo].[RetrieveUsers]    Script Date: 11/23/2023 4:24:16 PM ******/
