@@ -1610,6 +1610,7 @@ namespace DataAccessLayerJSON
                 
                 foreach (DataRow Permission in dt.Rows)
                 {
+                    User.Authority = Convert.ToInt32(Permission["Authority"].ToString());
                     User.Client_card_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Client Card Permission"].ToString()));
                     User.discount_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Discount Permission"].ToString()));
                     User.price_edit = Convert.ToBoolean(Convert.ToInt32(Permission["Price Edit Permission"].ToString()));

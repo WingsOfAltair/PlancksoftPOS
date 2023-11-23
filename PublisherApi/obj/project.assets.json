@@ -725,11 +725,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
+      "projectUniqueName": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
       "projectName": "PublisherApi",
-      "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
+      "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
       "packagesPath": "C:\\Users\\basha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PublisherApi\\obj\\",
+      "outputPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PublisherApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -750,11 +750,11 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj": {
-              "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj"
+            "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj": {
+              "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj"
             },
-            "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj": {
-              "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj"
+            "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj": {
+              "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj"
             }
           }
         }
