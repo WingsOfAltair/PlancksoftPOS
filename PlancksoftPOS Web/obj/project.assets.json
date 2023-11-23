@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj",
+      "projectUniqueName": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj",
       "projectName": "PlancksoftPOS Web",
-      "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj",
+      "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Web\\PlancksoftPOS Web.csproj",
       "packagesPath": "C:\\Users\\basha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PlancksoftPOS Web\\obj\\",
+      "outputPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
