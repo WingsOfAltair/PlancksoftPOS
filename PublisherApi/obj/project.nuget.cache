@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "84MYO+0gEOfdPC0TZ0aUR7l3zC5cZUicH1ngBEkhDNnj70xu4TL8o/ouh19HKFL0qJroXMuiABvq7CF8tIM6WQ==",
+  "dgSpecHash": "aVSo4JMgzuutmUhN65t7EUh0eATd5DCDrdhSVpiSLelyu5Z7a8/tPMXUWYrceswCRtynnQfEjURnytVF2OdmLg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
+  "projectFilePath": "C:\\Users\\basha\\OneDrive\\Desktop\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\basha\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\basha\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",

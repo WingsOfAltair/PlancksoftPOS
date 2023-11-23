@@ -120,11 +120,3 @@ C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Rele
 C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Release\PlancksoftPOS Server JSON.csproj.CopyComplete
 C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Release\PlancksoftPOS Server JSON.dll
 C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Release\PlancksoftPOS Server JSON.pdb
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Data.SqlClient.dll
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Net.Http.Formatting.dll
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.dll
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.WebHost.dll
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Data.SqlClient.xml
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Net.Http.Formatting.xml
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.xml
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.WebHost.xml

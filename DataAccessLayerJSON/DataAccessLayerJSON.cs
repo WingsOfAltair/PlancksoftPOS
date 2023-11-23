@@ -1745,31 +1745,6 @@ namespace DataAccessLayerJSON
             }
         }
 
-        public Response RetrieveEmployeesData()
-        {
-            try
-            {
-                SqlDataAdapter adapter = new SqlDataAdapter();
-                SqlCommand cmd = new SqlCommand("RetrieveEmployeesData", connection)
-                {
-                    CommandType = CommandType.StoredProcedure
-                };
-
-                adapter.SelectCommand = cmd;
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dt.TableName = "EmployeesData";
-                return new Response(SerializeDataTableToJSON(dt), true);
-            }
-            catch (Exception ex)
-            {
-                Account[] Users = new Account[0];
-                DataTable dt = new DataTable();
-                dt.TableName = "EmployeesData";
-                return new Response("Could not Retrieve Employees Data.", false);
-            }
-        }
-
         public Response RetrieveEmployees(DateTime DateFrom, DateTime DateTo)
         {
             try
@@ -1795,6 +1770,31 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 dt.TableName = "Employees";
                 return new Response("Could not Retrieve Employees.", false);
+            }
+        }
+
+        public Response RetrieveEmployeesData()
+        {
+            try
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveEmployeesData", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "EmployeesData";
+                return new Response(SerializeDataTableToJSON(dt), true);
+            }
+            catch (Exception ex)
+            {
+                Account[] Users = new Account[0];
+                DataTable dt = new DataTable();
+                dt.TableName = "EmployeesData";
+                return new Response("Could not Retrieve Employees Data.", false);
             }
         }
 
@@ -3316,7 +3316,7 @@ namespace DataAccessLayerJSON
                     cmd.CommandType = CommandType.StoredProcedure;
                     
                     cmd.Parameters.AddWithValue("@ItemBarCode", ItemToUpdate.GetItemBarCode());
-                    cmd.Parameters.AddWithValue("@ItemQuantity", ItemToUpdate.GetQuantity());
+                    cmd.Parameters.AddWithValue("@ItemQuantity", ItemToUpdate.GetQuantity().ToString());
                     cmd.Parameters.AddWithValue("@Date", DateTime.Now);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
