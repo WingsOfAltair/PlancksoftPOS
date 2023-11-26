@@ -1835,7 +1835,7 @@ BEGIN
     SELECT ClientName as 'Client Name', ID as 'Client ID', ClientPhone as 'Client Phone', ClientAddress as 'Client Address' FROM ClientsVendors WHERE (@ClientName is null or ClientName LIKE '%' + @ClientName + '%') AND vendor = 0 ORDER by ClientName DESC
 END
 GO
-/****** Object:  StoredProcedure [dbo].[RetrieveEmployees]    Script Date: 11/23/2023 4:24:16 PM ******/
+/****** Object:  StoredProcedure [dbo].[RetrieveEmployees]    Script Date: 11/26/2023 10:13:53 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -1854,11 +1854,12 @@ BEGIN
 	Declare @Date2x date
 	Set @Date1x = Dateadd(Day, -30, GETDATE())
 	Set @Date2x = Dateadd(Day, 0, GetDATE())
-    SELECT Employees.id as 'Employee ID', Employees.name as 'Employee Name', Employees.salary as 'Employee Salary', salary - sum(Deductions.deduction) as 'Deducted Salary', Employees.phone as 'Employee Phone', Employees.address as 'Employee Address', Deductions.id as 'Deduct ID' FROM Employees
+    SELECT Employees.id as 'Employee ID', Employees.name as 'Employee Name', Employees.salary as 'Employee Salary', sum(Deductions.deduction) as 'Deducted Salary', Employees.phone as 'Employee Phone', Employees.address as 'Employee Address', Deductions.id as 'Deduct ID' FROM Employees
 	LEFT JOIN Deductions ON Deductions.emp_id = Employees.id AND Deductions.date >= @Date1 AND Deductions.date <= @Date2
 	GROUP BY Employees.id, Employees.name, Employees.salary, Employees.phone, Employees.address, Deductions.id
 	ORDER by Employees.id, Employees.name DESC
 END
+
 GO
 /****** Object:  StoredProcedure [dbo].[RetrieveEmployeesData]    Script Date: 11/23/2023 4:24:16 PM ******/
 SET ANSI_NULLS ON

@@ -6,7 +6,6 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Web\bin\Release\
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Web\bin\Release\net7.0\PlancksoftPOS Web.runtimeconfig.json
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Web\bin\Release\net7.0\PlancksoftPOS Web.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Web\bin\Release\net7.0\PlancksoftPOS Web.pdb
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Web\obj\Release\net7.0\PlancksoftPOS Web.csproj.AssemblyReference.cache
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Web\obj\Release\net7.0\PlancksoftPOS Web.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Web\obj\Release\net7.0\PlancksoftPOS Web.AssemblyInfoInputs.cache
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Web\obj\Release\net7.0\PlancksoftPOS Web.AssemblyInfo.cs
