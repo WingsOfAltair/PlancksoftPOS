@@ -59,21 +59,21 @@ namespace PlancksoftPOS
         public bool timerstarted = false, registerOpen = false, IncludeLogoInReceipt = false;
         decimal capital, taxRate;
         TextBox AddItemType;
-        List<TextBox> ItemTypeNamestxt = new List<TextBox>();
+        List<Label> ItemTypeNamestxt = new List<Label>();
         PictureBox plusItemTypePB, minusItemTypePB;
         System.Windows.Forms.Label plusItemTypeLbl, ItemTypeLbl;
         TextBox AddWarehouse;
-        List<TextBox> WarehouseNamestxt = new List<TextBox>();
+        List<Label> WarehouseNamestxt = new List<Label>();
         PictureBox plusWarehousePB, minusWarehousePB;
         Label plusWarehouseLbl, WarehouseLbl;
         TextBox AddFavorite;
         TextBox AddPrinter;
-        List<TextBox> FavoriteNamestxt = new List<TextBox>();
+        List<Label> FavoriteNamestxt = new List<Label>();
         List<TreeView> PrintersNamesTV = new List<TreeView>();
         PictureBox plusFavoritePB, minusFavoritePB;
         PictureBox plusPrinterPB, minusPrinterPB;
-        MaterialLabel plusFavoriteLbl, FavoriteLbl;
-        MaterialLabel plusPrinterLbl, PrinterLbl;
+        Label plusFavoriteLbl, FavoriteLbl;
+        Label plusPrinterLbl, PrinterLbl;
         List<FlowLayoutPanel> flowLayoutPanels = new List<FlowLayoutPanel>();
         MaterialButton saveItemTypesBtn;
         MaterialButton saveWarehousesBtn;
@@ -2051,7 +2051,7 @@ namespace PlancksoftPOS
             plusItemTypePB.Click += (sender, e) => { AddItemTypeHandler(sender, e); };
             flowLayoutPanel3.Controls.Add(plusItemTypePB);
 
-            ItemTypeLbl = new MaterialLabel();
+            ItemTypeLbl = new Label();
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 ItemTypeLbl.Text = "أصناف المواد المضافه";
@@ -2107,11 +2107,13 @@ namespace PlancksoftPOS
                 minusItemTypePB.Click += (sender, e) => { DeleteItemTypeHandler(sender, e, itemtype.Key); };
                 flowLayoutPanel3.Controls.Add(minusItemTypePB);
 
-                TextBox tempItemtypetxt = new TextBox();
+                Label tempItemtypetxt = new Label();
                 tempItemtypetxt.Name = itemtype.Value;
                 tempItemtypetxt.Text = itemtype.Value;
                 tempItemtypetxt.Tag = itemtype.Key;
                 tempItemtypetxt.Size = new Size(340, 20);
+                tempItemtypetxt.Dock = DockStyle.Fill;
+                tempItemtypetxt.ForeColor = Color.Black;
                 ItemTypeNamestxt.Add(tempItemtypetxt);
                 flowLayoutPanel3.Controls.Add(tempItemtypetxt);
                 tabControl2.TabPages.Add(itemtype.Value);
@@ -2167,7 +2169,7 @@ namespace PlancksoftPOS
             plusWarehousePB.Click += (sender, e) => { AddWarehouseHandler(sender, e); };
             flowLayoutPanel2.Controls.Add(plusWarehousePB);
 
-            WarehouseLbl = new MaterialLabel();
+            WarehouseLbl = new Label();
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 WarehouseLbl.Text = "المستودعات المضافه";
@@ -2224,11 +2226,13 @@ namespace PlancksoftPOS
                 minusWarehousePB.Click += (sender, e) => { DeleteWarehouseHandler(sender, e, warehouse.Key); };
                 flowLayoutPanel2.Controls.Add(minusWarehousePB);
 
-                TextBox tempWarehousetxt = new TextBox();
+                Label tempWarehousetxt = new Label();
                 tempWarehousetxt.Name = warehouse.Value;
                 tempWarehousetxt.Text = warehouse.Value;
                 tempWarehousetxt.Tag = warehouse.Key;
                 tempWarehousetxt.Size = new Size(340, 20);
+                tempWarehousetxt.Dock = DockStyle.Fill;
+                tempWarehousetxt.ForeColor = Color.Black;
                 WarehouseNamestxt.Add(tempWarehousetxt);
                 flowLayoutPanel2.Controls.Add(tempWarehousetxt);
                 tabControl2.TabPages.Add(warehouse.Value);
@@ -2258,7 +2262,7 @@ namespace PlancksoftPOS
             for (int z = 0; z < flowLayoutPanels.Count; z++)
                 flowLayoutPanels[z].Controls.Clear();
 
-            plusFavoriteLbl = new MaterialLabel();
+            plusFavoriteLbl = new Label();
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 plusFavoriteLbl.Text = "إضافة مجلد مفضل جديد";
@@ -2286,7 +2290,7 @@ namespace PlancksoftPOS
             plusFavoritePB.Click += (sender, e) => { AddFavoritesHandler(sender, e); };
             flowLayoutPanel1.Controls.Add(plusFavoritePB);
 
-            FavoriteLbl = new MaterialLabel();
+            FavoriteLbl = new Label();
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 FavoriteLbl.Text = "مجلدات المفضلات المضافه";
@@ -2339,11 +2343,13 @@ namespace PlancksoftPOS
                 minusFavoritePB.Click += (sender, e) => { DeleteFavoritesHandler(sender, e, favorite.Key); };
                 flowLayoutPanel1.Controls.Add(minusFavoritePB);
 
-                TextBox tempFavoritetxt = new TextBox();
+                Label tempFavoritetxt = new Label();
                 tempFavoritetxt.Name = favorite.Value;
                 tempFavoritetxt.Text = favorite.Value;
                 tempFavoritetxt.Tag = favorite.Key;
                 tempFavoritetxt.Size = new Size(340, 20);
+                tempFavoritetxt.Dock = DockStyle.Fill;
+                tempFavoritetxt.ForeColor = Color.Black;
                 FavoriteNamestxt.Add(tempFavoritetxt);
                 flowLayoutPanel1.Controls.Add(tempFavoritetxt);
                 tabControl2.TabPages.Add(favorite.Value);
@@ -2970,7 +2976,7 @@ namespace PlancksoftPOS
 
             flowLayoutPanel4.Controls.Clear();
 
-            plusPrinterLbl = new MaterialLabel();
+            plusPrinterLbl = new Label();
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 plusPrinterLbl.Text = "إضافة طابعة جديدة";
@@ -3051,9 +3057,10 @@ namespace PlancksoftPOS
 
                 Label tempLabel = new Label();
                 tempLabel.Text = printer.Value;
-                tempLabel.ForeColor = Color.White;
+                tempLabel.ForeColor = Color.Black;
                 tempLabel.BackColor = Color.FromArgb(59, 89, 152);
                 tempLabel.Font = new Font(tempLabel.Font.FontFamily, 14, FontStyle.Bold);
+                tempLabel.Dock = DockStyle.Fill;
                 TreeView tempTreeView = new TreeView();
                 tempTreeView.Name = printer.Value;
                 tempTreeView.Text = printer.Value;
