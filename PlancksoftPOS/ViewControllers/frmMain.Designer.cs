@@ -1121,13 +1121,13 @@ namespace PlancksoftPOS
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(54, 30);
-            this.tabControl1.Location = new System.Drawing.Point(18, 88);
+            this.tabControl1.Location = new System.Drawing.Point(24, 88);
             this.tabControl1.MouseState = MaterialSkin.MouseState.HOVER;
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeftLayout = true;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1884, 989);
+            this.tabControl1.Size = new System.Drawing.Size(1878, 989);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             this.tabControl1.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tabControl1_Selecting);
@@ -9931,7 +9931,7 @@ namespace PlancksoftPOS
             this.Settings.Controls.Add(this.tabControl9);
             this.Settings.Location = new System.Drawing.Point(4, 34);
             this.Settings.Name = "Settings";
-            this.Settings.Size = new System.Drawing.Size(1876, 951);
+            this.Settings.Size = new System.Drawing.Size(1870, 951);
             this.Settings.TabIndex = 6;
             this.Settings.Text = "الإعدادات";
             // 
@@ -9948,7 +9948,7 @@ namespace PlancksoftPOS
             this.tabControl9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tabControl9.RightToLeftLayout = true;
             this.tabControl9.SelectedIndex = 0;
-            this.tabControl9.Size = new System.Drawing.Size(1876, 951);
+            this.tabControl9.Size = new System.Drawing.Size(1870, 951);
             this.tabControl9.TabIndex = 7;
             // 
             // posSettings
@@ -9958,7 +9958,7 @@ namespace PlancksoftPOS
             this.posSettings.Location = new System.Drawing.Point(4, 25);
             this.posSettings.Name = "posSettings";
             this.posSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.posSettings.Size = new System.Drawing.Size(1868, 922);
+            this.posSettings.Size = new System.Drawing.Size(1862, 922);
             this.posSettings.TabIndex = 0;
             this.posSettings.Text = "إعدادات البرمجية";
             // 
@@ -9980,7 +9980,7 @@ namespace PlancksoftPOS
             this.groupBox24.Name = "groupBox24";
             this.groupBox24.Padding = new System.Windows.Forms.Padding(14);
             this.groupBox24.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox24.Size = new System.Drawing.Size(1862, 916);
+            this.groupBox24.Size = new System.Drawing.Size(1856, 916);
             this.groupBox24.TabIndex = 6;
             this.groupBox24.Text = "إعدادات البرمجيه";
             // 
@@ -10023,7 +10023,7 @@ namespace PlancksoftPOS
             this.switchDarkTheme.Depth = 0;
             this.switchDarkTheme.Dock = System.Windows.Forms.DockStyle.Right;
             this.switchDarkTheme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.switchDarkTheme.Location = new System.Drawing.Point(864, 66);
+            this.switchDarkTheme.Location = new System.Drawing.Point(858, 66);
             this.switchDarkTheme.Margin = new System.Windows.Forms.Padding(14);
             this.switchDarkTheme.MouseState = MaterialSkin.MouseState.HOVER;
             this.switchDarkTheme.Name = "switchDarkTheme";
@@ -10645,7 +10645,7 @@ namespace PlancksoftPOS
             this.button1.MouseState = MaterialSkin.MouseState.HOVER;
             this.button1.Name = "button1";
             this.button1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.button1.Size = new System.Drawing.Size(706, 36);
+            this.button1.Size = new System.Drawing.Size(700, 36);
             this.button1.TabIndex = 96;
             this.button1.Text = "حفظ الإعدادات";
             this.button1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -10665,7 +10665,7 @@ namespace PlancksoftPOS
             this.groupBox9.Depth = 0;
             this.groupBox9.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox9.Location = new System.Drawing.Point(1356, 66);
+            this.groupBox9.Location = new System.Drawing.Point(1350, 66);
             this.groupBox9.Margin = new System.Windows.Forms.Padding(14);
             this.groupBox9.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox9.Name = "groupBox9";
@@ -10936,7 +10936,7 @@ namespace PlancksoftPOS
             this.groupBox18.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox18.Size = new System.Drawing.Size(1834, 52);
+            this.groupBox18.Size = new System.Drawing.Size(1828, 52);
             this.groupBox18.TabIndex = 0;
             this.groupBox18.Text = "الضرائب";
             // 
@@ -10946,7 +10946,7 @@ namespace PlancksoftPOS
             this.nudTaxRate.Dock = System.Windows.Forms.DockStyle.Right;
             this.nudTaxRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudTaxRate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.nudTaxRate.Location = new System.Drawing.Point(1498, 14);
+            this.nudTaxRate.Location = new System.Drawing.Point(1492, 14);
             this.nudTaxRate.Maximum = new decimal(new int[] {
             276447231,
             23283,
@@ -10963,7 +10963,7 @@ namespace PlancksoftPOS
             this.label78.Dock = System.Windows.Forms.DockStyle.Right;
             this.label78.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label78.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label78.Location = new System.Drawing.Point(1724, 14);
+            this.label78.Location = new System.Drawing.Point(1718, 14);
             this.label78.MouseState = MaterialSkin.MouseState.HOVER;
             this.label78.Name = "label78";
             this.label78.Size = new System.Drawing.Size(96, 19);
@@ -11122,7 +11122,7 @@ namespace PlancksoftPOS
             this.pnlActionMenu.Name = "pnlActionMenu";
             this.pnlActionMenu.Padding = new System.Windows.Forms.Padding(14);
             this.pnlActionMenu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.pnlActionMenu.Size = new System.Drawing.Size(15, 990);
+            this.pnlActionMenu.Size = new System.Drawing.Size(21, 990);
             this.pnlActionMenu.TabIndex = 44;
             this.pnlActionMenu.Click += new System.EventHandler(this.pnlActionMenu_Click);
             // 
