@@ -631,10 +631,6 @@ namespace PlancksoftPOS
                 tabControl1.ItemSize = new Size(0, 1);
                 tabControl1.SizeMode = TabSizeMode.Fixed;
 
-                tabControl2.Appearance = TabAppearance.FlatButtons;
-                tabControl2.ItemSize = new Size(0, 1);
-                tabControl2.SizeMode = TabSizeMode.Fixed;
-
                 tabControl3.Appearance = TabAppearance.FlatButtons;
                 tabControl3.ItemSize = new Size(0, 1);
                 tabControl3.SizeMode = TabSizeMode.Fixed;
@@ -2373,10 +2369,10 @@ namespace PlancksoftPOS
                 flowLayoutPanels[i].Location = new Point(0, 1);
                 if (pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    flowLayoutPanels[i].FlowDirection = FlowDirection.RightToLeft;
-                } else if (pickedLanguage == LanguageChoice.Languages.Arabic)
-                {
                     flowLayoutPanels[i].FlowDirection = FlowDirection.LeftToRight;
+                } else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    flowLayoutPanels[i].FlowDirection = FlowDirection.RightToLeft;
                 }
                 flowLayoutPanels[i].AutoScroll = true;
                 flowLayoutPanels[i].WrapContents = true;
