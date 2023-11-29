@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="lyXlpG4t1UjD5iw/4Q5nnLRU+bCrCMty+MNynMAMf74=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="u4cQgUDDO4JSqzA5JWXOxSyMjB0NrK61zBBaiXML0Ms=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="basicHttpBinding" name="BasicHttpBinding_IPlancksoftPOS_Server">
       <properties>
@@ -112,10 +112,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="BasicHttpBinding_IPlancksoftPOS_Server" contract="PlancksoftPOS_Server.IPlancksoftPOS_Server" bindingType="basicHttpBinding" address="http://localhost:50612/PlancksoftPOS.svc" bindingConfiguration="BasicHttpBinding_IPlancksoftPOS_Server">
+    <endpoint name="BasicHttpBinding_IPlancksoftPOS_Server" contract="PlancksoftPOS_Server.IPlancksoftPOS_Server" bindingType="basicHttpBinding" address="http://localhost/PlancksoftPOSSOAP/PlancksoftPOS.svc" bindingConfiguration="BasicHttpBinding_IPlancksoftPOS_Server">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>http://localhost:50612/PlancksoftPOS.svc</serializedValue>
+          <serializedValue>http://localhost/PlancksoftPOSSOAP/PlancksoftPOS.svc</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
