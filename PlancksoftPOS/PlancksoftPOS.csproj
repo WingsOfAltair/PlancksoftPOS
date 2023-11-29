@@ -336,22 +336,22 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="App.config" />
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS10.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS11.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS61.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS7.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS62.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS8.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS63.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS64.xsd">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS65.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS9.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS_Server1.wsdl" />

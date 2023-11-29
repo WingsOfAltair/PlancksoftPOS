@@ -1,1 +1,0 @@
-﻿<%@ ServiceHost Language="C#" Debug="true" Service="PlancksoftPOS_Server.PlancksoftPOS_Server" CodeBehind="PlancksoftPOS.svc.cs" %>
