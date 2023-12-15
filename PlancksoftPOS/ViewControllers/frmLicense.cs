@@ -105,9 +105,10 @@ namespace PlancksoftPOS
 
         private void btnActivate_Click(object sender, EventArgs e)
         {
-            if (txtLicenseKey.Text == MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value() + "|1"), "PlancksoftPOS"))
+            string WindowsInstallationID = Dependencies.Security.WindowsInstallationID.getOfflineInstallId();
+            if (txtLicenseKey.Text == MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.ProcessorCount + "/" + WindowsInstallationID + "|1"), "PlancksoftPOS"))
             {
-                Settings.Default["LicenseKey"] = MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value()), "PlancksoftPOS");
+                Settings.Default["LicenseKey"] = MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.ProcessorCount + "/" + WindowsInstallationID), "PlancksoftPOS");
                 Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(1).ToString());
                 Settings.Default.Save();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -120,9 +121,9 @@ namespace PlancksoftPOS
                 }
                 this.Close();
             }
-            else if (txtLicenseKey.Text == MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value() + "|2"), "PlancksoftPOS"))
+            else if (txtLicenseKey.Text == MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.ProcessorCount + "/" + WindowsInstallationID + "|2"), "PlancksoftPOS"))
             {
-                Settings.Default["LicenseKey"] = MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value()), "PlancksoftPOS");
+                Settings.Default["LicenseKey"] = MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.ProcessorCount + "/" + WindowsInstallationID), "PlancksoftPOS");
                 Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(6).ToString());
                 Settings.Default.Save();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -135,9 +136,9 @@ namespace PlancksoftPOS
                 }
                 this.Close();
             }
-            else if (txtLicenseKey.Text == MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value() + "|3"), "PlancksoftPOS"))
+            else if (txtLicenseKey.Text == MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.ProcessorCount + "/" + WindowsInstallationID + "|3"), "PlancksoftPOS"))
             {
-                Settings.Default["LicenseKey"] = MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value()), "PlancksoftPOS");
+                Settings.Default["LicenseKey"] = MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.ProcessorCount + "/" + WindowsInstallationID), "PlancksoftPOS");
                 Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddYears(1).ToString());
                 Settings.Default.Save();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -150,9 +151,9 @@ namespace PlancksoftPOS
                 }
                 this.Close();
             }
-            else if (txtLicenseKey.Text == MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value() + "|4"), "PlancksoftPOS"))
+            else if (txtLicenseKey.Text == MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.ProcessorCount + "/" + WindowsInstallationID + "|4"), "PlancksoftPOS"))
             {
-                Settings.Default["LicenseKey"] = MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.OSVersion + Environment.ProcessorCount + "/" + FingerPrint.Value()), "PlancksoftPOS");
+                Settings.Default["LicenseKey"] = MD5Encryption.Encrypt(GetHash256Str(Environment.MachineName + Environment.UserName + Application.ProductName + Environment.ProcessorCount + "/" + WindowsInstallationID), "PlancksoftPOS");
                 Settings.Default["LicenseExpiration"] = Encrypt256(DateTime.Now.AddMonths(1000).ToString());
                 Settings.Default.Save();
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
