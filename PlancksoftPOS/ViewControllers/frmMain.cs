@@ -755,7 +755,7 @@ namespace PlancksoftPOS
                     richTextBox5.ResetText();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        richTextBox4.Text = " :المجموع كامل " + this.totalAmount;
+                        richTextBox4.Text = " :المجموع الكامل " + this.totalAmount;
                         richTextBox5.Text = " :رقم الفاتورة الحالية " + this.CurrentBillNumber;
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
@@ -904,7 +904,9 @@ namespace PlancksoftPOS
                     label45.Text = "هذه النسخه مرخصه ل";
                     groupBox3.Text = "قائمة المشتريات الحاليه";
                     label112.Text = "0 :عدد الفواتير المعلقه";
+                    richTextBox4.Text = " :المجموع الكامل " + this.totalAmount;
                     richTextBox5.Text = ("رقم الفاتورة الحالية");
+                    richTextBox6.Text = (" :الباركود ") + this.BarCode;
                     richTextBox1.Text = ("الباقي السابق");
                     richTextBox2.Text = ("المدفوع السابق");
                     richTextBox3.Text = ("المجموع السابق");
@@ -1487,7 +1489,9 @@ namespace PlancksoftPOS
                     label45.Text = "This copy is licensed for ";
                     groupBox3.Text = "List of currently pending items";
                     label112.Text = "Number of pending bills: 0";
+                    richTextBox4.Text = "Total: " + this.totalAmount;
                     richTextBox5.Text = ("Current Bill Number");
+                    richTextBox6.Text = ("Barcode: ") + this.BarCode;
                     richTextBox1.Text = ("Previous Remainder");
                     richTextBox2.Text = ("Previous Paid");
                     richTextBox3.Text = ("Previous Total");
@@ -2034,6 +2038,7 @@ namespace PlancksoftPOS
             AddItemType = new TextBox();
             AddItemType.Text = "";
             AddItemType.Size = new Size(351, 20);
+            AddItemType.KeyPress += (sender, e) => { if (e.KeyChar == (char)Keys.Enter) { AddItemTypeHandler(sender, e); } };
             flowLayoutPanel3.Controls.Add(AddItemType);
 
             plusItemTypePB = new PictureBox();
@@ -2152,6 +2157,7 @@ namespace PlancksoftPOS
             AddWarehouse = new TextBox();
             AddWarehouse.Text = "";
             AddWarehouse.Size = new Size(351, 20);
+            AddWarehouse.KeyPress += (sender, e) => { if (e.KeyChar == (char)Keys.Enter) { AddWarehouseHandler(sender, e); } };
             flowLayoutPanel2.Controls.Add(AddWarehouse);
 
             plusWarehousePB = new PictureBox();
@@ -2273,6 +2279,7 @@ namespace PlancksoftPOS
             AddFavorite = new TextBox();
             AddFavorite.Text = "";
             AddFavorite.Size = new Size(351, 20);
+            AddFavorite.KeyPress += (sender, e) => { if (e.KeyChar == (char)Keys.Enter) { AddFavoritesHandler(sender, e); } };
             flowLayoutPanel1.Controls.Add(AddFavorite);
 
             plusFavoritePB = new PictureBox();
@@ -2947,7 +2954,7 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 richTextBox5.Text = " :رقم الفاتورة الحالية " + this.CurrentBillNumber;
-                richTextBox4.Text = " :المجموع كامل " + this.totalAmount;
+                richTextBox4.Text = " :المجموع الكامل " + this.totalAmount;
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
@@ -5684,9 +5691,17 @@ namespace PlancksoftPOS
                     if (tabControl1.SelectedTab == tabControl1.TabPages["Cash"] && (!pendingPurchaseNewQuantity.Focused && !pendingPurchaseRemovalQuantity.Focused))
                     {
                         if (e.KeyChar == (Char)Keys.Tab)
+                        {
                             return;
+                        }
                         else if (e.KeyChar == (Char)Keys.Enter)
-                            return;
+                        {
+                            if (!this.timerstarted)
+                            {
+                                itemBarCodeEntryTimer.Start();
+                                this.timerstarted = true;
+                            }
+                        }
                         else if (e.KeyChar == (Char)'\u001b')
                         {
                             ScannedBarCode = "";
@@ -5697,13 +5712,15 @@ namespace PlancksoftPOS
                         {
                             ScannedBarCode += e.KeyChar;
                             richTextBox6.ResetText();
-                            richTextBox6.Text = ScannedBarCode;
-
-                            if (!this.timerstarted)
+                            if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
-                                itemBarCodeEntryTimer.Start();
-                                this.timerstarted = true;
+                                richTextBox6.Text = "Barcode: " + ScannedBarCode;
                             }
+                            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                            {
+                                richTextBox6.Text = ": الباركود" + ScannedBarCode;
+                            }
+
                         }
                     }
                 }
@@ -6286,7 +6303,7 @@ namespace PlancksoftPOS
                                         richTextBox4.ResetText();
                                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                         {
-                                            richTextBox4.Text = " :المجموع كامل " + this.totalAmount;
+                                            richTextBox4.Text = " :المجموع الكامل " + this.totalAmount;
                                         }
                                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                         {
@@ -6406,7 +6423,7 @@ namespace PlancksoftPOS
                     richTextBox4.ResetText();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        richTextBox4.Text = " :المجموع كامل " + this.totalAmount;
+                        richTextBox4.Text = " :المجموع الكامل " + this.totalAmount;
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
@@ -7359,7 +7376,7 @@ namespace PlancksoftPOS
                                         richTextBox4.ResetText();
                                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                         {
-                                            richTextBox4.Text = " :المجموع كامل " + this.totalAmount;
+                                            richTextBox4.Text = " :المجموع الكامل " + this.totalAmount;
                                         }
                                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                         {
@@ -7573,7 +7590,7 @@ namespace PlancksoftPOS
                                             richTextBox4.ResetText();
                                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                             {
-                                                richTextBox4.Text = (" :المجموع كامل " + this.totalAmount);
+                                                richTextBox4.Text = (" :المجموع الكامل " + this.totalAmount);
                                             }
                                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                             {
@@ -7641,7 +7658,7 @@ namespace PlancksoftPOS
                     richTextBox4.ResetText();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        richTextBox4.Text = (" :المجموع كامل " + this.totalAmount);
+                        richTextBox4.Text = (" :المجموع الكامل " + this.totalAmount);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
@@ -7848,7 +7865,7 @@ namespace PlancksoftPOS
                                                 richTextBox4.ResetText();
                                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                                 {
-                                                    richTextBox4.Text = (" :المجموع كامل " + this.totalAmount);
+                                                    richTextBox4.Text = (" :المجموع الكامل " + this.totalAmount);
                                                 }
                                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                                 {
@@ -8036,7 +8053,7 @@ namespace PlancksoftPOS
                                                     richTextBox4.ResetText();
                                                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                                     {
-                                                        richTextBox4.Text = (" :المجموع كامل " + this.totalAmount);
+                                                        richTextBox4.Text = (" :المجموع الكامل " + this.totalAmount);
                                                     }
                                                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                                     {
@@ -8103,7 +8120,7 @@ namespace PlancksoftPOS
                             richTextBox4.ResetText();
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                richTextBox4.Text = (" :المجموع كامل " + this.totalAmount);
+                                richTextBox4.Text = (" :المجموع الكامل " + this.totalAmount);
                             }
                             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
@@ -8445,7 +8462,7 @@ namespace PlancksoftPOS
 
                             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
-                                richTextBox4.Text = (" :المجموع كامل " + this.totalAmount);
+                                richTextBox4.Text = (" :المجموع الكامل " + this.totalAmount);
                                 richTextBox5.Text = (" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                                 MaterialMessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), false, FlexibleMaterialForm.ButtonsPosition.Center);
                             }
@@ -8699,7 +8716,7 @@ namespace PlancksoftPOS
                     richTextBox5.ResetText();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        richTextBox4.Text = (" :المجموع كامل " + this.totalAmount);
+                        richTextBox4.Text = (" :المجموع الكامل " + this.totalAmount);
                         richTextBox5.Text = (" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                         MaterialMessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), false, FlexibleMaterialForm.ButtonsPosition.Center);
                     } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
@@ -11364,7 +11381,7 @@ namespace PlancksoftPOS
                     richTextBox5.ResetText();
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        richTextBox4.Text = (" :المجموع كامل " + this.totalAmount);
+                        richTextBox4.Text = (" :المجموع الكامل " + this.totalAmount);
                         richTextBox5.Text = (" :رقم الفاتورة الحالية " + this.CurrentBillNumber);
                         MaterialMessageBox.Show(String.Format(".لفد قمت بفتح الصندوق بمبلغ قدره {0} دينار", moneyInRegister), false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
@@ -11485,7 +11502,7 @@ namespace PlancksoftPOS
                                 richTextBox4.ResetText();
                                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                                 {
-                                    richTextBox4.Text = (" :المجموع كامل " + this.totalAmount);
+                                    richTextBox4.Text = (" :المجموع الكامل " + this.totalAmount);
                                 }
                                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                                 {
@@ -11502,7 +11519,7 @@ namespace PlancksoftPOS
                         richTextBox4.ResetText();
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            richTextBox4.Text = (" :المجموع كامل " + this.totalAmount);
+                            richTextBox4.Text = (" :المجموع الكامل " + this.totalAmount);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
