@@ -51,12 +51,13 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 Text = "شاشة بطاقة العميل";
-                lblClientName.Text = "اسم العميل";
-                lblItemName.Text = "اسم الماده";
+                lblClientName.Text = "إسم العميل";
+                lblClientID.Text = "رقم العميل";
+                lblItemName.Text = "إسم الماده";
                 btnClear.Text = "مسح";
                 btnSearch.Text = "بحث";
                 btnClose.Text = "خروج";
-                dgvClients.Columns["Column1"].HeaderText = "اسم العميل";
+                dgvClients.Columns["Column1"].HeaderText = "إسم العميل";
                 dgvClients.Columns["Column2"].HeaderText = "رمز العميل";
                 dgvClients.Columns["Column3"].HeaderText = "اسم الماده";
                 dgvClients.Columns["Column4"].HeaderText = "سعر العميل";
@@ -68,6 +69,7 @@ namespace PlancksoftPOS
             {
                 Text = "Client Card Module";
                 lblClientName.Text = "Client Name";
+                lblClientID.Text = "Client ID";
                 lblItemName.Text = "Item Name";
                 btnClear.Text = "Clear";
                 btnSearch.Text = "Search";
