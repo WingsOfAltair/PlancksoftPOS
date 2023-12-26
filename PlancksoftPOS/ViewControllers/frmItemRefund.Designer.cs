@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmItemRefund));
-            this.lblItemName = new MaterialSkin.Controls.MaterialLabel();
             this.txtItemName = new MaterialSkin.Controls.MaterialTextBox2();
             this.txtItemBarcode = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblItemBarcode = new MaterialSkin.Controls.MaterialLabel();
@@ -38,22 +37,9 @@
             this.btnCancel = new MaterialSkin.Controls.MaterialButton();
             this.btnItemReturn = new MaterialSkin.Controls.MaterialButton();
             this.btnItemSelect = new MaterialSkin.Controls.MaterialButton();
+            this.lblItemName = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.ItemQuantitynud)).BeginInit();
             this.SuspendLayout();
-            // 
-            // lblItemName
-            // 
-            this.lblItemName.AutoSize = true;
-            this.lblItemName.Depth = 0;
-            this.lblItemName.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblItemName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblItemName.Location = new System.Drawing.Point(3, 64);
-            this.lblItemName.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblItemName.Name = "lblItemName";
-            this.lblItemName.Size = new System.Drawing.Size(40, 19);
-            this.lblItemName.TabIndex = 26;
-            this.lblItemName.Text = "إسم الماده";
-            this.lblItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txtItemName
             // 
@@ -79,7 +65,7 @@
             this.txtItemName.SelectionLength = 0;
             this.txtItemName.SelectionStart = 0;
             this.txtItemName.ShortcutsEnabled = true;
-            this.txtItemName.Size = new System.Drawing.Size(497, 48);
+            this.txtItemName.Size = new System.Drawing.Size(577, 48);
             this.txtItemName.TabIndex = 27;
             this.txtItemName.TabStop = false;
             this.txtItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -110,7 +96,7 @@
             this.txtItemBarcode.SelectionLength = 0;
             this.txtItemBarcode.SelectionStart = 0;
             this.txtItemBarcode.ShortcutsEnabled = true;
-            this.txtItemBarcode.Size = new System.Drawing.Size(497, 48);
+            this.txtItemBarcode.Size = new System.Drawing.Size(577, 48);
             this.txtItemBarcode.TabIndex = 29;
             this.txtItemBarcode.TabStop = false;
             this.txtItemBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -152,7 +138,7 @@
             this.ItemQuantitynud.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.ItemQuantitynud.Location = new System.Drawing.Point(3, 217);
             this.ItemQuantitynud.Name = "ItemQuantitynud";
-            this.ItemQuantitynud.Size = new System.Drawing.Size(497, 20);
+            this.ItemQuantitynud.Size = new System.Drawing.Size(577, 20);
             this.ItemQuantitynud.TabIndex = 31;
             // 
             // btnCancel
@@ -164,12 +150,12 @@
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnCancel.HighEmphasis = true;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(3, 363);
+            this.btnCancel.Location = new System.Drawing.Point(3, 317);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnCancel.Size = new System.Drawing.Size(497, 36);
+            this.btnCancel.Size = new System.Drawing.Size(577, 36);
             this.btnCancel.TabIndex = 32;
             this.btnCancel.Text = "إلغاء";
             this.btnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -186,12 +172,12 @@
             this.btnItemReturn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnItemReturn.HighEmphasis = true;
             this.btnItemReturn.Icon = null;
-            this.btnItemReturn.Location = new System.Drawing.Point(3, 327);
+            this.btnItemReturn.Location = new System.Drawing.Point(3, 281);
             this.btnItemReturn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnItemReturn.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnItemReturn.Name = "btnItemReturn";
             this.btnItemReturn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnItemReturn.Size = new System.Drawing.Size(497, 36);
+            this.btnItemReturn.Size = new System.Drawing.Size(577, 36);
             this.btnItemReturn.TabIndex = 33;
             this.btnItemReturn.Text = "إرجاع الماده";
             this.btnItemReturn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -208,12 +194,12 @@
             this.btnItemSelect.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnItemSelect.HighEmphasis = true;
             this.btnItemSelect.Icon = null;
-            this.btnItemSelect.Location = new System.Drawing.Point(3, 291);
+            this.btnItemSelect.Location = new System.Drawing.Point(3, 245);
             this.btnItemSelect.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnItemSelect.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnItemSelect.Name = "btnItemSelect";
             this.btnItemSelect.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnItemSelect.Size = new System.Drawing.Size(497, 36);
+            this.btnItemSelect.Size = new System.Drawing.Size(577, 36);
             this.btnItemSelect.TabIndex = 34;
             this.btnItemSelect.Text = "إختيار الماده";
             this.btnItemSelect.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -221,11 +207,25 @@
             this.btnItemSelect.UseVisualStyleBackColor = true;
             this.btnItemSelect.Click += new System.EventHandler(this.btnItemSelect_Click);
             // 
+            // lblItemName
+            // 
+            this.lblItemName.AutoSize = true;
+            this.lblItemName.Depth = 0;
+            this.lblItemName.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblItemName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblItemName.Location = new System.Drawing.Point(3, 64);
+            this.lblItemName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblItemName.Name = "lblItemName";
+            this.lblItemName.Size = new System.Drawing.Size(40, 19);
+            this.lblItemName.TabIndex = 26;
+            this.lblItemName.Text = "إسم الماده";
+            this.lblItemName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmItemRefund
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 402);
+            this.ClientSize = new System.Drawing.Size(583, 356);
             this.Controls.Add(this.btnItemSelect);
             this.Controls.Add(this.btnItemReturn);
             this.Controls.Add(this.btnCancel);
@@ -257,8 +257,6 @@
         }
 
         #endregion
-
-        private MaterialSkin.Controls.MaterialLabel lblItemName;
         private MaterialSkin.Controls.MaterialTextBox2 txtItemName;
         private MaterialSkin.Controls.MaterialTextBox2 txtItemBarcode;
         private MaterialSkin.Controls.MaterialLabel lblItemBarcode;
@@ -267,5 +265,6 @@
         private MaterialSkin.Controls.MaterialButton btnCancel;
         private MaterialSkin.Controls.MaterialButton btnItemReturn;
         private MaterialSkin.Controls.MaterialButton btnItemSelect;
+        private MaterialSkin.Controls.MaterialLabel lblItemName;
     }
 }

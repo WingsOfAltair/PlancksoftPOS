@@ -25,6 +25,7 @@ namespace PlancksoftPOS
         SortedList<int, string> itemtypes = new SortedList<int, string>();
         string UID;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
+        bool keepRunning = true;
 
         public frmItemRefund(SortedList<int, string> itemtypes, string UID)
         {
@@ -119,6 +120,7 @@ namespace PlancksoftPOS
                     {
                         MaterialMessageBox.Show("The item was returned to the warehouse.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
+                    keepRunning = !keepRunning;
                     this.Close();
                 }
                 else
@@ -138,22 +140,34 @@ namespace PlancksoftPOS
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            keepRunning = !keepRunning;
+            if (!keepRunning)
+                this.Close();
         }
 
         private void frmItemRefund_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!Program.exited)
+            if (!keepRunning)
             {
-                Program.exited = true;
-                this.Close();
+                if (!Program.exited)
+                {
+                    Program.exited = true;
+                    this.Close();
+
+                }
+            } else
+            {
+                e.Cancel = true;
             }
         }
 
         private void frmItemRefund_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Program.exited = false;
-            Program.materialSkinManager.RemoveFormToManage(this);
+            if (!keepRunning)
+            {
+                Program.exited = false;
+                Program.materialSkinManager.RemoveFormToManage(this);
+            }
         }
     }
 }
