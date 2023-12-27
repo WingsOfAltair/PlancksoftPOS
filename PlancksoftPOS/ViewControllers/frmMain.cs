@@ -7186,7 +7186,20 @@ namespace PlancksoftPOS
                                 if (!currentBillRow.IsNewRow)
                                 {
                                     Item item = Connection.server.SearchItems("", currentBillRow.Cells["pendingPurchaseItemBarCode"].Value.ToString(), 0).Item1[0];
-                                    item.SetQuantity(Convert.ToInt32(currentBillRow.Cells["pendingPurchaseItemQuantity"].Value.ToString()));
+                                    string itemBarCode = currentBillRow.Cells[1].Value.ToString();
+                                    Item itemRetrieved = Connection.server.SearchItems("", itemBarCode, 0).Item1[0];
+                                    string itemName = itemRetrieved.ItemName1;
+                                    int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
+                                    decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
+                                    decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
+                                    Item itemToAdd = new Item();
+                                    itemToAdd.SetName(itemName);
+                                    itemToAdd.SetBarCode(itemBarCode);
+                                    itemToAdd.SetQuantity(itemQuantity);
+                                    itemToAdd.SetPrice(itemPrice);
+                                    itemToAdd.SetPriceTax(itemPriceTax);
+                                    itemToAdd.SetItemTypeID(itemRetrieved.GetItemTypeeID());
+                                    item.SetQuantity(itemQuantity);
                                     items.Add(item);
                                     int newItemQuantity = Convert.ToInt32(Convert.ToInt32(Connection.server.GetItemQuantity(currentBillRow.Cells["pendingPurchaseItemBarCode"].Value.ToString())) - Convert.ToInt32(currentBillRow.Cells["pendingPurchaseItemQuantity"].Value.ToString()));
                                     bool updatedQuantity = Connection.server.UpdateItemQuantity(new Item(currentBillRow.Cells["pendingPurchaseItemName"].Value.ToString(),
