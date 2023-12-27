@@ -24,6 +24,7 @@ namespace PlancksoftPOS
         Connection Connection = new Connection();
         SortedList<int, string> itemtypes = new SortedList<int, string>();
         string UID;
+        int BillID = -1;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
         bool keepRunning = true;
 
@@ -60,7 +61,9 @@ namespace PlancksoftPOS
                 lblItemName.Text = "اسم الماده";
                 lblItemBarcode.Text = "باركود الماده";
                 lblItemQuantity.Text = "عدد القطع";
+                lblBillID.Text = "رقم الفاتورة";
                 btnItemSelect.Text = "اختيار الماده";
+                btnSelectBill.Text = "إختيار الفاتورة";
                 btnItemReturn.Text = "ارجاع الماده";
                 btnCancel.Text = "الغاء";
                 RightToLeft = RightToLeft.Yes;
@@ -72,7 +75,9 @@ namespace PlancksoftPOS
                 lblItemName.Text = "Item Name";
                 lblItemBarcode.Text = "Item Barcode";
                 lblItemQuantity.Text = "Item Amount";
+                lblBillID.Text = "Bill ID";
                 btnItemSelect.Text = "Pick Item";
+                btnSelectBill.Text = "Select Bill";
                 btnItemReturn.Text = "Return Item";
                 btnCancel.Text = "Close";
                 RightToLeft = RightToLeft.No;
@@ -84,15 +89,41 @@ namespace PlancksoftPOS
         {
             try
             {
-                frmItemLookup itemLookup = new frmItemLookup(this.itemtypes, this.UID);
+                BillID = Convert.ToInt32(txtBillID.Text);
+                frmBillItemsLookup BillItemLookup = new frmBillItemsLookup(BillID, this.UID);
 
-                itemLookup.ShowDialog(this);
-                if (itemLookup.dialogResult == DialogResult.OK)
+                BillItemLookup.ShowDialog(this);
+                if (BillItemLookup.dialogResult == DialogResult.OK)
                 {
                     try
                     {
-                        txtItemName.Text = itemLookup.selectedItem.ItemName;
-                        txtItemBarcode.Text = itemLookup.selectedItem.ItemBarCode;
+                        txtItemName.Text = BillItemLookup.selectedItem.ItemName;
+                        txtItemBarcode.Text = BillItemLookup.selectedItem.ItemBarCode;
+                    }
+                    catch (Exception error)
+                    {
+
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+
+            }
+        }
+
+        private void btnSelectBill_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmBillLookup billLookup = new frmBillLookup(this.UID);
+
+                billLookup.ShowDialog(this);
+                if (billLookup.dialogResult == DialogResult.OK)
+                {
+                    try
+                    {
+                        txtBillID.Text = billLookup.selectedBill.getBillNumber().ToString();
                     }
                     catch (Exception error)
                     {

@@ -158,6 +158,18 @@
     <Compile Include="ViewControllers\frmColorPicker.Designer.cs">
       <DependentUpon>frmColorPicker.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewControllers\frmBillLookup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmBillLookup.Designer.cs">
+      <DependentUpon>frmBillLookup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewControllers\frmBillItemsLookup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewControllers\frmBillItemsLookup.Designer.cs">
+      <DependentUpon>frmBillItemsLookup.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewControllers\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +287,12 @@
     <Compile Include="Classes\RawPrinterHelper.cs" />
     <EmbeddedResource Include="ViewControllers\frmColorPicker.resx">
       <DependentUpon>frmColorPicker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewControllers\frmBillLookup.resx">
+      <DependentUpon>frmBillLookup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewControllers\frmBillItemsLookup.resx">
+      <DependentUpon>frmBillItemsLookup.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewControllers\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

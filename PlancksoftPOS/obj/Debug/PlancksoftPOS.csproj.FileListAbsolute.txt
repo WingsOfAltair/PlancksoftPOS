@@ -408,3 +408,5 @@ C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS\obj\Debug\Plancksoft
 C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.csproj.CopyComplete
 C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.exe
 C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmBillLookup.resources
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmBillItemsLookup.resources

@@ -80,7 +80,7 @@
             this.FavoriteCategoryName});
             this.DGVItemsLookup.Location = new System.Drawing.Point(6, 67);
             this.DGVItemsLookup.Name = "DGVItemsLookup";
-            this.DGVItemsLookup.Size = new System.Drawing.Size(1250, 372);
+            this.DGVItemsLookup.Size = new System.Drawing.Size(1218, 378);
             this.DGVItemsLookup.TabIndex = 8;
             this.DGVItemsLookup.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVItemsLookup_RowHeaderMouseDoubleClick);
             // 
@@ -181,8 +181,7 @@
             // 
             // lblItemName
             // 
-            this.lblItemName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblItemName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblItemName.AutoSize = true;
             this.lblItemName.Depth = 0;
             this.lblItemName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -196,8 +195,7 @@
             // 
             // txtItemName
             // 
-            this.txtItemName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtItemName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtItemName.AnimateReadOnly = false;
             this.txtItemName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtItemName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
@@ -219,7 +217,7 @@
             this.txtItemName.SelectionLength = 0;
             this.txtItemName.SelectionStart = 0;
             this.txtItemName.ShortcutsEnabled = true;
-            this.txtItemName.Size = new System.Drawing.Size(298, 48);
+            this.txtItemName.Size = new System.Drawing.Size(252, 48);
             this.txtItemName.TabIndex = 10;
             this.txtItemName.TabStop = false;
             this.txtItemName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -229,8 +227,7 @@
             // 
             // txtItemBarcode
             // 
-            this.txtItemBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtItemBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtItemBarcode.AnimateReadOnly = false;
             this.txtItemBarcode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
             this.txtItemBarcode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
@@ -252,7 +249,7 @@
             this.txtItemBarcode.SelectionLength = 0;
             this.txtItemBarcode.SelectionStart = 0;
             this.txtItemBarcode.ShortcutsEnabled = true;
-            this.txtItemBarcode.Size = new System.Drawing.Size(298, 48);
+            this.txtItemBarcode.Size = new System.Drawing.Size(252, 48);
             this.txtItemBarcode.TabIndex = 12;
             this.txtItemBarcode.TabStop = false;
             this.txtItemBarcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -262,8 +259,7 @@
             // 
             // lblItemBarcode
             // 
-            this.lblItemBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblItemBarcode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblItemBarcode.AutoSize = true;
             this.lblItemBarcode.Depth = 0;
             this.lblItemBarcode.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -282,7 +278,7 @@
             this.lblItemQuantity.Depth = 0;
             this.lblItemQuantity.Enabled = false;
             this.lblItemQuantity.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblItemQuantity.Location = new System.Drawing.Point(809, 450);
+            this.lblItemQuantity.Location = new System.Drawing.Point(763, 450);
             this.lblItemQuantity.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemQuantity.Name = "lblItemQuantity";
             this.lblItemQuantity.Size = new System.Drawing.Size(41, 19);
@@ -293,12 +289,13 @@
             // 
             // btnSearch
             // 
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnSearch.Depth = 0;
             this.btnSearch.HighEmphasis = true;
             this.btnSearch.Icon = null;
-            this.btnSearch.Location = new System.Drawing.Point(947, 479);
+            this.btnSearch.Location = new System.Drawing.Point(865, 478);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
@@ -313,12 +310,13 @@
             // 
             // btnClear
             // 
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnClear.Depth = 0;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(1019, 479);
+            this.btnClear.Location = new System.Drawing.Point(937, 478);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
@@ -333,10 +331,11 @@
             // 
             // BtnPrint
             // 
+            this.BtnPrint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnPrint.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.BtnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnPrint.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.BtnPrint.Location = new System.Drawing.Point(1090, 479);
+            this.BtnPrint.Location = new System.Drawing.Point(1008, 478);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(63, 35);
             this.BtnPrint.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -346,12 +345,13 @@
             // 
             // btnClose
             // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnClose.Depth = 0;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(1160, 478);
+            this.btnClose.Location = new System.Drawing.Point(1078, 477);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
@@ -371,7 +371,7 @@
             this.cbItemType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbItemType.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.cbItemType.FormattingEnabled = true;
-            this.cbItemType.Location = new System.Drawing.Point(566, 492);
+            this.cbItemType.Location = new System.Drawing.Point(520, 492);
             this.cbItemType.Name = "cbItemType";
             this.cbItemType.Size = new System.Drawing.Size(184, 21);
             this.cbItemType.TabIndex = 28;
@@ -383,7 +383,7 @@
             this.lblItemType.AutoSize = true;
             this.lblItemType.Depth = 0;
             this.lblItemType.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblItemType.Location = new System.Drawing.Point(624, 450);
+            this.lblItemType.Location = new System.Drawing.Point(578, 450);
             this.lblItemType.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemType.Name = "lblItemType";
             this.lblItemType.Size = new System.Drawing.Size(54, 19);
@@ -395,7 +395,7 @@
             // 
             this.nudItemQuantity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.nudItemQuantity.Enabled = false;
-            this.nudItemQuantity.Location = new System.Drawing.Point(782, 493);
+            this.nudItemQuantity.Location = new System.Drawing.Point(736, 493);
             this.nudItemQuantity.Maximum = new decimal(new int[] {
             1569325055,
             23283064,
@@ -411,7 +411,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1276, 562);
+            this.ClientSize = new System.Drawing.Size(1230, 527);
             this.Controls.Add(this.nudItemQuantity);
             this.Controls.Add(this.lblItemType);
             this.Controls.Add(this.cbItemType);
