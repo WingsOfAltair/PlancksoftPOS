@@ -267,6 +267,12 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsResponse")]
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveBillsAsync();
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefund", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefundResponse")]
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBillsRefund();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefund", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefundResponse")]
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveBillsRefundAsync();
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveCapitalRevenue", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveCapitalRevenueResponse")]
         System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveCapitalRevenue();
         
@@ -598,10 +604,10 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         System.Threading.Tasks.Task<bool> UpdateBillAsync(int BillNumber, string CashierName, decimal TotalAmount, decimal PaidAmount, decimal RemainderAmount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/ReturnItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/ReturnItemResponse")]
-        bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName);
+        bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName, int BillID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/ReturnItem", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/ReturnItemResponse")]
-        System.Threading.Tasks.Task<bool> ReturnItemAsync(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName);
+        System.Threading.Tasks.Task<bool> ReturnItemAsync(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName, int BillID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouse", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemWarehouseResponse")]
         bool UpdateItemWarehouse(System.Collections.Generic.List<Dependencies.Item> ItemsToUpdate, string EmployeeName, int EntryExitType);
@@ -1077,6 +1083,14 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
             return base.Channel.RetrieveBillsAsync();
         }
         
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBillsRefund() {
+            return base.Channel.RetrieveBillsRefund();
+        }
+        
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveBillsRefundAsync() {
+            return base.Channel.RetrieveBillsRefundAsync();
+        }
+        
         public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveCapitalRevenue() {
             return base.Channel.RetrieveCapitalRevenue();
         }
@@ -1517,12 +1531,12 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
             return base.Channel.UpdateBillAsync(BillNumber, CashierName, TotalAmount, PaidAmount, RemainderAmount);
         }
         
-        public bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName) {
-            return base.Channel.ReturnItem(ItemName, ItemBarCode, ItemQuantity, cashierName);
+        public bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName, int BillID) {
+            return base.Channel.ReturnItem(ItemName, ItemBarCode, ItemQuantity, cashierName, BillID);
         }
         
-        public System.Threading.Tasks.Task<bool> ReturnItemAsync(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName) {
-            return base.Channel.ReturnItemAsync(ItemName, ItemBarCode, ItemQuantity, cashierName);
+        public System.Threading.Tasks.Task<bool> ReturnItemAsync(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName, int BillID) {
+            return base.Channel.ReturnItemAsync(ItemName, ItemBarCode, ItemQuantity, cashierName, BillID);
         }
         
         public bool UpdateItemWarehouse(System.Collections.Generic.List<Dependencies.Item> ItemsToUpdate, string EmployeeName, int EntryExitType) {

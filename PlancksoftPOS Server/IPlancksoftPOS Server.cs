@@ -93,7 +93,9 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         DataTable RetrieveTaxZReport();
         [OperationContract]
-        Tuple<List<Bill>, DataTable> RetrieveBills();
+        Tuple<List<Bill>, DataTable> RetrieveBills();   
+        [OperationContract]
+        Tuple<List<Bill>, DataTable> RetrieveBillsRefund();
         [OperationContract]
         Tuple<List<Item>, DataTable> RetrieveCapitalRevenue();
         [OperationContract]
@@ -205,7 +207,7 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool UpdateBill(int BillNumber, string CashierName, decimal TotalAmount, decimal PaidAmount, decimal RemainderAmount);
         [OperationContract]
-        bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName);
+        bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName, int BillID);
         [OperationContract]
         bool UpdateItemWarehouse(List<Item> ItemsToUpdate, string EmployeeName, int EntryExitType);
         [OperationContract]
