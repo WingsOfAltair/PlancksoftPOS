@@ -7185,9 +7185,13 @@ namespace PlancksoftPOS
                             {
                                 if (!currentBillRow.IsNewRow)
                                 {
-                                    Item item = Connection.server.SearchItems("", currentBillRow.Cells[1].Value.ToString(), 0).Item1[0];
-                                    item.SetQuantity(Convert.ToInt32(currentBillRow.Cells[2].Value.ToString()));
+                                    Item item = Connection.server.SearchItems("", currentBillRow.Cells["pendingPurchaseItemBarCode"].Value.ToString(), 0).Item1[0];
+                                    item.SetQuantity(Convert.ToInt32(currentBillRow.Cells["pendingPurchaseItemQuantity"].Value.ToString()));
                                     items.Add(item);
+                                    int newItemQuantity = Convert.ToInt32(Convert.ToInt32(Connection.server.GetItemQuantity(currentBillRow.Cells["pendingPurchaseItemBarCode"].Value.ToString())) - Convert.ToInt32(currentBillRow.Cells["pendingPurchaseItemQuantity"].Value.ToString()));
+                                    bool updatedQuantity = Connection.server.UpdateItemQuantity(new Item(currentBillRow.Cells["pendingPurchaseItemName"].Value.ToString(),
+                                        currentBillRow.Cells["pendingPurchaseItemBarCode"].Value.ToString(), newItemQuantity, Convert.ToDecimal(currentBillRow.Cells["pendingPurchaseItemPrice"].Value.ToString()),
+                                        Convert.ToDecimal(currentBillRow.Cells["pendingPurchaseItemPriceTax"].Value.ToString()), DateTime.Now));
                                 }
                             }
 
