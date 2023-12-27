@@ -60,7 +60,7 @@ namespace PlancksoftPOS
 
             this.UID = UID;
 
-            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveBills();
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveBillsRefund();
             dgvBills.DataSource = RetrievedBills.Item2;
         }
 
@@ -102,7 +102,7 @@ namespace PlancksoftPOS
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveBills();
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveBillsRefund();
             dgvBills.DataSource = RetrievedBills.Item2;
 
 

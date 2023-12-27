@@ -528,6 +528,18 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
+        string RetrieveBillsRefund();    
+        [OperationContract]
+        [
+            WebInvoke
+            (
+                Method = "POST",
+                UriTemplate = "RetrieveBillsRefund",
+                RequestFormat = WebMessageFormat.Json,
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedRequest
+            )
+        ]
         string RetrieveBills();
         [OperationContract]
         [
@@ -1248,7 +1260,7 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName);
+        string ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName, int BillID);
         [OperationContract]
         [
             WebInvoke

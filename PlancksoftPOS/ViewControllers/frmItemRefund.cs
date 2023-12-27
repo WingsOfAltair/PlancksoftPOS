@@ -141,7 +141,7 @@ namespace PlancksoftPOS
         {
             if (txtItemName.Text != "" && txtItemBarcode.Text != "")
             {
-                if (Connection.server.ReturnItem(txtItemName.Text, txtItemBarcode.Text, Convert.ToInt32(ItemQuantitynud.Value), this.UID))
+                if (Connection.server.ReturnItem(txtItemName.Text, txtItemBarcode.Text, Convert.ToInt32(ItemQuantitynud.Value), this.UID, Convert.ToInt32(txtBillID.Text)))
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {

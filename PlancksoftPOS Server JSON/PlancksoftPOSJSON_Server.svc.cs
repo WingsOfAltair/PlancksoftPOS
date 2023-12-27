@@ -194,6 +194,10 @@ namespace PlancksoftPOSJSON_Server
         public string RetrieveBills()
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveBills());
+        }         
+        public string RetrieveBillsRefund()
+        {
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveBillsRefund());
         }
         public string RetrieveCapitalRevenue()
         {
@@ -427,9 +431,9 @@ namespace PlancksoftPOSJSON_Server
         {
             return new JavaScriptSerializer().Serialize(DAL.UpdateBill(BillNumber, CashierName, TotalAmount, PaidAmount, RemainderAmount));
         }
-        public string ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName)
+        public string ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName, int BillID)
         {
-            return new JavaScriptSerializer().Serialize(DAL.ReturnItem(ItemName, ItemBarCode, ItemQuantity, cashierName));
+            return new JavaScriptSerializer().Serialize(DAL.ReturnItem(ItemName, ItemBarCode, ItemQuantity, cashierName, BillID));
         }
         public string UpdateItemWarehouse(List<Item> ItemsToUpdate, string EmployeeName, int EntryExitType)
         {

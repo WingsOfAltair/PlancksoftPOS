@@ -179,6 +179,10 @@ namespace PlancksoftPOS_Server
         public Tuple<List<Bill>, DataTable> RetrieveBills()
         {
             return DAL.RetrieveBills();
+        }   
+        public Tuple<List<Bill>, DataTable> RetrieveBillsRefund()
+        {
+            return DAL.RetrieveBillsRefund();
         }
         public Tuple<List<Item>, DataTable> RetrieveCapitalRevenue()
         {
@@ -396,9 +400,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.UpdateBill(BillNumber, CashierName, TotalAmount, PaidAmount, RemainderAmount);
         }
-        public bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName)
+        public bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName, int BillID)
         {
-            return DAL.ReturnItem(ItemName, ItemBarCode, ItemQuantity, cashierName);
+            return DAL.ReturnItem(ItemName, ItemBarCode, ItemQuantity, cashierName, BillID);
         }
         public bool UpdateItemWarehouse(List<Item> ItemsToUpdate, string EmployeeName, int EntryExitType)
         {

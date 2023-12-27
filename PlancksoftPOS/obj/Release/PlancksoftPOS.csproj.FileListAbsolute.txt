@@ -278,3 +278,5 @@ C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS\obj\Release\Planckso
 C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.csproj.CopyComplete
 C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.exe
 C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmBillLookup.resources
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS\obj\Release\PlancksoftPOS.frmBillItemsLookup.resources

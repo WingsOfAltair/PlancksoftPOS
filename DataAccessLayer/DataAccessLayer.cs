@@ -1392,6 +1392,43 @@ namespace DataAccessLayer
                 dt.TableName = "Bills";
                 return Tuple.Create(Bills, dt);
             }
+        }   
+
+        public Tuple<List<Bill>, DataTable> RetrieveBillsRefund()
+        {
+            try
+            {
+                List<Bill> Bills = new List<Bill>();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveBillsRefund", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "Bills";
+
+                foreach (DataRow Bill in dt.Rows)
+                {
+                    Bill bill = new Bill();
+                    bill.SetBillNumber(Convert.ToInt32(Bill["Bill Number"].ToString()));
+                    bill.SetCashierName(Bill["Cashier Name"].ToString());
+                    bill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
+                    bill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
+                    bill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
+                    bill.SetDate(Convert.ToDateTime(Bill["Invoice Date"].ToString()));
+                    Bills.Add(bill);
+                }
+                return Tuple.Create(Bills, dt);
+            }
+            catch (Exception ex)
+            {
+                List<Bill> Bills = new List<Bill>();
+                DataTable dt = new DataTable();
+                dt.TableName = "Bills";
+                return Tuple.Create(Bills, dt);
+            }
         }
 
         public Tuple<List<Item>, DataTable> RetrieveCapitalRevenue()
@@ -3046,7 +3083,7 @@ namespace DataAccessLayer
             }
         }
 
-        public bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName)
+        public bool ReturnItem(string ItemName, string ItemBarCode, int ItemQuantity, string cashierName, int BillID)
         {
             try
             {
@@ -3058,6 +3095,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@ItemBarCode", ItemBarCode);
                     cmd.Parameters.AddWithValue("@ItemQuantity", ItemQuantity);
                     cmd.Parameters.AddWithValue("@cashierName", cashierName);
+                    cmd.Parameters.AddWithValue("@BillID", BillID);
                     cmd.Parameters.AddWithValue("@Date", DateTime.Now);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
