@@ -151,8 +151,6 @@ namespace PlancksoftPOS
                     {
                         MaterialMessageBox.Show("The item was returned to the warehouse.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
-                    keepRunning = !keepRunning;
-                    this.Close();
                 }
                 else
                 {

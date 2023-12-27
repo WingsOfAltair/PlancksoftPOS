@@ -51,7 +51,7 @@
             this.btnSearch.Depth = 0;
             this.btnSearch.HighEmphasis = true;
             this.btnSearch.Icon = null;
-            this.btnSearch.Location = new System.Drawing.Point(23, 439);
+            this.btnSearch.Location = new System.Drawing.Point(7, 439);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
@@ -72,7 +72,7 @@
             this.btnClear.Depth = 0;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(95, 439);
+            this.btnClear.Location = new System.Drawing.Point(79, 439);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
@@ -93,7 +93,7 @@
             this.btnClose.Depth = 0;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(167, 439);
+            this.btnClose.Location = new System.Drawing.Point(151, 439);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
@@ -126,7 +126,7 @@
             this.dgvBills.Name = "dgvBills";
             this.dgvBills.ReadOnly = true;
             this.dgvBills.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvBills.Size = new System.Drawing.Size(1141, 366);
+            this.dgvBills.Size = new System.Drawing.Size(1173, 366);
             this.dgvBills.TabIndex = 31;
             this.dgvBills.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvBills_RowHeaderMouseDoubleClick);
             // 
@@ -190,7 +190,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1147, 485);
+            this.ClientSize = new System.Drawing.Size(1179, 482);
             this.Controls.Add(this.dgvBills);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);
