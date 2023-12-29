@@ -90,8 +90,8 @@ namespace PlancksoftPOS
                 btnPickClient.Text = "اختيار العميل";
                 btnClose.Text = "اغلاق";
                 btnClear.Text = "مسح";
-                DGVClients.Columns["Column1"].HeaderText = "اسم العميل";
-                DGVClients.Columns["Column2"].HeaderText = "رقم العميل";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "إسم العميل";
+                DGVClients.Columns["ClientPickClientID"].HeaderText = "رقم العميل";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
