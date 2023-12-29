@@ -15,7 +15,7 @@ namespace Dependencies
         [DataMember]
         public string ItemName, ItemBarCode, itemNewBarCode, favoriteCategoryName, warehouseName, itemTypeName;
         [DataMember]
-        public int ItemQuantity, FavoriteCategory, saleRate;
+        public int ItemQuantity, TimesSold, FavoriteCategory, saleRate;
         [DataMember]
         public decimal ItemBuyPrice, ItemPrice, ItemPriceTax, ClientPrice;
         [DataMember]
@@ -60,6 +60,7 @@ namespace Dependencies
         public string WarehouseName { get => warehouseName; set => warehouseName = value; }
         public string ItemTypeName { get => itemTypeName; set => itemTypeName = value; }
         public int ItemQuantity1 { get => ItemQuantity; set => ItemQuantity = value; }
+        public int TimesSold1 { get => TimesSold; set => TimesSold = value; }
         public decimal ItemBuyPrice1 { get => ItemBuyPrice; set => ItemBuyPrice = value; }
         public decimal ItemPrice1 { get => ItemPrice; set => ItemPrice = value; }
         public decimal ItemPriceTax1 { get => ItemPriceTax; set => ItemPriceTax = value; }
@@ -88,6 +89,11 @@ namespace Dependencies
         public int GetQuantity()
         {
             return this.ItemQuantity1;
+        }
+
+        public int GetTimesSold()
+        {
+            return this.TimesSold1;
         }
 
         public decimal GetBuyPrice()
@@ -168,6 +174,11 @@ namespace Dependencies
         public void SetQuantity(int quantity)
         {
             this.ItemQuantity1 = quantity;
+        } 
+
+        public void SetTimesSold(int quantity)
+        {
+            this.TimesSold1 = quantity;
         }
 
         public void SetBuyPrice(decimal price)

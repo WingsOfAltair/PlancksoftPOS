@@ -56,7 +56,7 @@
             this.txtItemName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtItemName.HideSelection = true;
             this.txtItemName.LeadingIcon = null;
-            this.txtItemName.Location = new System.Drawing.Point(5, 87);
+            this.txtItemName.Location = new System.Drawing.Point(37, 87);
             this.txtItemName.MaxLength = 32767;
             this.txtItemName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtItemName.Name = "txtItemName";
@@ -87,7 +87,7 @@
             this.txtItemBarcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtItemBarcode.HideSelection = true;
             this.txtItemBarcode.LeadingIcon = null;
-            this.txtItemBarcode.Location = new System.Drawing.Point(5, 157);
+            this.txtItemBarcode.Location = new System.Drawing.Point(37, 157);
             this.txtItemBarcode.MaxLength = 32767;
             this.txtItemBarcode.MouseState = MaterialSkin.MouseState.OUT;
             this.txtItemBarcode.Name = "txtItemBarcode";
@@ -112,7 +112,7 @@
             this.lblItemBarcode.AutoSize = true;
             this.lblItemBarcode.Depth = 0;
             this.lblItemBarcode.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblItemBarcode.Location = new System.Drawing.Point(5, 135);
+            this.lblItemBarcode.Location = new System.Drawing.Point(37, 135);
             this.lblItemBarcode.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemBarcode.Name = "lblItemBarcode";
             this.lblItemBarcode.Size = new System.Drawing.Size(52, 19);
@@ -126,7 +126,7 @@
             this.lblItemQuantity.AutoSize = true;
             this.lblItemQuantity.Depth = 0;
             this.lblItemQuantity.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblItemQuantity.Location = new System.Drawing.Point(5, 208);
+            this.lblItemQuantity.Location = new System.Drawing.Point(37, 208);
             this.lblItemQuantity.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemQuantity.Name = "lblItemQuantity";
             this.lblItemQuantity.Size = new System.Drawing.Size(41, 19);
@@ -139,7 +139,7 @@
             this.ItemQuantitynud.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ItemQuantitynud.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ItemQuantitynud.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.ItemQuantitynud.Location = new System.Drawing.Point(5, 229);
+            this.ItemQuantitynud.Location = new System.Drawing.Point(37, 229);
             this.ItemQuantitynud.Name = "ItemQuantitynud";
             this.ItemQuantitynud.Size = new System.Drawing.Size(593, 20);
             this.ItemQuantitynud.TabIndex = 31;
@@ -153,12 +153,12 @@
             this.btnCancel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnCancel.HighEmphasis = true;
             this.btnCancel.Icon = null;
-            this.btnCancel.Location = new System.Drawing.Point(3, 482);
+            this.btnCancel.Location = new System.Drawing.Point(3, 439);
             this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnCancel.Size = new System.Drawing.Size(598, 36);
+            this.btnCancel.Size = new System.Drawing.Size(630, 36);
             this.btnCancel.TabIndex = 32;
             this.btnCancel.Text = "إلغاء";
             this.btnCancel.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -175,12 +175,12 @@
             this.btnItemReturn.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnItemReturn.HighEmphasis = true;
             this.btnItemReturn.Icon = null;
-            this.btnItemReturn.Location = new System.Drawing.Point(3, 446);
+            this.btnItemReturn.Location = new System.Drawing.Point(3, 403);
             this.btnItemReturn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnItemReturn.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnItemReturn.Name = "btnItemReturn";
             this.btnItemReturn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnItemReturn.Size = new System.Drawing.Size(598, 36);
+            this.btnItemReturn.Size = new System.Drawing.Size(630, 36);
             this.btnItemReturn.TabIndex = 33;
             this.btnItemReturn.Text = "إرجاع الماده";
             this.btnItemReturn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -197,12 +197,12 @@
             this.btnItemSelect.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnItemSelect.HighEmphasis = true;
             this.btnItemSelect.Icon = null;
-            this.btnItemSelect.Location = new System.Drawing.Point(3, 410);
+            this.btnItemSelect.Location = new System.Drawing.Point(3, 367);
             this.btnItemSelect.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnItemSelect.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnItemSelect.Name = "btnItemSelect";
             this.btnItemSelect.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnItemSelect.Size = new System.Drawing.Size(598, 36);
+            this.btnItemSelect.Size = new System.Drawing.Size(630, 36);
             this.btnItemSelect.TabIndex = 34;
             this.btnItemSelect.Text = "إختيار الماده";
             this.btnItemSelect.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -216,7 +216,7 @@
             this.lblItemName.AutoSize = true;
             this.lblItemName.Depth = 0;
             this.lblItemName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblItemName.Location = new System.Drawing.Point(5, 68);
+            this.lblItemName.Location = new System.Drawing.Point(37, 68);
             this.lblItemName.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblItemName.Name = "lblItemName";
             this.lblItemName.Size = new System.Drawing.Size(40, 19);
@@ -233,12 +233,12 @@
             this.btnSelectBill.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.btnSelectBill.HighEmphasis = true;
             this.btnSelectBill.Icon = null;
-            this.btnSelectBill.Location = new System.Drawing.Point(3, 374);
+            this.btnSelectBill.Location = new System.Drawing.Point(3, 331);
             this.btnSelectBill.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSelectBill.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSelectBill.Name = "btnSelectBill";
             this.btnSelectBill.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnSelectBill.Size = new System.Drawing.Size(598, 36);
+            this.btnSelectBill.Size = new System.Drawing.Size(630, 36);
             this.btnSelectBill.TabIndex = 35;
             this.btnSelectBill.Text = "إختيار الفاتورة";
             this.btnSelectBill.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -258,7 +258,7 @@
             this.txtBillID.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtBillID.HideSelection = true;
             this.txtBillID.LeadingIcon = null;
-            this.txtBillID.Location = new System.Drawing.Point(5, 278);
+            this.txtBillID.Location = new System.Drawing.Point(37, 278);
             this.txtBillID.MaxLength = 32767;
             this.txtBillID.MouseState = MaterialSkin.MouseState.OUT;
             this.txtBillID.Name = "txtBillID";
@@ -283,7 +283,7 @@
             this.lblBillID.AutoSize = true;
             this.lblBillID.Depth = 0;
             this.lblBillID.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.lblBillID.Location = new System.Drawing.Point(5, 254);
+            this.lblBillID.Location = new System.Drawing.Point(37, 254);
             this.lblBillID.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblBillID.Name = "lblBillID";
             this.lblBillID.Size = new System.Drawing.Size(48, 19);
@@ -295,7 +295,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(604, 521);
+            this.ClientSize = new System.Drawing.Size(636, 478);
             this.Controls.Add(this.txtBillID);
             this.Controls.Add(this.lblBillID);
             this.Controls.Add(this.btnSelectBill);
