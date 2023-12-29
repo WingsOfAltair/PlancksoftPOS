@@ -1388,6 +1388,7 @@ namespace PlancksoftPOS
                     groupBox47.Text = "جدول المرجعات";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn54"].HeaderText = "رقم السند";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn55"].HeaderText = "إسم الكاشير";
+                    dgvReturnedItems.Columns["Column9"].HeaderText = "رقم الفاتورة";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn52"].HeaderText = "إسم الماده";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "باركود الماده";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "عدد القطع المرجعه";
@@ -1970,6 +1971,7 @@ namespace PlancksoftPOS
                     groupBox47.Text = "Returned Items Grid";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn54"].HeaderText = "Return ID";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn55"].HeaderText = "Cashier Name";
+                    dgvReturnedItems.Columns["Column9"].HeaderText = "Bill ID";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn52"].HeaderText = "Item Name";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "Item Barcode";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "Returned Items Quantity";
@@ -6153,6 +6155,7 @@ namespace PlancksoftPOS
                     {
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn54"].HeaderText = "رقم السند";
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn55"].HeaderText = "إسم الكاشير";
+                        dgvReturnedItems.Columns["Column9"].HeaderText = "رقم الفاتورة";
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn52"].HeaderText = "إسم الماده";
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "باركود الماده";
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "عدد القطع المرجعه";
@@ -6160,6 +6163,7 @@ namespace PlancksoftPOS
                     {
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn54"].HeaderText = "Return ID";
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn55"].HeaderText = "Cashier Name";
+                        dgvReturnedItems.Columns["Column9"].HeaderText = "Bill ID";
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn52"].HeaderText = "Item Name";
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "Item Barcode";
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "Returned Items Quantity";
