@@ -1955,6 +1955,43 @@ namespace DataAccessLayerJSON
                 dt.TableName = "BillItems";
                 return new Response("Could not Retrieve Bill Items.", false);
             }
+        }   
+
+        public Response RetrieveBillItemsRefund(int BillNumber)
+        {
+            try
+            {
+                List<Item> BillItems = new List<Item>();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveBillItemsRefund", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@BillNumber", BillNumber);
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "BillItems";
+                
+                foreach (DataRow FavoriteItem in dt.Rows)
+                {
+                    Item billItems = new Item();
+                    billItems.SetName(FavoriteItem["Item Name"].ToString());
+                    billItems.SetBarCode(FavoriteItem["Item BarCode"].ToString());
+                    billItems.SetQuantity(Convert.ToInt32(FavoriteItem["Times Sold"].ToString()));
+                    billItems.SetPrice(Convert.ToDecimal(FavoriteItem["Item Price"].ToString()));
+                    billItems.SetPriceTax(Convert.ToDecimal(FavoriteItem["Item Price Tax"].ToString()));
+                    BillItems.Add(billItems);
+                }
+                return new Response(Tuple.Create(BillItems, SerializeDataTableToJSON(dt)), true);
+            }
+            catch (Exception ex)
+            {
+                List<Item> Items = new List<Item>();
+                DataTable dt = new DataTable();
+                dt.TableName = "BillItems";
+                return new Response("Could not Retrieve Bill Items.", false);
+            }
         }
 
         public Response RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName)

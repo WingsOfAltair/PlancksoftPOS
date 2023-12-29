@@ -125,7 +125,9 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         DataTable RetrieveVendorBillItems(int BillNumber);
         [OperationContract]
-        Tuple<List<Item>, DataTable> RetrieveBillItems(int BillNumber);
+        Tuple<List<Item>, DataTable> RetrieveBillItems(int BillNumber);   
+        [OperationContract]
+        Tuple<List<Item>, DataTable> RetrieveBillItemsRefund(int BillNumber);
         [OperationContract]
         DataTable RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName);
         [OperationContract]

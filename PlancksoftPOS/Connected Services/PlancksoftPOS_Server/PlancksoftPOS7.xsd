@@ -109,6 +109,7 @@
       <xs:element minOccurs="0" name="ProductionDate" type="xs:dateTime" />
       <xs:element minOccurs="0" name="QuantityEnd" type="xs:int" />
       <xs:element minOccurs="0" name="QuantityWarning" type="xs:int" />
+      <xs:element minOccurs="0" name="TimesSold" type="xs:int" />
       <xs:element minOccurs="0" name="Warehouse_ID" type="xs:int" />
       <xs:element minOccurs="0" name="favoriteCategoryName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="itemNewBarCode" nillable="true" type="xs:string" />

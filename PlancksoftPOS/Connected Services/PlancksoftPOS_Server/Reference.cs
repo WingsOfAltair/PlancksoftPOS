@@ -363,6 +363,12 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItemsResponse")]
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveBillItemsAsync(int BillNumber);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItemsRefund", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItemsRefundResponse")]
+        System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveBillItemsRefund(int BillNumber);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItemsRefund", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItemsRefundResponse")]
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveBillItemsRefundAsync(int BillNumber);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItemsProfit", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillItemsProfitResponse")]
         System.Data.DataTable RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName);
         
@@ -1209,6 +1215,14 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         
         public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveBillItemsAsync(int BillNumber) {
             return base.Channel.RetrieveBillItemsAsync(BillNumber);
+        }
+        
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveBillItemsRefund(int BillNumber) {
+            return base.Channel.RetrieveBillItemsRefund(BillNumber);
+        }
+        
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable>> RetrieveBillItemsRefundAsync(int BillNumber) {
+            return base.Channel.RetrieveBillItemsRefundAsync(BillNumber);
         }
         
         public System.Data.DataTable RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName) {

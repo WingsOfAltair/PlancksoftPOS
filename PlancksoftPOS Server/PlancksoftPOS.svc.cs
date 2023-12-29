@@ -239,6 +239,10 @@ namespace PlancksoftPOS_Server
         public Tuple<List<Item>, DataTable> RetrieveBillItems(int BillNumber)
         {
             return DAL.RetrieveBillItems(BillNumber);
+        }      
+        public Tuple<List<Item>, DataTable> RetrieveBillItemsRefund(int BillNumber)
+        {
+            return DAL.RetrieveBillItemsRefund(BillNumber);
         }
         public DataTable RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName)
         {

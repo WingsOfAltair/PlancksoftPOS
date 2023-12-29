@@ -5,33 +5,33 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\PlancksoftPOSSOAP</_PublishTargetUrl>
-    <History>True|2023-12-27T07:53:14.2624821Z;</History>
+    <History>True|2023-12-29T08:01:13.0992276Z;True|2023-12-27T10:53:14.2624821+03:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>12/27/2023 10:51:31</publishTime>
+      <publishTime>12/29/2023 11:00:53</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>12/27/2023 10:51:31</publishTime>
+      <publishTime>12/29/2023 11:00:53</publishTime>
     </File>
     <File Include="bin/Dependencies.dll">
-      <publishTime>12/15/2023 18:57:41</publishTime>
+      <publishTime>12/29/2023 11:00:50</publishTime>
     </File>
     <File Include="bin/Dependencies.pdb">
-      <publishTime>12/15/2023 18:57:41</publishTime>
+      <publishTime>12/29/2023 11:00:50</publishTime>
     </File>
     <File Include="bin/PlancksoftPOS Server.dll">
-      <publishTime>12/27/2023 10:53:14</publishTime>
+      <publishTime>12/29/2023 11:00:53</publishTime>
     </File>
     <File Include="bin/PlancksoftPOS Server.pdb">
-      <publishTime>12/27/2023 10:53:14</publishTime>
+      <publishTime>12/29/2023 11:00:53</publishTime>
     </File>
     <File Include="PlancksoftPOS.svc">
       <publishTime>08/26/2023 15:50:58</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/27/2023 10:51:32</publishTime>
+      <publishTime>12/29/2023 11:01:12</publishTime>
     </File>
   </ItemGroup>
 </Project>
