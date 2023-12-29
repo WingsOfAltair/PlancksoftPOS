@@ -159,10 +159,16 @@ namespace PlancksoftPOS
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
+                        txtItemBarcode.Text = "";
+                        txtItemName.Text = "";
+                        ItemQuantitynud.Value = 0;
                         MaterialMessageBox.Show(".تم ارجاع الماده للمستودع", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
+                        txtItemBarcode.Text = "";
+                        txtItemName.Text = "";
+                        ItemQuantitynud.Value = 0;
                         MaterialMessageBox.Show("The item was returned to the warehouse.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }

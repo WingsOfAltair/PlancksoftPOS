@@ -185,7 +185,14 @@ namespace PlancksoftPOS
             }
             catch (Exception error)
             {
-                MessageBox.Show(".الرجاء الاختيار مره اخرى", Application.ProductName);
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MaterialMessageBox.Show(".الرجاء الاختيار مره اخرى", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MaterialMessageBox.Show("Please pick again.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
                 return;
             }
         }
