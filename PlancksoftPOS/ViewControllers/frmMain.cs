@@ -947,7 +947,7 @@ namespace PlancksoftPOS
                         dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
                         dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
                         dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
-                        dgvBillItems.Columns["Column63"].HeaderText = "العدد من أصل";
+                        dgvBillItems.Columns["Column63"].HeaderText = "العدد المرجع";
                         dgvBillItems.Columns["Column24"].HeaderText = "السعر";
                         dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
                     }
@@ -1533,7 +1533,7 @@ namespace PlancksoftPOS
                         dgvBillItems.Columns["Column20"].HeaderText = "Item Name";
                         dgvBillItems.Columns["Column21"].HeaderText = "Item Barcode";
                         dgvBillItems.Columns["Column23"].HeaderText = "Sold Quantity";
-                        dgvBillItems.Columns["Column63"].HeaderText = "Original Quantity";
+                        dgvBillItems.Columns["Column63"].HeaderText = "Returned Quantity";
                         dgvBillItems.Columns["Column24"].HeaderText = "Price";
                         dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
                     }
@@ -4637,14 +4637,14 @@ namespace PlancksoftPOS
                 dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
                 dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
                 dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
-                dgvBillItems.Columns["Column63"].HeaderText = "العدد من أصل";
+                dgvBillItems.Columns["Column63"].HeaderText = "العدد المرجع";
                 dgvBillItems.Columns["Column24"].HeaderText = "السعر";
                 dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
             } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English) {
                 dgvBillItems.Columns["Column20"].HeaderText = "Item Name";
                 dgvBillItems.Columns["Column21"].HeaderText = "Item Barcode";
                 dgvBillItems.Columns["Column23"].HeaderText = "Sold Quantity";
-                dgvBillItems.Columns["Column63"].HeaderText = "Original Quantity";
+                dgvBillItems.Columns["Column63"].HeaderText = "Returned Quantity";
                 dgvBillItems.Columns["Column24"].HeaderText = "Price";
                 dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
             }
@@ -4722,7 +4722,7 @@ namespace PlancksoftPOS
                 dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
                 dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
                 dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
-                dgvBillItems.Columns["Column63"].HeaderText = "العدد من أصل";
+                dgvBillItems.Columns["Column63"].HeaderText = "العدد المرجع";
                 dgvBillItems.Columns["Column24"].HeaderText = "السعر";
                 dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
             }
@@ -4731,7 +4731,7 @@ namespace PlancksoftPOS
                 dgvBillItems.Columns["Column20"].HeaderText = "Item Name";
                 dgvBillItems.Columns["Column21"].HeaderText = "Item Barcode";
                 dgvBillItems.Columns["Column23"].HeaderText = "Sold Quantity";
-                dgvBillItems.Columns["Column63"].HeaderText = "Original Quantity";
+                dgvBillItems.Columns["Column63"].HeaderText = "Returned Quantity";
                 dgvBillItems.Columns["Column24"].HeaderText = "Price";
                 dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
             }
@@ -4816,7 +4816,7 @@ namespace PlancksoftPOS
                 dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
                 dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
                 dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
-                dgvBillItems.Columns["Column63"].HeaderText = "العدد من أصل";
+                dgvBillItems.Columns["Column63"].HeaderText = "العدد المرجع";
                 dgvBillItems.Columns["Column24"].HeaderText = "السعر";
                 dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
             }
@@ -4825,7 +4825,7 @@ namespace PlancksoftPOS
                 dgvBillItems.Columns["Column20"].HeaderText = "Item Name";
                 dgvBillItems.Columns["Column21"].HeaderText = "Item Barcode";
                 dgvBillItems.Columns["Column23"].HeaderText = "Sold Quantity";
-                dgvBillItems.Columns["Column63"].HeaderText = "Original Quantity";
+                dgvBillItems.Columns["Column63"].HeaderText = "Returned Quantity";
                 dgvBillItems.Columns["Column24"].HeaderText = "Price";
                 dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
             }
@@ -8858,6 +8858,10 @@ namespace PlancksoftPOS
                             WarehouseEntryExitItemBarCode.Text = itemLookup.selectedItem.GetItemBarCode();
                             WarehouseEntryExitItemName.Text = itemLookup.selectedItem.GetName();
                             WarehouseEntryExitList.SelectedIndex = WarehouseEntryExitList.FindStringExact(Connection.server.RetrieveWarehouseName(Convert.ToInt32(itemLookup.selectedItem.Warehouse_ID), (int)frmLogin.pickedLanguage));
+                            if (WarehouseEntryExitList.Text == "")
+                            {
+                                WarehouseEntryExitList.SelectedIndex = 0;
+                            }
                             EntryExitItemBuyPrice.Value = itemLookup.selectedItem.ItemBuyPrice;
                         }
                     }
@@ -8936,6 +8940,8 @@ namespace PlancksoftPOS
                         
                     }
                 }
+
+                dvgEntryExitItems.Rows.Clear();
 
                 if (Connection.server.UpdateItemWarehouse(itemsToAdd, this.UID, EntryExitType.SelectedIndex))
                 {
