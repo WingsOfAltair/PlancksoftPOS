@@ -27,6 +27,7 @@ namespace PlancksoftPOS
         int BillID = -1;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
         bool keepRunning = true;
+        int maximumItemSoldQuantity = -1;
 
         public frmItemRefund(SortedList<int, string> itemtypes, string UID)
         {
@@ -97,8 +98,9 @@ namespace PlancksoftPOS
                 {
                     try
                     {
-                        txtItemName.Text = BillItemLookup.selectedItem.ItemName;
-                        txtItemBarcode.Text = BillItemLookup.selectedItem.ItemBarCode;
+                        txtItemName.Text = BillItemLookup.selectedItem.GetName();
+                        txtItemBarcode.Text = BillItemLookup.selectedItem.GetItemBarCode();
+                        maximumItemSoldQuantity = BillItemLookup.selectedItem.GetTimesSold();
                     }
                     catch (Exception error)
                     {
@@ -141,6 +143,18 @@ namespace PlancksoftPOS
         {
             if (txtItemName.Text != "" && txtItemBarcode.Text != "")
             {
+                if (ItemQuantitynud.Value > maximumItemSoldQuantity)
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".عدد المادة المرجعة أكثر من عدد المادة المشتراء", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("The quantity of returned item is bigger than the sold quantity.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                    return;
+                }
                 if (Connection.server.ReturnItem(txtItemName.Text, txtItemBarcode.Text, Convert.ToInt32(ItemQuantitynud.Value), this.UID, Convert.ToInt32(txtBillID.Text)))
                 {
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)

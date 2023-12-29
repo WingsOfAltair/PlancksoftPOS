@@ -177,6 +177,7 @@ namespace PlancksoftPOS
             {
                 selectedItem.SetName(dgvBillItems.Rows[e.RowIndex].Cells["Column20"].Value.ToString());
                 selectedItem.SetBarCode(dgvBillItems.Rows[e.RowIndex].Cells["Column21"].Value.ToString());
+                selectedItem.SetTimesSold(Convert.ToInt32(dgvBillItems.Rows[e.RowIndex].Cells["Column23"].Value.ToString()));
 
                 this.dialogResult = DialogResult.OK;
                 this.Dispose();
