@@ -93,12 +93,6 @@ namespace PlancksoftPOS
             this.groupBox14 = new MaterialSkin.Controls.MaterialCard();
             this.panel9 = new MaterialSkin.Controls.MaterialCard();
             this.dgvBillItems = new System.Windows.Forms.DataGridView();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new MaterialSkin.Controls.MaterialCard();
             this.button18 = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
@@ -688,6 +682,12 @@ namespace PlancksoftPOS
             this.Retrievals = new System.Windows.Forms.TabPage();
             this.groupBox47 = new MaterialSkin.Controls.MaterialCard();
             this.dgvReturnedItems = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox49 = new System.Windows.Forms.PictureBox();
             this.pnlActionMenu = new MaterialSkin.Controls.MaterialCard();
             this.btnPay = new MaterialSkin.Controls.MaterialButton();
@@ -768,12 +768,11 @@ namespace PlancksoftPOS
             this.hamburger_menu_clients_affairs_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_taxes_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_settings_sub_timer = new System.Windows.Forms.Timer(this.components);
-            this.dataGridViewTextBoxColumn54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -1893,7 +1892,6 @@ namespace PlancksoftPOS
             this.Column20,
             this.Column21,
             this.Column23,
-            this.Column63,
             this.Column24,
             this.Column25});
             this.dgvBillItems.Location = new System.Drawing.Point(0, 0);
@@ -1902,54 +1900,6 @@ namespace PlancksoftPOS
             this.dgvBillItems.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dgvBillItems.Size = new System.Drawing.Size(1693, 500);
             this.dgvBillItems.TabIndex = 29;
-            // 
-            // Column20
-            // 
-            this.Column20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column20.DataPropertyName = "Item Name";
-            this.Column20.HeaderText = "اسم الماده";
-            this.Column20.Name = "Column20";
-            this.Column20.ReadOnly = true;
-            // 
-            // Column21
-            // 
-            this.Column21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column21.DataPropertyName = "Item BarCode";
-            this.Column21.HeaderText = "باركود الماده";
-            this.Column21.Name = "Column21";
-            this.Column21.ReadOnly = true;
-            // 
-            // Column23
-            // 
-            this.Column23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column23.DataPropertyName = "Times Sold";
-            this.Column23.HeaderText = "عدد البيع";
-            this.Column23.Name = "Column23";
-            this.Column23.ReadOnly = true;
-            // 
-            // Column63
-            // 
-            this.Column63.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column63.DataPropertyName = "Total Quantity";
-            this.Column63.HeaderText = "العدد من أصل";
-            this.Column63.Name = "Column63";
-            this.Column63.ReadOnly = true;
-            // 
-            // Column24
-            // 
-            this.Column24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column24.DataPropertyName = "Item Price";
-            this.Column24.HeaderText = "السعر";
-            this.Column24.Name = "Column24";
-            this.Column24.ReadOnly = true;
-            // 
-            // Column25
-            // 
-            this.Column25.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column25.DataPropertyName = "Item Price Tax";
-            this.Column25.HeaderText = "السعر بعد الضريبه";
-            this.Column25.Name = "Column25";
-            this.Column25.ReadOnly = true;
             // 
             // panel8
             // 
@@ -11032,6 +10982,54 @@ namespace PlancksoftPOS
             this.dgvReturnedItems.Size = new System.Drawing.Size(1775, 928);
             this.dgvReturnedItems.TabIndex = 34;
             // 
+            // dataGridViewTextBoxColumn54
+            // 
+            this.dataGridViewTextBoxColumn54.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn54.DataPropertyName = "Transaction ID";
+            this.dataGridViewTextBoxColumn54.HeaderText = "رقم السند";
+            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
+            this.dataGridViewTextBoxColumn54.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn55
+            // 
+            this.dataGridViewTextBoxColumn55.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn55.DataPropertyName = "Cashier Name";
+            this.dataGridViewTextBoxColumn55.HeaderText = "اسم الكاشير";
+            this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
+            this.dataGridViewTextBoxColumn55.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column9.DataPropertyName = "Bill ID";
+            this.Column9.HeaderText = "رقم الفاتورة";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn52
+            // 
+            this.dataGridViewTextBoxColumn52.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn52.DataPropertyName = "Item Name";
+            this.dataGridViewTextBoxColumn52.HeaderText = "اسم الماده";
+            this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
+            this.dataGridViewTextBoxColumn52.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn51
+            // 
+            this.dataGridViewTextBoxColumn51.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn51.DataPropertyName = "Item BarCode";
+            this.dataGridViewTextBoxColumn51.HeaderText = "باركود الماده";
+            this.dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
+            this.dataGridViewTextBoxColumn51.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn57
+            // 
+            this.dataGridViewTextBoxColumn57.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn57.DataPropertyName = "Item Quantity";
+            this.dataGridViewTextBoxColumn57.HeaderText = "عدد القطع المرجعه";
+            this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
+            this.dataGridViewTextBoxColumn57.ReadOnly = true;
+            // 
             // pictureBox49
             // 
             this.pictureBox49.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -12410,53 +12408,45 @@ namespace PlancksoftPOS
             this.hamburger_menu_settings_sub_timer.Interval = 10;
             this.hamburger_menu_settings_sub_timer.Tick += new System.EventHandler(this.hamburger_menu_settings_sub_timer_Tick_1);
             // 
-            // dataGridViewTextBoxColumn54
+            // Column20
             // 
-            this.dataGridViewTextBoxColumn54.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn54.DataPropertyName = "Transaction ID";
-            this.dataGridViewTextBoxColumn54.HeaderText = "رقم السند";
-            this.dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
-            this.dataGridViewTextBoxColumn54.ReadOnly = true;
+            this.Column20.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column20.DataPropertyName = "Item Name";
+            this.Column20.HeaderText = "اسم الماده";
+            this.Column20.Name = "Column20";
+            this.Column20.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn55
+            // Column21
             // 
-            this.dataGridViewTextBoxColumn55.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn55.DataPropertyName = "Cashier Name";
-            this.dataGridViewTextBoxColumn55.HeaderText = "اسم الكاشير";
-            this.dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
-            this.dataGridViewTextBoxColumn55.ReadOnly = true;
+            this.Column21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column21.DataPropertyName = "Item BarCode";
+            this.Column21.HeaderText = "باركود الماده";
+            this.Column21.Name = "Column21";
+            this.Column21.ReadOnly = true;
             // 
-            // Column9
+            // Column23
             // 
-            this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column9.DataPropertyName = "Bill ID";
-            this.Column9.HeaderText = "رقم الفاتورة";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
+            this.Column23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column23.DataPropertyName = "Times Sold";
+            this.Column23.HeaderText = "عدد البيع";
+            this.Column23.Name = "Column23";
+            this.Column23.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn52
+            // Column24
             // 
-            this.dataGridViewTextBoxColumn52.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn52.DataPropertyName = "Item Name";
-            this.dataGridViewTextBoxColumn52.HeaderText = "اسم الماده";
-            this.dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
-            this.dataGridViewTextBoxColumn52.ReadOnly = true;
+            this.Column24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column24.DataPropertyName = "Item Price";
+            this.Column24.HeaderText = "السعر";
+            this.Column24.Name = "Column24";
+            this.Column24.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn51
+            // Column25
             // 
-            this.dataGridViewTextBoxColumn51.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn51.DataPropertyName = "Item BarCode";
-            this.dataGridViewTextBoxColumn51.HeaderText = "باركود الماده";
-            this.dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
-            this.dataGridViewTextBoxColumn51.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn57
-            // 
-            this.dataGridViewTextBoxColumn57.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn57.DataPropertyName = "Item Quantity";
-            this.dataGridViewTextBoxColumn57.HeaderText = "عدد القطع المرجعه";
-            this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
-            this.dataGridViewTextBoxColumn57.ReadOnly = true;
+            this.Column25.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column25.DataPropertyName = "Item Price Tax";
+            this.Column25.HeaderText = "السعر بعد الضريبه";
+            this.Column25.Name = "Column25";
+            this.Column25.ReadOnly = true;
             // 
             // frmMain
             // 
@@ -13169,12 +13159,6 @@ namespace PlancksoftPOS
         public System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column64;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column20;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column21;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column23;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column63;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column24;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column25;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
@@ -13533,6 +13517,11 @@ namespace PlancksoftPOS
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
+        private DataGridViewTextBoxColumn Column20;
+        private DataGridViewTextBoxColumn Column21;
+        private DataGridViewTextBoxColumn Column23;
+        private DataGridViewTextBoxColumn Column24;
+        private DataGridViewTextBoxColumn Column25;
     }
 }
 
