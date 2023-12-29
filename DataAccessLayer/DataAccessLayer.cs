@@ -1906,6 +1906,43 @@ namespace DataAccessLayer
                 dt.TableName = "BillItems";
                 return Tuple.Create(Items, dt);
             }
+        }  
+
+        public Tuple<List<Item>, DataTable> RetrieveBillItemsRefund(int BillNumber)
+        {
+            try
+            {
+                List<Item> BillItems = new List<Item>();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveBillItemsRefund", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                cmd.Parameters.AddWithValue("@BillNumber", BillNumber);
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "BillItems";
+
+                foreach (DataRow FavoriteItem in dt.Rows)
+                {
+                    Item billItems = new Item();
+                    billItems.SetName(FavoriteItem["Item Name"].ToString());
+                    billItems.SetBarCode(FavoriteItem["Item BarCode"].ToString());
+                    billItems.SetQuantity(Convert.ToInt32(FavoriteItem["Times Sold"].ToString()));
+                    billItems.SetPrice(Convert.ToDecimal(FavoriteItem["Item Price"].ToString()));
+                    billItems.SetPriceTax(Convert.ToDecimal(FavoriteItem["Item Price Tax"].ToString()));
+                    BillItems.Add(billItems);
+                }
+                return Tuple.Create(BillItems, dt);
+            }
+            catch (Exception ex)
+            {
+                List<Item> Items = new List<Item>();
+                DataTable dt = new DataTable();
+                dt.TableName = "BillItems";
+                return Tuple.Create(Items, dt);
+            }
         }
 
         public DataTable RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName)

@@ -258,6 +258,10 @@ namespace PlancksoftPOSJSON_Server
         public string RetrieveBillItems(int BillNumber)
         {
             return new JavaScriptSerializer().Serialize(DAL.RetrieveBillItems(BillNumber));
+        }  
+        public string RetrieveBillItemsRefund(int BillNumber)
+        {
+            return new JavaScriptSerializer().Serialize(DAL.RetrieveBillItemsRefund(BillNumber));
         }
         public string RetrieveBillItemsProfit(string Date1, string Date2, int ItemTypeID, string CashierName)
         {

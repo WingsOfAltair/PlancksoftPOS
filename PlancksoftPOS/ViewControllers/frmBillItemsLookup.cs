@@ -113,7 +113,7 @@ namespace PlancksoftPOS
         {
             try
             {
-                Tuple<List<Item>, DataTable> RetrievedItems = Connection.server.RetrieveBillItems(BillNumber);
+                Tuple<List<Item>, DataTable> RetrievedItems = Connection.server.RetrieveBillItemsRefund(BillNumber);
                 dgvBillItems.DataSource = RetrievedItems.Item2;
             }
             catch (Exception ex)

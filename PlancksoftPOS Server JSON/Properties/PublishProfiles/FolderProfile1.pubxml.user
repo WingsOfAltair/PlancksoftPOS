@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\PlancksoftPOSJSON</_PublishTargetUrl>
-    <History>True|2023-12-27T07:51:42.5980815Z;True|2023-12-13T11:01:02.8014890+03:00;</History>
+    <History>True|2023-12-29T08:01:20.2797750Z;True|2023-12-27T10:51:42.5980815+03:00;True|2023-12-13T11:01:02.8014890+03:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -13,16 +13,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/26/2023 15:50:59</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>12/27/2023 10:51:42</publishTime>
+      <publishTime>12/29/2023 11:00:51</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>12/27/2023 10:51:42</publishTime>
+      <publishTime>12/29/2023 11:00:51</publishTime>
     </File>
     <File Include="bin/Dependencies.dll">
-      <publishTime>12/15/2023 18:57:41</publishTime>
+      <publishTime>12/29/2023 11:00:50</publishTime>
     </File>
     <File Include="bin/Dependencies.pdb">
-      <publishTime>12/15/2023 18:57:41</publishTime>
+      <publishTime>12/29/2023 11:00:50</publishTime>
     </File>
     <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
       <publishTime>08/26/2023 15:50:59</publishTime>
@@ -31,10 +31,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/26/2023 15:51:00</publishTime>
     </File>
     <File Include="bin/PlancksoftPOS Server JSON.dll">
-      <publishTime>12/27/2023 10:51:42</publishTime>
+      <publishTime>12/29/2023 11:00:52</publishTime>
     </File>
     <File Include="bin/PlancksoftPOS Server JSON.pdb">
-      <publishTime>12/27/2023 10:51:42</publishTime>
+      <publishTime>12/29/2023 11:00:52</publishTime>
     </File>
     <File Include="bin/System.Buffers.dll">
       <publishTime>08/26/2023 15:51:00</publishTime>
@@ -82,7 +82,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/26/2023 15:50:58</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/13/2023 11:01:02</publishTime>
+      <publishTime>12/29/2023 11:01:20</publishTime>
     </File>
   </ItemGroup>
 </Project>
