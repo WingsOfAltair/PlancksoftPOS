@@ -2406,9 +2406,12 @@ namespace PlancksoftPOS
                             Button btn = new Button();
                             btn.Name = favoriteItem.GetName();
                             btn.Tag = favoriteItem.GetItemBarCode();
-                            byte[] picture = Connection.server.RetrieveItemPictureFromBarCode(favoriteItem.GetItemBarCode()).picture;
-                            var stream = new MemoryStream(picture);
-                            btn.BackgroundImage = Image.FromStream(stream);
+                            try
+                            {
+                                byte[] picture = Connection.server.RetrieveItemPictureFromBarCode(favoriteItem.GetItemBarCode()).picture;
+                                var stream = new MemoryStream(picture);
+                                btn.BackgroundImage = Image.FromStream(stream);
+                            } catch(Exception exc) { }
                             btn.BackgroundImageLayout = ImageLayout.Stretch;
                             btn.Text = favoriteItem.GetName();
                             btn.Font = new Font("Arial", 14f, FontStyle.Bold);
