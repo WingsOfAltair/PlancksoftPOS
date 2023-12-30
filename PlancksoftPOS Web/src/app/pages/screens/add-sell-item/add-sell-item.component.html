@@ -1,0 +1,231 @@
+
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>{{ "GENERALWORDS.SALESITEM" | translate }}</nb-card-header>
+      <nb-card-body>
+        <div class="row">
+          <div class="col-lg-12 mb-2" style="margin-top: 20px">
+            <button
+              class="col-md-2"
+              nbButton
+              status="primary"
+              (click)="addItem()"
+            >
+            {{ "GENERALWORDS.ADDITEM" | translate }}
+            </button>
+          </div>
+          <table
+            [nbTreeGrid]="dataSource"
+            [nbSort]="dataSource"
+            (sort)="updateSort($event)"
+          >
+            <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+            <tr
+              nbTreeGridRow
+              *nbTreeGridRowDef="let row; columns: allColumns"
+            ></tr>
+
+            <ng-container [nbTreeGridColumnDef]="'ItemName'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('ItemName')"
+                *nbTreeGridHeaderCellDef
+              >
+              {{ "GENERALWORDS.ITEMNAME" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data.ItemName || "-" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'ItemBarcode'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('ItemBarcode')"
+                *nbTreeGridHeaderCellDef
+              >
+              {{ "GENERALWORDS.ITEMBARCODE" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data.ItemBarCode || "-" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'ItemQuantity'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('ItemQuantity')"
+                *nbTreeGridHeaderCellDef
+              >
+              {{ "GENERALWORDS.ITEMQUANTITY" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["ItemQuantity"] || "-" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'Action'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('Action')"
+                *nbTreeGridHeaderCellDef
+              >
+              {{ "GENERALWORDS.ACTION" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                <a (click)="update(row.data.ItemBarCode)"><i class="nb-edit" style="font-size: 20px;"></i></a>
+                &nbsp;
+                <!-- <a (click)="Delete(row.data.ItemBarCode)"><i class="nb-trash" style="font-size: 20px; color: orangered;"></i></a> -->
+              </td>
+            </ng-container>
+          </table>
+        </div>
+        <div class="row mt-5" [formGroup]="AddBill">
+
+          <div class="col-lg-4">
+            <label class="col-lg-12">{{ "GENERALWORDS.CLIENT" | translate }}</label>
+            <nb-select
+              placeholder='{{ "GENERALWORDS.CLIENT" | translate }}'
+              style="width: 20rem"
+              (selectedChange)="onSelectChange($event)"
+            >
+              <nb-option
+                *ngFor="let data of clientdata"
+                [value]="data.data.ClientID"
+                >{{ data.data.ClientName }}</nb-option
+              >
+            </nb-select>
+          </div>
+
+          <div class="col-lg-4">
+            <label class="col-lg-12">{{ "GENERALWORDS.DATE" | translate }}</label>
+
+            <input
+              style="width: 20rem"
+              nbInput
+              formControlName="ProductionDate"
+              placeholder='{{ "GENERALWORDS.DATE" | translate }}'
+              [nbDatepicker]="ProductionDate"
+            />
+            <nb-datepicker #ProductionDate></nb-datepicker>
+          </div>
+
+          <div class="col-lg-4">
+            <label>{{ "GENERALWORDS.BILLNUMBER" | translate }}</label>
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              shape="rectangle"
+              placeholder='{{ "GENERALWORDS.BILLNUMBER" | translate }}'
+              formControlName="BillNumber"
+            />
+          </div>
+
+          <div class="col-lg-4 mt-2">
+            <label>{{ "GENERALWORDS.REMIANDER" | translate }}</label>
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              shape="rectangle"
+              disabled
+              placeholder='{{ "GENERALWORDS.REMIANDER" | translate }}'
+              formControlName="RemainderAmount"
+            />
+          </div>
+
+          <div class="col-lg-4 mt-2">
+            <label>{{ "GENERALWORDS.TOTALAMOUNT" | translate }}</label>
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              shape="rectangle"
+              placeholder='{{ "GENERALWORDS.TOTALAMOUNT" | translate }}'
+              formControlName="TotalAmount"
+            />
+          </div>
+          <div class="col-lg-4 mt-2">
+            <label>{{ "GENERALWORDS.PAIDAMOUNT" | translate }}</label>
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              shape="rectangle"
+              (keyup)="calculateRemainingAmount()"
+              placeholder='{{ "GENERALWORDS.PAIDAMOUNT" | translate }}'
+              formControlName="PaidAmount"
+            />
+          </div>
+
+          <div class="col-lg-4 mt-4">
+            <nb-checkbox formControlName="Paycash">{{ "GENERALWORDS.PAYNYCASH" | translate }}</nb-checkbox>
+          </div>
+          <div class="col-md-2 mt-4">
+            <nb-checkbox formControlName="Postponed">{{ "GENERALWORDS.POSTPONED" | translate }}</nb-checkbox>
+          </div>
+
+          
+        <!-- <div class="row mt-3" [formGroup]="Searchitem">
+      <div class="col-lg-4">
+        <label>Item Name</label>
+        <input
+          type="text"
+          nbInput
+          fullWidth
+          shape="rectangle"
+          placeholder="Item Name"
+          formControlName="ItemName"
+        />
+      </div>
+      <div class="col-lg-4">
+        <label for="ItemBarcode">Item Barcode</label>
+        <input
+          type="text"
+          nbInput
+          fullWidth
+          shape="rectangle"
+          placeholder="Item Barcode"
+          formControlName="ItemBarcode"
+        />
+      </div>
+    </div> -->
+        <!-- <div class="col-lg-4">
+      <div class="row" style="margin-top: 27px">
+        <div class="col-lg-12">
+          <div class="buttons-row">
+            <button
+              class="col-md-4"
+              nbButton
+              status="primary"
+              (click)="search()"
+            >
+              Add Item
+            </button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+        
+        <div class="col-lg-12 mt-2">
+          <div class="row" style="margin-top: 27px">
+            <div class="col-lg-12">
+              <div class="buttons-row">
+                <button
+                  class="col-md-2"
+                  nbButton
+                  status="primary"
+                  (click)="AddBillitem()"
+                  style="float: right"
+                >
+                {{ "GENERALWORDS.CREATEBILL" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

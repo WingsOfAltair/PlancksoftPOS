@@ -1209,12 +1209,14 @@ namespace PlancksoftPOS
                         label83.Text = "رمز العميل";
                         label18.Text = "رقم تلفون";
                         label21.Text = "العنوان";
+                        lblEmail.Text = "البريد الإلكتروني";
                         btnClientAdd.Text = "حفظ العميل";
                         groupBox15.Text = "جدول العملاء";
                         dgvClients.Columns["Column27"].HeaderText = "إسم العميل";
                         dgvClients.Columns["ClientIDDelete"].HeaderText = "رمز العميل";
                         dgvClients.Columns["Column38"].HeaderText = "رقم العميل";
                         dgvClients.Columns["Column39"].HeaderText = "عنوان العميل";
+                        dgvClients.Columns["Column10"].HeaderText = "البريد الإلكتروني";
                         btnClientDelete.Text = "حذف العميل";
                         btnClientBalanceCheck.Text = "إضافة العميل";
                     }
@@ -1250,12 +1252,14 @@ namespace PlancksoftPOS
                         label42.Text = "رمز المورد";
                         label40.Text = "رقم تلفون";
                         label39.Text = "العنوان";
+                        lblVendorEmail.Text = "البريد الإلكتروني";
                         button7.Text = "حفظ المورد";
                         groupBox39.Text = "جدول الموردين";
                         dgvVendors.Columns["VendorClientName"].HeaderText = "إسم المورد";
                         dgvVendors.Columns["VendorClientID"].HeaderText = "رمز المورد";
                         dgvVendors.Columns["VendorClientPhone"].HeaderText = "رقم المورد";
                         dgvVendors.Columns["VendorClientAddress"].HeaderText = "عنوان المورد";
+                        dgvVendors.Columns["Column11"].HeaderText = "البريد الإلكتروني";
                         button6.Text = "حذف المورد";
                         button9.Text = "كشف حساب";
                         button8.Text = "إضافة فاتوره";
@@ -1795,12 +1799,14 @@ namespace PlancksoftPOS
                         label83.Text = "Client ID";
                         label18.Text = "Phone Number";
                         label21.Text = "Address";
+                        lblEmail.Text = "Email Address";
                         btnClientAdd.Text = "Save Client";
                         groupBox15.Text = "Clients Grid";
                         dgvClients.Columns["Column27"].HeaderText = "Client Name";
                         dgvClients.Columns["ClientIDDelete"].HeaderText = "Client ID";
                         dgvClients.Columns["Column38"].HeaderText = "Phone Number";
                         dgvClients.Columns["Column39"].HeaderText = "Client Address";
+                        dgvClients.Columns["Column10"].HeaderText = "Client Email";
                         btnClientDelete.Text = "Delete Client";
                         btnClientBalanceCheck.Text = "Check Balance Summary";
                     }
@@ -1832,12 +1838,14 @@ namespace PlancksoftPOS
                         label42.Text = "Importer ID";
                         label40.Text = "Phone Number";
                         label39.Text = "Address";
+                        lblVendorEmail.Text = "Email Address";
                         button7.Text = "Save Importer";
                         groupBox39.Text = "Importers Grid";
                         dgvVendors.Columns["VendorClientName"].HeaderText = "Importer Name";
                         dgvVendors.Columns["VendorClientID"].HeaderText = "Importer ID";
                         dgvVendors.Columns["VendorClientPhone"].HeaderText = "Importer Phone Number";
                         dgvVendors.Columns["VendorClientAddress"].HeaderText = "Importer Address";
+                        dgvVendors.Columns["Column11"].HeaderText = "Importer Email";
                         button6.Text = "Importer Delete";
                         button9.Text = "Account Summary";
                         button8.Text = "Add Bill";
@@ -6352,12 +6360,14 @@ namespace PlancksoftPOS
         {
             try
             {
-                if (Connection.server.RegisterClient(new Client(ClientName.Text, 0, ClientPhone.Text, ClientAddress.Text)))
+                if (Connection.server.RegisterClient(new Client(ClientName.Text, 0, ClientPhone.Text, ClientAddress.Text, ClientEmail.Text)))
                 {
                     ClientName.Text = "";
                     ClientID.Value = 0;
                     ClientPhone.Text = "";
                     ClientAddress.Text = "";
+                    ClientEmail.Text = "";
+
 
                     DataTable retrievedClients = Connection.server.GetRetrieveClients();
 
@@ -6391,7 +6401,7 @@ namespace PlancksoftPOS
         public void pictureBox21_Click(object sender, EventArgs e)
         {
             try
-            {
+            {                                                                                               
                 DataTable retrievedClients = Connection.server.GetRetrieveClients();
 
                 dgvClients.DataSource = retrievedClients;
@@ -6402,12 +6412,14 @@ namespace PlancksoftPOS
                     dgvClients.Columns["ClientIDDelete"].HeaderText = "رمز العميل";
                     dgvClients.Columns["Column38"].HeaderText = "رقم العميل";
                     dgvClients.Columns["Column39"].HeaderText = "عنوان العميل";
+                    dgvClients.Columns["Column10"].HeaderText = "البريد الإلكتروني";
                 } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
                     dgvClients.Columns["Column27"].HeaderText = "Client Name";
                     dgvClients.Columns["ClientIDDelete"].HeaderText = "Client ID";
                     dgvClients.Columns["Column38"].HeaderText = "Phone Number";
                     dgvClients.Columns["Column39"].HeaderText = "Client Address";
+                    dgvClients.Columns["Column10"].HeaderText = "Client Email";
                 }
             }
             catch(Exception error)
@@ -6663,12 +6675,13 @@ namespace PlancksoftPOS
         {
             try
             {
-                if (Connection.server.RegisterVendor(new Client(VendorName.Text, 0, VendorPhone.Text, VendorAddress.Text)))
+                if (Connection.server.RegisterVendor(new Client(VendorName.Text, 0, VendorPhone.Text, VendorAddress.Text, VendorEmail.Text)))
                 {
                     VendorName.Text = "";
                     VendorID.Value = 0;
                     VendorPhone.Text = "";
                     VendorAddress.Text = "";
+                    VendorEmail.Text = "";
 
                     DataTable retrievedVendors = Connection.server.GetRetrieveVendors();
 
@@ -6753,12 +6766,14 @@ namespace PlancksoftPOS
                     dgvVendors.Columns["VendorClientID"].HeaderText = "رمز المورد";
                     dgvVendors.Columns["VendorClientPhone"].HeaderText = "رقم المورد";
                     dgvVendors.Columns["VendorClientAddress"].HeaderText = "عنوان المورد";
+                    dgvVendors.Columns["Column11"].HeaderText = "البريد الإلكتروني";
                 } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
                     dgvVendors.Columns["VendorClientName"].HeaderText = "Importer Name";
                     dgvVendors.Columns["VendorClientID"].HeaderText = "Importer ID";
                     dgvVendors.Columns["VendorClientPhone"].HeaderText = "Importer Phone Number";
                     dgvVendors.Columns["VendorClientAddress"].HeaderText = "Importer Address";
+                    dgvVendors.Columns["Column11"].HeaderText = "Importer Email";
                 }
             } catch (Exception error)
             {

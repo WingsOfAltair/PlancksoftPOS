@@ -1,0 +1,201 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>{{
+        "GENERALWORDS.EXAPNCELOOKUP" | translate
+      }}</nb-card-header>
+      <nb-card-body>
+        <div class="row" [formGroup]="Expense">
+          <div class="col-lg-4">
+            <label>{{ "GENERALWORDS.EXPANCENAME" | translate }}</label>
+            <input
+              type="text"
+              nbInput
+              formControlName="Expensename"
+              fullWidth
+              shape="rectangle"
+              placeholder="{{ 'GENERALWORDS.EXPANCENAME' | translate }}"
+            />
+          </div>
+
+          <div class="col-lg-4">
+            <label>{{ "GENERALWORDS.EMPLOYEENAME" | translate }}</label>
+            <nb-select
+              placeholder="{{ 'GENERALWORDS.EMPLOYEENAME' | translate }}"
+              style="width: 20rem"
+              (selectedChange)="onSelectChange($event)"
+            >
+              <nb-option
+                *ngFor="let data of data"
+                [value]="data.data.EmployeeID"
+                >{{ data.data.EmployeeName }}</nb-option
+              >
+            </nb-select>
+          </div>
+
+          <div class="col-lg-4">
+            <label class="col-lg-12">{{
+              "GENERALWORDS.DATE1" | translate
+            }}</label>
+
+            <input
+              style="width: 20rem"
+              nbInput
+              formControlName="ProductionDate"
+              placeholder="dd-MM-yyyy"
+              [nbDatepicker]="ProductionDate"
+            />
+            <nb-datepicker #ProductionDate></nb-datepicker>
+          </div>
+
+          <div class="col-lg-4 mt-2">
+            <label class="col-lg-12">{{
+              "GENERALWORDS.DATE2" | translate
+            }}</label>
+
+            <input
+            style="width: 20rem;"
+              nbInput
+              formControlName="ExpirationDate"
+              placeholder="dd-MM-yyyy"
+              [nbDatepicker]="ExpirationDate"
+            />
+            <nb-datepicker #ExpirationDate></nb-datepicker>
+          </div>
+
+          <div class="col-lg-8 mt-4" style="top: 10px">
+            <button
+              class="col-md-2"
+              nbButton
+              status="primary"
+              (click)="SearchData()"
+            >
+              {{ "GENERALWORDS.SEARCH" | translate }}
+            </button>
+          </div>
+
+          <div class="col-lg-12" style="margin-top: 20px">
+            <div class="row">
+              <div class="col-lg-12 mb-3" style="margin-top: 10px">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <button
+                      class="col-md-3"
+                      nbButton
+                      status="primary"
+                      (click)="button()"
+                    >
+                      {{ "GENERALWORDS.ADDEXPANCE" | translate }}
+                    </button>
+                  </div>
+
+                  <div class="col-lg-4">
+                    <input
+                      style="width: 20rem;"
+                      nbInput
+                      [nbFilterInput]="dataSource"
+                      placeholder="{{ 'GENERALWORDS.SEARCH' | translate }}"
+                      id="search"
+                      class="search-input col-lg-6"
+                    />
+                  </div>
+                </div>
+              </div>
+              <table
+                [nbTreeGrid]="dataSource"
+                [nbSort]="dataSource"
+                (sort)="updateSort($event)"
+              >
+                <tr
+                  nbTreeGridHeaderRow
+                  *nbTreeGridHeaderRowDef="allColumns"
+                ></tr>
+                <tr
+                  nbTreeGridRow
+                  *nbTreeGridRowDef="let row; columns: allColumns"
+                ></tr>
+
+                <ng-container [nbTreeGridColumnDef]="'ExpenseID'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('ExpenseID')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                    {{ "GENERALWORDS.EXPANCEID" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data.ExpenseID || "-" }}
+                  </td>
+                </ng-container>
+                <ng-container [nbTreeGridColumnDef]="'ExpenseName'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('ExpenseName')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                    {{ "GENERALWORDS.EXPANCENAME" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["ExpanseName"] || "-" }}
+                  </td>
+                </ng-container>
+
+                <ng-container [nbTreeGridColumnDef]="'ExpenseCost'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('ExpenseCost')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                    {{ "GENERALWORDS.EXPANCECOST" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["cost"] || "-" }}
+                  </td>
+                </ng-container>
+
+                <ng-container [nbTreeGridColumnDef]="'UserID'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('UserID')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                    {{ "GENERALWORDS.USERID" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["UserId"] || "-" }}
+                  </td>
+                </ng-container>
+
+                <ng-container [nbTreeGridColumnDef]="'ExpenseDate'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('ExpenseDate')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                    {{ "GENERALWORDS.DATE" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["Date"] | date : "dd-MM-yyyy" || "-" }}
+                  </td>
+                </ng-container>
+
+                <ng-container [nbTreeGridColumnDef]="'CurrentQuantity'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('CurrentQuantity')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                    {{ "GENERALWORDS.CURRENTQUANTITY" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["Current"] || "-" }}
+                  </td>
+                </ng-container>
+              </table>
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

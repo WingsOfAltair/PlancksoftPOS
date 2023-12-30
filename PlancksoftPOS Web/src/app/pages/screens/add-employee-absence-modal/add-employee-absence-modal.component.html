@@ -1,0 +1,54 @@
+<style>
+  nb-select.size-medium:not(.full-width) {
+    max-width: 35rem;
+    width: 100%;
+  }
+</style>
+<div class="row mt-3" [formGroup]="absence">
+  <div class="col-md-4">
+    <label>{{ "GENERALWORDS.EMPLOYEENAME" | translate }}</label>
+    <nb-select
+      formControlName="EmployeeName"
+      style="width: 100%"
+      placeholder="{{ 'GENERALWORDS.EMPLOYEENAME' | translate }}"
+    >
+      <nb-option *ngFor="let data of data" [value]="data.data.EmployeeID">{{
+        data.data.EmployeeName
+      }}</nb-option>
+    </nb-select>
+  </div>
+  <div class="col-lg-4">
+    <label>{{ "GENERALWORDS.NUMBEROFHOUSE" | translate }}</label>
+    <nb-select
+      placeholder="{{ 'GENERALWORDS.NUMBEROFHOUSE' | translate }}"
+      formControlName="Hours"
+    >
+      <nb-option value="1"> 1</nb-option>
+      <nb-option value="2"> 2</nb-option>
+      <nb-option value="3"> 3</nb-option>
+      <nb-option value="4"> 4</nb-option>
+    </nb-select>
+  </div>
+  <div class="col-md-4">
+    <label>{{ "GENERALWORDS.DATE" | translate }}</label>
+
+    <input
+      nbInput
+      formControlName="Date"
+      placeholder="{{ 'GENERALWORDS.DATE' | translate }}"
+      [nbDatepicker]="ExpirationDate"
+    />
+    <nb-datepicker #ExpirationDate></nb-datepicker>
+  </div>
+
+  <div class="col-md-12" style="margin-top: 28px">
+    <div class="buttons-row">
+      <button class="col-md-3" *ngIf="!this.dataa.AbsenceID" nbButton status="primary" (click)="submit()">
+        {{ "GENERALWORDS.SUBMIT" | translate }}
+      </button>
+      <button class="col-md-3" *ngIf="this.dataa.AbsenceID" nbButton status="primary" (click)="update()">
+        {{ "GENERALWORDS.UPDATE" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,218 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>{{
+        "GENERALWORDS.IMCOMMINGOUTGOINGSALES" | translate
+      }}</nb-card-header>
+      <nb-card-body>
+        <div class="row">
+          <div class="col-lg-12 mb-3" style="margin-top: 40px">
+            <input
+              nbInput
+              [nbFilterInput]="dataSource"
+              placeholder="{{ 'GENERALWORDS.SEARCH' | translate }}"
+              id="search"
+              class="search-input col-lg-4"
+              style="float: right"
+            />
+          </div>
+          <table
+            [nbTreeGrid]="dataSource"
+            [nbSort]="dataSource"
+            (sort)="updateSort($event)"
+          >
+            <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+            <tr
+              nbTreeGridRow
+              *nbTreeGridRowDef="let row; columns: allColumns"
+            ></tr>
+
+            <ng-container [nbTreeGridColumnDef]="'BillID'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('BillID')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.BillID" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data.BillNumber || "-" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'CashierName'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('CashierName')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.CASHIERNAME" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["CashierName"] || "-" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'NetAmount'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('NetAmount')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.NETAMOUNT" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["totalAmount"] || "0" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'PaidAmount'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('PaidAmount')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.PAIDAMOUNT" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["paidAmount"] || "0" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'Remainder'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('Remainder')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.REMIANDER" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["RemainderAmount"] || "0" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'PaymentMethod'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('PaymentMethod')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.PAYMENTMETHOD" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                <span *ngIf="row.data.paybycash">Cash Payment</span>
+                <span *ngIf="!row.data.paybycash">Visa Payment</span>
+              </td>
+            </ng-container>
+            
+          </table>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-12 mb-3" style="margin-top: 40px">
+            <input
+              nbInput
+              [nbFilterInput]="dataSource1"
+              placeholder="{{ 'GENERALWORDS.SEARCH' | translate }}"
+              id="search1"
+              class="search-input col-lg-4"
+              style="float: right"
+            />
+          </div>
+          <table
+            [nbTreeGrid]="dataSource1"
+            [nbSort]="dataSource1"
+            (sort)="updateSort1($event)"
+          >
+            <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns1"></tr>
+            <tr
+              nbTreeGridRow
+              *nbTreeGridRowDef="let row; columns: allColumns"
+            ></tr>
+
+            <ng-container [nbTreeGridColumnDef]="'BillID'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('BillID')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.BillID" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data.Uid || "-" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'CashierName'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('CashierName')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.CASHIERNAME" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["UserName"] || "-" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'NetAmount'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('NetAmount')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.NETAMOUNT" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["Password"] || "-" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'PaidAmount'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('PaidAmount')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.PAIDAMOUNT" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["Authority"] || "-" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'Remainder'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('Remainder')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.REMIANDER" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["Authority"] || "-" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'PaymentMethod'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('PaymentMethod')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.PAYMENTMETHOD" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["Authority"] || "-" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'Total'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('Total')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.TOTAL" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["Authority"] || "-" }}
+              </td>
+            </ng-container>
+          </table>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

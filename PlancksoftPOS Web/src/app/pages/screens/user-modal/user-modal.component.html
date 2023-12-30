@@ -1,0 +1,150 @@
+<div class="row">
+  <div class="col-lg-12">
+      <nb-card-body>
+        <div class="row" [formGroup]="firstFormGroup">
+          <div class="col-lg-4" style="margin-top: 10px">
+            <label>{{ "GENERALWORDS.USERID" | translate }}</label>
+            <input
+              type="text"
+              nbInput
+              formControlName="AdminAccountID"
+              fullWidth
+              shape="rectangle"
+              placeholder='{{ "GENERALWORDS.USERID" | translate }}'
+            />
+          </div>
+
+          <div class="col-lg-4" style="margin-top: 10px">
+            <label>{{ "GENERALWORDS.USERNAME" | translate }}</label>
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              formControlName="UserName"
+              shape="rectangle"
+              placeholder='{{ "GENERALWORDS.USERNAME" | translate }}'
+            />
+          </div>
+
+          <div class="col-lg-4" style="margin-top: 10px" *ngIf="!this.password">
+            <label>{{ "GENERALWORDS.PASSWORD" | translate }}</label>
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              shape="rectangle"
+              formControlName="Password"
+              placeholder='{{ "GENERALWORDS.PASSWORD" | translate }}'
+            />
+          </div>
+
+          <div class="col-lg-4" style="margin-top: 10px" *ngIf="this.password">
+            <label>{{ "GENERALWORDS.PASSWORD" | translate }}</label>
+            <input
+              type="text"
+              nbInput
+              disabled
+              fullWidth
+              shape="rectangle"
+              formControlName="Password"
+              placeholder='{{ "GENERALWORDS.PASSWORD" | translate }}'
+            />
+          </div>
+
+          <div class="col-lg-12" style="margin-top: 20px">
+            <nb-checkbox formControlName="admin" [(ngModel)]="admin">{{ "GENERALWORDS.ADMINACCOUNT" | translate }}?</nb-checkbox>
+          </div>
+
+          <div class="col-lg-4">
+            <nb-checkbox [checked]="true" formControlName="Client_card_edit"  [(ngModel)]="Client_card_edit"
+              >{{ "GENERALWORDS.ACCI" | translate }}</nb-checkbox
+            >
+          </div>
+
+          <div class="col-lg-4">
+            <nb-checkbox [checked]="true" formControlName="discount_edit" [(ngModel)]="discount_edit"
+              >{{ "GENERALWORDS.ADDDISCOUNT" | translate }}</nb-checkbox
+            >
+          </div>
+
+          <div class="col-lg-4">
+            <nb-checkbox [checked]="true" formControlName="price_edit" [(ngModel)]="price_edit"
+              >{{ "GENERALWORDS.EDITBILLPRICE" | translate }}</nb-checkbox
+            >
+          </div>
+
+          <div class="col-lg-4">
+            <nb-checkbox [checked]="true" formControlName="receipt_edit" [(ngModel)]="receipt_edit"
+              >{{ "GENERALWORDS.EIQS" | translate }}</nb-checkbox
+            >
+          </div>
+
+          <div class="col-lg-4">
+            <nb-checkbox [checked]="true" formControlName="inventory_edit" [(ngModel)]="inventory_edit"
+              >{{ "GENERALWORDS.EDITINVENTORY" | translate }}</nb-checkbox
+            >
+          </div>
+
+          <div class="col-lg-4">
+            <nb-checkbox [checked]="true" formControlName="personnel_edit" [(ngModel)]="personnel_edit"
+              >{{ "GENERALWORDS.EDITEMPLOYES" | translate }}</nb-checkbox
+            >
+          </div>
+
+          <div class="col-lg-4">
+            <nb-checkbox [checked]="true" formControlName="openclose_edit" [(ngModel)]="openclose_edit"
+              >{{ "GENERALWORDS.COCR" | translate }}</nb-checkbox
+            >
+          </div>
+
+          <div class="col-lg-4">
+            <nb-checkbox [checked]="true" formControlName="sell_edit" [(ngModel)]="sell_edit"
+              >{{ "GENERALWORDS.CASHSALES" | translate }}</nb-checkbox
+            >
+          </div>
+
+          <div class="col-lg-4">
+            <nb-checkbox [checked]="true" formControlName="expenses_add" [(ngModel)]="expenses_add"
+              >{{ "GENERALWORDS.ADDEXPENCE" | translate }}</nb-checkbox
+            >
+          </div>
+
+          <div class="col-lg-4">
+            <nb-checkbox [checked]="true" formControlName="users_edit" [(ngModel)]="users_edit"
+              >{{ "GENERALWORDS.EDITUSER" | translate }}</nb-checkbox
+            >
+          </div>
+
+          <div class="col-lg-4">
+            <nb-checkbox [checked]="true" formControlName="settings_edit" [(ngModel)]="settings_edit"
+              >{{ "GENERALWORDS.EDITSETTINGS" | translate }}</nb-checkbox
+            >
+          </div>
+
+          <div class="col-md-12" style="margin-top: 10px; text-align: end">
+            <div class="buttons-row">
+              <button
+                class="col-md-2"
+                nbButton
+                status="primary"
+                (click)="SubmitData()"
+                *ngIf="!data.Uid"
+              >
+              {{ "GENERALWORDS.SUBMIT" | translate }}
+              </button>
+              &nbsp;
+              <button
+                class="col-md-2"
+                nbButton
+                status="danger"
+                (click)="updateData()"
+                *ngIf="data.Uid"
+              >
+              {{ "GENERALWORDS.UPDATE" | translate }}
+              </button>
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+  </div>
+</div>

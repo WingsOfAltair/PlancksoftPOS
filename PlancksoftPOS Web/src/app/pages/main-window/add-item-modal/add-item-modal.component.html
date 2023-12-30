@@ -1,0 +1,198 @@
+<div class="row" [formGroup]="additem">
+  <div class="col-md-6">
+    <label>{{ "GENERALWORDS.ITEMNAME" | translate }}</label>
+    <input
+      type="text"
+      nbInput
+      formControlName="itemname"
+      fullWidth
+      shape="rectangle"
+      placeholder='{{ "GENERALWORDS.ITEMNAME" | translate }}'
+    />
+  </div>
+
+  <div class="col-md-6">
+    <label>{{ "GENERALWORDS.ITEMBARCODE" | translate }}</label>
+    <input
+      type="text"
+      nbInput
+      fullWidth
+      formControlName="itembarcode"
+      shape="rectangle"
+      placeholder='{{ "GENERALWORDS.ITEMBARCODE" | translate }}'
+    />
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.ITEMQUANTITY" | translate }}</label>
+    <input
+      type="number"
+      nbInput
+      fullWidth
+      formControlName="itemquantity"
+      shape="rectangle"
+      placeholder='{{ "GENERALWORDS.ITEMQUANTITY" | translate }}'
+      [(ngModel)]="inputValue3"
+    
+    />
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.BUYPRICE" | translate }}</label>
+    <input
+      type="number"
+      nbInput
+      fullWidth
+      formControlName="buyprice"
+      shape="rectangle"
+      placeholder="0.00"
+      [(ngModel)]="inputValue1"
+    />
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.ITEMPRICE" | translate }}</label>
+    <input
+      type="number"
+      nbInput
+      fullWidth
+      formControlName="ItemPrice"
+      shape="rectangle"
+      placeholder="0.00"
+      [(ngModel)]="inputValue2"
+      (input)="calculateSum()"
+    />
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.ITEMPRICETAX" | translate }}</label>
+    <input
+      type="number"
+      nbInput
+      fullWidth
+      formControlName="sellpricetax"
+      shape="rectangle"
+      placeholder='{{ "GENERALWORDS.ITEMPRICETAX" | translate }}'
+      [value]="sumResult"
+    />
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.WARNINGLIMIT" | translate }}</label>
+    <input
+      type="number"
+      nbInput
+      fullWidth
+      formControlName="warninglimit"
+      shape="rectangle"
+      placeholder='{{ "GENERALWORDS.WARNINGLIMIT" | translate }}'
+    />
+  </div>
+
+  <div class="col-md-6"></div>
+
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.PRODUCTIONDATE" | translate }}</label>
+
+    <input
+      style="width: 20rem"
+      nbInput
+      formControlName="ProductionDate"
+      placeholder='{{ "GENERALWORDS.PRODUCTIONDATE" | translate }}'
+      [nbDatepicker]="ProductionDate"
+    />
+    <nb-datepicker #ProductionDate></nb-datepicker>
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.EXPIRATIONDATE" | translate }}</label>
+
+    <input
+      style="width: 20rem"
+      nbInput
+      formControlName="ExpirationDate"
+      placeholder='{{ "GENERALWORDS.EXPIRATIONDATE" | translate }}'
+      [nbDatepicker]="ExpirationDate"
+    />
+    <nb-datepicker #ExpirationDate></nb-datepicker>
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.ENTRYDATE" | translate }}</label>
+
+    <input
+      style="width: 20rem"
+      nbInput
+      formControlName="EntryDate"
+      placeholder='{{ "GENERALWORDS.ENTRYDATE" | translate }}'
+      [nbDatepicker]="EntryDate"
+    />
+    <nb-datepicker #EntryDate></nb-datepicker>
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.FCN" | translate }}</label>
+    <nb-select
+      formControlName="FavoriteCategory"
+      placeholder='{{ "GENERALWORDS.FCN" | translate }}'
+      style="width: 20rem"
+    >
+      <nb-option [value]="0">None</nb-option>
+      <nb-option *ngFor="let data of message" [value]="data.ID">{{
+        data.Name
+      }}</nb-option>
+    </nb-select>
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.ITEMTYPE" | translate }}</label>
+    <nb-select
+      formControlName="ItemType"
+      placeholder='{{ "GENERALWORDS.ITEMTYPE" | translate }}'
+      style="width: 20rem"
+    >
+      <nb-option [value]="0">None</nb-option>
+      <nb-option *ngFor="let data of Type" [value]="data.ID">{{
+        data.Name
+      }}</nb-option>
+    </nb-select>
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.WEARHOUSE" | translate }} </label>
+    <nb-select
+      formControlName="Warehouse"
+      placeholder='{{ "GENERALWORDS.WEARHOUSE" | translate }}'
+      style="width: 20rem"
+    >
+      <nb-option [value]="0">None</nb-option>
+      <nb-option *ngFor="let data of wearhouse" [value]="data.ID">{{
+        data.Name
+      }}</nb-option>
+    </nb-select>
+  </div>
+
+  <div class="col-md-12 mt-3">
+    <div class="buttons-row" style="text-align: end">
+      <button
+        class="col-md-2"
+        *ngIf="!data.ItemBarCode"
+        nbButton
+        status="primary"
+        (click)="SubmitData()"
+      >
+      {{ "GENERALWORDS.SUBMIT" | translate }}
+      </button>
+      &nbsp;
+      <button
+        class="col-md-2"
+        *ngIf="data.ItemBarCode"
+        nbButton
+        status="danger"
+        (click)="update()"
+      >
+      {{ "GENERALWORDS.ADDITEM" | translate }}
+      </button>
+    </div>
+  </div>
+</div>

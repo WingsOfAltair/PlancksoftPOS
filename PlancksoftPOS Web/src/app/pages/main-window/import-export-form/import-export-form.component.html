@@ -1,0 +1,306 @@
+<style>
+  nb-select.size-medium:not(.full-width) {
+    max-width: 20rem;
+    width: 100%;
+  }
+</style>
+
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header> {{ "GENERALWORDS.IMPORTEXPORT" | translate }} </nb-card-header>
+      <nb-card-body>
+        <div class="row" [formGroup]="firstFormGroup">
+          <div class="col-lg-3">
+            <label for="ItemName">{{ "GENERALWORDS.ITEMNAME" | translate }}</label>
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              shape="rectangle"
+              placeholder='{{ "GENERALWORDS.ITEMNAME" | translate }}'
+              formControlName="ItemName"
+            />
+          </div>
+          <div class="col-lg-3">
+            <label for="ItemBarcode">{{ "GENERALWORDS.ITEMBARCODE" | translate }}</label>
+            <input
+              type="text"
+              nbInput
+              fullWidth
+              shape="rectangle"
+              placeholder='{{ "GENERALWORDS.ITEMBARCODE" | translate }}'
+              formControlName="ItemBarcode"
+            />
+          </div>
+          <div class="col-lg-3">
+            <label for="Item Quantity">{{ "GENERALWORDS.ITEMQUANTITY" | translate }}</label>
+            <input
+              type="number"
+              nbInput
+              fullWidth
+              shape="rectangle"
+              placeholder='{{ "GENERALWORDS.ITEMQUANTITY" | translate }}'
+              formControlName="ItemQuantity"
+            />
+          </div>
+
+          <div class="col-lg-3">
+            <label>{{ "GENERALWORDS.WEARHOUSE" | translate }} </label>
+            <nb-select formControlName="Warehouse" placeholder='{{ "GENERALWORDS.WEARHOUSE" | translate }}'>
+              <nb-option [value]="0">None</nb-option>
+              <nb-option *ngFor="let data of wearhouse" [value]="data.ID">{{
+                data.Name
+              }}</nb-option>
+            </nb-select>
+          </div>
+
+          <div class="col-lg-3 mt-2">
+            <label for="Buy Price">{{ "GENERALWORDS.BUYPRICE" | translate }}</label>
+            <input
+              type="number"
+              nbInput
+              fullWidth
+              shape="rectangle"
+              placeholder='{{ "GENERALWORDS.BUYPRICE" | translate }}'
+              formControlName="buyprice"
+            />
+          </div>
+
+          <div class="col-lg-3 mt-2">
+            <label for="Warning Limit">{{ "GENERALWORDS.WARNINGLIMIT" | translate }}</label>
+            <input
+              type="number"
+              nbInput
+              fullWidth
+              shape="rectangle"
+              placeholder='{{ "GENERALWORDS.WARNINGLIMIT" | translate }}'
+              formControlName="warningLimit"
+            />
+          </div>
+
+          <div class="col-md-3 mt-2">
+            <label>{{ "GENERALWORDS.PRODUCTIONDATE" | translate }}</label>
+
+            <input
+              style="width: 16.5rem"
+              nbInput
+              formControlName="ProductionDate"
+              placeholder='{{ "GENERALWORDS.PRODUCTIONDATE" | translate }}'
+              [nbDatepicker]="ProductionDate"
+            />
+            <nb-datepicker #ProductionDate></nb-datepicker>
+          </div>
+
+          <div class="col-md-3 mt-2">
+            <label>{{ "GENERALWORDS.EXPIRATIONDATE" | translate }}</label>
+
+            <input
+              style="width: 16.5rem"
+              nbInput
+              formControlName="ExpirationDate"
+              placeholder='{{ "GENERALWORDS.EXPIRATIONDATE" | translate }}'
+              [nbDatepicker]="ExpirationDate"
+            />
+            <nb-datepicker #ExpirationDate></nb-datepicker>
+          </div>
+
+          <div class="col-md-3 mt-2">
+            <label>{{ "GENERALWORDS.ENTRYDATE" | translate }}</label>
+
+            <input
+              style="width: 16.5rem"
+              nbInput
+              formControlName="EntryDate"
+              placeholder='{{ "GENERALWORDS.ENTRYDATE" | translate }}'
+              [nbDatepicker]="EntryDate"
+            />
+            <nb-datepicker #EntryDate></nb-datepicker>
+          </div>
+          <div class="col-lg-7"></div>
+          <div class="col-lg-3 mt-2">
+            <label>{{ "GENERALWORDS.FORMTYPE" | translate }} </label>
+            <nb-select
+              (selectedChange)="formtype($event)"
+              formControlName="FormType"
+              placeholder='{{ "GENERALWORDS.FORMTYPE" | translate }}'
+            >
+              <nb-option [value]="0">Import</nb-option>
+              <nb-option [value]="1">Export</nb-option>
+            </nb-select>
+          </div>
+
+          <div class="col-lg-3 mt-2" *ngIf=" this.type == 1">
+            <label>{{ "GENERALWORDS.PICKCLIENT" | translate }} </label>
+            <nb-select
+              (selectedChange)="onSelectionChange($event, this.type)"
+              formControlName="PickClient"
+              placeholder='{{ "GENERALWORDS.PICKCLIENT" | translate }}'
+            >
+              <nb-option
+                *ngFor="let option of clientdata"
+                [value]="option.data.ClientID"
+              >
+                {{ option.data.ClientName }}
+              </nb-option>
+            </nb-select>
+          </div>
+
+          <div class="col-lg-3 mt-2" *ngIf="this.type == 0">
+            <label>{{ "GENERALWORDS.PICKVENDOR" | translate }} </label>
+            <nb-select
+              (selectedChange)="onSelectionChange($event, this.type)"
+              formControlName="PickClient"
+              placeholder='{{ "GENERALWORDS.PICKVENDOR" | translate }}'
+            >
+              <nb-option
+                *ngFor="let option of Vendordata"
+                [value]="option.data.ID"
+              >
+                {{ option.data.ClientName }}
+              </nb-option>
+            </nb-select>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12" style="margin-top: 28px">
+            <div class="row">
+              <div class="col-lg-8">
+                <button
+                  class="col-md-2"
+                  nbButton
+                  status="primary"
+                  (click)="PickItem()"
+                >
+                {{ "GENERALWORDS.PICKITEM" | translate }}
+                </button>
+                &nbsp;
+                <button
+                  class="col-md-2"
+                  (click)="AddItem()"
+                  nbButton
+                  status="primary"
+                >
+                {{ "GENERALWORDS.ADDITEM" | translate }}
+                </button>
+                &nbsp;
+                
+                <button
+                  class="col-md-2"
+                  nbButton
+                  status="primary"
+                  (click)="commitform()"
+                >
+                {{ "GENERALWORDS.COMMITFORM" | translate }}
+                </button>
+                &nbsp;
+                <button
+                  class="col-md-2"
+                  nbButton
+                  status="primary"
+                  (click)="Clear()"
+                >
+                {{ "GENERALWORDS.CLEAR" | translate }}
+                </button>
+              </div>
+
+              <div class="col-lg-4 mb-3">
+                <input
+                  nbInput
+                  [nbFilterInput]="dataSource"
+                  placeholder='{{ "GENERALWORDS.SEARCH" | translate }}'
+                  id="search"
+                  class="search-input"
+                  style="float: right; width: 100%"
+                />
+              </div>
+              <table
+                [nbTreeGrid]="dataSource"
+                [nbSort]="dataSource"
+                (sort)="updateSort($event)"
+              >
+                <tr
+                  nbTreeGridHeaderRow
+                  *nbTreeGridHeaderRowDef="allColumns"
+                ></tr>
+                <tr
+                  nbTreeGridRow
+                  *nbTreeGridRowDef="let row; columns: allColumns"
+                ></tr>
+
+                <ng-container [nbTreeGridColumnDef]="'ItemName'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('ItemName')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                  {{ "GENERALWORDS.ITEMNAME" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data.ItemName }}
+                  </td>
+                </ng-container>
+
+                <ng-container [nbTreeGridColumnDef]="'ItemBarcode'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('ItemBarcode')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                  {{ "GENERALWORDS.ITEMBARCODE" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["ItemBarCode"] || "-" }}
+                  </td>
+                </ng-container>
+                <ng-container [nbTreeGridColumnDef]="'ItemQuantity'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('ItemQuantity')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                  {{ "GENERALWORDS.ITEMQUANTITY" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["ItemQuantity"] || "-" }}
+                  </td>
+                </ng-container>
+              
+                <ng-container [nbTreeGridColumnDef]="'SellPrice'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('SellPrice')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                  {{ "GENERALWORDS.ITEMPRICE" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["ItemPrice"] || "-" }}
+                  </td>
+                </ng-container>
+
+                <ng-container [nbTreeGridColumnDef]="'Action'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('Action')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                  {{ "GENERALWORDS.ACTION" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    <a (click)="Delete(row.data.ItemBarCode)"
+                      ><i
+                        class="nb-trash"
+                        style="font-size: 20px; color: orangered"
+                      ></i
+                    ></a>
+                  </td>
+                </ng-container>
+              </table>
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

@@ -1,0 +1,168 @@
+<nb-tabset>
+    <nb-tab tabTitle="Warehouse">
+        <div class="row">
+            <div class="col-lg-12">
+                <nb-card>
+                    <nb-card-body>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <label>Search for Items</label>
+                                <input type="text" nbInput fullWidth shape="rectangle" placeholder="Search for Items">
+
+                            </div>
+                            <div class="col-lg-2" style="margin-top: 28px;">
+                                <button nbButton status="primary">Search</button>
+
+                            </div>
+
+                            <div class="col-lg-6 mt-2">
+                                <label>Item Barcode</label>
+                                <input type="text" nbInput fullWidth shape="rectangle" placeholder="Item Barcode">
+
+                            </div>
+
+                            <div class="col-lg-6 mt-2">
+                                <label>Item Name</label>
+                                <input type="text" nbInput fullWidth shape="rectangle" placeholder="Item Name">
+
+                            </div>
+
+                            <div class="col-lg-4 mt-3">
+
+                                <label class="col-lg-12">Search Date from</label>
+
+                                <input style="width: 20rem;" nbInput placeholder="Search Date from"
+                                    [nbDatepicker]="picker">
+                                <nb-datepicker #picker [min]="min" [max]="max"></nb-datepicker>
+
+                            </div>
+
+                            <div class="col-lg-4 mt-3">
+
+                                <label class="col-lg-12">Search Date to</label>
+
+                                <input style="width: 20rem;" nbInput placeholder="Search Date to"
+                                    [nbDatepicker]="topicker">
+                                <nb-datepicker #topicker [min]="min" [max]="max"></nb-datepicker>
+
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
+                <nb-card>
+                    <nb-card-body>
+                        <div class="row">
+
+                            <div class="col-lg-6">
+                                <label>Item Name</label>
+                                <input type="text" nbInput fullWidth shape="rectangle" placeholder="Item Name">
+
+                            </div>
+
+                            <div class="col-lg-6 ">
+                                <label>Item Barcode</label>
+                                <input type="text" nbInput fullWidth shape="rectangle" placeholder="Item Barcode">
+
+                            </div>
+
+                            <div class="col-lg-6 mt-2">
+                                <label>Item Quantity</label>
+                                <input type="number" nbInput fullWidth shape="rectangle" placeholder="Item Quantity">
+
+                            </div>
+
+                            <div class="col-lg-6 mt-2">
+                                <label>Buy Price</label>
+                                <input type="number" nbInput fullWidth shape="rectangle" placeholder="Item Buy Price">
+
+                            </div>
+
+                            <div class="col-lg-6 mt-2">
+                                <label>Warning Limit</label>
+                                <input type="number" nbInput fullWidth shape="rectangle" placeholder="Warning Limit">
+
+                            </div>
+
+                            <div class="col-lg-6 mt-2">
+                                <label>Sell Price Tax</label>
+                                <input type="number" nbInput fullWidth shape="rectangle" placeholder="Sell Price Tax">
+
+                            </div>
+
+                            <div class="col-lg-4 mt-3">
+
+                                <label class="col-lg-12">Production Date</label>
+
+                                <input style="width: 20rem;" nbInput placeholder="Production Date"
+                                    [nbDatepicker]="picker">
+                                <nb-datepicker #picker [min]="min" [max]="max"></nb-datepicker>
+
+                            </div>
+
+                            <div class="col-lg-4 mt-3">
+
+                                <label class="col-lg-12">Expiration Date</label>
+
+                                <input style="width: 20rem;" nbInput placeholder="Expiration Date"
+                                    [nbDatepicker]="topicker">
+                                <nb-datepicker #topicker [min]="min" [max]="max"></nb-datepicker>
+
+                            </div>
+
+                            <div class="col-lg-4 mt-3">
+
+                                <label class="col-lg-12">Entry Date</label>
+
+                                <input style="width: 20rem;" nbInput placeholder="Entry Date" [nbDatepicker]="topicker">
+                                <nb-datepicker #topicker [min]="min" [max]="max"></nb-datepicker>
+
+                            </div>
+
+                            <div class="col-lg-4">
+                                <label>Warehouse Management</label>
+                                <nb-select placeholder="Warehouse Management" style="width: 20rem;">
+                                    <nb-option value="option1">Option 1</nb-option>
+                                    <nb-option value="option2">Option 2</nb-option>
+                                    <nb-option value="option3">Option 3</nb-option>
+                                </nb-select>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <label>Warehouse Management</label>
+                                <nb-select placeholder="Warehouse Management" style="width: 20rem;">
+                                    <nb-option value="option1">Option 1</nb-option>
+                                    <nb-option value="option2">Option 2</nb-option>
+                                    <nb-option value="option3">Option 3</nb-option>
+                                </nb-select>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <label>Warehouse Management</label>
+                                <nb-select placeholder="Warehouse Management" style="width: 20rem;">
+                                    <nb-option value="option1">Option 1</nb-option>
+                                    <nb-option value="option2">Option 2</nb-option>
+                                    <nb-option value="option3">Option 3</nb-option>
+                                </nb-select>
+                            </div>
+                        </div>
+                    </nb-card-body>
+                </nb-card>
+            </div>
+        </div>
+    </nb-tab>
+    <nb-tab tabTitle="Inventory Quantify">
+        <p>List of <strong>users</strong>.</p>
+    </nb-tab>
+    <nb-tab tabTitle="Import Export Form">
+        <p>List of <strong>orders</strong>.</p>
+    </nb-tab>
+    <nb-tab tabTitle="Add an Item Type">
+        <p>List of <strong>transactions</strong>.</p>
+    </nb-tab>
+    <nb-tab tabTitle="Add Favorites">
+        <p>List of <strong>users</strong>.</p>
+    </nb-tab>
+    <nb-tab tabTitle="Add Warehouses">
+        <p>List of <strong>orders</strong>.</p>
+    </nb-tab>
+</nb-tabset>

@@ -1,0 +1,48 @@
+
+
+<nb-card-body [formGroup]="AddData">
+  <div class="row">
+    <div class="col-md-6 mt-2">
+      <label>{{ "GENERALWORDS.ITEMTYPE" | translate }}</label>
+      <nb-select
+        formControlName="ItemType"
+        placeholder='{{ "GENERALWORDS.ITEMTYPE" | translate }}'
+        style="width: 20rem"
+      >
+        <nb-option *ngFor="let data of Type" [value]="data.data.ID">{{
+          data.data.Name
+        }}</nb-option>
+      </nb-select>
+    </div>
+
+    <div class="col-md-6 mt-2">
+      <label>{{ "GENERALWORDS.PRINTER" | translate }}</label>
+      <nb-select
+        formControlName="Printer"
+        placeholder='{{ "GENERALWORDS.PRINTER" | translate }}'
+        style="width: 20rem"
+      >
+        <nb-option *ngFor="let data of data" [value]="data.data.ID">{{
+          data.data.Name
+        }}</nb-option>
+      </nb-select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12" style="margin-top: 20px; text-align: end">
+      <div class="buttons-row">
+        <button
+          class="col-md-4"
+          nbButton
+          status="primary"
+          (click)="SubmitData()"
+        >
+        {{ "GENERALWORDS.SUBMIT" | translate }}
+        </button>
+        &nbsp;
+       
+      </div>
+    </div>
+  </div>
+</nb-card-body>

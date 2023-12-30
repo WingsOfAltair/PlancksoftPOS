@@ -475,8 +475,11 @@ namespace PlancksoftPOS
             this.ClientIDDelete = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.groupBox17 = new MaterialSkin.Controls.MaterialCard();
+            this.ClientEmail = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblEmail = new MaterialSkin.Controls.MaterialLabel();
             this.ClientName = new MaterialSkin.Controls.MaterialTextBox2();
             this.btnClientAdd = new MaterialSkin.Controls.MaterialButton();
             this.ClientAddress = new MaterialSkin.Controls.MaterialTextBox2();
@@ -519,8 +522,11 @@ namespace PlancksoftPOS
             this.VendorClientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VendorClientPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.VendorClientAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox42 = new System.Windows.Forms.PictureBox();
             this.groupBox40 = new MaterialSkin.Controls.MaterialCard();
+            this.VendorEmail = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblVendorEmail = new MaterialSkin.Controls.MaterialLabel();
             this.VendorName = new MaterialSkin.Controls.MaterialTextBox2();
             this.button7 = new MaterialSkin.Controls.MaterialButton();
             this.VendorAddress = new MaterialSkin.Controls.MaterialTextBox2();
@@ -1929,6 +1935,7 @@ namespace PlancksoftPOS
             // 
             // Column63
             // 
+            this.Column63.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column63.DataPropertyName = "Returned Quantity";
             this.Column63.HeaderText = "العدد المرجع";
             this.Column63.Name = "Column63";
@@ -7544,7 +7551,8 @@ namespace PlancksoftPOS
             this.Column27,
             this.ClientIDDelete,
             this.Column38,
-            this.Column39});
+            this.Column39,
+            this.Column10});
             this.dgvClients.Location = new System.Drawing.Point(3, 52);
             this.dgvClients.Name = "dgvClients";
             this.dgvClients.ReadOnly = true;
@@ -7583,6 +7591,14 @@ namespace PlancksoftPOS
             this.Column39.Name = "Column39";
             this.Column39.ReadOnly = true;
             // 
+            // Column10
+            // 
+            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column10.DataPropertyName = "Client Email";
+            this.Column10.HeaderText = "البريد الإلكتروني";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
             // pictureBox21
             // 
             this.pictureBox21.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -7603,6 +7619,8 @@ namespace PlancksoftPOS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox17.Controls.Add(this.ClientEmail);
+            this.groupBox17.Controls.Add(this.lblEmail);
             this.groupBox17.Controls.Add(this.ClientName);
             this.groupBox17.Controls.Add(this.btnClientAdd);
             this.groupBox17.Controls.Add(this.ClientAddress);
@@ -7623,6 +7641,51 @@ namespace PlancksoftPOS
             this.groupBox17.TabIndex = 4;
             this.groupBox17.Text = "تسجيل العملاء";
             // 
+            // ClientEmail
+            // 
+            this.ClientEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClientEmail.AnimateReadOnly = false;
+            this.ClientEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.ClientEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.ClientEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ClientEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.ClientEmail.Depth = 0;
+            this.ClientEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClientEmail.HideSelection = true;
+            this.ClientEmail.LeadingIcon = null;
+            this.ClientEmail.Location = new System.Drawing.Point(523, 272);
+            this.ClientEmail.MaxLength = 32767;
+            this.ClientEmail.MouseState = MaterialSkin.MouseState.OUT;
+            this.ClientEmail.Name = "ClientEmail";
+            this.ClientEmail.PasswordChar = '\0';
+            this.ClientEmail.PrefixSuffixText = null;
+            this.ClientEmail.ReadOnly = false;
+            this.ClientEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.ClientEmail.SelectedText = "";
+            this.ClientEmail.SelectionLength = 0;
+            this.ClientEmail.SelectionStart = 0;
+            this.ClientEmail.ShortcutsEnabled = true;
+            this.ClientEmail.Size = new System.Drawing.Size(424, 48);
+            this.ClientEmail.TabIndex = 88;
+            this.ClientEmail.TabStop = false;
+            this.ClientEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ClientEmail.TrailingIcon = null;
+            this.ClientEmail.UseSystemPasswordChar = false;
+            // 
+            // lblEmail
+            // 
+            this.lblEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Depth = 0;
+            this.lblEmail.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblEmail.Location = new System.Drawing.Point(718, 248);
+            this.lblEmail.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(68, 19);
+            this.lblEmail.TabIndex = 89;
+            this.lblEmail.Text = "البريد الإلكتروني";
+            // 
             // ClientName
             // 
             this.ClientName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -7636,7 +7699,7 @@ namespace PlancksoftPOS
             this.ClientName.HideSelection = true;
             this.ClientName.LeadingIcon = null;
             this.ClientName.Location = new System.Drawing.Point(523, 38);
-            this.ClientName.MaxLength = 10;
+            this.ClientName.MaxLength = 32767;
             this.ClientName.MouseState = MaterialSkin.MouseState.OUT;
             this.ClientName.Name = "ClientName";
             this.ClientName.PasswordChar = '\0';
@@ -7662,7 +7725,7 @@ namespace PlancksoftPOS
             this.btnClientAdd.Depth = 0;
             this.btnClientAdd.HighEmphasis = true;
             this.btnClientAdd.Icon = null;
-            this.btnClientAdd.Location = new System.Drawing.Point(675, 249);
+            this.btnClientAdd.Location = new System.Drawing.Point(678, 324);
             this.btnClientAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClientAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClientAdd.Name = "btnClientAdd";
@@ -7687,7 +7750,7 @@ namespace PlancksoftPOS
             this.ClientAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClientAddress.HideSelection = true;
             this.ClientAddress.LeadingIcon = null;
-            this.ClientAddress.Location = new System.Drawing.Point(521, 192);
+            this.ClientAddress.Location = new System.Drawing.Point(523, 194);
             this.ClientAddress.MaxLength = 32767;
             this.ClientAddress.MouseState = MaterialSkin.MouseState.OUT;
             this.ClientAddress.Name = "ClientAddress";
@@ -7719,7 +7782,7 @@ namespace PlancksoftPOS
             this.ClientPhone.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClientPhone.HideSelection = true;
             this.ClientPhone.LeadingIcon = null;
-            this.ClientPhone.Location = new System.Drawing.Point(521, 112);
+            this.ClientPhone.Location = new System.Drawing.Point(523, 114);
             this.ClientPhone.MaxLength = 10;
             this.ClientPhone.MouseState = MaterialSkin.MouseState.OUT;
             this.ClientPhone.Name = "ClientPhone";
@@ -7746,7 +7809,7 @@ namespace PlancksoftPOS
             this.label21.Depth = 0;
             this.label21.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label21.Location = new System.Drawing.Point(701, 163);
+            this.label21.Location = new System.Drawing.Point(732, 167);
             this.label21.MouseState = MaterialSkin.MouseState.HOVER;
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(29, 19);
@@ -7760,7 +7823,7 @@ namespace PlancksoftPOS
             this.label18.Depth = 0;
             this.label18.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label18.Location = new System.Drawing.Point(701, 90);
+            this.label18.Location = new System.Drawing.Point(723, 92);
             this.label18.MouseState = MaterialSkin.MouseState.HOVER;
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(38, 19);
@@ -7772,7 +7835,7 @@ namespace PlancksoftPOS
             this.ClientID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClientID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.ClientID.Location = new System.Drawing.Point(521, 107);
+            this.ClientID.Location = new System.Drawing.Point(93, 48);
             this.ClientID.Maximum = new decimal(new int[] {
             -1486618625,
             232830643,
@@ -7792,7 +7855,7 @@ namespace PlancksoftPOS
             this.label82.Depth = 0;
             this.label82.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label82.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label82.Location = new System.Drawing.Point(695, 16);
+            this.label82.Location = new System.Drawing.Point(718, 16);
             this.label82.MouseState = MaterialSkin.MouseState.HOVER;
             this.label82.Name = "label82";
             this.label82.Size = new System.Drawing.Size(43, 19);
@@ -7806,7 +7869,7 @@ namespace PlancksoftPOS
             this.label83.Depth = 0;
             this.label83.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label83.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label83.Location = new System.Drawing.Point(695, 80);
+            this.label83.Location = new System.Drawing.Point(302, 26);
             this.label83.MouseState = MaterialSkin.MouseState.HOVER;
             this.label83.Name = "label83";
             this.label83.Size = new System.Drawing.Size(46, 19);
@@ -8202,7 +8265,8 @@ namespace PlancksoftPOS
             this.VendorClientName,
             this.VendorClientID,
             this.VendorClientPhone,
-            this.VendorClientAddress});
+            this.VendorClientAddress,
+            this.Column11});
             this.dgvVendors.Location = new System.Drawing.Point(5, 52);
             this.dgvVendors.Name = "dgvVendors";
             this.dgvVendors.ReadOnly = true;
@@ -8241,6 +8305,14 @@ namespace PlancksoftPOS
             this.VendorClientAddress.Name = "VendorClientAddress";
             this.VendorClientAddress.ReadOnly = true;
             // 
+            // Column11
+            // 
+            this.Column11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column11.DataPropertyName = "Client Email";
+            this.Column11.HeaderText = "البريد الإلكتروني";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            // 
             // pictureBox42
             // 
             this.pictureBox42.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -8261,6 +8333,8 @@ namespace PlancksoftPOS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox40.Controls.Add(this.VendorEmail);
+            this.groupBox40.Controls.Add(this.lblVendorEmail);
             this.groupBox40.Controls.Add(this.VendorName);
             this.groupBox40.Controls.Add(this.button7);
             this.groupBox40.Controls.Add(this.VendorAddress);
@@ -8281,6 +8355,52 @@ namespace PlancksoftPOS
             this.groupBox40.TabIndex = 6;
             this.groupBox40.Text = "تسجيل الموردين";
             // 
+            // VendorEmail
+            // 
+            this.VendorEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.VendorEmail.AnimateReadOnly = false;
+            this.VendorEmail.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.VendorEmail.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.VendorEmail.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.VendorEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.VendorEmail.Depth = 0;
+            this.VendorEmail.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.VendorEmail.HideSelection = true;
+            this.VendorEmail.LeadingIcon = null;
+            this.VendorEmail.Location = new System.Drawing.Point(517, 272);
+            this.VendorEmail.MaxLength = 32767;
+            this.VendorEmail.MouseState = MaterialSkin.MouseState.OUT;
+            this.VendorEmail.Name = "VendorEmail";
+            this.VendorEmail.PasswordChar = '\0';
+            this.VendorEmail.PrefixSuffixText = null;
+            this.VendorEmail.ReadOnly = false;
+            this.VendorEmail.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.VendorEmail.SelectedText = "";
+            this.VendorEmail.SelectionLength = 0;
+            this.VendorEmail.SelectionStart = 0;
+            this.VendorEmail.ShortcutsEnabled = true;
+            this.VendorEmail.Size = new System.Drawing.Size(422, 48);
+            this.VendorEmail.TabIndex = 87;
+            this.VendorEmail.TabStop = false;
+            this.VendorEmail.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.VendorEmail.TrailingIcon = null;
+            this.VendorEmail.UseSystemPasswordChar = false;
+            // 
+            // lblVendorEmail
+            // 
+            this.lblVendorEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblVendorEmail.AutoSize = true;
+            this.lblVendorEmail.BackColor = System.Drawing.Color.White;
+            this.lblVendorEmail.Depth = 0;
+            this.lblVendorEmail.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblVendorEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblVendorEmail.Location = new System.Drawing.Point(700, 252);
+            this.lblVendorEmail.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblVendorEmail.Name = "lblVendorEmail";
+            this.lblVendorEmail.Size = new System.Drawing.Size(68, 19);
+            this.lblVendorEmail.TabIndex = 88;
+            this.lblVendorEmail.Text = "البريد الإلكتروني";
+            // 
             // VendorName
             // 
             this.VendorName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -8294,7 +8414,7 @@ namespace PlancksoftPOS
             this.VendorName.HideSelection = true;
             this.VendorName.LeadingIcon = null;
             this.VendorName.Location = new System.Drawing.Point(521, 44);
-            this.VendorName.MaxLength = 10;
+            this.VendorName.MaxLength = 32767;
             this.VendorName.MouseState = MaterialSkin.MouseState.OUT;
             this.VendorName.Name = "VendorName";
             this.VendorName.PasswordChar = '\0';
@@ -8320,7 +8440,7 @@ namespace PlancksoftPOS
             this.button7.Depth = 0;
             this.button7.HighEmphasis = true;
             this.button7.Icon = null;
-            this.button7.Location = new System.Drawing.Point(708, 250);
+            this.button7.Location = new System.Drawing.Point(700, 324);
             this.button7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button7.MouseState = MaterialSkin.MouseState.HOVER;
             this.button7.Name = "button7";
@@ -8420,7 +8540,7 @@ namespace PlancksoftPOS
             this.label40.Depth = 0;
             this.label40.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label40.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label40.Location = new System.Drawing.Point(714, 94);
+            this.label40.Location = new System.Drawing.Point(718, 100);
             this.label40.MouseState = MaterialSkin.MouseState.HOVER;
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(38, 19);
@@ -8430,7 +8550,7 @@ namespace PlancksoftPOS
             // VendorID
             // 
             this.VendorID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.VendorID.Location = new System.Drawing.Point(521, 107);
+            this.VendorID.Location = new System.Drawing.Point(80, 46);
             this.VendorID.Maximum = new decimal(new int[] {
             -1486618625,
             232830643,
@@ -8466,7 +8586,7 @@ namespace PlancksoftPOS
             this.label42.Depth = 0;
             this.label42.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label42.Location = new System.Drawing.Point(712, 80);
+            this.label42.Location = new System.Drawing.Point(277, 28);
             this.label42.MouseState = MaterialSkin.MouseState.HOVER;
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(47, 19);
@@ -13219,10 +13339,6 @@ namespace PlancksoftPOS
         public System.Windows.Forms.DataGridViewTextBoxColumn Column59;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column60;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column61;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column27;
-        public System.Windows.Forms.DataGridViewTextBoxColumn ClientIDDelete;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column38;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column39;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -13259,10 +13375,6 @@ namespace PlancksoftPOS
         public System.Windows.Forms.DataGridViewTextBoxColumn BillPaidAmount;
         public System.Windows.Forms.DataGridViewTextBoxColumn BillRemainderAmount;
         public System.Windows.Forms.DataGridViewTextBoxColumn BillPaymentType;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorClientName;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorClientID;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorClientPhone;
-        public System.Windows.Forms.DataGridViewTextBoxColumn VendorClientAddress;
         public System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         public System.Windows.Forms.DataGridViewTextBoxColumn UserID;
         public System.Windows.Forms.DataGridViewTextBoxColumn UserPassword;
@@ -13526,12 +13638,26 @@ namespace PlancksoftPOS
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
+        public MaterialTextBox2 ClientEmail;
+        public MaterialLabel lblEmail;
+        public MaterialTextBox2 VendorEmail;
+        public MaterialLabel lblVendorEmail;
         private DataGridViewTextBoxColumn Column20;
         private DataGridViewTextBoxColumn Column21;
         private DataGridViewTextBoxColumn Column23;
         private DataGridViewTextBoxColumn Column63;
         private DataGridViewTextBoxColumn Column24;
         private DataGridViewTextBoxColumn Column25;
+        private DataGridViewTextBoxColumn Column27;
+        private DataGridViewTextBoxColumn ClientIDDelete;
+        private DataGridViewTextBoxColumn Column38;
+        private DataGridViewTextBoxColumn Column39;
+        private DataGridViewTextBoxColumn Column10;
+        private DataGridViewTextBoxColumn VendorClientName;
+        private DataGridViewTextBoxColumn VendorClientID;
+        private DataGridViewTextBoxColumn VendorClientPhone;
+        private DataGridViewTextBoxColumn VendorClientAddress;
+        private DataGridViewTextBoxColumn Column11;
     }
 }
 

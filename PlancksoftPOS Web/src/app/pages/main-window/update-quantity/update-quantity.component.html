@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-lg-12" [formGroup]="firstFormGroup">
+    <label>Update Quantity</label>
+    <input
+      type="number"
+      nbInput
+      fullWidth
+      formControlName="quantity"
+      shape="rectangle"
+      placeholder="Update Quantity"
+    />
+  </div>
+
+  <div class="col-md-12" style="margin-top: 10px; text-align: right">
+    <div class="buttons-row">
+      <button class="col-md-3" (click)="submit()" nbButton>Update</button>
+    </div>
+  </div>
+</div>

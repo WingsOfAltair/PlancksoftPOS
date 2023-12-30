@@ -1,0 +1,171 @@
+<div class="row">
+    <div class="col-lg-12">
+        <nb-card>
+            <nb-card-header>Main Window</nb-card-header>
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <label>Warehouse Management</label>
+                        <nb-select placeholder="Warehouse Management" style="width: 20rem;">
+                            <nb-option value="option1">Option 1</nb-option>
+                            <nb-option value="option2">Option 2</nb-option>
+                            <nb-option value="option3">Option 3</nb-option>
+                        </nb-select>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <label>Maintenance Request</label>
+                        <nb-select placeholder="Maintenance Request" style="width: 20rem;">
+                            <nb-option value="option1">Option 1</nb-option>
+                            <nb-option value="option2">Option 2</nb-option>
+                            <nb-option value="option3">Option 3</nb-option>
+                        </nb-select>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <label class="col-lg-12">Quit</label>
+                        <nb-select placeholder="Quit" style="width: 20rem;">
+                            <nb-option value="option1">Option 1</nb-option>
+                            <nb-option value="option2">Option 2</nb-option>
+                            <nb-option value="option3">Option 3</nb-option>
+                        </nb-select>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <nb-tabset>
+                            <nb-tab tabTitle="Cash">
+                                <div class="row">
+                                    <div class="col-lg-3">
+                                        <p>Cashier Name: <strong>Cashier Name</strong></p>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <p>This copy is licensed for: <strong>Date Time</strong></p>
+                                    </div>
+                                    <div class="col-lg-6"></div>
+
+
+
+                                    <div class="col-lg-4">
+                                        <p>Number of pending bills: <strong>0</strong></p>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p>Current Bill Number: <strong></strong></p>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p>Previous Remainder: <strong></strong></p>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p>Previous Paid: <strong></strong></p>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <p>Previous Total: <strong></strong></p>
+                                    </div>
+                                    <div class="col-lg-4"></div>
+
+                                    <div class="col-lg-4" style="margin-top: 10px;">
+                                        <label>Removal Quantity</label>
+                                        <input type="number" nbInput fullWidth shape="rectangle"
+                                            placeholder="Removal Quantity">
+
+                                    </div>
+
+                                    <div class="col-lg-4" style="margin-top: 10px;">
+                                        <label>New Item Quantity</label>
+                                        <input type="number" nbInput fullWidth shape="rectangle"
+                                            placeholder="New Item Quantity">
+
+                                    </div>
+                                    <div class="col-lg-4" style="margin-top: 10px;">
+                                        <label>Client Name</label>
+                                        <input type="number" nbInput fullWidth shape="rectangle"
+                                            placeholder="Client Name">
+
+                                    </div>
+
+                                    <div class="col-lg-4" style="margin-top: 10px;">
+                                        <label>Item Name</label>
+                                        <input type="number" nbInput fullWidth shape="rectangle"
+                                            placeholder="Item Name">
+
+                                    </div>
+
+                                    <div class="col-md-8" style=" margin-top: 40px;">
+                                        <div class="buttons-row">
+                                            <button class="col-md-4" nbButton status="primary">
+                                                Remove item from bill
+                                            </button>
+                                            &nbsp;
+                                            <button class="col-md-3" nbButton status="danger">
+                                                Edit Item Quantity
+                                            </button>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-1"></div>
+
+                                    <div class="col-lg-2" style="margin-top:10px; border-radius: 5px;">
+                                        <img src="../../../../assets/images/open.jpg" alt="Open Register F11"
+                                            style="height: 5rem;"><label>Open Register F11</label>
+                                    </div>
+
+
+                                    <div class="col-lg-2" style="margin-top:10px; border-radius: 5px;">
+                                        <img src="../../../../assets/images/close.jpg" alt="Close Register F12"
+                                            style="height: 5rem;"><label>Close Register F12</label>
+                                    </div>
+                                    <div class="col-lg-7"></div>
+
+                                    <div class="col-lg-12" style="margin-top: 20px;">
+                                        <ng2-smart-table [settings]="settings" [source]="source"
+                                            (deleteConfirm)="onDeleteConfirm($event)">
+                                        </ng2-smart-table>
+                                    </div>
+
+
+
+                                </div>
+                            </nb-tab>
+                            <nb-tab tabTitle="Sales">
+                                <p>List of <strong>orders</strong>.</p>
+                            </nb-tab>
+                            <nb-tab tabTitle="Inventory">
+                                <ngx-main-inventory></ngx-main-inventory>
+                            </nb-tab>
+                            <nb-tab tabTitle="Expenses">
+                                <p>List of <strong>users</strong>.</p>
+                            </nb-tab>
+                            <nb-tab tabTitle="IncomingOutgoing">
+                                <p>List of <strong>orders</strong>.</p>
+                            </nb-tab>
+                            <nb-tab tabTitle="Employees">
+                                <p>List of <strong>transactions</strong>.</p>
+                            </nb-tab>
+                            <nb-tab tabTitle="Agents">
+                                <p>List of <strong>users</strong>.</p>
+                            </nb-tab>
+                            <nb-tab tabTitle="Alerts">
+                                <p>List of <strong>orders</strong>.</p>
+                            </nb-tab>
+                            <nb-tab tabTitle="Taxes">
+                                <p>List of <strong>transactions</strong>.</p>
+                            </nb-tab>
+                            <nb-tab tabTitle="posUsers">
+                                <p>List of <strong>users</strong>.</p>
+                            </nb-tab>
+                            <nb-tab tabTitle="Settings">
+                                <p>List of <strong>orders</strong>.</p>
+                            </nb-tab>
+                            <nb-tab tabTitle="Retrievals">
+                                <p>List of <strong>transactions</strong>.</p>
+                            </nb-tab>
+                        </nb-tabset>
+                    </div>
+
+                </div>
+
+
+            </nb-card-body>
+        </nb-card>
+    </div>
+</div>

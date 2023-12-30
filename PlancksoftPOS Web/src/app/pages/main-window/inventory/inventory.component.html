@@ -1,0 +1,166 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>{{ "GENERALWORDS.INVENTORY" | translate }}</nb-card-header>
+
+      <nb-card-body>
+        <div class="row">
+          <div class="col-lg-12" style="margin-top: 28px">
+            <div class="row">
+              <div class="col-lg-6">
+                <button
+                  class="col-md-3"
+                  nbButton
+                  status="primary"
+                  (click)="openwindow()"
+                >
+                {{ "GENERALWORDS.ADDITEM" | translate }}
+                </button>
+                &nbsp;
+              
+              </div>
+
+              <div class="col-lg-6 mb-3">
+                <input
+                  nbInput
+                  [nbFilterInput]="dataSource"
+                  placeholder='{{ "GENERALWORDS.SEARCH" | translate }}'
+                  id="search"
+                  class="search-input"
+                  style="float: right; width: 60%"
+                />
+              </div>
+              <table
+                [nbTreeGrid]="dataSource"
+                [nbSort]="dataSource"
+                (sort)="updateSort($event)"
+              >
+                <tr
+                  nbTreeGridHeaderRow
+                  *nbTreeGridHeaderRowDef="allColumns"
+                ></tr>
+                <tr
+                  nbTreeGridRow
+                  *nbTreeGridRowDef="let row; columns: allColumns"
+                ></tr>
+
+                <ng-container [nbTreeGridColumnDef]="'ItemName'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('ItemName')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                  {{ "GENERALWORDS.ITEMNAME" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data.ItemName || "-" }}
+                  </td>
+                </ng-container>
+
+                <ng-container [nbTreeGridColumnDef]="'ItemBarcode'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('ItemBarcode')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                  {{ "GENERALWORDS.ITEMBARCODE" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["ItemBarCode"] || "-" }}
+                  </td>
+                </ng-container>
+                <ng-container [nbTreeGridColumnDef]="'ItemQuantity'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('ItemQuantity')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                  {{ "GENERALWORDS.ITEMQUANTITY" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["ItemQuantity"] || "-" }}
+                  </td>
+                </ng-container>
+                <ng-container [nbTreeGridColumnDef]="'SellPrice'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('SellPrice')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                  {{ "GENERALWORDS.ITEMPRICE" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["ItemPrice"] || "-" }}
+                  </td>
+                </ng-container>
+                <ng-container [nbTreeGridColumnDef]="'SellPriceTax'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('SellPriceTax')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                  {{ "GENERALWORDS.ITEMPRICETAX" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["ItemPriceTax"] || "-" }}
+                  </td>
+                </ng-container>
+                <ng-container [nbTreeGridColumnDef]="'FavoriteCategory'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('FavoriteCategory')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                  {{ "GENERALWORDS.FCN" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["favoriteCategoryName"] || "-" }}
+                  </td>
+                </ng-container>
+                <ng-container [nbTreeGridColumnDef]="'Warehouse'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('Warehouse')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                  {{ "GENERALWORDS.WEARHOUSE" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["warehouseName"] || "-" }}
+                  </td>
+                </ng-container>
+                <ng-container [nbTreeGridColumnDef]="'ItemType'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('ItemType')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                  {{ "GENERALWORDS.ITEMTYPE" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    {{ row.data["ItemTypeName"] || "-" }}
+                  </td>
+                </ng-container>
+
+                <ng-container [nbTreeGridColumnDef]="'Action'">
+                    <th
+                      nbTreeGridHeaderCell
+                      [nbSortHeader]="getSortDirection('Action')"
+                      *nbTreeGridHeaderCellDef
+                    >
+                    {{ "GENERALWORDS.ACTION" | translate }}
+                    </th>
+                    <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                        <a (click)="update(row.data.ItemBarCode)"><i class="nb-edit" style="font-size: 20px;"></i></a>
+                        &nbsp;
+                        <a (click)="Delete(row.data.ItemBarCode)"><i class="nb-trash " style="font-size: 20px; color: orangered;"></i></a>
+                    </td>
+                  </ng-container>
+              </table>
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

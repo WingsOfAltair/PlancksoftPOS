@@ -1,0 +1,201 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>{{ "GENERALWORDS.CASH" | translate }}</nb-card-header>
+      <nb-card-body>
+        <div class="row">
+          <div class="col-lg-3">
+            <p>
+              {{ "GENERALWORDS.CASHIERNAME" | translate }}:
+              <strong>{{ userID }}</strong>
+            </p>
+          </div>
+          <div class="col-lg-3">
+            <p>
+              {{ "GENERALWORDS.TCILF" | translate }}:
+              <strong>{{ date | date : "dd-MM-yyyy" }}</strong>
+            </p>
+          </div>
+          <div class="col-lg-6"></div>
+
+          <div class="col-lg-4" *ngIf="this.pandingbill">
+            <p >{{ "GENERALWORDS.NOPB" | translate }}: <strong>{{pandingbill}}</strong></p>
+          </div>
+          <div class="col-lg-4" *ngIf="this.bill">
+            <p>
+              {{ "GENERALWORDS.CURRENTBILLNUMBER" | translate }}:
+              <strong>{{bill}}</strong>
+            </p>
+          </div>
+          <div class="col-lg-4" *ngIf="this.perivousreminder">
+            <p>
+              {{ "GENERALWORDS.PREVIOUSREMIENDER" | translate }}:
+              <strong></strong>
+            </p>
+          </div>
+          <div class="col-lg-4" *ngIf="this.perivouspaid">
+            <p>
+              {{ "GENERALWORDS.PERIOUSPAID" | translate }}: <strong></strong>
+            </p>
+          </div>
+          <div class="col-lg-4" *ngIf="this.perivoustotal">
+            <p >
+              {{ "GENERALWORDS.PERIOUSTOTAL" | translate }}: <strong>{{perivoustotal}}</strong>
+            </p>
+          </div>
+          <div class="col-lg-4"></div>
+
+          <div class="row mt-3 p-4">
+            <div class="col-lg-8">
+              <button
+                class="col-md-2"
+                nbButton
+                status="primary"
+                (click)="PickItem()"
+              >
+                {{ "GENERALWORDS.PICKITEM" | translate }}
+              </button>
+              &nbsp;
+              <button
+                class="col-md-2"
+                nbButton
+                status="primary"
+                (click)="updatebill()"
+              >
+                {{ "GENERALWORDS.PAYBILL" | translate }}
+              </button>
+              &nbsp;
+              <button
+                class="col-md-2"
+                nbButton
+                status="primary"
+                (click)="Perivousbill()"
+              >
+                {{ "GENERALWORDS.PERIOUSBILL" | translate }}
+              </button>
+              <!-- &nbsp;
+              <button
+                class="col-md-2"
+                nbButton
+                status="primary"
+                (click)="newinvoice()"
+              >
+                {{ "GENERALWORDS.NEXTINVOICE" | translate }}
+              </button> -->
+              &nbsp;
+              <button
+                class="col-md-2"
+                nbButton
+                status="primary"
+                (click)="newinvoice()"
+              >
+                {{ "GENERALWORDS.NEXTBILL" | translate }}
+              </button>
+            </div>
+            <!-- <div class="col-lg-4">
+              
+            </div> -->
+            <div class="col-lg-4 mb-3">
+              <input
+                nbInput
+                [nbFilterInput]="dataSource"
+                placeholder="{{ 'GENERALWORDS.SEARCH' | translate }}"
+                id="search"
+                class="search-input"
+                style="float: right; width: 100%"
+              />
+            </div>
+            <table
+              [nbTreeGrid]="dataSource"
+              [nbSort]="dataSource"
+              (sort)="updateSort($event)"
+            >
+              <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+              <tr
+                nbTreeGridRow
+                *nbTreeGridRowDef="let row; columns: allColumns"
+              ></tr>
+              <ng-container [nbTreeGridColumnDef]="'ItemName'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('ItemName')"
+                  *nbTreeGridHeaderCellDef
+                >
+                  {{ "GENERALWORDS.ITEMNAME" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data.ItemName || "-" }}
+                </td>
+              </ng-container>
+              <ng-container [nbTreeGridColumnDef]="'ItemQuantity'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('ItemQuantity')"
+                  *nbTreeGridHeaderCellDef
+                >
+                  {{ "GENERALWORDS.ITEMQUANTITY" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["ItemQuantity"] || "-" }}
+                </td>
+              </ng-container>
+              <ng-container [nbTreeGridColumnDef]="'ItemBarcode'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('ItemBarcode')"
+                  *nbTreeGridHeaderCellDef
+                >
+                  {{ "GENERALWORDS.ITEMBARCODE" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["ItemBarCode"] || "-" }}
+                </td>
+              </ng-container>
+
+              <ng-container [nbTreeGridColumnDef]="'ClientPrice'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('ClientPrice')"
+                  *nbTreeGridHeaderCellDef
+                >
+                  {{ "GENERALWORDS.ITEMPRICE" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["ItemPrice"] || "-" }}
+                </td>
+              </ng-container>
+
+              <ng-container [nbTreeGridColumnDef]="'Action'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('Action')"
+                  *nbTreeGridHeaderCellDef
+                >
+                  {{ "GENERALWORDS.ACTION" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  <a
+                    nbPopover="Update Quantity"
+                    nbPopoverTrigger="hover"
+                    nbPopoverPlacement="bottom"
+                    (click)="update(row.data.ItemBarCode)"
+                    ><i class="nb-edit" style="font-size: 20px"></i
+                  ></a>
+                  &nbsp;
+                  <a
+                      
+                    nbPopover="Delete Item"
+                    nbPopoverTrigger="hover"
+                    nbPopoverPlacement="bottom"
+                    (click)="Delete(row.data.ItemBarCode)"
+                    ><i class="nb-trash" style="font-size: 20px; color: red;"></i
+                  ></a>
+                </td>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

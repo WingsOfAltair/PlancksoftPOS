@@ -13,19 +13,20 @@ namespace Dependencies
         [DataMember]
         public int clientID;
         [DataMember]
-        public string clientName, clientPhone, clientAddress;
+        public string clientName, clientPhone, clientAddress, clientEmail;
         [DataMember]
         public decimal buyPrice, sellPrice, sellPriceTax, clientPrice;
 
         public Client()
         { }
 
-        public Client(string ClientName, int ClientID, string ClientPhone, string ClientAddress)
+        public Client(string ClientName, int ClientID, string ClientPhone, string ClientAddress, string ClientEmail)
         {
             this.ClientName = ClientName;
             this.ClientID = ClientID;
             this.ClientPhone = ClientPhone;
             this.ClientAddress = ClientAddress;
+            this.ClientEmail = ClientEmail;
         }
 
         public Client(string ClientName, int ClientID, decimal buyPrice, decimal sellPrice, decimal sellPriceTax, decimal ClientPrice, string ClientPhone, string ClientAddress)
@@ -43,6 +44,7 @@ namespace Dependencies
         public string ClientName { get => clientName; set => clientName = value; }
         public string ClientPhone { get => clientPhone; set => clientPhone = value; }
         public string ClientAddress { get => clientAddress; set => clientAddress = value; }
+        public string ClientEmail { get => clientEmail; set => clientEmail = value; }
         public int ClientID { get => clientID; set => clientID = value; }
         public decimal BuyPrice { get => buyPrice; set => buyPrice = value; }
         public decimal SellPrice { get => sellPrice; set => sellPrice = value; }

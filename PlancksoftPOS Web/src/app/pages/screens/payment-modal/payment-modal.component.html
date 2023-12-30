@@ -1,0 +1,189 @@
+<div class="row" [formGroup]="payment">
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.TOTALAMOUNT" | translate }}</label>
+    <input
+      type="text"
+      nbInput
+      formControlName="AmountRequired"
+      fullWidth
+      disabled
+      shape="rectangle"
+      placeholder="{{ 'GENERALWORDS.TOTALAMOUNT' | translate }}"
+    />
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.REMINDER" | translate }}</label>
+    <input
+      type="text"
+      nbInput
+      fullWidth
+      formControlName="Remainder"
+      disabled
+      shape="rectangle"
+      placeholder="{{ 'GENERALWORDS.REMINDER' | translate }}"
+    />
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.PAIDAMOUNT" | translate }}</label>
+    <input
+      type="number"
+      nbInput
+      fullWidth
+      formControlName="PaidAmount"
+      (keyup)="calculateRemainingAmount()"
+      shape="rectangle"
+      placeholder="{{ 'GENERALWORDS.PAIDAMOUNT' | translate }}"
+    />
+  </div>
+
+  <div class="col-md-6 mt-2">
+    <label class="col-md-12">{{ "GENERALWORDS.CLIENTNAME" | translate }}</label>
+    <nb-select
+      placeholder="{{ 'GENERALWORDS.CLIENTNAME' | translate }}"
+      (selectedChange)="onSelectionChange($event)"
+      style="width: 21rem"
+      formControlName="Client"
+    >
+      <nb-option *ngFor="let data of clientdata" [value]="data.data.ClientID">{{
+        data.data.ClientName
+      }}</nb-option>
+    </nb-select>
+  </div>
+
+  <div class="col-md-3 mt-2">
+    <nb-radio-group formControlName="cashpayment">
+      <nb-radio [value]="1">
+        {{ "GENERALWORDS.CASHPAYMENT" | translate }}
+      </nb-radio>
+    </nb-radio-group>
+  </div>
+
+  <div class="col-md-3 mt-2">
+    <nb-radio-group formControlName="visapayment">
+      <nb-radio [value]="0">
+        {{ "GENERALWORDS.VISAPAYMENT" | translate }}
+      </nb-radio>
+    </nb-radio-group>
+  </div>
+
+  <div class="col-md-2 mt-3">
+    <nb-checkbox (checkedChange)="toggle($event)">{{
+      "GENERALWORDS.DISCOUNT" | translate
+    }}</nb-checkbox>
+  </div>
+
+  <div class="col-md-4 mt-3" *ngIf="discou == true">
+    <input
+      type="number"
+      nbInput
+      fullWidth
+      formControlName="Discount"
+      shape="rectangle"
+      (keyup)="calculateDiscountAmount()"
+      placeholder="{{ 'GENERALWORDS.DISCOUNT' | translate }}"
+    />
+  </div>
+
+  <div class="col-md-12 mt-3">
+    <div class="buttons-row" style="text-align: end">
+      <button
+        class="col-md-2"
+        nbButton
+        status="danger"
+        (click)="Submit()"
+        *ngIf="this.status != 'Unpaid'"
+      >
+        {{ "GENERALWORDS.PAYBILL" | translate }}
+      </button>
+      <button
+        class="col-md-2"
+        nbButton
+        status="danger"
+        (click)="Update()"
+        *ngIf="this.status == 'Unpaid'"
+      >
+        {{ "GENERALWORDS.UPDATE" | translate }}
+      </button>
+    </div>
+  </div>
+</div>
+
+<div>
+  <div style="display: none" class="bill-container" id="bill-container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 style="text-align: center" class="textcolor">{{ this.logo }}</h1>
+        <p style="text-align: center; margin-top: -10px" class="textcolor">
+          Wellcome To {{ this.logo }}
+        </p>
+      </div>
+      <div class="col-md-6" *ngIf="this.bill > 0">
+        <p class="textcolor">Invoice No: {{ this.bill }}</p>
+      </div>
+      <div class="col-md-6" style="text-align: end" *ngIf="this.bill > 0">
+        <p class="textcolor">
+          Date: {{ this.currentdate | date : "dd-MM-yyyy" }}
+        </p>
+      </div>
+
+      <div class="col-md-6">
+        <p class="textcolor">Cashier Name: {{ this.userID }}</p>
+      </div>
+
+      <div class="col-md-6" style="text-align: end" *ngIf="!this.bill">
+        <p class="textcolor">
+          Date: {{ this.currentdate | date : "dd-MM-yyyy" }}
+        </p>
+      </div>
+
+      <div class="col-md-6" style="text-align: end"></div>
+      <div class="col-md-12">
+        <hr />
+      </div>
+      <div class="col-md-12">
+        <table class="table table-borderless" style="color: aliceblue">
+          <thead>
+            <tr>
+              <th class="textcolor" scope="col">Item Name</th>
+              <th class="textcolor" scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of filteritemdata">
+              <td class="textcolor">
+                {{ item.ItemName }} x {{ item.ItemQuantity }}
+              </td>
+              <td class="textcolor">{{ item.ItemPrice }}</td>
+            </tr>
+            <div class="col-md-12">
+              <hr />
+            </div>
+            <tr>
+              <td class="textcolor">Total Amount</td>
+              <td class="textcolor">
+                {{ Amount }}
+              </td>
+            </tr>
+            <tr>
+              <td class="textcolor">Paid Amount</td>
+              <td class="textcolor">
+                {{ paidAmount }}
+              </td>
+            </tr>
+            <tr>
+              <td class="textcolor">Reminder Amount</td>
+              <td class="textcolor">
+                {{ AmountRemainder }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-12 text">
+        <h5 class="textcolor">Thanks For Visiting Us</h5>
+      </div>
+    </div>
+  </div>
+</div>

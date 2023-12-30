@@ -2716,6 +2716,7 @@ namespace DataAccessLayerJSON
                     cmd.Parameters.AddWithValue("@ClientName", ClientToInsert.ClientName.ToString());
                     cmd.Parameters.AddWithValue("@ClientPhone", ClientToInsert.ClientPhone.ToString());
                     cmd.Parameters.AddWithValue("@ClientAddress", ClientToInsert.ClientAddress.ToString());
+                    cmd.Parameters.AddWithValue("@ClientEmail", ClientToInsert.ClientEmail.ToString());
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
@@ -2744,6 +2745,7 @@ namespace DataAccessLayerJSON
                     //cmd.Parameters.AddWithValue("@ClientID", ClientToInsert.ClientID.ToString());
                     cmd.Parameters.AddWithValue("@ClientPhone", ClientToInsert.ClientPhone.ToString());
                     cmd.Parameters.AddWithValue("@ClientAddress", ClientToInsert.ClientAddress.ToString());
+                    cmd.Parameters.AddWithValue("@ClientEmail", ClientToInsert.ClientEmail.ToString());
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
