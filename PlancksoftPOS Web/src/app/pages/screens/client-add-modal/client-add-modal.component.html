@@ -1,0 +1,54 @@
+<div class="row" [formGroup]="client">
+    <div class="col-lg-4">
+      <label for="ClientName">{{ "GENERALWORDS.CLIENTNAME" | translate }}</label>
+      <input
+        type="text"
+        nbInput
+        fullWidth
+        shape="rectangle"
+        formControlName="clientname"
+        placeholder='{{ "GENERALWORDS.CLIENTNAME" | translate }}'
+      />
+    </div>
+    <div class="col-lg-4">
+      <label for="Phone Number">{{ "GENERALWORDS.PHONENUMBER" | translate }}</label>
+      <input
+        type="number"
+        nbInput
+        fullWidth
+        shape="rectangle"
+        formControlName="clientphone"
+        placeholder='{{ "GENERALWORDS.PHONENUMBER" | translate }}'
+      />
+    </div>
+    <div class="col-lg-4">
+      <label for="Address">{{ "GENERALWORDS.ADDRESS" | translate }}</label>
+      <input
+        type="text"
+        nbInput
+        fullWidth
+        shape="rectangle"
+        formControlName="clientaddress"
+        placeholder='{{ "GENERALWORDS.ADDRESS" | translate }}'
+      />
+    </div>
+    <div class="col-lg-4">
+      <label for="Email">{{ "GENERALWORDS.EMAIL" | translate }}</label>
+      <input
+        type="text"
+        nbInput
+        fullWidth
+        shape="rectangle"
+        formControlName="clientemail"
+        placeholder='{{ "GENERALWORDS.EMAIL" | translate }}'
+      />
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="col-md-12" style="margin-top: 28px; text-align: end">
+        <button nbButton status="primary" (click)="submit()">{{ "GENERALWORDS.SUBMIT" | translate }}</button>
+      </div>
+    </div>
+  </div>
+  

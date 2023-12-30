@@ -1,0 +1,62 @@
+<nb-card>
+    <nb-card-body>
+  
+      <label class="search-label" for="search">Search:</label>
+      <input nbInput [nbFilterInput]="dataSource" id="search" class="search-input">
+  
+      <table [nbTreeGrid]="dataSource" [nbSort]="dataSource" (sort)="updateSort($event)">
+  
+  
+        <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+        <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
+        
+        <!-- <ng-container *ngFor="let column of defaultColumns; let index = index"
+                      [nbTreeGridColumnDef]="column"
+                      [showOn]="getShowOn(index)">
+          <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+            {{column}}
+          </th>
+          <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+        </ng-container> -->
+
+        <ng-container
+        [nbTreeGridColumnDef]="'name'"
+        >
+        <th nbTreeGridHeaderCell  [nbSortHeader]="getSortDirection('name')" *nbTreeGridHeaderCellDef>
+            Name
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data['name'] || '-'}}</td>
+        </ng-container>
+        <ng-container
+        [nbTreeGridColumnDef]="'size'"
+        >
+        <th nbTreeGridHeaderCell  [nbSortHeader]="getSortDirection('size')" *nbTreeGridHeaderCellDef>
+            size
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data['size'] || '-'}}</td>
+        </ng-container>
+
+        <ng-container
+        [nbTreeGridColumnDef]="'kind'"
+        >
+        <th nbTreeGridHeaderCell  [nbSortHeader]="getSortDirection('kind')" *nbTreeGridHeaderCellDef>
+            Kind
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data['kind'] || '-'}}</td>
+        </ng-container>
+
+
+        <ng-container
+        [nbTreeGridColumnDef]="'items'"
+        >
+        <th nbTreeGridHeaderCell  [nbSortHeader]="getSortDirection('items')" *nbTreeGridHeaderCellDef>
+            items
+        </th>
+        <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data['Employee Name'] || '-'}}</td>
+        </ng-container>
+  
+      </table>
+  
+    </nb-card-body>
+  </nb-card>
+  

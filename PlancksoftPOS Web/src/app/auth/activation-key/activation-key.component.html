@@ -1,0 +1,27 @@
+<div class="row" [formGroup]="licenseGroup">
+    <div class="col-lg-12" >
+
+        <h1 style="text-align: center;">Licensing & Activation</h1>
+
+        <label>Licensing & Activation</label>
+        <input type="password" nbInput fullWidth formControlName="license" shape="rectangle"
+            placeholder="Licensing & Activation">
+
+
+        <div class="col-md-12 mt-5" style=" margin-top: 10px; text-align: center;">
+            <div class="buttons-row">
+                <button class="col-md-4" (click)="redirectpage()" nbButton status="primary">
+                    Activate
+                </button>
+                &nbsp;
+                <button class="col-md-4" nbButton status="danger">
+                    Clear
+                </button>
+                &nbsp;
+
+            </div>
+        </div>
+
+
+    </div>
+</div>

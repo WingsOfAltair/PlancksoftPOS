@@ -1,0 +1,227 @@
+<style>
+  nb-select.size-medium:not(.full-width) {
+    max-width: 35rem;
+    width: 100%;
+  }
+</style>
+
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>{{
+        "GENERALWORDS.EMPLOYEEMANAGEMENT" | translate
+      }}</nb-card-header>
+      <nb-card-body>
+        <div class="row" [formGroup]="Search">
+
+          <div class="col-md-3">
+            <label class="col-lg-12">{{ "GENERALWORDS.DATE1" | translate }}</label>
+
+            <input
+              style="width: 17rem"
+              nbInput
+              formControlName="Date1"
+              placeholder="Date"
+              [nbDatepicker]="Date1"
+            />
+            <nb-datepicker #Date1></nb-datepicker>
+          </div>
+
+          <div class="col-md-4">
+            <label class="col-lg-12">{{ "GENERALWORDS.DATE2" | translate }}</label>
+
+            <input
+              style="width: 17rem"
+              nbInput
+              formControlName="Date2"
+              placeholder="Date"
+              [nbDatepicker]="Date2"
+            />
+            <nb-datepicker #Date2></nb-datepicker>
+          </div>
+
+          <div class="col-md-4" style="margin-top: 25px">
+            <div class="buttons-row">
+              <button
+                class="col-md-6"
+                nbButton
+                status="primary"
+                (click)="SearchEmp()"
+              >
+              {{ "GENERALWORDS.SEARCH" | translate }}
+              </button>
+            </div>
+          </div>
+
+
+          <div class="col-lg-12" style="margin-top: 20px">
+            <div class="row">
+              <div class="col-lg-8">
+                <button
+                  class="col-md-3"
+                  nbButton
+                  status="primary"
+                  (click)="AddEmployee()"
+                >
+                  {{ "GENERALWORDS.ADDEMPLOYEE" | translate }}
+                </button>
+                &nbsp;
+                <button
+                  class="col-md-3"
+                  nbButton
+                  status="primary"
+                  (click)="AddDeduction()"
+                >
+                  {{ "GENERALWORDS.ADDDEDUCTION" | translate }}
+                </button>
+                &nbsp;
+              </div>
+
+              <div class="col-lg-4 mb-3">
+                <input
+                  nbInput
+                  [nbFilterInput]="dataSource"
+                  placeholder="{{ 'GENERALWORDS.SEARCH' | translate }}"
+                  id="search"
+                  class="search-input"
+                  style="float: right; width: 20rem"
+                />
+              </div>
+            </div>
+
+            <table
+              [nbTreeGrid]="dataSource"
+              [nbSort]="dataSource"
+              (sort)="updateSort($event)"
+            >
+              <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+              <tr
+                nbTreeGridRow
+                *nbTreeGridRowDef="let row; columns: allColumns"
+              ></tr>
+
+              <!-- <ng-container *ngFor="let column of defaultColumns; let index = index"
+                              [nbTreeGridColumnDef]="column"
+                              [showOn]="getShowOn(index)">
+                  <th nbTreeGridHeaderCell [nbSortHeader]="getSortDirection(column)" *nbTreeGridHeaderCellDef>
+                    {{column}}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">{{row.data[column] || '-'}}</td>
+                </ng-container> -->
+
+              <ng-container [nbTreeGridColumnDef]="'EmployeeID'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('EmployeeID')"
+                  *nbTreeGridHeaderCellDef
+                >
+                  {{ "GENERALWORDS.EMPLOYEEID" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data.EmployeeID || "-" }}
+                </td>
+              </ng-container>
+              <ng-container [nbTreeGridColumnDef]="'EmployeeName'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('EmployeeName')"
+                  *nbTreeGridHeaderCellDef
+                >
+                  {{ "GENERALWORDS.EMPLOYEENAME" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["EmployeeName"] || "-" }}
+                </td>
+              </ng-container>
+
+              <ng-container [nbTreeGridColumnDef]="'Salary'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('Salary')"
+                  *nbTreeGridHeaderCellDef
+                >
+                  {{ "GENERALWORDS.SALAERY" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["Salary"] || "0" }}
+                </td>
+              </ng-container>
+
+              <ng-container [nbTreeGridColumnDef]="'DeductedSalary'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('DeductedSalary')"
+                  *nbTreeGridHeaderCellDef
+                >
+                  {{ "GENERALWORDS.DEDUCTSALAERY" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["DeductedSalary"] || "0" }}
+                </td>
+              </ng-container>
+
+              <ng-container [nbTreeGridColumnDef]="'PhoneNumber'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('PhoneNumber')"
+                  *nbTreeGridHeaderCellDef
+                >
+                  {{ "GENERALWORDS.PHONENUMBER" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["PhoneNumber"] || "-" }}
+                </td>
+              </ng-container>
+
+              <ng-container [nbTreeGridColumnDef]="'Address'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('Address')"
+                  *nbTreeGridHeaderCellDef
+                >
+                  {{ "GENERALWORDS.ADDRESS" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["Address"] || "-" }}
+                </td>
+              </ng-container>
+
+              <ng-container [nbTreeGridColumnDef]="'Action'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('Action')"
+                  *nbTreeGridHeaderCellDef
+                >
+                  {{ "GENERALWORDS.ACTION" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  <a nbPopover="Edit Employee" nbPopoverTrigger="hover" nbPopoverPlacement="bottom" (click)="updateEmployee(row.data.EmployeeID)"
+                    ><i class="nb-edit" style="font-size: 20px"></i
+                  ></a>
+                  &nbsp;
+                  <a nbPopover="Edit Deduction" nbPopoverTrigger="hover" nbPopoverPlacement="bottom" (click)="updateDeduction(row.data.deductID)"
+                    ><i class="nb-edit" style="font-size: 20px"></i
+                  ></a>
+                  &nbsp;
+                  <a nbPopover="Delete Employee" nbPopoverTrigger="hover" nbPopoverPlacement="bottom" (click)="DeleteEmployee(row.data.EmployeeID)"
+                    ><i
+                      class="nb-trash"
+                      style="font-size: 20px; color: orangered"
+                    ></i
+                  ></a>
+                  &nbsp;
+                  <a nbPopover="Delete Deduction" nbPopoverTrigger="hover" nbPopoverPlacement="bottom" (click)="DeleteDeduction(row.data.deductID)"
+                    ><i
+                      class="nb-trash"
+                      style="font-size: 20px; color: orangered"
+                    ></i
+                  ></a>
+                </td>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

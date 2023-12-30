@@ -1,0 +1,105 @@
+<nb-card>
+  <nb-card-header>
+    <nav class="navigation">
+      <a href="#" aria-label="Back" class="link back-link">
+        <nb-icon icon="arrow-back" ng-reflect-icon="arrow-back">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="100%"
+            height="100%"
+            viewBox="0 0 24 24"
+            class="eva eva-arrow-back"
+            fill="currentColor"
+          ></svg>
+        </nb-icon>
+      </a>
+    </nav>
+  </nb-card-header>
+  <nb-card-body>
+    <h1 id="title" class="title" style="text-align: center">Login</h1>
+    <p class="sub-title" style="text-align: center">
+      Hello! Log in with your email.
+    </p>
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <form aria-labelledby="title" class="ng-invalid ng-dirty ng-touched">
+          <div class="form-control-group">
+            <label for="exampleInputEmail1" class="label">Email address</label>
+            <input
+              type="email"
+              nbInput
+              fullWidth
+              id="exampleInputEmail1"
+              placeholder="Email"
+            />
+            <p class="caption status-danger">Email should be the real one!</p>
+          </div>
+          <div class="form-control-group">
+            <span class="label-with-link">
+              <label for="input-password" class="label">Password:</label>
+              <a
+                routerlink="../request-password"
+                class="forgot-password caption-2"
+                style="float: right"
+                ng-reflect-router-link="../request-password"
+                href="/auth/request-password"
+                >Forgot Password?
+              </a>
+            </span>
+
+        
+            
+          </div>
+
+          <div class="form-control-group accept-group">
+            <nb-checkbox
+              name="rememberMe"
+              ng-reflect-name="rememberMe"
+              class="status-basic ng-untouched ng-pristine ng-valid nb-transition"
+            >
+              <label class="label" style="margin-top: 8px">
+                <input type="checkbox" class="native-input visually-hidden" />
+                <!-- <span class="custom-checkbox">
+                        </span> -->
+                <span class="text" style="margin-left: -10px">Remember me</span>
+              </label>
+            </nb-checkbox>
+          </div>
+
+          <button
+            nbbutton=""
+            fullwidth=""
+            status="primary"
+            size="large"
+            ng-reflect-full-width=""
+            ng-reflect-status="primary"
+            ng-reflect-size="large"
+            ng-reflect-disabled="true"
+            aria-disabled="true"
+            tabindex="-1"
+            class="appearance-filled full-width size-large shape-rectangle status-primary btn-disabled nb-transition"
+            disabled=""
+          >
+            Log In
+          </button>
+        </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+    <section
+      aria-label="Register"
+      class="another-action"
+      style="text-align: center; margin-top: 30px"
+    >
+      Don't have an account?
+      <a
+        routerlink="../register"
+        class="text-link"
+        ng-reflect-router-link="../register"
+        href="/auth/register"
+        >Register</a
+      >
+    </section>
+  </nb-card-body>
+</nb-card>

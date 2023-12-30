@@ -1,0 +1,157 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>{{ "GENERALWORDS.IMPORTEXPORTCAPITAL" | translate }}</nb-card-header>
+      <nb-card-body>
+        <div class="row">
+          <div class="col-md-6">
+           
+          </div>
+          <div class="col-lg-6 mb-3">
+            <input
+              nbInput
+              [nbFilterInput]="dataSource"
+              placeholder='{{ "GENERALWORDS.SEARCH" | translate }}'
+              id="search"
+              class="search-input col-lg-6"
+              style="float: right"
+            />
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-6">
+            <table
+              [nbTreeGrid]="dataSource"
+              [nbSort]="dataSource"
+              (sort)="updateSort($event)"
+            >
+              <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+              <tr
+                nbTreeGridRow
+                *nbTreeGridRowDef="let row; columns: allColumns"
+              ></tr>
+
+
+              <ng-container [nbTreeGridColumnDef]="'TotalCost'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('TotalCost')"
+                  *nbTreeGridHeaderCellDef
+                >
+                {{ "GENERALWORDS.DATE" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data.Date | date : 'dd-MM-yyyy' || "-" }}
+                </td>
+              </ng-container>
+              <ng-container [nbTreeGridColumnDef]="'Date'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('Date')"
+                  *nbTreeGridHeaderCellDef
+                >
+                {{ "GENERALWORDS.TOTALCOST" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["TotalCost"] || "-" }}
+                </td>
+              </ng-container>
+            </table>
+          </div>
+          <div class="col-lg-6">
+            <table
+              [nbTreeGrid]="dataSource2"
+              [nbSort]="dataSource2"
+              (sort)="updateSort2($event)"
+            >
+              <tr
+                nbTreeGridHeaderRow
+                *nbTreeGridHeaderRowDef="allColumns2"
+              ></tr>
+              <tr
+                nbTreeGridRow
+                *nbTreeGridRowDef="let row; columns: allColumns2"
+              ></tr>
+
+
+              <ng-container [nbTreeGridColumnDef]="'Date'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('Date')"
+                  *nbTreeGridHeaderCellDef
+                >
+                {{ "GENERALWORDS.DATE" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data.Date | date : 'dd-MM-yyyy' || "-" }}
+                </td>
+              </ng-container>
+              <ng-container [nbTreeGridColumnDef]="'TotalCost'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('Total Cost')"
+                  *nbTreeGridHeaderCellDef
+                >
+                {{ "GENERALWORDS.TOTALCOST" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["TotalCost"] || "-" }}
+                </td>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12" style="margin-top: 20px">
+            <table
+              [nbTreeGrid]="dataSource3"
+              [nbSort]="dataSource3"
+              (sort)="updateSort3($event)"
+            >
+              <tr
+                nbTreeGridHeaderRow
+                *nbTreeGridHeaderRowDef="allColumns3"
+              ></tr>
+              <tr
+                nbTreeGridRow
+                *nbTreeGridRowDef="let row; columns: allColumns3"
+              ></tr>
+
+
+              <ng-container [nbTreeGridColumnDef]="'NetProfit'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('NetProfit')"
+                  *nbTreeGridHeaderCellDef
+                >
+                {{ "GENERALWORDS.NETPROFIT" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["TotalRevenue"] || "-" }}
+                </td>
+              </ng-container>
+
+
+              <ng-container [nbTreeGridColumnDef]="'Date'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('Date')"
+                  *nbTreeGridHeaderCellDef
+                >
+                {{ "GENERALWORDS.DATE" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data.Date | date : 'dd-MM-yyyy' || "-" }}
+                </td>
+              </ng-container>
+            </table>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>
+
+
+
+

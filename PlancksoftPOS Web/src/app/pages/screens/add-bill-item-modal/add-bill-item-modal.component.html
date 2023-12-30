@@ -1,0 +1,56 @@
+<nb-card-body [formGroup]="AdditemData">
+    <div class="row">
+      <div class="col-lg-6">
+        <label for="EmployeeName">Item Name</label>
+        <nb-select
+        placeholder="Item Name"
+        formControlName="Itemname"
+        style="width: 20rem;"
+        (selectedChange)="onSelectChange($event)"
+      >
+        <nb-option *ngFor="let data of data"  [value]="data.data.ItemBarCode">{{
+          data.data.ItemName
+        }}</nb-option>
+      </nb-select>
+      </div>
+      <div class="col-lg-6">
+        <label>Item Quantity</label>
+        <input
+          type="number"
+          nbInput
+          fullWidth
+          shape="rectangle"
+          placeholder="Item Quantity"
+          formControlName="ItemQuantity"
+        />
+      </div>
+    </div>
+  
+    <div class="row">
+      <div class="col-md-12" style="margin-top: 20px; text-align: end">
+        <div class="buttons-row">
+          <button
+            class="col-md-2"
+            nbButton
+            status="primary"
+            (click)="AddData()"
+            *ngIf="!updateList.ItemBarcode"
+          >
+            Add Item
+          </button>
+          <!-- &nbsp; -->
+          <button
+          class="col-md-2"
+          nbButton
+          status="danger"
+          (click)="UpdateData()"
+          *ngIf="updateList.ItemBarcode"
+
+        >
+          Update
+        </button>
+        </div>
+      </div>
+    </div>
+  </nb-card-body>
+  

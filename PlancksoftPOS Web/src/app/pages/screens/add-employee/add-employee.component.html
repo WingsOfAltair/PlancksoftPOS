@@ -1,0 +1,77 @@
+<nb-card-body [formGroup]="AddEmployeeData">
+  <div class="row">
+    <div class="col-lg-6">
+      <label for="EmployeeName">{{ "GENERALWORDS.EMPLOYEENAME" | translate }}</label>
+      <input
+        type="text"
+        nbInput
+        fullWidth
+        shape="rectangle"
+        placeholder='{{ "GENERALWORDS.EMPLOYEENAME" | translate }}'
+        formControlName="EmployeeName"
+      />
+    </div>
+    <div class="col-lg-6">
+      <label for="Salary">{{ "GENERALWORDS.SALAERY" | translate }}</label>
+      <input
+        type="number"
+        nbInput
+        fullWidth
+        shape="rectangle"
+        placeholder='{{ "GENERALWORDS.SALAERY" | translate }}'
+        formControlName="Salary"
+      />
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-lg-6">
+      <label for="EmployeePhone">{{ "GENERALWORDS.PHONENUMBER" | translate }}</label>
+      <input
+        type="number"
+        nbInput
+        fullWidth
+        shape="rectangle"
+        placeholder='{{ "GENERALWORDS.PHONENUMBER" | translate }}'
+        formControlName="EmployeePhone"
+      />
+    </div>
+    <div class="col-lg-6">
+      <label for="EmployeeAddress">{{ "GENERALWORDS.ADDRESS" | translate }}</label>
+      <input
+        type="text"
+        nbInput
+        fullWidth
+        shape="rectangle"
+        placeholder='{{ "GENERALWORDS.ADDRESS" | translate }}'
+        formControlName="EmployeeAddress"
+      />
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12" style="margin-top: 20px; text-align: end">
+      <div class="buttons-row">
+        <button
+          class="col-md-2"
+          nbButton
+          status="primary"
+          (click)="RegisterEmployeeData()"
+          *ngIf="!data.EmoloyeeID"
+        >
+        {{ "GENERALWORDS.SUBMIT" | translate }}
+        </button>
+        &nbsp;
+        <button
+        class="col-md-2"
+        nbButton
+        status="danger"
+        (click)="UpdateEmployeeData()"
+        *ngIf="data.EmoloyeeID"
+      >
+      {{ "GENERALWORDS.UPDATE" | translate }}
+      </button>
+      </div>
+    </div>
+  </div>
+</nb-card-body>

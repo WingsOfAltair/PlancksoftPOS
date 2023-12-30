@@ -1,0 +1,109 @@
+<div class="row">
+  <div class="col-lg-12">
+    <nb-card>
+      <nb-card-header>Setting</nb-card-header>
+      <nb-card-body>
+        <div class="col-lg-12" style="margin-top: 40px">
+          <div class="row" [formGroup]="firstFormGroup">
+            <div class="col-lg-4">
+              <label>Store Name</label>
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                shape="rectangle"
+                formControlName="Storename"
+                placeholder="Store Name"
+              />
+            </div>
+
+            <div class="col-lg-4">
+              <label>Phone Number</label>
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                shape="rectangle"
+                formControlName="Phone"
+                placeholder="Phone Number"
+              />
+            </div>
+            <div class="col-lg-4">
+              <label>Address</label>
+              <input
+                type="text"
+                nbInput
+                fullWidth
+                shape="rectangle"
+                formControlName="Address"
+                placeholder="Address"
+              />
+            </div>
+            <div class="col-lg-4 mt-3">
+              <label>System Tax</label>
+              <input
+                type="number"
+                nbInput
+                fullWidth
+                shape="rectangle"
+                formControlName="SystemTax"
+                placeholder="System Tax"
+              />
+            </div>
+            <div class="col-lg-4 mt-3">
+              <label>Blank Spaces In Recipt</label>
+              <input
+                type="number"
+                nbInput
+                fullWidth
+                shape="rectangle"
+                formControlName="BlankSpacesInRecipt"
+                placeholder="Blank Spaces In Recipt"
+              />
+            </div>
+            
+
+            <div class="col-lg-4 mt-3">
+              <label>Logo</label>
+              <input
+                type="File"
+                nbInput
+                fullWidth
+                shape="rectangle"
+                formControlName="Logo"
+                placeholder="logo"
+              />
+            </div>
+            <div class="col-lg-12 mt-4">
+                <nb-checkbox [checked]="true" formControlName="IncludeLogo"
+                  >Include logo in Recipt</nb-checkbox
+                >
+              </div>
+          </div>
+          <div class="col-md-12" style="margin-top: 10px; text-align: end">
+            <div class="buttons-row">
+              <button
+                class="col-md-2"
+                nbButton
+                status="primary"
+                (click)="SubmitData()"
+              >
+                {{ "GENERALWORDS.SUBMIT" | translate }}
+              </button>
+              <!-- &nbsp;
+              <button
+                class="col-md-2"
+                nbButton
+                status="danger"
+                (click)="updateData()"
+                *ngIf="data.Uid"
+              >
+              {{ "GENERALWORDS.UPDATE" | translate }}
+              </button> -->
+            </div>
+          </div>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

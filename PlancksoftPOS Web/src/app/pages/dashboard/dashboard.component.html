@@ -1,0 +1,168 @@
+
+  <div class="row">
+    <div class="col-md-6" *ngIf="this.openclose_edit == true">
+      <nb-card style="padding: 10px">
+        <div class="row" >
+          <div class="icon-container col-lg-2">
+            <img
+              style="height: 90px; width: 90px; border-radius: 5px"
+              src="../../../assets/icon/invoice.jpg"
+              alt="invoice"
+            />
+          </div>
+
+          <div class="details col-lg-10 mt-3">
+            <div class="title h5">{{ "GENERALWORDS.TODAYINVOICE" | translate }}</div>
+            <div
+              class="status paragraph-2"
+              style="font-weight: 600; font-size: 16px"
+            >
+              {{invoice}}
+            </div>
+          </div>
+        </div>
+      </nb-card>
+    </div>
+    <div class="col-md-4" *ngIf="this.openclose_edit == false">
+      <nb-card style="padding: 10px">
+        <div class="row" >
+          <div class="icon-container col-lg-3">
+            <img
+              style="height: 90px; width: 90px; border-radius: 5px"
+              src="../../../assets/icon/invoice.jpg"
+              alt="invoice"
+            />
+          </div>
+
+          <div class="details col-lg-9 mt-3">
+            <div class="title h5">{{ "GENERALWORDS.TODAYINVOICE" | translate }}</div>
+            <div
+              class="status paragraph-2"
+              style="font-weight: 600; font-size: 16px"
+            >
+              {{invoice}}
+            </div>
+          </div>
+        </div>
+      </nb-card>
+    </div>
+    <div class="col-md-6" *ngIf="this.openclose_edit == true">
+      <nb-card style="padding: 10px">
+        <div class="row">
+          <div class="icon-container col-lg-2">
+            <img
+              style="height: 90px; width: 90px; border-radius: 5px"
+              src="../../../assets/icon/client.jpg"
+              alt="invoice"
+            />
+          </div>
+
+          <div class="details col-lg-10 mt-3">
+            <div class="title h5">{{ "GENERALWORDS.CLIENTCOUNT" | translate }}</div>
+            <div
+              class="status paragraph-2"
+              style="font-weight: 600; font-size: 16px"
+            >
+              {{clientcount}}
+            </div>
+          </div>
+        </div>
+      </nb-card>
+    </div>
+    <div class="col-md-4" *ngIf="this.openclose_edit == false">
+      <nb-card style="padding: 10px">
+        <div class="row">
+          <div class="icon-container col-lg-3">
+            <img
+              style="height: 90px; width: 90px; border-radius: 5px"
+              src="../../../assets/icon/client.jpg"
+              alt="invoice"
+            />
+          </div>
+
+          <div class="details col-lg-9 mt-3">
+            <div class="title h5">{{ "GENERALWORDS.CLIENTCOUNT" | translate }}</div>
+            <div
+              class="status paragraph-2"
+              style="font-weight: 600; font-size: 16px"
+            >
+              {{clientcount}}
+            </div>
+          </div>
+        </div>
+      </nb-card>
+    </div>
+    <div class="col-md-6" *ngIf="this.openclose_edit == true">
+      <nb-card style="padding: 10px">
+        <div class="row">
+          <div class="icon-container col-lg-2">
+            <img
+              style="height: 90px; width: 90px; border-radius: 5px"
+              src="../../../assets/icon/reminder.jpg"
+              alt="invoice"
+            />
+          </div>
+
+          <div class="details col-lg-10 mt-3">
+            <div class="title h5">{{ "GENERALWORDS.ITEMREMINDER" | translate }}</div>
+            <div
+              class="status paragraph-2"
+              style="font-weight: 600; font-size: 16px"
+            >
+              {{ItemCount}}
+            </div>
+          </div>
+        </div>
+      </nb-card>
+    </div>
+    <div class="col-md-4" *ngIf="this.openclose_edit == false">
+      <nb-card style="padding: 10px">
+        <div class="row">
+          <div class="icon-container col-lg-3">
+            <img
+              style="height: 90px; width: 90px; border-radius: 5px"
+              src="../../../assets/icon/reminder.jpg"
+              alt="invoice"
+            />
+          </div>
+
+          <div class="details col-lg-9 mt-3">
+            <div class="title h5">{{ "GENERALWORDS.ITEMREMINDER" | translate }}</div>
+            <div
+              class="status paragraph-2"
+              style="font-weight: 600; font-size: 16px"
+            >
+              {{ItemCount}}
+            </div>
+          </div>
+        </div>
+      </nb-card>
+    </div>
+
+    <div class="col-md-6" *ngIf="this.openclose_edit == true">
+      <ngx-status-card
+        
+        [title]="lightCard.title"
+        [type]="lightCard.type"
+        [on]="on"
+        (click)="onLightCardClick()"
+      >
+        <i [ngClass]="lightCard.iconClass"></i>
+      </ngx-status-card>
+    </div>
+  </div>
+
+<div class="row" >
+  <div class="col-lg-6">
+    <ngx-electricity></ngx-electricity>
+  </div>
+  <div class="col-lg-6">
+    <ngx-sales-chart></ngx-sales-chart>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xxxl-6 col-xxl-6 col-lg-6 col-md-6">
+    <ngx-contacts></ngx-contacts>
+  </div>
+</div>

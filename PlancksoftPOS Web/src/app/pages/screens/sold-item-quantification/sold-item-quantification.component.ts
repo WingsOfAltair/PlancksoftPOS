@@ -1,0 +1,131 @@
+import { Component, OnInit } from "@angular/core";
+import { SmartTableData } from "../../../@core/data/smart-table";
+import { FormBuilder, FormGroup } from "@angular/forms";
+import { LocalDataSource } from "ng2-smart-table";
+import {
+  NbSortDirection,
+  NbSortRequest,
+  NbTreeGridDataSource,
+  NbTreeGridDataSourceBuilder,
+} from "@nebular/theme";
+import { PublisherService } from "../../../services/publisher.service";
+
+@Component({
+  selector: "ngx-sold-item-quantification",
+  templateUrl: "./sold-item-quantification.component.html",
+  styleUrls: ["./sold-item-quantification.component.scss"],
+})
+export class SoldItemQuantificationComponent implements OnInit {
+  SoldItemsReviewData: FormGroup;
+  data: any;
+  Type: any;
+
+  defaultColumns = [
+    "ItemName",
+    "ItemBarcode",
+    "ItemType",
+    "CashierName",
+    "ItemPriceTax",
+    "SoldQuantity",
+    "Total",
+  ];
+
+  allColumns = [...this.defaultColumns];
+
+  dataSource: NbTreeGridDataSource<any>;
+
+  sortColumn: string;
+  sortDirection: NbSortDirection = NbSortDirection.NONE;
+
+  updateSort(sortRequest: NbSortRequest): void {
+    this.sortColumn = sortRequest.column;
+    this.sortDirection = sortRequest.direction;
+  }
+
+  getSortDirection(column: string): NbSortDirection {
+    if (this.sortColumn === column) {
+      return this.sortDirection;
+    }
+    return NbSortDirection.NONE;
+  }
+  getShowOn(index: number) {
+    const minWithForMultipleColumns = 400;
+    const nextColumnStep = 100;
+    return minWithForMultipleColumns + nextColumnStep * index;
+  }
+
+  constructor(
+    private service: SmartTableData,
+    private fb: FormBuilder,
+    private dataSourceBuilder: NbTreeGridDataSourceBuilder<any>,
+    private publisherService: PublisherService
+  ) {}
+
+  ngOnInit(): void {
+    this.SoldItemsReviewData = this.fb.group({
+      ItemType: [],
+      CashierName: [],
+      Date1: [],
+      Date2: [],
+    });
+
+    this.publisherService
+      .PostRequest("RetrieveItemTypes", "")
+      .subscribe((res: any) => {
+        console.log(JSON.parse(res));
+
+        var responce = JSON.parse(res);
+        this.Type = responce.ResponseMessage;
+
+        console.log(this.Type);
+      });
+  }
+
+  SearchSoldItemsReviewsData() {
+    var obj = {
+      // ItemTypeID: this.SoldItemsReviewData.value.ItemType,
+      // CashierName: this.SoldItemsReviewData.value.CashierName,
+      // Date1: this.convertDateToJSONFormat(this.SoldItemsReviewData.value.Date1),
+      // Date2: this.convertDateToJSONFormat(this.SoldItemsReviewData.value.Date2),
+      BillNumber: 1,
+      itemBarcode: 123,
+    };
+
+    this.publisherService
+      .PostRequest("RetrieveBillSoldBItemQuantity", obj)
+      .subscribe((res: any) => {
+        ;
+        console.log(JSON.parse(res));
+
+        var responce = JSON.parse(res);
+        var data = JSON.parse(responce.ResponseMessage);
+
+        console.log(this.data);
+
+        var list = [];
+        data.forEach((el) => {
+          var obj = {
+            data: {
+              CashierName: el["Cashier Name"],
+              ItemBarCode: el["Item BarCode"],
+              ItemName: el["Item Name"],
+              ItemPriceTax: el["Item Price Tax"],
+              ItemProfit: el["Item Profit"],
+              ItemType: el["Item Type"],
+              TimesSold: el["Times Sold"],
+            },
+          };
+
+          list.push(obj);
+        });
+
+        this.data = list;
+        this.dataSource = this.dataSourceBuilder.create(this.data);
+      });
+  }
+
+  convertDateToJSONFormat(date) {
+    var milliseconds = date.getTime();
+    return "/Date(" + milliseconds + ")/";
+  }
+}

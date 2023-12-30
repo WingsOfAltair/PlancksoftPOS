@@ -1,0 +1,67 @@
+<!-- 
+<div>
+    <div class="bill-container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 style="text-align: center">{{ this.logo }}</h1>
+          <p style="text-align: center; margin-top: -10px; ">Wellcome To {{ this.logo }}</p>
+  
+        </div>
+        <div class="col-md-6" >
+          <p>Invoice No: {{ this.userID }}</p>
+        </div>
+        <div class="col-md-6" style="text-align: end">
+          <p>Date: {{ this.currentdate | date : "dd-MM-yyyy" }}</p>
+        </div>
+        <div class="col-md-6">
+          <p>Cashier Name: {{ this.userID }}</p>
+        </div>
+        <div class="col-md-6" style="text-align: end">
+        </div>
+        <div class="col-md-12">
+          <hr />
+        </div>
+        <div class="col-md-12">
+          <table class="table table-borderless" style="color: aliceblue;">
+            <thead>
+              <tr>
+                <th scope="col">Item Name</th>
+                <th scope="col">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of exampleBill.items">
+                <td>{{ item.name }}</td>
+                <td>{{ item.price }}</td>
+              </tr>
+              <div class="col-md-12">
+                <hr /> 
+              </div>
+              <tr>
+                <td>Total Amount </td>
+                <td>
+                   {{ exampleBill.total }}
+                </td>
+              </tr>
+              <tr>
+                <td>Paid Amount </td>
+                <td>
+                   {{ exampleBill.total }}
+                </td>
+              </tr>
+              <tr>
+                <td>Reminder Amount </td>
+                <td>
+                   {{ exampleBill.total }}
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-md-12 text" >
+          <h5>Thanks For Visiting Us</h5>
+        </div>
+      </div>
+    </div>
+    <button (click)="printBill()">Print Bill</button>
+  </div> -->

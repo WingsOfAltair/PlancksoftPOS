@@ -1,0 +1,69 @@
+<div class="row" [formGroup]="firstFormGroup">
+  <div class="col-md-4 mt-2" *ngIf="!this.dataa.deductID">
+    <label>{{ "GENERALWORDS.EMPLOYEENAME" | translate }}</label>
+    <nb-select
+      formControlName="EmployeeName"
+      style="width: 100%;"
+      placeholder="{{ 'GENERALWORDS.EMPLOYEENAME' | translate }}"
+    >
+      <nb-option *ngFor="let data of data" [value]="data.data.EmployeeID">{{
+        data.data.EmployeeName
+      }}</nb-option>
+    </nb-select>
+  </div>
+  <div class="col-md-4 mt-2" *ngIf="!this.dataa.deductID">
+    <label>{{ "GENERALWORDS.DATE" | translate }}</label>
+    <input
+      nbInput
+      formControlName="date"
+      placeholder="{{ 'GENERALWORDS.DATE' | translate }}"
+      [nbDatepicker]="ExpirationDate"
+    />
+    <nb-datepicker #ExpirationDate></nb-datepicker>
+  </div>
+  <div class="col-md-4 mt-2" *ngIf="!this.dataa.deductID">
+    <label>{{ "GENERALWORDS.SALAERY" | translate }}</label>
+    <input
+      type="number"
+      nbInput
+      fullWidth
+      shape="rectangle"
+      placeholder="{{ 'GENERALWORDS.SALAERY' | translate }}"
+      formControlName="Salery"
+    />
+  </div>
+  <div class="col-md-12 mt-2" *ngIf="this.dataa.deductID">
+    <label>{{ "GENERALWORDS.SALAERY" | translate }}</label>
+    <input
+      type="number"
+      nbInput
+      fullWidth
+      shape="rectangle"
+      placeholder="{{ 'GENERALWORDS.SALAERY' | translate }}"
+      formControlName="Salery"
+    />
+  </div>
+  <div class="buttons-row mt-2">
+
+    <button
+      class="col-md-12 ml-3"
+      nbButton
+      style="margin-left: 30px;"
+      status="primary"
+      *ngIf="!this.dataa.deductID"
+      (click)="SubmitData()"
+    >
+      {{ "GENERALWORDS.SUBMIT" | translate }}
+    </button>
+    <button
+    *ngIf="this.dataa.deductID"
+      class="col-md-12 ml-3"
+      nbButton
+      style="margin-left: 30px;"
+      status="danger"
+      (click)="updateData()"
+    >
+      {{ "GENERALWORDS.UPDATE" | translate }}
+    </button>
+  </div>
+</div>

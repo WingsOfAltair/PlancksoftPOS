@@ -1,0 +1,36 @@
+
+
+<div class="row" [formGroup]="formgroup">
+  <div class="col-lg-6">
+    <label>{{ "GENERALWORDS.EXPANCENAME" | translate }}</label>
+    <input
+      type="text"
+      nbInput
+      formControlName="Expensename"
+      fullWidth
+      shape="rectangle"
+      placeholder='{{ "GENERALWORDS.EXPANCENAME" | translate }}'
+    />
+  </div>
+
+  <div class="col-lg-6">
+    <label>{{ "GENERALWORDS.EXPANCEAMOUNT" | translate }}</label>
+    <input
+      type="text"
+      nbInput
+      fullWidth
+      formControlName="Expenseamount"
+      shape="rectangle"
+      placeholder='{{ "GENERALWORDS.EXPANCEAMOUNT" | translate }}'
+    />
+  </div>
+
+  <div class="col-lg-12 mt-3">
+    <div class="buttons-row" style="text-align: end">
+      <button class="col-md-2" nbButton status="primary" (click)="SubmitData()">
+        {{ "GENERALWORDS.ADDEXPANCE" | translate }}
+      </button>
+    </div>
+  </div>
+</div>
+
