@@ -62,7 +62,7 @@ export class MenuService {
 
   loadMenus() {
     this.menu = [];
-    if (this.message.Client_card_edit == true) {
+    if (this.message.sell_edit == true) {
       this.menu.push({
         title:
           this.translationService.getSelectedLanguage() == "en"
@@ -71,10 +71,27 @@ export class MenuService {
         icon: "layout-outline",
         link: "/pages/main/cash",
         order: 2,
+      },
+      {
+        title:
+          this.translationService.getSelectedLanguage() == "en"
+            ? "Refunds"
+            : "المرجعات",
+        icon: "grid-outline",
+        order: 11,
+        children: [
+          {
+            title:
+              this.translationService.getSelectedLanguage() == "en"
+                ? "Item Refund"
+                : "استرداد العنصر",
+            link: "/pages/screen/refund-item",
+          },
+        ],
       });
     }
 
-    if (this.message.discount_edit == true) {
+    if (this.message.receipt_edit == true) {
       this.menu.push({
         title:
           this.translationService.getSelectedLanguage() == "en"
@@ -130,6 +147,15 @@ export class MenuService {
                 : "البحث عن المصروفات",
             link: "/pages/expense/expanse-lookup",
           },
+          {
+            title:
+              this.translationService.getSelectedLanguage() == "en"
+                ? "Import & Export & Capital"
+                : "الصادر و الوارد و رأس المال",
+            icon: "home-outline",
+            link: "/pages/screen/import-export-capital",
+            order: 7,
+          }
         ],
       });
     }
@@ -185,6 +211,67 @@ export class MenuService {
             link: "/pages/main/add-wearhouse",
           },
         ],
+      },
+      {
+        title:
+          this.translationService.getSelectedLanguage() == "en"
+            ? "Clients Affairs"
+            : "شؤون العملاء",
+        icon: "layout-outline",
+        children: [
+          {
+            title:
+              this.translationService.getSelectedLanguage() == "en"
+                ? "Clients Definitions"
+                : "تعريف العملاء",
+            link: "/pages/screen/client-defination",
+          },
+          {
+            title:
+              this.translationService.getSelectedLanguage() == "en"
+                ? "Client Balance Check"
+                : "كشف حساب العميل",
+            link: "/pages/screen/client-check-balance",
+          },
+          {
+            title:
+              this.translationService.getSelectedLanguage() == "en"
+                ? "Vendors Definitions"
+                : "تعريف مورد",
+            link: "/pages/screen/vendor-defination",
+          },
+          {
+            title:
+              this.translationService.getSelectedLanguage() == "en"
+                ? "Vendor Balance Check"
+                : "كشف حساب مورد",
+            link: "/pages/screen/vendor-check-balance",
+          },
+        ],
+      },
+      {
+        title:
+          this.translationService.getSelectedLanguage() == "en"
+            ? "Taxes"
+            : "الضريبه",
+        icon: "layout-outline",
+        children: [
+          {
+            title:
+              this.translationService.getSelectedLanguage() == "en"
+                ? "Tax Z Report"
+                : "تقرير الضريبه Z",
+            link: "/pages/screen/tax-report",
+          },
+        ],
+      },
+      {
+        title:
+          this.translationService.getSelectedLanguage() == "en"
+            ? "Alarms"
+            : "التنبيهات",
+        icon: "home-outline",
+        link: "/pages/screen/alaram",
       });
     }
 
@@ -197,23 +284,6 @@ export class MenuService {
         icon: "home-outline",
         link: "/pages/screen/user",
         order: 8,
-      },
-      {
-        title:
-          this.translationService.getSelectedLanguage() == "en"
-            ? "Refunds"
-            : "المرجعات",
-        icon: "grid-outline",
-        order: 11,
-        children: [
-          {
-            title:
-              this.translationService.getSelectedLanguage() == "en"
-                ? "Item Refund"
-                : "استرداد العنصر",
-            link: "/pages/screen/refund-item",
-          },
-        ],
       }
       );
     }
@@ -262,10 +332,27 @@ export class MenuService {
           },
           {
             title:
-              this.translationService.getSelectedLanguage() == "en"
-                ? "Printers"
-                : "الطابعات",
-            link: "/pages/screen/printer",
+          this.translationService.getSelectedLanguage() == "en"
+            ? "Printer"
+            : "طابعة",
+          icon: "layout-outline",
+          order: 10,
+          children: [
+            {
+              title:
+                this.translationService.getSelectedLanguage() == "en"
+                  ? "Printers"
+                  : "طابعة",
+              link: "/pages/screen/printer",
+            },
+            {
+              title:
+                this.translationService.getSelectedLanguage() == "en"
+                  ? "Printer Type"
+                  : "نوع الطابعة",
+              link: "/pages/screen/printer-type",
+            }
+          ]
           },
         ],
       });
@@ -391,103 +478,6 @@ export class MenuService {
       //     },
       //   ],
       // },
-      {
-        title:
-          this.translationService.getSelectedLanguage() == "en"
-            ? "Import & Export & Capital"
-            : "الصادر و الوارد و رأس المال",
-        icon: "home-outline",
-        link: "/pages/screen/import-export-capital",
-        order: 7,
-      },
-
-      {
-        title:
-          this.translationService.getSelectedLanguage() == "en"
-            ? "Clients Affairs"
-            : "شؤون العملاء",
-        icon: "layout-outline",
-        children: [
-          {
-            title:
-              this.translationService.getSelectedLanguage() == "en"
-                ? "Clients Definitions"
-                : "تعريف العملاء",
-            link: "/pages/screen/client-defination",
-          },
-          {
-            title:
-              this.translationService.getSelectedLanguage() == "en"
-                ? "Client Balance Check"
-                : "كشف حساب العميل",
-            link: "/pages/screen/client-check-balance",
-          },
-          {
-            title:
-              this.translationService.getSelectedLanguage() == "en"
-                ? "Vendors Definitions"
-                : "تعريف مورد",
-            link: "/pages/screen/vendor-defination",
-          },
-          {
-            title:
-              this.translationService.getSelectedLanguage() == "en"
-                ? "Vendor Balance Check"
-                : "كشف حساب مورد",
-            link: "/pages/screen/vendor-check-balance",
-          },
-        ],
-      },
-      {
-        title:
-          this.translationService.getSelectedLanguage() == "en"
-            ? "Alarms"
-            : "التنبيهات",
-        icon: "home-outline",
-        link: "/pages/screen/alaram",
-      },
-      {
-        title:
-          this.translationService.getSelectedLanguage() == "en"
-            ? "Taxes"
-            : "الضريبه",
-        icon: "layout-outline",
-        children: [
-          {
-            title:
-              this.translationService.getSelectedLanguage() == "en"
-                ? "Tax Z Report"
-                : "تقرير الضريبه Z",
-            link: "/pages/screen/tax-report",
-          },
-        ],
-      },
-
-      {
-        title:
-          this.translationService.getSelectedLanguage() == "en"
-            ? "Printer"
-            : "طابعة",
-        icon: "layout-outline",
-        order: 10,
-        children: [
-          {
-            title:
-              this.translationService.getSelectedLanguage() == "en"
-                ? "Printer Type"
-                : "نوع الطابعة",
-            link: "/pages/screen/printer-type",
-          },
-          {
-            title:
-              this.translationService.getSelectedLanguage() == "en"
-                ? "Printer"
-                : "طابعة",
-            link: "/pages/screen/printer",
-          },
-        ],
-      },
-
     );
 
     this.menu.sort(function (a, b) {

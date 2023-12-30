@@ -10,6 +10,6 @@
 
 export const environment = {
   production: false,
-  ApiUrl : 'https://localhost:44349/api/Publish/publish'
+  ApiUrl : 'http://192.168.1.137:5000/api/Publish/publish'
   // ApiUrl : 'http://localhost:51861/PlancksoftPOSJSON_Server.svc/CheckConnection'
 };

@@ -338,9 +338,9 @@ export class PaymentModalComponent implements OnInit {
             .subscribe((ress: any) => {
               console.log(JSON.parse(ress));
 
-              if (this.bill) {
+              /*if (this.bill) {
                 this.generatePDF(); 
-              }
+              }*/
 
               this.windowRef.close(true);
 
