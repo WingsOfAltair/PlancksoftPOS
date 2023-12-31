@@ -23,6 +23,7 @@ export class VendorsDefinationComponent implements OnInit {
     "Importer Name",
     "Importer Phone Number",
     "Importer Address",
+    "Importer Email",
   ];
 
   allColumns = [...this.defaultColumns];

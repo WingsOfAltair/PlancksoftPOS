@@ -23,6 +23,7 @@ export class ClientDefinationComponent implements OnInit {
     "Client Name",
     "Phone Number",
     "Client Address",
+    "Client Email",
     "Action",
   ];
 
