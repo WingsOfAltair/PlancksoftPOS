@@ -62,6 +62,16 @@ export class MenuService {
 
   loadMenus() {
     this.menu = [];
+    this.menu.push(
+      {
+        title:
+          this.translationService.getSelectedLanguage() == "en"
+            ? "Dashboard"
+            : "لوحة القيادة",
+        icon: "home-outline",
+        link: "/pages/iot-dashboard",
+        order: 1,
+      });
     if (this.message.sell_edit == true) {
       this.menu.push({
         title:
@@ -156,6 +166,22 @@ export class MenuService {
             link: "/pages/screen/import-export-capital",
             order: 7,
           }
+        ],
+      },
+      {
+        title:
+          this.translationService.getSelectedLanguage() == "en"
+            ? "Taxes"
+            : "الضريبه",
+        icon: "layout-outline",
+        children: [
+          {
+            title:
+              this.translationService.getSelectedLanguage() == "en"
+                ? "Tax Z Report"
+                : "تقرير الضريبه Z",
+            link: "/pages/screen/tax-report",
+          },
         ],
       });
     }
@@ -252,22 +278,6 @@ export class MenuService {
       {
         title:
           this.translationService.getSelectedLanguage() == "en"
-            ? "Taxes"
-            : "الضريبه",
-        icon: "layout-outline",
-        children: [
-          {
-            title:
-              this.translationService.getSelectedLanguage() == "en"
-                ? "Tax Z Report"
-                : "تقرير الضريبه Z",
-            link: "/pages/screen/tax-report",
-          },
-        ],
-      },
-      {
-        title:
-          this.translationService.getSelectedLanguage() == "en"
             ? "Alarms"
             : "التنبيهات",
         icon: "home-outline",
@@ -356,7 +366,6 @@ export class MenuService {
           },
         ],
       });
-    }
     // if (this.message.Client_card_edit == true) {
 
     //   this.menu = [
@@ -413,16 +422,7 @@ export class MenuService {
     //   ]
 
     // }
-    this.menu.push(
-      {
-        title:
-          this.translationService.getSelectedLanguage() == "en"
-            ? "Dashboard"
-            : "لوحة القيادة",
-        icon: "home-outline",
-        link: "/pages/iot-dashboard",
-        order: 1,
-      },
+    
 
       // {
       //   title:
@@ -478,7 +478,6 @@ export class MenuService {
       //     },
       //   ],
       // },
-    );
 
     this.menu.sort(function (a, b) {
       return a.order - b.order;
