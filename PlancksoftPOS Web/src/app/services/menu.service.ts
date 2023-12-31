@@ -63,15 +63,15 @@ export class MenuService {
   loadMenus() {
     this.menu = [];
     this.menu.push(
-      {
-        title:
-          this.translationService.getSelectedLanguage() == "en"
-            ? "Dashboard"
-            : "لوحة القيادة",
-        icon: "home-outline",
-        link: "/pages/iot-dashboard",
-        order: 1,
-      });
+    {
+      title:
+        this.translationService.getSelectedLanguage() == "en"
+          ? "Dashboard"
+          : "لوحة القيادة",
+      icon: "home-outline",
+      link: "/pages/iot-dashboard",
+      order: 1,
+    });
     if (this.message.sell_edit == true) {
       this.menu.push({
         title:
@@ -478,9 +478,9 @@ export class MenuService {
       //     },
       //   ],
       // },
-
     this.menu.sort(function (a, b) {
       return a.order - b.order;
     });
   }
+}
 }
