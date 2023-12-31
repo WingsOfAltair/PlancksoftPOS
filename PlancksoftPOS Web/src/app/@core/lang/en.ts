@@ -49,6 +49,7 @@ export const locale = {
         SALES:'Sales',
         CASH:'Cash',
         TCILF:'This copy is licensed for',
+        DATETIME:'Date Time',
         NOPB:'Number of pending bills',
         CURRENTBILLNUMBER:'Current Bill Number',
         PREVIOUSREMIENDER:'Previous Remainder',

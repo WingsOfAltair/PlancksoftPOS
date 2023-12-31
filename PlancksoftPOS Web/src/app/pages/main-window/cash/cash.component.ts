@@ -45,6 +45,7 @@ export class CashComponent implements OnInit {
   Userdata: any;
   userID: any;
   date: Date;
+  storeName: any;
   message: any;
   logo: any;
   currentdate: Date;
@@ -121,6 +122,16 @@ export class CashComponent implements OnInit {
     var obj = {
       locale: 1,
     };
+
+    this.publisherService
+      .PostRequest("RetrieveSystemSettings", "")
+      .subscribe((res: any) => {
+        console.log(JSON.parse(res));
+        var responce = JSON.parse(res);
+        this.message = JSON.parse(responce.ResponseMessage);
+
+        this.storeName = this.message[0].SystemName;
+      });
 
     this.publisherService
       .PostRequest("RetrieveItems", obj)
