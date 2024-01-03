@@ -161,7 +161,7 @@ export const locale = {
         DEDUCTSALAERY:'خصم الراتب',
         DOWNLOAD:'تحميل',
         PERIOUSBILL:'الفاتورة السابقة',
-        NEWBILL:'الفاتورة جديدة',
+        NEXTBILL:'الفاتورة جديدة',
         NEXTINVOICE: 'فاتورة جديدة',
         NOI:'رقم البند',
         TRANSCTIONID: '# عملية ',

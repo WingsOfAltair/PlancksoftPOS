@@ -239,7 +239,7 @@ export class CashComponent implements OnInit {
             warehouseName: el.data.warehouseName,
             ItemTypeName: el.data.ItemTypeName,
             ItemBarCode: el.data.ItemBarCode,
-            RandomCode: el.data.RandomCode,
+            RandomCode: this.random,
           },
         };
         this.PreviousPickedItem.push(obj);
@@ -259,7 +259,7 @@ export class CashComponent implements OnInit {
             warehouseName: el.data.warehouseName,
             ItemTypeName: el.data.ItemTypeName,
             ItemBarCode: el.data.ItemBarCode,
-            RandomCode: el.data.RandomCode,
+            RandomCode: this.random,
           },
         };
         this.codegenerate.push(obj);
@@ -428,6 +428,7 @@ export class CashComponent implements OnInit {
     });
 
     dt.onClose.subscribe((res) => {
+      ;
       if (res == true) {
         var indexToRemove = this.allbills.findIndex(
           (a) => a.data.ramdomcode == this.filtercode
@@ -537,13 +538,12 @@ export class CashComponent implements OnInit {
 
         if (this.paydata.length > 0) {
           var barcode = this.paydata.filter((a) => a.data.ItemBarCode == res);
-          debugger;
+          ;
           if (barcode.length > 0) {
             this.toastrService.danger(
               "This item Is already exist",
               "Try another item"
             );
-
           } else {
             this.paydata.push(newItem);
             this.paydataa.push(newItem.data);
@@ -554,7 +554,7 @@ export class CashComponent implements OnInit {
           }
         } else {
           var barcode = this.dataa.filter((a) => a.data.ItemBarCode == res);
-          debugger;
+          ;
           if (barcode.length > 0) {
             this.toastrService.danger(
               "This item Is already exist",
@@ -574,6 +574,7 @@ export class CashComponent implements OnInit {
   }
 
   Delete(id) {
+    ;
 
     if (this.paydata.length > 0) {
       var selected = this.paydata.findIndex((a) => a.data.ItemBarCode == id);

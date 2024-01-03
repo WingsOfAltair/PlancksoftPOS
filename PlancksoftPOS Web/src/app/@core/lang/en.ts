@@ -162,7 +162,7 @@ export const locale = {
         DEDUCTSALAERY:'Deducted Salary',
         DOWNLOAD:'Download',
         PERIOUSBILL:'Perivous bill',
-        NEXTBILL:'Next bill',
+        NEXTBILL:'New bill',
         NEXTINVOICE:'New Invoice',
         NOI:'No Of Item'
 
