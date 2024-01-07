@@ -2,33 +2,33 @@
 
 <div class="row" [formGroup]="formgroup">
   <div class="col-lg-6">
-    <label>{{ "GENERALWORDS.EXPANCENAME" | translate }}</label>
+    <label>{{ "GENERALWORDS.EXPENSENAME" | translate }}</label>
     <input
       type="text"
       nbInput
       formControlName="Expensename"
       fullWidth
       shape="rectangle"
-      placeholder='{{ "GENERALWORDS.EXPANCENAME" | translate }}'
+      placeholder='{{ "GENERALWORDS.EXPENSENAME" | translate }}'
     />
   </div>
 
   <div class="col-lg-6">
-    <label>{{ "GENERALWORDS.EXPANCEAMOUNT" | translate }}</label>
+    <label>{{ "GENERALWORDS.EXPENSEAMOUNT" | translate }}</label>
     <input
       type="text"
       nbInput
       fullWidth
       formControlName="Expenseamount"
       shape="rectangle"
-      placeholder='{{ "GENERALWORDS.EXPANCEAMOUNT" | translate }}'
+      placeholder='{{ "GENERALWORDS.EXPENSEAMOUNT" | translate }}'
     />
   </div>
 
   <div class="col-lg-12 mt-3">
     <div class="buttons-row" style="text-align: end">
       <button class="col-md-2" nbButton status="primary" (click)="SubmitData()">
-        {{ "GENERALWORDS.ADDEXPANCE" | translate }}
+        {{ "GENERALWORDS.ADDEXPENSE" | translate }}
       </button>
     </div>
   </div>
