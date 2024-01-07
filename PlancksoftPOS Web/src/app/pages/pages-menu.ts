@@ -17,7 +17,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: "/pages/main/cash",
   },
   {
-    title: "Sale",
+    title: "Sales",
     icon: "layout-outline",
     children: [
       {
@@ -51,7 +51,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
       //   link: '/pages/main/add-item',
       // },
       {
-        title: "Wearhouse Quantification",
+        title: "Warhouse Quantification",
         link: "/pages/main/wearhouse-quantification",
       },
       {
@@ -149,15 +149,15 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: "/pages/screen/user",
   },
   {
-    title: "Setting",
+    title: "Settings",
     icon: "layout-outline",
     children: [
       {
-        title: "POS Setting",
+        title: "POS Settings",
         link: "/pages/screen/setting",
       },
       {
-        title: "Printers ",
+        title: "Printers' Settings",
         link: "/pages/screen/printer",
       },
     ],
