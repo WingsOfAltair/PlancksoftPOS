@@ -2231,10 +2231,11 @@ namespace PlancksoftPOS
             // 
             // cbSalesDateSearch
             // 
+            this.cbSalesDateSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cbSalesDateSearch.AutoSize = true;
             this.cbSalesDateSearch.Depth = 0;
             this.cbSalesDateSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.cbSalesDateSearch.Location = new System.Drawing.Point(1122, 30);
+            this.cbSalesDateSearch.Location = new System.Drawing.Point(1114, 30);
             this.cbSalesDateSearch.Margin = new System.Windows.Forms.Padding(0);
             this.cbSalesDateSearch.MouseLocation = new System.Drawing.Point(-1, -1);
             this.cbSalesDateSearch.MouseState = MaterialSkin.MouseState.HOVER;
