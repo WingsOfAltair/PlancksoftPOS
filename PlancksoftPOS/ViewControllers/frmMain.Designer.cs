@@ -188,7 +188,6 @@ namespace PlancksoftPOS
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.SoldItems = new System.Windows.Forms.TabPage();
             this.groupBox28 = new MaterialSkin.Controls.MaterialCard();
-            this.cbQuantifyDateSearch = new MaterialSkin.Controls.MaterialCheckbox();
             this.label38 = new MaterialSkin.Controls.MaterialLabel();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label37 = new MaterialSkin.Controls.MaterialLabel();
@@ -3203,7 +3202,6 @@ namespace PlancksoftPOS
             // groupBox28
             // 
             this.groupBox28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.groupBox28.Controls.Add(this.cbQuantifyDateSearch);
             this.groupBox28.Controls.Add(this.label38);
             this.groupBox28.Controls.Add(this.comboBox2);
             this.groupBox28.Controls.Add(this.label37);
@@ -3225,23 +3223,6 @@ namespace PlancksoftPOS
             this.groupBox28.TabIndex = 0;
             this.groupBox28.Text = "البحث";
             // 
-            // cbQuantifyDateSearch
-            // 
-            this.cbQuantifyDateSearch.AutoSize = true;
-            this.cbQuantifyDateSearch.Depth = 0;
-            this.cbQuantifyDateSearch.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.cbQuantifyDateSearch.Location = new System.Drawing.Point(850, 30);
-            this.cbQuantifyDateSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.cbQuantifyDateSearch.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.cbQuantifyDateSearch.MouseState = MaterialSkin.MouseState.HOVER;
-            this.cbQuantifyDateSearch.Name = "cbQuantifyDateSearch";
-            this.cbQuantifyDateSearch.ReadOnly = false;
-            this.cbQuantifyDateSearch.Ripple = true;
-            this.cbQuantifyDateSearch.Size = new System.Drawing.Size(79, 37);
-            this.cbQuantifyDateSearch.TabIndex = 37;
-            this.cbQuantifyDateSearch.Text = "بحث تاريخ";
-            this.cbQuantifyDateSearch.UseVisualStyleBackColor = true;
-            // 
             // label38
             // 
             this.label38.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -3249,7 +3230,7 @@ namespace PlancksoftPOS
             this.label38.Depth = 0;
             this.label38.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label38.Location = new System.Drawing.Point(1695, 19);
+            this.label38.Location = new System.Drawing.Point(1432, 8);
             this.label38.MouseState = MaterialSkin.MouseState.HOVER;
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(29, 19);
@@ -3263,7 +3244,7 @@ namespace PlancksoftPOS
             this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(1830, 46);
+            this.comboBox2.Location = new System.Drawing.Point(1567, 35);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(213, 21);
             this.comboBox2.TabIndex = 35;
@@ -3275,7 +3256,7 @@ namespace PlancksoftPOS
             this.label37.Depth = 0;
             this.label37.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label37.Location = new System.Drawing.Point(1903, 19);
+            this.label37.Location = new System.Drawing.Point(1640, 8);
             this.label37.MouseState = MaterialSkin.MouseState.HOVER;
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(48, 19);
@@ -3289,7 +3270,7 @@ namespace PlancksoftPOS
             this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(1611, 46);
+            this.comboBox1.Location = new System.Drawing.Point(1348, 35);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(213, 21);
             this.comboBox1.TabIndex = 33;
@@ -3301,7 +3282,7 @@ namespace PlancksoftPOS
             this.dateTimePicker3.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker3.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker3.Location = new System.Drawing.Point(1199, 47);
+            this.dateTimePicker3.Location = new System.Drawing.Point(936, 36);
             this.dateTimePicker3.Name = "dateTimePicker3";
             this.dateTimePicker3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePicker3.RightToLeftLayout = true;
@@ -3315,7 +3296,7 @@ namespace PlancksoftPOS
             this.label3.Depth = 0;
             this.label3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label3.Location = new System.Drawing.Point(1238, 20);
+            this.label3.Location = new System.Drawing.Point(975, 9);
             this.label3.MouseState = MaterialSkin.MouseState.HOVER;
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(67, 19);
@@ -3329,7 +3310,7 @@ namespace PlancksoftPOS
             this.dateTimePicker4.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker4.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.dateTimePicker4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker4.Location = new System.Drawing.Point(1405, 47);
+            this.dateTimePicker4.Location = new System.Drawing.Point(1142, 36);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.dateTimePicker4.RightToLeftLayout = true;
@@ -3343,7 +3324,7 @@ namespace PlancksoftPOS
             this.label5.Depth = 0;
             this.label5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label5.Location = new System.Drawing.Point(1446, 20);
+            this.label5.Location = new System.Drawing.Point(1183, 9);
             this.label5.MouseState = MaterialSkin.MouseState.HOVER;
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(65, 19);
@@ -3356,7 +3337,7 @@ namespace PlancksoftPOS
             this.pictureBox30.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox30.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox30.Image = global::PlancksoftPOS.Properties.Resources.search;
-            this.pictureBox30.Location = new System.Drawing.Point(2056, 31);
+            this.pictureBox30.Location = new System.Drawing.Point(1797, 19);
             this.pictureBox30.Name = "pictureBox30";
             this.pictureBox30.Size = new System.Drawing.Size(47, 39);
             this.pictureBox30.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -3379,7 +3360,7 @@ namespace PlancksoftPOS
             this.groupBox27.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox27.Name = "groupBox27";
             this.groupBox27.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox27.Size = new System.Drawing.Size(2122, 782);
+            this.groupBox27.Size = new System.Drawing.Size(2122, 807);
             this.groupBox27.TabIndex = 1;
             // 
             // dgvItemProfit
@@ -3400,11 +3381,11 @@ namespace PlancksoftPOS
             this.ItemPriceTax,
             this.dataGridViewTextBoxColumn18,
             this.dataGridViewTextBoxColumn19});
-            this.dgvItemProfit.Location = new System.Drawing.Point(10, 20);
+            this.dgvItemProfit.Location = new System.Drawing.Point(10, 0);
             this.dgvItemProfit.Name = "dgvItemProfit";
             this.dgvItemProfit.ReadOnly = true;
             this.dgvItemProfit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvItemProfit.Size = new System.Drawing.Size(2011, 759);
+            this.dgvItemProfit.Size = new System.Drawing.Size(1856, 807);
             this.dgvItemProfit.TabIndex = 34;
             // 
             // dataGridViewTextBoxColumn16
@@ -13414,7 +13395,6 @@ namespace PlancksoftPOS
         private System.Windows.Forms.TabPage printersSettings;
         private FlowLayoutPanel flowLayoutPanel4;
         private MaterialCheckbox cbSalesDateSearch;
-        private MaterialCheckbox cbQuantifyDateSearch;
         private MaterialSkin.Controls.MaterialButton button17;
         private MaterialSkin.Controls.MaterialButton button24;
         private MaterialSkin.Controls.MaterialButton button18;

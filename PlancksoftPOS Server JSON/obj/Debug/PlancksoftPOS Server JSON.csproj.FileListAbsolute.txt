@@ -7,172 +7,40 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Newtonsoft.Json.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Buffers.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Data.SqlClient.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Diagnostics.DiagnosticSource.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.Data.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Net.Http.Formatting.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Numerics.Vectors.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Encodings.Web.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Json.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Threading.Tasks.Extensions.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.ValueTuple.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.WebHost.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\DataAccessLayer.pdb
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Dependencies.pdb
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Azure.Core.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Microsoft.Bcl.AsyncInterfaces.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Newtonsoft.Json.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Buffers.xml
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Data.SqlClient.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Diagnostics.DiagnosticSource.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.Data.xml
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Net.Http.Formatting.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Numerics.Vectors.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Runtime.CompilerServices.Unsafe.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Encodings.Web.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Json.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Threading.Tasks.Extensions.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.ValueTuple.xml
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.xml
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.WebHost.xml
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.AssemblyReference.cache
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.CoreCompileInputs.cache
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.CopyComplete
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.pdb
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\PlancksoftPOS Server JSON.dll.config
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\PlancksoftPOS Server JSON.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\PlancksoftPOS Server JSON.pdb
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Azure.Core.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\DataAccessLayer.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Dependencies.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Newtonsoft.Json.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Buffers.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Diagnostics.DiagnosticSource.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.Data.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Numerics.Vectors.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Runtime.CompilerServices.Unsafe.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Encodings.Web.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Json.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Threading.Tasks.Extensions.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.ValueTuple.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\DataAccessLayer.pdb
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Dependencies.pdb
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Azure.Core.xml
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Microsoft.Bcl.AsyncInterfaces.xml
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Newtonsoft.Json.xml
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Buffers.xml
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Diagnostics.DiagnosticSource.xml
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.xml
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.Data.xml
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Numerics.Vectors.xml
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Runtime.CompilerServices.Unsafe.xml
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Encodings.Web.xml
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Json.xml
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Threading.Tasks.Extensions.xml
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.ValueTuple.xml
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.AssemblyReference.cache
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.CoreCompileInputs.cache
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.CopyComplete
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.pdb
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Data.SqlClient.dll
-C:\Projects\Angular\Inventory\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Data.SqlClient.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\PlancksoftPOS Server JSON.dll.config
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\PlancksoftPOS Server JSON.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\PlancksoftPOS Server JSON.pdb
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Azure.Core.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\DataAccessLayer.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Dependencies.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Microsoft.Bcl.AsyncInterfaces.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Newtonsoft.Json.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Buffers.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Data.SqlClient.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Diagnostics.DiagnosticSource.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.Data.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Numerics.Vectors.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Runtime.CompilerServices.Unsafe.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Encodings.Web.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Json.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Threading.Tasks.Extensions.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.ValueTuple.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\DataAccessLayer.pdb
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Dependencies.pdb
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Azure.Core.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Microsoft.Bcl.AsyncInterfaces.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Newtonsoft.Json.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Buffers.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Data.SqlClient.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Diagnostics.DiagnosticSource.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.Data.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Numerics.Vectors.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Runtime.CompilerServices.Unsafe.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Encodings.Web.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Json.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Threading.Tasks.Extensions.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.ValueTuple.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.AssemblyReference.cache
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.CoreCompileInputs.cache
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.CopyComplete
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.pdb
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Net.Http.Formatting.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.WebHost.dll
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Net.Http.Formatting.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.xml
-D:\Persnal client\Planksoft POS hanzalla copy\PlancksoftPOS\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.WebHost.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\PlancksoftPOS Server JSON.dll.config
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\PlancksoftPOS Server JSON.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\PlancksoftPOS Server JSON.pdb
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Azure.Core.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\DataAccessLayer.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Dependencies.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Newtonsoft.Json.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Buffers.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Data.SqlClient.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Diagnostics.DiagnosticSource.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.Data.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Net.Http.Formatting.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Numerics.Vectors.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Encodings.Web.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Json.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Threading.Tasks.Extensions.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.ValueTuple.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.WebHost.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\DataAccessLayer.pdb
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Dependencies.pdb
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Azure.Core.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Microsoft.Bcl.AsyncInterfaces.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\Newtonsoft.Json.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Buffers.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Data.SqlClient.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Diagnostics.DiagnosticSource.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Memory.Data.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Net.Http.Formatting.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Numerics.Vectors.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Runtime.CompilerServices.Unsafe.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Encodings.Web.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Text.Json.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Threading.Tasks.Extensions.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.ValueTuple.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.WebHost.xml
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.AssemblyReference.cache
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.CoreCompileInputs.cache
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.csproj.CopyComplete
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.dll
-C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS Server JSON\obj\Debug\PlancksoftPOS Server JSON.pdb
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Data.SqlClient.dll
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Net.Http.Formatting.dll
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.dll
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.WebHost.dll
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Data.SqlClient.xml
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Net.Http.Formatting.xml
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.xml
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server JSON\bin\System.Web.Http.WebHost.xml
