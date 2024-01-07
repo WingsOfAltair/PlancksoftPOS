@@ -6,13 +6,6 @@ C:\Users\basha\OneDrive\Desktop\Dev\NeatVibezPOS\NeatVibezPOS License Informatio
 C:\Users\basha\OneDrive\Desktop\Dev\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.csproj.CoreCompileInputs.cache
 C:\Users\basha\OneDrive\Desktop\Dev\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.exe
 C:\Users\basha\OneDrive\Desktop\Dev\NeatVibezPOS\NeatVibezPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.pdb
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\PlancksoftPOS License Information Fetcher.exe.config
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\PlancksoftPOS License Information Fetcher.exe
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\PlancksoftPOS License Information Fetcher.pdb
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.csproj.AssemblyReference.cache
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.csproj.CoreCompileInputs.cache
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.exe
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.pdb
 C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\PlancksoftPOS License Information Fetcher.exe.config
 C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\PlancksoftPOS License Information Fetcher.exe
 C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\PlancksoftPOS License Information Fetcher.pdb
@@ -21,9 +14,6 @@ C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftP
 C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.csproj.CoreCompileInputs.cache
 C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.exe
 C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.pdb
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\Dependencies.dll
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\Dependencies.pdb
-C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.csproj.CopyComplete
 C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\Dependencies.dll
 C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\Dependencies.pdb
 C:\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.csproj.CopyComplete
@@ -58,3 +48,13 @@ C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS License Information 
 C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.csproj.CopyComplete
 C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.exe
 C:\Users\basha\OneDrive\Desktop\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\PlancksoftPOS License Information Fetcher.exe.config
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\PlancksoftPOS License Information Fetcher.exe
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\PlancksoftPOS License Information Fetcher.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\bin\Debug\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.csproj.AssemblyReference.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.csproj.CoreCompileInputs.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.csproj.CopyComplete
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.exe
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.pdb
