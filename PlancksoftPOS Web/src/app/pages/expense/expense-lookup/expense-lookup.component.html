@@ -7,14 +7,14 @@
       <nb-card-body>
         <div class="row" [formGroup]="Expense">
           <div class="col-lg-4">
-            <label>{{ "GENERALWORDS.EXPANCENAME" | translate }}</label>
+            <label>{{ "GENERALWORDS.EXPENSENAME" | translate }}</label>
             <input
               type="text"
               nbInput
               formControlName="Expensename"
               fullWidth
               shape="rectangle"
-              placeholder="{{ 'GENERALWORDS.EXPANCENAME' | translate }}"
+              placeholder="{{ 'GENERALWORDS.EXPENSENAME' | translate }}"
             />
           </div>
 
@@ -85,7 +85,7 @@
                       status="primary"
                       (click)="button()"
                     >
-                      {{ "GENERALWORDS.ADDEXPANCE" | translate }}
+                      {{ "GENERALWORDS.ADDEXPENSE" | translate }}
                     </button>
                   </div>
 
@@ -121,7 +121,7 @@
                     [nbSortHeader]="getSortDirection('ExpenseID')"
                     *nbTreeGridHeaderCellDef
                   >
-                    {{ "GENERALWORDS.EXPANCEID" | translate }}
+                    {{ "GENERALWORDS.EXPENSEID" | translate }}
                   </th>
                   <td nbTreeGridCell *nbTreeGridCellDef="let row">
                     {{ row.data.ExpenseID || "-" }}
@@ -133,7 +133,7 @@
                     [nbSortHeader]="getSortDirection('ExpenseName')"
                     *nbTreeGridHeaderCellDef
                   >
-                    {{ "GENERALWORDS.EXPANCENAME" | translate }}
+                    {{ "GENERALWORDS.EXPENSENAME" | translate }}
                   </th>
                   <td nbTreeGridCell *nbTreeGridCellDef="let row">
                     {{ row.data["ExpanseName"] || "-" }}
@@ -146,7 +146,7 @@
                     [nbSortHeader]="getSortDirection('ExpenseCost')"
                     *nbTreeGridHeaderCellDef
                   >
-                    {{ "GENERALWORDS.EXPANCECOST" | translate }}
+                    {{ "GENERALWORDS.EXPENSECOST" | translate }}
                   </th>
                   <td nbTreeGridCell *nbTreeGridCellDef="let row">
                     {{ row.data["cost"] || "-" }}
