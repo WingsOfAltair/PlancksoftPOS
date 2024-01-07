@@ -522,7 +522,7 @@ namespace PlancksoftPOSJSON_Server
             WebInvoke
             (
                 Method = "POST",
-                UriTemplate = "RetrieveBills",
+                UriTemplate = "RetrieveBillsRefund",
                 RequestFormat = WebMessageFormat.Json,
                 ResponseFormat = WebMessageFormat.Json,
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
@@ -534,7 +534,7 @@ namespace PlancksoftPOSJSON_Server
             WebInvoke
             (
                 Method = "POST",
-                UriTemplate = "RetrieveBillsRefund",
+                UriTemplate = "RetrieveBills",
                 RequestFormat = WebMessageFormat.Json,
                 ResponseFormat = WebMessageFormat.Json,
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
