@@ -63,8 +63,8 @@ export class SoldItemQuantificationComponent implements OnInit {
 
   ngOnInit(): void {
     this.SoldItemsReviewData = this.fb.group({
-      ItemType: [],
-      CashierName: [],
+      ItemType: [0],
+      CashierName: [""],
       Date1: [],
       Date2: [],
     });
@@ -83,16 +83,16 @@ export class SoldItemQuantificationComponent implements OnInit {
 
   SearchSoldItemsReviewsData() {
     var obj = {
-      // ItemTypeID: this.SoldItemsReviewData.value.ItemType,
-      // CashierName: this.SoldItemsReviewData.value.CashierName,
-      // Date1: this.convertDateToJSONFormat(this.SoldItemsReviewData.value.Date1),
-      // Date2: this.convertDateToJSONFormat(this.SoldItemsReviewData.value.Date2),
-      BillNumber: 1,
-      itemBarcode: 123,
+      ItemTypeID: this.SoldItemsReviewData.value.ItemType,
+      CashierName: this.SoldItemsReviewData.value.CashierName,
+      Date1: this.convertDateToJSONFormat(this.SoldItemsReviewData.value.Date1) + " 00:00:00.000",
+      Date2: this.convertDateToJSONFormat(this.SoldItemsReviewData.value.Date2) + " 23:59:59.999",
+      //BillNumber: 1,
+      //itemBarcode: 123,
     };
 
     this.publisherService
-      .PostRequest("RetrieveBillSoldBItemQuantity", obj)
+      .PostRequest("RetrieveBillItemsProfit", obj)
       .subscribe((res: any) => {
         ;
         console.log(JSON.parse(res));
@@ -125,7 +125,14 @@ export class SoldItemQuantificationComponent implements OnInit {
   }
 
   convertDateToJSONFormat(date) {
-    var milliseconds = date.getTime();
-    return "/Date(" + milliseconds + ")/";
+    var formattedDate = date.getFullYear() + '-' +
+                        this.padZero(date.getMonth() + 1) + '-' +
+                        this.padZero(date.getDate());
+    return formattedDate;
+  };
+
+  // Function to pad a single digit with a leading zero
+  padZero(value) {
+    return value < 10 ? '0' + value : value;
   }
 }
