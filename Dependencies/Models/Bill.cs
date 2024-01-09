@@ -109,6 +109,11 @@ namespace Dependencies
         public string getCashierName()
         {
             return this.CashierName;
+        }          
+
+        public string getClientName()
+        {
+            return this.ClientName;
         }
 
         public int getBillNumber()
@@ -144,6 +149,11 @@ namespace Dependencies
         public void SetCashierName(string cashierName)
         {
             this.CashierName = cashierName;
+        } 
+
+        public void SetClientName(string clientName)
+        {
+            this.ClientName = clientName;
         }
 
         public void SetBillNumber(int BillNumber)

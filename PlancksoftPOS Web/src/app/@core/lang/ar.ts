@@ -38,6 +38,7 @@ export const locale = {
         POSTPONED:'التأجيل',
         CREATEBILL:'إنشاء الفاتورة',
         ITEMQUANTITY:'عدد القطعه',
+        ITEMQUANTITYRETURN:'عدد الإرجاع',
         TOTALAMOUNT:'المبلغ الصافي',
         IMCOMMINGOUTGOINGSALES:'المبيعات المرحله و الغير مرحله',
         PAYMENTMETHOD:'طريقة الدفع',
