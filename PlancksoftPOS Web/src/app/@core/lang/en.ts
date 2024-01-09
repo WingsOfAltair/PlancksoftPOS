@@ -39,6 +39,7 @@ export const locale = {
         POSTPONED:'Postponed',
         CREATEBILL:'Create Bill',
         ITEMQUANTITY:'Item Quantity',
+        ITEMQUANTITYRETURN:'Return Quantity',
         TOTALAMOUNT:'Total Amount',
         IMCOMMINGOUTGOINGSALES:'Incoming Outgoing Sales',
         PAYMENTMETHOD:'Payment Method',

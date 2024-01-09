@@ -8,6 +8,8 @@ import {
 } from "@nebular/theme";
 import { PublisherService } from "../../../services/publisher.service";
 import { FormBuilder, Validators } from "@angular/forms";
+import {
+  NbToastrService,} from "@nebular/theme";
 
 @Component({
   selector: "ngx-refund-item-modal",
@@ -21,6 +23,7 @@ export class RefundItemModalComponent implements OnInit {
   defaultColumns = [
     "BillNumber",
     "CashierName",
+    "ClientName",
     "Date",
     "Action",
   ];
@@ -36,7 +39,8 @@ export class RefundItemModalComponent implements OnInit {
   itemdata: any[];
   BillId: any = 0;
   Barcode: any = "";
-  itemquantity: any = "";
+  itemquantity: any = 0;
+  returnquantity: any = 0;
   ItembillID: any;
   pickbilltable = 1;
   pickitemtable = 0;
@@ -105,7 +109,8 @@ export class RefundItemModalComponent implements OnInit {
     private fb: FormBuilder,
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<any>,
     private publisherService: PublisherService,
-    private windowRef: NbWindowRef
+    private windowRef: NbWindowRef,
+    private toastrService: NbToastrService
   ) {
     var user = sessionStorage.getItem("userData");
     this.Userdata = JSON.parse(user);
@@ -139,6 +144,33 @@ export class RefundItemModalComponent implements OnInit {
         });
 
         this.clientdata = list;
+      });
+      
+      this.publisherService
+      .PostRequest("RetrieveBillsRefund", "")
+      .subscribe((res: any) => {
+        console.log(JSON.parse(res));
+
+        var response = JSON.parse(res);
+        var array = response.ResponseMessage.Item1;
+
+        var list = [];
+        array.forEach((el) => {
+          const productionDate = parseInt(el["Date"].match(/-?\d+/)[0], 10);
+          const formattedDate = new Date(productionDate).toLocaleDateString();
+          var obj = {
+            data: {
+              BillNumber: el["BillNumber"],
+              CashierName: el["CashierName"],
+              ClientName: el["ClientName"],
+              Date: formattedDate,
+            },
+          };
+          list.push(obj);
+        });
+
+        this.data = list;
+        this.dataSource = this.dataSourceBuilder.create(this.data);
       });
   }
 
@@ -228,6 +260,7 @@ export class RefundItemModalComponent implements OnInit {
     this.Barcode = barcode;
     var selected = this.itemdata.filter((a) => a.data.ItemBarcode == barcode);
     this.itemquantity = selected[0].data.ItemQuantity;
+    this.returnquantity = selected[0].data.ReturnQuantity;
 
     this.firstformgroup.patchValue({
       ItemName: selected[0].data.ItemName,
@@ -246,8 +279,15 @@ export class RefundItemModalComponent implements OnInit {
         BillID: this.BillId
       }
 
-      this.publisherService.PostRequest("ReturnItem" ,obj).subscribe(res => {
+      if (this.firstformgroup.value.ReturnQuantity > this.firstformgroup.value.ItemQuantity)
+      {
+        this.toastrService.danger("Return quantity is higher than purchased quantity.", "Error");
+        return;
+      }
 
+      this.publisherService.PostRequest("ReturnItem" ,obj).subscribe(res => {
+        this.toastrService.success("Item was returned successfully.", "Success");
+        this.windowRef.close();
       })
 
     }

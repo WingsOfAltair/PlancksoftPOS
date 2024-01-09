@@ -1397,6 +1397,7 @@ namespace DataAccessLayerJSON
                     Bill bill = new Bill();
                     bill.SetBillNumber(Convert.ToInt32(Bill["Bill Number"].ToString()));
                     bill.SetCashierName(Bill["Cashier Name"].ToString());
+                    bill.SetClientName(Bill["Client Name"].ToString());
                     bill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
                     bill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
                     bill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
@@ -1434,6 +1435,7 @@ namespace DataAccessLayerJSON
                     Bill bill = new Bill();
                     bill.SetBillNumber(Convert.ToInt32(Bill["Bill Number"].ToString()));
                     bill.SetCashierName(Bill["Cashier Name"].ToString());
+                    bill.SetClientName(Bill["Client Name"].ToString());
                     bill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
                     bill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
                     bill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));

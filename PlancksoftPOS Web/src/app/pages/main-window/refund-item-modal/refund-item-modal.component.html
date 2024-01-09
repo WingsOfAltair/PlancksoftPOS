@@ -67,6 +67,18 @@
                   {{ row.data["CashierName"] || "-" }}
                 </td>
               </ng-container>
+              <ng-container [nbTreeGridColumnDef]="'ClientName'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('ClientName')"
+                  *nbTreeGridHeaderCellDef
+                >
+                  {{ "GENERALWORDS.CLIENTNAME" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["ClientName"] || "-" }}
+                </td>
+              </ng-container>
 
 
               <ng-container [nbTreeGridColumnDef]="'Date'">
@@ -241,14 +253,14 @@
             />
           </div>
           <div class="col-lg-12">
-            <label>{{ "GENERALWORDS.ITEMQUANTITY" | translate }}</label>
+            <label>{{ "GENERALWORDS.ITEMQUANTITYRETURN" | translate }}</label>
             <input
               type="number"
               nbInput
               required
               fullWidth
               shape="rectangle"
-              placeholder="{{ 'GENERALWORDS.ITEMQUANTITY' | translate }}"
+              placeholder="{{ 'GENERALWORDS.ITEMQUANTITYRETURN' | translate }}"
               formControlName="ReturnQuantity"
             />
           </div>
