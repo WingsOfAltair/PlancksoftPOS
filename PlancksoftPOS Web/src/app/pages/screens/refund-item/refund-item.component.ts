@@ -59,8 +59,8 @@ export class RefundItemComponent implements OnInit {
         debugger;
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var data = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        var data = JSON.parse(response.ResponseMessage);
 
         console.log(this.data);
 

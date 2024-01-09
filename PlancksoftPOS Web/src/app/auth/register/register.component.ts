@@ -31,8 +31,8 @@ export class RegisterComponent implements OnInit {
     this.publisherService
       .PostRequest("RetrieveUsers", "")
       .subscribe((res: any) => {
-        var responce = JSON.parse(res);
-        this.message = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        this.message = response.ResponseMessage.Item1;
 
         if (this.message.length > 0) this.route.navigate(["/auth/login"]);
       });

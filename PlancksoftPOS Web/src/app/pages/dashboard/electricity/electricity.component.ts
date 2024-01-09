@@ -100,9 +100,9 @@ export class ElectricityComponent implements OnDestroy {
 
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
+        var response = JSON.parse(res);
 
-        var array = responce.ResponseMessage.Item1;
+        var array = response.ResponseMessage.Item1;
 
         var todaydate = new Date()
         
@@ -165,9 +165,9 @@ export class ElectricityComponent implements OnDestroy {
         ;
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
+        var response = JSON.parse(res);
 
-        var array = responce.ResponseMessage.Item1;
+        var array = response.ResponseMessage.Item1;
 
         var filter = array.filter(a => a.Date == date )
 

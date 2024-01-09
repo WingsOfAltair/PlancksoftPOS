@@ -74,8 +74,8 @@ export class SoldItemQuantificationComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        this.Type = responce.ResponseMessage;
+        var response = JSON.parse(res);
+        this.Type = response.ResponseMessage;
 
         console.log(this.Type);
       });
@@ -97,8 +97,8 @@ export class SoldItemQuantificationComponent implements OnInit {
         ;
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var data = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        var data = JSON.parse(response.ResponseMessage);
 
         console.log(this.data);
 

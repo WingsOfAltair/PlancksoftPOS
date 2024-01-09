@@ -97,8 +97,8 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var array = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        var array = response.ResponseMessage.Item1;
         
         var list = [];
         array.forEach((el) => {
@@ -126,8 +126,8 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var array = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        var array = response.ResponseMessage.Item1;
 
         var list = [];
 

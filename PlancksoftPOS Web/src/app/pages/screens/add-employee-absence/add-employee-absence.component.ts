@@ -95,8 +95,8 @@ export class AddEmployeeAbsenceComponent implements OnInit {
         .PostRequest("RetrieveAbsence", obj)
         .subscribe((res: any) => {
           console.log(JSON.parse(res));
-          var responce = JSON.parse(res);
-          var array = JSON.parse(responce.ResponseMessage);
+          var response = JSON.parse(res);
+          var array = JSON.parse(response.ResponseMessage);
            
           array.forEach((el) => {
             var obj = {

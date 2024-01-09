@@ -36,8 +36,8 @@ export class PrinterTypeModalComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var data = responce.ResponseMessage;
+        var response = JSON.parse(res);
+        var data = response.ResponseMessage;
 
         console.log(this.data);
 
@@ -60,8 +60,8 @@ export class PrinterTypeModalComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var data = responce.ResponseMessage;
+        var response = JSON.parse(res);
+        var data = response.ResponseMessage;
 
         console.log(this.data);
 

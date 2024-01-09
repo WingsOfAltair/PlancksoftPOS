@@ -75,8 +75,8 @@ export class AddItemTypeComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var message = responce.ResponseMessage;
+        var response = JSON.parse(res);
+        var message = response.ResponseMessage;
 
         var list = [];
         message.forEach((el) => {

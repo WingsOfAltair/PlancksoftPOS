@@ -91,8 +91,8 @@ export class EmployeeComponent implements OnInit {
       ;
       console.log(JSON.parse(res));
 
-      var responce = JSON.parse(res);
-      var array = JSON.parse(responce.ResponseMessage);
+      var response = JSON.parse(res);
+      var array = JSON.parse(response.ResponseMessage);
 
       var list = [];
 
@@ -131,8 +131,8 @@ export class EmployeeComponent implements OnInit {
         ;
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var array = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        var array = JSON.parse(response.ResponseMessage);
 
         var list = [];
 

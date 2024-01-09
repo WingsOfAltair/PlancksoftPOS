@@ -29,8 +29,8 @@ export class CheckConnectionComponent implements OnInit {
       
       this.check = res.ResponseMessage;
 
-      var responce = JSON.parse(res);
-      this.message = responce.ResponseMessage;
+      var response = JSON.parse(res);
+      this.message = response.ResponseMessage;
 
       console.log(this.message);
 

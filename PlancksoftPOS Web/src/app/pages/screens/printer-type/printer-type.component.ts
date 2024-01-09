@@ -61,8 +61,8 @@ export class PrinterTypeComponent implements OnInit {
       ;
       console.log(JSON.parse(res));
 
-      var responce = JSON.parse(res);
-      var data = responce.ResponseMessage;
+      var response = JSON.parse(res);
+      var data = response.ResponseMessage;
 
       console.log(this.data);
 
@@ -149,8 +149,8 @@ export class PrinterTypeComponent implements OnInit {
       ;
       console.log(JSON.parse(res));
 
-      var responce = JSON.parse(res);
-      var data = responce.ResponseMessage;
+      var response = JSON.parse(res);
+      var data = response.ResponseMessage;
 
       console.log(this.data);
 

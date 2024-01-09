@@ -103,8 +103,8 @@ export class ClientCheckBalanceComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var array = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        var array = JSON.parse(response.ResponseMessage);
 
         var list = [];
 
@@ -134,8 +134,8 @@ export class ClientCheckBalanceComponent implements OnInit {
     this.publisherService
       .PostRequest("RetrieveLastVendorBillNumberToday", obj)
       .subscribe((res: any) => {
-        var responce = JSON.parse(res);
-        var array = responce.ResponseMessage;
+        var response = JSON.parse(res);
+        var array = response.ResponseMessage;
 
         array.forEach((el) => {
           const productionDate = parseInt(el["Date"].match(/-?\d+/)[0], 10);
@@ -166,8 +166,8 @@ export class ClientCheckBalanceComponent implements OnInit {
         console.log(JSON.parse(res));
 
         debugger
-        var responce = JSON.parse(res);
-        var array = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        var array = JSON.parse(response.ResponseMessage);
 
         var list = [];
 
@@ -203,8 +203,8 @@ export class ClientCheckBalanceComponent implements OnInit {
     this.publisherService
       .PostRequest("RetrieveBillItems", obj)
       .subscribe((res: any) => {
-        var responce = JSON.parse(res);
-        var array = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        var array = response.ResponseMessage.Item1;
 
         var list = [];
 

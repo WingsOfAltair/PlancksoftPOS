@@ -34,8 +34,8 @@ export class SettingComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
          ;
-        var responce = JSON.parse(res);
-        this.message = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        this.message = JSON.parse(response.ResponseMessage);
 
         this.firstFormGroup.patchValue({
           Storename: this.message[0].SystemName,

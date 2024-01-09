@@ -32,7 +32,7 @@ export class SalesComponent implements OnInit {
     "ItemName",
     "ItemBarcode",
     "SoldQuantity",
-    "OriginalQuantity",
+    "ReturnedQuantity",
     "Price",
     "PriceafterTax",
   ];
@@ -132,8 +132,8 @@ export class SalesComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var array = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        var array = response.ResponseMessage.Item1;
 
         var list = [];
 
@@ -164,8 +164,8 @@ export class SalesComponent implements OnInit {
       .PostRequest("RetrieveSystemSettings", "")
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
-        var responce = JSON.parse(res);
-        this.message = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        this.message = JSON.parse(response.ResponseMessage);
 
         this.logo = this.message[0].SystemName;
         this.currentdate = new Date();
@@ -184,8 +184,8 @@ export class SalesComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var array = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        var array = response.ResponseMessage.Item1;
 
         var list = [];
 
@@ -215,8 +215,8 @@ export class SalesComponent implements OnInit {
       .PostRequest("RetrieveLeastBoughtItems", "")
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
-        var responce = JSON.parse(res);
-        var data = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        var data = response.ResponseMessage.Item1;
         this.filterdata = data;
         debugger
         var list = [];
@@ -251,8 +251,8 @@ export class SalesComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var data = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        var data = response.ResponseMessage.Item1;
 
         this.filterdata = data;
 
@@ -301,10 +301,51 @@ export class SalesComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
         debugger;
-        var responce = JSON.parse(res);
-        this.filteritemdata = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        this.filteritemdata = response.ResponseMessage.Item1;
 
         this.generatePDF();
+      });
+  }
+
+  view(id) {
+    var obj = {
+      BillNumber: id,
+    };
+    this.publisherService
+      .PostRequest("RetrieveBillItems", obj)
+      .subscribe((res: any) => {
+        console.log(JSON.parse(res));
+
+        var response = JSON.parse(res);
+        var data = response.ResponseMessage.Item1;
+
+        this.filterdata = data;
+
+        var list = [];
+        data.forEach((el) => {
+          var obj = {
+            data: {
+              ItemID: el["ItemID"],
+              ItemName: el["ItemName"],
+              ItemQuantity: el["ItemQuantity"],
+              ItemBuyPrice: el["ItemBuyPrice"],
+              ItemPrice: el["ItemPrice"],
+              ItemPriceTax: el["ItemPriceTax"],
+              favoriteCategoryName: el["favoriteCategoryName"],
+              ReturnedQuantity: el["ReturnedQuantity"],
+              warehouseName: el["warehouseName"],
+              ItemTypeName: el["ItemTypeName"],
+              ItemBarCode: el["ItemBarCode"],
+            },
+          };
+          list.push(obj);
+        });
+
+        this.dataa = list;
+        this.dataSource = this.dataSourceBuilder.create(this.dataa);
+
+        console.log(this.dataSource);
       });
   }
 

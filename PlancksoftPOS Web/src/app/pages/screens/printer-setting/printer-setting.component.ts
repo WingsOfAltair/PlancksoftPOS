@@ -59,8 +59,8 @@ export class PrinterSettingComponent implements OnInit {
       ;
       console.log(JSON.parse(res));
 
-      var responce = JSON.parse(res);
-      var data = responce.ResponseMessage;
+      var response = JSON.parse(res);
+      var data = response.ResponseMessage;
 
       console.log(this.data);
 

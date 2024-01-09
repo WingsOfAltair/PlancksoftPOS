@@ -77,8 +77,8 @@ export class AddWearhouseComponent implements OnInit {
       
       console.log(JSON.parse(res));
 
-      var responce = JSON.parse(res);
-      var message = responce.ResponseMessage;
+      var response = JSON.parse(res);
+      var message = response.ResponseMessage;
 
       var list = []
       message.forEach((el) => {

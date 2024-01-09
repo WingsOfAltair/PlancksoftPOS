@@ -1942,6 +1942,7 @@ namespace DataAccessLayerJSON
                     billItems.SetName(FavoriteItem["Item Name"].ToString());
                     billItems.SetBarCode(FavoriteItem["Item BarCode"].ToString());
                     billItems.SetQuantity(Convert.ToInt32(FavoriteItem["Times Sold"].ToString()));
+                    billItems.SetReturnedQuantity(Convert.ToInt32(FavoriteItem["Returned Quantity"].ToString()));
                     billItems.SetPrice(Convert.ToDecimal(FavoriteItem["Item Price"].ToString()));
                     billItems.SetPriceTax(Convert.ToDecimal(FavoriteItem["Item Price Tax"].ToString()));
                     BillItems.Add(billItems);

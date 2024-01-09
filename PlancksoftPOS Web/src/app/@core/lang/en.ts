@@ -22,6 +22,7 @@ export const locale = {
         ITEMNAME:'Item Name',
         ITEMBARCODE:'Item Barcode',
         SOLDQUANTITY:'Sold Quantity',
+        RETURNEDQUANTITY:'Returned Quantity',
         ORIGINALQUANTITY:'Original Quantity',
         PRICE:'Price',
         PRICEAFTERTAX:'Price After Tax',

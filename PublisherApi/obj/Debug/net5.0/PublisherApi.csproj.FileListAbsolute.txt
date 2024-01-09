@@ -136,3 +136,4 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.pdb
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.genruntimeconfig.cache
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\ref\PublisherApi.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\obj\Debug\net5.0\PublisherApi.MvcApplicationPartsAssemblyInfo.cs

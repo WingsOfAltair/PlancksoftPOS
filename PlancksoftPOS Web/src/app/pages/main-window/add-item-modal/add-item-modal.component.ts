@@ -78,8 +78,8 @@ export class AddItemModalComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        this.message = responce.ResponseMessage;
+        var response = JSON.parse(res);
+        this.message = response.ResponseMessage;
 
         console.log(this.message);
       });
@@ -89,8 +89,8 @@ export class AddItemModalComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        this.wearhouse = responce.ResponseMessage;
+        var response = JSON.parse(res);
+        this.wearhouse = response.ResponseMessage;
 
         console.log(this.wearhouse);
       });
@@ -100,8 +100,8 @@ export class AddItemModalComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        this.Type = responce.ResponseMessage;
+        var response = JSON.parse(res);
+        this.Type = response.ResponseMessage;
 
         console.log(this.Type);
       });
@@ -272,8 +272,8 @@ export class AddItemModalComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        this.tax = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        this.tax = JSON.parse(response.ResponseMessage);
 
         this.calcuatetex = this.tax[0].SystemTax;
 
