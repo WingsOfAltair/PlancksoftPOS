@@ -107,8 +107,8 @@ export class AddSellItemComponent implements OnInit {
       .PostRequest("RetrieveUsers", "")
       .subscribe((res: any) => {
         ;
-        var responce = JSON.parse(res);
-        this.message = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        this.message = response.ResponseMessage.Item1;
         this.cashierName = this.message[0].name;
       });
 
@@ -117,8 +117,8 @@ export class AddSellItemComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var array = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        var array = JSON.parse(response.ResponseMessage);
 
         var list = [];
 
@@ -150,8 +150,8 @@ export class AddSellItemComponent implements OnInit {
     this.publisherService
       .PostRequest("SearchItems", obj)
       .subscribe((res: any) => {
-        var responce = JSON.parse(res);
-        var data = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        var data = response.ResponseMessage.Item1;
 
         this.filterdata = data;
 
@@ -190,8 +190,8 @@ export class AddSellItemComponent implements OnInit {
     this.publisherService
       .PostRequest("SearchItems", obj)
       .subscribe((res: any) => {
-        var responce = JSON.parse(res);
-        var data = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        var data = response.ResponseMessage.Item1;
 
         this.filterdata = data;
 

@@ -88,8 +88,8 @@ export class PaymentModalComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var data = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        var data = response.ResponseMessage.Item1;
 
         this.filterdata = data.filter((a) => a.IsVendor == false);
 
@@ -114,8 +114,8 @@ export class PaymentModalComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var array = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        var array = JSON.parse(response.ResponseMessage);
 
         var list = [];
 
@@ -139,8 +139,8 @@ export class PaymentModalComponent implements OnInit {
       .PostRequest("RetrieveSystemSettings", "")
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
-        var responce = JSON.parse(res);
-        this.message = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        this.message = JSON.parse(response.ResponseMessage);
 
         this.logo = this.message[0].SystemName;
         this.currentdate = new Date();
@@ -198,8 +198,8 @@ export class PaymentModalComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var data = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        var data = JSON.parse(response.ResponseMessage);
 
         var list = [];
         var billitemlist = [];
@@ -248,8 +248,8 @@ export class PaymentModalComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var data = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        var data = JSON.parse(response.ResponseMessage);
 
         var list = [];
         var billitemlist = [];

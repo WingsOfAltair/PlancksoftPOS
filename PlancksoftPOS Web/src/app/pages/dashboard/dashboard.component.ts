@@ -145,8 +145,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
         ;
-        var responce = JSON.parse(res);
-        this.message = responce.ResponseMessage;
+        var response = JSON.parse(res);
+        this.message = response.ResponseMessage;
 
         var list = [];
         ;
@@ -162,8 +162,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
       ;
       console.log(JSON.parse(res));
 
-      var responce = JSON.parse(res);
-      var array = JSON.parse(responce.ResponseMessage);
+      var response = JSON.parse(res);
+      var array = JSON.parse(response.ResponseMessage);
 
       this.clientcount = array.length
 
@@ -184,8 +184,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
       ;
       console.log(JSON.parse(res));
 
-      var responce = JSON.parse(res);
-      var array = responce.ResponseMessage;
+      var response = JSON.parse(res);
+      var array = response.ResponseMessage;
 
      
       this.invoice = array;
@@ -205,8 +205,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
       ;
       console.log(JSON.parse(res));
 
-      var responce = JSON.parse(res);
-      var array = responce.ResponseMessage.Item1;
+      var response = JSON.parse(res);
+      var array = response.ResponseMessage.Item1;
 
       this.ItemCount = array.length
 

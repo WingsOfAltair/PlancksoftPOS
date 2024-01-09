@@ -81,9 +81,9 @@ export class SalesChartComponent implements OnInit {
         ;
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
+        var response = JSON.parse(res);
 
-        var array = responce.ResponseMessage.Item1;
+        var array = response.ResponseMessage.Item1;
 
         var todaydate = new Date()
         

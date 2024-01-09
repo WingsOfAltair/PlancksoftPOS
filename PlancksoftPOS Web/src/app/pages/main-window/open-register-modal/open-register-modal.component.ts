@@ -26,8 +26,8 @@ export class OpenRegisterModalComponent implements OnInit {
     this.publisherService
       .PostRequest("RetrieveUsers", "")
       .subscribe((res: any) => {
-        var responce = JSON.parse(res);
-        this.message = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        this.message = response.ResponseMessage.Item1;
         this.cashierName = this.message[0].name;
       });
 

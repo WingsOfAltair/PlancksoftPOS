@@ -35,8 +35,8 @@ export class BillReciptComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
          ;
-        var responce = JSON.parse(res);
-        this.message = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        this.message = JSON.parse(response.ResponseMessage);
 
         this.logo = this.message[0].SystemName
         this.currentdate = new Date()

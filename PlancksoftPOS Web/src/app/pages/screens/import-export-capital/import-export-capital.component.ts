@@ -123,8 +123,8 @@ export class ImportExportCapitalComponent implements OnInit {
       ;
       console.log(JSON.parse(res));
 
-      var responce = JSON.parse(res);
-      var array = JSON.parse(responce.ResponseMessage.Item2);
+      var response = JSON.parse(res);
+      var array = JSON.parse(response.ResponseMessage.Item2);
 
       var list = [];
 
@@ -152,8 +152,8 @@ export class ImportExportCapitalComponent implements OnInit {
       ;
       console.log(JSON.parse(res));
 
-      var responce = JSON.parse(res);
-      var array = JSON.parse(responce.ResponseMessage.Item2);
+      var response = JSON.parse(res);
+      var array = JSON.parse(response.ResponseMessage.Item2);
 
       var list = [];
 
@@ -181,8 +181,8 @@ export class ImportExportCapitalComponent implements OnInit {
       ;
       console.log(JSON.parse(res));
 
-      var responce = JSON.parse(res);
-      var array = JSON.parse(responce.ResponseMessage.Item2);
+      var response = JSON.parse(res);
+      var array = JSON.parse(response.ResponseMessage.Item2);
 
       var list = [];
 

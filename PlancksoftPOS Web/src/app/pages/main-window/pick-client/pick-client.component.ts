@@ -63,8 +63,8 @@ export class PickClientComponent implements OnInit {
         ;
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var array = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        var array = JSON.parse(response.ResponseMessage);
 
         var list = [];
 

@@ -94,8 +94,8 @@ export class AlaramComponent implements OnInit {
       ;
       console.log(JSON.parse(res));
 
-      var responce = JSON.parse(res);
-      var data = responce.ResponseMessage.Item1;
+      var response = JSON.parse(res);
+      var data = response.ResponseMessage.Item1;
 
       var list = []
       data.forEach((el) => {

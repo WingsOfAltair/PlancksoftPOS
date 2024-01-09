@@ -22,6 +22,7 @@ export const locale = {
         ITEMNAME:'إسم القطعة',
         ITEMBARCODE:'باركود القطعه',
         SOLDQUANTITY:'عدد البيع',
+        RETURNEDQUANTITY:'عدد المرجعات',
         ORIGINALQUANTITY:'العدد من أصل',
         PRICE:'السعر',
         PRICEAFTERTAX:'السعر بعد الضريبه',

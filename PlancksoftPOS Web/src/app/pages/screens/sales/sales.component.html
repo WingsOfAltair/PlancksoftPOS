@@ -129,6 +129,7 @@
                   {{ "GENERALWORDS.DOWNLOAD" | translate }}
                 </button> -->
                 <nb-icon icon="download-outline" pack="eva" (click)="download(row.data.BillNumber)"></nb-icon>
+                <nb-icon icon="list-outline" pack="eva" (click)="view(row.data.BillNumber)"></nb-icon>
               </td>
             </ng-container>
           </table>
@@ -207,16 +208,16 @@
               </td>
             </ng-container>
 
-            <ng-container [nbTreeGridColumnDef]="'OriginalQuantity'">
+            <ng-container [nbTreeGridColumnDef]="'ReturnedQuantity'">
               <th
                 nbTreeGridHeaderCell
-                [nbSortHeader]="getSortDirection('OriginalQuantity')"
+                [nbSortHeader]="getSortDirection('ReturnedQuantity')"
                 *nbTreeGridHeaderCellDef
               >
-              {{ "GENERALWORDS.ORIGINALQUANTITY" | translate }}
+              {{ "GENERALWORDS.RETURNEDQUANTITY" | translate }}
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                {{ row.data["ItemQuantity"] || "-" }}
+                {{ row.data["ReturnedQuantity"] || "-" }}
               </td>
             </ng-container>
 

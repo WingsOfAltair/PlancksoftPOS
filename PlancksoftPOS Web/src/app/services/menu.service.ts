@@ -26,8 +26,8 @@ export class MenuService {
       .PostRequest("RetrieveUserPermissions", obj)
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
-        var responce = JSON.parse(res);
-        this.message = responce.ResponseMessage;
+        var response = JSON.parse(res);
+        this.message = response.ResponseMessage;
 
         var list = [];
         this.Client_card_edit = this.message.Client_card_edit;
@@ -105,7 +105,7 @@ export class MenuService {
       this.menu.push({
         title:
           this.translationService.getSelectedLanguage() == "en"
-            ? "Sale"
+            ? "Sales"
             : "المبيعات",
         icon: "layout-outline",
         order: 3,
@@ -113,15 +113,15 @@ export class MenuService {
           {
             title:
               this.translationService.getSelectedLanguage() == "en"
-                ? "Sale"
+                ? "Sales"
                 : "المبيعات",
             link: "/pages/screen/sale",
           },
           {
             title:
               this.translationService.getSelectedLanguage() == "en"
-                ? "Invoice"
-                : "فاتورة",
+                ? "Invoice Edit"
+                : "تعديل فاتورة",
             link: "/pages/screen/edit-invoice",
           },
           {
@@ -145,7 +145,7 @@ export class MenuService {
       this.menu.push({
         title:
           this.translationService.getSelectedLanguage() == "en"
-            ? "Expense"
+            ? "Expenses"
             : "المصاريف",
         icon: "layout-outline",
         order: 4,
@@ -204,7 +204,7 @@ export class MenuService {
           {
             title:
               this.translationService.getSelectedLanguage() == "en"
-                ? "Wearhouse Quantification"
+                ? "Warehouse Quantification"
                 : "جرد المستودعات",
             link: "/pages/main/wearhouse-quantification",
           },
@@ -232,7 +232,7 @@ export class MenuService {
           {
             title:
               this.translationService.getSelectedLanguage() == "en"
-                ? "Add Wearhouse"
+                ? "Add Warehouse"
                 : "إضافة مستودع",
             link: "/pages/main/add-wearhouse",
           },
@@ -241,14 +241,14 @@ export class MenuService {
       {
         title:
           this.translationService.getSelectedLanguage() == "en"
-            ? "Clients Affairs"
+            ? "Clients' Affairs"
             : "شؤون العملاء",
         icon: "layout-outline",
         children: [
           {
             title:
               this.translationService.getSelectedLanguage() == "en"
-                ? "Clients Definitions"
+                ? "Clients' Definitions"
                 : "تعريف العملاء",
             link: "/pages/screen/client-defination",
           },
@@ -262,7 +262,7 @@ export class MenuService {
           {
             title:
               this.translationService.getSelectedLanguage() == "en"
-                ? "Vendors Definitions"
+                ? "Vendors' Definitions"
                 : "تعريف مورد",
             link: "/pages/screen/vendor-defination",
           },
@@ -301,7 +301,7 @@ export class MenuService {
       this.menu.push({
         title:
           this.translationService.getSelectedLanguage() == "en"
-            ? "Employees Affairs"
+            ? "Employees' Affairs"
             : "شؤون الموظفين",
         icon: "layout-outline",
         order: 9,
@@ -309,7 +309,7 @@ export class MenuService {
           {
             title:
               this.translationService.getSelectedLanguage() == "en"
-                ? "Employees Management"
+                ? "Employees' Management"
                 : "إدارة الموظفين",
             link: "/pages/screen/employee",
           },
@@ -327,7 +327,7 @@ export class MenuService {
       this.menu.push({
         title:
         this.translationService.getSelectedLanguage() == "en"
-          ? "Setting"
+          ? "Settings"
           : "جلسة",
       icon: "layout-outline",
       link: "/pages/screen/setting",
@@ -336,14 +336,14 @@ export class MenuService {
           {
             title:
               this.translationService.getSelectedLanguage() == "en"
-                ? "POS Setting"
+                ? "POS Settings"
                 : "إعداد نقاط البيع",
             link: "/pages/screen/setting",
           },
           {
             title:
           this.translationService.getSelectedLanguage() == "en"
-            ? "Printer"
+            ? "Printers' Settings"
             : "طابعة",
           icon: "layout-outline",
           order: 10,
@@ -358,7 +358,7 @@ export class MenuService {
             {
               title:
                 this.translationService.getSelectedLanguage() == "en"
-                  ? "Printer Type"
+                  ? "Printers' Types"
                   : "نوع الطابعة",
               link: "/pages/screen/printer-type",
             }

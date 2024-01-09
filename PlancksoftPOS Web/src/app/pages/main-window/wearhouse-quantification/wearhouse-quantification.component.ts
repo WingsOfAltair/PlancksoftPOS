@@ -94,8 +94,8 @@ export class WearhouseQuantificationComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        this.wearhouse = responce.ResponseMessage;
+        var response = JSON.parse(res);
+        this.wearhouse = response.ResponseMessage;
 
         console.log(this.wearhouse);
       });
@@ -109,8 +109,8 @@ export class WearhouseQuantificationComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var data = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        var data = response.ResponseMessage.Item1;
 
         var list = [];
         data.forEach((el) => {
@@ -149,8 +149,8 @@ export class WearhouseQuantificationComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var data = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        var data = response.ResponseMessage.Item1;
 
         var list = [];
         data.forEach((el) => {

@@ -61,8 +61,8 @@ export class UserComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        this.message = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        this.message = response.ResponseMessage.Item1;
         
         var list = [];
         this.message.forEach((el) => {

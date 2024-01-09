@@ -120,8 +120,8 @@ export class RefundItemModalComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
-        var responce = JSON.parse(res);
-        var array = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        var array = JSON.parse(response.ResponseMessage);
 
         var list = [];
 
@@ -152,8 +152,8 @@ export class RefundItemModalComponent implements OnInit {
         console.log(JSON.parse(res));
 
         debugger;
-        var responce = JSON.parse(res);
-        var array = JSON.parse(responce.ResponseMessage);
+        var response = JSON.parse(res);
+        var array = JSON.parse(response.ResponseMessage);
 
         var list = [];
 
@@ -194,8 +194,8 @@ export class RefundItemModalComponent implements OnInit {
     this.publisherService
       .PostRequest("RetrieveBillItems", obj)
       .subscribe((res: any) => {
-        var responce = JSON.parse(res);
-        var array = responce.ResponseMessage.Item1;
+        var response = JSON.parse(res);
+        var array = response.ResponseMessage.Item1;
 
         var list = [];
 
