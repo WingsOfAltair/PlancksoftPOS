@@ -224,7 +224,7 @@ export class RefundItemModalComponent implements OnInit {
     this.BillId = id;
 
     this.publisherService
-      .PostRequest("RetrieveBillItems", obj)
+      .PostRequest("RetrieveBillItemsRefund", obj)
       .subscribe((res: any) => {
         var response = JSON.parse(res);
         var array = response.ResponseMessage.Item1;
@@ -287,7 +287,40 @@ export class RefundItemModalComponent implements OnInit {
 
       this.publisherService.PostRequest("ReturnItem" ,obj).subscribe(res => {
         this.toastrService.success("Item was returned successfully.", "Success");
-        this.windowRef.close();
+        this.pickbilltable = 0;
+        this.pickitemtable = 2;
+        this.updatequantity = 0;
+
+        var obj = {
+          BillNumber: this.BillId,
+        };
+    
+        this.publisherService
+          .PostRequest("RetrieveBillItemsRefund", obj)
+          .subscribe((res: any) => {
+            var response = JSON.parse(res);
+            var array = response.ResponseMessage.Item1;
+    
+            var list = [];
+    
+            array.forEach((el) => {
+              var obj = {
+                data: {
+                  ItemName: el["ItemName"],
+                  ItemBarcode: el["ItemBarCode"],
+                  ItemBuyPrice: el["ItemBuyPrice"],
+                  ItemPriceTax: el["ItemPriceTax"],
+                  ItemQuantity: el["ItemQuantity"],
+                },
+              };
+    
+              list.push(obj);
+            });
+            debugger;
+            this.itemdata = list;
+    
+            this.dataSource1 = this.dataSourceBuilder.create(this.itemdata);
+          });
       })
 
     }
