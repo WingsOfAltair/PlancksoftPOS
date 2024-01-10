@@ -503,8 +503,8 @@ export class ImportExportFormComponent implements OnInit {
         this.UpdateDeleteTable.forEach((a) => {
           if (a.data) {
             amount +=
-              a.data.ItemQuantity * a.data.ItemPrice
-                ? a.data.ItemQuantity * a.data.ItemPrice
+              a.data.ItemQuantity * a.data.ItemBuyPrice
+                ? a.data.ItemQuantity * a.data.ItemBuyPrice
                 : 0;
             bouth.push(a.data);
           }
@@ -513,8 +513,8 @@ export class ImportExportFormComponent implements OnInit {
         this.itemboughts.forEach((a) => {
           if (a.itemsBought) {
             amount +=
-              a.itemsBought.ItemQuantity * a.itemsBought.ItemPrice
-                ? a.itemsBought.ItemQuantity * a.itemsBought.ItemPrice
+              a.itemsBought.ItemQuantity * a.itemsBought.ItemBuyPrice
+                ? a.itemsBought.ItemQuantity * a.itemsBought.ItemBuyPrice
                 : 0;
             bouth.push(a.itemsBought);
           }

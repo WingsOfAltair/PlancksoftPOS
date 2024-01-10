@@ -110,8 +110,8 @@
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
 
-                <span *ngIf="row.data.paybycash">{{ GENERALWORDS.CASHPAYMENT }}</span>
-                <span *ngIf="!row.data.paybycash">{{ GENERALWORDS.VISAPAYMENT }}</span>
+                <span *ngIf="row.data.PayByCash">{{ "GENERALWORDS.CASHPAYMENT" | translate }}</span>
+                <span *ngIf="!row.data.PayByCash">{{ "GENERALWORDS.VISAPAYMENT" | translate }}</span>
                 <!-- {{ row.data["paybycash"] || "-" }} -->
               </td>
             </ng-container>

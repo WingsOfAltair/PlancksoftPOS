@@ -119,7 +119,7 @@ export class ElectricityComponent implements OnDestroy {
               PaidAmount: el["PaidAmount"],
               TotalAmount: el["TotalAmount"],
               RemainderAmount: el["RemainderAmount"],
-              paybycash: el["paybycash"],
+              PayByCash: el["PayByCash"],
               Date: el["Date"],
             },
           };
@@ -183,7 +183,7 @@ export class ElectricityComponent implements OnDestroy {
               PaidAmount: el["PaidAmount"],
               TotalAmount: el["TotalAmount"],
               RemainderAmount: el["RemainderAmount"],
-              paybycash: el["paybycash"],
+              PayByCash: el["PayByCash"],
               Date: el["Date"],
             },
           };

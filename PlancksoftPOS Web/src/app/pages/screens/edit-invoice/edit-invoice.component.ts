@@ -95,7 +95,7 @@ export class EditInvoiceComponent implements OnInit {
               totalAmount: el.totalAmount,
               paidAmount: el.paidAmount,
               RemainderAmount: el.RemainderAmount,
-              paybycash: el.paybycash,
+              PayByCash: el.PayByCash,
             },
           };
           list.push(obj);
