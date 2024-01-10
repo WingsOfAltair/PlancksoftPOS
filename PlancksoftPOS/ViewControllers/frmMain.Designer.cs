@@ -108,11 +108,13 @@ namespace PlancksoftPOS
             this.dgvBills = new System.Windows.Forms.DataGridView();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel6 = new MaterialSkin.Controls.MaterialCard();
             this.button26 = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox17 = new System.Windows.Forms.PictureBox();
@@ -132,10 +134,12 @@ namespace PlancksoftPOS
             this.dgvBillsEdit = new System.Windows.Forms.DataGridView();
             this.BillNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BillCashierName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BillTotalAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BillPaidAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BillRemainderAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BillPaymentType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel11 = new MaterialSkin.Controls.MaterialCard();
             this.BillsEditButton = new MaterialSkin.Controls.MaterialButton();
             this.BillsCashierName = new MaterialSkin.Controls.MaterialTextBox2();
@@ -2073,11 +2077,13 @@ namespace PlancksoftPOS
             this.dgvBills.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column15,
             this.Column16,
+            this.Column12,
             this.Column17,
             this.Column18,
             this.Column19,
             this.Column5,
-            this.Column64});
+            this.Column64,
+            this.Column13});
             this.dgvBills.Location = new System.Drawing.Point(0, 0);
             this.dgvBills.Name = "dgvBills";
             this.dgvBills.ReadOnly = true;
@@ -2101,6 +2107,14 @@ namespace PlancksoftPOS
             this.Column16.HeaderText = "اسم الكاشير";
             this.Column16.Name = "Column16";
             this.Column16.ReadOnly = true;
+            // 
+            // Column12
+            // 
+            this.Column12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column12.DataPropertyName = "Client Name";
+            this.Column12.HeaderText = "إسم العميل";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
             // 
             // Column17
             // 
@@ -2141,6 +2155,14 @@ namespace PlancksoftPOS
             this.Column64.HeaderText = "التاريخ";
             this.Column64.Name = "Column64";
             this.Column64.ReadOnly = true;
+            // 
+            // Column13
+            // 
+            this.Column13.DataPropertyName = "PayByCash";
+            this.Column13.HeaderText = "PayByCash";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Visible = false;
             // 
             // panel6
             // 
@@ -2397,10 +2419,12 @@ namespace PlancksoftPOS
             this.dgvBillsEdit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BillNumber,
             this.BillCashierName,
+            this.Column40,
             this.BillTotalAmount,
             this.BillPaidAmount,
             this.BillRemainderAmount,
-            this.BillPaymentType});
+            this.BillPaymentType,
+            this.Column14});
             this.dgvBillsEdit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvBillsEdit.Location = new System.Drawing.Point(14, 14);
             this.dgvBillsEdit.Name = "dgvBillsEdit";
@@ -2425,6 +2449,14 @@ namespace PlancksoftPOS
             this.BillCashierName.HeaderText = "اسم الكاشير";
             this.BillCashierName.Name = "BillCashierName";
             this.BillCashierName.ReadOnly = true;
+            // 
+            // Column40
+            // 
+            this.Column40.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column40.DataPropertyName = "Client Name";
+            this.Column40.HeaderText = "إسم العميل";
+            this.Column40.Name = "Column40";
+            this.Column40.ReadOnly = true;
             // 
             // BillTotalAmount
             // 
@@ -2457,6 +2489,14 @@ namespace PlancksoftPOS
             this.BillPaymentType.HeaderText = "طريقة الدفع";
             this.BillPaymentType.Name = "BillPaymentType";
             this.BillPaymentType.ReadOnly = true;
+            // 
+            // Column14
+            // 
+            this.Column14.DataPropertyName = "PayByCash";
+            this.Column14.HeaderText = "PayByCash";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Visible = false;
             // 
             // panel11
             // 
@@ -13263,13 +13303,6 @@ namespace PlancksoftPOS
         public System.Windows.Forms.DataGridViewTextBoxColumn pendingPurchaseItemQuantity;
         public System.Windows.Forms.DataGridViewTextBoxColumn pendingPurchaseItemPrice;
         public System.Windows.Forms.DataGridViewTextBoxColumn pendingPurchaseItemPriceTax;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column19;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column64;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
@@ -13351,12 +13384,6 @@ namespace PlancksoftPOS
         public System.Windows.Forms.DataGridViewTextBoxColumn Column51;
         public System.Windows.Forms.DataGridViewTextBoxColumn TaxTotal;
         public System.Windows.Forms.PictureBox pictureBox35;
-        public System.Windows.Forms.DataGridViewTextBoxColumn BillNumber;
-        public System.Windows.Forms.DataGridViewTextBoxColumn BillCashierName;
-        public System.Windows.Forms.DataGridViewTextBoxColumn BillTotalAmount;
-        public System.Windows.Forms.DataGridViewTextBoxColumn BillPaidAmount;
-        public System.Windows.Forms.DataGridViewTextBoxColumn BillRemainderAmount;
-        public System.Windows.Forms.DataGridViewTextBoxColumn BillPaymentType;
         public System.Windows.Forms.DataGridViewTextBoxColumn UserName;
         public System.Windows.Forms.DataGridViewTextBoxColumn UserID;
         public System.Windows.Forms.DataGridViewTextBoxColumn UserPassword;
@@ -13639,6 +13666,23 @@ namespace PlancksoftPOS
         private DataGridViewTextBoxColumn VendorClientPhone;
         private DataGridViewTextBoxColumn VendorClientAddress;
         private DataGridViewTextBoxColumn Column11;
+        private DataGridViewTextBoxColumn Column15;
+        private DataGridViewTextBoxColumn Column16;
+        private DataGridViewTextBoxColumn Column12;
+        private DataGridViewTextBoxColumn Column17;
+        private DataGridViewTextBoxColumn Column18;
+        private DataGridViewTextBoxColumn Column19;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column64;
+        private DataGridViewTextBoxColumn Column13;
+        private DataGridViewTextBoxColumn BillNumber;
+        private DataGridViewTextBoxColumn BillCashierName;
+        private DataGridViewTextBoxColumn Column40;
+        private DataGridViewTextBoxColumn BillTotalAmount;
+        private DataGridViewTextBoxColumn BillPaidAmount;
+        private DataGridViewTextBoxColumn BillRemainderAmount;
+        private DataGridViewTextBoxColumn BillPaymentType;
+        private DataGridViewTextBoxColumn Column14;
     }
 }
 

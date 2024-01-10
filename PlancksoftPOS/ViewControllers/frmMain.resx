@@ -177,6 +177,9 @@
   <data name="Column16.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="Column12.UserAddedColumn" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="Column17.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -192,10 +195,16 @@
   <data name="Column64.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="Column13.UserAddedColumn" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="BillNumber.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="BillCashierName.UserAddedColumn" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Column40.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="BillTotalAmount.UserAddedColumn" type="System.Boolean, mscorlib">
@@ -208,6 +217,9 @@
     <value>True</value>
   </data>
   <data name="BillPaymentType.UserAddedColumn" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="Column14.UserAddedColumn" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
   <data name="dataGridViewTextBoxColumn11.UserAddedColumn" type="System.Boolean, mscorlib">

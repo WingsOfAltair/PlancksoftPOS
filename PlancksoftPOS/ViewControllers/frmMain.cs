@@ -900,7 +900,7 @@ namespace PlancksoftPOS
 
                     btnMenuRefunds.Text = "المرجعات";
 
-                    label71.Text = "اسم الكاشير:";
+                    label71.Text = "إسم الكاشير:";
                     label45.Text = "هذه النسخه مرخصه ل";
                     groupBox3.Text = "قائمة المشتريات الحاليه";
                     label112.Text = "0 :عدد الفواتير المعلقه";
@@ -935,7 +935,8 @@ namespace PlancksoftPOS
                         groupBox12.Text = "لائحة الفواتير";
                         button26.Text = "مبيعات اليوم";
                         dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
-                        dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                        dgvBills.Columns["Column16"].HeaderText = "إسم الكاشير";
+                        dgvBills.Columns["Column12"].HeaderText = "إسم العميل";
                         dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
                         dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
                         dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
@@ -944,7 +945,7 @@ namespace PlancksoftPOS
                         groupBox14.Text = "المواد المباعه بالفاتوره";
                         button25.Text = "أقل 100 المواد مباعه";
                         button18.Text = "أكثر 100 المواد مباعه";
-                        dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
+                        dgvBillItems.Columns["Column20"].HeaderText = "إسم الماده";
                         dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
                         dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
                         dgvBillItems.Columns["Column63"].HeaderText = "العدد المرجع";
@@ -956,13 +957,14 @@ namespace PlancksoftPOS
                         tabControl4.TabPages["EditInvoices"].Text = "التعديل على الفواتير";
                         groupBox30.Text = "لائحة الفواتير";
                         label13.Text = "رقم الفاتوره";
-                        label11.Text = "اسم الكاشير";
+                        label11.Text = "إسم الكاشير";
                         label9.Text = "المبلغ الصافي";
                         label10.Text = "المبلغ المدفوع";
                         label12.Text = "المبلغ الباقي";
                         BillsEditButton.Text = "التعديل على الفاتوره";
                         dgvBillsEdit.Columns["BillNumber"].HeaderText = "رقم الفاتوره";
-                        dgvBillsEdit.Columns["BillCashierName"].HeaderText = "اسم الكاشير";
+                        dgvBillsEdit.Columns["BillCashierName"].HeaderText = "إسم الكاشير";
+                        dgvBillsEdit.Columns["Column40"].HeaderText = "إسم العميل";
                         dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "المبلغ الصافي";
                         dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "المبلغ المدفوع";
                         dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "المبلغ الباقي";
@@ -992,14 +994,14 @@ namespace PlancksoftPOS
                     {
                         tabControl4.TabPages["SoldItems"].Text = "جرد الكميات المباعه";
                         groupBox28.Text = "البحث";
-                        label37.Text = "اسم الكاشير";
+                        label37.Text = "إسم الكاشير";
                         label38.Text = "الصنف";
                         label5.Text = "تاريخ البحث من";
                         label3.Text = "تاريخ البحث الى";
                         dgvItemProfit.Columns["dataGridViewTextBoxColumn16"].HeaderText = "إسم السلعه";
                         dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "الباركود";
                         dgvItemProfit.Columns["Column48"].HeaderText = "صنف الماده";
-                        dgvItemProfit.Columns["Column49"].HeaderText = "اسم الكاشير";
+                        dgvItemProfit.Columns["Column49"].HeaderText = "إسم الكاشير";
                         dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "سعر القطعة بعد الضريبة";
                         dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "الكميه المباعه";
                         dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "المجموع";
@@ -1131,7 +1133,7 @@ namespace PlancksoftPOS
                     if (tabControl5.Contains(tabControl5.TabPages["AddExpenses"]))
                     {
                         tabControl5.TabPages["AddExpenses"].Text = "إضافة مصروف";
-                        label19.Text = "اسم المصروف";
+                        label19.Text = "إسم المصروف";
                         label20.Text = "كمية المصروف";
                         button2.Text = "إضافة المصروف";
                         button3.Text = "مسح";
@@ -1526,6 +1528,7 @@ namespace PlancksoftPOS
                         button26.Text = "Today's Sales";
                         dgvBills.Columns["Column15"].HeaderText = "Bill ID";
                         dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                        dgvBills.Columns["Column12"].HeaderText = "Client Name";
                         dgvBills.Columns["Column17"].HeaderText = "Net Total";
                         dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
                         dgvBills.Columns["Column19"].HeaderText = "Remainder";
@@ -1553,6 +1556,7 @@ namespace PlancksoftPOS
                         BillsEditButton.Text = "Edit Bill";
                         dgvBillsEdit.Columns["BillNumber"].HeaderText = "Bill ID";
                         dgvBillsEdit.Columns["BillCashierName"].HeaderText = "Bill Cashier Name";
+                        dgvBillsEdit.Columns["Column40"].HeaderText = "Client Name";
                         dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "Net Amount";
                         dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "Paid Amount";
                         dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "Remainder";
@@ -4554,7 +4558,8 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
-                dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                dgvBills.Columns["Column16"].HeaderText = "إسم الكاشير";
+                dgvBills.Columns["Column12"].HeaderText = "إسم العميل";
                 dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
                 dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
                 dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
@@ -4565,6 +4570,7 @@ namespace PlancksoftPOS
             {
                 dgvBills.Columns["Column15"].HeaderText = "Bill ID";
                 dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                dgvBills.Columns["Column12"].HeaderText = "Client Name";
                 dgvBills.Columns["Column17"].HeaderText = "Net Total";
                 dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
                 dgvBills.Columns["Column19"].HeaderText = "Remainder";
@@ -4645,7 +4651,7 @@ namespace PlancksoftPOS
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
+                dgvBillItems.Columns["Column20"].HeaderText = "إسم الماده";
                 dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
                 dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
                 dgvBillItems.Columns["Column63"].HeaderText = "العدد المرجع";
@@ -4730,7 +4736,7 @@ namespace PlancksoftPOS
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
+                dgvBillItems.Columns["Column20"].HeaderText = "إسم الماده";
                 dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
                 dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
                 dgvBillItems.Columns["Column63"].HeaderText = "العدد المرجع";
@@ -4762,7 +4768,8 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
-                dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                dgvBills.Columns["Column16"].HeaderText = "إسم الكاشير";
+                dgvBills.Columns["Column12"].HeaderText = "إسم العميل";
                 dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
                 dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
                 dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
@@ -4773,6 +4780,7 @@ namespace PlancksoftPOS
             {
                 dgvBills.Columns["Column15"].HeaderText = "Bill ID";
                 dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                dgvBills.Columns["Column12"].HeaderText = "Client Name";
                 dgvBills.Columns["Column17"].HeaderText = "Net Total";
                 dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
                 dgvBills.Columns["Column19"].HeaderText = "Remainder";
@@ -4797,7 +4805,8 @@ namespace PlancksoftPOS
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
                     dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
-                    dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                    dgvBills.Columns["Column16"].HeaderText = "إسم الكاشير";
+                    dgvBills.Columns["Column12"].HeaderText = "إسم العميل";
                     dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
                     dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
                     dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
@@ -4808,6 +4817,7 @@ namespace PlancksoftPOS
                 {
                     dgvBills.Columns["Column15"].HeaderText = "Bill ID";
                     dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                    dgvBills.Columns["Column12"].HeaderText = "Client Name";
                     dgvBills.Columns["Column17"].HeaderText = "Net Total";
                     dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
                     dgvBills.Columns["Column19"].HeaderText = "Remainder";
@@ -4824,7 +4834,7 @@ namespace PlancksoftPOS
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                dgvBillItems.Columns["Column20"].HeaderText = "اسم الماده";
+                dgvBillItems.Columns["Column20"].HeaderText = "إسم الماده";
                 dgvBillItems.Columns["Column21"].HeaderText = "باركود الماده";
                 dgvBillItems.Columns["Column23"].HeaderText = "عدد البيع";
                 dgvBillItems.Columns["Column63"].HeaderText = "العدد المرجع";
@@ -4851,7 +4861,8 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
-                dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
+                dgvBills.Columns["Column16"].HeaderText = "إسم الكاشير";
+                dgvBills.Columns["Column12"].HeaderText = "إسم العميل";
                 dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
                 dgvBills.Columns["Column18"].HeaderText = "المبلغ المدفوع";
                 dgvBills.Columns["Column19"].HeaderText = "المبلغ الباقي";
@@ -4862,6 +4873,7 @@ namespace PlancksoftPOS
             {
                 dgvBills.Columns["Column15"].HeaderText = "Bill ID";
                 dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
+                dgvBills.Columns["Column12"].HeaderText = "Client Name";
                 dgvBills.Columns["Column17"].HeaderText = "Net Total";
                 dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
                 dgvBills.Columns["Column19"].HeaderText = "Remainder";
@@ -5390,7 +5402,7 @@ namespace PlancksoftPOS
                 dgvItemProfit.Columns["dataGridViewTextBoxColumn16"].HeaderText = "إسم السلعه";
                 dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "الباركود";
                 dgvItemProfit.Columns["Column48"].HeaderText = "صنف الماده";
-                dgvItemProfit.Columns["Column49"].HeaderText = "اسم الكاشير";
+                dgvItemProfit.Columns["Column49"].HeaderText = "إسم الكاشير";
                 dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "سعر القطعة بعد الضريبة";
                 dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "الكميه المباعه";
                 dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "المجموع";
@@ -5451,7 +5463,8 @@ namespace PlancksoftPOS
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
                 dgvBillsEdit.Columns["BillNumber"].HeaderText = "رقم الفاتوره";
-                dgvBillsEdit.Columns["BillCashierName"].HeaderText = "اسم الكاشير";
+                dgvBillsEdit.Columns["BillCashierName"].HeaderText = "إسم الكاشير";
+                dgvBillsEdit.Columns["Column40"].HeaderText = "إسم العميل";
                 dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "المبلغ الصافي";
                 dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "المبلغ المدفوع";
                 dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "المبلغ الباقي";
@@ -5460,6 +5473,7 @@ namespace PlancksoftPOS
             {
                 dgvBillsEdit.Columns["BillNumber"].HeaderText = "Bill ID";
                 dgvBillsEdit.Columns["BillCashierName"].HeaderText = "Bill Cashier Name";
+                dgvBillsEdit.Columns["Column40"].HeaderText = "Client Name";
                 dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "Net Amount";
                 dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "Paid Amount";
                 dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "Remainder";
@@ -5501,7 +5515,8 @@ namespace PlancksoftPOS
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
                         dgvBillsEdit.Columns["BillNumber"].HeaderText = "رقم الفاتوره";
-                        dgvBillsEdit.Columns["BillCashierName"].HeaderText = "اسم الكاشير";
+                        dgvBillsEdit.Columns["BillCashierName"].HeaderText = "إسم الكاشير";
+                        dgvBillsEdit.Columns["Column40"].HeaderText = "إسم العميل";
                         dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "المبلغ الصافي";
                         dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "المبلغ المدفوع";
                         dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "المبلغ الباقي";
@@ -5511,6 +5526,7 @@ namespace PlancksoftPOS
                     {
                         dgvBillsEdit.Columns["BillNumber"].HeaderText = "Bill ID";
                         dgvBillsEdit.Columns["BillCashierName"].HeaderText = "Bill Cashier Name";
+                        dgvBillsEdit.Columns["Column40"].HeaderText = "Client Name";
                         dgvBillsEdit.Columns["BillTotalAmount"].HeaderText = "Net Amount";
                         dgvBillsEdit.Columns["BillPaidAmount"].HeaderText = "Paid Amount";
                         dgvBillsEdit.Columns["BillRemainderAmount"].HeaderText = "Remainder";
@@ -11682,7 +11698,7 @@ namespace PlancksoftPOS
                         offsetY = offsetY + lineHeight;
                         if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
-                            graphic.DrawString(this.cashierName + " اسم الكاشير: ", newfont2, black, 0, startY + offsetY);
+                            graphic.DrawString(this.cashierName + " إسم الكاشير: ", newfont2, black, 0, startY + offsetY);
                         }
                         else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {

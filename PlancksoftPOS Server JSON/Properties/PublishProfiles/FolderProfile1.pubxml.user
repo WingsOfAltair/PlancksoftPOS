@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\PlancksoftPOSJSON</_PublishTargetUrl>
-    <History>True|2024-01-09T09:30:21.6118571Z;True|2024-01-09T12:09:54.7398694+03:00;True|2024-01-09T11:01:59.0304360+03:00;True|2024-01-09T10:57:22.5089422+03:00;True|2024-01-09T10:56:55.8079260+03:00;True|2024-01-09T10:22:52.6576486+03:00;True|2024-01-07T12:40:30.4672691+03:00;True|2024-01-07T12:28:54.8934117+03:00;True|2024-01-07T12:25:42.6603685+03:00;True|2023-12-30T07:45:27.7504736+03:00;True|2023-12-30T07:40:12.4189505+03:00;True|2023-12-29T11:01:20.2797750+03:00;True|2023-12-27T10:51:42.5980815+03:00;True|2023-12-13T11:01:02.8014890+03:00;</History>
+    <History>True|2024-01-10T07:00:46.5913802Z;True|2024-01-09T12:30:21.6118571+03:00;True|2024-01-09T12:09:54.7398694+03:00;True|2024-01-09T11:01:59.0304360+03:00;True|2024-01-09T10:57:22.5089422+03:00;True|2024-01-09T10:56:55.8079260+03:00;True|2024-01-09T10:22:52.6576486+03:00;True|2024-01-07T12:40:30.4672691+03:00;True|2024-01-07T12:28:54.8934117+03:00;True|2024-01-07T12:25:42.6603685+03:00;True|2023-12-30T07:45:27.7504736+03:00;True|2023-12-30T07:40:12.4189505+03:00;True|2023-12-29T11:01:20.2797750+03:00;True|2023-12-27T10:51:42.5980815+03:00;True|2023-12-13T11:01:02.8014890+03:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
@@ -13,16 +13,16 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/26/2023 15:50:59</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>01/09/2024 12:30:20</publishTime>
+      <publishTime>01/10/2024 10:00:45</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>01/09/2024 12:30:20</publishTime>
+      <publishTime>01/10/2024 10:00:45</publishTime>
     </File>
     <File Include="bin/Dependencies.dll">
-      <publishTime>01/09/2024 12:30:02</publishTime>
+      <publishTime>01/10/2024 10:00:44</publishTime>
     </File>
     <File Include="bin/Dependencies.pdb">
-      <publishTime>01/09/2024 12:30:02</publishTime>
+      <publishTime>01/10/2024 10:00:44</publishTime>
     </File>
     <File Include="bin/Microsoft.Bcl.AsyncInterfaces.dll">
       <publishTime>08/26/2023 15:50:59</publishTime>
@@ -31,10 +31,10 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
       <publishTime>08/26/2023 15:51:00</publishTime>
     </File>
     <File Include="bin/PlancksoftPOS Server JSON.dll">
-      <publishTime>01/09/2024 12:30:21</publishTime>
+      <publishTime>01/10/2024 10:00:45</publishTime>
     </File>
     <File Include="bin/PlancksoftPOS Server JSON.pdb">
-      <publishTime>01/09/2024 12:30:21</publishTime>
+      <publishTime>01/10/2024 10:00:45</publishTime>
     </File>
     <File Include="bin/System.Buffers.dll">
       <publishTime>08/26/2023 15:51:00</publishTime>

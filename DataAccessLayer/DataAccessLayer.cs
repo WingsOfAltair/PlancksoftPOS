@@ -1382,6 +1382,7 @@ namespace DataAccessLayer
                     bill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
                     bill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
                     bill.SetDate(Convert.ToDateTime(Bill["Invoice Date"].ToString()));
+                    bill.SetPayByCash(Convert.ToBoolean(Convert.ToInt32(Bill["PayByCash"].ToString())));
                     Bills.Add(bill);
                 }
                 return Tuple.Create(Bills, dt);
@@ -3688,6 +3689,7 @@ namespace DataAccessLayer
                     newBill.ClientName = Bill["Client Name"].ToString();
                     newBill.ClientPhone = Bill["Client Phone"].ToString();
                     newBill.ClientAddress = Bill["Client Address"].ToString();
+                    newBill.SetPayByCash(Convert.ToBoolean(Convert.ToInt32(Bill["PayByCash"].ToString())));
                     Bills.Add(newBill);
                 }
                 return Tuple.Create(Bills, dt);

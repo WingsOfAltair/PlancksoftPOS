@@ -5,27 +5,27 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\PlancksoftPOSSOAP</_PublishTargetUrl>
-    <History>True|2024-01-09T09:30:14.1321301Z;True|2024-01-09T12:10:03.0667550+03:00;True|2024-01-09T11:02:08.0130445+03:00;True|2024-01-09T10:57:04.7370211+03:00;True|2024-01-09T10:22:38.7722857+03:00;True|2024-01-07T12:25:50.2613864+03:00;True|2023-12-30T07:45:21.1464529+03:00;True|2023-12-30T07:40:01.9271654+03:00;True|2023-12-29T11:01:13.0992276+03:00;True|2023-12-27T10:53:14.2624821+03:00;</History>
+    <History>True|2024-01-10T07:00:54.6611020Z;True|2024-01-09T12:30:14.1321301+03:00;True|2024-01-09T12:10:03.0667550+03:00;True|2024-01-09T11:02:08.0130445+03:00;True|2024-01-09T10:57:04.7370211+03:00;True|2024-01-09T10:22:38.7722857+03:00;True|2024-01-07T12:25:50.2613864+03:00;True|2023-12-30T07:45:21.1464529+03:00;True|2023-12-30T07:40:01.9271654+03:00;True|2023-12-29T11:01:13.0992276+03:00;True|2023-12-27T10:53:14.2624821+03:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>01/09/2024 12:30:03</publishTime>
+      <publishTime>01/10/2024 10:00:54</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>01/09/2024 12:30:03</publishTime>
+      <publishTime>01/10/2024 10:00:54</publishTime>
     </File>
     <File Include="bin/Dependencies.dll">
-      <publishTime>01/09/2024 12:30:02</publishTime>
+      <publishTime>01/10/2024 10:00:44</publishTime>
     </File>
     <File Include="bin/Dependencies.pdb">
-      <publishTime>01/09/2024 12:30:02</publishTime>
+      <publishTime>01/10/2024 10:00:44</publishTime>
     </File>
     <File Include="bin/PlancksoftPOS Server.dll">
-      <publishTime>01/09/2024 12:30:03</publishTime>
+      <publishTime>01/10/2024 10:00:54</publishTime>
     </File>
     <File Include="bin/PlancksoftPOS Server.pdb">
-      <publishTime>01/09/2024 12:30:03</publishTime>
+      <publishTime>01/10/2024 10:00:54</publishTime>
     </File>
     <File Include="PlancksoftPOS.svc">
       <publishTime>08/26/2023 15:50:58</publishTime>
