@@ -22,12 +22,12 @@ export class ClientCheckBalanceComponent implements OnInit {
   defaultColumns = [
     "BillNumber",
     "CashierName",
+    "ClientName",
     "TotalAmount",
     "PaidAmount",
     "Rwminder",
     "Date",
     "Status",
-    "ClientName",
     "PayBill",
     "Action",
   ];

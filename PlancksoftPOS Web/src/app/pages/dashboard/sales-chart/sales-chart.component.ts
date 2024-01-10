@@ -102,7 +102,7 @@ export class SalesChartComponent implements OnInit {
               PaidAmount: el["PaidAmount"],
               TotalAmount: el["TotalAmount"],
               RemainderAmount: el["RemainderAmount"],
-              paybycash: el["paybycash"],
+              PayByCash: el["PayByCash"],
               Date: new Date(ddate),
             
           };

@@ -78,6 +78,18 @@
                 {{ row.data["CashierName"] || "-" }}
               </td>
             </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'ClientName'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('ClientName')"
+                *nbTreeGridHeaderCellDef
+              >
+              {{ "GENERALWORDS.CLIENTNAME" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["ClientName"] || "-" }}
+              </td>
+            </ng-container>
             <ng-container [nbTreeGridColumnDef]="'TotalAmount'">
               <th
                 nbTreeGridHeaderCell
@@ -138,18 +150,6 @@
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
                 {{ row.data["PaidAmount"] || "0" }}
-              </td>
-            </ng-container>
-            <ng-container [nbTreeGridColumnDef]="'ClientName'">
-              <th
-                nbTreeGridHeaderCell
-                [nbSortHeader]="getSortDirection('ClientName')"
-                *nbTreeGridHeaderCellDef
-              >
-              {{ "GENERALWORDS.CLIENTNAME" | translate }}
-              </th>
-              <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                {{ row.data["ClientName"] || "-" }}
               </td>
             </ng-container>
 

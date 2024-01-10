@@ -77,6 +77,7 @@ export class SalesComponent implements OnInit {
   defaultColumns1 = [
     "BillID",
     "CashierName",
+    "ClientName",
     "NetTotal",
     "PaidAmount",
     "Remainder",
@@ -144,10 +145,11 @@ export class SalesComponent implements OnInit {
             data: {
               BillNumber: el["BillNumber"],
               CashierName: el["CashierName"],
+              ClientName: el["ClientName"],
               PaidAmount: el["PaidAmount"],
               TotalAmount: el["TotalAmount"],
               RemainderAmount: el["RemainderAmount"],
-              paybycash: el["paybycash"],
+              PayByCash: el["PayByCash"],
               Date: formattedDate,
             },
           };
@@ -198,7 +200,7 @@ export class SalesComponent implements OnInit {
               PaidAmount: el["PaidAmount"],
               TotalAmount: el["TotalAmount"],
               RemainderAmount: el["RemainderAmount"],
-              paybycash: el["paybycash"],
+              PayByCash: el["PayByCash"],
               Date: el["Date"],
             },
           };
@@ -304,7 +306,7 @@ export class SalesComponent implements OnInit {
         var response = JSON.parse(res);
         this.filteritemdata = response.ResponseMessage.Item1;
 
-        this.generatePDF();
+        this.generatePDF(id);
       });
   }
 
@@ -349,7 +351,7 @@ export class SalesComponent implements OnInit {
       });
   }
 
-  generatePDF() {
+  generatePDF(id) {
     const pdfContent = document.getElementById("bill-container");
 
     setTimeout(() => {
@@ -365,7 +367,7 @@ export class SalesComponent implements OnInit {
         const height = width / aspectRatio;
 
         pdf.addImage(imgData, "PNG", 10, 10, width, height);
-        pdf.save("bill.pdf");
+        pdf.save("bill-" + id + ".pdf");
 
         // Clear filteritemdata
         this.filteritemdata = [];
