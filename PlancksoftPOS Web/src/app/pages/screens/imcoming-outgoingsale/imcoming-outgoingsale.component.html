@@ -96,8 +96,8 @@
                 {{ "GENERALWORDS.PAYMENTMETHOD" | translate }}
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                <span *ngIf="row.data.paybycash">Cash Payment</span>
-                <span *ngIf="!row.data.paybycash">Visa Payment</span>
+                <span *ngIf="row.data.paybycash">{{ GENERALWORDS.CASHPAYMENT }}</span>
+                <span *ngIf="!row.data.paybycash">{{ GENERALWORDS.VISAPAYMENT }}</span>
               </td>
             </ng-container>
             

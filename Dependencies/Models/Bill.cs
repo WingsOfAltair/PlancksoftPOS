@@ -146,6 +146,11 @@ namespace Dependencies
             return this.Date;
         }
 
+        public Boolean getPayByCash()
+        {
+            return this.PayByCash;
+        }
+
         public void SetCashierName(string cashierName)
         {
             this.CashierName = cashierName;
@@ -184,6 +189,11 @@ namespace Dependencies
         public void SetDate(DateTime Date)
         {
             this.Date = Date;
+        }
+
+        public void SetPayByCash(bool PayByCash)
+        {
+            this.PayByCash = PayByCash;
         }
     }
 }
