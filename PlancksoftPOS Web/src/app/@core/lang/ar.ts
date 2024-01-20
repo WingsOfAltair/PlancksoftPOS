@@ -19,6 +19,7 @@ export const locale = {
         DATE: 'تاريخ',
         L100IS:'أقل 100 المواد مباعه',
         M100IS:'أكثر 100 المواد مباعه',
+        PICTURE: 'الصورة',
         ITEMNAME:'إسم القطعة',
         ITEMBARCODE:'باركود القطعه',
         SOLDQUANTITY:'عدد البيع',

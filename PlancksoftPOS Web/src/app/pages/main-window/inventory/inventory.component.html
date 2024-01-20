@@ -142,6 +142,19 @@
                   </td>
                 </ng-container>
 
+                <ng-container [nbTreeGridColumnDef]="'Picture'">
+                  <th
+                    nbTreeGridHeaderCell
+                    [nbSortHeader]="getSortDirection('Picture')"
+                    *nbTreeGridHeaderCellDef
+                  >
+                    {{ "GENERALWORDS.PICTURE" | translate }}
+                  </th>
+                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                    <img [src]="row.data['Picture'] || '-'" style="width: 100px; height: 100px" />
+                  </td>
+                </ng-container>                
+
                 <ng-container [nbTreeGridColumnDef]="'Action'">
                     <th
                       nbTreeGridHeaderCell
