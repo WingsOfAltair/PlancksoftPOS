@@ -11,7 +11,6 @@ import { NbToastrService } from "@nebular/theme";
 export class SettingComponent implements OnInit {
   firstFormGroup: FormGroup;
   message: any;
-  message2: any;
   imageSrc: any;
   imageByteArray: any;
 
@@ -52,17 +51,6 @@ export class SettingComponent implements OnInit {
         this.imageByteArray = this.convertDataURIToBinary(this.imageSrc);
       });
   }
-
-  byteArrayToDataUrl(byteArray, mimeType) {
-    if (byteArray && byteArray.length > 0) {
-        // Convert the byte array to a base64 string
-        var base64String = btoa(String.fromCharCode.apply(null, byteArray));
-        console.log("image data from server: " + base64String);
-        // Build the Data URL
-        return 'data:' + mimeType + ';base64,' + base64String;
-    }
-    return '';
-}
 
   convertDataURIToBinary(dataURI) {
     var base64Index = dataURI.indexOf(';base64,') + ';base64,'.length;
