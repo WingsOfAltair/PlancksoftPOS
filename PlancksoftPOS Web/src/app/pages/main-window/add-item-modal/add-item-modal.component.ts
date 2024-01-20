@@ -39,6 +39,9 @@ export class AddItemModalComponent implements OnInit {
   tax: any;
   calcuatetex: any;
 
+  imageSrc: any;
+  imageByteArray: any;
+
   constructor(
     private service: SmartTableData,
     private dialogService: NbDialogService,
@@ -71,6 +74,7 @@ export class AddItemModalComponent implements OnInit {
       ItemType: [""],
       Warehouse: [""],
       ItemPrice: [""],
+      picture: null,
     });
 
     this.publisherService
@@ -132,12 +136,30 @@ export class AddItemModalComponent implements OnInit {
         FavoriteCategory: this.data.favoriteCategoryName,
         ItemType: this.data.ItemTypeName,
         Warehouse: this.data.warehouseName,
+        picture: null,
       };
 
       this.additem.patchValue(itemData);
     }
 
     this.disableItemName();
+  }
+  
+
+  convertDataURIToBinary(dataURI) {
+    var base64Index = dataURI.indexOf(';base64,') + ';base64,'.length;
+    var base64 = dataURI.substring(base64Index);
+    var raw = window.atob(base64);
+    var rawLength = raw.length;
+    var array = new Uint8Array(new ArrayBuffer(rawLength));
+  
+    for(var i = 0; i < rawLength; i++) {
+      array[i] = raw.charCodeAt(i);
+    }
+    return array;
+  }
+
+  readUrl(event:any) {
   }
 
   disableItemName() {
@@ -191,7 +213,7 @@ export class AddItemModalComponent implements OnInit {
           Warehouse_ID: parseInt(this.additem.value.Warehouse),
           FavoriteCategory: parseInt(this.additem.value.FavoriteCategory),
           Date: this.convertDateToJSONFormat(new Date()),
-          picture: null,
+          picture: Object.values(this.imageByteArray),
           ItemNewBarCode: null,
           ProductionDate: this.convertDateToJSONFormat(
             this.additem.value.ProductionDate
@@ -239,7 +261,7 @@ export class AddItemModalComponent implements OnInit {
         Warehouse_ID: parseInt(this.additem.value.Warehouse),
         FavoriteCategory: parseInt(this.additem.value.FavoriteCategory),
         Date: this.convertDateToJSONFormat(new Date()),
-        picture: null,
+        picture: Object.values(this.imageByteArray),
         ItemNewBarCode: this.additem.value.itembarcode,
         ProductionDate: this.convertDateToJSONFormat(
           this.additem.value.ProductionDate

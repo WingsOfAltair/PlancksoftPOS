@@ -148,9 +148,9 @@ export class InventoryComponent implements OnInit {
         
         var response = JSON.parse(res);
         var data = JSON.parse(response.ResponseMessage.Item2);
-        console.log("item2: " + data[0]);
+        console.log("item 2: " + data[0]);
 
-        this.filterdata = data[0];
+        this.filterdata = data;
 
         var list = [];
         data.forEach((el) => {
@@ -165,7 +165,7 @@ export class InventoryComponent implements OnInit {
               favoriteCategoryName: el["Favorite Category"],
               warehouseName: el["InventoryItemWarehouse"],
               ItemTypeName: el["InventoryItemType"],
-              ItemBarCode: el["ItemBarCode"],
+              ItemBarCode: el["Item BarCode"],
               Picture: 'data:' + 'image/png' + ';base64,' + el["Item Picture"],
             },
           };
@@ -231,33 +231,55 @@ export class InventoryComponent implements OnInit {
 
   update(Barcode) {
     
-    var SelectedData = this.filterdata.filter(
-      (a) => a.ItemBarCode == Barcode
-    )[0];
-    var obj = {
-      ItemName: SelectedData.ItemName,
-      ItemBarCode: SelectedData.ItemBarCode,
+    console.log(Barcode);
+    var obj = {"ItemBarCode":Barcode};
+
+    this.publisherService
+      .PostRequest("SearchItems", obj)
+      .subscribe((res: any) => {
+        console.log(JSON.parse(res));
+        
+        var response = JSON.parse(res);
+        var data = JSON.parse(response.ResponseMessage.Item1);
+
+        var obj = {
+            ItemName: data[0]["Item Name"],
+            ItemQuantity: data[0]["Item Quantity"],
+            QuantityWarning: 0,
+            ItemBuyPrice: data[0]["Item Buy Price"],
+            ItemPrice: data[0]["Item Price"],
+            ItemPriceTax: data[0]["Item Price Tax"],
+            favoriteCategoryName: data[0]["Favorite Category"],
+            warehouseName: data[0]["InventoryItemWarehouse"],
+            ItemTypeName: data[0]["InventoryItemType"],
+            ItemBarCode: data[0]["Item BarCode"],
+            Picture: 'data:' + 'image/png' + ';base64,' + data[0]["Item Picture"],
+          };
+
+          console.log("Picture: " + obj.Picture);
+        });
+
+        var data = this.windowService.open(AddItemModalComponent, {
+          title: `Update Item`,
+          context: obj,
+        });
+    
+        data.onClose.subscribe((res) => {
+          this.ngOnInit();
+        });
+
+      /*ItemName: SelectedData.ItemName,
       ItemQuantity: SelectedData.ItemQuantity,
       QuantityWarning: SelectedData.QuantityWarning,
+      ItemBuyPrice: SelectedData.ItemBuyPrice,
+      ItemPrice: SelectedData.ItemPrice,
       ItemPriceTax: SelectedData.ItemPriceTax,
       EntryDate: SelectedData.EntryDate,
       ExpirationDate: SelectedData.ExpirationDate,
       ProductionDate: SelectedData.ProductionDate,
-      ItemPrice: SelectedData.ItemPrice,
-      ItemBuyPrice: SelectedData.ItemBuyPrice,
       ItemTypeName: SelectedData.ItemTypeID,
       favoriteCategoryName: SelectedData.FavoriteCategory,
       warehouseName: SelectedData.Warehouse_ID,
-      picture: SelectedData.picture,
-    };
-
-    var data = this.windowService.open(AddItemModalComponent, {
-      title: `Item Management`,
-      context: obj,
-    });
-
-    data.onClose.subscribe((res) => {
-      this.ngOnInit();
-    });
+      picture: SelectedData.Picture,*/
   }
 }

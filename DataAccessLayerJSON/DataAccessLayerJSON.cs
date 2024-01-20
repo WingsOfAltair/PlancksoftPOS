@@ -4005,10 +4005,15 @@ namespace DataAccessLayerJSON
                     item.SetBuyPrice(Convert.ToDecimal(Item["Item Buy Price"].ToString()));
                     item.SetPrice(Convert.ToDecimal(Item["Item Price"].ToString()));
                     item.SetPriceTax(Convert.ToDecimal(Item["Item Price Tax"].ToString()));
+                    item.SetFavoriteCategory(Convert.ToInt32(Item["Favorite Category Number"].ToString()));
+                    item.SetFavoriteCategoryName(Item["Favorite Category"].ToString());
+                    item.SetWarehouseID(Convert.ToInt32(Item["Warehouse ID"].ToString()));
+                    item.SetWarehouseName(Item["InventoryItemWarehouse"].ToString());
                     item.SetItemTypeID(Convert.ToInt32(Item["Item Type"].ToString()));
+                    item.SetItemTypeName(Item["InventoryItemType"].ToString());
                     Items.Add(item);
                 }
-                return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
+                return new Response(Tuple.Create(SerializeDataTableToJSON(dt), Items), true);
             }
             catch (Exception ex)
             {

@@ -171,6 +171,16 @@
       }}</nb-option>
     </nb-select>
   </div>
+  
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.PICTURE" | translate }} </label>
+    <img [src]="imageSrc" style="width: 100px; height: 100px" />
+  </div>
+  
+  <div class="col-md-6 mt-2">
+    <label>{{ "GENERALWORDS.PICTURE" | translate }} </label>
+    <input type="file" (change)="readUrl($event)" nbInput fullWidth shape="rectangle" formControlName="picture" placeholder="picture" ngModel="file" />
+  </div>
 
   <div class="col-md-12 mt-3">
     <div class="buttons-row" style="text-align: end">
