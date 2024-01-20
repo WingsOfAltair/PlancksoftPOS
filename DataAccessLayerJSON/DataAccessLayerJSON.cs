@@ -6,6 +6,7 @@ using Dependencies;
 using Dependencies.Models;
 using Newtonsoft.Json;
 using System.Runtime.InteropServices.ComTypes;
+using System.Text;
 
 namespace DataAccessLayerJSON
 {
@@ -97,7 +98,8 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "SystemSettings";
-                return new Response(SerializeDataTableToJSON(dt), true);
+
+                return new Response(Tuple.Create(SerializeDataTableToJSON(dt), (byte[])dt.Rows[0]["SystemLogo"]), true);
             }
             catch (Exception ex)
             {

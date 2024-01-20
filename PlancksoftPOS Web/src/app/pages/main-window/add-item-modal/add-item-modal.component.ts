@@ -270,10 +270,9 @@ export class AddItemModalComponent implements OnInit {
     this.publisherService
       .PostRequest("RetrieveSystemSettings", "")
       .subscribe((res: any) => {
-        console.log(JSON.parse(res));
 
         var response = JSON.parse(res);
-        this.tax = JSON.parse(response.ResponseMessage);
+        this.tax = JSON.parse(response.ResponseMessage.Item1);
 
         this.calcuatetex = this.tax[0].SystemTax;
 

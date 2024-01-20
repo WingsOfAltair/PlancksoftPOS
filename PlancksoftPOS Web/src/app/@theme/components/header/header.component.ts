@@ -106,9 +106,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.publisherService
       .PostRequest("RetrieveSystemSettings", "")
       .subscribe((res: any) => {
-        console.log(JSON.parse(res));
         var response = JSON.parse(res);
-        this.message = JSON.parse(response.ResponseMessage);
+        this.message = JSON.parse(response.ResponseMessage.Item1);
+        console.log("message: " + this.message[0].SystemName);
 
         this.Storename = this.message[0].SystemName;
       });

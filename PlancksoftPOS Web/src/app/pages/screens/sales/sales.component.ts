@@ -165,9 +165,8 @@ export class SalesComponent implements OnInit {
     this.publisherService
       .PostRequest("RetrieveSystemSettings", "")
       .subscribe((res: any) => {
-        console.log(JSON.parse(res));
         var response = JSON.parse(res);
-        this.message = JSON.parse(response.ResponseMessage);
+        this.message = JSON.parse(response.ResponseMessage.Item1);
 
         this.logo = this.message[0].SystemName;
         this.currentdate = new Date();
