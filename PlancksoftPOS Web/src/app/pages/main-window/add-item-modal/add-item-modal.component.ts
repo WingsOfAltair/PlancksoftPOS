@@ -111,13 +111,8 @@ export class AddItemModalComponent implements OnInit {
         console.log(this.Type);
       });
 
-    if (this.data.ItemBarCode) {
+    if (this.data.ItemBarCode != null) {
       
-      this.inputValue1 = this.data.ItemBuyPrice;
-      this.inputValue2 = this.data.ItemPrice;
-
-      this.inputValue3 = this.data.ItemQuantity;
-      this.Selltex = this.data.ItemPriceTax;
 
       this.ProductionDate = new Date();
       this.ExpiryDateFormat = new Date();
@@ -147,6 +142,7 @@ export class AddItemModalComponent implements OnInit {
           Warehouse: dataa[0]["Warehouse ID"],
           picture: null,
         };
+        this.Selltex = dataa[0]["Item Price Tax"];
 
         this.additem.patchValue(this.itemData);
         this.imageSrc = 'data:' + 'image/png' + ';base64,' + dataa[0]["Item Picture"];
@@ -167,6 +163,29 @@ export class AddItemModalComponent implements OnInit {
         FavoriteCategory: this.data.favoriteCategoryName,
         ItemType: this.data.ItemTypeName,
         Warehouse: this.data.warehouseName,
+        picture: null,
+      };
+
+      this.additem.patchValue(this.itemData);
+    } else {
+      this.ProductionDate = new Date();
+      this.ExpiryDateFormat = new Date();
+      this.EntryDate = new Date();
+
+      this.itemData = {
+        itemname: "",
+        itembarcode: "",
+        itemquantity: 0,
+        ItemPrice: 0,
+        sellpricetax: 0,
+        buyprice: 0,
+        warninglimit: 0,
+        ProductionDate: this.ProductionDate,
+        ExpirationDate: this.ExpiryDateFormat,
+        EntryDate: this.EntryDate,
+        FavoriteCategory: 0,
+        ItemType: 0,
+        Warehouse: 0,
         picture: null,
       };
 

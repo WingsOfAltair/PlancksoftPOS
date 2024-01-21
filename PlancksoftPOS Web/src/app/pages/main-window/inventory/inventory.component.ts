@@ -202,9 +202,13 @@ export class InventoryComponent implements OnInit {
 
 
   openwindow() {
+    var obj = {
+      ItemBarCode: null,
+    };
     
     var data = this.windowService.open(AddItemModalComponent, {
       title: `Insert Item`,
+      context: obj,
     });
 
     data.onClose.subscribe((res) => {
