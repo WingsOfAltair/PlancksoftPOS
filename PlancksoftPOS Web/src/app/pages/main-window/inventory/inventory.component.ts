@@ -31,6 +31,9 @@ export class InventoryComponent implements OnInit {
   data: any;
   filterdata: any;
 
+  imageSrc: any;
+  imageByteArray: any;
+
   additem: FormGroup;
 
   defaultColumns = [
@@ -44,6 +47,7 @@ export class InventoryComponent implements OnInit {
     "FavoriteCategory",
     "Warehouse",
     "ItemType",
+    "Picture",
     "Action",
   ];
 
@@ -143,7 +147,7 @@ export class InventoryComponent implements OnInit {
         console.log(JSON.parse(res));
         
         var response = JSON.parse(res);
-        var data = response.ResponseMessage.Item1;
+        var data = JSON.parse(response.ResponseMessage.Item2);
 
         this.filterdata = data;
 
@@ -151,16 +155,17 @@ export class InventoryComponent implements OnInit {
         data.forEach((el) => {
           var obj = {
             data: {
-              ItemID: el["ItemID"],
-              ItemName: el["ItemName"],
-              ItemQuantity: el["ItemQuantity"],
-              ItemBuyPrice: el["ItemBuyPrice"],
-              ItemPrice: el["ItemPrice"],
-              ItemPriceTax: el["ItemPriceTax"],
-              favoriteCategoryName: el["favoriteCategoryName"],
-              warehouseName: el["warehouseName"],
-              ItemTypeName: el["ItemTypeName"],
-              ItemBarCode: el["ItemBarCode"],
+              ItemID: el["Item ID"],
+              ItemName: el["Item Name"],
+              ItemQuantity: el["Item Quantity"],
+              ItemBuyPrice: el["Item Buy Price"],
+              ItemPrice: el["Item Price"],
+              ItemPriceTax: el["Item Price Tax"],
+              favoriteCategoryName: el["Favorite Category"],
+              warehouseName: el["InventoryItemWarehouse"],
+              ItemTypeName: el["InventoryItemType"],
+              ItemBarCode: el["Item BarCode"],
+              Picture: 'data:' + 'image/png' + ';base64,' + el["Item Picture"],
             },
           };
 
@@ -171,6 +176,19 @@ export class InventoryComponent implements OnInit {
         this.dataSource = this.dataSourceBuilder.create(this.data);
 
       });
+  }
+
+  convertDataURIToBinary(dataURI) {
+    var base64Index = dataURI.indexOf(';base64,') + ';base64,'.length;
+    var base64 = dataURI.substring(base64Index);
+    var raw = window.atob(base64);
+    var rawLength = raw.length;
+    var array = new Uint8Array(new ArrayBuffer(rawLength));
+  
+    for(var i = 0; i < rawLength; i++) {
+      array[i] = raw.charCodeAt(i);
+    }
+    return array;
   }
 
   dateconvert() {
@@ -184,15 +202,18 @@ export class InventoryComponent implements OnInit {
 
 
   openwindow() {
+    var obj = {
+      ItemBarCode: null,
+    };
     
     var data = this.windowService.open(AddItemModalComponent, {
       title: `Insert Item`,
+      context: obj,
     });
 
     data.onClose.subscribe((res) => {
       this.ngOnInit();
     });
-    this.ngOnInit();
 
   }
 
@@ -211,27 +232,10 @@ export class InventoryComponent implements OnInit {
 
   update(Barcode) {
     
-    var SelectedData = this.filterdata.filter(
-      (a) => a.ItemBarCode == Barcode
-    )[0];
-    var obj = {
-      ItemName: SelectedData.ItemName,
-      ItemBarCode: SelectedData.ItemBarCode,
-      ItemQuantity: SelectedData.ItemQuantity,
-      QuantityWarning: SelectedData.QuantityWarning,
-      ItemPriceTax: SelectedData.ItemPriceTax,
-      EntryDate: SelectedData.EntryDate,
-      ExpirationDate: SelectedData.ExpirationDate,
-      ProductionDate: SelectedData.ProductionDate,
-      ItemPrice: SelectedData.ItemPrice,
-      ItemBuyPrice: SelectedData.ItemBuyPrice,
-      ItemTypeName: SelectedData.ItemTypeID,
-      favoriteCategoryName: SelectedData.FavoriteCategory,
-      warehouseName: SelectedData.Warehouse_ID,
-    };
+    var obj = {ItemBarCode: Barcode};
 
     var data = this.windowService.open(AddItemModalComponent, {
-      title: `Update Employee`,
+      title: `Update Item`,
       context: obj,
     });
 

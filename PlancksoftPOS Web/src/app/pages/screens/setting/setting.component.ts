@@ -11,6 +11,8 @@ import { NbToastrService } from "@nebular/theme";
 export class SettingComponent implements OnInit {
   firstFormGroup: FormGroup;
   message: any;
+  imageSrc: any;
+  imageByteArray: any;
 
   constructor(
     private fb: FormBuilder,
@@ -32,10 +34,9 @@ export class SettingComponent implements OnInit {
     this.publisherService
       .PostRequest("RetrieveSystemSettings", "")
       .subscribe((res: any) => {
-        console.log(JSON.parse(res));
-         ;
+        
         var response = JSON.parse(res);
-        this.message = JSON.parse(response.ResponseMessage);
+        this.message = JSON.parse(response.ResponseMessage.Item1);
 
         this.firstFormGroup.patchValue({
           Storename: this.message[0].SystemName,
@@ -44,31 +45,55 @@ export class SettingComponent implements OnInit {
           SystemTax: this.message[0].SystemTax,
           BlankSpacesInRecipt: this.message[0].SystemReceiptBlankSpaces,
           IncludeLogo: this.message[0].SystemIncludeLogoInReceipt,
-          Logo: this.message[0].SystemLogo,
         });
+
+        this.imageSrc = 'data:' + 'image/png' + ';base64,' + this.message[0].SystemLogo;
+        this.imageByteArray = this.convertDataURIToBinary(this.imageSrc);
       });
+  }
+
+  convertDataURIToBinary(dataURI) {
+    var base64Index = dataURI.indexOf(';base64,') + ';base64,'.length;
+    var base64 = dataURI.substring(base64Index);
+    var raw = window.atob(base64);
+    var rawLength = raw.length;
+    var array = new Uint8Array(new ArrayBuffer(rawLength));
+  
+    for(var i = 0; i < rawLength; i++) {
+      array[i] = raw.charCodeAt(i);
+    }
+    return array;
+  }
+
+  readUrl(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+  
+      reader.readAsDataURL(event.target.files[0])
+
+      reader.onload = (event: ProgressEvent) => {
+        //this.imageSrc = (<FileReader>event.target).result;
+        this.imageSrc = reader.result;
+        console.log("imagesrc: " + this.imageSrc);
+
+        this.imageByteArray = this.convertDataURIToBinary(this.imageSrc);
+        console.log("image byte array: " + this.imageByteArray);
+      }
+    }
   }
 
   SubmitData() {
     if (this.firstFormGroup.valid) {
-      const inputString = this.firstFormGroup.value.Logo;
-      const textEncoder = new TextEncoder();
-      const byteArray = textEncoder.encode(inputString);
-      const byteArrayAsArray = Array.from(byteArray);
-
-       ;
       var obj = {
         SystemName: this.firstFormGroup.value.Storename,
-        SystemLogo: byteArrayAsArray,
         SystemPhone: this.firstFormGroup.value.Phone,
         SystemAddress: this.firstFormGroup.value.Address,
         SystemReceiptBlankSpaces: this.firstFormGroup.value.BlankSpacesInRecipt,
         SystemIncludeLogoInReceipt:
           this.firstFormGroup.value.IncludeLogo == true ? 1 : 0,
         SystemTax: this.firstFormGroup.value.SystemTax,
+        SystemLogo: Object.values(this.imageByteArray),
       };
-
-       ;
       this.publisherService
         .PostRequest("UpdateSystemSettings", obj)
         .subscribe((res: any) => {

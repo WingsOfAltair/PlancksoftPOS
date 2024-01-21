@@ -6,6 +6,7 @@ using Dependencies;
 using Dependencies.Models;
 using Newtonsoft.Json;
 using System.Runtime.InteropServices.ComTypes;
+using System.Text;
 
 namespace DataAccessLayerJSON
 {
@@ -97,7 +98,8 @@ namespace DataAccessLayerJSON
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "SystemSettings";
-                return new Response(SerializeDataTableToJSON(dt), true);
+
+                return new Response(Tuple.Create(SerializeDataTableToJSON(dt), (byte[])dt.Rows[0]["SystemLogo"]), true);
             }
             catch (Exception ex)
             {
@@ -4003,10 +4005,15 @@ namespace DataAccessLayerJSON
                     item.SetBuyPrice(Convert.ToDecimal(Item["Item Buy Price"].ToString()));
                     item.SetPrice(Convert.ToDecimal(Item["Item Price"].ToString()));
                     item.SetPriceTax(Convert.ToDecimal(Item["Item Price Tax"].ToString()));
+                    item.SetFavoriteCategory(Convert.ToInt32(Item["Favorite Category Number"].ToString()));
+                    item.SetFavoriteCategoryName(Item["Favorite Category"].ToString());
+                    item.SetWarehouseID(Convert.ToInt32(Item["Warehouse ID"].ToString()));
+                    item.SetWarehouseName(Item["InventoryItemWarehouse"].ToString());
                     item.SetItemTypeID(Convert.ToInt32(Item["Item Type"].ToString()));
+                    item.SetItemTypeName(Item["InventoryItemType"].ToString());
                     Items.Add(item);
                 }
-                return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
+                return new Response(Tuple.Create(SerializeDataTableToJSON(dt), Items), true);
             }
             catch (Exception ex)
             {

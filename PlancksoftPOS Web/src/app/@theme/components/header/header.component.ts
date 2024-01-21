@@ -31,6 +31,9 @@ export class HeaderComponent implements OnInit, OnDestroy {
   direction = NbLayoutDirection.LTR;
   userID: any;
   Userdata: any;
+  
+  imageSrc: any;
+  imageByteArray: any;
 
   themes = [
     {
@@ -106,12 +109,27 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.publisherService
       .PostRequest("RetrieveSystemSettings", "")
       .subscribe((res: any) => {
-        console.log(JSON.parse(res));
         var response = JSON.parse(res);
-        this.message = JSON.parse(response.ResponseMessage);
+        this.message = JSON.parse(response.ResponseMessage.Item1);
+        console.log("message: " + this.message[0].SystemName);
 
         this.Storename = this.message[0].SystemName;
+        this.imageSrc = 'data:' + 'image/png' + ';base64,' + this.message[0].SystemLogo;
+        this.imageByteArray = this.convertDataURIToBinary(this.imageSrc);
       });
+  }
+
+  convertDataURIToBinary(dataURI) {
+    var base64Index = dataURI.indexOf(';base64,') + ';base64,'.length;
+    var base64 = dataURI.substring(base64Index);
+    var raw = window.atob(base64);
+    var rawLength = raw.length;
+    var array = new Uint8Array(new ArrayBuffer(rawLength));
+  
+    for(var i = 0; i < rawLength; i++) {
+      array[i] = raw.charCodeAt(i);
+    }
+    return array;
   }
 
   changeLayout() {

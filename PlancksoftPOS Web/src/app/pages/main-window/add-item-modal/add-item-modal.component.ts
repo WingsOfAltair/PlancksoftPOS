@@ -39,6 +39,10 @@ export class AddItemModalComponent implements OnInit {
   tax: any;
   calcuatetex: any;
 
+  imageSrc: any;
+  imageByteArray: any;
+  itemData: any;
+
   constructor(
     private service: SmartTableData,
     private dialogService: NbDialogService,
@@ -71,6 +75,7 @@ export class AddItemModalComponent implements OnInit {
       ItemType: [""],
       Warehouse: [""],
       ItemPrice: [""],
+      picture: null,
     });
 
     this.publisherService
@@ -106,25 +111,51 @@ export class AddItemModalComponent implements OnInit {
         console.log(this.Type);
       });
 
-    if (this.data.ItemBarCode) {
+    if (this.data.ItemBarCode != null) {
       
-      this.inputValue1 = this.data.ItemBuyPrice;
-      this.inputValue2 = this.data.ItemPrice;
-
-      this.inputValue3 = this.data.ItemQuantity;
-      this.Selltex = this.data.ItemPriceTax;
 
       this.ProductionDate = new Date();
       this.ExpiryDateFormat = new Date();
       this.EntryDate = new Date();
 
-      const itemData = {
+      var obj = {"ItemBarCode":this.data.ItemBarCode};
+      this.publisherService
+      .PostRequest("SearchItems", obj)
+      .subscribe((res: any) => {
+        console.log(JSON.parse(res));
+        var response = JSON.parse(res);
+        var dataa = JSON.parse(response.ResponseMessage.Item1)
+
+        this.itemData = {
+          itemname: dataa[0]["Item Name"],
+          itembarcode: dataa[0]["Item BarCode"],
+          itemquantity: dataa[0]["Item Quantity"],
+          ItemPrice: dataa[0]["Item Price"],
+          sellpricetax: dataa[0]["Item Price Tax"],
+          buyprice: dataa[0]["Item Buy Price"],
+          warninglimit: 0,
+          ProductionDate: new Date(),
+          ExpirationDate: new Date(),
+          EntryDate: new Date(),
+          FavoriteCategory: dataa[0]["Favorite Category Number"],
+          ItemType: dataa[0]["Item Type"],
+          Warehouse: dataa[0]["Warehouse ID"],
+          picture: null,
+        };
+        this.Selltex = dataa[0]["Item Price Tax"];
+
+        this.additem.patchValue(this.itemData);
+        this.imageSrc = 'data:' + 'image/png' + ';base64,' + dataa[0]["Item Picture"];
+        this.imageByteArray = this.convertDataURIToBinary(this.imageSrc);
+      });
+      
+      this.itemData = {
         itemname: this.data.ItemName,
         itembarcode: this.data.ItemBarCode,
         itemquantity: this.data.ItemQuantity,
         ItemPrice: this.data.ItemPrice,
         sellpricetax: this.data.ItemPriceTax,
-        buyprice: this.data.ItemQuantity,
+        buyprice: this.data.ItemBuyPrice,
         warninglimit: this.data.QuantityWarning,
         ProductionDate: this.ProductionDate,
         ExpirationDate: this.ExpiryDateFormat,
@@ -132,12 +163,67 @@ export class AddItemModalComponent implements OnInit {
         FavoriteCategory: this.data.favoriteCategoryName,
         ItemType: this.data.ItemTypeName,
         Warehouse: this.data.warehouseName,
+        picture: null,
       };
 
-      this.additem.patchValue(itemData);
+      this.additem.patchValue(this.itemData);
+    } else {
+      this.ProductionDate = new Date();
+      this.ExpiryDateFormat = new Date();
+      this.EntryDate = new Date();
+
+      this.itemData = {
+        itemname: "",
+        itembarcode: "",
+        itemquantity: 0,
+        ItemPrice: 0,
+        sellpricetax: 0,
+        buyprice: 0,
+        warninglimit: 0,
+        ProductionDate: this.ProductionDate,
+        ExpirationDate: this.ExpiryDateFormat,
+        EntryDate: this.EntryDate,
+        FavoriteCategory: 0,
+        ItemType: 0,
+        Warehouse: 0,
+        picture: null,
+      };
+
+      this.additem.patchValue(this.itemData);
     }
 
     this.disableItemName();
+  }
+  
+
+  convertDataURIToBinary(dataURI) {
+    var base64Index = dataURI.indexOf(';base64,') + ';base64,'.length;
+    var base64 = dataURI.substring(base64Index);
+    var raw = window.atob(base64);
+    var rawLength = raw.length;
+    var array = new Uint8Array(new ArrayBuffer(rawLength));
+  
+    for(var i = 0; i < rawLength; i++) {
+      array[i] = raw.charCodeAt(i);
+    }
+    return array;
+  }
+
+  readUrl(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+  
+      reader.readAsDataURL(event.target.files[0])
+
+      reader.onload = (event: ProgressEvent) => {
+        //this.imageSrc = (<FileReader>event.target).result;
+        this.imageSrc = reader.result;
+        console.log("imagesrc: " + this.imageSrc);
+
+        this.imageByteArray = this.convertDataURIToBinary(this.imageSrc);
+        console.log("image byte array: " + this.imageByteArray);
+      }
+    }
   }
 
   disableItemName() {
@@ -191,7 +277,7 @@ export class AddItemModalComponent implements OnInit {
           Warehouse_ID: parseInt(this.additem.value.Warehouse),
           FavoriteCategory: parseInt(this.additem.value.FavoriteCategory),
           Date: this.convertDateToJSONFormat(new Date()),
-          picture: null,
+          Picture: Object.values(this.imageByteArray),
           ItemNewBarCode: null,
           ProductionDate: this.convertDateToJSONFormat(
             this.additem.value.ProductionDate
@@ -221,59 +307,72 @@ export class AddItemModalComponent implements OnInit {
   }
 
   update() {
-    var obj = {
-      ItemToUpdate: {
-        ItemID: 0,
-        ItemName: this.additem.value.itemname,
-        ItemBarCode: this.additem.value.itembarcode,
-        itemNewBarCode: this.additem.value.itembarcode,
-        favoriteCategoryName: "",
-        warehouseName: "",
-        itemTypeName: "",
-        ItemQuantity: this.inputValue3 ? this.inputValue3 : 0,
-        ItemBuyPrice: this.additem.value.buyprice,
-        ItemPrice: this.additem.value.ItemPrice,
-        QuantityWarning: parseInt(this.additem.value.warninglimit),
-        ItemPriceTax: this.sumResult > 0 ? this.sumResult : this.Selltex,
-        ItemTypeID: parseInt(this.additem.value.ItemType),
-        Warehouse_ID: parseInt(this.additem.value.Warehouse),
-        FavoriteCategory: parseInt(this.additem.value.FavoriteCategory),
-        Date: this.convertDateToJSONFormat(new Date()),
-        picture: null,
-        ItemNewBarCode: this.additem.value.itembarcode,
-        ProductionDate: this.convertDateToJSONFormat(
-          this.additem.value.ProductionDate
-        )
-          ? this.convertDateToJSONFormat(this.additem.value.ProductionDate)
-          : this.ProductionDate,
-        ExpirationDate: this.convertDateToJSONFormat(
-          this.additem.value.ExpirationDate
-        )
-          ? this.convertDateToJSONFormat(this.additem.value.ExpirationDate)
-          : this.ExpiryDateFormat,
-        EntryDate: this.convertDateToJSONFormat(this.additem.value.EntryDate)
-          ? this.convertDateToJSONFormat(this.additem.value.EntryDate)
-          : this.EntryDate,
-      },
-    };
-    console.log(obj);
     this.publisherService
-      .PostRequest("UpdateItem", obj)
+      .PostRequest("RetrieveSystemSettings", "")
       .subscribe((res: any) => {
-        console.log(JSON.parse(res));
-        this.toastrService.success("Updated", "Success");
+
+        var response = JSON.parse(res);
+        this.tax = JSON.parse(response.ResponseMessage.Item1);
+
+        this.calcuatetex = this.tax[0].SystemTax;
+
+        var TaxRate = this.calcuatetex / 100;
+
+        var totalTax = TaxRate * this.inputValue2;
+        this.sumResult = this.inputValue2 + totalTax;
+
+        var obj = {
+          ItemToUpdate: {
+            ItemID: 0,
+            ItemName: this.additem.value.itemname,
+            ItemBarCode: this.additem.value.itembarcode,
+            itemNewBarCode: this.additem.value.itembarcode,
+            favoriteCategoryName: "",
+            warehouseName: "",
+            itemTypeName: "",
+            ItemQuantity: this.inputValue3 ? this.inputValue3 : 0,
+            ItemBuyPrice: this.additem.value.buyprice,
+            ItemPrice: this.additem.value.ItemPrice,
+            QuantityWarning: parseInt(this.additem.value.warninglimit),
+            ItemPriceTax: this.sumResult > 0 ? this.sumResult : this.Selltex,
+            ItemTypeID: parseInt(this.additem.value.ItemType),
+            Warehouse_ID: parseInt(this.additem.value.Warehouse),
+            FavoriteCategory: parseInt(this.additem.value.FavoriteCategory),
+            Date: this.convertDateToJSONFormat(new Date()),
+            Picture: Object.values(this.imageByteArray),
+            ItemNewBarCode: this.additem.value.itembarcode,
+            ProductionDate: this.convertDateToJSONFormat(
+              this.additem.value.ProductionDate
+            )
+              ? this.convertDateToJSONFormat(this.additem.value.ProductionDate)
+              : this.ProductionDate,
+            ExpirationDate: this.convertDateToJSONFormat(
+              this.additem.value.ExpirationDate
+            )
+              ? this.convertDateToJSONFormat(this.additem.value.ExpirationDate)
+              : this.ExpiryDateFormat,
+            EntryDate: this.convertDateToJSONFormat(this.additem.value.EntryDate)
+              ? this.convertDateToJSONFormat(this.additem.value.EntryDate)
+              : this.EntryDate,
+          },
+        };
+        this.publisherService
+          .PostRequest("UpdateItem", obj)
+          .subscribe((res: any) => {
+            console.log(JSON.parse(res));
+            this.toastrService.success("Updated", "Success");
+          });
+        this.windowRef.close("");
       });
-    this.windowRef.close("");
   }
 
   calculateSum(): void {
     this.publisherService
       .PostRequest("RetrieveSystemSettings", "")
       .subscribe((res: any) => {
-        console.log(JSON.parse(res));
 
         var response = JSON.parse(res);
-        this.tax = JSON.parse(response.ResponseMessage);
+        this.tax = JSON.parse(response.ResponseMessage.Item1);
 
         this.calcuatetex = this.tax[0].SystemTax;
 

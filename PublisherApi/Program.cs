@@ -23,7 +23,7 @@ namespace PublisherApi
                     webBuilder.UseKestrel();
                     webBuilder.UseIIS();
                     webBuilder.UseUrls("http://*:5000");
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>().UseKestrel(o => o.Limits.MaxRequestBodySize = null);
                 });
     }
 }

@@ -19,6 +19,7 @@ export const locale = {
         DATE: 'Date',
         L100IS:'Least 100 Item Sold',
         M100IS:'Most 100 Item Sold',
+        PICTURE: 'Picture',
         ITEMNAME:'Item Name',
         ITEMBARCODE:'Item Barcode',
         SOLDQUANTITY:'Sold Quantity',
