@@ -1776,6 +1776,7 @@ namespace DataAccessLayerJSON
                     item.SetWarehouseName(Item["InventoryItemWarehouse"].ToString());
                     item.SetItemTypeID(Convert.ToInt32(Item["Item Type"].ToString()));
                     item.SetItemTypeName(Item["InventoryItemType"].ToString());
+                    item.Picture = (Byte[])(Item["Item Picture"]);
                     Items.Add(item);
                 }
                 return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);
