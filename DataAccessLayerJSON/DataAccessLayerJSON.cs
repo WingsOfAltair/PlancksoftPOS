@@ -1697,7 +1697,7 @@ namespace DataAccessLayerJSON
                 {
                     if (!Convert.IsDBNull(ItemInfo["Item Picture"]))
                     {
-                        Item.picture = (Byte[])(ItemInfo["Item Picture"]);
+                        Item.picture = JsonConvert.SerializeObject((Byte[])(ItemInfo["Item Picture"]));
                     }
                 }
                 return new Response(Item, true);
@@ -1776,7 +1776,7 @@ namespace DataAccessLayerJSON
                     item.SetWarehouseName(Item["InventoryItemWarehouse"].ToString());
                     item.SetItemTypeID(Convert.ToInt32(Item["Item Type"].ToString()));
                     item.SetItemTypeName(Item["InventoryItemType"].ToString());
-                    item.Picture = (Byte[])(Item["Item Picture"]);
+                    item.Picture = JsonConvert.SerializeObject((Byte[])(Item["Item Picture"]));
                     Items.Add(item);
                 }
                 return new Response(Tuple.Create(Items, SerializeDataTableToJSON(dt)), true);

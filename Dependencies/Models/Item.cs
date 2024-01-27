@@ -21,7 +21,7 @@ namespace Dependencies
         [DataMember]
         public DateTime Date, DateStart, DateEnd, ProductionDate, ExpirationDate, EntryDate;
         [DataMember]
-        public byte[] Picture;
+        public string Picture;
 
         public Item()
         {
@@ -69,7 +69,7 @@ namespace Dependencies
         public int WarehouseID1 { get => Warehouse_ID; set => Warehouse_ID = value; }
         public int FavoriteCategory1 { get => FavoriteCategory; set => FavoriteCategory = value; }
         public DateTime Date1 { get => Date; set => Date = value; }
-        public byte[] picture { get => Picture; set => Picture = value; }
+        public string picture { get => Picture; set => Picture = value; }
         public string ItemNewBarCode { get => itemNewBarCode; set => itemNewBarCode = value; }
 
         public int GetID()
@@ -147,7 +147,7 @@ namespace Dependencies
             return this.Date1;
         }
 
-        public byte[] GetPicture()
+        public string GetPicture()
         {
             return picture;
         }
@@ -242,7 +242,7 @@ namespace Dependencies
             this.saleRate = Rate;
         }
 
-        public void SetPicture(byte[] picture)
+        public void SetPicture(string picture)
         {
             this.picture = picture;
         }
