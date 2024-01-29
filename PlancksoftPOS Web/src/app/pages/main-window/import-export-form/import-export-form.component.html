@@ -11,6 +11,10 @@
       <nb-card-header> {{ "GENERALWORDS.IMPORTEXPORT" | translate }} </nb-card-header>
       <nb-card-body>
         <div class="row" [formGroup]="firstFormGroup">
+          <div class="col-lg-3" style="display: flex; flex-direction: column; align-items: start;">
+            <label>{{ "GENERALWORDS.PICTURE" | translate }}</label>
+            <img [src]="imageSrc" style="width: 100px; height: 100px" />
+          </div>
           <div class="col-lg-3">
             <label for="ItemName">{{ "GENERALWORDS.ITEMNAME" | translate }}</label>
             <input
@@ -105,7 +109,7 @@
             <nb-datepicker #ExpirationDate></nb-datepicker>
           </div>
 
-          <div class="col-md-3 mt-2">
+          <div class="col-md-3 mt-2" style="display: flex; flex-direction: column; align-items: start;">
             <label>{{ "GENERALWORDS.ENTRYDATE" | translate }}</label>
 
             <input
@@ -117,7 +121,7 @@
             />
             <nb-datepicker #EntryDate></nb-datepicker>
           </div>
-          <div class="col-lg-7"></div>
+          <div class="col-lg-12"></div>
           <div class="col-lg-3 mt-2">
             <label>{{ "GENERALWORDS.FORMTYPE" | translate }} </label>
             <nb-select

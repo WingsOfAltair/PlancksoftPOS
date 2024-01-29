@@ -29,6 +29,7 @@ export class CashComponent implements OnInit {
   filterdata: any;
 
   defaultColumns = [
+    "Picture",
     "ItemName",
     "ItemQuantity",
     "ItemBarcode",
@@ -147,6 +148,7 @@ export class CashComponent implements OnInit {
           var obj = {
             data: {
               ItemID: el["ItemID"],
+              Picture: 'data:' + 'image/png' + ';base64,' + el["Picture"].slice(1, -1),
               ItemName: el["ItemName"],
               ItemQuantity: el["ItemQuantity"],
               ItemBuyPrice: el["ItemBuyPrice"],
@@ -198,6 +200,7 @@ export class CashComponent implements OnInit {
             warehouseName: el.data.warehouseName,
             ItemTypeName: el.data.ItemTypeName,
             ItemBarCode: el.data.ItemBarCode,
+            Picture: el.data.Picture,
             RandomCode: el.data.RandomCode,
           },
         };
@@ -218,6 +221,7 @@ export class CashComponent implements OnInit {
             warehouseName: el.data.warehouseName,
             ItemTypeName: el.data.ItemTypeName,
             ItemBarCode: el.data.ItemBarCode,
+            Picture: el.data.Picture,
             RandomCode: el.data.RandomCode,
           },
         };
@@ -238,6 +242,7 @@ export class CashComponent implements OnInit {
             warehouseName: el.data.warehouseName,
             ItemTypeName: el.data.ItemTypeName,
             ItemBarCode: el.data.ItemBarCode,
+            Picture: el.data.Picture,
             RandomCode: this.random,
           },
         };
@@ -258,6 +263,7 @@ export class CashComponent implements OnInit {
             warehouseName: el.data.warehouseName,
             ItemTypeName: el.data.ItemTypeName,
             ItemBarCode: el.data.ItemBarCode,
+            Picture: el.data.Picture,
             RandomCode: this.random,
           },
         };
@@ -341,6 +347,7 @@ export class CashComponent implements OnInit {
 
             this.paydata.forEach((el) => {
               var obj = {
+                Picture: el.data.Picture,
                 ItemName: el.data.ItemName,
                 ItemQuantity: el.data.ItemQuantity,
                 ItemPrice: el.data.ItemPrice,
@@ -360,6 +367,7 @@ export class CashComponent implements OnInit {
 
             this.dataa.forEach((el) => {
               var obj = {
+                Picture: el.data.Picture,
                 ItemName: el.data.ItemName,
                 ItemQuantity: el.data.ItemQuantity,
                 ItemPrice: el.data.ItemPrice,
@@ -481,6 +489,7 @@ export class CashComponent implements OnInit {
           var obj = {
             data: {
               ItemID: el.data.ItemID,
+              Picture: el.data.Picture,
               ItemName: el.data.ItemName,
               ItemQuantity: el.data.ItemQuantity,
               ItemBuyPrice: el.data.ItemBuyPrice,
@@ -522,6 +531,7 @@ export class CashComponent implements OnInit {
         var newItem = {
           data: {
             ItemID: selected[0].data.ItemID,
+            Picture: selected[0].data.Picture,
             ItemName: selected[0].data.ItemName,
             ItemQuantity: 1,
             ItemBuyPrice: selected[0].data.ItemBuyPrice,
@@ -584,6 +594,7 @@ export class CashComponent implements OnInit {
         this.paydata.forEach((el) => {
           var obj = {
             data: {
+              Picture: el.data.Picture,
               ItemName: el.data.ItemName,
               ItemBarCode: el.data.ItemBarCode,
               ItemQuantity: el.data.ItemQuantity,
@@ -608,6 +619,7 @@ export class CashComponent implements OnInit {
         this.dataa.forEach((el) => {
           var obj = {
             data: {
+              Picture: el.data.Picture,
               ItemName: el.data.ItemName,
               ItemBarCode: el.data.ItemBarCode,
               ItemQuantity: el.data.ItemQuantity,

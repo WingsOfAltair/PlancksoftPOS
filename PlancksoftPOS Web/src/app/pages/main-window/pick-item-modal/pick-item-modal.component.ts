@@ -20,6 +20,7 @@ export class PickItemModalComponent implements OnInit {
   data: any;
 
   defaultColumns = [
+    "Picture",
     "ItemName",
     "ItemBarcode",
     "ItemQuantity",
@@ -79,6 +80,7 @@ export class PickItemModalComponent implements OnInit {
           var obj = {
             data: {
               ItemID: el["ItemID"],
+              Picture: 'data:' + 'image/png' + ';base64,' + el["Picture"].slice(1, -1),
               ItemName: el["ItemName"],
               ItemQuantity: el["ItemQuantity"],
               ItemBuyPrice: el["ItemBuyPrice"],
@@ -122,6 +124,7 @@ export class PickItemModalComponent implements OnInit {
     selected.forEach((el) => {
       var obj = {
         data: {
+          Picture: el.data["Picture"],
           ItemName: el.data.ItemName,
           ItemQuantity: el.data["ItemQuantity"],
           ItemBuyPrice: el.data["ItemBuyPrice"],
