@@ -77,6 +77,7 @@ export class ImportExportFormComponent implements OnInit {
   favoriteCategoryName: any;
   ItemTypeName: any;
   warehouseName: any;
+  imageSrc: any;
 
   updateSort(sortRequest: NbSortRequest): void {
     this.sortColumn = sortRequest.column;
@@ -251,6 +252,8 @@ export class ImportExportFormComponent implements OnInit {
       this.Date = this.filterdata[0].Date;
       this.DateEnd = this.filterdata[0].DateEnd;
       this.DateStart = this.filterdata[0].DateStart;
+      
+      this.imageSrc = 'data:' + 'image/png' + ';base64,' + this.filterdata[0].Picture.slice(1, -1);
 
       this.firstFormGroup.patchValue({
         ItemName: this.filterdata[0].ItemName,
@@ -263,6 +266,7 @@ export class ImportExportFormComponent implements OnInit {
         EntryDate: this.filterdata[0].EntryDate,
         buyprice: this.filterdata[0].ItemBuyPrice,
       });
+      
     });
   }
 
@@ -406,6 +410,7 @@ export class ImportExportFormComponent implements OnInit {
       this.firstFormGroup.get("ExpirationDate").reset();
       this.firstFormGroup.get("EntryDate").reset();
       this.firstFormGroup.get("buyprice").reset();
+      this.imageSrc = '';
     } else {
       this.toastrService.danger("Try Again", "Error");
     }

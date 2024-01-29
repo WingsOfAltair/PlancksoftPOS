@@ -12,6 +12,10 @@
       <nb-card-body>
         <div class="row" [formGroup]="firstFormGroup">
           <div class="col-lg-3">
+            <label>{{ "GENERALWORDS.PICTURE" | translate }}</label>
+            <img [src]="imageSrc" style="width: 100px; height: 100px" />
+          </div>
+          <div class="col-lg-3">
             <label for="ItemName">{{ "GENERALWORDS.ITEMNAME" | translate }}</label>
             <input
               type="text"
