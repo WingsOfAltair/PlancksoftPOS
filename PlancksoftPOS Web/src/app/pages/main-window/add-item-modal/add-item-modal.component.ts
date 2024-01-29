@@ -277,7 +277,7 @@ export class AddItemModalComponent implements OnInit {
           Warehouse_ID: parseInt(this.additem.value.Warehouse),
           FavoriteCategory: parseInt(this.additem.value.FavoriteCategory),
           Date: this.convertDateToJSONFormat(new Date()),
-          Picture: Object.values(this.imageByteArray),
+          PictureUpload: Object.values(this.imageByteArray),
           ItemNewBarCode: null,
           ProductionDate: this.convertDateToJSONFormat(
             this.additem.value.ProductionDate
@@ -339,7 +339,7 @@ export class AddItemModalComponent implements OnInit {
             Warehouse_ID: parseInt(this.additem.value.Warehouse),
             FavoriteCategory: parseInt(this.additem.value.FavoriteCategory),
             Date: this.convertDateToJSONFormat(new Date()),
-            Picture: Object.values(this.imageByteArray),
+            PictureUpload: Object.values(this.imageByteArray),
             ItemNewBarCode: this.additem.value.itembarcode,
             ProductionDate: this.convertDateToJSONFormat(
               this.additem.value.ProductionDate

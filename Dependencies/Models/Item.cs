@@ -22,6 +22,8 @@ namespace Dependencies
         public DateTime Date, DateStart, DateEnd, ProductionDate, ExpirationDate, EntryDate;
         [DataMember]
         public string Picture;
+        [DataMember]
+        public byte[] PictureUpload;
 
         public Item()
         {
