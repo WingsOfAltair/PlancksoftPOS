@@ -1340,6 +1340,8 @@ namespace DataAccessLayerJSON
                 {
                     Bill bill = new Bill();
                     bill.SetBillNumber(Convert.ToInt32(Bill["Bill Number"].ToString()));
+                    bill.ClientID = Convert.ToInt32(Bill["Vendor ID"].ToString());
+                    bill.SetClientName(Bill["Vendor Name"].ToString());
                     bill.SetCashierName(Bill["Cashier Name"].ToString());
                     bill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
                     bill.SetDate(Convert.ToDateTime(Bill["Date"].ToString()));
@@ -1352,7 +1354,7 @@ namespace DataAccessLayerJSON
                 List<Bill> Bills = new List<Bill>();
                 DataTable dt = new DataTable();
                 dt.TableName = "VendorBills";
-                return new Response("Could not Retrieve Vendor Bills.", false);
+                return new Response(ex.ToString(), false);
             }
         }
 
@@ -2951,6 +2953,7 @@ namespace DataAccessLayerJSON
                     cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
                     cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
                     cmd.Parameters.AddWithValue("@IsVendor", Convert.ToInt32(billToAdd.IsVendor));
+                    cmd.Parameters.AddWithValue("@vendorID", Convert.ToInt32(billToAdd.ClientID));
                     cmd.Parameters.Add("@BillID", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -2970,6 +2973,7 @@ namespace DataAccessLayerJSON
                             cmd2.Parameters.AddWithValue("@BillID", BillID);
                             cmd2.Parameters.AddWithValue("@ItemBarCode", itemToAdd.GetItemBarCode());
                             cmd2.Parameters.AddWithValue("@ItemQuantity", itemToAdd.GetQuantity());
+                            cmd2.Parameters.AddWithValue("@ItemBuyPrice", itemToAdd.ItemBuyPrice);
 
                             if (connection != null && connection.State == ConnectionState.Closed)
                                 connection.Open();

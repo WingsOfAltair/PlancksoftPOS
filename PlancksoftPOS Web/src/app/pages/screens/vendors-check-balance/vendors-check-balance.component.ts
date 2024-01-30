@@ -17,7 +17,7 @@ export class VendorsCheckBalanceComponent implements OnInit {
   data: any;
   itemdata: any;
 
-  defaultColumns = ["Bill ID", "Cashier Name", "Net Total", "Date", "Action"];
+  defaultColumns = ["Bill ID", "Importer Name", "Cashier Name", "Net Total", "Date", "Action"];
 
   allColumns = [...this.defaultColumns];
 
@@ -99,6 +99,7 @@ export class VendorsCheckBalanceComponent implements OnInit {
           var obj = {
             data: {
               BillNumber: el["BillNumber"],
+              ClientName: el["ClientName"],
               CashierName: el["CashierName"],
               TotalAmount: el["TotalAmount"],
               Date: formattedDate,

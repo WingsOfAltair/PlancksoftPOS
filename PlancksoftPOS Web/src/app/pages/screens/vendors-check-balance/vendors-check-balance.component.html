@@ -41,6 +41,18 @@
                   {{ row.data.BillNumber || "-" }}
                 </td>
               </ng-container>
+              <ng-container [nbTreeGridColumnDef]="'Importer Name'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('Importer Name')"
+                  *nbTreeGridHeaderCellDef
+                >
+                {{ "GENERALWORDS.IMPORTERNAME" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data.ClientName || "-" }}
+                </td>
+              </ng-container>
               <ng-container [nbTreeGridColumnDef]="'Cashier Name'">
                 <th
                   nbTreeGridHeaderCell
@@ -165,7 +177,7 @@
                   [nbSortHeader]="getSortDirection('Buy Price')"
                   *nbTreeGridHeaderCellDef
                 >
-                {{ "GENERALWORDS.ITEMPRICE" | translate }}
+                {{ "GENERALWORDS.BUYPRICE" | translate }}
                 </th>
                 <td nbTreeGridCell *nbTreeGridCellDef="let row">
                   {{ row.data["ItemBuyPrice"] || "-" }}
