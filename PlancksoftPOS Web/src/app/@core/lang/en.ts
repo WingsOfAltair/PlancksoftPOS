@@ -33,6 +33,7 @@ export const locale = {
         ACTION:'Action',
         SALESITEM:'Sales Item',
         ADDITEM:'Add Item',
+        EDITITEM:'Edit Item',
         CLIENT:'Client',
         BILLNUMBER:'Bill Number',
         TRANSCTIONID: 'Transction #',

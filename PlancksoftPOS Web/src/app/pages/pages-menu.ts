@@ -33,7 +33,7 @@ export const MENU_ITEMS: NbMenuItem[] = [
         link: "/pages/screen/imcomming-outgoing",
       },
       {
-        title: "Sold Item Qualification",
+        title: "Sold Item Quantification",
         link: "/pages/screen/sold-item-quantification",
       },
     ],
