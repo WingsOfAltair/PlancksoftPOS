@@ -217,6 +217,20 @@ namespace PlancksoftPOS
             this.groupBox8 = new MaterialSkin.Controls.MaterialCard();
             this.panel17 = new MaterialSkin.Controls.MaterialCard();
             this.DgvInventory = new System.Windows.Forms.DataGridView();
+            this.InventoryItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemSellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemSellPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FavoriteCategoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemFavoriteCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryWarehouseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemWarehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemTypeNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemPicture = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel18 = new MaterialSkin.Controls.MaterialCard();
             this.BtnDeleteItem = new MaterialSkin.Controls.MaterialButton();
             this.BtnPrint = new System.Windows.Forms.PictureBox();
@@ -771,20 +785,6 @@ namespace PlancksoftPOS
             this.hamburger_menu_clients_affairs_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_taxes_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_settings_sub_timer = new System.Windows.Forms.Timer(this.components);
-            this.InventoryItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemSellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemSellPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FavoriteCategoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemFavoriteCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryWarehouseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemWarehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemTypeNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemPicture = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -3613,6 +3613,118 @@ namespace PlancksoftPOS
             this.DgvInventory.Size = new System.Drawing.Size(1732, 620);
             this.DgvInventory.TabIndex = 0;
             this.DgvInventory.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvInventory_RowHeaderMouseClick);
+            // 
+            // InventoryItemName
+            // 
+            this.InventoryItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemName.DataPropertyName = "Item Name";
+            this.InventoryItemName.HeaderText = "إسم القطعه";
+            this.InventoryItemName.Name = "InventoryItemName";
+            this.InventoryItemName.ReadOnly = true;
+            // 
+            // ItemID
+            // 
+            this.ItemID.DataPropertyName = "Item ID";
+            this.ItemID.HeaderText = "رقم القطعه";
+            this.ItemID.Name = "ItemID";
+            this.ItemID.ReadOnly = true;
+            this.ItemID.Visible = false;
+            // 
+            // InventoryItemBarCode
+            // 
+            this.InventoryItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemBarCode.DataPropertyName = "Item BarCode";
+            this.InventoryItemBarCode.HeaderText = "باركود القطعه";
+            this.InventoryItemBarCode.Name = "InventoryItemBarCode";
+            this.InventoryItemBarCode.ReadOnly = true;
+            // 
+            // InventoryItemQuantity
+            // 
+            this.InventoryItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemQuantity.DataPropertyName = "Item Quantity";
+            this.InventoryItemQuantity.HeaderText = "عدد القطعه";
+            this.InventoryItemQuantity.Name = "InventoryItemQuantity";
+            this.InventoryItemQuantity.ReadOnly = true;
+            // 
+            // InventoryItemBuyPrice
+            // 
+            this.InventoryItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemBuyPrice.DataPropertyName = "Item Buy Price";
+            this.InventoryItemBuyPrice.HeaderText = "سعر الشراء";
+            this.InventoryItemBuyPrice.Name = "InventoryItemBuyPrice";
+            this.InventoryItemBuyPrice.ReadOnly = true;
+            // 
+            // InventoryItemSellPrice
+            // 
+            this.InventoryItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemSellPrice.DataPropertyName = "Item Price";
+            this.InventoryItemSellPrice.HeaderText = "سعر القطعه";
+            this.InventoryItemSellPrice.Name = "InventoryItemSellPrice";
+            this.InventoryItemSellPrice.ReadOnly = true;
+            // 
+            // InventoryItemSellPriceTax
+            // 
+            this.InventoryItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemSellPriceTax.DataPropertyName = "Item Price Tax";
+            this.InventoryItemSellPriceTax.HeaderText = "سعر القطعه بالضريبه";
+            this.InventoryItemSellPriceTax.Name = "InventoryItemSellPriceTax";
+            this.InventoryItemSellPriceTax.ReadOnly = true;
+            // 
+            // FavoriteCategoryNumber
+            // 
+            this.FavoriteCategoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FavoriteCategoryNumber.DataPropertyName = "Favorite Category Number";
+            this.FavoriteCategoryNumber.HeaderText = "المصنف المفضل رقم";
+            this.FavoriteCategoryNumber.Name = "FavoriteCategoryNumber";
+            this.FavoriteCategoryNumber.ReadOnly = true;
+            this.FavoriteCategoryNumber.Visible = false;
+            // 
+            // InventoryItemFavoriteCategory
+            // 
+            this.InventoryItemFavoriteCategory.DataPropertyName = "Favorite Category";
+            this.InventoryItemFavoriteCategory.HeaderText = "المصنف المفضل";
+            this.InventoryItemFavoriteCategory.Name = "InventoryItemFavoriteCategory";
+            this.InventoryItemFavoriteCategory.ReadOnly = true;
+            // 
+            // InventoryWarehouseID
+            // 
+            this.InventoryWarehouseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryWarehouseID.DataPropertyName = "Warehouse ID";
+            this.InventoryWarehouseID.HeaderText = "المستودع رقم";
+            this.InventoryWarehouseID.Name = "InventoryWarehouseID";
+            this.InventoryWarehouseID.ReadOnly = true;
+            this.InventoryWarehouseID.Visible = false;
+            // 
+            // InventoryItemWarehouse
+            // 
+            this.InventoryItemWarehouse.DataPropertyName = "InventoryItemWarehouse";
+            this.InventoryItemWarehouse.HeaderText = "المستودع";
+            this.InventoryItemWarehouse.Name = "InventoryItemWarehouse";
+            this.InventoryItemWarehouse.ReadOnly = true;
+            // 
+            // InventoryItemTypeNumber
+            // 
+            this.InventoryItemTypeNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemTypeNumber.DataPropertyName = "Item Type";
+            this.InventoryItemTypeNumber.HeaderText = "تصنيف الماده رقم";
+            this.InventoryItemTypeNumber.Name = "InventoryItemTypeNumber";
+            this.InventoryItemTypeNumber.ReadOnly = true;
+            this.InventoryItemTypeNumber.Visible = false;
+            // 
+            // InventoryItemType
+            // 
+            this.InventoryItemType.DataPropertyName = "InventoryItemType";
+            this.InventoryItemType.HeaderText = "تصنيف الماده";
+            this.InventoryItemType.Name = "InventoryItemType";
+            this.InventoryItemType.ReadOnly = true;
+            // 
+            // ItemPicture
+            // 
+            this.ItemPicture.DataPropertyName = "Item Picture";
+            this.ItemPicture.HeaderText = "الصورة";
+            this.ItemPicture.Name = "ItemPicture";
+            this.ItemPicture.ReadOnly = true;
+            this.ItemPicture.Visible = false;
             // 
             // panel18
             // 
@@ -12506,118 +12618,6 @@ namespace PlancksoftPOS
             // 
             this.hamburger_menu_settings_sub_timer.Interval = 10;
             this.hamburger_menu_settings_sub_timer.Tick += new System.EventHandler(this.hamburger_menu_settings_sub_timer_Tick_1);
-            // 
-            // InventoryItemName
-            // 
-            this.InventoryItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemName.DataPropertyName = "Item Name";
-            this.InventoryItemName.HeaderText = "إسم القطعه";
-            this.InventoryItemName.Name = "InventoryItemName";
-            this.InventoryItemName.ReadOnly = true;
-            // 
-            // ItemID
-            // 
-            this.ItemID.DataPropertyName = "Item ID";
-            this.ItemID.HeaderText = "رقم القطعه";
-            this.ItemID.Name = "ItemID";
-            this.ItemID.ReadOnly = true;
-            this.ItemID.Visible = false;
-            // 
-            // InventoryItemBarCode
-            // 
-            this.InventoryItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemBarCode.DataPropertyName = "Item BarCode";
-            this.InventoryItemBarCode.HeaderText = "باركود القطعه";
-            this.InventoryItemBarCode.Name = "InventoryItemBarCode";
-            this.InventoryItemBarCode.ReadOnly = true;
-            // 
-            // InventoryItemQuantity
-            // 
-            this.InventoryItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemQuantity.DataPropertyName = "Item Quantity";
-            this.InventoryItemQuantity.HeaderText = "عدد القطعه";
-            this.InventoryItemQuantity.Name = "InventoryItemQuantity";
-            this.InventoryItemQuantity.ReadOnly = true;
-            // 
-            // InventoryItemBuyPrice
-            // 
-            this.InventoryItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemBuyPrice.DataPropertyName = "Item Buy Price";
-            this.InventoryItemBuyPrice.HeaderText = "سعر الشراء";
-            this.InventoryItemBuyPrice.Name = "InventoryItemBuyPrice";
-            this.InventoryItemBuyPrice.ReadOnly = true;
-            // 
-            // InventoryItemSellPrice
-            // 
-            this.InventoryItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemSellPrice.DataPropertyName = "Item Price";
-            this.InventoryItemSellPrice.HeaderText = "سعر القطعه";
-            this.InventoryItemSellPrice.Name = "InventoryItemSellPrice";
-            this.InventoryItemSellPrice.ReadOnly = true;
-            // 
-            // InventoryItemSellPriceTax
-            // 
-            this.InventoryItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemSellPriceTax.DataPropertyName = "Item Price Tax";
-            this.InventoryItemSellPriceTax.HeaderText = "سعر القطعه بالضريبه";
-            this.InventoryItemSellPriceTax.Name = "InventoryItemSellPriceTax";
-            this.InventoryItemSellPriceTax.ReadOnly = true;
-            // 
-            // FavoriteCategoryNumber
-            // 
-            this.FavoriteCategoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FavoriteCategoryNumber.DataPropertyName = "Favorite Category Number";
-            this.FavoriteCategoryNumber.HeaderText = "المصنف المفضل رقم";
-            this.FavoriteCategoryNumber.Name = "FavoriteCategoryNumber";
-            this.FavoriteCategoryNumber.ReadOnly = true;
-            this.FavoriteCategoryNumber.Visible = false;
-            // 
-            // InventoryItemFavoriteCategory
-            // 
-            this.InventoryItemFavoriteCategory.DataPropertyName = "Favorite Category";
-            this.InventoryItemFavoriteCategory.HeaderText = "المصنف المفضل";
-            this.InventoryItemFavoriteCategory.Name = "InventoryItemFavoriteCategory";
-            this.InventoryItemFavoriteCategory.ReadOnly = true;
-            // 
-            // InventoryWarehouseID
-            // 
-            this.InventoryWarehouseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryWarehouseID.DataPropertyName = "Warehouse ID";
-            this.InventoryWarehouseID.HeaderText = "المستودع رقم";
-            this.InventoryWarehouseID.Name = "InventoryWarehouseID";
-            this.InventoryWarehouseID.ReadOnly = true;
-            this.InventoryWarehouseID.Visible = false;
-            // 
-            // InventoryItemWarehouse
-            // 
-            this.InventoryItemWarehouse.DataPropertyName = "InventoryItemWarehouse";
-            this.InventoryItemWarehouse.HeaderText = "المستودع";
-            this.InventoryItemWarehouse.Name = "InventoryItemWarehouse";
-            this.InventoryItemWarehouse.ReadOnly = true;
-            // 
-            // InventoryItemTypeNumber
-            // 
-            this.InventoryItemTypeNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemTypeNumber.DataPropertyName = "Item Type";
-            this.InventoryItemTypeNumber.HeaderText = "تصنيف الماده رقم";
-            this.InventoryItemTypeNumber.Name = "InventoryItemTypeNumber";
-            this.InventoryItemTypeNumber.ReadOnly = true;
-            this.InventoryItemTypeNumber.Visible = false;
-            // 
-            // InventoryItemType
-            // 
-            this.InventoryItemType.DataPropertyName = "InventoryItemType";
-            this.InventoryItemType.HeaderText = "تصنيف الماده";
-            this.InventoryItemType.Name = "InventoryItemType";
-            this.InventoryItemType.ReadOnly = true;
-            // 
-            // ItemPicture
-            // 
-            this.ItemPicture.DataPropertyName = "Item Picture";
-            this.ItemPicture.HeaderText = "الصورة";
-            this.ItemPicture.Name = "ItemPicture";
-            this.ItemPicture.ReadOnly = true;
-            this.ItemPicture.Visible = false;
             // 
             // frmMain
             // 
