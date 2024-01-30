@@ -2412,7 +2412,7 @@ namespace PlancksoftPOS
                             btn.Tag = favoriteItem.GetItemBarCode();
                             try
                             {
-                                byte[] picture = Connection.server.RetrieveItemPictureFromBarCode(favoriteItem.GetItemBarCode()).picture;
+                                byte[] picture = Connection.server.RetrieveItemPictureFromBarCode(favoriteItem.GetItemBarCode()).PictureUpload;
                                 var stream = new MemoryStream(picture);
                                 btn.BackgroundImage = Image.FromStream(stream);
                             } catch(Exception exc) { }
@@ -3335,7 +3335,7 @@ namespace PlancksoftPOS
                         PBAddProfilePicture.Image.Save(ms, PBAddProfilePicture.Image.RawFormat);
                         byte[] a = ms.GetBuffer();
                         ms.Close();
-                        newItem.SetPicture(a);
+                        newItem.PictureUpload = a;
                     }
 
                     if (Connection.server.InsertItem(newItem))
@@ -3570,7 +3570,7 @@ namespace PlancksoftPOS
                                     PBAddProfilePicture.Image.Save(ms, PBAddProfilePicture.Image.RawFormat);
                                     byte[] a = ms.GetBuffer();
                                     ms.Close();
-                                    newItem.SetPicture(a);
+                                    newItem.PictureUpload = a;
                                 }
 
                                 if (Connection.server.UpdateItem(newItem))
@@ -9009,6 +9009,8 @@ namespace PlancksoftPOS
                 if (nudClientIDImportExport.Value != 0 && txtClientNameImportExport.Text != "")
                 {
                     Bill billToAdd = new Bill(this.CurrentVendorBillNumber, this.totalVendorAmount, itemsToAdd, DateTime.Now);
+                    billToAdd.IsVendor = true;
+                    billToAdd.ClientID = Convert.ToInt32(nudClientIDImportExport.Value);
                     if (Connection.server.AddVendorBill(billToAdd, this.cashierName) > -1)
                     {
                         this.totalVendorAmount = Connection.server.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
