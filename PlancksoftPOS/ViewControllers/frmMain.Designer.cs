@@ -217,20 +217,6 @@ namespace PlancksoftPOS
             this.groupBox8 = new MaterialSkin.Controls.MaterialCard();
             this.panel17 = new MaterialSkin.Controls.MaterialCard();
             this.DgvInventory = new System.Windows.Forms.DataGridView();
-            this.InventoryItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemSellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemSellPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FavoriteCategoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemFavoriteCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryWarehouseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemWarehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemTypeNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InventoryItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ItemPicture = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel18 = new MaterialSkin.Controls.MaterialCard();
             this.BtnDeleteItem = new MaterialSkin.Controls.MaterialButton();
             this.BtnPrint = new System.Windows.Forms.PictureBox();
@@ -549,6 +535,12 @@ namespace PlancksoftPOS
             this.VendorBillItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox43 = new MaterialSkin.Controls.MaterialCard();
             this.dgvVendorBills = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VendorBillDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox45 = new System.Windows.Forms.PictureBox();
             this.AgentsItemsDefinitions = new System.Windows.Forms.TabPage();
             this.groupBox34 = new MaterialSkin.Controls.MaterialCard();
@@ -779,12 +771,20 @@ namespace PlancksoftPOS
             this.hamburger_menu_clients_affairs_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_taxes_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_settings_sub_timer = new System.Windows.Forms.Timer(this.components);
-            this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VendorBillDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column65 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemBarCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemBuyPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemSellPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemSellPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FavoriteCategoryNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemFavoriteCategory = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryWarehouseID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemWarehouse = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemTypeNumber = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InventoryItemType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ItemPicture = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -3613,118 +3613,6 @@ namespace PlancksoftPOS
             this.DgvInventory.Size = new System.Drawing.Size(1732, 620);
             this.DgvInventory.TabIndex = 0;
             this.DgvInventory.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DgvInventory_RowHeaderMouseClick);
-            // 
-            // InventoryItemName
-            // 
-            this.InventoryItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemName.DataPropertyName = "Item Name";
-            this.InventoryItemName.HeaderText = "إسم القطعه";
-            this.InventoryItemName.Name = "InventoryItemName";
-            this.InventoryItemName.ReadOnly = true;
-            // 
-            // ItemID
-            // 
-            this.ItemID.DataPropertyName = "Item ID";
-            this.ItemID.HeaderText = "رقم القطعه";
-            this.ItemID.Name = "ItemID";
-            this.ItemID.ReadOnly = true;
-            this.ItemID.Visible = false;
-            // 
-            // InventoryItemBarCode
-            // 
-            this.InventoryItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemBarCode.DataPropertyName = "Item BarCode";
-            this.InventoryItemBarCode.HeaderText = "باركود القطعه";
-            this.InventoryItemBarCode.Name = "InventoryItemBarCode";
-            this.InventoryItemBarCode.ReadOnly = true;
-            // 
-            // InventoryItemQuantity
-            // 
-            this.InventoryItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemQuantity.DataPropertyName = "Item Quantity";
-            this.InventoryItemQuantity.HeaderText = "عدد القطعه";
-            this.InventoryItemQuantity.Name = "InventoryItemQuantity";
-            this.InventoryItemQuantity.ReadOnly = true;
-            // 
-            // InventoryItemBuyPrice
-            // 
-            this.InventoryItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemBuyPrice.DataPropertyName = "Item Buy Price";
-            this.InventoryItemBuyPrice.HeaderText = "سعر الشراء";
-            this.InventoryItemBuyPrice.Name = "InventoryItemBuyPrice";
-            this.InventoryItemBuyPrice.ReadOnly = true;
-            // 
-            // InventoryItemSellPrice
-            // 
-            this.InventoryItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemSellPrice.DataPropertyName = "Item Price";
-            this.InventoryItemSellPrice.HeaderText = "سعر القطعه";
-            this.InventoryItemSellPrice.Name = "InventoryItemSellPrice";
-            this.InventoryItemSellPrice.ReadOnly = true;
-            // 
-            // InventoryItemSellPriceTax
-            // 
-            this.InventoryItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemSellPriceTax.DataPropertyName = "Item Price Tax";
-            this.InventoryItemSellPriceTax.HeaderText = "سعر القطعه بالضريبه";
-            this.InventoryItemSellPriceTax.Name = "InventoryItemSellPriceTax";
-            this.InventoryItemSellPriceTax.ReadOnly = true;
-            // 
-            // FavoriteCategoryNumber
-            // 
-            this.FavoriteCategoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.FavoriteCategoryNumber.DataPropertyName = "Favorite Category Number";
-            this.FavoriteCategoryNumber.HeaderText = "المصنف المفضل رقم";
-            this.FavoriteCategoryNumber.Name = "FavoriteCategoryNumber";
-            this.FavoriteCategoryNumber.ReadOnly = true;
-            this.FavoriteCategoryNumber.Visible = false;
-            // 
-            // InventoryItemFavoriteCategory
-            // 
-            this.InventoryItemFavoriteCategory.DataPropertyName = "Favorite Category";
-            this.InventoryItemFavoriteCategory.HeaderText = "المصنف المفضل";
-            this.InventoryItemFavoriteCategory.Name = "InventoryItemFavoriteCategory";
-            this.InventoryItemFavoriteCategory.ReadOnly = true;
-            // 
-            // InventoryWarehouseID
-            // 
-            this.InventoryWarehouseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryWarehouseID.DataPropertyName = "Warehouse ID";
-            this.InventoryWarehouseID.HeaderText = "المستودع رقم";
-            this.InventoryWarehouseID.Name = "InventoryWarehouseID";
-            this.InventoryWarehouseID.ReadOnly = true;
-            this.InventoryWarehouseID.Visible = false;
-            // 
-            // InventoryItemWarehouse
-            // 
-            this.InventoryItemWarehouse.DataPropertyName = "InventoryItemWarehouse";
-            this.InventoryItemWarehouse.HeaderText = "المستودع";
-            this.InventoryItemWarehouse.Name = "InventoryItemWarehouse";
-            this.InventoryItemWarehouse.ReadOnly = true;
-            // 
-            // InventoryItemTypeNumber
-            // 
-            this.InventoryItemTypeNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.InventoryItemTypeNumber.DataPropertyName = "Item Type";
-            this.InventoryItemTypeNumber.HeaderText = "تصنيف الماده رقم";
-            this.InventoryItemTypeNumber.Name = "InventoryItemTypeNumber";
-            this.InventoryItemTypeNumber.ReadOnly = true;
-            this.InventoryItemTypeNumber.Visible = false;
-            // 
-            // InventoryItemType
-            // 
-            this.InventoryItemType.DataPropertyName = "InventoryItemType";
-            this.InventoryItemType.HeaderText = "تصنيف الماده";
-            this.InventoryItemType.Name = "InventoryItemType";
-            this.InventoryItemType.ReadOnly = true;
-            // 
-            // ItemPicture
-            // 
-            this.ItemPicture.DataPropertyName = "Item Picture";
-            this.ItemPicture.HeaderText = "Item Picture";
-            this.ItemPicture.Name = "ItemPicture";
-            this.ItemPicture.ReadOnly = true;
-            this.ItemPicture.Visible = false;
             // 
             // panel18
             // 
@@ -8760,6 +8648,54 @@ namespace PlancksoftPOS
             this.dgvVendorBills.TabIndex = 28;
             this.dgvVendorBills.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvVendorBills_RowHeaderMouseClick);
             // 
+            // dataGridViewTextBoxColumn39
+            // 
+            this.dataGridViewTextBoxColumn39.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn39.DataPropertyName = "Bill Number";
+            this.dataGridViewTextBoxColumn39.HeaderText = "رقم الفاتوره";
+            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            this.dataGridViewTextBoxColumn39.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn40
+            // 
+            this.dataGridViewTextBoxColumn40.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn40.DataPropertyName = "Cashier Name";
+            this.dataGridViewTextBoxColumn40.HeaderText = "اسم الكاشير";
+            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            this.dataGridViewTextBoxColumn40.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn41
+            // 
+            this.dataGridViewTextBoxColumn41.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn41.DataPropertyName = "Total Amount";
+            this.dataGridViewTextBoxColumn41.HeaderText = "المبلغ الصافي";
+            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
+            this.dataGridViewTextBoxColumn41.ReadOnly = true;
+            // 
+            // VendorBillDate
+            // 
+            this.VendorBillDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.VendorBillDate.DataPropertyName = "Date";
+            this.VendorBillDate.HeaderText = "التاريخ";
+            this.VendorBillDate.Name = "VendorBillDate";
+            this.VendorBillDate.ReadOnly = true;
+            // 
+            // Column41
+            // 
+            this.Column41.DataPropertyName = "Vendor ID";
+            this.Column41.HeaderText = "Vendor ID";
+            this.Column41.Name = "Column41";
+            this.Column41.ReadOnly = true;
+            this.Column41.Visible = false;
+            // 
+            // Column65
+            // 
+            this.Column65.DataPropertyName = "Vendor Name";
+            this.Column65.HeaderText = "Vendor Name";
+            this.Column65.Name = "Column65";
+            this.Column65.ReadOnly = true;
+            this.Column65.Visible = false;
+            // 
             // pictureBox45
             // 
             this.pictureBox45.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -12571,53 +12507,117 @@ namespace PlancksoftPOS
             this.hamburger_menu_settings_sub_timer.Interval = 10;
             this.hamburger_menu_settings_sub_timer.Tick += new System.EventHandler(this.hamburger_menu_settings_sub_timer_Tick_1);
             // 
-            // dataGridViewTextBoxColumn39
+            // InventoryItemName
             // 
-            this.dataGridViewTextBoxColumn39.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn39.DataPropertyName = "Bill Number";
-            this.dataGridViewTextBoxColumn39.HeaderText = "رقم الفاتوره";
-            this.dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
-            this.dataGridViewTextBoxColumn39.ReadOnly = true;
+            this.InventoryItemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemName.DataPropertyName = "Item Name";
+            this.InventoryItemName.HeaderText = "إسم القطعه";
+            this.InventoryItemName.Name = "InventoryItemName";
+            this.InventoryItemName.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn40
+            // ItemID
             // 
-            this.dataGridViewTextBoxColumn40.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn40.DataPropertyName = "Cashier Name";
-            this.dataGridViewTextBoxColumn40.HeaderText = "اسم الكاشير";
-            this.dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
-            this.dataGridViewTextBoxColumn40.ReadOnly = true;
+            this.ItemID.DataPropertyName = "Item ID";
+            this.ItemID.HeaderText = "رقم القطعه";
+            this.ItemID.Name = "ItemID";
+            this.ItemID.ReadOnly = true;
+            this.ItemID.Visible = false;
             // 
-            // dataGridViewTextBoxColumn41
+            // InventoryItemBarCode
             // 
-            this.dataGridViewTextBoxColumn41.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn41.DataPropertyName = "Total Amount";
-            this.dataGridViewTextBoxColumn41.HeaderText = "المبلغ الصافي";
-            this.dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
-            this.dataGridViewTextBoxColumn41.ReadOnly = true;
+            this.InventoryItemBarCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemBarCode.DataPropertyName = "Item BarCode";
+            this.InventoryItemBarCode.HeaderText = "باركود القطعه";
+            this.InventoryItemBarCode.Name = "InventoryItemBarCode";
+            this.InventoryItemBarCode.ReadOnly = true;
             // 
-            // VendorBillDate
+            // InventoryItemQuantity
             // 
-            this.VendorBillDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.VendorBillDate.DataPropertyName = "Date";
-            this.VendorBillDate.HeaderText = "التاريخ";
-            this.VendorBillDate.Name = "VendorBillDate";
-            this.VendorBillDate.ReadOnly = true;
+            this.InventoryItemQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemQuantity.DataPropertyName = "Item Quantity";
+            this.InventoryItemQuantity.HeaderText = "عدد القطعه";
+            this.InventoryItemQuantity.Name = "InventoryItemQuantity";
+            this.InventoryItemQuantity.ReadOnly = true;
             // 
-            // Column41
+            // InventoryItemBuyPrice
             // 
-            this.Column41.DataPropertyName = "Vendor ID";
-            this.Column41.HeaderText = "Vendor ID";
-            this.Column41.Name = "Column41";
-            this.Column41.ReadOnly = true;
-            this.Column41.Visible = false;
+            this.InventoryItemBuyPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemBuyPrice.DataPropertyName = "Item Buy Price";
+            this.InventoryItemBuyPrice.HeaderText = "سعر الشراء";
+            this.InventoryItemBuyPrice.Name = "InventoryItemBuyPrice";
+            this.InventoryItemBuyPrice.ReadOnly = true;
             // 
-            // Column65
+            // InventoryItemSellPrice
             // 
-            this.Column65.DataPropertyName = "Vendor Name";
-            this.Column65.HeaderText = "Vendor Name";
-            this.Column65.Name = "Column65";
-            this.Column65.ReadOnly = true;
-            this.Column65.Visible = false;
+            this.InventoryItemSellPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemSellPrice.DataPropertyName = "Item Price";
+            this.InventoryItemSellPrice.HeaderText = "سعر القطعه";
+            this.InventoryItemSellPrice.Name = "InventoryItemSellPrice";
+            this.InventoryItemSellPrice.ReadOnly = true;
+            // 
+            // InventoryItemSellPriceTax
+            // 
+            this.InventoryItemSellPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemSellPriceTax.DataPropertyName = "Item Price Tax";
+            this.InventoryItemSellPriceTax.HeaderText = "سعر القطعه بالضريبه";
+            this.InventoryItemSellPriceTax.Name = "InventoryItemSellPriceTax";
+            this.InventoryItemSellPriceTax.ReadOnly = true;
+            // 
+            // FavoriteCategoryNumber
+            // 
+            this.FavoriteCategoryNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FavoriteCategoryNumber.DataPropertyName = "Favorite Category Number";
+            this.FavoriteCategoryNumber.HeaderText = "المصنف المفضل رقم";
+            this.FavoriteCategoryNumber.Name = "FavoriteCategoryNumber";
+            this.FavoriteCategoryNumber.ReadOnly = true;
+            this.FavoriteCategoryNumber.Visible = false;
+            // 
+            // InventoryItemFavoriteCategory
+            // 
+            this.InventoryItemFavoriteCategory.DataPropertyName = "Favorite Category";
+            this.InventoryItemFavoriteCategory.HeaderText = "المصنف المفضل";
+            this.InventoryItemFavoriteCategory.Name = "InventoryItemFavoriteCategory";
+            this.InventoryItemFavoriteCategory.ReadOnly = true;
+            // 
+            // InventoryWarehouseID
+            // 
+            this.InventoryWarehouseID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryWarehouseID.DataPropertyName = "Warehouse ID";
+            this.InventoryWarehouseID.HeaderText = "المستودع رقم";
+            this.InventoryWarehouseID.Name = "InventoryWarehouseID";
+            this.InventoryWarehouseID.ReadOnly = true;
+            this.InventoryWarehouseID.Visible = false;
+            // 
+            // InventoryItemWarehouse
+            // 
+            this.InventoryItemWarehouse.DataPropertyName = "InventoryItemWarehouse";
+            this.InventoryItemWarehouse.HeaderText = "المستودع";
+            this.InventoryItemWarehouse.Name = "InventoryItemWarehouse";
+            this.InventoryItemWarehouse.ReadOnly = true;
+            // 
+            // InventoryItemTypeNumber
+            // 
+            this.InventoryItemTypeNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.InventoryItemTypeNumber.DataPropertyName = "Item Type";
+            this.InventoryItemTypeNumber.HeaderText = "تصنيف الماده رقم";
+            this.InventoryItemTypeNumber.Name = "InventoryItemTypeNumber";
+            this.InventoryItemTypeNumber.ReadOnly = true;
+            this.InventoryItemTypeNumber.Visible = false;
+            // 
+            // InventoryItemType
+            // 
+            this.InventoryItemType.DataPropertyName = "InventoryItemType";
+            this.InventoryItemType.HeaderText = "تصنيف الماده";
+            this.InventoryItemType.Name = "InventoryItemType";
+            this.InventoryItemType.ReadOnly = true;
+            // 
+            // ItemPicture
+            // 
+            this.ItemPicture.DataPropertyName = "Item Picture";
+            this.ItemPicture.HeaderText = "الصورة";
+            this.ItemPicture.Name = "ItemPicture";
+            this.ItemPicture.ReadOnly = true;
+            this.ItemPicture.Visible = false;
             // 
             // frmMain
             // 
@@ -13420,20 +13420,6 @@ namespace PlancksoftPOS
         private System.Windows.Forms.DataGridViewTextBoxColumn ItemPriceTax;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemBarCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemQuantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemBuyPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemSellPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemSellPriceTax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FavoriteCategoryNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemFavoriteCategory;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryWarehouseID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemWarehouse;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemTypeNumber;
-        private System.Windows.Forms.DataGridViewTextBoxColumn InventoryItemType;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemPicture;
         private MaterialTabControl tabControl9;
         private System.Windows.Forms.TabPage posSettings;
         private System.Windows.Forms.TabPage printersSettings;
@@ -13705,6 +13691,20 @@ namespace PlancksoftPOS
         private DataGridViewTextBoxColumn VendorBillDate;
         private DataGridViewTextBoxColumn Column41;
         private DataGridViewTextBoxColumn Column65;
+        private DataGridViewTextBoxColumn InventoryItemName;
+        private DataGridViewTextBoxColumn ItemID;
+        private DataGridViewTextBoxColumn InventoryItemBarCode;
+        private DataGridViewTextBoxColumn InventoryItemQuantity;
+        private DataGridViewTextBoxColumn InventoryItemBuyPrice;
+        private DataGridViewTextBoxColumn InventoryItemSellPrice;
+        private DataGridViewTextBoxColumn InventoryItemSellPriceTax;
+        private DataGridViewTextBoxColumn FavoriteCategoryNumber;
+        private DataGridViewTextBoxColumn InventoryItemFavoriteCategory;
+        private DataGridViewTextBoxColumn InventoryWarehouseID;
+        private DataGridViewTextBoxColumn InventoryItemWarehouse;
+        private DataGridViewTextBoxColumn InventoryItemTypeNumber;
+        private DataGridViewTextBoxColumn InventoryItemType;
+        private DataGridViewTextBoxColumn ItemPicture;
     }
 }
 

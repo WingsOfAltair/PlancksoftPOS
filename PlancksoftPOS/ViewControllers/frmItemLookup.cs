@@ -93,6 +93,7 @@ namespace PlancksoftPOS
                 DGVItemsLookup.Columns["ItemTypeName"].HeaderText = "تصنيف الماده";
                 DGVItemsLookup.Columns["FavoriteCategory"].HeaderText = "رقم المجلد المفضل";
                 DGVItemsLookup.Columns["FavoriteCategoryName"].HeaderText = "المجلد المفضل";
+                DGVItemsLookup.Columns["ItemPicture"].HeaderText = "الصورة";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
@@ -119,6 +120,7 @@ namespace PlancksoftPOS
                 DGVItemsLookup.Columns["ItemTypeName"].HeaderText = "Item Type";
                 DGVItemsLookup.Columns["FavoriteCategory"].HeaderText = "Favorite Category ID";
                 DGVItemsLookup.Columns["FavoriteCategoryName"].HeaderText = "Favorite Category";
+                DGVItemsLookup.Columns["ItemPicture"].HeaderText = "Picture";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
@@ -148,6 +150,7 @@ namespace PlancksoftPOS
                 DGVItemsLookup.Columns["ItemTypeName"].HeaderText = "تصنيف الماده";
                 DGVItemsLookup.Columns["FavoriteCategory"].HeaderText = "رقم المجلد المفضل";
                 DGVItemsLookup.Columns["FavoriteCategoryName"].HeaderText = "المجلد المفضل";
+                DGVItemsLookup.Columns["ItemPicture"].HeaderText = "الصورة";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
@@ -164,6 +167,7 @@ namespace PlancksoftPOS
                 DGVItemsLookup.Columns["ItemTypeName"].HeaderText = "Item Type";
                 DGVItemsLookup.Columns["FavoriteCategory"].HeaderText = "Favorite Category ID";
                 DGVItemsLookup.Columns["FavoriteCategoryName"].HeaderText = "Favorite Category";
+                DGVItemsLookup.Columns["ItemPicture"].HeaderText = "Picture";
             }
         }
 
@@ -187,6 +191,7 @@ namespace PlancksoftPOS
                 DGVItemsLookup.Columns["ItemTypeName"].HeaderText = "تصنيف الماده";
                 DGVItemsLookup.Columns["FavoriteCategory"].HeaderText = "رقم المجلد المفضل";
                 DGVItemsLookup.Columns["FavoriteCategoryName"].HeaderText = "المجلد المفضل";
+                DGVItemsLookup.Columns["ItemPicture"].HeaderText = "الصورة";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
@@ -203,6 +208,7 @@ namespace PlancksoftPOS
                 DGVItemsLookup.Columns["ItemTypeName"].HeaderText = "Item Type";
                 DGVItemsLookup.Columns["FavoriteCategory"].HeaderText = "Favorite Category ID";
                 DGVItemsLookup.Columns["FavoriteCategoryName"].HeaderText = "Favorite Category";
+                DGVItemsLookup.Columns["ItemPicture"].HeaderText = "Picture";
             }
         }
 
