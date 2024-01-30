@@ -98,13 +98,9 @@
                 {{ "GENERALWORDS.ACTION" | translate }}
                 </th>
                 <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                  <a
-                    ><i
-                      class="nb-edit"
-                      (click)="Bill(row.data.BillNumber)"
-                      style="font-size: 20px"
-                    ></i
-                  ></a>
+                  <a>
+                    <nb-icon icon="list-outline" pack="eva" (click)="Bill(row.data.BillNumber)"></nb-icon>
+                  </a>
                 </td>
               </ng-container>
             </table>
