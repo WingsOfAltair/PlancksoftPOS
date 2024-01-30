@@ -2333,8 +2333,8 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@WarehouseID", ItemToInsert.GetWarehouseID());
                     cmd.Parameters.AddWithValue("@Favorite", ItemToInsert.GetFavoriteCategory().ToString());
                     cmd.Parameters.AddWithValue("@Date", ItemToInsert.GetDate());
-                    if (ItemToInsert.GetPicture() != null)
-                        cmd.Parameters.AddWithValue("@Picture", ItemToInsert.GetPicture());
+                    if (ItemToInsert.PictureUpload != null)
+                        cmd.Parameters.AddWithValue("@Picture", ItemToInsert.PictureUpload);
                     cmd.Parameters.AddWithValue("WarningQuantity", ItemToInsert.QuantityWarning);
                     cmd.Parameters.AddWithValue("ProductionDate", ItemToInsert.ProductionDate);
                     cmd.Parameters.AddWithValue("ExpirationDate", ItemToInsert.ExpirationDate);
@@ -3246,8 +3246,8 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@ItemTypeID", ItemToUpdate.GetItemTypeeID().ToString());
                     cmd.Parameters.AddWithValue("@Favorite", ItemToUpdate.GetFavoriteCategory().ToString());
                     cmd.Parameters.AddWithValue("@Date", DateTime.Now);
-                    if (ItemToUpdate.GetPicture() != null)
-                        cmd.Parameters.AddWithValue("@Picture", ItemToUpdate.GetPicture());
+                    if (ItemToUpdate.PictureUpload != null)
+                        cmd.Parameters.AddWithValue("@Picture", ItemToUpdate.PictureUpload);
                     cmd.Parameters.AddWithValue("WarningQuantity", ItemToUpdate.QuantityWarning);
                     cmd.Parameters.AddWithValue("ProductionDate", ItemToUpdate.ProductionDate);
                     cmd.Parameters.AddWithValue("ExpirationDate", ItemToUpdate.ExpirationDate);
