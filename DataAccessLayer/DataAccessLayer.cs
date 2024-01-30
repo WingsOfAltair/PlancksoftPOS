@@ -1673,7 +1673,7 @@ namespace DataAccessLayer
                 {
                     if (!Convert.IsDBNull(ItemInfo["Item Picture"]))
                     {
-                        Item.picture = (Byte[])(ItemInfo["Item Picture"]);
+                        Item.PictureUpload = (Byte[])(ItemInfo["Item Picture"]);
                     }
                 }
                 return Item;
@@ -2863,7 +2863,9 @@ namespace DataAccessLayer
 
                     cmd.Parameters.AddWithValue("@cashierName", cashierName);
                     cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
-                    cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
+                    cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());            
+                    cmd.Parameters.AddWithValue("@IsVendor", Convert.ToInt32(billToAdd.IsVendor));
+                    cmd.Parameters.AddWithValue("@vendorID", Convert.ToInt32(billToAdd.ClientID));
                     cmd.Parameters.Add("@BillID", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
@@ -2883,6 +2885,7 @@ namespace DataAccessLayer
                             cmd2.Parameters.AddWithValue("@BillID", BillID);
                             cmd2.Parameters.AddWithValue("@ItemBarCode", itemToAdd.GetItemBarCode());
                             cmd2.Parameters.AddWithValue("@ItemQuantity", itemToAdd.GetQuantity());
+                            cmd2.Parameters.AddWithValue("@ItemBuyPrice", itemToAdd.ItemBuyPrice);
 
                             if (connection != null && connection.State == ConnectionState.Closed)
                                 connection.Open();
