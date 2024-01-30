@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { SmartTableData } from "../../../@core/data/smart-table";
 import {
   NbDateService,
@@ -194,7 +194,13 @@ export class AddItemModalComponent implements OnInit {
 
     this.disableItemName();
   }
-  
+
+  @Output() modalClose = new EventEmitter();
+
+  closeModal() {
+    this.modalClose.emit(); // Emit custom event
+    this.windowRef.close("");
+}
 
   convertDataURIToBinary(dataURI) {
     var base64Index = dataURI.indexOf(';base64,') + ';base64,'.length;
@@ -254,6 +260,12 @@ export class AddItemModalComponent implements OnInit {
     if (this.additem.valid) {
       console.log(this.additem.value);
 
+      var imageArray = null;
+
+      if (this.imageByteArray) {
+        imageArray = Object.values(this.imageByteArray)
+      }
+
       var obj = {
         ItemToInsert: {
           ItemID: 0,
@@ -277,7 +289,7 @@ export class AddItemModalComponent implements OnInit {
           Warehouse_ID: parseInt(this.additem.value.Warehouse),
           FavoriteCategory: parseInt(this.additem.value.FavoriteCategory),
           Date: this.convertDateToJSONFormat(new Date()),
-          PictureUpload: Object.values(this.imageByteArray),
+          PictureUpload: imageArray,
           ItemNewBarCode: null,
           ProductionDate: this.convertDateToJSONFormat(
             this.additem.value.ProductionDate
@@ -293,12 +305,12 @@ export class AddItemModalComponent implements OnInit {
         .PostRequest("InsertItem", obj)
         .subscribe((res: any) => {
           console.log(JSON.parse(res));
+          this.closeModal();
         });
     } else {
       this.toastrService.danger("Try Again", "Error");
     }
 
-    this.windowRef.close("");
   }
 
   convertDateToJSONFormat(date) {
@@ -321,6 +333,13 @@ export class AddItemModalComponent implements OnInit {
         var totalTax = TaxRate * this.inputValue2;
         this.sumResult = this.inputValue2 + totalTax;
 
+        
+      var imageArray = null;
+
+      if (this.imageByteArray) {
+        imageArray = Object.values(this.imageByteArray)
+      }
+
         var obj = {
           ItemToUpdate: {
             ItemID: 0,
@@ -339,7 +358,7 @@ export class AddItemModalComponent implements OnInit {
             Warehouse_ID: parseInt(this.additem.value.Warehouse),
             FavoriteCategory: parseInt(this.additem.value.FavoriteCategory),
             Date: this.convertDateToJSONFormat(new Date()),
-            PictureUpload: Object.values(this.imageByteArray),
+            PictureUpload: imageArray,
             ItemNewBarCode: this.additem.value.itembarcode,
             ProductionDate: this.convertDateToJSONFormat(
               this.additem.value.ProductionDate
@@ -361,8 +380,9 @@ export class AddItemModalComponent implements OnInit {
           .subscribe((res: any) => {
             console.log(JSON.parse(res));
             this.toastrService.success("Updated", "Success");
+            this.closeModal();
           });
-        this.windowRef.close("");
+          
       });
   }
 

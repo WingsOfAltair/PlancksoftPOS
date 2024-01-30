@@ -134,7 +134,7 @@ export class MenuService {
           {
             title:
               this.translationService.getSelectedLanguage() == "en"
-                ? "Sold Item Qualification"
+                ? "Sold Item Quantification"
                 : "جرد الكميات المباعه",
             link: "/pages/screen/sold-item-quantification",
           },
@@ -455,7 +455,7 @@ export class MenuService {
       //     {
       //       title:
       //         this.translationService.getSelectedLanguage() == "en"
-      //           ? "Sold Item Qualification"
+      //           ? "Sold Item Quantification"
       //           : "جرد الكميات المباعه",
       //       link: "/pages/screen/sold-item-quantification",
       //     },
