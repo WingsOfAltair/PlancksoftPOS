@@ -33,6 +33,7 @@ export const locale = {
         ACTION:'فعل',
         SALESITEM:'بند المبيعات',
         ADDITEM:'اضافة عنصر',
+        EDITITEM:'تعديل عنصر',
         CLIENT:'إسم العميل',
         BILLNUMBER:'رقم الغاتوره',
         PAYNYCASH:'الدفع نقدا',
