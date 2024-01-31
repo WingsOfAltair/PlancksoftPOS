@@ -62,6 +62,7 @@ export class ClientCheckBalanceComponent implements OnInit {
     "Item Name",
     "Item Barcode",
     "Sold Quantity",
+    "Returned Quantity",
     "Item Price After Tax",
   ];
 
@@ -179,9 +180,9 @@ export class ClientCheckBalanceComponent implements OnInit {
               BillNumber: el["Bill Number"],
               CashierName: el["Cashier Name"],
               TotalAmount: el["Total Amount"],
-              ClientName: el["Client ID"],
-              ClientID: el["ClientID"],
-              Rwminder: el["Remainder Amount"],
+              ClientName: el["Client Name"],
+              ClientID: el["Client ID"],
+              Remainder: el["Remainder Amount"],
               PaidAmount: el["Paid Amount"],
               Status: el["Status"],
               Date: formattedDate,
@@ -216,6 +217,7 @@ export class ClientCheckBalanceComponent implements OnInit {
               ItemBuyPrice: el["ItemBuyPrice"],
               ItemPriceTax: el["ItemPriceTax"],
               ItemQuantity: el["ItemQuantity"],
+              ReturnedQuantity: el["ReturnedQuantity"],
             },
           };
 
