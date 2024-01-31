@@ -2225,6 +2225,7 @@ CREATE procedure [dbo].[SearchExpenses]
 AS
 BEGIN
 set @Date1 = DATEADD(Day, -1, @Date1)
+set @Date2 = DATEADD(Day, 1, @Date2)
 select id as 'Expense ID', name as 'Expense Name', employee_id as 'Employee ID', sum(cost) as 'Expense Cost', date as 'Expense Date' From Expenses where 
 (@ExpenseName is null or name LIKE '%' + @ExpenseName + '%') and ( @EmployeeID is null or employee_id LIKE '%' + @EmployeeID + '%') and ( date >= @Date1 AND date <= @Date2)
 Group by id, name, date, employee_id

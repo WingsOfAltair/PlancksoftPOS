@@ -73,6 +73,11 @@ export class AddEmployeeAbsenceComponent implements OnInit {
       Date1: [],
       Date2: [],
     });
+
+    var list = [];
+    
+    this.data = list;
+    this.dataSource = this.dataSourceBuilder.create(this.data);
   }
 
   convertDateToJSONFormat(date) {
@@ -129,6 +134,11 @@ export class AddEmployeeAbsenceComponent implements OnInit {
       title: `Insert Absence`,
     });
 
+    data.componentInstance.modalClose.subscribe(() => {
+      console.log("modal close");
+      this.ngOnInit();
+    });
+
     data.onClose.subscribe((res) => {
       this.ngOnInit();
     });
@@ -148,6 +158,11 @@ export class AddEmployeeAbsenceComponent implements OnInit {
     var data = this.windowService.open(AddEmployeeAbsenceModalComponent, {
       title: `Update Absence`,
       context: obj,
+    });
+
+    data.componentInstance.modalClose.subscribe(() => {
+      console.log("modal close");
+      this.ngOnInit();
     });
 
     data.onClose.subscribe((res) => {

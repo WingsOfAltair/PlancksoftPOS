@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Output, EventEmitter, Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PublisherService } from '../../../services/publisher.service';
 import { NbToastrService, NbWindowRef, NbWindowService } from '@nebular/theme';
@@ -21,6 +21,13 @@ export class AddEmployeeComponent implements OnInit {
   
   ) {}
 
+  @Output() modalClose = new EventEmitter();
+  
+  closeModal() {
+    this.modalClose.emit(); // Emit custom event
+    this.windowRef.close("");
+}
+
   ngOnInit(): void {
 
     
@@ -41,13 +48,7 @@ export class AddEmployeeComponent implements OnInit {
       EmployeePhone: this.data.PhoneNumber,
       EmployeeAddress: this.data.Address,
     })
-
-
-
   }
-
-
-
   RegisterEmployeeData() {
 
     if (this.AddEmployeeData.valid) {
@@ -65,12 +66,12 @@ export class AddEmployeeComponent implements OnInit {
         .PostRequest("InsertEmployee", obj)
         .subscribe((res: any) => {
           console.log(JSON.parse(res));
+          this.closeModal();
         });
     } else {
       this.toastrService.danger("Try Again", "Error");
     }
 
-    this.windowRef.close("");
   }
 
   UpdateEmployeeData() {
@@ -90,11 +91,11 @@ export class AddEmployeeComponent implements OnInit {
         .PostRequest("UpdateEmployee", obj)
         .subscribe((res: any) => {
           console.log(JSON.parse(res));
+          this.closeModal();
         });
     } else {
       this.toastrService.danger("Try Again", "Error");
     }
-    this.windowRef.close("");
 
     console.log(this.AddEmployeeData.value);
   }
