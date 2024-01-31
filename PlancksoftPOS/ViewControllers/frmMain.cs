@@ -1220,7 +1220,7 @@ namespace PlancksoftPOS
                         dgvClients.Columns["Column39"].HeaderText = "عنوان العميل";
                         dgvClients.Columns["Column10"].HeaderText = "البريد الإلكتروني";
                         btnClientDelete.Text = "حذف العميل";
-                        btnClientBalanceCheck.Text = "إضافة العميل";
+                        btnClientBalanceCheck.Text = "كشف حساب";
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["AgentsItemsDefinitions"]))
                     {
@@ -1280,6 +1280,7 @@ namespace PlancksoftPOS
                         dgvClientBillItems.Columns["dataGridViewTextBoxColumn20"].HeaderText = "إسم المادة";
                         dgvClientBillItems.Columns["dataGridViewTextBoxColumn21"].HeaderText = "باركود الماده";
                         dgvClientBillItems.Columns["dataGridViewTextBoxColumn22"].HeaderText = "عدد البيع";
+                        dgvClientBillItems.Columns["Column66"].HeaderText = "عدد المرجعات";
                         dgvClientBillItems.Columns["dataGridViewTextBoxColumn23"].HeaderText = "سعر البيع بعد الضريبه";
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["ImporterBalanceChecks"]))
@@ -1288,6 +1289,7 @@ namespace PlancksoftPOS
                         groupBox43.Text = "لائحة الفواتير";
                         dgvVendorBills.Columns["dataGridViewTextBoxColumn39"].HeaderText = "رقم الغاتورة";
                         dgvVendorBills.Columns["dataGridViewTextBoxColumn40"].HeaderText = "إسم الكاشير";
+                        dgvVendorBills.Columns["Column65"].HeaderText = "إسم المورد";
                         dgvVendorBills.Columns["dataGridViewTextBoxColumn41"].HeaderText = "المبلغ الصافي";
                         dgvVendorBills.Columns["VendorBillDate"].HeaderText = "التاريخ";
                         groupBox42.Text = "المواد المشتراه بالفاتوره";
@@ -1812,7 +1814,7 @@ namespace PlancksoftPOS
                         dgvClients.Columns["Column39"].HeaderText = "Client Address";
                         dgvClients.Columns["Column10"].HeaderText = "Client Email";
                         btnClientDelete.Text = "Delete Client";
-                        btnClientBalanceCheck.Text = "Check Balance Summary";
+                        btnClientBalanceCheck.Text = "Balance Summary";
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["AgentsItemsDefinitions"]))
                     {
@@ -1832,6 +1834,7 @@ namespace PlancksoftPOS
                         dgvClientBillItems.Columns["dataGridViewTextBoxColumn20"].HeaderText = "Item Name";
                         dgvClientBillItems.Columns["dataGridViewTextBoxColumn21"].HeaderText = "Item Barcode";
                         dgvClientBillItems.Columns["dataGridViewTextBoxColumn22"].HeaderText = "Sold Quantity";
+                        dgvClientBillItems.Columns["Column66"].HeaderText = "Returned Quantity";
                         dgvClientBillItems.Columns["dataGridViewTextBoxColumn23"].HeaderText = "Item Price after Tax";
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["ImporterDefinitions"]))
@@ -1877,6 +1880,7 @@ namespace PlancksoftPOS
                         groupBox43.Text = "List of Bills";
                         dgvVendorBills.Columns["dataGridViewTextBoxColumn39"].HeaderText = "Bill ID";
                         dgvVendorBills.Columns["dataGridViewTextBoxColumn40"].HeaderText = "Cashier Name";
+                        dgvVendorBills.Columns["Column65"].HeaderText = "Importer Name";
                         dgvVendorBills.Columns["dataGridViewTextBoxColumn41"].HeaderText = "Net Total";
                         dgvVendorBills.Columns["VendorBillDate"].HeaderText = "Date";
                         groupBox42.Text = "Items Included in Bill";
@@ -6667,12 +6671,14 @@ namespace PlancksoftPOS
                 {
                     dgvVendorBills.Columns["dataGridViewTextBoxColumn39"].HeaderText = "رقم الغاتورة";
                     dgvVendorBills.Columns["dataGridViewTextBoxColumn40"].HeaderText = "إسم الكاشير";
+                    dgvVendorBills.Columns["Column65"].HeaderText = "إسم المورد";
                     dgvVendorBills.Columns["dataGridViewTextBoxColumn41"].HeaderText = "المبلغ الصافي";
                     dgvVendorBills.Columns["VendorBillDate"].HeaderText = "التاريخ";
                 } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
                     dgvVendorBills.Columns["dataGridViewTextBoxColumn39"].HeaderText = "Bill ID";
                     dgvVendorBills.Columns["dataGridViewTextBoxColumn40"].HeaderText = "Cashier Name";
+                    dgvVendorBills.Columns["Column65"].HeaderText = "Importer Name";
                     dgvVendorBills.Columns["dataGridViewTextBoxColumn41"].HeaderText = "Net Total";
                     dgvVendorBills.Columns["VendorBillDate"].HeaderText = "Date";
                 }
@@ -9813,6 +9819,7 @@ namespace PlancksoftPOS
                 dgvClientBillItems.Columns["dataGridViewTextBoxColumn20"].HeaderText = "إسم المادة";
                 dgvClientBillItems.Columns["dataGridViewTextBoxColumn21"].HeaderText = "باركود الماده";
                 dgvClientBillItems.Columns["dataGridViewTextBoxColumn22"].HeaderText = "عدد البيع";
+                dgvClientBillItems.Columns["Column66"].HeaderText = "عدد المرجعات";
                 dgvClientBillItems.Columns["dataGridViewTextBoxColumn23"].HeaderText = "سعر البيع بعد الضريبه";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
@@ -9820,6 +9827,7 @@ namespace PlancksoftPOS
                 dgvClientBillItems.Columns["dataGridViewTextBoxColumn20"].HeaderText = "Item Name";
                 dgvClientBillItems.Columns["dataGridViewTextBoxColumn21"].HeaderText = "Item Barcode";
                 dgvClientBillItems.Columns["dataGridViewTextBoxColumn22"].HeaderText = "Sold Quantity";
+                dgvClientBillItems.Columns["Column66"].HeaderText = "Returned Quantity";
                 dgvClientBillItems.Columns["dataGridViewTextBoxColumn23"].HeaderText = "Sell Price Tax";
             }
         }

@@ -247,6 +247,18 @@
                 {{ row.data["ItemQuantity"] || "-" }}
               </td>
             </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'Returned Quantity'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('Returned Quantity')"
+                *nbTreeGridHeaderCellDef
+              >
+              {{ "GENERALWORDS.RETURNEDQUANTITY" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["ReturnedQuantity"] || "-" }}
+              </td>
+            </ng-container>
             <ng-container [nbTreeGridColumnDef]="'Item Price After Tax'">
               <th
                 nbTreeGridHeaderCell
