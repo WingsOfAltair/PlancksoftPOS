@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { NbToastrService, NbWindowRef } from "@nebular/theme";
 import { PublisherService } from "../../../services/publisher.service";
@@ -42,6 +42,13 @@ export class UserModalComponent implements OnInit {
     this.Userdata = JSON.parse(user);
     this.userID = this.Userdata.uid;
   }
+
+  @Output() modalClose = new EventEmitter();
+  
+  closeModal() {
+    this.modalClose.emit(); // Emit custom event
+    this.windowRef.close("");
+}
 
   ngOnInit(): void {
      ;
@@ -151,9 +158,8 @@ export class UserModalComponent implements OnInit {
       this.encryptTripleDES(
         this.firstFormGroup.value.Password,
         "PlancksoftPOS"
-      ),
-      "PlancksoftPOS"
-    );
+      )
+      , "PlancksoftPOS");
 
     if (this.firstFormGroup.valid) {
       console.log(this.firstFormGroup.value);
@@ -183,7 +189,7 @@ export class UserModalComponent implements OnInit {
         .PostRequest("Register", obj)
         .subscribe((res: any) => {
           console.log(JSON.parse(res));
-          this.windowRef.close("");
+          this.closeModal();
         });
     } else {
       this.toastrService.danger("Try Again", "Error");
@@ -215,14 +221,15 @@ export class UserModalComponent implements OnInit {
 
   updateData() {
     
-    if(this.firstFormGroup.value.Password != null){
+    if(this.firstFormGroup.value.Password != ""){
       this.encryptedPassword = this.encryptTripleDES(
         this.encryptTripleDES(
           this.firstFormGroup.value.Password,
           "PlancksoftPOS"
-        ),
-        "PlancksoftPOS"
-      );
+        )
+        , "PlancksoftPOS");
+    } else {
+      this.encryptedPassword = null;
     }
 
     var obj = {
@@ -230,7 +237,7 @@ export class UserModalComponent implements OnInit {
         Uid: this.firstFormGroup.value.AdminAccountID,
         Pwd: this.encryptedPassword
           ? this.encryptedPassword
-          : this.firstFormGroup.value.Password,
+          : null,
         Name: this.firstFormGroup.value.UserName,
         Client_card_edit: this.firstFormGroup.value.Client_card_edit,
         discount_edit: this.firstFormGroup.value.discount_edit,
@@ -253,8 +260,8 @@ export class UserModalComponent implements OnInit {
       .PostRequest("UpdateUser", obj)
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
+        this.closeModal();
       });
 
-    this.windowRef.close("");
   }
 }

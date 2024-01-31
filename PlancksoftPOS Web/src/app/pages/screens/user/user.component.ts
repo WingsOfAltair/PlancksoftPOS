@@ -139,6 +139,11 @@ export class UserComponent implements OnInit {
       title: `Insert User`,
     });
 
+    dt.componentInstance.modalClose.subscribe(() => {
+      console.log("modal close");
+      this.ngOnInit();
+    });
+
     dt.onClose.subscribe((res) => {
       this.ngOnInit();
     });
@@ -161,10 +166,14 @@ export class UserComponent implements OnInit {
       context: obj,
     });
 
+    dt.componentInstance.modalClose.subscribe(() => {
+      console.log("modal close");
+      this.ngOnInit();
+    });
+
     dt.onClose.subscribe((res) => {
       this.ngOnInit();
     });
-    this.ngOnInit();
 
   }
 }

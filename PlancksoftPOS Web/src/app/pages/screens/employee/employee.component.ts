@@ -163,6 +163,11 @@ export class EmployeeComponent implements OnInit {
       title: `Insert Employee`,
     });
 
+    data.componentInstance.modalClose.subscribe(() => {
+      console.log("modal close");
+      this.ngOnInit();
+    });
+
     data.onClose.subscribe((res) => {
       this.ngOnInit();
     });
@@ -171,6 +176,11 @@ export class EmployeeComponent implements OnInit {
   AddDeduction() {
     var data = this.windowService.open(AddEmployeeSaleryDeductModalComponent, {
       title: `Salery Deduction`,
+    });
+
+    data.componentInstance.modalClose.subscribe(() => {
+      console.log("modal close");
+      this.ngOnInit();
     });
 
     data.onClose.subscribe((res) => {
@@ -194,6 +204,11 @@ export class EmployeeComponent implements OnInit {
     var data = this.windowService.open(AddEmployeeComponent, {
       title: `Insert Employee`,
       context: obj,
+    });
+
+    data.componentInstance.modalClose.subscribe(() => {
+      console.log("modal close");
+      this.ngOnInit();
     });
 
     data.onClose.subscribe((res) => {
@@ -233,6 +248,11 @@ export class EmployeeComponent implements OnInit {
     var data = this.windowService.open(AddEmployeeSaleryDeductModalComponent, {
       title: `Update Deduction`,
       context: obj,
+    });
+
+    data.componentInstance.modalClose.subscribe(() => {
+      console.log("modal close");
+      this.ngOnInit();
     });
 
     data.onClose.subscribe((res) => {

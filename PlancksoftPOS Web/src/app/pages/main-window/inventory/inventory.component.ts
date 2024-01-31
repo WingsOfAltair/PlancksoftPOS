@@ -291,7 +291,6 @@ export class InventoryComponent implements OnInit {
     });
 
     data.onClose.subscribe((res) => {
-      console.log("modal close");
       this.ngOnInit();
     });
 
@@ -325,7 +324,6 @@ export class InventoryComponent implements OnInit {
     });
 
     data.onClose.subscribe((res) => {
-      console.log("modal close");
       this.ngOnInit();
     });
   }

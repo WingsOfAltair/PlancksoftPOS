@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 import { NbWindowRef, NbWindowService } from "@nebular/theme";
 import { PublisherService } from "../../../services/publisher.service";
 import { FormBuilder, FormGroup } from "@angular/forms";
@@ -19,6 +19,13 @@ export class AddEmployeeSaleryDeductModalComponent implements OnInit {
     private fb: FormBuilder,
     public windowRef: NbWindowRef
   ) {}
+
+  @Output() modalClose = new EventEmitter();
+  
+  closeModal() {
+    this.modalClose.emit(); // Emit custom event
+    this.windowRef.close("");
+}
 
   ngOnInit(): void {
     ;
@@ -76,9 +83,9 @@ export class AddEmployeeSaleryDeductModalComponent implements OnInit {
       .PostRequest("InsertDeduction", obj)
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
-      });
 
-    this.windowRef.close("");
+        this.closeModal();
+      });
   }
 
   updateData() {
@@ -91,8 +98,8 @@ export class AddEmployeeSaleryDeductModalComponent implements OnInit {
       .PostRequest("UpdateDeduction", obj)
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
+        
+        this.closeModal();
       });
-
-    this.windowRef.close("");
   }
 }
