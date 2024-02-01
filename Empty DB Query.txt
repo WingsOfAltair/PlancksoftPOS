@@ -11,6 +11,8 @@ truncate table favoritecategories
 truncate table items
 truncate table itemtypes
 truncate table loginlogout
+truncate table printeritemtype
+truncate table printers
 truncate table registerhistory
 truncate table transactionitems
 truncate table transactions

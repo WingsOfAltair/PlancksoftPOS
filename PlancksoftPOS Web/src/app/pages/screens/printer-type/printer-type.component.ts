@@ -109,14 +109,20 @@ export class PrinterTypeComponent implements OnInit {
       title: `Insert Printer Info`,
     });
 
+    dt.componentInstance.modalClose.subscribe((res) => {
+      this.ngOnInit() 
+
+      if (this.PrinterID != null) {
+        this.Filterdata(this.PrinterID);
+      }
+    });
+
     dt.onClose.subscribe((res) => { this.ngOnInit() })
 
   }
 
   
   delete(id){
-    
-
     var obj = {
       printerID: this.PrinterID,
       itemTypeID: id
@@ -128,14 +134,15 @@ export class PrinterTypeComponent implements OnInit {
       this.ngOnInit()
 
       console.log(JSON.parse(res));
+
+      console.log("filter data 1");
+      
+      this.Filterdata(this.PrinterID);
     });
-
-   
-
   }
 
   Filterdata(id){
-    
+    console.log("filter data 2");
 
     this.PrinterID = id
 

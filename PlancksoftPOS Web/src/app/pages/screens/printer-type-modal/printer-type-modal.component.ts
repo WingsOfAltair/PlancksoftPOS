@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Output, EventEmitter, Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { NbToastrService, NbWindowRef } from "@nebular/theme";
 import { PublisherService } from "../../../services/publisher.service";
@@ -20,6 +20,13 @@ export class PrinterTypeModalComponent implements OnInit {
     private toastrService: NbToastrService,
     public windowRef: NbWindowRef
   ) {}
+
+  @Output() modalClose = new EventEmitter();
+
+  closeModal() {
+    this.modalClose.emit(); // Emit custom event
+    this.windowRef.close("");
+}
 
   ngOnInit(): void {
     this.AddData = this.fb.group({
@@ -91,12 +98,11 @@ export class PrinterTypeModalComponent implements OnInit {
         .PostRequest("AddPrinterItemType", obj)
         .subscribe((res: any) => {
           console.log(JSON.parse(res));
+          this.closeModal();
         });
     } else {
       this.toastrService.danger("Try Again", "Error");
     }
-
-    this.windowRef.close("");
   }
 
   UpdateData() {}
