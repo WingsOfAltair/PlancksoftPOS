@@ -20,7 +20,7 @@ namespace PlancksoftPOS
 {
     public partial class frmReceipt : MaterialForm
     {
-        Connection connection = null;
+        Connection Connection = null;
         List<Item> ItemsInBill;
         bool rePrint = false;
         bool MultiPrint = false;
@@ -37,7 +37,7 @@ namespace PlancksoftPOS
         public frmReceipt(Bill bill, string shopName, string shopAddress, string shopPhone, bool multiPrint, bool rePrint = false)
         {
             InitializeComponent();
-            connection = new Connection();
+            Connection = new Connection();
             this.Bill = bill;
             this.ItemsInBill = bill.ItemsBought;
             this.MultiPrint = multiPrint;
@@ -171,19 +171,25 @@ namespace PlancksoftPOS
             if (!String.Equals(Bill.ClientName, ""))
             {
                 Offset = Offset + mediuminc;
-                DrawAtStart("Name: " + Bill.ClientName, Offset);
+                DrawAtStart("Client Name: " + Bill.ClientName, Offset);
             }
 
             if (!String.Equals(Bill.ClientAddress, ""))
             {
                 Offset = Offset + mediuminc;
-                DrawAtStart("Address: " + Bill.ClientAddress, Offset);
+                DrawAtStart("Client Address: " + Bill.ClientAddress, Offset);
             }
 
             if (!String.Equals(Bill.ClientPhone, ""))
             {
                 Offset = Offset + mediuminc;
-                DrawAtStart("Phone # : " + Bill.ClientPhone, Offset);
+                DrawAtStart("Client Phone #: " + Bill.ClientPhone, Offset);
+            }  
+
+            if (!String.Equals(Bill.ClientEmail, ""))
+            {
+                Offset = Offset + mediuminc;
+                DrawAtStart("Client Email: " + Bill.ClientEmail, Offset);
             }
 
             Offset = Offset + mediuminc;
@@ -306,7 +312,7 @@ namespace PlancksoftPOS
         {
             if (!MultiPrint)
             {
-                frmMain.PrintersList = connection.server.RetrievePrinters(Environment.MachineName);
+                frmMain.PrintersList = Connection.server.RetrievePrinters(Environment.MachineName);
 
                 foreach (Dependencies.Printer printer in frmMain.PrintersList)
                 {
@@ -322,13 +328,13 @@ namespace PlancksoftPOS
             {
                 List<Dependencies.Printer> PrintersToPrint = new List<Dependencies.Printer>();
 
-                frmMain.PrintersList = connection.server.RetrievePrinters(Environment.MachineName);
+                frmMain.PrintersList = Connection.server.RetrievePrinters(Environment.MachineName);
 
                 foreach (Dependencies.Item item in ItemsInBill)
                 {
                     foreach (Dependencies.Printer printer in frmMain.PrintersList)
                     {
-                        List<Dependencies.ItemType> ItemTypesInPrinterList = connection.server.RetrievePrinterItemTypes(printer.ID);
+                        List<Dependencies.ItemType> ItemTypesInPrinterList = Connection.server.RetrievePrinterItemTypes(printer.ID);
 
                         foreach (Dependencies.ItemType itemTypeInPrinterList in ItemTypesInPrinterList)
                         {

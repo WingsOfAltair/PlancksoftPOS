@@ -4627,7 +4627,6 @@ namespace PlancksoftPOS
                     }
                     billPaid.ItemsBought = itemsInBill;
 
-
                     printCertainReceipt(billPaid, true);
                 } else
                 {
@@ -7253,7 +7252,13 @@ namespace PlancksoftPOS
                             }
 
                             Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, frmPayCash.paybycash, DateTime.Now, this.cashierName);
+
                             billToAdd.ClientID = frmPickClientLookup.pickedClient.ClientID;
+                            billToAdd.ClientName = frmPickClientLookup.pickedClient.ClientName;
+                            billToAdd.ClientPhone = frmPickClientLookup.pickedClient.ClientPhone;
+                            billToAdd.ClientAddress = frmPickClientLookup.pickedClient.ClientAddress;
+                            billToAdd.ClientEmail = frmPickClientLookup.pickedClient.ClientEmail;
+                                ;
                             if (Connection.server.PayBill(billToAdd, this.cashierName))
                             {
                                 // paid bill
@@ -11605,18 +11610,24 @@ namespace PlancksoftPOS
         {
             try
             {
-                DataTable dt = Connection.server.RetrieveSystemSettings();
+                PrintersList = Connection.server.RetrievePrinters(Environment.MachineName);
+                
+                if (PrintersList.Count <= 0)
+                {
+                    return;
+                } else
+                {
+                    decimal gross = Convert.ToDecimal(totalAmount);
+                    decimal net = Convert.ToDecimal(totalAmount);
+                    decimal discount = gross - net;
+                    decimal amountPaid = paidAmount;
+                    decimal remainder = remainderAmount;
+                    string InvoiceDate = bill.getDate().ToString();
 
-                decimal gross = Convert.ToDecimal(totalAmount);
-                decimal net = Convert.ToDecimal(totalAmount);
-                decimal discount = gross - net;
-                decimal amountPaid = paidAmount;
-                decimal remainder = remainderAmount;
-                string InvoiceDate = bill.getDate().ToString();
-
-                frmReceipt receipt = new frmReceipt(bill, txtStoreName.Text, txtStoreAddress.Text, txtStorePhone.Text, true, rePrint);
-                openedForm = receipt;
-                receipt.ShowDialog();
+                    frmReceipt receipt = new frmReceipt(bill, txtStoreName.Text, txtStoreAddress.Text, txtStorePhone.Text, true, rePrint);
+                    openedForm = receipt;
+                    receipt.ShowDialog();
+                }
             }
             catch (Exception error)
             {

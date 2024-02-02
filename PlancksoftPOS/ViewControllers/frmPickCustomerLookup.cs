@@ -90,8 +90,11 @@ namespace PlancksoftPOS
                 btnPickClient.Text = "اختيار العميل";
                 btnClose.Text = "اغلاق";
                 btnClear.Text = "مسح";
-                DGVClients.Columns["ClientPickClientName"].HeaderText = "إسم العميل";
                 DGVClients.Columns["ClientPickClientID"].HeaderText = "رقم العميل";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "إسم العميل";
+                DGVClients.Columns["ClientPickClientPhone"].HeaderText = "رقم العميل";
+                DGVClients.Columns["ClientPickClientAddress"].HeaderText = "عنوان العميل";
+                DGVClients.Columns["ClientPickClientEmail"].HeaderText = "بريد الإلكتروني العميل";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
             }
@@ -103,8 +106,11 @@ namespace PlancksoftPOS
                 btnPickClient.Text = "Pick Client";
                 btnClose.Text = "Close";
                 btnClear.Text = "Clear";
-                DGVClients.Columns["ClientPickClientName"].HeaderText = "Client Name";
                 DGVClients.Columns["ClientPickClientID"].HeaderText = "Client ID";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "Client Name";
+                DGVClients.Columns["ClientPickClientPhone"].HeaderText = "Client Phone";
+                DGVClients.Columns["ClientPickClientAddress"].HeaderText = "Client Address";
+                DGVClients.Columns["ClientPickClientEmail"].HeaderText = "Client Email";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
             }
@@ -124,6 +130,9 @@ namespace PlancksoftPOS
                 {
                     pickedClient.ClientID = Convert.ToInt32(DGVClients.Rows[this.ID].Cells["ClientPickClientID"].Value.ToString());
                     pickedClient.ClientName = DGVClients.Rows[this.ID].Cells["ClientPickClientName"].Value.ToString();
+                    pickedClient.ClientPhone = DGVClients.Rows[this.ID].Cells["ClientPickClientPhone"].Value.ToString();
+                    pickedClient.ClientAddress = DGVClients.Rows[this.ID].Cells["ClientPickClientAddress"].Value.ToString();
+                    pickedClient.ClientEmail = DGVClients.Rows[this.ID].Cells["ClientPickClientEmail"].Value.ToString();
 
                     dialogResult = DialogResult.OK;
                     this.Close();
@@ -148,13 +157,19 @@ namespace PlancksoftPOS
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                DGVClients.Columns["ClientPickClientName"].HeaderText = "اسم العميل";
                 DGVClients.Columns["ClientPickClientID"].HeaderText = "رقم العميل";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "إسم العميل";
+                DGVClients.Columns["ClientPickClientPhone"].HeaderText = "رقم العميل";
+                DGVClients.Columns["ClientPickClientAddress"].HeaderText = "عنوان العميل";
+                DGVClients.Columns["ClientPickClientEmail"].HeaderText = "بريد الإلكتروني العميل";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                DGVClients.Columns["ClientPickClientName"].HeaderText = "Client Name";
                 DGVClients.Columns["ClientPickClientID"].HeaderText = "Client ID";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "Client Name";
+                DGVClients.Columns["ClientPickClientPhone"].HeaderText = "Client Phone";
+                DGVClients.Columns["ClientPickClientAddress"].HeaderText = "Client Address";
+                DGVClients.Columns["ClientPickClientEmail"].HeaderText = "Client Email";
             }
         }
 
@@ -165,13 +180,19 @@ namespace PlancksoftPOS
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                DGVClients.Columns["ClientPickClientName"].HeaderText = "اسم العميل";
                 DGVClients.Columns["ClientPickClientID"].HeaderText = "رقم العميل";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "إسم العميل";
+                DGVClients.Columns["ClientPickClientPhone"].HeaderText = "رقم العميل";
+                DGVClients.Columns["ClientPickClientAddress"].HeaderText = "عنوان العميل";
+                DGVClients.Columns["ClientPickClientEmail"].HeaderText = "بريد الإلكتروني العميل";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                DGVClients.Columns["ClientPickClientName"].HeaderText = "Client Name";
                 DGVClients.Columns["ClientPickClientID"].HeaderText = "Client ID";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "Client Name";
+                DGVClients.Columns["ClientPickClientPhone"].HeaderText = "Client Phone";
+                DGVClients.Columns["ClientPickClientAddress"].HeaderText = "Client Address";
+                DGVClients.Columns["ClientPickClientEmail"].HeaderText = "Client Email";
             }
         }
 
@@ -182,13 +203,19 @@ namespace PlancksoftPOS
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
-                DGVClients.Columns["ClientPickClientName"].HeaderText = "اسم العميل";
                 DGVClients.Columns["ClientPickClientID"].HeaderText = "رقم العميل";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "إسم العميل";
+                DGVClients.Columns["ClientPickClientPhone"].HeaderText = "رقم العميل";
+                DGVClients.Columns["ClientPickClientAddress"].HeaderText = "عنوان العميل";
+                DGVClients.Columns["ClientPickClientEmail"].HeaderText = "بريد الإلكتروني العميل";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
-                DGVClients.Columns["ClientPickClientName"].HeaderText = "Client Name";
                 DGVClients.Columns["ClientPickClientID"].HeaderText = "Client ID";
+                DGVClients.Columns["ClientPickClientName"].HeaderText = "Client Name";
+                DGVClients.Columns["ClientPickClientPhone"].HeaderText = "Client Phone";
+                DGVClients.Columns["ClientPickClientAddress"].HeaderText = "Client Address";
+                DGVClients.Columns["ClientPickClientEmail"].HeaderText = "Client Email";
             }
         }
 

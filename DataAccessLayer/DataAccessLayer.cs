@@ -3692,6 +3692,7 @@ namespace DataAccessLayer
                     newBill.ClientName = Bill["Client Name"].ToString();
                     newBill.ClientPhone = Bill["Client Phone"].ToString();
                     newBill.ClientAddress = Bill["Client Address"].ToString();
+                    newBill.ClientEmail = Bill["Client Email"].ToString();
                     newBill.SetPayByCash(Convert.ToBoolean(Convert.ToInt32(Bill["PayByCash"].ToString())));
                     Bills.Add(newBill);
                 }
