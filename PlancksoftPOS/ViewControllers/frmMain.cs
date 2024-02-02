@@ -11610,24 +11610,16 @@ namespace PlancksoftPOS
         {
             try
             {
-                PrintersList = Connection.server.RetrievePrinters(Environment.MachineName);
-                
-                if (PrintersList.Count <= 0)
-                {
-                    return;
-                } else
-                {
-                    decimal gross = Convert.ToDecimal(totalAmount);
-                    decimal net = Convert.ToDecimal(totalAmount);
-                    decimal discount = gross - net;
-                    decimal amountPaid = paidAmount;
-                    decimal remainder = remainderAmount;
-                    string InvoiceDate = bill.getDate().ToString();
+                decimal gross = Convert.ToDecimal(totalAmount);
+                decimal net = Convert.ToDecimal(totalAmount);
+                decimal discount = gross - net;
+                decimal amountPaid = paidAmount;
+                decimal remainder = remainderAmount;
+                string InvoiceDate = bill.getDate().ToString();
 
-                    frmReceipt receipt = new frmReceipt(bill, txtStoreName.Text, txtStoreAddress.Text, txtStorePhone.Text, true, rePrint);
-                    openedForm = receipt;
-                    receipt.ShowDialog();
-                }
+                frmReceipt receipt = new frmReceipt(bill, txtStoreName.Text, txtStoreAddress.Text, txtStorePhone.Text, true, rePrint);
+                openedForm = receipt;
+                receipt.ShowDialog();
             }
             catch (Exception error)
             {
