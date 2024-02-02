@@ -1394,7 +1394,53 @@ namespace DataAccessLayer
                 dt.TableName = "Bills";
                 return Tuple.Create(Bills, dt);
             }
-        }   
+        }
+
+        public Tuple<List<Bill>, DataTable> RetrieveUnprintedBills()
+        {
+            try
+            {
+                List<Bill> Bills = new List<Bill>();
+                SqlDataAdapter adapter = new SqlDataAdapter();
+                SqlCommand cmd = new SqlCommand("RetrieveUnprintedBills", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+                adapter.SelectCommand = cmd;
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+                dt.TableName = "UnprintedBills";
+
+                foreach (DataRow Bill in dt.Rows)
+                {
+                    Bill newBill = new Bill();
+                    newBill.SetBillNumber(Convert.ToInt32(Bill["Bill Number"].ToString()));
+                    newBill.SetCashierName(Bill["Cashier Name"].ToString());
+                    newBill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
+                    newBill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
+                    newBill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
+                    newBill.SetDate(Convert.ToDateTime(Bill["Invoice Date"].ToString()));
+                    newBill.ClientName = Bill["Client Name"].ToString();
+                    newBill.ClientPhone = Bill["Client Phone"].ToString();
+                    newBill.ClientAddress = Bill["Client Address"].ToString();
+                    newBill.ClientEmail = Bill["Client Email"].ToString();
+                    newBill.SetPayByCash(Convert.ToBoolean(Convert.ToInt32(Bill["PayByCash"].ToString())));
+                    Bills.Add(newBill);
+                }
+                foreach (Bill bill in Bills)
+                {
+                    bill.ItemsBought = RetrieveBillItems(bill.getBillNumber()).Item1;
+                }
+                return Tuple.Create(Bills, dt);
+            }
+            catch (Exception ex)
+            {
+                List<Bill> Bills = new List<Bill>();
+                DataTable dt = new DataTable();
+                dt.TableName = "UnprintedBills";
+                return Tuple.Create(Bills, dt);
+            }
+        }
 
         public Tuple<List<Bill>, DataTable> RetrieveBillsRefund()
         {

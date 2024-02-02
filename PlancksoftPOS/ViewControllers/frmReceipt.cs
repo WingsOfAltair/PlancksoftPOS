@@ -31,16 +31,20 @@ namespace PlancksoftPOS
         private Graphics bitmapGraphic;
         private int InitialHeight = 360;
         Bill Bill;
+
+        System.Drawing.Image StoreLogo;
+        byte[] storeLogo;
         string shopName;
         string shopAddress;
         string shopPhone;
-        public frmReceipt(Bill bill, string shopName, string shopAddress, string shopPhone, bool multiPrint, bool rePrint = false)
+        public frmReceipt(Bill bill, string shopName, string shopAddress, string shopPhone, byte[] storeLogo, bool multiPrint, bool rePrint = false)
         {
             InitializeComponent();
             Connection = new Connection();
             this.Bill = bill;
             this.ItemsInBill = bill.ItemsBought;
             this.MultiPrint = multiPrint;
+            this.storeLogo = storeLogo;
             this.shopName = shopName;
             this.shopAddress = shopAddress;
             this.shopPhone = shopPhone;
@@ -140,9 +144,28 @@ namespace PlancksoftPOS
             int Offset = 10;
             int smallinc = 10, mediuminc = 12, largeinc = 15;
 
-            System.Drawing.Image image = Properties.Resources.plancksoft_b_t;
-            e.Graphics.DrawImage(image, 0 + 80, 0 + Offset, 100, 30);
-            bitmapGraphic.DrawImage(image, 0 + 80, 0 + Offset, 100, 30);
+            DataTable dt = Connection.server.RetrieveSystemSettings();
+
+            try
+            {
+                if (!Convert.IsDBNull(dt.Rows[0]["SystemLogo"]))
+                {
+                    this.storeLogo = (Byte[])(dt.Rows[0]["SystemLogo"]);
+                    var stream = new MemoryStream(this.storeLogo);
+                    StoreLogo = System.Drawing.Image.FromStream(stream);
+                }
+                else
+                {
+                    StoreLogo = new Bitmap(Properties.Resources.plancksoft_b_t);
+                }
+            }
+            catch (Exception err)
+            {
+                StoreLogo = new Bitmap(Properties.Resources.plancksoft_b_t);
+            }
+
+            e.Graphics.DrawImage(StoreLogo, 0 + 80, 0 + Offset, 100, 30);
+            bitmapGraphic.DrawImage(StoreLogo, 0 + 80, 0 + Offset, 100, 30);
 
             Offset = Offset + largeinc + 40;
 
