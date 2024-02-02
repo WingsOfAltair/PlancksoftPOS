@@ -184,6 +184,10 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveBills();
         } 
+        public Tuple<List<Bill>, DataTable> RetrieveUnprintedBills()
+        {
+            return DAL.RetrieveUnprintedBills();
+        } 
         public Tuple<List<Item>, DataTable> RetrieveCapitalRevenue()
         {
             return DAL.RetrieveCapitalRevenue();

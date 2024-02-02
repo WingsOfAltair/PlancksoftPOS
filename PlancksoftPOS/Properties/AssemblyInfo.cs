@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Plancksoft")]
 [assembly: AssemblyProduct("PlancksoftPOS")]
-[assembly: AssemblyCopyright("Copyright © Plancksoft 2022")]
+[assembly: AssemblyCopyright("Copyright © Plancksoft 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -1,0 +1,15 @@
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\bin\Release\PlancksoftPOS Receipt Print Server.exe.config
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\bin\Release\PlancksoftPOS Receipt Print Server.exe
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\bin\Release\PlancksoftPOS Receipt Print Server.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\bin\Release\DataAccessLayer.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\bin\Release\Dependencies.dll
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\bin\Release\DataAccessLayer.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\bin\Release\Dependencies.pdb
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Release\PlancksoftPOS Receipt Print Server.csproj.AssemblyReference.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Release\PlancksoftPOS_Receipt_Print_Server.ReceiptPrintServer.resources
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Release\PlancksoftPOS_Receipt_Print_Server.Properties.Resources.resources
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Release\PlancksoftPOS Receipt Print Server.csproj.GenerateResource.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Release\PlancksoftPOS Receipt Print Server.csproj.CoreCompileInputs.cache
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Release\PlancksoftPOS Receipt Print Server.csproj.CopyComplete
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Release\PlancksoftPOS Receipt Print Server.exe
+C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Release\PlancksoftPOS Receipt Print Server.pdb
