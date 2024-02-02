@@ -168,25 +168,25 @@ namespace PlancksoftPOS
                 DrawAtStart("Invoice Number: " + Bill.BillNumber, Offset);
             }
 
-            if (!String.Equals(Bill.ClientName, ""))
+            if (!String.Equals(Bill.ClientName, null) && !String.Equals(Bill.ClientName, ""))
             {
                 Offset = Offset + mediuminc;
                 DrawAtStart("Client Name: " + Bill.ClientName, Offset);
             }
 
-            if (!String.Equals(Bill.ClientAddress, ""))
+            if (!String.Equals(Bill.ClientAddress, null) && !String.Equals(Bill.ClientAddress, ""))
             {
                 Offset = Offset + mediuminc;
                 DrawAtStart("Client Address: " + Bill.ClientAddress, Offset);
             }
 
-            if (!String.Equals(Bill.ClientPhone, ""))
+            if (!String.Equals(Bill.ClientPhone, null) && !String.Equals(Bill.ClientPhone, ""))
             {
                 Offset = Offset + mediuminc;
                 DrawAtStart("Client Phone #: " + Bill.ClientPhone, Offset);
             }  
 
-            if (!String.Equals(Bill.ClientEmail, ""))
+            if (!String.Equals(Bill.ClientEmail, null) && !String.Equals(Bill.ClientEmail, ""))
             {
                 Offset = Offset + mediuminc;
                 DrawAtStart("Client Email: " + Bill.ClientEmail, Offset);
@@ -344,6 +344,13 @@ namespace PlancksoftPOS
                             }
                         }
                     }
+                }
+
+                if (PrintersToPrint.Count <= 0)
+                {
+                    Program.exited = false;
+                    Program.materialSkinManager.RemoveFormToManage(this);
+                    this.Close();
                 }
 
                 foreach (Dependencies.Printer printer in PrintersToPrint)
