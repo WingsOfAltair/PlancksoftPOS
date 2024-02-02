@@ -7207,7 +7207,7 @@ namespace PlancksoftPOS
                     {
                         // paid bill
 
-                        printCertainReceipt(billToAdd);
+                        //printCertainReceipt(billToAdd);
                         CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
                         label91.Text = this.CapitalAmount.ToString();
                         this.ClientsaleItems.Clear();
@@ -7263,7 +7263,7 @@ namespace PlancksoftPOS
                             {
                                 // paid bill
 
-                                printCertainReceipt(billToAdd);
+                                //printCertainReceipt(billToAdd);
                                 CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
                                 label91.Text = this.CapitalAmount.ToString();
 
