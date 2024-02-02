@@ -36,8 +36,11 @@
             this.btnClear = new MaterialSkin.Controls.MaterialButton();
             this.btnPickClient = new MaterialSkin.Controls.MaterialButton();
             this.DGVClients = new System.Windows.Forms.DataGridView();
-            this.ClientPickClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientPickClientID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientPickClientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientPickClientPhone = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientPickClientAddress = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ClientPickClientEmail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGVClients)).BeginInit();
             this.SuspendLayout();
             // 
@@ -201,25 +204,51 @@
             this.DGVClients.BackgroundColor = System.Drawing.Color.White;
             this.DGVClients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DGVClients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ClientPickClientID,
             this.ClientPickClientName,
-            this.ClientPickClientID});
+            this.ClientPickClientPhone,
+            this.ClientPickClientAddress,
+            this.ClientPickClientEmail});
             this.DGVClients.Location = new System.Drawing.Point(3, 67);
             this.DGVClients.Name = "DGVClients";
             this.DGVClients.Size = new System.Drawing.Size(764, 362);
             this.DGVClients.TabIndex = 75;
             this.DGVClients.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DGVClients_RowHeaderMouseClick);
             // 
+            // ClientPickClientID
+            // 
+            this.ClientPickClientID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ClientPickClientID.DataPropertyName = "Client ID";
+            this.ClientPickClientID.HeaderText = "رقم العميل";
+            this.ClientPickClientID.Name = "ClientPickClientID";
+            // 
             // ClientPickClientName
             // 
+            this.ClientPickClientName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ClientPickClientName.DataPropertyName = "Client Name";
             this.ClientPickClientName.HeaderText = "اسم العميل";
             this.ClientPickClientName.Name = "ClientPickClientName";
             // 
-            // ClientPickClientID
+            // ClientPickClientPhone
             // 
-            this.ClientPickClientID.DataPropertyName = "Client ID";
-            this.ClientPickClientID.HeaderText = "رقم العميل";
-            this.ClientPickClientID.Name = "ClientPickClientID";
+            this.ClientPickClientPhone.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ClientPickClientPhone.DataPropertyName = "Client Phone";
+            this.ClientPickClientPhone.HeaderText = "رقم هاتف العميل";
+            this.ClientPickClientPhone.Name = "ClientPickClientPhone";
+            // 
+            // ClientPickClientAddress
+            // 
+            this.ClientPickClientAddress.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ClientPickClientAddress.DataPropertyName = "Client Address";
+            this.ClientPickClientAddress.HeaderText = "عنوان العميل";
+            this.ClientPickClientAddress.Name = "ClientPickClientAddress";
+            // 
+            // ClientPickClientEmail
+            // 
+            this.ClientPickClientEmail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ClientPickClientEmail.DataPropertyName = "Client Email";
+            this.ClientPickClientEmail.HeaderText = "بريد الإلكتروني العميل";
+            this.ClientPickClientEmail.Name = "ClientPickClientEmail";
             // 
             // frmPickClientLookup
             // 
@@ -254,7 +283,10 @@
         private MaterialSkin.Controls.MaterialButton btnClear;
         private MaterialSkin.Controls.MaterialButton btnPickClient;
         public System.Windows.Forms.DataGridView DGVClients;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ClientPickClientName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClientPickClientID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientPickClientName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientPickClientPhone;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientPickClientAddress;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ClientPickClientEmail;
     }
 }

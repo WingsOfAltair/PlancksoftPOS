@@ -33,7 +33,9 @@ namespace Dependencies
         [DataMember]
         private string clientPhone;
         [DataMember]
-        private string clientAddress;
+        private string clientAddress;   
+        [DataMember]
+        private string clientEmail;
 
         [DataMember]
         public int BillNumber { get => billNumber; set => billNumber = value; }
@@ -56,6 +58,7 @@ namespace Dependencies
         public string ClientName { get => clientName; set => clientName = value; }
         public string ClientPhone { get => clientPhone; set => clientPhone = value; }
         public string ClientAddress { get => clientAddress; set => clientAddress = value; }
+        public string ClientEmail { get => clientEmail; set => clientEmail = value; }
         public string CashierName { get => cashierName; set => cashierName = value; }
         public bool IsVendor { get => isVendor; set => isVendor = value; }
 
