@@ -243,11 +243,18 @@ export class ClientCheckBalanceComponent implements OnInit {
   updatebill(BillNumber) {
     var selected = this.data.filter((a) => a.data.BillNumber == BillNumber)[0];
     var selectedclient = this.clientdata.filter((a) => a.data.ClientID == selected.data.ClientID)[0];
+
+    console.log('selected')
+    console.log(selected.data)
+
+    
+    if (selected.data.Remainder < 0)
+      selected.data.Remainder = selected.data.Remainder * -1;
     
     var obj = {
       BillNumber: selected.data.BillNumber,
       AmountRequired: selected.data.TotalAmount,
-      Remainder: selected.data.Rwminder,
+      Remainder: selected.data.Remainder,
       ClientPhone: selectedclient.data.ClientPhone,
       ClientID: selected.data.ClientID,
       Date: selected.data.Date,
@@ -264,6 +271,7 @@ export class ClientCheckBalanceComponent implements OnInit {
 
     dt.onClose.subscribe((res) => {
       this.ngOnInit();
+      this.onSelectionChange(selected.data.ClientID);
     });
   }
 
