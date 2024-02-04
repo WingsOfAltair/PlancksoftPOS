@@ -15,6 +15,9 @@ export class CloseModelRegisterComponent implements OnInit {
   AddData: FormGroup
   moneyInRegister: any;
 
+  message: any;
+  cashierName: any;
+
   constructor(
     private fb: FormBuilder,
     private publisherService: PublisherService, 
@@ -30,19 +33,29 @@ export class CloseModelRegisterComponent implements OnInit {
       Amount:[]
     })
 
+    this.publisherService
+      .PostRequest("RetrieveUsers", "")
+      .subscribe((res: any) => {
+        var response = JSON.parse(res);
+        this.message = response.ResponseMessage.Item1;
+        this.cashierName = this.message[0].name;
+      });
+
+    this.AddData = this.fb.group({
+      Amount:[]
+    })
+
   }
 
   submit(){
-        
-    this.moneyInRegister = localStorage.getItem('moneyInRegister');
-    this.moneyInRegister = this.moneyInRegister ? parseFloat(JSON.parse(this.moneyInRegister)) : 0;
+    this.moneyInRegister = parseFloat(localStorage.getItem('moneyInRegister')) || 0;
 
     if (parseFloat(this.AddData.value.Amount) < this.moneyInRegister) {
       this.toastrService.warning("There should be more money in the cash register.")
       return;
     } else {
       var obj = {
-        cashierName:"admin",
+        cashierName:this.cashierName,
         moneyInRegister: this.AddData.value.Amount
       }
 
