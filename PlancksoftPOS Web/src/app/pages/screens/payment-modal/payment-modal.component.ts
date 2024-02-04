@@ -184,7 +184,9 @@ export class PaymentModalComponent implements OnInit {
       this.clientAddress = this.updatedata.ClientAddress;
       this.clientEmail = this.updatedata.ClientEmail;
       this.totalAmountRemainder = this.updatedata.AmountRequired;
-      this.getreminderdata = this.updatedata.Remainder;
+      if (this.updatedata.Remainder < 0)
+        this.getreminderdata = this.updatedata.Remainder * -1;
+      else this.getreminderdata = this.updatedata.Remainder;
       this.bill = this.updatedata.BillNumber;
     }
   }
@@ -407,25 +409,16 @@ export class PaymentModalComponent implements OnInit {
 
           // Parse amount and amountRemainder, defaulting to 0 if NaN
           const amount = parseFloat(this.Amount) || 0;
-          const amountRemainder = parseFloat(this.AmountRemainder) || 0;
 
-          // Check if amountRemainder is negative, and handle accordingly
-          if (amountRemainder < 0) {
-            // If amountRemainder is negative, adding its absolute value to the register
-            this.moneyInRegister += (amount + Math.abs(amountRemainder));
-          } else {
-            // If amountRemainder is positive or zero, proceed with normal subtraction
-            this.moneyInRegister += (amount - amountRemainder);
-          }
+          this.moneyInRegister += amount;
 
           // Update the value in localStorage
           localStorage.setItem('moneyInRegister', this.moneyInRegister.toString());
+          this.windowRef.close("");
         });
     } else {
       this.toastrService.danger("Try Again", "Error");
     }
-
-    this.windowRef.close("");
   }
 
   convertDateToJSONFormat(date) {
@@ -445,7 +438,8 @@ export class PaymentModalComponent implements OnInit {
       }
     }
 
-    this.AmountRemainder = this.AmountRemainder * -1;
+    if (this.AmountRemainder < 0)
+      this.AmountRemainder = this.AmountRemainder * -1;
     this.payment.patchValue({
       Remainder: this.AmountRemainder,
     });

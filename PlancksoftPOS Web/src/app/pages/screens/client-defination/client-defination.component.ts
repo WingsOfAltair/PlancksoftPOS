@@ -118,7 +118,7 @@ export class ClientDefinationComponent implements OnInit {
       .PostRequest("DeleteClient", obj)
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
+        this.ngOnInit();
       });
-    this.ngOnInit();
   }
 }
