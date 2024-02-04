@@ -55,6 +55,8 @@ export class PaymentModalComponent implements OnInit {
   logo: any;
   currentdate: Date;
   showBillContainer = false;
+  
+  moneyInRegister: any;
 
   requiredamount: any;
   totalquantity: any;
@@ -341,6 +343,17 @@ export class PaymentModalComponent implements OnInit {
                 this.generatePDF(); 
               }*/
 
+              // Initialize moneyInRegister from localStorage or default to 0 if not available or NaN
+              this.moneyInRegister = parseFloat(localStorage.getItem('moneyInRegister')) || 0;
+
+              // Parse amount and amountRemainder, defaulting to 0 if NaN
+              const amount = parseFloat(this.Amount) || 0;
+
+              this.moneyInRegister += amount;
+
+              // Update the value in localStorage
+              localStorage.setItem('moneyInRegister', this.moneyInRegister.toString());
+
               this.windowRef.close(true);
 
               this.filteritemdata = []
@@ -388,6 +401,25 @@ export class PaymentModalComponent implements OnInit {
         .PostRequest("PayUnpaidBill", obj)
         .subscribe((res: any) => {
           console.log(JSON.parse(res));
+
+          // Initialize moneyInRegister from localStorage or default to 0 if not available or NaN
+          this.moneyInRegister = parseFloat(localStorage.getItem('moneyInRegister')) || 0;
+
+          // Parse amount and amountRemainder, defaulting to 0 if NaN
+          const amount = parseFloat(this.Amount) || 0;
+          const amountRemainder = parseFloat(this.AmountRemainder) || 0;
+
+          // Check if amountRemainder is negative, and handle accordingly
+          if (amountRemainder < 0) {
+            // If amountRemainder is negative, adding its absolute value to the register
+            this.moneyInRegister += (amount + Math.abs(amountRemainder));
+          } else {
+            // If amountRemainder is positive or zero, proceed with normal subtraction
+            this.moneyInRegister += (amount - amountRemainder);
+          }
+
+          // Update the value in localStorage
+          localStorage.setItem('moneyInRegister', this.moneyInRegister.toString());
         });
     } else {
       this.toastrService.danger("Try Again", "Error");
@@ -404,23 +436,19 @@ export class PaymentModalComponent implements OnInit {
   calculateRemainingAmount() {
     if (this.getreminderdata) {
       this.AmountRemainder =
-        this.getreminderdata - this.payment.value.PaidAmount;
-      this.payment.patchValue({
-        Remainder: this.AmountRemainder,
-      });
+        this.payment.value.PaidAmount - this.getreminderdata;
     } else {
       if (this.totalprice) {
         this.AmountRemainder = this.totalprice - this.payment.value.PaidAmount;
-        this.payment.patchValue({
-          Remainder: this.AmountRemainder,
-        });
       } else {
         this.AmountRemainder = this.Amount - this.payment.value.PaidAmount;
-        this.payment.patchValue({
-          Remainder: this.AmountRemainder,
-        });
       }
     }
+
+    this.AmountRemainder = this.AmountRemainder * -1;
+    this.payment.patchValue({
+      Remainder: this.AmountRemainder,
+    });
   }
 
   calculateDiscountAmount() {
