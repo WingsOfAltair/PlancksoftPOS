@@ -7129,7 +7129,9 @@ namespace PlancksoftPOS
                 openedForm = frmPayCash;
                 frmPayCash.ShowDialog(this);
                 this.paidAmount = frmPayCash.moneyPaid;
-                this.moneyInRegister += this.paidAmount;
+                this.moneyInRegister += this.totalAmount;
+                Properties.Settings.Default.moneyInRegister = this.moneyInRegister;
+                Properties.Settings.Default.Save();
                 this.remainderAmount = this.paidAmount - this.totalAmount;
 
                 if (frmPayCash.dialogResult == DialogResult.OK)
@@ -11327,7 +11329,7 @@ namespace PlancksoftPOS
 
             try
             {
-                frmCloseRegister closeRegister = new frmCloseRegister(this.cashierName, Connection.server.GetOpenRegisterAmount());
+                frmCloseRegister closeRegister = new frmCloseRegister(this.cashierName, this.moneyInRegister);
                 openedForm = closeRegister;
                 closeRegister.ShowDialog(this);
                 if (closeRegister.dialogResult == DialogResult.OK)
@@ -11336,6 +11338,11 @@ namespace PlancksoftPOS
                     bool closedRegister = Connection.server.SaveRegisterClose(cashierName, moneyInRegister);
                     if (closedRegister)
                     {
+                        this.moneyInRegister = 0;
+                        this.moneyInRegisterInitial = 0;
+
+                        Properties.Settings.Default.moneyInRegister = this.moneyInRegister;
+                        Properties.Settings.Default.moneyInRegisterInitial = this.moneyInRegisterInitial;
                         Properties.Settings.Default.RegisterOpen = false;
                         Properties.Settings.Default.Save();
                         this.registerOpen = false;
