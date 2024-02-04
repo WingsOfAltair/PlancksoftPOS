@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PublisherService } from '../../../services/publisher.service';
+import { NbToastrService } from '@nebular/theme';
 import { NbWindowRef } from '@nebular/theme';
+import { MenuService } from "../../../services/menu.service";
 
 @Component({
   selector: 'ngx-open-register-modal',
@@ -13,11 +15,14 @@ export class OpenRegisterModalComponent implements OnInit {
   AddData: FormGroup
   message: any;
   cashierName: any;
+  moneyInRegister: any;
 
   constructor(
     private fb: FormBuilder,
     private publisherService: PublisherService, 
-    private windowRef: NbWindowRef
+    private windowRef: NbWindowRef,
+    public mainMenuService: MenuService,
+    private toastrService: NbToastrService
 
   ) { }
 
@@ -39,8 +44,6 @@ export class OpenRegisterModalComponent implements OnInit {
 
   submit(){
 
-    
-
     var obj = {
       cashierName:this.cashierName,
       moneyInRegister: this.AddData.value.Amount
@@ -48,12 +51,11 @@ export class OpenRegisterModalComponent implements OnInit {
 
     this.publisherService.PostRequest('SaveRegisterOpen', obj).subscribe((res: any) => {
       console.log(JSON.parse(res));
-      this.ngOnInit()
+      localStorage.setItem('moneyInRegister', this.AddData.value.Amount);
+      localStorage.setItem('registerOn', JSON.stringify(true));
+      this.mainMenuService.loadMenus();
+      this.toastrService.success("Cash Register is open.");
+      this.windowRef.close("");
     });
-
-    this.windowRef.close("");
-
-
   }
-
 }

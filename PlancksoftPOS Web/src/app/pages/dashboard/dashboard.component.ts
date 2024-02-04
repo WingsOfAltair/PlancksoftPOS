@@ -28,6 +28,7 @@ export class DashboardComponent implements OnDestroy, OnInit {
   clientcount:any
   Item:any
   ItemCount:any
+  registerOn: any;
 
   rollerShadesCard: CardSettings = {
     title: "Today Invoice",
@@ -151,6 +152,8 @@ export class DashboardComponent implements OnDestroy, OnInit {
         var list = [];
         ;
         this.openclose_edit = this.message.openclose_edit;
+
+        this.registerOn = JSON.parse(localStorage.getItem('registerOn'));
       });
 
   }
@@ -220,26 +223,23 @@ export class DashboardComponent implements OnDestroy, OnInit {
     return "/Date(" + milliseconds + ")/";
   }
 
-  on = true;
   onLightCardClick() {
-    
-    if(this.on){
+    if(!this.registerOn){
       var obj = this.windowService.open(OpenRegisterModalComponent, {
         title: `Open Register`,
-      });;
+      });
       obj.onClose.subscribe((res) => {
-        this.on = !this.on;
+        this.registerOn = JSON.parse(localStorage.getItem('registerOn'));
+        this.ngOnInit()
       })
-    }
-    else{
+    } else {
       var obj = this.windowService.open(CloseModelRegisterComponent, {
         title: `Close Register`,
-      });;
+      });
       obj.onClose.subscribe((res) => {
+        this.registerOn = JSON.parse(localStorage.getItem('registerOn'));
         this.ngOnInit()
       })
     }
-    
-    
   }
 }

@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
   template: `
 
 
-    <nb-card *ngIf="type != 'primary'" (click)="on = !on" [ngClass]="{'off': !on}">
+    <nb-card *ngIf="type != 'primary'" [ngClass]="{'off': !registerOn}">
       <div class="icon-container">
         <div class="icon status-{{ type }}">
           <ng-content></ng-content>
@@ -15,11 +15,11 @@ import { Component, Input } from '@angular/core';
 
       <div class="details">
         <div class="title h5">{{ title }}</div>
-        <div class="status paragraph-2">{{ on ? 'On' : 'Off' }}</div>
+        <div class="status paragraph-2">{{ registerOn ? 'On' : 'Off' }}</div>
       </div>
     </nb-card>
 
-    <nb-card *ngIf="type == 'primary'" (click)="on = !on" [ngClass]="{'off': !on}">
+    <nb-card *ngIf="type == 'primary'" [ngClass]="{'off': !registerOn}">
     <div class="icon-container">
       <div class="icon status-{{ type }}">
         <ng-content></ng-content>
@@ -28,7 +28,7 @@ import { Component, Input } from '@angular/core';
 
     <div class="details">
       <div class="title h5">{{ title }}</div>
-      <div class="status paragraph-2">{{ on ? 'Close' : 'Open' }}</div>
+      <div class="status paragraph-2">{{ registerOn ? 'Open' : 'Closed' }}</div>
     </div>
   </nb-card>
   `,
@@ -39,5 +39,5 @@ export class StatusCardComponent {
 
   @Input() title: string;
   @Input() type: string;
-  @Input() on = true;
+  @Input() registerOn = JSON.parse(localStorage.getItem('registerOn'));;
 }
