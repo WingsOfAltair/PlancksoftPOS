@@ -3,6 +3,7 @@ import { LocalDataSource } from "ng2-smart-table";
 import { SmartTableData } from "../../../@core/data/smart-table";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { PublisherService } from "../../../services/publisher.service";
+import { MenuService } from "../../../services/menu.service";
 import {
   NbSortDirection,
   NbSortRequest,
@@ -52,6 +53,7 @@ export class UserComponent implements OnInit {
     private publisherService: PublisherService,
     private toastrService: NbToastrService,
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<any>,
+    public mainMenuService: MenuService,
     private windowService: NbWindowService
   ) {}
 
@@ -169,6 +171,7 @@ export class UserComponent implements OnInit {
     dt.componentInstance.modalClose.subscribe(() => {
       console.log("modal close");
       this.ngOnInit();
+      this.mainMenuService.loadMenus();
     });
 
     dt.onClose.subscribe((res) => {
