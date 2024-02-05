@@ -123,7 +123,7 @@ export const locale = {
         CLENTCHECKBALANCE:'Client Balance Check',
         PAYBILL:'Pay Bill',
         STATUS:'Status',
-        REMAINDER:'Reminder',
+        Rwminder:'Remainder',
         CASHPAYMENT:'Cash Payment',
         VISAPAYMENT:'Visa Payment',
         DISCOUNT:'Discount',

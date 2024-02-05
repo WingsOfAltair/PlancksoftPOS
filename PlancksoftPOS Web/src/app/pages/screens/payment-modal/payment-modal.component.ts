@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Output, EventEmitter, Component, OnInit } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { PublisherService } from "../../../services/publisher.service";
 
@@ -74,6 +74,13 @@ export class PaymentModalComponent implements OnInit {
     this.Userdata = JSON.parse(user);
     this.userID = this.Userdata.uid;
   }
+  
+  @Output() modalClose = new EventEmitter();
+
+  closeModal() {
+    this.modalClose.emit(); // Emit custom event
+    this.windowRef.close("");
+}
 
   ngOnInit(): void {
     this.updatedata = this.windowRef.config.context;
@@ -301,6 +308,9 @@ export class PaymentModalComponent implements OnInit {
       this.paidAmount = this.payment.value.PaidAmount;
       console.log(this.payment.value);
 
+      if (this.AmountRemainder < 0)
+        this.AmountRemainder = this.AmountRemainder * -1;
+
       var obj = {
         billToAdd: {
           isVendor: false,
@@ -355,13 +365,13 @@ export class PaymentModalComponent implements OnInit {
               {
                 this.moneyInRegister += this.payment.value.PaidAmount;
               } else {
-                this.moneyInRegister += (amount);
+                this.moneyInRegister += amount;
               }
 
               // Update the value in localStorage
               localStorage.setItem('moneyInRegister', this.moneyInRegister.toString());
 
-              this.windowRef.close(true);
+              this.closeModal();
 
               this.filteritemdata = []
 
@@ -392,7 +402,7 @@ export class PaymentModalComponent implements OnInit {
 
       pdf.addImage(imgData, "PNG", 10, 10, width, height);
       pdf.save("bill.pdf");
-      this.windowRef.close("");
+      this.closeModal();
     });
   }
 
@@ -421,7 +431,7 @@ export class PaymentModalComponent implements OnInit {
             }
             else
             {
-              this.moneyInRegister = amountrem;
+              this.moneyInRegister += amountrem;
             }
 
           if (this.moneyInRegister < 0)
@@ -429,7 +439,7 @@ export class PaymentModalComponent implements OnInit {
 
           // Update the value in localStorage
           localStorage.setItem('moneyInRegister', this.moneyInRegister.toString());
-          this.windowRef.close("");
+          this.closeModal();
         });
     } else {
       this.toastrService.danger("Try Again", "Error");

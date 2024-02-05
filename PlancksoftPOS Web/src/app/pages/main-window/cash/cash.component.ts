@@ -434,6 +434,16 @@ export class CashComponent implements OnInit {
       context: obj,
     });
 
+    dt.componentInstance.modalClose.subscribe((res) => {
+      this.dataSource = this.dataSourceBuilder.create([]);
+      this.paydata = [];
+      this.paydataa = [];
+      this.dataa = [];
+      this.itemlist = [];
+      this.selectedfilter = [];
+      this.ngOnInit();
+    })
+
     dt.onClose.subscribe((res) => {
       ;
       if (res == true) {

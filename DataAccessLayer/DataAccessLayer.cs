@@ -3036,6 +3036,8 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@cashierName", cashierName);
                     cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
                     cmd.Parameters.AddWithValue("@paidAmount", billToAdd.getPaidAmount());
+                    if (billToAdd.getRemainderAmount() < 0)
+                        billToAdd.RemainderAmount = billToAdd.RemainderAmount * -1;
                     cmd.Parameters.AddWithValue("@remainderAmount", billToAdd.getRemainderAmount());
                     cmd.Parameters.AddWithValue("@paymentByCash", Convert.ToInt32(billToAdd.PayByCash));
                     cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
