@@ -78,7 +78,7 @@ namespace PlancksoftPOS
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (numericUpDown1.Value >= this.moneyInRegister && numericUpDown1.Value >= Connection.server.GetTotalSalesAmount())
+            if (numericUpDown1.Value >= this.moneyInRegister)
             {
                 this.dialogResult = DialogResult.OK;
                 this.Close();
