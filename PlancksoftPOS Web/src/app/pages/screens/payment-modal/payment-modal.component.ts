@@ -350,10 +350,13 @@ export class PaymentModalComponent implements OnInit {
 
               // Parse amount and amountRemainder, defaulting to 0 if NaN
               const amount = parseFloat(this.Amount) || 0;
-
-              const amountrem = parseFloat(this.AmountRemainder) || 0;
     
-              this.moneyInRegister += (amount - amountrem);
+              if (this.payment.value.PaidAmount <= amount)
+              {
+                this.moneyInRegister += this.payment.value.PaidAmount;
+              } else {
+                this.moneyInRegister += (amount);
+              }
 
               // Update the value in localStorage
               localStorage.setItem('moneyInRegister', this.moneyInRegister.toString());
@@ -409,16 +412,16 @@ export class PaymentModalComponent implements OnInit {
           // Initialize moneyInRegister from localStorage or default to 0 if not available or NaN
           this.moneyInRegister = parseFloat(localStorage.getItem('moneyInRegister')) || 0;
 
-          const amountrem = parseFloat(this.AmountRemainder) || 0;
-          const amount = parseFloat(this.Amount) || 0;
+          const amount = parseFloat(this.payment.value.AmountRequired) || 0;
+          const amountrem = parseFloat(this.payment.value.Remainder) || 0;
 
-          if (this.payment.value.PaidAmount > amount)
+          if (this.payment.value.PaidAmount <= amountrem)
             {
-              this.moneyInRegister = this.moneyInRegister + (this.payment.value.PaidAmount - amount);
+              this.moneyInRegister += this.payment.value.PaidAmount;
             }
             else
             {
-              this.moneyInRegister = this.moneyInRegister - (this.payment.value.PaidAmount);
+              this.moneyInRegister = amountrem;
             }
 
           if (this.moneyInRegister < 0)
