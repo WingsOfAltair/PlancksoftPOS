@@ -55,7 +55,7 @@ namespace PlancksoftPOS
 
             originalTotal = totalAmount;
             txtRequiredAmount.Text = totalAmount.ToString();
-            txtRemainderAmount.Text = Convert.ToString(this.paidAmount - this.totalAmount);
+            txtRemainderAmount.Text = Convert.ToString(this.totalAmount - this.paidAmount);
             if (paidAmount != -9999)
             {
                 this.totalAmount = totalAmount;
@@ -259,7 +259,7 @@ namespace PlancksoftPOS
             {
                 this.totalAmount = Convert.ToDecimal(txtRequiredAmount.Text);
                 this.paidAmount = Convert.ToDecimal(txtPaidAmount.Text);
-                this.remainderAmount = this.paidAmount - this.totalAmount;
+                this.remainderAmount = this.totalAmount - this.paidAmount;
                 txtRequiredAmount.Text = this.totalAmount.ToString();
                 txtRemainderAmount.Text = this.remainderAmount.ToString();
             }
@@ -279,7 +279,7 @@ namespace PlancksoftPOS
             {
                 this.totalAmount = Convert.ToDecimal(txtRequiredAmount.Text);
                 this.paidAmount = Convert.ToDecimal(txtPaidAmount.Text);
-                this.remainderAmount = this.paidAmount - this.totalAmount;
+                this.remainderAmount = this.totalAmount - this.paidAmount;
                 txtRequiredAmount.Text = this.totalAmount.ToString();
                 txtRemainderAmount.Text = this.remainderAmount.ToString();
             }

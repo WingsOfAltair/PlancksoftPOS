@@ -3848,7 +3848,9 @@ namespace PlancksoftPOS
 
                 this.paidAmount = 0;
                 this.moneyInRegister += 0;
-                this.remainderAmount = this.paidAmount - this.totalAmount;
+                Properties.Settings.Default.moneyInRegister = this.moneyInRegister;
+                Properties.Settings.Default.Save();
+                this.remainderAmount = this.totalAmount - this.paidAmount;
 
                 Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
                 previousBillsList.Push(billToAdd);
@@ -7129,10 +7131,16 @@ namespace PlancksoftPOS
                 openedForm = frmPayCash;
                 frmPayCash.ShowDialog(this);
                 this.paidAmount = frmPayCash.moneyPaid;
-                this.moneyInRegister += this.totalAmount;
+                if (this.paidAmount <= this.totalAmount)
+                {
+                    this.moneyInRegister += this.paidAmount;
+                } else
+                {
+                    this.moneyInRegister += this.totalAmount;
+                }
                 Properties.Settings.Default.moneyInRegister = this.moneyInRegister;
                 Properties.Settings.Default.Save();
-                this.remainderAmount = this.paidAmount - this.totalAmount;
+                this.remainderAmount = this.totalAmount - this.paidAmount;
 
                 if (frmPayCash.dialogResult == DialogResult.OK)
                 {
@@ -7552,7 +7560,9 @@ namespace PlancksoftPOS
 
                 this.paidAmount = 0;
                 this.moneyInRegister += 0;
-                this.remainderAmount = this.paidAmount - this.totalAmount;
+                Properties.Settings.Default.moneyInRegister = this.moneyInRegister;
+                Properties.Settings.Default.Save();
+                this.remainderAmount = this.totalAmount - this.paidAmount;
 
                 Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
                 previousBillsList.Push(billToAdd);
@@ -8015,7 +8025,9 @@ namespace PlancksoftPOS
 
                         this.paidAmount = 0;
                         this.moneyInRegister += 0;
-                        this.remainderAmount = this.paidAmount - this.totalAmount;
+                        Properties.Settings.Default.moneyInRegister = this.moneyInRegister;
+                        Properties.Settings.Default.Save();
+                        this.remainderAmount = this.totalAmount - this.paidAmount;
 
                         Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
                         previousBillsList.Push(billToAdd);
@@ -9789,6 +9801,16 @@ namespace PlancksoftPOS
                         {
                             billPaid = Connection.server.SearchBills("", "", Convert.ToInt32(row.Cells["dataGridViewTextBoxColumn24"].Value.ToString())).Item1[0];
                             billPaid.ItemsBought = itemsInBill; 
+                            if (frmPayCash.paidAmount <= frmPayCash.totalAmount)
+                            {
+                                this.moneyInRegister += frmPayCash.paidAmount;
+                            } else
+                            {
+                                this.moneyInRegister += frmPayCash.totalAmount;
+                            }
+
+                            Properties.Settings.Default.moneyInRegister = this.moneyInRegister;
+                            Properties.Settings.Default.Save();
                             printCertainReceipt(billPaid);
 
                             CapitalAmountnud.Value = Connection.server.GetCapitalAmount();
