@@ -122,7 +122,7 @@ export const locale = {
         CLENTCHECKBALANCE:'التحقق من رصيد العميل',
         PAYBILL:'فاتورة الأجرة',
         STATUS:'حالة',
-        REMAINDER:'بقية',
+        Rwminder:'بقية',
         CASHPAYMENT:'دفع نقدا',
         VISAPAYMENT:'الدفع بالتأشيرة',
         DISCOUNT:'تخفيض',
