@@ -186,90 +186,61 @@ export class CashComponent implements OnInit {
         this.allbills.splice(selected, 1);
       }
 
-      this.paydata.forEach((el) => {
-        var obj = {
-          data: {
-            ItemID: el.data.ItemID,
-            ItemName: el.data.ItemName,
-            ItemQuantity: el.data.ItemQuantity,
-            ItemBuyPrice: el.data.ItemBuyPrice,
-            ItemPrice: el.data.ItemPrice,
-            ItemPriceTax: el.data.ItemPriceTax,
-            favoriteCategoryName: el.data.favoriteCategoryName,
-            FavoriteCategory: el.data.FavoriteCategory,
-            warehouseName: el.data.warehouseName,
-            ItemTypeName: el.data.ItemTypeName,
-            ItemBarCode: el.data.ItemBarCode,
-            Picture: el.data.Picture,
-            RandomCode: el.data.RandomCode,
-          },
-        };
-        this.PreviousPickedItem.push(obj);
-      });
+      let addedItemIDs = new Set(this.PreviousPickedItem.map(item => item.data.ItemID));
 
       this.paydata.forEach((el) => {
-        var obj = {
-          data: {
-            ItemID: el.data.ItemID,
-            ItemName: el.data.ItemName,
-            ItemQuantity: el.data.ItemQuantity,
-            ItemBuyPrice: el.data.ItemBuyPrice,
-            ItemPrice: el.data.ItemPrice,
-            ItemPriceTax: el.data.ItemPriceTax,
-            favoriteCategoryName: el.data.favoriteCategoryName,
-            FavoriteCategory: el.data.FavoriteCategory,
-            warehouseName: el.data.warehouseName,
-            ItemTypeName: el.data.ItemTypeName,
-            ItemBarCode: el.data.ItemBarCode,
-            Picture: el.data.Picture,
-            RandomCode: el.data.RandomCode,
-          },
-        };
-        this.codegenerate.push(obj);
+        if (!addedItemIDs.has(el.data.ItemID)) {
+          var obj = {
+            data: {
+              ItemID: el.data.ItemID,
+              ItemName: el.data.ItemName,
+              ItemQuantity: el.data.ItemQuantity,
+              ItemBuyPrice: el.data.ItemBuyPrice,
+              ItemPrice: el.data.ItemPrice,
+              ItemPriceTax: el.data.ItemPriceTax,
+              favoriteCategoryName: el.data.favoriteCategoryName,
+              FavoriteCategory: el.data.FavoriteCategory,
+              warehouseName: el.data.warehouseName,
+              ItemTypeName: el.data.ItemTypeName,
+              ItemBarCode: el.data.ItemBarCode,
+              Picture: el.data.Picture,
+              RandomCode: el.data.RandomCode,
+            },
+          };
+          this.PreviousPickedItem.push(obj);
+          this.codegenerate.push(obj);
+          addedItemIDs.add(el.data.ItemID);
+        }
       });
     } else {
-      this.dataa.forEach((el) => {
-        var obj = {
-          data: {
-            ItemID: el.data.ItemID,
-            ItemName: el.data.ItemName,
-            ItemQuantity: el.data.ItemQuantity,
-            ItemBuyPrice: el.data.ItemBuyPrice,
-            ItemPrice: el.data.ItemPrice,
-            ItemPriceTax: el.data.ItemPriceTax,
-            favoriteCategoryName: el.data.favoriteCategoryName,
-            FavoriteCategory: el.data.FavoriteCategory,
-            warehouseName: el.data.warehouseName,
-            ItemTypeName: el.data.ItemTypeName,
-            ItemBarCode: el.data.ItemBarCode,
-            Picture: el.data.Picture,
-            RandomCode: this.random,
-          },
-        };
-        this.PreviousPickedItem.push(obj);
-      });
+      let addedItemIDsDataA = new Set(this.PreviousPickedItem.map(item => item.data.ItemID));
 
       this.dataa.forEach((el) => {
-        var obj = {
-          data: {
-            ItemID: el.data.ItemID,
-            ItemName: el.data.ItemName,
-            ItemQuantity: el.data.ItemQuantity,
-            ItemBuyPrice: el.data.ItemBuyPrice,
-            ItemPrice: el.data.ItemPrice,
-            ItemPriceTax: el.data.ItemPriceTax,
-            favoriteCategoryName: el.data.favoriteCategoryName,
-            FavoriteCategory: el.data.FavoriteCategory,
-            warehouseName: el.data.warehouseName,
-            ItemTypeName: el.data.ItemTypeName,
-            ItemBarCode: el.data.ItemBarCode,
-            Picture: el.data.Picture,
-            RandomCode: this.random,
-          },
-        };
-        this.codegenerate.push(obj);
+        if (!addedItemIDsDataA.has(el.data.ItemID)) {
+          var obj = {
+            data: {
+              ItemID: el.data.ItemID,
+              ItemName: el.data.ItemName,
+              ItemQuantity: el.data.ItemQuantity,
+              ItemBuyPrice: el.data.ItemBuyPrice,
+              ItemPrice: el.data.ItemPrice,
+              ItemPriceTax: el.data.ItemPriceTax,
+              favoriteCategoryName: el.data.favoriteCategoryName,
+              FavoriteCategory: el.data.FavoriteCategory,
+              warehouseName: el.data.warehouseName,
+              ItemTypeName: el.data.ItemTypeName,
+              ItemBarCode: el.data.ItemBarCode,
+              Picture: el.data.Picture,
+              RandomCode: this.random,
+            },
+          };
+          this.PreviousPickedItem.push(obj);
+          this.codegenerate.push(obj);
+          addedItemIDsDataA.add(el.data.ItemID);
+        }
       });
     }
+
     this.PreviousPickedItem.forEach((el) => {
       var individualAmount = el.data.ItemQuantity * el.data.ItemPrice;
       billAmount += individualAmount;
@@ -308,6 +279,10 @@ export class CashComponent implements OnInit {
     this.perivoustotal = totalAmount;
 
     this.dataSource = this.dataSourceBuilder.create([]);
+    
+    this.paydataa = [];
+    this.paydata = [];
+    this.selectedfilter = [];
     this.pandingdata = [];
     this.dataa = [];
     this.PreviousPickedItem = [];
@@ -315,14 +290,12 @@ export class CashComponent implements OnInit {
   }
 
   update(Barcode) {
-    if (this.paydata.length > 0) {
-      var SelectedData = this.paydata.filter(
-        (a) => a.data.ItemBarCode == Barcode
-      )[0];
-    } else {
-      var SelectedData = this.dataa.filter(
-        (a) => a.data.ItemBarCode == Barcode
-      )[0];
+    const sourceArray = this.paydata.length > 0 ? this.paydata : this.dataa;
+    let SelectedData = sourceArray.find((a) => a.data.ItemBarCode == Barcode);
+
+    if (!SelectedData) {
+      this.toastrService.show('Item not found', 'Error', { status: 'danger' });
+      return;
     }
 
     var obj = {
@@ -336,51 +309,42 @@ export class CashComponent implements OnInit {
     });
 
     data.onClose.subscribe((res) => {
-      if (res) {
-        if (this.paydata.length > 0) {
-          var existingItemIndex = this.paydata.findIndex(
-            (a) => a.data.ItemBarCode === res.ItemBarCode
-          );
-          if (existingItemIndex !== -1 && res.ItemQuantity !== 0) {
-            this.paydata[existingItemIndex].data.ItemQuantity =
-              res.ItemQuantity;
+      if (res && res.ItemQuantity !== 0) {
+        // Find and update the item in each array
+        [this.paydata, this.paydataa, this.codegenerate].forEach((array) => {
+          array.forEach((item) => {
+            if (item && item.data && item.data.ItemBarCode === Barcode) {
+              item.data.ItemQuantity = res.ItemQuantity;
+            }
+          });
+        });
 
-            this.paydata.forEach((el) => {
-              var obj = {
-                Picture: el.data.Picture,
-                ItemName: el.data.ItemName,
-                ItemQuantity: el.data.ItemQuantity,
-                ItemPrice: el.data.ItemPrice,
-              };
-              this.selectedfilter.push(obj);
-            });
-            this.dataSource = this.dataSourceBuilder.create(this.paydata);
-          } else {
-            this.toastrService.danger("Try Again", "Minimum 1 Quantity");
-          }
-        } else {
-          var existingItemIndex = this.dataa.findIndex(
-            (a) => a.data.ItemBarCode === res.ItemBarCode
-          );
-          if (existingItemIndex !== -1 && res.ItemQuantity !== 0) {
-            this.dataa[existingItemIndex].data.ItemQuantity = res.ItemQuantity;
-
-            this.dataa.forEach((el) => {
-              var obj = {
-                Picture: el.data.Picture,
-                ItemName: el.data.ItemName,
-                ItemQuantity: el.data.ItemQuantity,
-                ItemPrice: el.data.ItemPrice,
-              };
-              this.selectedfilter.push(obj);
-            });
-            this.dataSource = this.dataSourceBuilder.create(this.dataa);
-          } else {
-            this.toastrService.danger("Try Again", "Minimum 1 Quantity");
-          }
-        }
+        [this.dataa].forEach((array) => {
+          array.forEach((item) => {
+            if (item && item && item.ItemBarCode === Barcode) {
+              item.ItemQuantity = res.ItemQuantity;
+            }
+          });
+        });
+  
+        // Optionally, refresh your dataSource for the UI to reflect the change
+        console.log("begin")
+        console.log(this.paydata);
+        console.log(this.dataa);
+        console.log(this.paydataa);
+        console.log(this.codegenerate);
+        console.log("end")
+        this.refreshDataSource();
+  
+      } else {
+        this.toastrService.show('Invalid quantity', 'Error', { status: 'danger' });
       }
     });
+  }
+
+  refreshDataSource() {
+    // Assuming you have a method like this to refresh your table or list UI
+    this.dataSource = this.dataSourceBuilder.create(this.paydata.length > 0 ? this.paydata : this.dataa);
   }
 
   updatebill() {
@@ -435,16 +399,32 @@ export class CashComponent implements OnInit {
     });
 
     dt.componentInstance.modalClose.subscribe((res) => {
+      var indexToRemove = this.allbills.findIndex(
+        (a) => a.data.ramdomcode == this.filtercode
+      );
+      var amount = this.allbills.filter(
+        (a) => a.data.ramdomcode == this.filtercode
+      );
       this.dataSource = this.dataSourceBuilder.create([]);
-      this.paydata = [];
-      this.paydataa = [];
-      this.dataa = [];
-      this.itemlist = [];
-      this.selectedfilter = [];
-      this.ngOnInit();
+
+      if (indexToRemove !== -1) {
+        this.total = this.perivoustotal - amount[0].data.ItemPrice;
+        console.log("deleting bill");
+        this.allbills.splice(indexToRemove, 1);
+        this.pandingbill = this.allbills.length;
+        this.perivoustotal = this.total;
+
+        this.paydata = [];
+        this.paydataa = [];
+        this.dataa = [];
+        this.filtercode = 0;
+        this.itemlist = [];
+        this.selectedfilter = [];
+      }
+    this.ngOnInit();
     })
 
-    dt.onClose.subscribe((res) => {
+    /*dt.onClose.subscribe((res) => {
       ;
       if (res == true) {
         var indexToRemove = this.allbills.findIndex(
@@ -470,7 +450,7 @@ export class CashComponent implements OnInit {
         }
       }
       this.ngOnInit();
-    });
+    });*/
   }
 
   Perivousbill() {
@@ -481,46 +461,44 @@ export class CashComponent implements OnInit {
 
     data.onClose.subscribe((res) => {
       if (res) {
-        var selected = this.codegenerate.filter(
-          (a) => a.data.RandomCode == res
-        );
-        this.filtercode = res;
-
-        if (this.filtercode > 0) {
-          this.dataSource = this.dataSourceBuilder.create([]);
-          this.paydata = [];
-          this.paydataa = [];
-          this.dataa = [];
-          this.itemlist = [];
-          this.selectedfilter = [];
-        }
-
-        selected.forEach((el) => {
-          var obj = {
-            data: {
-              ItemID: el.data.ItemID,
-              Picture: el.data.Picture,
-              ItemName: el.data.ItemName,
-              ItemQuantity: el.data.ItemQuantity,
-              ItemBuyPrice: el.data.ItemBuyPrice,
-              ItemPrice: el.data.ItemPrice,
-              ItemPriceTax: el.data.ItemPriceTax,
-              favoriteCategoryName: el.data.favoriteCategoryName,
-              FavoriteCategory: el.data.FavoriteCategory,
-              warehouseName: el.data.warehouseName,
-              ItemTypeName: el.data.ItemTypeName,
-              ItemBarCode: el.data.ItemBarCode,
-              RandomCode: el.data.RandomCode,
-            },
-          };
-
-          this.paydata.push(obj);
-          this.paydataa.push(obj.data);
-          this.dataSource = this.dataSourceBuilder.create(this.paydata);
-        });
+        this.dataSource = this.dataSourceBuilder.create([]);
+        this.paydata = [];
+        this.paydataa = [];
         this.dataa = [];
         this.itemlist = [];
         this.selectedfilter = [];
+
+        var selected = this.codegenerate.filter(
+          (a) => a.data.RandomCode == res
+        );
+
+        this.filtercode = res;
+
+        selected.forEach((el) => {
+          if (!this.paydata.some(item => item.data.ItemID === el.data.ItemID)) {
+            var obj = {
+              data: {
+                ItemID: el.data.ItemID,
+                Picture: el.data.Picture,
+                ItemName: el.data.ItemName,
+                ItemQuantity: el.data.ItemQuantity,
+                ItemBuyPrice: el.data.ItemBuyPrice,
+                ItemPrice: el.data.ItemPrice,
+                ItemPriceTax: el.data.ItemPriceTax,
+                favoriteCategoryName: el.data.favoriteCategoryName,
+                FavoriteCategory: el.data.FavoriteCategory,
+                warehouseName: el.data.warehouseName,
+                ItemTypeName: el.data.ItemTypeName,
+                ItemBarCode: el.data.ItemBarCode,
+                RandomCode: el.data.RandomCode,
+              },
+            };
+
+            this.paydata.push(obj);
+            this.paydataa.push(obj.data);
+          }
+        });
+        this.dataSource = this.dataSourceBuilder.create(this.paydata);
       }
     });
   }
