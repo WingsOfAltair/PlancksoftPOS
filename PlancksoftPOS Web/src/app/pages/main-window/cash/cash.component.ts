@@ -371,9 +371,9 @@ export class CashComponent implements OnInit {
     this.itemlist = [];
   }
 
-  update(Barcode) {
+  update(Barcode, RandomCode) {
     const sourceArray = this.paydata.length > 0 ? this.paydata : this.dataa;
-    let SelectedData = sourceArray.find((a) => a.data.ItemBarCode == Barcode);
+    let SelectedData = sourceArray.find((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == RandomCode);
 
     if (!SelectedData) {
       this.toastrService.show('Item not found', 'Error', { status: 'danger' });
@@ -395,7 +395,7 @@ export class CashComponent implements OnInit {
         // Find and update the item in each array
         [this.paydata, this.paydataa, this.codegenerate].forEach((array) => {
           array.forEach((item) => {
-            if (item && item.data && item.data.ItemBarCode === Barcode) {
+            if (item && item.data && item.data.ItemBarCode === Barcode && item.data.RandomCode === RandomCode) {
               item.data.ItemQuantity = res.ItemQuantity;
             }
           });
@@ -403,19 +403,13 @@ export class CashComponent implements OnInit {
 
         [this.dataa].forEach((array) => {
           array.forEach((item) => {
-            if (item && item && item.ItemBarCode === Barcode) {
-              item.ItemQuantity = res.ItemQuantity;
+            if (item && item.data.ItemBarCode === Barcode && item.data.RandomCode === RandomCode) {
+              item.data.ItemQuantity = res.ItemQuantity;
             }
           });
         });
   
         // Optionally, refresh your dataSource for the UI to reflect the change
-        console.log("begin")
-        console.log(this.paydata);
-        console.log(this.dataa);
-        console.log(this.paydataa);
-        console.log(this.codegenerate);
-        console.log("end")
         this.refreshDataSource();
   
       } else {
