@@ -1176,7 +1176,8 @@ namespace DataAccessLayerJSON
         {
             try
             {
-                Item Item = new Item();
+                Item item = new Item();
+                DataTable dt = new DataTable();
                 SqlDataAdapter adapter = new SqlDataAdapter();
                 SqlCommand cmd = new SqlCommand("SearchInventoryItemsWithBarCode", connection)
                 {
@@ -1186,21 +1187,32 @@ namespace DataAccessLayerJSON
                 if (ItemBarCode != "")
                     cmd.Parameters.AddWithValue("@ItemBarCode", ItemBarCode);
                 adapter.SelectCommand = cmd;
-                DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 dt.TableName = "InventoryItemsWithBarCode";
-                
-                foreach (DataRow ItemFound in dt.Rows)
+
+                if (dt.Rows.Count > 0)
                 {
-                    Item.SetID(Int32.Parse(ItemFound["Item ID"].ToString()));
-                    Item.SetName(ItemFound["Item Name"].ToString());
-                    Item.SetBarCode(ItemFound["Item BarCode"].ToString());
-                    Item.SetQuantity(Convert.ToInt32(ItemFound["Item Quantity"].ToString()));
-                    Item.SetPrice(Convert.ToDecimal(ItemFound["Item Price"].ToString()));
-                    Item.SetPriceTax(Convert.ToDecimal(ItemFound["Item Price Tax"].ToString()));
-                    return new Response(Item, true);
+                    item.SetName(dt.Rows[0]["Item Name"].ToString());
+                    item.SetBarCode(dt.Rows[0]["Item BarCode"].ToString());
+                    item.SetQuantity(Convert.ToInt32(dt.Rows[0]["Item Quantity"].ToString()));
+                    item.SetPrice(Convert.ToDecimal(dt.Rows[0]["Item Price"].ToString()));
+                    item.SetPriceTax(Convert.ToDecimal(dt.Rows[0]["Item Price Tax"].ToString()));
+                    item.SetFavoriteCategoryName(dt.Rows[0]["Favorite Category"].ToString());
+                    item.SetWarehouseID(Convert.ToInt32(dt.Rows[0]["Warehouse ID"].ToString()));
+                    item.SetItemTypeID(Convert.ToInt32(dt.Rows[0]["Item Type"].ToString()));
+                    object pictureObj = dt.Rows[0]["Item Picture"];
+                    if (DBNull.Value.Equals(pictureObj))
+                    {
+                        item.Picture = null;
+                    }
+                    else
+                    {
+                        byte[] pictureBytes = (byte[])pictureObj;
+                        item.Picture = JsonConvert.SerializeObject(pictureBytes);
+                    }
+                    return new Response(Tuple.Create(item, SerializeDataTableToJSON(dt)), true);
                 }
-                return null;
+                return new Response(Tuple.Create(SerializeDataTableToJSON(dt), SerializeDataTableToJSON(dt)), true);
             }
             catch (Exception ex)
             {

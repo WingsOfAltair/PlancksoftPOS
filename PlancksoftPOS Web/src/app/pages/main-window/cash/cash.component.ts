@@ -28,6 +28,8 @@ export class CashComponent implements OnInit {
   data: any;
   filterdata: any;
 
+  ScannedBarcode: string = '';
+
   defaultColumns = [
     "Picture",
     "ItemName",
@@ -75,6 +77,86 @@ export class CashComponent implements OnInit {
   billquantity = 0;
   total: number;
   filtercode: any;
+
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    this.ScannedBarcode += event.key;
+    console.log(`Key pressed: ${this.ScannedBarcode}`);
+
+    var obj = {
+      ItemBarCode: this.ScannedBarcode,
+    };
+    
+    this.publisherService
+      .PostRequest("SearchInventoryItemsWithBarCode", obj)
+      .subscribe((res: any) => {
+        var response = JSON.parse(res);
+        var data = response.ResponseMessage.Item1;
+        
+        if (data.ItemName){
+          this.ScannedBarcode = '';
+          
+          var newItem = {
+            data: {
+              ItemID: data.ItemID,
+              Picture: data.Picture,
+              ItemName: data.ItemName,
+              ItemQuantity: 1,
+              ItemBuyPrice: data.ItemBuyPrice,
+              ItemPrice: data.ItemPrice,
+              ItemPriceTax: data.ItemPriceTax,
+              favoriteCategoryName: data.favoriteCategoryName,
+              FavoriteCategory: data.FavoriteCategory,
+              warehouseName: data.warehouseName,
+              ItemTypeName: data.ItemTypeName,
+              ItemBarCode: data.ItemBarCode,
+            },
+          };
+  
+          if (this.paydata.length > 0) {
+            var barcode = this.paydata.filter((a) => a.data.ItemBarCode == res);
+            ;
+            if (barcode.length > 0) {
+              this.toastrService.danger(
+                "This item Is already exist",
+                "Try another item"
+              );
+            } else {
+              this.paydata.push(newItem);
+              this.paydataa.push(newItem.data);
+              this.pandingdata = this.paydataa;
+              this.dataSource = this.dataSourceBuilder.create(this.paydata);
+              this.dataa = [];
+              this.itemlist = [];
+            }
+          } else {
+            var barcode = this.dataa.filter((a) => a.data.ItemBarCode == res);
+            ;
+            if (barcode.length > 0) {
+              this.toastrService.danger(
+                "This item Is already exist",
+                "Try another item"
+              );
+            } else {
+              this.dataa.push(newItem);
+              this.itemlist.push(newItem.data);
+              this.pandingdata = this.itemlist;
+              this.dataSource = this.dataSourceBuilder.create(this.dataa);
+              this.paydata = [];
+              this.paydataa = [];
+            }
+          }
+        }
+      });
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  handleEscapeKey(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      console.log('Escape key was pressed');
+      this.ScannedBarcode = '';
+    }
+  }
 
   @HostListener("document:keydown.f1", ["$event"])
   handleF1Key(event: KeyboardEvent) {
