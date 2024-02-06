@@ -114,7 +114,7 @@ export class CashComponent implements OnInit {
           };
   
           if (this.paydata.length > 0) {
-            var barcode = this.paydata.filter((a) => a.data.ItemBarCode == res);
+            var barcode = this.paydata.filter((a) => a.data.ItemBarCode == data.ItemBarCode);
             ;
             if (barcode.length > 0) {
               this.toastrService.danger(
@@ -130,7 +130,7 @@ export class CashComponent implements OnInit {
               this.itemlist = [];
             }
           } else {
-            var barcode = this.dataa.filter((a) => a.data.ItemBarCode == res);
+            var barcode = this.dataa.filter((a) => a.data.ItemBarCode == data.ItemBarCode);
             ;
             if (barcode.length > 0) {
               this.toastrService.danger(
