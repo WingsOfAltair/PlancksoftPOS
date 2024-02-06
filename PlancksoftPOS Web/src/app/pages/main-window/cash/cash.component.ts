@@ -28,6 +28,8 @@ export class CashComponent implements OnInit {
   data: any;
   filterdata: any;
 
+  ScannedBarcode: string = '';
+
   defaultColumns = [
     "Picture",
     "ItemName",
@@ -75,6 +77,86 @@ export class CashComponent implements OnInit {
   billquantity = 0;
   total: number;
   filtercode: any;
+
+  @HostListener('document:keypress', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    this.ScannedBarcode += event.key;
+    console.log(`Key pressed: ${this.ScannedBarcode}`);
+
+    var obj = {
+      ItemBarCode: this.ScannedBarcode,
+    };
+    
+    this.publisherService
+      .PostRequest("SearchInventoryItemsWithBarCode", obj)
+      .subscribe((res: any) => {
+        var response = JSON.parse(res);
+        var data = response.ResponseMessage.Item1;
+        
+        if (data.ItemName){
+          this.ScannedBarcode = '';
+          
+          var newItem = {
+            data: {
+              ItemID: data.ItemID,
+              Picture: data.Picture,
+              ItemName: data.ItemName,
+              ItemQuantity: 1,
+              ItemBuyPrice: data.ItemBuyPrice,
+              ItemPrice: data.ItemPrice,
+              ItemPriceTax: data.ItemPriceTax,
+              favoriteCategoryName: data.favoriteCategoryName,
+              FavoriteCategory: data.FavoriteCategory,
+              warehouseName: data.warehouseName,
+              ItemTypeName: data.ItemTypeName,
+              ItemBarCode: data.ItemBarCode,
+            },
+          };
+  
+          if (this.paydata.length > 0) {
+            var barcode = this.paydata.filter((a) => a.data.ItemBarCode == data.ItemBarCode);
+            ;
+            if (barcode.length > 0) {
+              this.toastrService.danger(
+                "This item Is already exist",
+                "Try another item"
+              );
+            } else {
+              this.paydata.push(newItem);
+              this.paydataa.push(newItem.data);
+              this.pandingdata = this.paydataa;
+              this.dataSource = this.dataSourceBuilder.create(this.paydata);
+              this.dataa = [];
+              this.itemlist = [];
+            }
+          } else {
+            var barcode = this.dataa.filter((a) => a.data.ItemBarCode == data.ItemBarCode);
+            ;
+            if (barcode.length > 0) {
+              this.toastrService.danger(
+                "This item Is already exist",
+                "Try another item"
+              );
+            } else {
+              this.dataa.push(newItem);
+              this.itemlist.push(newItem.data);
+              this.pandingdata = this.itemlist;
+              this.dataSource = this.dataSourceBuilder.create(this.dataa);
+              this.paydata = [];
+              this.paydataa = [];
+            }
+          }
+        }
+      });
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  handleEscapeKey(event: KeyboardEvent) {
+    if (event.key === 'Escape') {
+      console.log('Escape key was pressed');
+      this.ScannedBarcode = '';
+    }
+  }
 
   @HostListener("document:keydown.f1", ["$event"])
   handleF1Key(event: KeyboardEvent) {
@@ -289,9 +371,9 @@ export class CashComponent implements OnInit {
     this.itemlist = [];
   }
 
-  update(Barcode) {
+  update(Barcode, RandomCode) {
     const sourceArray = this.paydata.length > 0 ? this.paydata : this.dataa;
-    let SelectedData = sourceArray.find((a) => a.data.ItemBarCode == Barcode);
+    let SelectedData = sourceArray.find((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == RandomCode);
 
     if (!SelectedData) {
       this.toastrService.show('Item not found', 'Error', { status: 'danger' });
@@ -313,7 +395,7 @@ export class CashComponent implements OnInit {
         // Find and update the item in each array
         [this.paydata, this.paydataa, this.codegenerate].forEach((array) => {
           array.forEach((item) => {
-            if (item && item.data && item.data.ItemBarCode === Barcode) {
+            if (item && item.data && item.data.ItemBarCode === Barcode && item.data.RandomCode === RandomCode) {
               item.data.ItemQuantity = res.ItemQuantity;
             }
           });
@@ -321,19 +403,13 @@ export class CashComponent implements OnInit {
 
         [this.dataa].forEach((array) => {
           array.forEach((item) => {
-            if (item && item && item.ItemBarCode === Barcode) {
-              item.ItemQuantity = res.ItemQuantity;
+            if (item && item.data.ItemBarCode === Barcode && item.data.RandomCode === RandomCode) {
+              item.data.ItemQuantity = res.ItemQuantity;
             }
           });
         });
   
         // Optionally, refresh your dataSource for the UI to reflect the change
-        console.log("begin")
-        console.log(this.paydata);
-        console.log(this.dataa);
-        console.log(this.paydataa);
-        console.log(this.codegenerate);
-        console.log("end")
         this.refreshDataSource();
   
       } else {
