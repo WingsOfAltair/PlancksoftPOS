@@ -646,14 +646,19 @@ export class CashComponent implements OnInit {
     });
   }
 
-  Delete(id) {
+  Delete(id, randomcode) {
     ;
 
     if (this.paydata.length > 0) {
-      var selected = this.paydata.findIndex((a) => a.data.ItemBarCode == id);
+      var selected = this.paydata.findIndex((a) => a.data.ItemBarCode == id && a.data.RandomCode == randomcode);
 
       if (selected !== -1) {
         this.paydata.splice(selected, 1);
+        this.paydataa.splice(selected, 1);
+        this.allbills.splice(selected, 1);
+        this.codegenerate.splice(selected, 1);
+        this.dataa.splice(selected, 1);
+        this.itemlist.splice(selected, 1);
 
         this.paydata.forEach((el) => {
           var obj = {
@@ -663,6 +668,7 @@ export class CashComponent implements OnInit {
               ItemBarCode: el.data.ItemBarCode,
               ItemQuantity: el.data.ItemQuantity,
               ItemPrice: el.data.ItemPrice,
+              RandomCode: el.data.RandomCode,
             },
           };
           this.secoundDeleteTable.push(obj);
@@ -675,10 +681,15 @@ export class CashComponent implements OnInit {
     }
 
     if (this.data.length > 0) {
-      var selected = this.dataa.findIndex((a) => a.data.ItemBarCode == id);
+      var selected = this.dataa.findIndex((a) => a.data.ItemBarCode == id && a.data.RandomCode == randomcode);
 
       if (selected !== -1) {
+        this.paydata.splice(selected, 1);
+        this.paydataa.splice(selected, 1);
+        this.allbills.splice(selected, 1);
+        this.codegenerate.splice(selected, 1);
         this.dataa.splice(selected, 1);
+        this.itemlist.splice(selected, 1);
 
         this.dataa.forEach((el) => {
           var obj = {
@@ -688,6 +699,7 @@ export class CashComponent implements OnInit {
               ItemBarCode: el.data.ItemBarCode,
               ItemQuantity: el.data.ItemQuantity,
               ItemPrice: el.data.ItemPrice,
+              RandomCode: el.data.RandomCode,
             },
           };
           this.secoundDeleteTable.push(obj);
