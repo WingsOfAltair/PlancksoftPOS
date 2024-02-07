@@ -260,66 +260,77 @@ export class CashComponent implements OnInit {
     var totalquantity = 0;
     var amount = [];
 
+    this.PreviousPickedItem = [];
+    this.codegenerate = [];
+    this.pandingbill = [];
+
     if (this.paydata.length > 0) {
 
+      console.log("allbills");
+      console.log(this.allbills);
+      console.log("previouspickeditem");
+      console.log(this.PreviousPickedItem);
+      console.log("codegenerate");
+      console.log(this.codegenerate);
+      console.log("paydata");
+      console.log(this.codegenerate);
       var selected = this.allbills.findIndex((a) => a.data.ramdomcode == this.paydata[0].data.RandomCode)
 
       if (selected !== -1) {
         this.allbills.splice(selected, 1);
       }
 
-      let addedItemIDs = new Set(this.PreviousPickedItem.map(item => item.data.ItemID));
-
       this.paydata.forEach((el) => {
-        if (!addedItemIDs.has(el.data.ItemID)) {
-          var obj = {
-            data: {
-              ItemID: el.data.ItemID,
-              ItemName: el.data.ItemName,
-              ItemQuantity: el.data.ItemQuantity,
-              ItemBuyPrice: el.data.ItemBuyPrice,
-              ItemPrice: el.data.ItemPrice,
-              ItemPriceTax: el.data.ItemPriceTax,
-              favoriteCategoryName: el.data.favoriteCategoryName,
-              FavoriteCategory: el.data.FavoriteCategory,
-              warehouseName: el.data.warehouseName,
-              ItemTypeName: el.data.ItemTypeName,
-              ItemBarCode: el.data.ItemBarCode,
-              Picture: el.data.Picture,
-              RandomCode: el.data.RandomCode,
-            },
-          };
-          this.PreviousPickedItem.push(obj);
-          this.codegenerate.push(obj);
-          addedItemIDs.add(el.data.ItemID);
-        }
+        var obj = {
+          data: {
+            ItemID: el.data.ItemID,
+            ItemName: el.data.ItemName,
+            ItemQuantity: el.data.ItemQuantity,
+            ItemBuyPrice: el.data.ItemBuyPrice,
+            ItemPrice: el.data.ItemPrice,
+            ItemPriceTax: el.data.ItemPriceTax,
+            favoriteCategoryName: el.data.favoriteCategoryName,
+            FavoriteCategory: el.data.FavoriteCategory,
+            warehouseName: el.data.warehouseName,
+            ItemTypeName: el.data.ItemTypeName,
+            ItemBarCode: el.data.ItemBarCode,
+            Picture: el.data.Picture,
+            RandomCode: el.data.RandomCode,
+          },
+        };
+        this.PreviousPickedItem.push(obj);
+        this.codegenerate.push(obj);
       });
     } else {
-      let addedItemIDsDataA = new Set(this.PreviousPickedItem.map(item => item.data.ItemID));
+      console.log("allbills");
+      console.log(this.allbills);
+      console.log("previouspickeditem");
+      console.log(this.PreviousPickedItem);
+      console.log("codegenerate");
+      console.log(this.codegenerate);
+      console.log("dataa");
+      console.log(this.dataa);
 
       this.dataa.forEach((el) => {
-        if (!addedItemIDsDataA.has(el.data.ItemID)) {
-          var obj = {
-            data: {
-              ItemID: el.data.ItemID,
-              ItemName: el.data.ItemName,
-              ItemQuantity: el.data.ItemQuantity,
-              ItemBuyPrice: el.data.ItemBuyPrice,
-              ItemPrice: el.data.ItemPrice,
-              ItemPriceTax: el.data.ItemPriceTax,
-              favoriteCategoryName: el.data.favoriteCategoryName,
-              FavoriteCategory: el.data.FavoriteCategory,
-              warehouseName: el.data.warehouseName,
-              ItemTypeName: el.data.ItemTypeName,
-              ItemBarCode: el.data.ItemBarCode,
-              Picture: el.data.Picture,
-              RandomCode: this.random,
-            },
-          };
-          this.PreviousPickedItem.push(obj);
-          this.codegenerate.push(obj);
-          addedItemIDsDataA.add(el.data.ItemID);
-        }
+        var obj = {
+          data: {
+            ItemID: el.data.ItemID,
+            ItemName: el.data.ItemName,
+            ItemQuantity: el.data.ItemQuantity,
+            ItemBuyPrice: el.data.ItemBuyPrice,
+            ItemPrice: el.data.ItemPrice,
+            ItemPriceTax: el.data.ItemPriceTax,
+            favoriteCategoryName: el.data.favoriteCategoryName,
+            FavoriteCategory: el.data.FavoriteCategory,
+            warehouseName: el.data.warehouseName,
+            ItemTypeName: el.data.ItemTypeName,
+            ItemBarCode: el.data.ItemBarCode,
+            Picture: el.data.Picture,
+            RandomCode: this.random,
+          },
+        };
+        this.PreviousPickedItem.push(obj);
+        this.codegenerate.push(obj);
       });
     }
 
@@ -530,6 +541,7 @@ export class CashComponent implements OnInit {
   }
 
   Perivousbill() {
+
     var data = this.windowService.open(PerivousBillComponent, {
       title: `Pick Bill`,
       context: this.allbills,
@@ -551,28 +563,30 @@ export class CashComponent implements OnInit {
         this.filtercode = res;
 
         selected.forEach((el) => {
-          if (!this.paydata.some(item => item.data.ItemID === el.data.ItemID)) {
-            var obj = {
-              data: {
-                ItemID: el.data.ItemID,
-                Picture: el.data.Picture,
-                ItemName: el.data.ItemName,
-                ItemQuantity: el.data.ItemQuantity,
-                ItemBuyPrice: el.data.ItemBuyPrice,
-                ItemPrice: el.data.ItemPrice,
-                ItemPriceTax: el.data.ItemPriceTax,
-                favoriteCategoryName: el.data.favoriteCategoryName,
-                FavoriteCategory: el.data.FavoriteCategory,
-                warehouseName: el.data.warehouseName,
-                ItemTypeName: el.data.ItemTypeName,
-                ItemBarCode: el.data.ItemBarCode,
-                RandomCode: el.data.RandomCode,
-              },
-            };
+          var obj = {
+            data: {
+              ItemID: el.data.ItemID,
+              Picture: el.data.Picture,
+              ItemName: el.data.ItemName,
+              ItemQuantity: el.data.ItemQuantity,
+              ItemBuyPrice: el.data.ItemBuyPrice,
+              ItemPrice: el.data.ItemPrice,
+              ItemPriceTax: el.data.ItemPriceTax,
+              favoriteCategoryName: el.data.favoriteCategoryName,
+              FavoriteCategory: el.data.FavoriteCategory,
+              warehouseName: el.data.warehouseName,
+              ItemTypeName: el.data.ItemTypeName,
+              ItemBarCode: el.data.ItemBarCode,
+              RandomCode: el.data.RandomCode,
+            },
+          };
 
-            this.paydata.push(obj);
-            this.paydataa.push(obj.data);
-          }
+          console.log("picked paydata")
+          console.log(this.paydata);
+          console.log("picked paydataa")
+          console.log(this.paydataa);
+          this.paydata.push(obj);
+          this.paydataa.push(obj.data);
         });
         this.dataSource = this.dataSourceBuilder.create(this.paydata);
       }
@@ -646,14 +660,19 @@ export class CashComponent implements OnInit {
     });
   }
 
-  Delete(id) {
+  Delete(id, randomcode) {
     ;
 
     if (this.paydata.length > 0) {
-      var selected = this.paydata.findIndex((a) => a.data.ItemBarCode == id);
+      var selected = this.paydata.findIndex((a) => a.data.ItemBarCode == id && a.data.RandomCode == randomcode);
 
       if (selected !== -1) {
         this.paydata.splice(selected, 1);
+        this.paydataa.splice(selected, 1);
+        this.allbills.splice(selected, 1);
+        this.codegenerate.splice(selected, 1);
+        this.dataa.splice(selected, 1);
+        this.itemlist.splice(selected, 1);
 
         this.paydata.forEach((el) => {
           var obj = {
@@ -663,6 +682,7 @@ export class CashComponent implements OnInit {
               ItemBarCode: el.data.ItemBarCode,
               ItemQuantity: el.data.ItemQuantity,
               ItemPrice: el.data.ItemPrice,
+              RandomCode: el.data.RandomCode,
             },
           };
           this.secoundDeleteTable.push(obj);
@@ -675,10 +695,15 @@ export class CashComponent implements OnInit {
     }
 
     if (this.data.length > 0) {
-      var selected = this.dataa.findIndex((a) => a.data.ItemBarCode == id);
+      var selected = this.dataa.findIndex((a) => a.data.ItemBarCode == id && a.data.RandomCode == randomcode);
 
       if (selected !== -1) {
+        this.paydata.splice(selected, 1);
+        this.paydataa.splice(selected, 1);
+        this.allbills.splice(selected, 1);
+        this.codegenerate.splice(selected, 1);
         this.dataa.splice(selected, 1);
+        this.itemlist.splice(selected, 1);
 
         this.dataa.forEach((el) => {
           var obj = {
@@ -688,6 +713,7 @@ export class CashComponent implements OnInit {
               ItemBarCode: el.data.ItemBarCode,
               ItemQuantity: el.data.ItemQuantity,
               ItemPrice: el.data.ItemPrice,
+              RandomCode: el.data.RandomCode,
             },
           };
           this.secoundDeleteTable.push(obj);
