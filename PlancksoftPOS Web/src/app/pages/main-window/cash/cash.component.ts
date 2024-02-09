@@ -518,44 +518,65 @@ export class CashComponent implements OnInit {
     data.onClose.subscribe((res) => {
       if (res) {
         if (this.paydata.length > 0) {
-          var existingItemIndex = this.paydata.findIndex(
-            (a) => a.data.ItemBarCode === res.ItemBarCode
-          );
-          if (existingItemIndex !== -1 && res.ItemQuantity !== 0) {
-            this.paydata[existingItemIndex].data.ItemQuantity =
-              res.ItemQuantity;
-
-            this.paydata.forEach((el) => {
-              var obj = {
-                ItemName: el.data.ItemName,
-                ItemQuantity: el.data.ItemQuantity,
-                ItemPrice: el.data.ItemPrice,
-              };
-              this.selectedfilter.push(obj);
-            });
-            this.dataSource = this.dataSourceBuilder.create(this.paydata);
-          } else {
-            this.toastrService.danger("Try Again", "Minimum 1 Quantity");
+          var selected;
+          var selected2;
+          var selected3;
+          if (this.currentSelectedBill != null) {
+            selected = this.paydata.findIndex((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+            selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+            selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == this.random && a.randomcode == this.random2);
           }
+          else {
+            selected = this.paydata.findIndex((a) => a.data.ItemBarCode == Barcode);
+            selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == Barcode);
+            selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == Barcode);
+          }
+          if (selected !== -1 && res.ItemQuantity !== 0) {
+            if (selected !== -1)
+              this.paydata[selected].data.ItemQuantity = res.ItemQuantity;
+            if (selected2 !== -1)
+              this.codegenerate[selected2].data.ItemQuantity = res.ItemQuantity;
+          }
+          this.paydata.forEach((el) => {
+            var obj = {
+              ItemName: el.data.ItemName,
+              ItemQuantity: el.data.ItemQuantity,
+              ItemPrice: el.data.ItemPrice,
+              RandomCode: el.data.RandomCode,
+            };
+            this.selectedfilter.push(obj);
+          });
+          this.dataSource = this.dataSourceBuilder.create(this.paydata);
         } else {
-          var existingItemIndex = this.dataa.findIndex(
-            (a) => a.data.ItemBarCode === res.ItemBarCode
-          );
-          if (existingItemIndex !== -1 && res.ItemQuantity !== 0) {
-            this.dataa[existingItemIndex].data.ItemQuantity = res.ItemQuantity;
-
-            this.dataa.forEach((el) => {
-              var obj = {
-                ItemName: el.data.ItemName,
-                ItemQuantity: el.data.ItemQuantity,
-                ItemPrice: el.data.ItemPrice,
-              };
-              this.selectedfilter.push(obj);
-            });
-            this.dataSource = this.dataSourceBuilder.create(this.dataa);
-          } else {
-            this.toastrService.danger("Try Again", "Minimum 1 Quantity");
+          var selected;
+          var selected2;
+          var selected3;
+          if (this.currentSelectedBill != null) {
+            selected = this.dataa.findIndex((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+            selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+            selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == this.random && a.randomcode == this.random2);
           }
+          else {
+            selected = this.dataa.findIndex((a) => a.data.ItemBarCode == Barcode);
+            selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == Barcode);
+            selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == Barcode);
+          }
+          if (selected !== -1 && res.ItemQuantity !== 0) {
+            if (selected !== -1)
+              this.dataa[selected].data.ItemQuantity = res.ItemQuantity;
+            if (selected2 !== -1)
+              this.codegenerate[selected2].data.ItemQuantity = res.ItemQuantity;
+          }
+
+          this.dataa.forEach((el) => {
+            var obj = {
+              ItemName: el.data.ItemName,
+              ItemQuantity: el.data.ItemQuantity,
+              ItemPrice: el.data.ItemPrice,
+            };
+            this.selectedfilter.push(obj);
+          });
+          this.dataSource = this.dataSourceBuilder.create(this.dataa);
         }
       }
     });
