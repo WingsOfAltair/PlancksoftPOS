@@ -125,8 +125,12 @@ export class CashComponent implements OnInit {
                 (a) => a.data.ItemBarCode === newItem.data.ItemBarCode
               );
               if (existingItemIndex !== -1 && newItem.data.ItemQuantity !== 0) {
-                this.paydata[existingItemIndex].data.ItemQuantity +=
-                  1;
+                var selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+                var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+                console.log("selected 3 1")
+                console.log(selected3)
+                this.paydata[existingItemIndex].data.ItemQuantity += 1;
+                this.codegenerate[selected2].data.ItemQuantity += 1;
     
                 this.paydata.forEach((el) => {
                   var obj = {
@@ -157,7 +161,12 @@ export class CashComponent implements OnInit {
                 (a) => a.data.ItemBarCode === newItem.data.ItemBarCode
               );
               if (existingItemIndex !== -1 && newItem.data.ItemQuantity !== 0) {
+                var selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+                var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+                console.log("selected 3 2")
+                console.log(selected3)
                 this.dataa[existingItemIndex].data.ItemQuantity += 1;
+                this.codegenerate[selected2].data.ItemQuantity += 1;
     
                 this.dataa.forEach((el) => {
                   var obj = {
@@ -708,10 +717,10 @@ export class CashComponent implements OnInit {
       var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == id);
       if (selected !== -1) {
         this.paydata.splice(selected, 1);
-        if (this.paydata.length == 0)
+        if (this.paydata.length == 0) {
           this.codegenerate.splice(selected2, 1);
-        if (this.paydata.length == 0)
           this.allbills.splice(selected3, 1);
+        }
 
         this.paydata.forEach((el) => {
           var obj = {
@@ -738,10 +747,10 @@ export class CashComponent implements OnInit {
       var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == id);
       if (selected !== -1) {
         this.dataa.splice(selected, 1);
-        if (this.dataa.length == 0)
+        if (this.dataa.length == 0) {
           this.codegenerate.splice(selected2, 1);
-        if (this.dataa.length == 0)
           this.allbills.splice(selected3, 1);
+        }
 
         this.dataa.forEach((el) => {
           var obj = {
