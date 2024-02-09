@@ -606,6 +606,8 @@ export class CashComponent implements OnInit {
           this.itemlist = [];
           this.selectedfilter = [];
         }
+        console.log("selected")
+        console.log(selected)
 
         selected.forEach((el) => {
           var obj = {
@@ -705,9 +707,16 @@ export class CashComponent implements OnInit {
       console.log("paydata item delete barcode")
       console.log(id);
       var selected = this.paydata.findIndex((a) => a.data.ItemBarCode == id);
+      var selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == id);
+      var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == id);
 
+      console.log("selected allbills paydata")
+      console.log(selected3);
       if (selected !== -1) {
         this.paydata.splice(selected, 1);
+        this.codegenerate.splice(selected2, 1);
+        if (this.paydata.length == 0)
+          this.allbills.splice(selected3, 1);
 
         this.paydata.forEach((el) => {
           var obj = {
@@ -729,13 +738,16 @@ export class CashComponent implements OnInit {
     }
 
     if (this.dataa.length > 0) {
-      console.log("dataa item delete barcode")
-      console.log(id);
       var selected = this.dataa.findIndex((a) => a.data.ItemBarCode == id);
-      console.log("selected")
-      console.log(selected);
+      var selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == id);
+      var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == id);
+      console.log("selected allbills dataa")
+      console.log(selected3);
       if (selected !== -1) {
         this.dataa.splice(selected, 1);
+        this.codegenerate.splice(selected2, 1);
+        if (this.dataa.length == 0)
+          this.allbills.splice(selected3, 1);
 
         this.dataa.forEach((el) => {
           var obj = {
