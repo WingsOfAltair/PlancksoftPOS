@@ -79,7 +79,7 @@ export class PaymentModalComponent implements OnInit {
 
   closeModal() {
     this.modalClose.emit(); // Emit custom event
-    this.windowRef.close("");
+    this.windowRef.close();
 }
 
   ngOnInit(): void {

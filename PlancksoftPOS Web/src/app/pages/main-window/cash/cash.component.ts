@@ -43,6 +43,8 @@ export class CashComponent implements OnInit {
 
   ScannedBarcode = '';
 
+  currentSelectedBill :any;
+
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
   Userdata: any;
@@ -399,7 +401,7 @@ export class CashComponent implements OnInit {
         ItemName: this.billquantity,
         ItemQuantity: totalquantity,
         ItemPrice: billAmount,
-        ramdomcode: this.PreviousPickedItem[0].data.RandomCode,
+        randomcode: this.PreviousPickedItem[0].data.RandomCode,
       },
     };
 
@@ -539,48 +541,33 @@ export class CashComponent implements OnInit {
       context: obj,
     });
 
-    dt.onClose.subscribe((res) => {
-      if (res == true) {
-        console.log("res")
-        console.log(res);
-        var indexToRemoveAllBills = this.allbills.findIndex(
-          (a) => a.data.ramdomcode == res.ramdomcode
-        );
-        var indexToRemovePaydata = this.paydata.findIndex(
-          (a) => a.data.ramdomcode == res.ramdomcode
-        );
-        var indexToRemovePaydataa = this.paydataa.findIndex(
-          (a) => a.data.ramdomcode == res.ramdomcode
-        );
-        var indexToRemoveDataa = this.dataa.findIndex(
-          (a) => a.data.ramdomcode == res.ramdomcode
-        );
-        var indexToRemoveCodegenerate = this.codegenerate.findIndex(
-          (a) => a.data.ramdomcode == res.ramdomcode
-        );
-        var amount = this.allbills.filter(
-          (a) => a.data.ramdomcode == res.ramdomcode
-        );
-        this.dataSource = this.dataSourceBuilder.create([]);
+    dt.componentInstance.modalClose.subscribe(() => {
+      console.log("current selected bill")
+      console.log(this.currentSelectedBill)
+        
+      this.allbills = this.allbills.filter(item => item !== this.currentSelectedBill);
+      console.log(this.allbills)
+      this.codegenerate = this.codegenerate.filter(item => item !== this.currentSelectedBill);
+      console.log(this.codegenerate)
 
-        if (indexToRemoveAllBills !== -1) {
-          this.total = this.perivoustotal - amount[0].data.ItemPrice;
-          this.allbills.splice(indexToRemoveAllBills, 1);
-          this.paydata.splice(indexToRemovePaydata, 1);
-          this.paydataa.splice(indexToRemovePaydataa, 1);
-          this.dataa.splice(indexToRemoveDataa, 1);
-          this.codegenerate.splice(indexToRemoveCodegenerate, 1);
-          this.pandingbill = this.allbills.length;
-          this.perivoustotal = this.total;
+      this.pandingbill = this.allbills.length;
 
-          this.paydata = [];
-          this.paydataa = [];
-          this.dataa = [];
-          this.itemlist = [];
-          this.selectedfilter = [];
-        }
-      }
+      this.paydata = [];
+      this.paydataa = [];
+      this.dataa = [];
+      this.itemlist = [];
+      this.selectedfilter = [];
+
+      this.dataSource = this.dataSourceBuilder.create([]);
       this.ngOnInit();
+    });
+
+    dt.onClose.subscribe((res) => {
+      var amount = this.allbills.filter(
+        (a) => a.data.randomcode == res.randomcode
+      );
+      this.total = this.perivoustotal - amount[0].data.ItemPrice;
+      this.perivoustotal = this.total;
     });
   }
 
@@ -608,6 +595,8 @@ export class CashComponent implements OnInit {
         }
         console.log("selected")
         console.log(selected)
+
+        this.currentSelectedBill = selected
 
         selected.forEach((el) => {
           var obj = {
@@ -704,14 +693,9 @@ export class CashComponent implements OnInit {
     ;
 
     if (this.paydata.length > 0) {
-      console.log("paydata item delete barcode")
-      console.log(id);
       var selected = this.paydata.findIndex((a) => a.data.ItemBarCode == id);
       var selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == id);
       var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == id);
-
-      console.log("selected allbills paydata")
-      console.log(selected3);
       if (selected !== -1) {
         this.paydata.splice(selected, 1);
         this.codegenerate.splice(selected2, 1);
@@ -741,8 +725,6 @@ export class CashComponent implements OnInit {
       var selected = this.dataa.findIndex((a) => a.data.ItemBarCode == id);
       var selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == id);
       var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == id);
-      console.log("selected allbills dataa")
-      console.log(selected3);
       if (selected !== -1) {
         this.dataa.splice(selected, 1);
         this.codegenerate.splice(selected2, 1);

@@ -79,7 +79,7 @@ export class PerivousBillComponent implements OnInit {
             warehouseName: el.data.warehouseName,
             ItemTypeName: el.data.ItemTypeName,
             ItemBarCode: el.data.ItemBarCode,
-            RandomCode: el.data.ramdomcode,
+            RandomCode: el.data.randomcode,
           },
         };
       });
