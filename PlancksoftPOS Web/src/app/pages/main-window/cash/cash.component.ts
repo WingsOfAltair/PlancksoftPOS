@@ -43,7 +43,7 @@ export class CashComponent implements OnInit {
 
   ScannedBarcode = '';
 
-  currentSelectedBill :any;
+  currentSelectedBill :any = null;
 
   sortColumn: string;
   sortDirection: NbSortDirection = NbSortDirection.NONE;
@@ -113,24 +113,54 @@ export class CashComponent implements OnInit {
               warehouseName: data.warehouseName,
               ItemTypeName: data.ItemTypeName,
               ItemBarCode: data.ItemBarCode,
-            },
+              RandomCode: this.random,
+            }, randomcode: this.random2,
           };
   
           if (this.paydata.length > 0) {
-            var barcode = this.paydata.filter((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
-            ;
+            console.log("paydata 1")
+            console.log(this.paydata);
+            if (this.currentSelectedBill != null)
+              var barcode = this.paydata.filter((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+            else var barcode = this.paydata.filter((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+            console.log("barcode 1")
             console.log(barcode);
+            console.log("random")
+            console.log(this.random)
+            console.log("random2")
+            console.log(this.random2)
             if (barcode.length > 0) {
-              var existingItemIndex = this.paydata.findIndex(
-                (a) => a.data.ItemBarCode === newItem.data.ItemBarCode
-              );
-              if (existingItemIndex !== -1 && newItem.data.ItemQuantity !== 0) {
-                var selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
-                var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
-                console.log("selected 3 1")
-                console.log(selected3)
-                this.paydata[existingItemIndex].data.ItemQuantity += 1;
-                this.codegenerate[selected2].data.ItemQuantity += 1;
+              console.log("currentselectedbill")
+              console.log(this.currentSelectedBill)
+              var selected = null;
+              var selected2 = null;
+              var selected3 = null;
+              if (this.currentSelectedBill != null) {
+                console.log("A1")
+                console.log("newItem.data.ItemBarCode")
+                console.log(newItem.data.ItemBarCode)
+                selected = this.paydata.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+                selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+                selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+              }
+              else {
+                console.log("A2")
+                selected = this.paydata.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+                selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+                selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+              }
+              console.log("selected 1 1")
+              console.log(selected)
+              console.log("selected 2 1")
+              console.log(selected2)
+              console.log("selected 3 1")
+              console.log(selected3)
+              if (selected !== -1 && newItem.data.ItemQuantity !== 0) {
+                if (selected !== -1) {
+                  this.paydata[selected].data.ItemQuantity += 1;
+                }
+                if (selected2 !== -1)
+                  this.codegenerate[selected2].data.ItemQuantity += 1;
     
                 this.paydata.forEach((el) => {
                   var obj = {
@@ -146,27 +176,54 @@ export class CashComponent implements OnInit {
               }
             } else {
               this.paydata.push(newItem);
+              this.dataa.push(newItem);
               this.paydataa.push(newItem.data);
               this.pandingdata = this.paydataa;
               this.dataSource = this.dataSourceBuilder.create(this.paydata);
-              this.dataa = [];
               this.itemlist = [];
             }
           } else {
-            var barcode = this.dataa.filter((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
-            ;
+            console.log("dataa 1")
+            console.log(this.dataa);
+            if (this.currentSelectedBill != null)
+              var barcode = this.dataa.filter((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+            else var barcode = this.dataa.filter((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+            console.log("barcode 2")
             console.log(barcode);
+            console.log("random")
+            console.log(this.random)
+            console.log("random2")
+            console.log(this.random2)
             if (barcode.length > 0) {
-              var existingItemIndex = this.dataa.findIndex(
-                (a) => a.data.ItemBarCode === newItem.data.ItemBarCode
-              );
-              if (existingItemIndex !== -1 && newItem.data.ItemQuantity !== 0) {
-                var selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
-                var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
-                console.log("selected 3 2")
-                console.log(selected3)
-                this.dataa[existingItemIndex].data.ItemQuantity += 1;
-                this.codegenerate[selected2].data.ItemQuantity += 1;
+              console.log("currentselectedbill")
+              console.log(this.currentSelectedBill)
+              var selected = null;
+              var selected2 = null;
+              var selected3 = null;
+              if (this.currentSelectedBill != null) {
+                console.log("B1")
+                selected = this.dataa.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+                selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+                selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+              }
+              else {
+                console.log("B2")
+                selected = this.dataa.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+                selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+                selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+              }
+              console.log("selected 1 2")
+              console.log(selected)
+              console.log("selected 2 2")
+              console.log(selected2)
+              console.log("selected 3 2")
+              console.log(selected3)
+              if (selected !== -1 && newItem.data.ItemQuantity !== 0) {
+                if (selected !== -1) {
+                  this.dataa[selected].data.ItemQuantity += 1;
+                }
+                if (selected2 !== -1)
+                  this.codegenerate[selected2].data.ItemQuantity += 1;
     
                 this.dataa.forEach((el) => {
                   var obj = {
@@ -182,11 +239,11 @@ export class CashComponent implements OnInit {
               }
             } else {
               this.dataa.push(newItem);
+              this.paydata.push(newItem);
+              this.paydataa.push(newItem);
               this.itemlist.push(newItem.data);
               this.pandingdata = this.itemlist;
               this.dataSource = this.dataSourceBuilder.create(this.dataa);
-              this.paydata = [];
-              this.paydataa = [];
             }
           }
         }
@@ -322,7 +379,7 @@ export class CashComponent implements OnInit {
             ItemTypeName: el.data.ItemTypeName,
             ItemBarCode: el.data.ItemBarCode,
             RandomCode: this.random,
-          },
+          }, randomcode: this.random2
         };
         this.PreviousPickedItem.push(obj);
       });
@@ -364,7 +421,7 @@ export class CashComponent implements OnInit {
             ItemTypeName: el.data.ItemTypeName,
             ItemBarCode: el.data.ItemBarCode,
             RandomCode: this.random,
-          },
+          }, randomcode: this.random2
         };
         this.PreviousPickedItem.push(obj);
       });
@@ -632,8 +689,12 @@ export class CashComponent implements OnInit {
               warehouseName: el.data.warehouseName,
               ItemTypeName: el.data.ItemTypeName,
               ItemBarCode: el.data.ItemBarCode,
-            },
+              RandomCode: el.data.RandomCode,
+            }, randomcode: el.randomcode,
           };
+
+          this.random = obj.data.RandomCode
+          this.random2 = obj.randomcode
 
           this.paydata.push(obj);
           this.paydataa.push(obj.data);
