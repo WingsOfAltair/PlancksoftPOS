@@ -484,8 +484,11 @@ export class CashComponent implements OnInit {
     amount.push(totalAmount);
     this.perivoustotal = totalAmount;
 
+    this.currentSelectedBill = null;
+
     this.dataSource = this.dataSourceBuilder.create([]);
     this.pandingdata = [];
+    this.paydata = [];
     this.dataa = [];
     this.PreviousPickedItem = [];
     this.itemlist = [];
