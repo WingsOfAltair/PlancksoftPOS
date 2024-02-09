@@ -114,13 +114,29 @@ export class CashComponent implements OnInit {
           };
   
           if (this.paydata.length > 0) {
-            var barcode = this.paydata.filter((a) => a.data.ItemBarCode == data.ItemBarCode);
+            var barcode = this.paydata.filter((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
             ;
+            console.log(barcode);
             if (barcode.length > 0) {
-              this.toastrService.danger(
-                "This item Is already exist",
-                "Try another item"
+              var existingItemIndex = this.paydata.findIndex(
+                (a) => a.data.ItemBarCode === newItem.data.ItemBarCode
               );
+              if (existingItemIndex !== -1 && newItem.data.ItemQuantity !== 0) {
+                this.paydata[existingItemIndex].data.ItemQuantity +=
+                  1;
+    
+                this.paydata.forEach((el) => {
+                  var obj = {
+                    ItemName: el.data.ItemName,
+                    ItemQuantity: el.data.ItemQuantity,
+                    ItemPrice: el.data.ItemPrice,
+                  };
+                  this.selectedfilter.push(obj);
+                });
+                this.dataSource = this.dataSourceBuilder.create(this.paydata);
+              } else {
+                this.toastrService.danger("Try Again", "Minimum 1 Quantity");
+              }
             } else {
               this.paydata.push(newItem);
               this.paydataa.push(newItem.data);
@@ -130,13 +146,28 @@ export class CashComponent implements OnInit {
               this.itemlist = [];
             }
           } else {
-            var barcode = this.dataa.filter((a) => a.data.ItemBarCode == data.ItemBarCode);
+            var barcode = this.dataa.filter((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
             ;
+            console.log(barcode);
             if (barcode.length > 0) {
-              this.toastrService.danger(
-                "This item Is already exist",
-                "Try another item"
+              var existingItemIndex = this.dataa.findIndex(
+                (a) => a.data.ItemBarCode === newItem.data.ItemBarCode
               );
+              if (existingItemIndex !== -1 && newItem.data.ItemQuantity !== 0) {
+                this.dataa[existingItemIndex].data.ItemQuantity += 1;
+    
+                this.dataa.forEach((el) => {
+                  var obj = {
+                    ItemName: el.data.ItemName,
+                    ItemQuantity: el.data.ItemQuantity,
+                    ItemPrice: el.data.ItemPrice,
+                  };
+                  this.selectedfilter.push(obj);
+                });
+                this.dataSource = this.dataSourceBuilder.create(this.dataa);
+              } else {
+                this.toastrService.danger("Try Again", "Minimum 1 Quantity");
+              }
             } else {
               this.dataa.push(newItem);
               this.itemlist.push(newItem.data);
@@ -510,17 +541,35 @@ export class CashComponent implements OnInit {
 
     dt.onClose.subscribe((res) => {
       if (res == true) {
-        var indexToRemove = this.allbills.findIndex(
-          (a) => a.data.ramdomcode == this.filtercode
+        console.log("res")
+        console.log(res);
+        var indexToRemoveAllBills = this.allbills.findIndex(
+          (a) => a.data.ramdomcode == res.ramdomcode
+        );
+        var indexToRemovePaydata = this.paydata.findIndex(
+          (a) => a.data.ramdomcode == res.ramdomcode
+        );
+        var indexToRemovePaydataa = this.paydataa.findIndex(
+          (a) => a.data.ramdomcode == res.ramdomcode
+        );
+        var indexToRemoveDataa = this.dataa.findIndex(
+          (a) => a.data.ramdomcode == res.ramdomcode
+        );
+        var indexToRemoveCodegenerate = this.codegenerate.findIndex(
+          (a) => a.data.ramdomcode == res.ramdomcode
         );
         var amount = this.allbills.filter(
-          (a) => a.data.ramdomcode == this.filtercode
+          (a) => a.data.ramdomcode == res.ramdomcode
         );
         this.dataSource = this.dataSourceBuilder.create([]);
 
-        if (indexToRemove !== -1) {
+        if (indexToRemoveAllBills !== -1) {
           this.total = this.perivoustotal - amount[0].data.ItemPrice;
-          this.allbills.splice(indexToRemove, 1);
+          this.allbills.splice(indexToRemoveAllBills, 1);
+          this.paydata.splice(indexToRemovePaydata, 1);
+          this.paydataa.splice(indexToRemovePaydataa, 1);
+          this.dataa.splice(indexToRemoveDataa, 1);
+          this.codegenerate.splice(indexToRemoveCodegenerate, 1);
           this.pandingbill = this.allbills.length;
           this.perivoustotal = this.total;
 
@@ -653,6 +702,8 @@ export class CashComponent implements OnInit {
     ;
 
     if (this.paydata.length > 0) {
+      console.log("paydata item delete barcode")
+      console.log(id);
       var selected = this.paydata.findIndex((a) => a.data.ItemBarCode == id);
 
       if (selected !== -1) {
@@ -672,14 +723,17 @@ export class CashComponent implements OnInit {
           this.deleteitem.push(obj.data);
         });
         this.dataSource = this.dataSourceBuilder.create(
-          this.secoundDeleteTable
+          this.paydata
         );
       }
     }
 
-    if (this.data.length > 0) {
+    if (this.dataa.length > 0) {
+      console.log("dataa item delete barcode")
+      console.log(id);
       var selected = this.dataa.findIndex((a) => a.data.ItemBarCode == id);
-
+      console.log("selected")
+      console.log(selected);
       if (selected !== -1) {
         this.dataa.splice(selected, 1);
 
@@ -697,7 +751,7 @@ export class CashComponent implements OnInit {
           this.deleteitem.push(obj.data);
         });
         this.dataSource = this.dataSourceBuilder.create(
-          this.secoundDeleteTable
+          this.dataa
         );
       }
     }
