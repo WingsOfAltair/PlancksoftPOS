@@ -717,10 +717,10 @@ export class CashComponent implements OnInit {
       var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == id);
       if (selected !== -1) {
         this.paydata.splice(selected, 1);
-        if (this.paydata.length == 0)
+        if (this.paydata.length == 0) {
           this.codegenerate.splice(selected2, 1);
-        if (this.paydata.length == 0)
           this.allbills.splice(selected3, 1);
+        }
 
         this.paydata.forEach((el) => {
           var obj = {
@@ -747,10 +747,10 @@ export class CashComponent implements OnInit {
       var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == id);
       if (selected !== -1) {
         this.dataa.splice(selected, 1);
-        if (this.dataa.length == 0)
+        if (this.dataa.length == 0) {
           this.codegenerate.splice(selected2, 1);
-        if (this.dataa.length == 0)
           this.allbills.splice(selected3, 1);
+        }
 
         this.dataa.forEach((el) => {
           var obj = {
