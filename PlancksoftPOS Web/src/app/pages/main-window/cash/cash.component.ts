@@ -75,6 +75,7 @@ export class CashComponent implements OnInit {
   paydata: any[] = [];
   paydataa: any[] = [];
   random: number;
+  random2: number;
   billquantity = 0;
   total: number;
   filtercode: any;
@@ -289,6 +290,7 @@ export class CashComponent implements OnInit {
   newinvoice() {
     this.itemlist = [];
     this.random = this.getRandomNumber(1, 1000000);
+    this.random2 = this.getRandomNumber(1, 1000000);
     var totalAmount = 0;
     var billAmount = 0;
     var totalquantity = 0;
@@ -332,7 +334,7 @@ export class CashComponent implements OnInit {
             ItemTypeName: el.data.ItemTypeName,
             ItemBarCode: el.data.ItemBarCode,
             RandomCode: this.random,
-          },
+          }, randomcode: this.random2
         };
         this.codegenerate.push(obj);
       });
@@ -374,7 +376,7 @@ export class CashComponent implements OnInit {
             ItemTypeName: el.data.ItemTypeName,
             ItemBarCode: el.data.ItemBarCode,
             RandomCode: this.random,
-          },
+          }, randomcode: this.random2
         };
         this.codegenerate.push(obj);
       });
@@ -402,7 +404,7 @@ export class CashComponent implements OnInit {
         ItemQuantity: totalquantity,
         ItemPrice: billAmount,
         randomcode: this.PreviousPickedItem[0].data.RandomCode,
-      },
+      }, randomcode: this.random2
     };
 
     this.pandingbill = this.allbills.push(obj);
@@ -541,13 +543,15 @@ export class CashComponent implements OnInit {
       context: obj,
     });
 
-    dt.componentInstance.modalClose.subscribe(() => {
+    dt.componentInstance.modalClose.subscribe((res) => {
       console.log("current selected bill")
       console.log(this.currentSelectedBill)
         
-      this.allbills = this.allbills.filter(item => item !== this.currentSelectedBill);
+      this.allbills = this.allbills.filter(item => item.randomcode !== this.currentSelectedBill.randomcode);
+      console.log("all bills new")
       console.log(this.allbills)
-      this.codegenerate = this.codegenerate.filter(item => item !== this.currentSelectedBill);
+      this.codegenerate = this.codegenerate.filter(item => item.randomcode !== this.currentSelectedBill.randomcode);
+      console.log("codegenerate new")
       console.log(this.codegenerate)
 
       this.pandingbill = this.allbills.length;
@@ -593,10 +597,16 @@ export class CashComponent implements OnInit {
           this.itemlist = [];
           this.selectedfilter = [];
         }
-        console.log("selected")
-        console.log(selected)
 
         this.currentSelectedBill = selected
+        this.currentSelectedBill.randomcode = selected[0].randomcode
+
+        console.log("selected")
+        console.log(this.currentSelectedBill)
+        console.log("all bills")
+        console.log(this.allbills)
+        console.log("codegenerate")
+        console.log(this.codegenerate)
 
         selected.forEach((el) => {
           var obj = {
@@ -698,7 +708,8 @@ export class CashComponent implements OnInit {
       var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == id);
       if (selected !== -1) {
         this.paydata.splice(selected, 1);
-        this.codegenerate.splice(selected2, 1);
+        if (this.paydata.length == 0)
+          this.codegenerate.splice(selected2, 1);
         if (this.paydata.length == 0)
           this.allbills.splice(selected3, 1);
 
@@ -727,7 +738,8 @@ export class CashComponent implements OnInit {
       var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == id);
       if (selected !== -1) {
         this.dataa.splice(selected, 1);
-        this.codegenerate.splice(selected2, 1);
+        if (this.dataa.length == 0)
+          this.codegenerate.splice(selected2, 1);
         if (this.dataa.length == 0)
           this.allbills.splice(selected3, 1);
 
