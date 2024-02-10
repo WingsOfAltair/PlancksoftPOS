@@ -714,6 +714,10 @@ export class CashComponent implements OnInit {
 
     data.onClose.subscribe((res) => {
       if (res) {
+        var totalAmount = 0;
+        var billAmount = 0;
+        var totalquantity = 0;
+        var amount = [];
         if (this.paydata.length > 0) {
           var selected;
           var selected2;
@@ -734,6 +738,61 @@ export class CashComponent implements OnInit {
             }
             if (selected2 !== -1) {
               this.codegenerate[selected2].data.ItemQuantity = res.ItemQuantity;
+            }
+            if (selected3 !== -1) {
+              this.paydata.forEach((el) => {
+                var obj = {
+                  data: {
+                    ItemID: el.data.ItemID,
+                    Picture: el.data.Picture,
+                    ItemName: el.data.ItemName,
+                    ItemQuantity: el.data.ItemQuantity,
+                    ItemBuyPrice: el.data.ItemBuyPrice,
+                    ItemPrice: el.data.ItemPrice,
+                    ItemPriceTax: el.data.ItemPriceTax,
+                    favoriteCategoryName: el.data.favoriteCategoryName,
+                    FavoriteCategory: el.data.FavoriteCategory,
+                    warehouseName: el.data.warehouseName,
+                    ItemTypeName: el.data.ItemTypeName,
+                    ItemBarCode: el.data.ItemBarCode,
+                    RandomCode: this.random,
+                  }, randomcode: this.random2
+                };
+                this.PreviousPickedItem.push(obj);
+              });
+
+              this.PreviousPickedItem.forEach((el) => {
+                var individualAmount = el.data.ItemQuantity * el.data.ItemPrice;
+                billAmount += individualAmount;
+          
+                console.log(individualAmount);
+              });
+              amount.push(billAmount);
+              this.perviousitem = this.PreviousPickedItem;
+          
+              this.PreviousPickedItem.forEach((el) => {
+                var individualAmount = el.data.ItemQuantity;
+                totalquantity += individualAmount;
+          
+                console.log(totalquantity);
+              });
+          
+              this.billquantity = this.PreviousPickedItem.length;
+
+              this.allbills[selected3].data.ItemName = this.billquantity;
+              this.allbills[selected3].data.ItemQuantity = totalquantity;
+              this.allbills[selected3].data.ItemPrice = billAmount;
+          
+              this.allbills.forEach((el) => {
+                var individualAmount = el.data.ItemPrice;
+                totalAmount += individualAmount;
+          
+                console.log(individualAmount);
+              });
+              amount.push(totalAmount);
+          
+              this.PreviousPickedItem = [];
+              this.pandingdata = [];
             }
           }
           this.paydata.forEach((el) => {
@@ -766,6 +825,61 @@ export class CashComponent implements OnInit {
             }
             if (selected2 !== -1) {
               this.codegenerate[selected2].data.ItemQuantity = res.ItemQuantity;
+            }
+            if (selected3 !== -1) {
+              this.dataa.forEach((el) => {
+                var obj = {
+                  data: {
+                    ItemID: el.data.ItemID,
+                    Picture: el.data.Picture,
+                    ItemName: el.data.ItemName,
+                    ItemQuantity: el.data.ItemQuantity,
+                    ItemBuyPrice: el.data.ItemBuyPrice,
+                    ItemPrice: el.data.ItemPrice,
+                    ItemPriceTax: el.data.ItemPriceTax,
+                    favoriteCategoryName: el.data.favoriteCategoryName,
+                    FavoriteCategory: el.data.FavoriteCategory,
+                    warehouseName: el.data.warehouseName,
+                    ItemTypeName: el.data.ItemTypeName,
+                    ItemBarCode: el.data.ItemBarCode,
+                    RandomCode: this.random,
+                  }, randomcode: this.random2
+                };
+                this.PreviousPickedItem.push(obj);
+              });
+
+              this.PreviousPickedItem.forEach((el) => {
+                var individualAmount = el.data.ItemQuantity * el.data.ItemPrice;
+                billAmount += individualAmount;
+          
+                console.log(individualAmount);
+              });
+              amount.push(billAmount);
+              this.perviousitem = this.PreviousPickedItem;
+          
+              this.PreviousPickedItem.forEach((el) => {
+                var individualAmount = el.data.ItemQuantity;
+                totalquantity += individualAmount;
+          
+                console.log(totalquantity);
+              });
+          
+              this.billquantity = this.PreviousPickedItem.length;
+
+              this.allbills[selected3].data.ItemName = this.billquantity;
+              this.allbills[selected3].data.ItemQuantity = totalquantity;
+              this.allbills[selected3].data.ItemPrice = billAmount;
+          
+              this.allbills.forEach((el) => {
+                var individualAmount = el.data.ItemPrice;
+                totalAmount += individualAmount;
+          
+                console.log(individualAmount);
+              });
+              amount.push(totalAmount);
+          
+              this.PreviousPickedItem = [];
+              this.pandingdata = [];
             }
           }
 
