@@ -894,6 +894,7 @@ export class CashComponent implements OnInit {
           this.dataSource = this.dataSourceBuilder.create(this.dataa);
         }
       }
+      this.ScannedBarcode = '';
     });
   }
 
@@ -969,6 +970,7 @@ export class CashComponent implements OnInit {
 
       this.dataSource = this.dataSourceBuilder.create([]);
       this.ngOnInit();
+      this.ScannedBarcode = '';
     });
 
     dt.onClose.subscribe((res) => {
