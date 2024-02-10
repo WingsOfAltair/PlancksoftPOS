@@ -1059,6 +1059,11 @@ export class CashComponent implements OnInit {
 
     data.onClose.subscribe((res) => {
       if (res) {
+        var totalAmount = 0;
+        var billAmount = 0;
+        var totalquantity = 0;
+        var amount = [];
+
         var selected = this.data.filter((a) => a.data.ItemBarCode == res);
 
         var newItem = {
@@ -1079,6 +1084,22 @@ export class CashComponent implements OnInit {
         };
 
         if (this.paydata.length > 0) {
+          var selected = null;
+          var selected2 = null;
+          var selected3 = null;
+          if (this.currentSelectedBill != null) {
+            console.log("B1")
+            selected = this.paydata.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+            selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+            selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
+          }
+          else {
+            console.log("B2")
+            selected = this.paydata.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+            selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+            selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
+          }
+
           var barcode = this.paydata.filter((a) => a.data.ItemBarCode == res);
           debugger;
           if (barcode.length > 0) {
@@ -1092,7 +1113,83 @@ export class CashComponent implements OnInit {
             this.dataa = [];
             this.itemlist = [];
           }
+          if (selected3 !== -1) {
+            if (this.paydata.length == 0) {
+              this.allbills.splice(selected3, 1);
+            }
+            this.paydata.forEach((el) => {
+              var obj = {
+                data: {
+                  ItemID: el.data.ItemID,
+                  Picture: el.data.Picture,
+                  ItemName: el.data.ItemName,
+                  ItemQuantity: el.data.ItemQuantity,
+                  ItemBuyPrice: el.data.ItemBuyPrice,
+                  ItemPrice: el.data.ItemPrice,
+                  ItemPriceTax: el.data.ItemPriceTax,
+                  favoriteCategoryName: el.data.favoriteCategoryName,
+                  FavoriteCategory: el.data.FavoriteCategory,
+                  warehouseName: el.data.warehouseName,
+                  ItemTypeName: el.data.ItemTypeName,
+                  ItemBarCode: el.data.ItemBarCode,
+                  RandomCode: this.random,
+                }, randomcode: this.random2
+              };
+              this.PreviousPickedItem.push(obj);
+            });
+    
+            this.PreviousPickedItem.forEach((el) => {
+              var individualAmount = el.data.ItemQuantity * el.data.ItemPrice;
+              billAmount += individualAmount;
+        
+              console.log(individualAmount);
+            });
+            amount.push(billAmount);
+            this.perviousitem = this.PreviousPickedItem;
+        
+            this.PreviousPickedItem.forEach((el) => {
+              var individualAmount = el.data.ItemQuantity;
+              totalquantity += individualAmount;
+        
+              console.log(totalquantity);
+            });
+        
+            this.billquantity = this.PreviousPickedItem.length;
+    
+            this.allbills[selected3].data.ItemName = this.billquantity;
+            this.allbills[selected3].data.ItemQuantity = totalquantity;
+            this.allbills[selected3].data.ItemPrice = billAmount;
+        
+            //this.pandingbill = this.allbills.push(obj);
+        
+            this.allbills.forEach((el) => {
+              var individualAmount = el.data.ItemPrice;
+              totalAmount += individualAmount;
+        
+              console.log(individualAmount);
+            });
+            amount.push(totalAmount);
+        
+            this.PreviousPickedItem = [];
+            this.pandingdata = [];
+          }
         } else {
+          var selected = null;
+          var selected2 = null;
+          var selected3 = null;
+          if (this.currentSelectedBill != null) {
+            console.log("B1")
+            selected = this.paydata.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+            selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+            selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
+          }
+          else {
+            console.log("B2")
+            selected = this.paydata.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+            selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+            selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
+          }
+
           var barcode = this.dataa.filter((a) => a.data.ItemBarCode == res);
           debugger;
           if (barcode.length > 0) {
@@ -1105,6 +1202,67 @@ export class CashComponent implements OnInit {
             this.paydata = [];
             this.paydataa = [];
           }
+
+          if (selected3 !== -1) {
+            if (this.dataa.length == 0) {
+              this.allbills.splice(selected3, 1);
+            }
+            this.dataa.forEach((el) => {
+              var obj = {
+                data: {
+                  ItemID: el.data.ItemID,
+                  Picture: el.data.Picture,
+                  ItemName: el.data.ItemName,
+                  ItemQuantity: el.data.ItemQuantity,
+                  ItemBuyPrice: el.data.ItemBuyPrice,
+                  ItemPrice: el.data.ItemPrice,
+                  ItemPriceTax: el.data.ItemPriceTax,
+                  favoriteCategoryName: el.data.favoriteCategoryName,
+                  FavoriteCategory: el.data.FavoriteCategory,
+                  warehouseName: el.data.warehouseName,
+                  ItemTypeName: el.data.ItemTypeName,
+                  ItemBarCode: el.data.ItemBarCode,
+                  RandomCode: this.random,
+                }, randomcode: this.random2
+              };
+              this.PreviousPickedItem.push(obj);
+            });
+    
+            this.PreviousPickedItem.forEach((el) => {
+              var individualAmount = el.data.ItemQuantity * el.data.ItemPrice;
+              billAmount += individualAmount;
+        
+              console.log(individualAmount);
+            });
+            amount.push(billAmount);
+            this.perviousitem = this.PreviousPickedItem;
+        
+            this.PreviousPickedItem.forEach((el) => {
+              var individualAmount = el.data.ItemQuantity;
+              totalquantity += individualAmount;
+        
+              console.log(totalquantity);
+            });
+        
+            this.billquantity = this.PreviousPickedItem.length;
+    
+            this.allbills[selected3].data.ItemName = this.billquantity;
+            this.allbills[selected3].data.ItemQuantity = totalquantity;
+            this.allbills[selected3].data.ItemPrice = billAmount;
+        
+            //this.pandingbill = this.allbills.push(obj);
+        
+            this.allbills.forEach((el) => {
+              var individualAmount = el.data.ItemPrice;
+              totalAmount += individualAmount;
+        
+              console.log(individualAmount);
+            });
+            amount.push(totalAmount);
+        
+            this.PreviousPickedItem = [];
+            this.pandingdata = [];
+          }
         }
       }
     });
@@ -1113,15 +1271,41 @@ export class CashComponent implements OnInit {
   Delete(id) {
     ;
 
+    var totalAmount = 0;
+    var billAmount = 0;
+    var totalquantity = 0;
+    var amount = [];
+
     if (this.paydata.length > 0) {
-      var selected = this.paydata.findIndex((a) => a.data.ItemBarCode == id);
-      var selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == id);
-      var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == id);
+      var selected = null;
+      var selected2 = null;
+      var selected3 = null;
+      if (this.currentSelectedBill != null) {
+        console.log("B1")
+        console.log("id")
+        console.log(id)
+        console.log("paydata q")
+        console.log(this.paydata)
+        selected = this.paydata.findIndex((a) => a.randomcode == this.random2);
+        selected2 = this.codegenerate.findIndex((a) => a.randomcode == this.random2);
+        selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
+      }
+      else {
+        console.log("B2")
+        selected = this.paydata.findIndex((a) => a.data.ItemBarCode == id);
+        selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == id);
+        selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
+      }
+      console.log("selected")
+      console.log(selected)
       if (selected !== -1) {
+        console.log("paydata")
+        console.log(this.paydata)
         this.paydata.splice(selected, 1);
         if (this.paydata.length == 0) {
-          this.codegenerate.splice(selected2, 1);
-          this.allbills.splice(selected3, 1);
+          if (selected2 !== -1) {
+            this.codegenerate.splice(selected2, 1);
+          }
         }
 
         this.paydata.forEach((el) => {
@@ -1141,17 +1325,96 @@ export class CashComponent implements OnInit {
           this.paydata
         );
       }
+      console.log("selected 3 1")
+      console.log(selected3)
+      if (selected3 !== -1) {
+        if (this.paydata.length == 0) {
+          this.allbills.splice(selected3, 1);
+        }
+        this.paydata.forEach((el) => {
+          var obj = {
+            data: {
+              ItemID: el.data.ItemID,
+              Picture: el.data.Picture,
+              ItemName: el.data.ItemName,
+              ItemQuantity: el.data.ItemQuantity,
+              ItemBuyPrice: el.data.ItemBuyPrice,
+              ItemPrice: el.data.ItemPrice,
+              ItemPriceTax: el.data.ItemPriceTax,
+              favoriteCategoryName: el.data.favoriteCategoryName,
+              FavoriteCategory: el.data.FavoriteCategory,
+              warehouseName: el.data.warehouseName,
+              ItemTypeName: el.data.ItemTypeName,
+              ItemBarCode: el.data.ItemBarCode,
+              RandomCode: this.random,
+            }, randomcode: this.random2
+          };
+          this.PreviousPickedItem.push(obj);
+        });
+
+        this.PreviousPickedItem.forEach((el) => {
+          var individualAmount = el.data.ItemQuantity * el.data.ItemPrice;
+          billAmount += individualAmount;
+    
+          console.log(individualAmount);
+        });
+        amount.push(billAmount);
+        this.perviousitem = this.PreviousPickedItem;
+    
+        this.PreviousPickedItem.forEach((el) => {
+          var individualAmount = el.data.ItemQuantity;
+          totalquantity += individualAmount;
+    
+          console.log(totalquantity);
+        });
+    
+        this.billquantity = this.PreviousPickedItem.length;
+
+        this.allbills[selected3].data.ItemName = this.billquantity;
+        this.allbills[selected3].data.ItemQuantity = totalquantity;
+        this.allbills[selected3].data.ItemPrice = billAmount;
+    
+        //this.pandingbill = this.allbills.push(obj);
+    
+        this.allbills.forEach((el) => {
+          var individualAmount = el.data.ItemPrice;
+          totalAmount += individualAmount;
+    
+          console.log(individualAmount);
+        });
+        amount.push(totalAmount);
+    
+        this.PreviousPickedItem = [];
+        this.pandingdata = [];
+      }
     }
 
     if (this.dataa.length > 0) {
-      var selected = this.dataa.findIndex((a) => a.data.ItemBarCode == id);
-      var selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == id);
-      var selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == id);
+      var selected = null;
+      var selected2 = null;
+      var selected3 = null;
+      if (this.currentSelectedBill != null) {
+        console.log("C1")
+        selected = this.dataa.findIndex((a) => a.randomcode == this.random2);
+        selected2 = this.codegenerate.findIndex((a) => a.randomcode == this.random2);
+        selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
+      }
+      else {
+        console.log("C2")
+        selected = this.dataa.findIndex((a) => a.randomcode == this.random2);
+        selected2 = this.codegenerate.findIndex((a) => a.randomcode == this.random2);
+        selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
+      }
+      console.log("selected")
+      console.log(selected)
       if (selected !== -1) {
+        console.log("dataa")
+        console.log(this.dataa)
         this.dataa.splice(selected, 1);
         if (this.dataa.length == 0) {
-          this.codegenerate.splice(selected2, 1);
-          this.allbills.splice(selected3, 1);
+          if (selected2 !== -1) {
+            this.codegenerate.splice(selected2, 1);
+          }
         }
 
         this.dataa.forEach((el) => {
@@ -1170,6 +1433,68 @@ export class CashComponent implements OnInit {
         this.dataSource = this.dataSourceBuilder.create(
           this.dataa
         );
+      }
+      console.log("selected 3 2")
+      console.log(selected3)
+      if (selected3 !== -1) {
+        if (this.dataa.length == 0) {
+          this.allbills.splice(selected3, 1);
+        }
+        this.dataa.forEach((el) => {
+          var obj = {
+            data: {
+              ItemID: el.data.ItemID,
+              Picture: el.data.Picture,
+              ItemName: el.data.ItemName,
+              ItemQuantity: el.data.ItemQuantity,
+              ItemBuyPrice: el.data.ItemBuyPrice,
+              ItemPrice: el.data.ItemPrice,
+              ItemPriceTax: el.data.ItemPriceTax,
+              favoriteCategoryName: el.data.favoriteCategoryName,
+              FavoriteCategory: el.data.FavoriteCategory,
+              warehouseName: el.data.warehouseName,
+              ItemTypeName: el.data.ItemTypeName,
+              ItemBarCode: el.data.ItemBarCode,
+              RandomCode: this.random,
+            }, randomcode: this.random2
+          };
+          this.PreviousPickedItem.push(obj);
+        });
+
+        this.PreviousPickedItem.forEach((el) => {
+          var individualAmount = el.data.ItemQuantity * el.data.ItemPrice;
+          billAmount += individualAmount;
+    
+          console.log(individualAmount);
+        });
+        amount.push(billAmount);
+        this.perviousitem = this.PreviousPickedItem;
+    
+        this.PreviousPickedItem.forEach((el) => {
+          var individualAmount = el.data.ItemQuantity;
+          totalquantity += individualAmount;
+    
+          console.log(totalquantity);
+        });
+    
+        this.billquantity = this.PreviousPickedItem.length;
+
+        this.allbills[selected3].data.ItemName = this.billquantity;
+        this.allbills[selected3].data.ItemQuantity = totalquantity;
+        this.allbills[selected3].data.ItemPrice = billAmount;
+    
+        //this.pandingbill = this.allbills.push(obj);
+    
+        this.allbills.forEach((el) => {
+          var individualAmount = el.data.ItemPrice;
+          totalAmount += individualAmount;
+    
+          console.log(individualAmount);
+        });
+        amount.push(totalAmount);
+    
+        this.PreviousPickedItem = [];
+        this.pandingdata = [];
       }
     }
   }
