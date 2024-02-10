@@ -141,13 +141,13 @@ export class CashComponent implements OnInit {
                 console.log(newItem.data.ItemBarCode)
                 selected = this.paydata.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
                 selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
-                selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+                selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
               }
               else {
                 console.log("A2")
                 selected = this.paydata.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
                 selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
-                selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+                selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
               }
               console.log("selected 1 1")
               console.log(selected)
@@ -159,8 +159,9 @@ export class CashComponent implements OnInit {
                 if (selected !== -1) {
                   this.paydata[selected].data.ItemQuantity += 1;
                 }
-                if (selected2 !== -1)
+                if (selected2 !== -1) {
                   this.codegenerate[selected2].data.ItemQuantity += 1;
+                }
     
                 this.paydata.forEach((el) => {
                   var obj = {
@@ -204,13 +205,13 @@ export class CashComponent implements OnInit {
                 console.log("B1")
                 selected = this.dataa.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
                 selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
-                selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+                selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
               }
               else {
                 console.log("B2")
                 selected = this.dataa.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
                 selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
-                selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == newItem.data.ItemBarCode);
+                selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
               }
               console.log("selected 1 2")
               console.log(selected)
@@ -222,8 +223,9 @@ export class CashComponent implements OnInit {
                 if (selected !== -1) {
                   this.dataa[selected].data.ItemQuantity += 1;
                 }
-                if (selected2 !== -1)
+                if (selected2 !== -1) {
                   this.codegenerate[selected2].data.ItemQuantity += 1;
+                }
     
                 this.dataa.forEach((el) => {
                   var obj = {
@@ -524,18 +526,20 @@ export class CashComponent implements OnInit {
           if (this.currentSelectedBill != null) {
             selected = this.paydata.findIndex((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == this.random && a.randomcode == this.random2);
             selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == this.random && a.randomcode == this.random2);
-            selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+            selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
           }
           else {
             selected = this.paydata.findIndex((a) => a.data.ItemBarCode == Barcode);
             selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == Barcode);
-            selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == Barcode);
+            selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
           }
           if (selected !== -1 && res.ItemQuantity !== 0) {
-            if (selected !== -1)
+            if (selected !== -1) {
               this.paydata[selected].data.ItemQuantity = res.ItemQuantity;
-            if (selected2 !== -1)
+            }
+            if (selected2 !== -1) {
               this.codegenerate[selected2].data.ItemQuantity = res.ItemQuantity;
+            }
           }
           this.paydata.forEach((el) => {
             var obj = {
@@ -554,18 +558,20 @@ export class CashComponent implements OnInit {
           if (this.currentSelectedBill != null) {
             selected = this.dataa.findIndex((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == this.random && a.randomcode == this.random2);
             selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == this.random && a.randomcode == this.random2);
-            selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == Barcode && a.data.RandomCode == this.random && a.randomcode == this.random2);
+            selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
           }
           else {
             selected = this.dataa.findIndex((a) => a.data.ItemBarCode == Barcode);
             selected2 = this.codegenerate.findIndex((a) => a.data.ItemBarCode == Barcode);
-            selected3 = this.allbills.findIndex((a) => a.data.ItemBarCode == Barcode);
+            selected3 = this.allbills.findIndex((a) => a.randomcode == this.random2);
           }
           if (selected !== -1 && res.ItemQuantity !== 0) {
-            if (selected !== -1)
+            if (selected !== -1) {
               this.dataa[selected].data.ItemQuantity = res.ItemQuantity;
-            if (selected2 !== -1)
+            }
+            if (selected2 !== -1) {
               this.codegenerate[selected2].data.ItemQuantity = res.ItemQuantity;
+            }
           }
 
           this.dataa.forEach((el) => {
