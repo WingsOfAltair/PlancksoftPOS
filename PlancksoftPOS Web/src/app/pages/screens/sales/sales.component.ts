@@ -121,11 +121,16 @@ export class SalesComponent implements OnInit {
     this.userID = this.Userdata.uid;
   }
 
+  convertDateToJSONFormat(date) {
+    var milliseconds = date.getTime();
+    return "/Date(" + milliseconds + ")/";
+  }
+
   ngOnInit(): void {
     this.SalesData = this.fb.group({
       BillID: [],
-      Searchdatefrom: [],
-      Searchdateto: [],
+      dateFrom: [],
+      dateTo: [],
     });
 
     this.publisherService
@@ -175,9 +180,9 @@ export class SalesComponent implements OnInit {
 
   Search() {
     var obj = {
-      dateFrom: this.SalesData.value.Searchdatefrom,
-      dateTo: this.SalesData.value.Searchdateto,
-      BillNumber: this.SalesData.value.BillID,
+      dateFrom: this.SalesData.value.dateFrom,
+      dateTo: this.SalesData.value.dateTo,
+      BillNumber: 0,//this.SalesData.value.BillID,
     };
 
     this.publisherService
@@ -191,6 +196,8 @@ export class SalesComponent implements OnInit {
         var list = [];
 
         array.forEach((el) => {
+          const productionDate = parseInt(el["Date"].match(/-?\d+/)[0], 10);
+          const formattedDate = new Date(productionDate).toLocaleDateString();
           var obj = {
             data: {
               // EmployeeAddress: el["Employee Address"],
@@ -200,7 +207,7 @@ export class SalesComponent implements OnInit {
               TotalAmount: el["TotalAmount"],
               RemainderAmount: el["RemainderAmount"],
               PayByCash: el["PayByCash"],
-              Date: el["Date"],
+              Date: formattedDate,
             },
           };
           list.push(obj);

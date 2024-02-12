@@ -5,6 +5,48 @@
       <nb-card-body [formGroup]="SalesData">
        
         <div class="row">
+          <div class="col-lg-12 mb-3" style="margin-top: 10px">  
+            <div class="row">
+              <div class="col-lg-4 mt-2">
+                <label class="col-lg-12">{{
+                  "GENERALWORDS.DATE1" | translate
+                }}</label>
+    
+                <input
+                style="width: 20rem;"
+                  nbInput
+                  formControlName="dateFrom"
+                  placeholder="dd-MM-yyyy"
+                  [nbDatepicker]="dateFrom"
+                />
+                <nb-datepicker #dateFrom></nb-datepicker>
+              </div>
+              <div class="col-lg-4 mt-2">
+                <label class="col-lg-12">{{
+                  "GENERALWORDS.DATE2" | translate
+                }}</label>
+    
+                <input
+                style="width: 20rem;"
+                  nbInput
+                  formControlName="dateTo"
+                  placeholder="dd-MM-yyyy"
+                  [nbDatepicker]="dateTo"
+                />
+                <nb-datepicker #dateTo></nb-datepicker>
+              </div>
+              <div class="col-lg-8 mt-4" style="top: 10px">
+                <button
+                  class="col-md-2"
+                  nbButton
+                  status="primary"
+                  (click)="Search()"
+                >
+                  {{ "GENERALWORDS.SEARCH" | translate }}
+                </button>
+              </div>
+            </div>
+          </div>
           <div class="col-lg-12 mb-3" style="margin-top: 40px">
             <input
               nbInput
