@@ -128,9 +128,15 @@ export class PickItemModalComponent implements OnInit {
     var selected = this.data.filter((a) => a.data.FavoriteCategory == id);
 
     selected.forEach((el) => {
+      var picture = "";
+      try {
+        picture = el.data["Picture"]
+      } catch(err) {
+        picture = "";
+      }
       var obj = {
         data: {
-          Picture: el.data["Picture"],
+          Picture: picture,
           ItemName: el.data.ItemName,
           ItemQuantity: el.data["ItemQuantity"],
           ItemBuyPrice: el.data["ItemBuyPrice"],

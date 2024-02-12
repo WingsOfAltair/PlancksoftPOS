@@ -253,7 +253,14 @@ export class ImportExportFormComponent implements OnInit {
       this.DateEnd = this.filterdata[0].DateEnd;
       this.DateStart = this.filterdata[0].DateStart;
       
-      this.imageSrc = 'data:' + 'image/png' + ';base64,' + this.filterdata[0].Picture.slice(1, -1);
+      var picture = "";
+      try {
+        picture = this.filterdata[0].Picture.slice(1, -1);
+      } catch(err) {
+        picture = "";
+      }
+      
+      this.imageSrc = 'data:' + 'image/png' + ';base64,' + picture;
 
       this.firstFormGroup.patchValue({
         ItemName: this.filterdata[0].ItemName,
