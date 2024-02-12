@@ -77,10 +77,16 @@ export class PickItemModalComponent implements OnInit {
 
         var list = [];
         data.forEach((el) => {
+          var picture = "";
+          try {
+            picture = el["Picture"].slice(1, -1)
+          } catch(err) {
+            picture = "";
+          }
           var obj = {
             data: {
               ItemID: el["ItemID"],
-              Picture: 'data:' + 'image/png' + ';base64,' + el["Picture"].slice(1, -1),
+              Picture: 'data:' + 'image/png' + ';base64,' + picture,
               ItemName: el["ItemName"],
               ItemQuantity: el["ItemQuantity"],
               ItemBuyPrice: el["ItemBuyPrice"],
