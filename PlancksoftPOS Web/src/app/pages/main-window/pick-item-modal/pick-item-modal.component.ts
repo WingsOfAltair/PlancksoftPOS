@@ -77,10 +77,16 @@ export class PickItemModalComponent implements OnInit {
 
         var list = [];
         data.forEach((el) => {
+          var picture = "";
+          try {
+            picture = el["Picture"].slice(1, -1)
+          } catch(err) {
+            picture = "";
+          }
           var obj = {
             data: {
               ItemID: el["ItemID"],
-              Picture: 'data:' + 'image/png' + ';base64,' + el["Picture"].slice(1, -1),
+              Picture: 'data:' + 'image/png' + ';base64,' + picture,
               ItemName: el["ItemName"],
               ItemQuantity: el["ItemQuantity"],
               ItemBuyPrice: el["ItemBuyPrice"],
@@ -122,9 +128,15 @@ export class PickItemModalComponent implements OnInit {
     var selected = this.data.filter((a) => a.data.FavoriteCategory == id);
 
     selected.forEach((el) => {
+      var picture = "";
+      try {
+        picture = el.data["Picture"]
+      } catch(err) {
+        picture = "";
+      }
       var obj = {
         data: {
-          Picture: el.data["Picture"],
+          Picture: picture,
           ItemName: el.data.ItemName,
           ItemQuantity: el.data["ItemQuantity"],
           ItemBuyPrice: el.data["ItemBuyPrice"],
