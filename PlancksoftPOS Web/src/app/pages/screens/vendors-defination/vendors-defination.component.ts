@@ -24,6 +24,7 @@ export class VendorsDefinationComponent implements OnInit {
     "Importer Phone Number",
     "Importer Address",
     "Importer Email",
+    "Action",
   ];
 
   allColumns = [...this.defaultColumns];
@@ -103,7 +104,19 @@ export class VendorsDefinationComponent implements OnInit {
       title: `Add Importer`,
     });
 
-    data.onClose.subscribe((res) => {
+    data.componentInstance.modalClose.subscribe((res) => {
+      this.ngOnInit();
+    });
+  }
+
+  Delete(clientID) {
+    var obj = {
+      ClientID: clientID,
+    };
+
+    this.publisherService
+    .PostRequest("DeleteClient", obj)
+    .subscribe((res: any) => {
       this.ngOnInit();
     });
   }
