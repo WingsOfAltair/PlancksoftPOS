@@ -5,33 +5,33 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\PlancksoftPOSSOAP</_PublishTargetUrl>
-    <History>True|2024-02-05T08:07:02.5494113Z;True|2024-02-02T10:26:39.3434520+03:00;True|2024-02-02T08:50:01.7268474+03:00;True|2024-01-30T19:29:19.0704899+03:00;True|2024-01-30T12:33:51.0580819+03:00;True|2024-01-10T10:00:54.6611020+03:00;True|2024-01-09T12:30:14.1321301+03:00;True|2024-01-09T12:10:03.0667550+03:00;True|2024-01-09T11:02:08.0130445+03:00;True|2024-01-09T10:57:04.7370211+03:00;True|2024-01-09T10:22:38.7722857+03:00;True|2024-01-07T12:25:50.2613864+03:00;True|2023-12-30T07:45:21.1464529+03:00;True|2023-12-30T07:40:01.9271654+03:00;True|2023-12-29T11:01:13.0992276+03:00;True|2023-12-27T10:53:14.2624821+03:00;</History>
+    <History>True|2024-10-22T08:25:35.2047563Z||;False|2024-10-22T11:25:17.0247742+03:00||;False|2024-10-22T11:25:03.9765756+03:00||;True|2024-02-05T11:07:02.5494113+03:00||;True|2024-02-02T10:26:39.3434520+03:00||;True|2024-02-02T08:50:01.7268474+03:00||;True|2024-01-30T19:29:19.0704899+03:00||;True|2024-01-30T12:33:51.0580819+03:00||;True|2024-01-10T10:00:54.6611020+03:00||;True|2024-01-09T12:30:14.1321301+03:00||;True|2024-01-09T12:10:03.0667550+03:00||;True|2024-01-09T11:02:08.0130445+03:00||;True|2024-01-09T10:57:04.7370211+03:00||;True|2024-01-09T10:22:38.7722857+03:00||;True|2024-01-07T12:25:50.2613864+03:00||;True|2023-12-30T07:45:21.1464529+03:00||;True|2023-12-30T07:40:01.9271654+03:00||;True|2023-12-29T11:01:13.0992276+03:00||;True|2023-12-27T10:53:14.2624821+03:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/DataAccessLayer.dll">
-      <publishTime>02/05/2024 11:07:01</publishTime>
+      <publishTime>10/22/2024 11:25:03</publishTime>
     </File>
     <File Include="bin/DataAccessLayer.pdb">
-      <publishTime>02/05/2024 11:07:01</publishTime>
+      <publishTime>10/22/2024 11:25:03</publishTime>
     </File>
     <File Include="bin/Dependencies.dll">
-      <publishTime>02/02/2024 11:18:37</publishTime>
+      <publishTime>10/22/2024 11:25:03</publishTime>
     </File>
     <File Include="bin/Dependencies.pdb">
-      <publishTime>02/02/2024 11:18:37</publishTime>
+      <publishTime>10/22/2024 11:25:03</publishTime>
     </File>
     <File Include="bin/PlancksoftPOS Server.dll">
-      <publishTime>02/05/2024 11:07:02</publishTime>
+      <publishTime>10/22/2024 11:25:03</publishTime>
     </File>
     <File Include="bin/PlancksoftPOS Server.pdb">
-      <publishTime>02/05/2024 11:07:02</publishTime>
+      <publishTime>10/22/2024 11:25:03</publishTime>
     </File>
     <File Include="PlancksoftPOS.svc">
-      <publishTime>08/26/2023 15:50:58</publishTime>
+      <publishTime>10/22/2024 11:18:35</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>02/05/2024 11:07:02</publishTime>
+      <publishTime>10/22/2024 11:25:16</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -46,3 +46,15 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server\obj\Relea
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.csproj.CopyComplete
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.pdb
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Server\bin\PlancksoftPOS Server.dll.config
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Server\bin\PlancksoftPOS Server.dll
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Server\bin\PlancksoftPOS Server.pdb
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Server\bin\DataAccessLayer.dll
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Server\bin\Dependencies.dll
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Server\bin\DataAccessLayer.pdb
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Server\bin\Dependencies.pdb
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.csproj.AssemblyReference.cache
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.csproj.CoreCompileInputs.cache
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Server\obj\Release\Planckso.CF9801B6.Up2Date
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.dll
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Server\obj\Release\PlancksoftPOS Server.pdb

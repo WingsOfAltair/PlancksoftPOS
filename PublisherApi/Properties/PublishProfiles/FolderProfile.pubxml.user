@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>C:\inetpub\wwwroot\api</_PublishTargetUrl>
-    <History>True|2023-11-12T03:27:57.2260773Z;True|2023-10-08T18:52:49.5276602+03:00;True|2023-10-08T18:50:32.1875205+03:00;True|2023-10-08T18:17:32.7567491+03:00;True|2023-10-08T18:12:55.8999438+03:00;True|2023-10-08T17:27:45.2760075+03:00;</History>
+    <History>True|2024-10-22T08:50:55.1587554Z||;False|2024-10-22T11:50:38.2637629+03:00||;True|2023-11-12T06:27:57.2260773+03:00||;True|2023-10-08T18:52:49.5276602+03:00||;True|2023-10-08T18:50:32.1875205+03:00||;True|2023-10-08T18:17:32.7567491+03:00||;True|2023-10-08T18:12:55.8999438+03:00||;True|2023-10-08T17:27:45.2760075+03:00||;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
