@@ -1,1 +1,1 @@
-ng build --base-href "/" --configuration production
+ng build --base-href "/PlancksoftPOS/" --configuration production

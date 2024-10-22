@@ -79,7 +79,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.Userdata = JSON.parse(user);
     this.userID = this.Userdata.uid;
 
-    this.picture = '../assets/images/profile.jpg' 
+    this.picture = '../PlancksoftPOS/assets/images/profile.jpg' 
 
   }
 
