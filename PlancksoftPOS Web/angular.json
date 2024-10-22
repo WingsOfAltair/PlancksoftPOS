@@ -24,7 +24,7 @@
               {
                 "glob": "**/*",
                 "input": "node_modules/leaflet/dist/images",
-                "output": "/assets/img/markers"
+                "output": "/PlancksoftPOS/assets/img/markers"
               }
             ],
             "styles": [
@@ -143,7 +143,7 @@
               {
                 "glob": "**/*",
                 "input": "node_modules/leaflet/dist/images",
-                "output": "/assets/img/markers"
+                "output": "/PlancksoftPOS/assets/img/markers"
               }
             ]
           }
