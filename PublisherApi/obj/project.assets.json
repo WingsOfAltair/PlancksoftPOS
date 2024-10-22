@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    "net5.0": {
+    "net8.0": {
       "Microsoft.Extensions.ApiDescription.Server/3.0.0": {
         "type": "package",
         "build": {
@@ -711,7 +711,7 @@
     }
   },
   "projectFileDependencyGroups": {
-    "net5.0": [
+    "net8.0": [
       "DataAccessLayerJSON >= 1.0.0",
       "PlancksoftPOS Server JSON >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3",
@@ -719,42 +719,38 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\basha\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\basha\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
+      "projectUniqueName": "D:\\GitHub\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
       "projectName": "PublisherApi",
-      "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
+      "projectPath": "D:\\GitHub\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
       "packagesPath": "C:\\Users\\basha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PublisherApi\\obj\\",
+      "outputPath": "D:\\GitHub\\PlancksoftPOS\\PublisherApi\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\basha\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net5.0"
+        "net8.0"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj": {
-              "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj"
+            "D:\\GitHub\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj": {
+              "projectPath": "D:\\GitHub\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.csproj"
             },
-            "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj": {
-              "projectPath": "C:\\Users\\basha\\OneDrive\\Desktop\\Dev\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj"
+            "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj": {
+              "projectPath": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Server JSON\\PlancksoftPOS Server JSON.csproj"
             }
           }
         }
@@ -763,11 +759,16 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
-      "net5.0": {
-        "targetAlias": "net5.0",
+      "net8.0": {
+        "targetAlias": "net8.0",
         "dependencies": {
           "Swashbuckle.AspNetCore": {
             "target": "Package",
@@ -797,8 +798,20 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Data.SqlClient' 4.8.5 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "libraryId": "System.Data.SqlClient",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

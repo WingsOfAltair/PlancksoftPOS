@@ -8,4 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PublisherApi
-build_property.ProjectDir = C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\PublisherApi\
+build_property.ProjectDir = D:\GitHub\PlancksoftPOS\PublisherApi\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 

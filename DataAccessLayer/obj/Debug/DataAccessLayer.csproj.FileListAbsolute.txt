@@ -69,3 +69,14 @@ C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\obj\Debug\Data
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CopyComplete
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.dll
 C:\Users\basha\OneDrive\Desktop\Dev\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.pdb
+D:\GitHub\PlancksoftPOS\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\GitHub\PlancksoftPOS\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\GitHub\PlancksoftPOS\DataAccessLayer\bin\Debug\Dependencies.dll
+D:\GitHub\PlancksoftPOS\DataAccessLayer\bin\Debug\Newtonsoft.Json.dll
+D:\GitHub\PlancksoftPOS\DataAccessLayer\bin\Debug\Dependencies.pdb
+D:\GitHub\PlancksoftPOS\DataAccessLayer\bin\Debug\Newtonsoft.Json.xml
+D:\GitHub\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.AssemblyReference.cache
+D:\GitHub\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.csproj.CoreCompileInputs.cache
+D:\GitHub\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAcce.E67BD773.Up2Date
+D:\GitHub\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\GitHub\PlancksoftPOS\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

@@ -20,7 +20,7 @@ export class AuthServiceService {
   }
 
   login(Obj) {
-    return this.httpclient.post('http://192.168.1.137:5000/api/Publisher/publish', Obj);
+    return this.httpclient.post('http://192.168.1.29:5000/api/Publisher/publish', Obj);
    
   }
 

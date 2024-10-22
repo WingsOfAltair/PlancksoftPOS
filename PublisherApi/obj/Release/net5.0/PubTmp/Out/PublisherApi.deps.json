@@ -469,7 +469,10 @@
           "Dependencies": "1.0.0"
         },
         "runtime": {
-          "DataAccessLayer.dll": {}
+          "DataAccessLayer.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": ""
+          }
         },
         "compile": {
           "DataAccessLayer.dll": {}
@@ -477,7 +480,10 @@
       },
       "Dependencies/1.0.0": {
         "runtime": {
-          "Dependencies.dll": {}
+          "Dependencies.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         },
         "compile": {
           "Dependencies.dll": {}
@@ -489,7 +495,10 @@
           "Dependencies": "1.0.0"
         },
         "runtime": {
-          "PlancksoftPOS Server JSON.dll": {}
+          "PlancksoftPOS Server JSON.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         },
         "compile": {
           "PlancksoftPOS Server JSON.dll": {}
