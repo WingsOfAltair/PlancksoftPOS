@@ -65,6 +65,7 @@ export const locale = {
         UPDATE: 'Update',
         INVENTORY : 'Inventory',
         FCN : 'Favorite Category Name',
+        NONE: 'None',
         WEARHOUSE : 'Warehouse',
         WARNINGLIMIT:'Warning Limit',
         PRODUCTIONDATE:'Production Date',
