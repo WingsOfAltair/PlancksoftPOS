@@ -9,6 +9,7 @@
                 style="width: 13rem"
                 (selectedChange)="Filterdata($event)"
               >
+              <nb-option [value]="-1">{{ 'GENERALWORDS.NONE' | translate }}</nb-option>
                 <nb-option *ngFor="let data of message" [value]="data.ID">{{
                   data.Name
                 }}</nb-option>

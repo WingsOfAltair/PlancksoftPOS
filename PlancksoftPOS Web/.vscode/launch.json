@@ -2,6 +2,15 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Attach by Process ID",
+            "processId": "${command:PickProcess}",
+            "request": "attach",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "type": "node"
+        },
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against 192.168.1.29",
@@ -16,6 +25,33 @@
             "port": 9222,
             "sourceMaps": true,
             "webRoot": "${workspaceRoot}"
+        },
+        {
+            "type": "firefox",
+            "request": "launch",
+            "name": "Launch Firefox against 192.168.1.29",
+            "url": "http://192.168.1.29",
+            "webRoot": "${workspaceFolder}",
+            "pathMappings": [
+                {
+                    "url": "webpack:///./",
+                    "path": "${workspaceFolder}/"
+                }
+            ]
+        },
+        {
+            "type": "firefox",
+            "request": "attach",
+            "name": "Attach to Firefox",
+            "url": "http://192.168.1.29",
+            "webRoot": "${workspaceFolder}",
+            "port": 6000,
+            "pathMappings": [
+                {
+                    "url": "webpack:///./",
+                    "path": "${workspaceFolder}/"
+                }
+            ]
         }
     ]
 }

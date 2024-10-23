@@ -124,8 +124,14 @@ export class PickItemModalComponent implements OnInit {
     debugger
     var filterlist = [];
     this.dataSource = this.dataSourceBuilder.create([]);
+    var selected;
 
-    var selected = this.data.filter((a) => a.data.FavoriteCategory == id);
+    if (id === -1) {
+      // Show all options when 'None' is selected
+      selected = this.data;
+    } else {
+      selected = this.data.filter((a) => a.data.FavoriteCategory == id);
+    }
 
     selected.forEach((el) => {
       var picture = "";

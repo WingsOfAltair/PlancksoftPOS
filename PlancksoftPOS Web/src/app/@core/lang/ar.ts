@@ -64,6 +64,7 @@ export const locale = {
         UPDATE: 'تحديث',
         INVENTORY : 'جرد',
         FCN: 'اسم الفئة المفضلة',
+        NONE: 'لا يوجد',
         WEARHOUSE: 'مخزن',
         WARNINGLIMIT:'حد التحذير',
         PRODUCTIONDATE:'تاريخ الإنتاج',
