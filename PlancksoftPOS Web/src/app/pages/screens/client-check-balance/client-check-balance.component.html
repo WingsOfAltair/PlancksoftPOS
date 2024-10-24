@@ -4,8 +4,8 @@
       <nb-card-header>{{ "GENERALWORDS.CLENTCHECKBALANCE" | translate }}</nb-card-header>
       <nb-card-body>
         <div class="row mt-3">
-          <div class="col-lg-6 mb-3">
-            <!-- <div class="buttons-row" style="margin-top: 28px">
+          <!--<div class="col-lg-6 mb-3">
+             <div class="buttons-row" style="margin-top: 28px">
               <button
                 nbButton
                 status="primary"
@@ -15,8 +15,8 @@
               >
               {{ "GENERALWORDS.PAYBILL" | translate }}
               </button>
-            </div> -->
-          </div>
+            </div> 
+          </div>-->
 
           <div class="col-md-3 mb-3">
             <label>{{ "GENERALWORDS.CLIENTNAME" | translate }}</label>
@@ -34,6 +34,11 @@
             </nb-select>
           </div>
 
+          <div class="col-lg-6 mb-3">
+            <!-- Optional placeholder for buttons or other elements -->
+          </div>
+
+          <!-- Search Input (remains on the right) -->
           <div class="col-lg-3 mb-3">
             <input
               nbInput
@@ -44,6 +49,7 @@
               style="float: right; width: 100%; margin-top: 28px"
             />
           </div>
+          
           <table
             [nbTreeGrid]="dataSource"
             [nbSort]="dataSource"

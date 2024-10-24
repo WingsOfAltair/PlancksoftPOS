@@ -153,6 +153,8 @@ export class AddItemTypeComponent implements OnInit {
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
         this.ngOnInit();
+        this.Check = null;
+        this.itemGroup.reset();
       });
   }
 }
