@@ -143,6 +143,8 @@ export class AddWearhouseComponent implements OnInit {
     this.publisherService.PostRequest('UpdateWarehouses', obj).subscribe((res: any) => {
       console.log(JSON.parse(res));
       this.ngOnInit()
+      this.Check = null;
+      this.itemGroup.reset();
     });
   }
 

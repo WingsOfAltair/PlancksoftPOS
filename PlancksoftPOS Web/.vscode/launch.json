@@ -1,6 +1,7 @@
 {
     "version": "0.2.0",
     "configurations": [
+
         {
             "name": "Attach by Process ID",
             "processId": "${command:PickProcess}",
@@ -30,7 +31,7 @@
             "type": "firefox",
             "request": "launch",
             "name": "Launch Firefox against 192.168.1.29",
-            "url": "http://192.168.1.29",
+            "url": "http://192.168.1.29/PlancksoftPOS",
             "webRoot": "${workspaceFolder}",
             "pathMappings": [
                 {
@@ -43,7 +44,7 @@
             "type": "firefox",
             "request": "attach",
             "name": "Attach to Firefox",
-            "url": "http://192.168.1.29",
+            "url": "http://192.168.1.29/PlancksoftPOS",
             "webRoot": "${workspaceFolder}",
             "port": 6000,
             "pathMappings": [

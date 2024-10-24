@@ -6,7 +6,10 @@ export const locale = {
         SELECT: 'Select your language',
       },
       GENERALWORDS: {
-        NEW: 'new',
+        ADDFAVORITECATGEGORY: 'إضافة مجلد مفضلات',
+        ADDWAREHOUSE: 'إضافة مخزن',
+        ADDITEMTYPE: 'إضافة صنف مادة',
+        NEW: 'جديد',
         DASHBOARD: 'لوحة القيادة',
         ALARM: 'التنبيهات',
         SEARCH: 'البحث',

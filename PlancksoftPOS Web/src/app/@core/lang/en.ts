@@ -6,7 +6,10 @@ export const locale = {
         SELECT: 'Select your language',
       },
       GENERALWORDS: {
-        NEW: 'new',
+        ADDFAVORITECATGEGORY: 'Add Favorite Category',
+        ADDWAREHOUSE: 'Add Warehouse',
+        ADDITEMTYPE: 'Add Item Type',
+        NEW: 'New',
         DASHBOARD: 'Dashboard',
         ALARM: 'Alarm',
         SEARCH: 'Search',
