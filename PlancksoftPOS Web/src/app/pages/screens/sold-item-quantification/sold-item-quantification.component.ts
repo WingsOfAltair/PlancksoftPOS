@@ -25,8 +25,10 @@ export class SoldItemQuantificationComponent implements OnInit {
     "ItemBarcode",
     "ItemType",
     "CashierName",
+    "ItemBuyPrice",
     "ItemPriceTax",
     "SoldQuantity",
+    "RefundedQuantity",
     "Total",
   ];
 
@@ -109,10 +111,12 @@ export class SoldItemQuantificationComponent implements OnInit {
               CashierName: el["Cashier Name"],
               ItemBarCode: el["Item BarCode"],
               ItemName: el["Item Name"],
-              ItemPriceTax: el["Item Price Tax"],
+              ItemBuyPrice: el["Item Buy Price"],
+              ItemPriceTax: el["Item Sell Price Tax"],
               ItemProfit: el["Item Profit"],
               ItemType: el["Item Type"],
               TimesSold: el["Times Sold"],
+              TimesRefunded: el["Times Refunded"],
             },
           };
 

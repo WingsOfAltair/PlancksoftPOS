@@ -46,3 +46,7 @@ D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\refint\PublisherApi.dll
 D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\PublisherApi.pdb
 D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\PublisherApi.genruntimeconfig.cache
 D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\ref\PublisherApi.dll
+D:\GitHub\PlancksoftPOS\PublisherApi\bin\Debug\net8.0\PublisherApi.staticwebassets.endpoints.json
+D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets\msbuild.PublisherApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

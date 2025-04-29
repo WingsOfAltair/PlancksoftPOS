@@ -302,6 +302,19 @@
               </td>
             </ng-container>
 
+            <ng-container [nbTreeGridColumnDef]="'BuyPrice'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('BuyPrice')"
+                *nbTreeGridHeaderCellDef
+              >
+              {{ "GENERALWORDS.BUYPRICE" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["ItemBuyPrice"] || "-" }}
+              </td>
+            </ng-container>
+
             
           </table>
         </div>

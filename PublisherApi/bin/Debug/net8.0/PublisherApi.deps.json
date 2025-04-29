@@ -144,15 +144,14 @@
         },
         "runtime": {
           "DataAccessLayer.dll": {
-            "assemblyVersion": "1.0.0",
-            "fileVersion": ""
+            "fileVersion": "0.0.0.0"
           }
         }
       },
       "Dependencies/1.0.0": {
         "runtime": {
           "Dependencies.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }
@@ -164,7 +163,7 @@
         },
         "runtime": {
           "PlancksoftPOS Server JSON.dll": {
-            "assemblyVersion": "1.0.0",
+            "assemblyVersion": "1.0.0.0",
             "fileVersion": "1.0.0.0"
           }
         }

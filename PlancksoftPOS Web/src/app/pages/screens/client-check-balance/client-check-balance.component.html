@@ -277,6 +277,18 @@
                 {{ row.data["ItemPriceTax"] || "-" }}
               </td>
             </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'Item Buy Price'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('Item Buy Price')"
+                *nbTreeGridHeaderCellDef
+              >
+              {{ "GENERALWORDS.BUYPRICE" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["ItemBuyPrice"] || "-" }}
+              </td>
+            </ng-container>
           </table>
         </div>
       </nb-card-body>
