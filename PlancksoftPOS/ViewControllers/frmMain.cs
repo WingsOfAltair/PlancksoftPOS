@@ -951,6 +951,7 @@ namespace PlancksoftPOS
                         dgvBillItems.Columns["Column63"].HeaderText = "العدد المرجع";
                         dgvBillItems.Columns["Column24"].HeaderText = "السعر";
                         dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
+                        dgvBillItems.Columns["Column69"].HeaderText = "سعر الشراء";
                     }
                     if (tabControl4.Contains(tabControl4.TabPages["EditInvoices"]))
                     {
@@ -1002,8 +1003,10 @@ namespace PlancksoftPOS
                         dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "الباركود";
                         dgvItemProfit.Columns["Column48"].HeaderText = "صنف الماده";
                         dgvItemProfit.Columns["Column49"].HeaderText = "إسم الكاشير";
+                        dgvItemProfit.Columns["Column70"].HeaderText = "سعر الشراء";
                         dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "سعر القطعة بعد الضريبة";
-                        dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "الكميه المباعه";
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "الكميه المباعه"
+                        dgvItemProfit.Columns["Column71"].HeaderText = "الكميه المسترجعه";
                         dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "المجموع";
                     }
                 }
@@ -1282,6 +1285,7 @@ namespace PlancksoftPOS
                         dgvClientBillItems.Columns["dataGridViewTextBoxColumn22"].HeaderText = "عدد البيع";
                         dgvClientBillItems.Columns["Column66"].HeaderText = "عدد المرجعات";
                         dgvClientBillItems.Columns["dataGridViewTextBoxColumn23"].HeaderText = "سعر البيع بعد الضريبه";
+                        dgvClientBillItems.Columns["Column68"].HeaderText = "سعر الشراء ";
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["ImporterBalanceChecks"]))
                     {
@@ -1545,6 +1549,7 @@ namespace PlancksoftPOS
                         dgvBillItems.Columns["Column63"].HeaderText = "Returned Quantity";
                         dgvBillItems.Columns["Column24"].HeaderText = "Price";
                         dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
+                        dgvBillItems.Columns["Column69"].HeaderText = "Buy Price";
                     }
                     if (tabControl4.Contains(tabControl4.TabPages["EditInvoices"]))
                     {
@@ -1596,8 +1601,10 @@ namespace PlancksoftPOS
                         dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "Item Barcode";
                         dgvItemProfit.Columns["Column48"].HeaderText = "Item Type";
                         dgvItemProfit.Columns["Column49"].HeaderText = "Cashier Name";
+                        dgvItemProfit.Columns["Column70"].HeaderText = "Buy Price";
                         dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "Item Price Tax";
                         dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "Sold Quantity";
+                        dgvItemProfit.Columns["Column71"].HeaderText = "Refunded Quantity";
                         dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "Total";
                     }
                 }
@@ -1836,6 +1843,7 @@ namespace PlancksoftPOS
                         dgvClientBillItems.Columns["dataGridViewTextBoxColumn22"].HeaderText = "Sold Quantity";
                         dgvClientBillItems.Columns["Column66"].HeaderText = "Returned Quantity";
                         dgvClientBillItems.Columns["dataGridViewTextBoxColumn23"].HeaderText = "Item Price after Tax";
+                        dgvClientBillItems.Columns["Column68"].HeaderText = "Buy Price";
                     }
                     if (tabControl3.Contains(tabControl3.TabPages["ImporterDefinitions"]))
                     {
@@ -4662,6 +4670,7 @@ namespace PlancksoftPOS
                 dgvBillItems.Columns["Column63"].HeaderText = "العدد المرجع";
                 dgvBillItems.Columns["Column24"].HeaderText = "السعر";
                 dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
+                dgvBillItems.Columns["Column69"].HeaderText = "سعر الشراء";
             } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English) {
                 dgvBillItems.Columns["Column20"].HeaderText = "Item Name";
                 dgvBillItems.Columns["Column21"].HeaderText = "Item Barcode";
@@ -4669,6 +4678,7 @@ namespace PlancksoftPOS
                 dgvBillItems.Columns["Column63"].HeaderText = "Returned Quantity";
                 dgvBillItems.Columns["Column24"].HeaderText = "Price";
                 dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
+                dgvBillItems.Columns["Column69"].HeaderText = "Buy Price";
             }
         }
 
@@ -4747,6 +4757,7 @@ namespace PlancksoftPOS
                 dgvBillItems.Columns["Column63"].HeaderText = "العدد المرجع";
                 dgvBillItems.Columns["Column24"].HeaderText = "السعر";
                 dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
+                dgvBillItems.Columns["Column69"].HeaderText = "سعر الشراء";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
@@ -4756,6 +4767,7 @@ namespace PlancksoftPOS
                 dgvBillItems.Columns["Column63"].HeaderText = "Returned Quantity";
                 dgvBillItems.Columns["Column24"].HeaderText = "Price";
                 dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
+                dgvBillItems.Columns["Column69"].HeaderText = "Buy Price";
             }
         }
 
@@ -4845,6 +4857,7 @@ namespace PlancksoftPOS
                 dgvBillItems.Columns["Column63"].HeaderText = "العدد المرجع";
                 dgvBillItems.Columns["Column24"].HeaderText = "السعر";
                 dgvBillItems.Columns["Column25"].HeaderText = "السعر بعد الضريبه";
+                dgvBillItems.Columns["Column69"].HeaderText = "سعر الشراء";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
@@ -4854,6 +4867,7 @@ namespace PlancksoftPOS
                 dgvBillItems.Columns["Column63"].HeaderText = "Returned Quantity";
                 dgvBillItems.Columns["Column24"].HeaderText = "Price";
                 dgvBillItems.Columns["Column25"].HeaderText = "Price after Tax";
+                dgvBillItems.Columns["Column69"].HeaderText = "Buy Price";
             }
         }
 
@@ -5408,8 +5422,10 @@ namespace PlancksoftPOS
                 dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "الباركود";
                 dgvItemProfit.Columns["Column48"].HeaderText = "صنف الماده";
                 dgvItemProfit.Columns["Column49"].HeaderText = "إسم الكاشير";
+                dgvItemProfit.Columns["Column70"].HeaderText = "سعر الشراء";
                 dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "سعر القطعة بعد الضريبة";
                 dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "الكميه المباعه";
+                dgvItemProfit.Columns["Column71"].HeaderText = "الكميه المسترجعه";
                 dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "المجموع";
             } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
@@ -5417,8 +5433,10 @@ namespace PlancksoftPOS
                 dgvItemProfit.Columns["dataGridViewTextBoxColumn17"].HeaderText = "Item Barcode";
                 dgvItemProfit.Columns["Column48"].HeaderText = "Item Type";
                 dgvItemProfit.Columns["Column49"].HeaderText = "Cashier Name";
+                dgvItemProfit.Columns["Column70"].HeaderText = "Buy Price";
                 dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "Item Price Tax";
                 dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "Sold Quantity";
+                dgvItemProfit.Columns["Column71"].HeaderText = "Refunded Quantity";
                 dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "Total";
             }
         }
@@ -7162,6 +7180,7 @@ namespace PlancksoftPOS
                             itemToAdd.SetQuantity(itemQuantity);
                             itemToAdd.SetPrice(itemPrice);
                             itemToAdd.SetPriceTax(itemPriceTax);
+                            itemToAdd.SetBuyPrice(Connection.server.SearchItems("", itemBarCode, 0).Item1[0].GetBuyPrice());
                             itemToAdd.SetItemTypeID(itemRetrieved.GetItemTypeeID());
                             itemsToAdd.Add(itemToAdd);
                             int newItemQuantity = Connection.server.GetItemQuantity(itemBarCode) - itemQuantity;
@@ -7311,6 +7330,7 @@ namespace PlancksoftPOS
                                 item.SetQuantity(itemQuantity);
                                 item.SetPrice(itemPrice);
                                 item.SetPriceTax(itemPriceTax);
+                                item.SetBuyPrice(Connection.server.SearchItems("", itemBarCode, 0).Item1[0].GetBuyPrice());
                                 items.Add(item);
                             }
                         }
@@ -9850,6 +9870,7 @@ namespace PlancksoftPOS
                 dgvClientBillItems.Columns["dataGridViewTextBoxColumn22"].HeaderText = "عدد البيع";
                 dgvClientBillItems.Columns["Column66"].HeaderText = "عدد المرجعات";
                 dgvClientBillItems.Columns["dataGridViewTextBoxColumn23"].HeaderText = "سعر البيع بعد الضريبه";
+                dgvClientBillItems.Columns["Column68"].HeaderText = "سعر الشراء ";
             }
             else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
@@ -9858,6 +9879,7 @@ namespace PlancksoftPOS
                 dgvClientBillItems.Columns["dataGridViewTextBoxColumn22"].HeaderText = "Sold Quantity";
                 dgvClientBillItems.Columns["Column66"].HeaderText = "Returned Quantity";
                 dgvClientBillItems.Columns["dataGridViewTextBoxColumn23"].HeaderText = "Sell Price Tax";
+                dgvClientBillItems.Columns["Column68"].HeaderText = "Buy Price";
             }
         }
 

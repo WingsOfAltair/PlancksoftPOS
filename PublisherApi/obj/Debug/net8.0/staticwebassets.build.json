@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "hp7b0dB2OLnRQQJEaI2nTC28Mmxwed87xUywL++AubE=",
+  "Hash": "6WyRWj08QwK1lrUeGG2p51BS4mIyL0h2YqzhionzTcM=",
   "Source": "PublisherApi",
   "BasePath": "_content/PublisherApi",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

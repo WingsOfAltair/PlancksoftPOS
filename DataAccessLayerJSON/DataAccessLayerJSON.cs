@@ -1974,6 +1974,7 @@ namespace DataAccessLayerJSON
                     billItems.SetReturnedQuantity(Convert.ToInt32(FavoriteItem["Returned Quantity"].ToString()));
                     billItems.SetPrice(Convert.ToDecimal(FavoriteItem["Item Price"].ToString()));
                     billItems.SetPriceTax(Convert.ToDecimal(FavoriteItem["Item Price Tax"].ToString()));
+                    billItems.SetBuyPrice(Convert.ToDecimal(FavoriteItem["Item Buy Price"].ToString()));
                     BillItems.Add(billItems);
                 }
                 return new Response(Tuple.Create(BillItems, SerializeDataTableToJSON(dt)), true);
@@ -2009,6 +2010,7 @@ namespace DataAccessLayerJSON
                     billItems.SetName(FavoriteItem["Item Name"].ToString());
                     billItems.SetBarCode(FavoriteItem["Item BarCode"].ToString());
                     billItems.SetQuantity(Convert.ToInt32(FavoriteItem["Times Sold"].ToString()));
+                    billItems.SetBuyPrice(Convert.ToDecimal(FavoriteItem["Item Buy Price"].ToString()));
                     billItems.SetPrice(Convert.ToDecimal(FavoriteItem["Item Price"].ToString()));
                     billItems.SetPriceTax(Convert.ToDecimal(FavoriteItem["Item Price Tax"].ToString()));
                     BillItems.Add(billItems);
@@ -3033,6 +3035,9 @@ namespace DataAccessLayerJSON
 
                             cmd2.Parameters.AddWithValue("@BillID", BillID);
                             cmd2.Parameters.AddWithValue("@ItemBarCode", itemToAdd.GetItemBarCode());
+                            cmd2.Parameters.AddWithValue("@ItemSellPrice", itemToAdd.GetPrice());
+                            cmd2.Parameters.AddWithValue("@ItemSellPriceTax", itemToAdd.GetPriceTax());
+                            cmd2.Parameters.AddWithValue("@ItemBuyPrice", itemToAdd.GetBuyPrice());
                             cmd2.Parameters.AddWithValue("@ItemQuantity", itemToAdd.GetQuantity());
 
                             if (connection != null && connection.State == ConnectionState.Closed)
@@ -3113,6 +3118,9 @@ namespace DataAccessLayerJSON
 
                             cmd2.Parameters.AddWithValue("@BillID", BillID);
                             cmd2.Parameters.AddWithValue("@ItemBarCode", itemToAdd.GetItemBarCode());
+                            cmd2.Parameters.AddWithValue("@ItemSellPrice", itemToAdd.GetPrice());
+                            cmd2.Parameters.AddWithValue("@ItemSellPriceTax", itemToAdd.GetPriceTax());
+                            cmd2.Parameters.AddWithValue("@ItemBuyPrice", itemToAdd.GetBuyPrice());
                             cmd2.Parameters.AddWithValue("@ItemQuantity", itemToAdd.GetQuantity());
 
                             if (connection != null && connection.State == ConnectionState.Closed)

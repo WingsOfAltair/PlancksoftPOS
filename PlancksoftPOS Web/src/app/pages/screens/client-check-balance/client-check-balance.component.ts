@@ -64,6 +64,7 @@ export class ClientCheckBalanceComponent implements OnInit {
     "Sold Quantity",
     "Returned Quantity",
     "Item Price After Tax",
+    "Item Buy Price",
   ];
 
   allColumns1 = [...this.defaultColumns2];

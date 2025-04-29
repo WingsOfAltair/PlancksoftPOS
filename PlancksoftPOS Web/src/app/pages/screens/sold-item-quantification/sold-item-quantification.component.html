@@ -150,6 +150,18 @@
                 {{ row.data["CashierName"] || "-" }}
               </td>
             </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'ItemBuyPrice'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('ItemBuyPrice')"
+                *nbTreeGridHeaderCellDef
+              >
+              {{ "GENERALWORDS.BUYPRICE" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["ItemBuyPrice"] || "-" }}
+              </td>
+            </ng-container>
             <ng-container [nbTreeGridColumnDef]="'ItemPriceTax'">
               <th
                 nbTreeGridHeaderCell
@@ -172,6 +184,18 @@
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
                 {{ row.data["TimesSold"] || "-" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'RefundedQuantity'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('RefundedQuantity')"
+                *nbTreeGridHeaderCellDef
+              >
+              {{ "GENERALWORDS.RETURNEDQUANTITY" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["TimesRefunded"] || "-" }}
               </td>
             </ng-container>
             <ng-container [nbTreeGridColumnDef]="'Total'">

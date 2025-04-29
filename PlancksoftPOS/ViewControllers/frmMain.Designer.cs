@@ -99,6 +99,7 @@ namespace PlancksoftPOS
             this.Column63 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column69 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel8 = new MaterialSkin.Controls.MaterialCard();
             this.button18 = new MaterialSkin.Controls.MaterialButton();
             this.pictureBox20 = new System.Windows.Forms.PictureBox();
@@ -207,8 +208,10 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column70 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ItemPriceTax = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column71 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox29 = new System.Windows.Forms.PictureBox();
             this.Inventory = new System.Windows.Forms.TabPage();
@@ -500,6 +503,7 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column66 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column68 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column67 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.materialCard2 = new MaterialSkin.Controls.MaterialCard();
@@ -1908,7 +1912,8 @@ namespace PlancksoftPOS
             this.Column23,
             this.Column63,
             this.Column24,
-            this.Column25});
+            this.Column25,
+            this.Column69});
             this.dgvBillItems.Location = new System.Drawing.Point(0, 0);
             this.dgvBillItems.Name = "dgvBillItems";
             this.dgvBillItems.ReadOnly = true;
@@ -1963,6 +1968,14 @@ namespace PlancksoftPOS
             this.Column25.HeaderText = "السعر بعد الضريبه";
             this.Column25.Name = "Column25";
             this.Column25.ReadOnly = true;
+            // 
+            // Column69
+            // 
+            this.Column69.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column69.DataPropertyName = "Item Buy Price";
+            this.Column69.HeaderText = "سعر الشراء";
+            this.Column69.Name = "Column69";
+            this.Column69.ReadOnly = true;
             // 
             // panel8
             // 
@@ -3423,8 +3436,10 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn17,
             this.Column48,
             this.Column49,
+            this.Column70,
             this.ItemPriceTax,
             this.dataGridViewTextBoxColumn18,
+            this.Column71,
             this.dataGridViewTextBoxColumn19});
             this.dgvItemProfit.Location = new System.Drawing.Point(10, 0);
             this.dgvItemProfit.Name = "dgvItemProfit";
@@ -3465,10 +3480,18 @@ namespace PlancksoftPOS
             this.Column49.Name = "Column49";
             this.Column49.ReadOnly = true;
             // 
+            // Column70
+            // 
+            this.Column70.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column70.DataPropertyName = "Item Buy Price";
+            this.Column70.HeaderText = "سعر الشراء";
+            this.Column70.Name = "Column70";
+            this.Column70.ReadOnly = true;
+            // 
             // ItemPriceTax
             // 
             this.ItemPriceTax.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.ItemPriceTax.DataPropertyName = "Item Price Tax";
+            this.ItemPriceTax.DataPropertyName = "Item Sell Price Tax";
             this.ItemPriceTax.HeaderText = "سعر القطعة بعد الضريبة";
             this.ItemPriceTax.Name = "ItemPriceTax";
             this.ItemPriceTax.ReadOnly = true;
@@ -3480,6 +3503,14 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn18.HeaderText = "الكميه المباعه";
             this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
             this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // Column71
+            // 
+            this.Column71.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column71.DataPropertyName = "Times Refunded";
+            this.Column71.HeaderText = "الكمية المسترجعه";
+            this.Column71.Name = "Column71";
+            this.Column71.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn19
             // 
@@ -7962,6 +7993,7 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn21,
             this.dataGridViewTextBoxColumn22,
             this.Column66,
+            this.Column68,
             this.Column67,
             this.dataGridViewTextBoxColumn23});
             this.dgvClientBillItems.Location = new System.Drawing.Point(3, 19);
@@ -8002,6 +8034,14 @@ namespace PlancksoftPOS
             this.Column66.HeaderText = "عدد المرجعات";
             this.Column66.Name = "Column66";
             this.Column66.ReadOnly = true;
+            // 
+            // Column68
+            // 
+            this.Column68.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column68.DataPropertyName = "Item Buy Price";
+            this.Column68.HeaderText = "سعر الشراء";
+            this.Column68.Name = "Column68";
+            this.Column68.ReadOnly = true;
             // 
             // Column67
             // 
@@ -13434,13 +13474,6 @@ namespace PlancksoftPOS
         private ToolStripMenuItem العربيةToolStripMenuItem;
         private ToolStripMenuItem englishToolStripMenuItem;
         private ToolStripMenuItem الخروجToolStripMenuItem;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column48;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column49;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ItemPriceTax;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private MaterialTabControl tabControl9;
         private System.Windows.Forms.TabPage posSettings;
         private System.Windows.Forms.TabPage printersSettings;
@@ -13660,12 +13693,6 @@ namespace PlancksoftPOS
         public MaterialLabel lblEmail;
         public MaterialTextBox2 VendorEmail;
         public MaterialLabel lblVendorEmail;
-        private DataGridViewTextBoxColumn Column20;
-        private DataGridViewTextBoxColumn Column21;
-        private DataGridViewTextBoxColumn Column23;
-        private DataGridViewTextBoxColumn Column63;
-        private DataGridViewTextBoxColumn Column24;
-        private DataGridViewTextBoxColumn Column25;
         private DataGridViewTextBoxColumn Column27;
         private DataGridViewTextBoxColumn ClientIDDelete;
         private DataGridViewTextBoxColumn Column38;
@@ -13716,18 +13743,35 @@ namespace PlancksoftPOS
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private DataGridViewTextBoxColumn Column66;
-        private DataGridViewTextBoxColumn Column67;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
         private DataGridViewTextBoxColumn Column65;
         private DataGridViewTextBoxColumn Column41;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
         private DataGridViewTextBoxColumn VendorBillDate;
+        private DataGridViewTextBoxColumn Column20;
+        private DataGridViewTextBoxColumn Column21;
+        private DataGridViewTextBoxColumn Column23;
+        private DataGridViewTextBoxColumn Column63;
+        private DataGridViewTextBoxColumn Column24;
+        private DataGridViewTextBoxColumn Column25;
+        private DataGridViewTextBoxColumn Column69;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private DataGridViewTextBoxColumn Column66;
+        private DataGridViewTextBoxColumn Column68;
+        private DataGridViewTextBoxColumn Column67;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private DataGridViewTextBoxColumn Column48;
+        private DataGridViewTextBoxColumn Column49;
+        private DataGridViewTextBoxColumn Column70;
+        private DataGridViewTextBoxColumn ItemPriceTax;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private DataGridViewTextBoxColumn Column71;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
     }
 }
 

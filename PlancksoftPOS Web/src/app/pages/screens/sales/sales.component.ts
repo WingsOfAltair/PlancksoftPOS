@@ -35,6 +35,7 @@ export class SalesComponent implements OnInit {
     "ReturnedQuantity",
     "Price",
     "PriceafterTax",
+    "BuyPrice"
   ];
 
   allColumns = [...this.defaultColumns];

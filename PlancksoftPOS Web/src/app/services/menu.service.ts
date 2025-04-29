@@ -41,6 +41,7 @@ export class MenuService {
         this.sell_edit = this.message.sell_edit;
         this.settings_edit = this.message.settings_edit;
         this.users_edit = this.message.users_edit;
+        this.registerOn = JSON.parse(localStorage.getItem('registerOn'));
         this.loadMenus();
       });
   }
