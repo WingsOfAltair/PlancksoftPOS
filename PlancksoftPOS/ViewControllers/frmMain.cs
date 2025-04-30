@@ -3451,9 +3451,9 @@ namespace PlancksoftPOS
             dgvClientBills.DataSource = RetrievedBills;
         }
 
-        public List<Bill> DisplayVendorBills()
+        public List<Bill> DisplayVendorBills(int VendorID)
         {
-            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveVendorBills();
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveVendorBills(VendorID);
             dgvVendorBills.DataSource = RetrievedBills.Item2;
             return RetrievedBills.Item1;
         }
@@ -6675,7 +6675,7 @@ namespace PlancksoftPOS
                 string vendorName = dgvVendors.Rows[Index].Cells["VendorClientName"].Value.ToString();
                 int vendorID = Convert.ToInt32(dgvVendors.Rows[Index].Cells["VendorClientID"].Value.ToString());
 
-                List<Bill> Bills = DisplayVendorBills();
+                List<Bill> Bills = DisplayVendorBills(vendorID);
                 for (int i = 0; i < dgvVendorBills.Rows.Count; i++)
                 {
                     CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dgvVendorBills.DataSource];

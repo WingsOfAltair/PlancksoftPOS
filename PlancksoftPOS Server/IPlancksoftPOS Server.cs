@@ -89,7 +89,7 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         Tuple<List<Bill>, DataTable> RetrieveUnpaidBills();
         [OperationContract]
-        Tuple<List<Bill>, DataTable> RetrieveVendorBills();
+        Tuple<List<Bill>, DataTable> RetrieveVendorBills(int ClientID);
         [OperationContract]
         DataTable RetrieveTaxZReport();
         [OperationContract]

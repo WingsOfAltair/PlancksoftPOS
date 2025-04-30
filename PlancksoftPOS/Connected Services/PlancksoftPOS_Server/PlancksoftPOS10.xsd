@@ -596,7 +596,9 @@
   </xs:element>
   <xs:element name="RetrieveVendorBills">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RetrieveVendorBillsResponse">
@@ -642,6 +644,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="RetrieveUnprintedBills">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RetrieveUnprintedBillsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveUnprintedBillsResult" nillable="true" type="q20:TupleOfArrayOfBillDataTablex3XxKQzD" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="RetrieveBillsRefund">
     <xs:complexType>
       <xs:sequence />
@@ -650,7 +664,7 @@
   <xs:element name="RetrieveBillsRefundResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveBillsRefundResult" nillable="true" type="q20:TupleOfArrayOfBillDataTablex3XxKQzD" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveBillsRefundResult" nillable="true" type="q21:TupleOfArrayOfBillDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -662,7 +676,7 @@
   <xs:element name="RetrieveCapitalRevenueResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveCapitalRevenueResult" nillable="true" type="q21:TupleOfArrayOfItemDataTablex3XxKQzD" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveCapitalRevenueResult" nillable="true" type="q22:TupleOfArrayOfItemDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -674,7 +688,7 @@
   <xs:element name="RetrieveExportsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveExportsResult" nillable="true" type="q22:TupleOfArrayOfItemDataTablex3XxKQzD" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveExportsResult" nillable="true" type="q23:TupleOfArrayOfItemDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -686,7 +700,7 @@
   <xs:element name="RetrieveImportsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveImportsResult" nillable="true" type="q23:TupleOfArrayOfItemDataTablex3XxKQzD" />
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveImportsResult" nillable="true" type="q24:TupleOfArrayOfItemDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -698,7 +712,7 @@
   <xs:element name="RetrieveLeastBoughtItemsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveLeastBoughtItemsResult" nillable="true" type="q24:TupleOfArrayOfItemDataTablex3XxKQzD" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveLeastBoughtItemsResult" nillable="true" type="q25:TupleOfArrayOfItemDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -710,7 +724,7 @@
   <xs:element name="RetrieveMostBoughtItemsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveMostBoughtItemsResult" nillable="true" type="q25:TupleOfArrayOfItemDataTablex3XxKQzD" />
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveMostBoughtItemsResult" nillable="true" type="q26:TupleOfArrayOfItemDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -738,7 +752,7 @@
   <xs:element name="RetrieveUserPermissionsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveUserPermissionsResult" nillable="true" type="q26:Account" />
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveUserPermissionsResult" nillable="true" type="q27:Account" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -752,7 +766,7 @@
   <xs:element name="RetrieveItemPictureFromBarCodeResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveItemPictureFromBarCodeResult" nillable="true" type="q27:Item" />
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveItemPictureFromBarCodeResult" nillable="true" type="q28:Item" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -766,7 +780,7 @@
   <xs:element name="RetrieveItemsQuantityDatesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveItemsQuantityDatesResult" nillable="true" type="q28:Item" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveItemsQuantityDatesResult" nillable="true" type="q29:Item" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -780,7 +794,7 @@
   <xs:element name="RetrieveItemsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveItemsResult" nillable="true" type="q29:TupleOfArrayOfItemDataTablex3XxKQzD" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveItemsResult" nillable="true" type="q30:TupleOfArrayOfItemDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -819,7 +833,7 @@
   <xs:element name="RetrieveUsersResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveUsersResult" nillable="true" type="q30:TupleOfArrayOfAccountDataTablex3XxKQzD" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveUsersResult" nillable="true" type="q31:TupleOfArrayOfAccountDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -885,7 +899,7 @@
   <xs:element name="RetrieveBillItemsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveBillItemsResult" nillable="true" type="q31:TupleOfArrayOfItemDataTablex3XxKQzD" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveBillItemsResult" nillable="true" type="q32:TupleOfArrayOfItemDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -899,7 +913,7 @@
   <xs:element name="RetrieveBillItemsRefundResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveBillItemsRefundResult" nillable="true" type="q32:TupleOfArrayOfItemDataTablex3XxKQzD" />
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveBillItemsRefundResult" nillable="true" type="q33:TupleOfArrayOfItemDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -966,7 +980,7 @@
   <xs:element name="RetrieveFavoriteItemsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveFavoriteItemsResult" nillable="true" type="q33:TupleOfArrayOfItemDataTablex3XxKQzD" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveFavoriteItemsResult" nillable="true" type="q34:TupleOfArrayOfItemDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1114,7 +1128,7 @@
   <xs:element name="InsertItem">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="ItemToInsert" nillable="true" type="q34:Item" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="ItemToInsert" nillable="true" type="q35:Item" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1301,7 +1315,7 @@
   <xs:element name="RegisterClient">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="ClientToInsert" nillable="true" type="q35:Client" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="ClientToInsert" nillable="true" type="q36:Client" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1315,7 +1329,7 @@
   <xs:element name="RegisterVendor">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="ClientToInsert" nillable="true" type="q36:Client" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="ClientToInsert" nillable="true" type="q37:Client" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1357,7 +1371,7 @@
   <xs:element name="DeleteUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="UserToUpdate" nillable="true" type="q37:Account" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="UserToUpdate" nillable="true" type="q38:Account" />
         <xs:element minOccurs="0" name="cashierName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1372,7 +1386,7 @@
   <xs:element name="AddSaleOnItems">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="saleItems" nillable="true" type="q38:ArrayOfItem" />
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="saleItems" nillable="true" type="q39:ArrayOfItem" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1402,7 +1416,7 @@
   <xs:element name="AddUnpaidBill">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="billToAdd" nillable="true" type="q39:Bill" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="billToAdd" nillable="true" type="q40:Bill" />
         <xs:element minOccurs="0" name="cashierName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1417,7 +1431,7 @@
   <xs:element name="AddVendorBill">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="billToAdd" nillable="true" type="q40:Bill" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="billToAdd" nillable="true" type="q41:Bill" />
         <xs:element minOccurs="0" name="cashierName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1447,7 +1461,7 @@
   <xs:element name="PayBill">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="billToAdd" nillable="true" type="q41:Bill" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="billToAdd" nillable="true" type="q42:Bill" />
         <xs:element minOccurs="0" name="cashierName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -1480,7 +1494,7 @@
   <xs:element name="UpdateUser">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="UserToUpdate" nillable="true" type="q42:Account" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="UserToUpdate" nillable="true" type="q43:Account" />
         <xs:element minOccurs="0" name="cashierName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="AdminOrNot" type="xs:int" />
       </xs:sequence>
@@ -1532,7 +1546,7 @@
   <xs:element name="UpdateItemWarehouse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="ItemsToUpdate" nillable="true" type="q43:ArrayOfItem" />
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="ItemsToUpdate" nillable="true" type="q44:ArrayOfItem" />
         <xs:element minOccurs="0" name="EmployeeName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="EntryExitType" type="xs:int" />
       </xs:sequence>
@@ -1548,7 +1562,7 @@
   <xs:element name="UpdateItem">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="ItemToUpdate" nillable="true" type="q44:Item" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="ItemToUpdate" nillable="true" type="q45:Item" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1562,7 +1576,7 @@
   <xs:element name="UpdateItemQuantity">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="ItemToUpdate" nillable="true" type="q45:Item" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="ItemToUpdate" nillable="true" type="q46:Item" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1597,7 +1611,7 @@
   <xs:element name="RetrieveLastVendorBillNumberTodayResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveLastVendorBillNumberTodayResult" nillable="true" type="q46:Bill" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveLastVendorBillNumberTodayResult" nillable="true" type="q47:Bill" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1609,7 +1623,7 @@
   <xs:element name="RetrieveLastBillNumberTodayResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveLastBillNumberTodayResult" nillable="true" type="q47:Bill" />
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveLastBillNumberTodayResult" nillable="true" type="q48:Bill" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1623,7 +1637,7 @@
   <xs:element name="RetrieveItemsQuantityResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveItemsQuantityResult" nillable="true" type="q48:ArrayOfItem" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveItemsQuantityResult" nillable="true" type="q49:ArrayOfItem" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1635,7 +1649,7 @@
   <xs:element name="RetrieveSaleItemsQuantityResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveSaleItemsQuantityResult" nillable="true" type="q49:ArrayOfItem" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveSaleItemsQuantityResult" nillable="true" type="q50:ArrayOfItem" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1649,7 +1663,7 @@
   <xs:element name="RetrieveExpireStockTodayResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveExpireStockTodayResult" nillable="true" type="q50:TupleOfArrayOfItemDataTablex3XxKQzD" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="RetrieveExpireStockTodayResult" nillable="true" type="q51:TupleOfArrayOfItemDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1664,7 +1678,7 @@
   <xs:element name="RetrieveSaleTodayResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveSaleTodayResult" nillable="true" type="q51:ArrayOfItem" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="RetrieveSaleTodayResult" nillable="true" type="q52:ArrayOfItem" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1678,7 +1692,7 @@
   <xs:element name="SearchTodayBillsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="SearchTodayBillsResult" nillable="true" type="q52:TupleOfArrayOfBillDataTablex3XxKQzD" />
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="SearchTodayBillsResult" nillable="true" type="q53:TupleOfArrayOfBillDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1694,7 +1708,7 @@
   <xs:element name="SearchBillsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="SearchBillsResult" nillable="true" type="q53:TupleOfArrayOfBillDataTablex3XxKQzD" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="SearchBillsResult" nillable="true" type="q54:TupleOfArrayOfBillDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1780,7 +1794,7 @@
   <xs:element name="SearchItemsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="SearchItemsResult" nillable="true" type="q54:TupleOfArrayOfItemDataTablex3XxKQzD" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/System" minOccurs="0" name="SearchItemsResult" nillable="true" type="q55:TupleOfArrayOfItemDataTablex3XxKQzD" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

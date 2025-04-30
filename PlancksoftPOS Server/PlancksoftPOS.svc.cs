@@ -168,9 +168,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveClientBills(ClientID);
         }
-        public Tuple<List<Bill>, DataTable> RetrieveVendorBills()
+        public Tuple<List<Bill>, DataTable> RetrieveVendorBills(int ClientID)
         {
-            return DAL.RetrieveVendorBills();
+            return DAL.RetrieveVendorBills(ClientID);
         }
         public DataTable RetrieveTaxZReport()
         {
