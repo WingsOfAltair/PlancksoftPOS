@@ -40,6 +40,7 @@ export class ImportExportFormComponent implements OnInit {
   Date: any;
   ItemPriceTax: any;
   ItemPrice: any;
+  ItemBuyPrice: any;
   favroiteCategory: any;
   ItemTypeID: any;
   filterdata: any;
@@ -58,6 +59,7 @@ export class ImportExportFormComponent implements OnInit {
     "ItemName",
     "ItemBarcode",
     "ItemQuantity",
+    "ItemBuyPrice",
     "SellPrice",
     "Action",
   ];
@@ -247,6 +249,7 @@ export class ImportExportFormComponent implements OnInit {
       this.ItemTypeID = this.filterdata[0].ItemTypeID;
       this.ItemTypeName = this.filterdata[0].ItemTypeName;
       this.warehouseName = this.filterdata[0].warehouseName;
+      this.ItemBuyPrice = this.filterdata[0].ItemBuyPrice;
       this.ItemPrice = this.filterdata[0].ItemPrice;
       this.ItemPriceTax = this.filterdata[0].ItemPriceTax;
       this.Date = this.filterdata[0].Date;
@@ -480,6 +483,7 @@ export class ImportExportFormComponent implements OnInit {
             ItemBarCode: el.ItemsToUpdate.ItemBarCode,
             ItemQuantity: el.ItemsToUpdate.ItemQuantity,
             ItemPrice: el.ItemsToUpdate.ItemPrice,
+            ItemBuyPrice: el.ItemToUpdate.ItemBuyPrice,
           },
         };
 

@@ -3,7 +3,11 @@
   "WorkspaceRootPath": "D:\\GitHub\\PlancksoftPOS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|d:\\github\\plancksoftpos\\plancksoftpos\\viewcontrollers\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{A0F5C1A3-F956-4FBF-BA97-F9DC706F178B}|DataAccessLayerJSON\\DataAccessLayerJSON.csproj|d:\\github\\plancksoftpos\\dataaccesslayerjson\\dataaccesslayerjson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A0F5C1A3-F956-4FBF-BA97-F9DC706F178B}|DataAccessLayerJSON\\DataAccessLayerJSON.csproj|solutionrelative:dataaccesslayerjson\\dataaccesslayerjson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|D:\\GitHub\\PlancksoftPOS\\plancksoftpos\\viewcontrollers\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|solutionrelative:plancksoftpos\\viewcontrollers\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -23,6 +27,19 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "DataAccessLayerJSON.cs",
+              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.cs",
+              "RelativeDocumentMoniker": "DataAccessLayerJSON\\DataAccessLayerJSON.cs",
+              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.cs",
+              "RelativeToolTip": "DataAccessLayerJSON\\DataAccessLayerJSON.cs",
+              "ViewState": "AgIAABQNAAAAAAAAAAAvwB4NAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-30T07:50:20.372Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "frmMain.cs",
               "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmMain.cs",
               "RelativeDocumentMoniker": "PlancksoftPOS\\ViewControllers\\frmMain.cs",
@@ -35,14 +52,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "frmMain.cs [Design]",
               "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmMain.cs",
               "RelativeDocumentMoniker": "PlancksoftPOS\\ViewControllers\\frmMain.cs",
               "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmMain.cs [Design]",
               "RelativeToolTip": "PlancksoftPOS\\ViewControllers\\frmMain.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-22T14:44:27.551Z"
+              "WhenOpened": "2024-10-22T14:44:27.551Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
