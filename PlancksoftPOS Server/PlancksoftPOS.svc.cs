@@ -105,7 +105,7 @@ namespace PlancksoftPOS_Server
         {
             DAL.LogLogin(cashierName, date);
         }
-        public Tuple<bool, string, bool> Login(Account AccountToLogin)
+        public Tuple<bool, string, bool, bool> Login(Account AccountToLogin)
         {
             return DAL.Login(AccountToLogin);
         }

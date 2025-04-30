@@ -158,6 +158,11 @@ export class NgxLoginComponent implements OnInit {
           uid: this.firstFormGroup.value.UserName,
           response: this.message,
         };
+        if (this.message.Item4 == true) {
+
+          this.toastrService.danger("Account is blocked.", "Login Field");
+          return;
+        }
         sessionStorage.setItem("userData", JSON.stringify(dt));
 
         if (this.message.Item1 == true) {

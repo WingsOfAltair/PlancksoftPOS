@@ -59,7 +59,7 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         void LogLogin(string cashierName, DateTime date);
         [OperationContract]
-        Tuple<bool, string, bool> Login(Account AccountToLogin);
+        Tuple<bool, string, bool, bool> Login(Account AccountToLogin);
         [OperationContract]
         bool Register(Account AccountToRegister, string UID, int AdminOrNot);
         [OperationContract]

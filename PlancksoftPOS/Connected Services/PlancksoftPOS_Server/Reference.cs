@@ -160,10 +160,10 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         System.Threading.Tasks.Task LogLoginAsync(string cashierName, System.DateTime date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/Login", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/LoginResponse")]
-        System.Tuple<bool, string, bool> Login(Dependencies.Account AccountToLogin);
+        System.Tuple<bool, string, bool, bool> Login(Dependencies.Account AccountToLogin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/Login", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/LoginResponse")]
-        System.Threading.Tasks.Task<System.Tuple<bool, string, bool>> LoginAsync(Dependencies.Account AccountToLogin);
+        System.Threading.Tasks.Task<System.Tuple<bool, string, bool, bool>> LoginAsync(Dependencies.Account AccountToLogin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/Register", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RegisterResponse")]
         bool Register(Dependencies.Account AccountToRegister, string UID, int AdminOrNot);
@@ -951,11 +951,11 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
             return base.Channel.LogLoginAsync(cashierName, date);
         }
         
-        public System.Tuple<bool, string, bool> Login(Dependencies.Account AccountToLogin) {
+        public System.Tuple<bool, string, bool, bool> Login(Dependencies.Account AccountToLogin) {
             return base.Channel.Login(AccountToLogin);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<bool, string, bool>> LoginAsync(Dependencies.Account AccountToLogin) {
+        public System.Threading.Tasks.Task<System.Tuple<bool, string, bool, bool>> LoginAsync(Dependencies.Account AccountToLogin) {
             return base.Channel.LoginAsync(AccountToLogin);
         }
         

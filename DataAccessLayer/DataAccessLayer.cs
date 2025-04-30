@@ -17,6 +17,7 @@ namespace DataAccessLayer
 
         public int Status;
         public string Name;
+        public int Blocked;
 
         public bool CheckConnection()
         {
@@ -747,7 +748,7 @@ namespace DataAccessLayer
             }
         }
 
-        public Tuple<bool, string, bool> Login(Account AccountToLogin)
+        public Tuple<bool, string, bool, bool> Login(Account AccountToLogin)
         {
             try
             {
@@ -760,22 +761,34 @@ namespace DataAccessLayer
                     cmd.Parameters.Add("@Name", SqlDbType.NVarChar).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Authority", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Blocked", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters["@Name"].Size = 250;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
                         connection.Open();
                     cmd.ExecuteNonQuery();
 
-                    int Authority = Convert.ToInt32(cmd.Parameters["@Authority"].Value);
+                    int Authority = 0;
+                    try
+                    {
+                        Authority = Convert.ToInt32(cmd.Parameters["@Authority"].Value);
+                    }
+                    catch (Exception ex) { }
+                    try
+                    {
+                        Name = cmd.Parameters["@Name"].Value.ToString();
+                    }
+                    catch (Exception ex) { }
+
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
-                    Name = cmd.Parameters["@Name"].Value.ToString();
+                    Blocked = Convert.ToInt32(cmd.Parameters["@Blocked"].Value);
                     connection.Close();
-                    return Tuple.Create(Convert.ToBoolean(Status), Name, Convert.ToBoolean(Authority));
+                    return Tuple.Create(Convert.ToBoolean(Status), Name, Convert.ToBoolean(Authority), Convert.ToBoolean(Blocked));
                 }
             }
             catch (Exception ex)
             {
-                return Tuple.Create(false, "", false);
+                return Tuple.Create(false, "", false, false);
             }
         }
 

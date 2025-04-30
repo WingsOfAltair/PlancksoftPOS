@@ -28,12 +28,13 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="TupleOfArrayOfAccountDataTablex3XxKQzD" nillable="true" type="tns:TupleOfArrayOfAccountDataTablex3XxKQzD" />
-  <xs:complexType name="TupleOfbooleanstringboolean">
+  <xs:complexType name="TupleOfbooleanstringbooleanboolean">
     <xs:annotation>
       <xs:appinfo>
-        <GenericType Name="TupleOf{0}{1}{2}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
+        <GenericType Name="TupleOf{0}{1}{2}{3}{#}" Namespace="http://schemas.datacontract.org/2004/07/System" xmlns="http://schemas.microsoft.com/2003/10/Serialization/">
           <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
           <GenericParameter Name="string" Namespace="http://www.w3.org/2001/XMLSchema" />
+          <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
           <GenericParameter Name="boolean" Namespace="http://www.w3.org/2001/XMLSchema" />
         </GenericType>
       </xs:appinfo>
@@ -42,9 +43,10 @@
       <xs:element name="m_Item1" type="xs:boolean" />
       <xs:element name="m_Item2" nillable="true" type="xs:string" />
       <xs:element name="m_Item3" type="xs:boolean" />
+      <xs:element name="m_Item4" type="xs:boolean" />
     </xs:sequence>
   </xs:complexType>
-  <xs:element name="TupleOfbooleanstringboolean" nillable="true" type="tns:TupleOfbooleanstringboolean" />
+  <xs:element name="TupleOfbooleanstringbooleanboolean" nillable="true" type="tns:TupleOfbooleanstringbooleanboolean" />
   <xs:complexType name="TupleOfArrayOfItemDataTablex3XxKQzD">
     <xs:annotation>
       <xs:appinfo>
