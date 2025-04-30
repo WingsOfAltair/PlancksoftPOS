@@ -357,7 +357,15 @@ namespace PlancksoftPOS
             newAccount.SetAccountUID(txtUID.Text);
             newAccount.SetAccountPWD(Dependencies.MD5Encryption.Encrypt(txtPassword.Text, "PlancksoftPOS"));
 
-            Tuple<bool, string, bool> result = Connection.server.Login(newAccount);
+            Tuple<bool, string, bool, bool> result = Connection.server.Login(newAccount);
+            if (result.Item4 == true)
+            {
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    MaterialMessageBox.Show(".الحساب مقفول", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                    MaterialMessageBox.Show("Account is blocked.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                return;
+            }
             if (result.Item1)
             {
                 if (result.Item2 != "notloggedin...")
@@ -376,9 +384,9 @@ namespace PlancksoftPOS
             else
             {
                 if (pickedLanguage == LanguageChoice.Languages.Arabic)
-                    MaterialMessageBox.Show(".المستخدم غير مسجل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    MaterialMessageBox.Show(".الحساب غير مسجل", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 else if (pickedLanguage == LanguageChoice.Languages.English)
-                    MaterialMessageBox.Show("User Account is not registered.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    MaterialMessageBox.Show("Account is not registered.", false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
             txtUID.Text = "";
             txtPassword.Text = "";

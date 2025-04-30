@@ -21,6 +21,7 @@ namespace DataAccessLayerJSON
 
         public int Status;
         public string Name;
+        public int Blocked;
 
         public string SerializeDataTableToJSON(DataTable dt)
         {
@@ -782,17 +783,29 @@ namespace DataAccessLayerJSON
                     cmd.Parameters.Add("@Name", SqlDbType.NVarChar).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Authority", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmd.Parameters.Add("@Blocked", SqlDbType.Int).Direction = ParameterDirection.Output;
                     cmd.Parameters["@Name"].Size = 250;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
                         connection.Open();
                     cmd.ExecuteNonQuery();
 
-                    int Authority = Convert.ToInt32(cmd.Parameters["@Authority"].Value);
+                    int Authority = 0;
+                    try
+                    {
+                        Authority = Convert.ToInt32(cmd.Parameters["@Authority"].Value);
+                    }
+                    catch (Exception ex) { }
+                    try
+                    {
+                        Name = cmd.Parameters["@Name"].Value.ToString();
+                    }
+                    catch (Exception ex) { }
+
                     Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
-                    Name = cmd.Parameters["@Name"].Value.ToString();
+                    Blocked = Convert.ToInt32(cmd.Parameters["@Blocked"].Value);
                     connection.Close();
-                    return new Response(Tuple.Create(Convert.ToBoolean(Status), Name, Convert.ToBoolean(Authority)), true);
+                    return new Response(Tuple.Create(Convert.ToBoolean(Status), Name, Convert.ToBoolean(Authority), Convert.ToBoolean(Blocked)), true);
                 }
             }
             catch (Exception ex)
