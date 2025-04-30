@@ -273,45 +273,44 @@ export class MenuService {
             ],
           });
           
-          if (this.registerOn) {
-            this.menu.push({
-              title:
-                this.translationService.getSelectedLanguage() == "en"
-                  ? "Clients' Affairs"
-                  : "شؤون العملاء",
-              icon: "layout-outline",
-              children: [
-                {
-                  title:
-                    this.translationService.getSelectedLanguage() == "en"
-                      ? "Clients' Definitions"
-                      : "تعريف العملاء",
-                  link: "/pages/screen/client-defination",
-                },
-                {
-                  title:
-                    this.translationService.getSelectedLanguage() == "en"
-                      ? "Client Balance Check"
-                      : "كشف حساب العميل",
-                  link: "/pages/screen/client-check-balance",
-                },
-                {
-                  title:
-                    this.translationService.getSelectedLanguage() == "en"
-                      ? "Vendors' Definitions"
-                      : "تعريف مورد",
-                  link: "/pages/screen/vendor-defination",
-                },
-                {
-                  title:
-                    this.translationService.getSelectedLanguage() == "en"
-                      ? "Vendor Balance Check"
-                      : "كشف حساب مورد",
-                  link: "/pages/screen/vendor-check-balance",
-                },
-              ],
-            });
-          }
+          this.menu.push({
+            title:
+              this.translationService.getSelectedLanguage() == "en"
+                ? "Clients' Affairs"
+                : "شؤون العملاء",
+            icon: "layout-outline",
+            children: [
+              {
+                title:
+                  this.translationService.getSelectedLanguage() == "en"
+                    ? "Clients' Definitions"
+                    : "تعريف العملاء",
+                link: "/pages/screen/client-defination",
+              },
+              {
+                title:
+                  this.translationService.getSelectedLanguage() == "en"
+                    ? "Client Balance Check"
+                    : "كشف حساب العميل",
+                link: "/pages/screen/client-check-balance",
+              },
+              {
+                title:
+                  this.translationService.getSelectedLanguage() == "en"
+                    ? "Vendors' Definitions"
+                    : "تعريف مورد",
+                link: "/pages/screen/vendor-defination",
+              },
+              {
+                title:
+                  this.translationService.getSelectedLanguage() == "en"
+                    ? "Vendor Balance Check"
+                    : "كشف حساب مورد",
+                link: "/pages/screen/vendor-check-balance",
+              },
+            ],
+          });
+
           this.menu.push(
           {
             title:

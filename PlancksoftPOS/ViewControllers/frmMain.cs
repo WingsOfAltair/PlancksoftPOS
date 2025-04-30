@@ -1005,7 +1005,7 @@ namespace PlancksoftPOS
                         dgvItemProfit.Columns["Column49"].HeaderText = "إسم الكاشير";
                         dgvItemProfit.Columns["Column70"].HeaderText = "سعر الشراء";
                         dgvItemProfit.Columns["ItemPriceTax"].HeaderText = "سعر القطعة بعد الضريبة";
-                        dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "الكميه المباعه"
+                        dgvItemProfit.Columns["dataGridViewTextBoxColumn18"].HeaderText = "الكميه المباعه";
                         dgvItemProfit.Columns["Column71"].HeaderText = "الكميه المسترجعه";
                         dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "المجموع";
                     }
