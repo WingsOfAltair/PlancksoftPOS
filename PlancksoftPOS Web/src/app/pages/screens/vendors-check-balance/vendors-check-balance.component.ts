@@ -17,7 +17,7 @@ export class VendorsCheckBalanceComponent implements OnInit {
   data: any;
   itemdata: any;
 
-  defaultColumns = ["Bill ID", "Importer Name", "Cashier Name", "Net Total", "Date", "Action"];
+  defaultColumns = ["Bill ID", "Importer Name", "Cashier Name", "Net Total", "Date", "Status", "Action"];
 
   allColumns = [...this.defaultColumns];
 
@@ -27,6 +27,7 @@ export class VendorsCheckBalanceComponent implements OnInit {
   sortDirection: NbSortDirection = NbSortDirection.NONE;
   Date: Date;
   alldata: any;
+  clientdata: any[];
 
   updateSort(sortRequest: NbSortRequest): void {
     this.sortColumn = sortRequest.column;
@@ -83,11 +84,45 @@ export class VendorsCheckBalanceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     this.publisherService
-      .PostRequest("RetrieveVendorBills", "")
+      .PostRequest("GetRetrieveVendors", "")
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
+        var response = JSON.parse(res);
+        var array = JSON.parse(response.ResponseMessage);
+
+        var list = [];
+
+        array.forEach((el) => {
+          var obj = {
+            data: {
+              ClientID: el["Client ID"],
+              ClientName: el["Client Name"],
+              ClientPhone: el["Client Phone"],
+              ClientAddress: el["Client Address"],
+              ClientEmail: el["Client Email"],
+            },
+          };
+          list.push(obj);
+        });
+
+        this.clientdata = list;
+      });
+      
+  }
+
+  onSelectionChange(Id) {
+    var obj = {
+      ClientID: Id,
+    };
+    this.publisherService
+      .PostRequest("RetrieveVendorBills", obj)
+      .subscribe((res: any) => {
+        console.log(JSON.parse(res));
+
+        debugger
         var response = JSON.parse(res);
         var array = response.ResponseMessage.Item1;
 
@@ -102,6 +137,7 @@ export class VendorsCheckBalanceComponent implements OnInit {
               ClientName: el["ClientName"],
               CashierName: el["CashierName"],
               TotalAmount: el["TotalAmount"],
+              Status: el["Status"],
               Date: formattedDate,
             },
           };
@@ -110,10 +146,7 @@ export class VendorsCheckBalanceComponent implements OnInit {
 
         this.data = list;
         this.dataSource = this.dataSourceBuilder.create(this.data);
-
       });
-
-      
   }
 
   Bill(id) {

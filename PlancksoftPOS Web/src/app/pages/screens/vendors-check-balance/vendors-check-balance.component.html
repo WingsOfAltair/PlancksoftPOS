@@ -4,19 +4,35 @@
         <nb-card-header>{{ "GENERALWORDS.VENDORCHECKBALANCE" | translate }}</nb-card-header>
         <nb-card-body>
           <div class="row mt-3">
-            <div class="col-lg-8 mb-3">
-             
+
+            <div class="col-md-3 mb-3">
+              <label>{{ "GENERALWORDS.IMPORTERNAME" | translate }}</label>
+              <nb-select
+                placeholder='{{ "GENERALWORDS.IMPORTERNAME" | translate }}'
+                (selectedChange)="onSelectionChange($event)"
+                style="width: 17rem"
+              >
+                <nb-option [value]="0">None</nb-option>
+                <nb-option
+                  *ngFor="let data of clientdata"
+                  [value]="data.data.ClientID"
+                  >{{ data.data.ClientName }}</nb-option
+                >
+              </nb-select>
             </div>
   
+            <div class="col-lg-6 mb-3">
+              <!-- Optional placeholder for buttons or other elements -->
+            </div>
   
-            <div class="col-lg-4 mb-3">
+            <div class="col-lg-3 mb-3">
               <input
                 nbInput
                 [nbFilterInput]="dataSource"
                 placeholder='{{ "GENERALWORDS.SEARCH" | translate }}'
                 id="search"
                 class="search-input"
-                style="width: 100%; margin-top: 23px"
+                style="float: right; width: 100%; margin-top: 28px"
               />
             </div>
             <table
@@ -89,6 +105,18 @@
                   {{ row.data["Date"] || "-" }}
                 </td>
               </ng-container>
+              <ng-container [nbTreeGridColumnDef]="'Status'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('Status')"
+                  *nbTreeGridHeaderCellDef
+                >
+                {{ "GENERALWORDS.STATUS" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["Status"] || "-" }}
+                </td>
+              </ng-container>
               <ng-container [nbTreeGridColumnDef]="'Action'">
                 <th
                   nbTreeGridHeaderCell
@@ -118,7 +146,7 @@
                 placeholder='{{ "GENERALWORDS.SEARCH" | translate }}'
                 id="search"
                 class="search-input"
-                style="width: 100%; margin-top: 23px"
+                style="float: right; width: 100%; margin-top: 23px"
               />
             </div>
             <table

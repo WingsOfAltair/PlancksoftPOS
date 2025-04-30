@@ -504,7 +504,7 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string RetrieveVendorBills();
+        string RetrieveVendorBills(int ClientID);
         [OperationContract]
         [
             WebInvoke

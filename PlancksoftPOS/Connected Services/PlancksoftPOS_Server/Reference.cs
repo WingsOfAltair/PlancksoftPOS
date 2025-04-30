@@ -250,10 +250,10 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnpaidBillsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveVendorBills();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveVendorBills(int ClientID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBillsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveVendorBillsAsync();
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveVendorBillsAsync(int ClientID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveTaxZReport", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveTaxZReportResponse")]
         System.Data.DataTable RetrieveTaxZReport();
@@ -266,6 +266,12 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsResponse")]
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveBillsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBillsResponse")]
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnprintedBills();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBillsResponse")]
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnprintedBillsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefund", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefundResponse")]
         System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBillsRefund();
@@ -1065,12 +1071,12 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
             return base.Channel.RetrieveUnpaidBillsAsync();
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveVendorBills() {
-            return base.Channel.RetrieveVendorBills();
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveVendorBills(int ClientID) {
+            return base.Channel.RetrieveVendorBills(ClientID);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveVendorBillsAsync() {
-            return base.Channel.RetrieveVendorBillsAsync();
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveVendorBillsAsync(int ClientID) {
+            return base.Channel.RetrieveVendorBillsAsync(ClientID);
         }
         
         public System.Data.DataTable RetrieveTaxZReport() {
@@ -1087,6 +1093,14 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         
         public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveBillsAsync() {
             return base.Channel.RetrieveBillsAsync();
+        }
+        
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnprintedBills() {
+            return base.Channel.RetrieveUnprintedBills();
+        }
+        
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnprintedBillsAsync() {
+            return base.Channel.RetrieveUnprintedBillsAsync();
         }
         
         public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBillsRefund() {

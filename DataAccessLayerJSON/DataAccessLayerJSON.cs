@@ -1333,7 +1333,7 @@ namespace DataAccessLayerJSON
             }
         }
 
-        public Response RetrieveVendorBills()
+        public Response RetrieveVendorBills(int ClientID)
         {
             try
             {
@@ -1343,6 +1343,8 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+
+                cmd.Parameters.AddWithValue("@ClientID", ClientID);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);

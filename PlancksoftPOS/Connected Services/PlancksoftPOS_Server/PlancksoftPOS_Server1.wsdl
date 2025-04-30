@@ -262,6 +262,12 @@
   <wsdl:message name="IPlancksoftPOS_Server_RetrieveBills_OutputMessage">
     <wsdl:part name="parameters" element="tns:RetrieveBillsResponse" />
   </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveUnprintedBills_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveUnprintedBills" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveUnprintedBills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveUnprintedBillsResponse" />
+  </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_RetrieveBillsRefund_InputMessage">
     <wsdl:part name="parameters" element="tns:RetrieveBillsRefund" />
   </wsdl:message>
@@ -886,6 +892,10 @@
     <wsdl:operation name="RetrieveBills">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBills" message="tns:IPlancksoftPOS_Server_RetrieveBills_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsResponse" message="tns:IPlancksoftPOS_Server_RetrieveBills_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUnprintedBills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBills" message="tns:IPlancksoftPOS_Server_RetrieveUnprintedBills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBillsResponse" message="tns:IPlancksoftPOS_Server_RetrieveUnprintedBills_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="RetrieveBillsRefund">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefund" message="tns:IPlancksoftPOS_Server_RetrieveBillsRefund_InputMessage" />
@@ -1565,6 +1575,15 @@
     </wsdl:operation>
     <wsdl:operation name="RetrieveBills">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBills" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RetrieveUnprintedBills">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBills" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
