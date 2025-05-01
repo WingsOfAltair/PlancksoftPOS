@@ -48,6 +48,7 @@ export class RefundItemModalComponent implements OnInit {
   Userdata: any;
   userID: any;
   defaultReturnQuantity: number = 0;
+  moneyInRegister: any;
 
   updateSort(sortRequest: NbSortRequest): void {
     this.sortColumn = sortRequest.column;
@@ -290,6 +291,37 @@ export class RefundItemModalComponent implements OnInit {
         this.pickbilltable = 0;
         this.pickitemtable = 2;
         this.updatequantity = 0;
+
+        
+        var obj2 = {"ItemBarCode":this.firstformgroup.value.ItemBarCode};
+
+        this.publisherService
+        .PostRequest("SearchItems", obj2)
+        .subscribe((res : any) => {
+          var response = JSON.parse(res);
+          var dataa = JSON.parse(response.ResponseMessage.Item1)
+
+          // Initialize moneyInRegister from localStorage or default to 0 if not available or NaN
+          this.moneyInRegister = parseFloat(localStorage.getItem('moneyInRegister')) || 0;
+
+          console.log("money in register before");
+          console.log(this.moneyInRegister);
+          this.moneyInRegister = this.moneyInRegister - (this.firstformgroup.value.ReturnQuantity * parseFloat(dataa[0]["Item Price Tax"]));
+
+          // Update the value in localStorage
+          localStorage.setItem('moneyInRegister', this.moneyInRegister.toString());
+
+          console.log("money in register after");
+          console.log(this.moneyInRegister);
+
+          console.log("return quantity")
+          console.log(this.firstformgroup.value.ReturnQuantity);
+
+          console.log("item price tax")
+          console.log(parseFloat(dataa[0]["Item Price Tax"]));
+
+          console.log(this.firstformgroup.value.ReturnQuantity * parseFloat(dataa[0]["Item Price Tax"]));
+        })
 
         var obj = {
           BillNumber: this.BillId,
