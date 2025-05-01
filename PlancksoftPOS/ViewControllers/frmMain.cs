@@ -2398,10 +2398,10 @@ namespace PlancksoftPOS
                 flowLayoutPanels.Add(new FlowLayoutPanel());
                 flowLayoutPanels[i].Dock = DockStyle.Fill;
                 flowLayoutPanels[i].Location = new Point(0, 1);
-                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
                     flowLayoutPanels[i].FlowDirection = FlowDirection.LeftToRight;
-                } else if (pickedLanguage == LanguageChoice.Languages.English)
+                } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
                     flowLayoutPanels[i].FlowDirection = FlowDirection.RightToLeft;
                 }
@@ -6263,7 +6263,7 @@ namespace PlancksoftPOS
 
                         if (!Program.exited)
                         {
-                            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                             {
                                 DialogResult exitDialog = FlexibleMaterialForm.Show(this, "هل أنت متأكد من رغبتك بالخروج؟", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 if (exitDialog == DialogResult.Yes)
@@ -6276,7 +6276,7 @@ namespace PlancksoftPOS
                                     e.Cancel = true;
                                 }
                             }
-                            else if (pickedLanguage == LanguageChoice.Languages.English)
+                            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                             {
                                 DialogResult exitDialog = FlexibleMaterialForm.Show(this, "Are you sure you would like to quit?", Application.ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1, false, FlexibleMaterialForm.ButtonsPosition.Center);
                                 if (exitDialog == DialogResult.Yes)
@@ -8969,10 +8969,10 @@ namespace PlancksoftPOS
             {
                 if (nudClientIDImportExport.Value == 0 || txtClientNameImportExport.Text.IsNullOrEmpty())
                 {
-                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
                         MaterialSkin.Controls.MaterialMessageBox.Show(".الرجاء إختيار العميل لإتمام الفاتوره الحاليه", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                    } else if (pickedLanguage == LanguageChoice.Languages.English)
+                    } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
                         MaterialSkin.Controls.MaterialMessageBox.Show("Please pick a client to commit the current bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
@@ -9790,14 +9790,27 @@ namespace PlancksoftPOS
                 {
                     if (row.Cells["Column4"].Value.ToString() == "Paid")
                     {
-                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                         {
                             MaterialMessageBox.Show(".هذه الفاتوره مدفوعه مسبقا", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             continue;
                         }
-                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                         {
                             MaterialMessageBox.Show("This Bill is already paid.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                            continue;
+                        }
+                    }
+                    if (row.Cells["Column4"].Value.ToString() == "Completely Refunded")
+                    {
+                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            MaterialMessageBox.Show(".هذه الفاتوره مرجوعه بالكامل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                            continue;
+                        }
+                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            MaterialMessageBox.Show("This Bill is completely refunded.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                             continue;
                         }
                     }
@@ -10374,11 +10387,11 @@ namespace PlancksoftPOS
 
                 if (Connection.server.DeleteClient(clientID.ToString()))
                 {
-                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
                         MaterialMessageBox.Show(".تم حذف العميل بنجاح", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
-                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
                         MaterialMessageBox.Show("Client was deleted successfully.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
@@ -10386,10 +10399,10 @@ namespace PlancksoftPOS
             }
             catch (Exception exc)
             {
-                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
                     MaterialMessageBox.Show(".لم نستطع حذف العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
-                } else if (pickedLanguage == LanguageChoice.Languages.English)
+                } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
                     MaterialMessageBox.Show("We were unable to delete the client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }

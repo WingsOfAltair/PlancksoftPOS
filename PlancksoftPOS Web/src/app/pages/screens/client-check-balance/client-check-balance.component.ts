@@ -5,6 +5,7 @@ import {
   NbTreeGridDataSource,
   NbTreeGridDataSourceBuilder,
   NbWindowService,
+  NbToastrService,
 } from "@nebular/theme";
 import { SmartTableData } from "../../../@core/data/smart-table";
 import { PublisherService } from "../../../services/publisher.service";
@@ -95,7 +96,8 @@ export class ClientCheckBalanceComponent implements OnInit {
     private service: SmartTableData,
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<any>,
     private publisherService: PublisherService,
-    private windowService: NbWindowService
+    private windowService: NbWindowService,
+    private toastrService: NbToastrService,
   ) {}
 
   ngOnInit(): void {
@@ -243,6 +245,18 @@ export class ClientCheckBalanceComponent implements OnInit {
 
   updatebill(BillNumber) {
     var selected = this.data.filter((a) => a.data.BillNumber == BillNumber)[0];
+
+    if (selected.data.Status == "Paid")
+    {
+      this.toastrService.danger("Bill is already paid.")
+      return;
+    }
+    if (selected.data.Status == "Completely Refunded")
+    {
+      this.toastrService.danger("Bill is already completely refunded.")
+      return;
+    } 
+
     var selectedclient = this.clientdata.filter((a) => a.data.ClientID == selected.data.ClientID)[0];
 
     console.log('selected')

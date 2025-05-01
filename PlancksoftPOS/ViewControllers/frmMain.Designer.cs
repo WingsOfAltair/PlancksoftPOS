@@ -12572,7 +12572,7 @@ namespace PlancksoftPOS
             // 
             // Menu
             // 
-            this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.Menu.Depth = 0;
             this.Menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.اللغةToolStripMenuItem,
@@ -12581,7 +12581,7 @@ namespace PlancksoftPOS
             this.Menu.MouseState = MaterialSkin.MouseState.HOVER;
             this.Menu.Name = "Menu";
             this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Menu.Size = new System.Drawing.Size(110, 70);
+            this.Menu.Size = new System.Drawing.Size(181, 92);
             // 
             // اللغةToolStripMenuItem
             // 
