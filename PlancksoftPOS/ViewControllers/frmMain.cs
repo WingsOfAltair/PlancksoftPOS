@@ -7900,6 +7900,7 @@ namespace PlancksoftPOS
                 frmItemRefund frmItemRefund = new frmItemRefund(itemtypes, this.UID);
                 openedForm = frmItemRefund;
                 frmItemRefund.ShowDialog();
+                this.moneyInRegister = Properties.Settings.Default.moneyInRegister;
                 capital = Connection.server.GetCapitalAmount();
                 CapitalAmountnud.Value = capital;
                 CapitalAmount = capital;

@@ -157,6 +157,13 @@ namespace PlancksoftPOS
                 }
                 if (Connection.server.ReturnItem(txtItemName.Text, txtItemBarcode.Text, Convert.ToInt32(ItemQuantitynud.Value), this.UID, Convert.ToInt32(txtBillID.Text)))
                 {
+                    Decimal returnedItemPrice = Connection.server.SearchItems("", txtItemBarcode.Text, 0).Item1[0].GetPriceTax();
+                    Decimal returnedItemPriceTotal = returnedItemPrice * ItemQuantitynud.Value;
+
+                    Decimal moneyInRegister = Properties.Settings.Default.moneyInRegister;
+                    Properties.Settings.Default.moneyInRegister = moneyInRegister - returnedItemPriceTotal;
+                    Properties.Settings.Default.Save();
+
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
                         txtItemBarcode.Text = "";

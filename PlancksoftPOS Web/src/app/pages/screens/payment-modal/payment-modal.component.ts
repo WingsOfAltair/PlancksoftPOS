@@ -423,22 +423,13 @@ export class PaymentModalComponent implements OnInit {
           this.moneyInRegister = parseFloat(localStorage.getItem('moneyInRegister')) || 0;
 
           const amount = parseFloat(this.payment.value.AmountRequired) || 0;
+          const paidamount = parseFloat(this.payment.value.PaidAmount);
           const amountrem = parseFloat(this.payment.value.Remainder) || 0;
 
-          if (this.payment.value.PaidAmount <= amountrem)
-            {
-              this.moneyInRegister += this.payment.value.PaidAmount;
-            }
-            else
-            {
-              this.moneyInRegister += amountrem;
-            }
-
-          if (this.moneyInRegister < 0)
-            this.moneyInRegister = this.moneyInRegister * -1;
-
+          this.moneyInRegister = this.moneyInRegister + (paidamount - amountrem);
           // Update the value in localStorage
           localStorage.setItem('moneyInRegister', this.moneyInRegister.toString());
+
           this.closeModal();
         });
     } else {
