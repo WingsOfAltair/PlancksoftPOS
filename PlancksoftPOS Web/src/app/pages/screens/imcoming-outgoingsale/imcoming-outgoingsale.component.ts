@@ -58,8 +58,7 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
     "NetAmount",
     "PaidAmount",
     "Remainder",
-    "PaymentMethod",
-    "Total",
+    "PaymentMethod"
   ];
 
   allColumns1 = [...this.defaultColumns1];
@@ -93,7 +92,7 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.publisherService
-      .PostRequest("RetrieveBills", "")
+      .PostRequest("RetrieveUnPortedBills", "")
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
@@ -127,27 +126,41 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
         console.log(JSON.parse(res));
 
         var response = JSON.parse(res);
-        var array = response.ResponseMessage.Item1;
+        var data = JSON.parse(response.ResponseMessage.Item2);
 
         var list = [];
+        var totalAmount = 0;
 
-        array.forEach((el) => {
+        data.forEach((el) => {
           var obj = {
             data: {
               // EmployeeAddress: el["Employee Address"],
-              ClientID: el["ClientID"],
-              ClientName: el["Client ID"],
-              CashierName: el["Cashier Name"],
               BillNumber: el["Bill Number"],
-              Date: el["Date"],
+              CashierName: el["Cashier Name"],
+              TotalAmount: el["Total Amount"],
               PaidAmount: el["Paid Amount"],
               RemainderAmount: el["Remainder Amount"],
-              Status: el["Status"],
-              TotalAmount: el["Total Amount"],
+              Status: el["Payment Type"]
             },
           };
+          totalAmount += parseFloat(el["Total Amount"]);
           list.push(obj);
         });
+
+        var obj = {
+          data: {
+            BillNumber: "Total",
+            CashierName: '',
+            TotalAmount: '',
+            PaidAmount: '',
+            RemainderAmount: '',
+            Status: totalAmount
+          }
+        }
+        list.push(obj);
+
+        console.log("list")
+        console.log(list);
 
         this.data = list;
         this.dataSource1 = this.dataSourceBuilder.create(this.data);

@@ -516,7 +516,7 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string RetrieveTaxZReport();
+        string RetrieveTaxZReport(string StartDate, string EndDate);
         [OperationContract]
         [
             WebInvoke

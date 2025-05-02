@@ -1,198 +1,162 @@
 <div class="row">
   <div class="col-lg-12">
     <nb-card>
-      <nb-card-header>{{
-        "GENERALWORDS.EXAPNCELOOKUP" | translate
-      }}</nb-card-header>
+      <nb-card-header>{{ "GENERALWORDS.EXAPNCELOOKUP" | translate }}</nb-card-header>
       <nb-card-body>
-        <div class="row" [formGroup]="Expense">
-          <div class="col-lg-4">
-            <label>{{ "GENERALWORDS.EXPENSENAME" | translate }}</label>
+        <!-- Top form layout -->
+        <div class="row gx-3 gy-3 align-items-end" [formGroup]="Expense">
+          <!-- Expense Name -->
+          <div class="col-12 col-sm-6 col-md-auto">
+            <label class="form-label">{{ "GENERALWORDS.EXPENSENAME" | translate }}</label>
             <input
               type="text"
               nbInput
               formControlName="Expensename"
-              fullWidth
-              shape="rectangle"
               placeholder="{{ 'GENERALWORDS.EXPENSENAME' | translate }}"
+              style="width: 100%; max-width: 15rem;"
             />
           </div>
 
-          <div class="col-lg-4">
-            <label class="col-lg-12">{{ "GENERALWORDS.EMPLOYEENAME" | translate }}</label>
+          <!-- Employee Name -->
+          <div class="col-12 col-sm-6 col-md-auto">
+            <label class="form-label">{{ "GENERALWORDS.EMPLOYEENAME" | translate }}</label>
             <nb-select
               placeholder="{{ 'GENERALWORDS.EMPLOYEENAME' | translate }}"
-              style="width: 20rem"
               (selectedChange)="onSelectChange($event)"
+              style="width: 100%; max-width: 15rem;"
             >
-              <nb-option
-                *ngFor="let data of data"
-                [value]="data.data.EmployeeID"
-                >{{ data.data.EmployeeName }}</nb-option
-              >
+              <nb-option *ngFor="let data of data" [value]="data.data.EmployeeID">
+                {{ data.data.EmployeeName }}
+              </nb-option>
             </nb-select>
           </div>
 
-          <div class="col-lg-4">
-            <label class="col-lg-12">{{
-              "GENERALWORDS.DATE1" | translate
-            }}</label>
-
+          <!-- Production Date -->
+          <div class="col-12 col-sm-6 col-md-auto">
+            <label class="form-label">{{ "GENERALWORDS.DATE1" | translate }}</label>
             <input
-              style="width: 20rem"
               nbInput
               formControlName="ProductionDate"
               placeholder="dd-MM-yyyy"
               [nbDatepicker]="ProductionDate"
+              style="width: 100%; max-width: 15rem;"
             />
             <nb-datepicker #ProductionDate></nb-datepicker>
           </div>
 
-          <div class="col-lg-4 mt-2">
-            <label class="col-lg-12">{{
-              "GENERALWORDS.DATE2" | translate
-            }}</label>
-
+          <!-- Expiration Date -->
+          <div class="col-12 col-sm-6 col-md-auto">
+            <label class="form-label">{{ "GENERALWORDS.DATE2" | translate }}</label>
             <input
-            style="width: 20rem;"
               nbInput
               formControlName="ExpirationDate"
               placeholder="dd-MM-yyyy"
               [nbDatepicker]="ExpirationDate"
+              style="width: 100%; max-width: 15rem;"
             />
             <nb-datepicker #ExpirationDate></nb-datepicker>
           </div>
 
-          <div class="col-lg-8 mt-4" style="top: 10px">
-            <button
-              class="col-md-2"
-              nbButton
-              status="primary"
-              (click)="SearchData()"
-            >
+          <!-- Search Button -->
+          <div class="col-12 col-sm-6 col-md-auto">
+            <button nbButton status="primary" (click)="SearchData()" class="w-100 w-md-auto">
               {{ "GENERALWORDS.SEARCH" | translate }}
             </button>
           </div>
+        </div>
 
-          <div class="col-lg-12" style="margin-top: 20px">
-            <div class="row">
-              <div class="col-lg-12 mb-3" style="margin-top: 10px">
-                <div class="row">
-                  <div class="col-lg-8">
-                    <button
-                      class="col-md-3"
-                      nbButton
-                      status="primary"
-                      (click)="button()"
-                    >
-                      {{ "GENERALWORDS.ADDEXPENSE" | translate }}
-                    </button>
-                  </div>
+        <!-- Action + search row -->
+        <div class="row mt-4 gx-3 gy-2">
+          <!-- Add Expense -->
+          <div class="col-12 col-md-6">
+            <button
+              nbButton
+              status="primary"
+              (click)="button()"
+              class="w-100 w-md-auto"
+            >
+              {{ "GENERALWORDS.ADDEXPENSE" | translate }}
+            </button>
+          </div>
 
-                  <div class="col-lg-4">
-                    <input
-                      style="width: 20rem;"
-                      nbInput
-                      [nbFilterInput]="dataSource"
-                      placeholder="{{ 'GENERALWORDS.SEARCH' | translate }}"
-                      id="search"
-                      class="search-input col-lg-6"
-                    />
-                  </div>
-                </div>
-              </div>
-              <table
-                [nbTreeGrid]="dataSource"
-                [nbSort]="dataSource"
-                (sort)="updateSort($event)"
-              >
-                <tr
-                  nbTreeGridHeaderRow
-                  *nbTreeGridHeaderRowDef="allColumns"
-                ></tr>
-                <tr
-                  nbTreeGridRow
-                  *nbTreeGridRowDef="let row; columns: allColumns"
-                ></tr>
+          <!-- Search Input -->
+          <div class="col-12 col-md-6">
+            <input
+              nbInput
+              [nbFilterInput]="dataSource"
+              placeholder="{{ 'GENERALWORDS.SEARCH' | translate }}"
+              id="search"
+              class="search-input"
+              style="width: 100%;"
+            />
+          </div>
+        </div>
 
-                <ng-container [nbTreeGridColumnDef]="'ExpenseID'">
-                  <th
-                    nbTreeGridHeaderCell
-                    [nbSortHeader]="getSortDirection('ExpenseID')"
-                    *nbTreeGridHeaderCellDef
-                  >
-                    {{ "GENERALWORDS.EXPENSEID" | translate }}
-                  </th>
-                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                    {{ row.data.ExpenseID || "-" }}
-                  </td>
-                </ng-container>
-                <ng-container [nbTreeGridColumnDef]="'ExpenseName'">
-                  <th
-                    nbTreeGridHeaderCell
-                    [nbSortHeader]="getSortDirection('ExpenseName')"
-                    *nbTreeGridHeaderCellDef
-                  >
-                    {{ "GENERALWORDS.EXPENSENAME" | translate }}
-                  </th>
-                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                    {{ row.data["ExpanseName"] || "-" }}
-                  </td>
-                </ng-container>
+        <!-- Data Table -->
+        <div class="row mt-4">
+          <div class="col-lg-12">
+            <table
+              [nbTreeGrid]="dataSource"
+              [nbSort]="dataSource"
+              (sort)="updateSort($event)"
+            >
+              <tr nbTreeGridHeaderRow *nbTreeGridHeaderRowDef="allColumns"></tr>
+              <tr nbTreeGridRow *nbTreeGridRowDef="let row; columns: allColumns"></tr>
 
-                <ng-container [nbTreeGridColumnDef]="'ExpenseCost'">
-                  <th
-                    nbTreeGridHeaderCell
-                    [nbSortHeader]="getSortDirection('ExpenseCost')"
-                    *nbTreeGridHeaderCellDef
-                  >
-                    {{ "GENERALWORDS.EXPENSECOST" | translate }}
-                  </th>
-                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                    {{ row.data["cost"] || "-" }}
-                  </td>
-                </ng-container>
+              <ng-container [nbTreeGridColumnDef]="'ExpenseID'">
+                <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef [nbSortHeader]="getSortDirection('ExpenseID')">
+                  {{ "GENERALWORDS.EXPENSEID" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data.ExpenseID || "-" }}
+                </td>
+              </ng-container>
 
-                <ng-container [nbTreeGridColumnDef]="'UserID'">
-                  <th
-                    nbTreeGridHeaderCell
-                    [nbSortHeader]="getSortDirection('UserID')"
-                    *nbTreeGridHeaderCellDef
-                  >
-                    {{ "GENERALWORDS.USERID" | translate }}
-                  </th>
-                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                    {{ row.data["UserId"] || "-" }}
-                  </td>
-                </ng-container>
+              <ng-container [nbTreeGridColumnDef]="'ExpenseName'">
+                <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef [nbSortHeader]="getSortDirection('ExpenseName')">
+                  {{ "GENERALWORDS.EXPENSENAME" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["ExpanseName"] || "-" }}
+                </td>
+              </ng-container>
 
-                <ng-container [nbTreeGridColumnDef]="'ExpenseDate'">
-                  <th
-                    nbTreeGridHeaderCell
-                    [nbSortHeader]="getSortDirection('ExpenseDate')"
-                    *nbTreeGridHeaderCellDef
-                  >
-                    {{ "GENERALWORDS.DATE" | translate }}
-                  </th>
-                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                    {{ row.data["Date"] | date : "dd-MM-yyyy" || "-" }}
-                  </td>
-                </ng-container>
+              <ng-container [nbTreeGridColumnDef]="'ExpenseCost'">
+                <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef [nbSortHeader]="getSortDirection('ExpenseCost')">
+                  {{ "GENERALWORDS.EXPENSECOST" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["cost"] || "-" }}
+                </td>
+              </ng-container>
 
-                <ng-container [nbTreeGridColumnDef]="'CurrentQuantity'">
-                  <th
-                    nbTreeGridHeaderCell
-                    [nbSortHeader]="getSortDirection('CurrentQuantity')"
-                    *nbTreeGridHeaderCellDef
-                  >
-                    {{ "GENERALWORDS.CURRENTQUANTITY" | translate }}
-                  </th>
-                  <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                    {{ row.data["Current"] || "-" }}
-                  </td>
-                </ng-container>
-              </table>
-            </div>
+              <ng-container [nbTreeGridColumnDef]="'UserID'">
+                <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef [nbSortHeader]="getSortDirection('UserID')">
+                  {{ "GENERALWORDS.USERID" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["UserId"] || "-" }}
+                </td>
+              </ng-container>
+
+              <ng-container [nbTreeGridColumnDef]="'ExpenseDate'">
+                <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef [nbSortHeader]="getSortDirection('ExpenseDate')">
+                  {{ "GENERALWORDS.DATE" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["Date"] | date : "dd-MM-yyyy" || "-" }}
+                </td>
+              </ng-container>
+
+              <ng-container [nbTreeGridColumnDef]="'CurrentQuantity'">
+                <th nbTreeGridHeaderCell *nbTreeGridHeaderCellDef [nbSortHeader]="getSortDirection('CurrentQuantity')">
+                  {{ "GENERALWORDS.CURRENTQUANTITY" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["Current"] || "-" }}
+                </td>
+              </ng-container>
+            </table>
           </div>
         </div>
       </nb-card-body>

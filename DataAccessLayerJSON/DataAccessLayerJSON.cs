@@ -1385,7 +1385,7 @@ namespace DataAccessLayerJSON
             }
         }
 
-        public Response RetrieveTaxZReport()
+        public Response RetrieveTaxZReport(string StartDate, string EndDate)
         {
             try
             {
@@ -1394,6 +1394,14 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                if (StartDate != null)
+                {
+                    cmd.Parameters.AddWithValue("@StartDate", StartDate);
+                }
+                if (EndDate != null)
+                {
+                    cmd.Parameters.AddWithValue("@EndDate", EndDate);
+                }
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);

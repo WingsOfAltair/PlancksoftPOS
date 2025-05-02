@@ -135,7 +135,7 @@
                 {{ "GENERALWORDS.BillID" | translate }}
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                {{ row.data.Uid || "-" }}
+                {{ row.data.BillNumber || "-" }}
               </td>
             </ng-container>
             <ng-container [nbTreeGridColumnDef]="'CashierName'">
@@ -147,7 +147,7 @@
                 {{ "GENERALWORDS.CASHIERNAME" | translate }}
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                {{ row.data["UserName"] || "-" }}
+                {{ row.data["CashierName"] || "-" }}
               </td>
             </ng-container>
             <ng-container [nbTreeGridColumnDef]="'NetAmount'">
@@ -159,7 +159,7 @@
                 {{ "GENERALWORDS.NETAMOUNT" | translate }}
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                {{ row.data["Password"] || "-" }}
+                {{ row.data["TotalAmount"] || "-" }}
               </td>
             </ng-container>
             <ng-container [nbTreeGridColumnDef]="'PaidAmount'">
@@ -171,7 +171,7 @@
                 {{ "GENERALWORDS.PAIDAMOUNT" | translate }}
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                {{ row.data["Authority"] || "-" }}
+                {{ row.data["PaidAmount"] || "-" }}
               </td>
             </ng-container>
             <ng-container [nbTreeGridColumnDef]="'Remainder'">
@@ -183,7 +183,7 @@
                 {{ "GENERALWORDS.Rwminder" | translate }}
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                {{ row.data["Authority"] || "-" }}
+                {{ row.data["RemainderAmount"] || "-" }}
               </td>
             </ng-container>
             <ng-container [nbTreeGridColumnDef]="'PaymentMethod'">
@@ -195,19 +195,7 @@
                 {{ "GENERALWORDS.PAYMENTMETHOD" | translate }}
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                {{ row.data["Authority"] || "-" }}
-              </td>
-            </ng-container>
-            <ng-container [nbTreeGridColumnDef]="'Total'">
-              <th
-                nbTreeGridHeaderCell
-                [nbSortHeader]="getSortDirection('Total')"
-                *nbTreeGridHeaderCellDef
-              >
-                {{ "GENERALWORDS.TOTAL" | translate }}
-              </th>
-              <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                {{ row.data["Authority"] || "-" }}
+                {{ row.data["Status"] || "-" }}
               </td>
             </ng-container>
           </table>
