@@ -256,10 +256,10 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveVendorBillsAsync(int ClientID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveTaxZReport", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveTaxZReportResponse")]
-        System.Data.DataTable RetrieveTaxZReport();
+        System.Data.DataTable RetrieveTaxZReport(string StartDate, string EndDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveTaxZReport", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveTaxZReportResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> RetrieveTaxZReportAsync();
+        System.Threading.Tasks.Task<System.Data.DataTable> RetrieveTaxZReportAsync(string StartDate, string EndDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsResponse")]
         System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBills();
@@ -1079,12 +1079,12 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
             return base.Channel.RetrieveVendorBillsAsync(ClientID);
         }
         
-        public System.Data.DataTable RetrieveTaxZReport() {
-            return base.Channel.RetrieveTaxZReport();
+        public System.Data.DataTable RetrieveTaxZReport(string StartDate, string EndDate) {
+            return base.Channel.RetrieveTaxZReport(StartDate, EndDate);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> RetrieveTaxZReportAsync() {
-            return base.Channel.RetrieveTaxZReportAsync();
+        public System.Threading.Tasks.Task<System.Data.DataTable> RetrieveTaxZReportAsync(string StartDate, string EndDate) {
+            return base.Channel.RetrieveTaxZReportAsync(StartDate, EndDate);
         }
         
         public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBills() {

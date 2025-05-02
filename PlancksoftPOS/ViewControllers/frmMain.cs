@@ -6150,8 +6150,10 @@ namespace PlancksoftPOS
                 }
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["Taxes"])
                 {
+                    string dateFrom = dateTimePicker10.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+                    string dateTo = dateTimePicker9.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
                     decimal totalTax = 0;
-                    DataTable TaxZReport = Connection.server.RetrieveTaxZReport();
+                    DataTable TaxZReport = Connection.server.RetrieveTaxZReport(dateFrom, dateTo);
                     foreach (DataRow row in TaxZReport.Rows)
                     {
                         if (row["Bill Number"] != null && row["Bill Number"] != DBNull.Value && !String.IsNullOrWhiteSpace(row["Bill Number"].ToString()))
@@ -6916,8 +6918,10 @@ namespace PlancksoftPOS
 
         public void pictureBox44_Click(object sender, EventArgs e)
         {
+            string dateFrom = dateTimePicker10.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+            string dateTo = dateTimePicker9.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
             decimal totalTax = 0;
-            DataTable TaxZReport = Connection.server.RetrieveTaxZReport();
+            DataTable TaxZReport = Connection.server.RetrieveTaxZReport(dateFrom, dateTo);
             foreach (DataRow row in TaxZReport.Rows)
             {
                 if (row["Bill Number"] != null && row["Bill Number"] != DBNull.Value && !String.IsNullOrWhiteSpace(row["Bill Number"].ToString()))

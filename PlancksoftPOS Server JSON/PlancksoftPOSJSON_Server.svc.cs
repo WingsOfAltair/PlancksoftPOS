@@ -268,11 +268,11 @@ namespace PlancksoftPOSJSON_Server
             serializer.MaxJsonLength = Int32.MaxValue;
             return serializer.Serialize(DAL.RetrieveVendorBills(ClientID));
         }
-        public string RetrieveTaxZReport()
+        public string RetrieveTaxZReport(string StartDate, string EndDate)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             serializer.MaxJsonLength = Int32.MaxValue;
-            return serializer.Serialize(DAL.RetrieveTaxZReport());
+            return serializer.Serialize(DAL.RetrieveTaxZReport(StartDate, EndDate));
         }
         public string RetrieveBillsRefund()
         {

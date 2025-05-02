@@ -604,6 +604,10 @@ namespace PlancksoftPOS
             this.tabControl7 = new MaterialSkin.Controls.MaterialTabControl();
             this.TaxZReport = new System.Windows.Forms.TabPage();
             this.groupBox44 = new MaterialSkin.Controls.MaterialCard();
+            this.dateTimePicker9 = new System.Windows.Forms.DateTimePicker();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.dateTimePicker10 = new System.Windows.Forms.DateTimePicker();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.pictureBox46 = new System.Windows.Forms.PictureBox();
             this.pictureBox44 = new System.Windows.Forms.PictureBox();
             this.dgvTaxZReport = new System.Windows.Forms.DataGridView();
@@ -2979,7 +2983,7 @@ namespace PlancksoftPOS
             this.dgvPortedSales.Name = "dgvPortedSales";
             this.dgvPortedSales.ReadOnly = true;
             this.dgvPortedSales.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvPortedSales.Size = new System.Drawing.Size(2024, 491);
+            this.dgvPortedSales.Size = new System.Drawing.Size(1864, 491);
             this.dgvPortedSales.TabIndex = 31;
             // 
             // dataGridViewTextBoxColumn11
@@ -3141,7 +3145,7 @@ namespace PlancksoftPOS
             this.dgvUnPortedSales.Name = "dgvUnPortedSales";
             this.dgvUnPortedSales.ReadOnly = true;
             this.dgvUnPortedSales.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvUnPortedSales.Size = new System.Drawing.Size(2021, 569);
+            this.dgvUnPortedSales.Size = new System.Drawing.Size(1864, 569);
             this.dgvUnPortedSales.TabIndex = 31;
             // 
             // dataGridViewTextBoxColumn6
@@ -9453,6 +9457,10 @@ namespace PlancksoftPOS
             // groupBox44
             // 
             this.groupBox44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox44.Controls.Add(this.dateTimePicker9);
+            this.groupBox44.Controls.Add(this.materialLabel1);
+            this.groupBox44.Controls.Add(this.dateTimePicker10);
+            this.groupBox44.Controls.Add(this.materialLabel2);
             this.groupBox44.Controls.Add(this.pictureBox46);
             this.groupBox44.Controls.Add(this.pictureBox44);
             this.groupBox44.Controls.Add(this.dgvTaxZReport);
@@ -9467,6 +9475,65 @@ namespace PlancksoftPOS
             this.groupBox44.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox44.Size = new System.Drawing.Size(1861, 901);
             this.groupBox44.TabIndex = 1;
+            // 
+            // dateTimePicker9
+            // 
+            this.dateTimePicker9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker9.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker9.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.dateTimePicker9.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.dateTimePicker9.CustomFormat = "";
+            this.dateTimePicker9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker9.Location = new System.Drawing.Point(1305, 25);
+            this.dateTimePicker9.Name = "dateTimePicker9";
+            this.dateTimePicker9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dateTimePicker9.RightToLeftLayout = true;
+            this.dateTimePicker9.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker9.TabIndex = 35;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.materialLabel1.Location = new System.Drawing.Point(1364, 1);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(67, 19);
+            this.materialLabel1.TabIndex = 37;
+            this.materialLabel1.Text = "تاريخ البحث إلى";
+            this.materialLabel1.Visible = false;
+            // 
+            // dateTimePicker10
+            // 
+            this.dateTimePicker10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker10.CalendarFont = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+            this.dateTimePicker10.CalendarForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.dateTimePicker10.CalendarTitleForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.dateTimePicker10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePicker10.Location = new System.Drawing.Point(1511, 26);
+            this.dateTimePicker10.Name = "dateTimePicker10";
+            this.dateTimePicker10.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dateTimePicker10.RightToLeftLayout = true;
+            this.dateTimePicker10.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker10.TabIndex = 34;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.materialLabel2.Location = new System.Drawing.Point(1563, 1);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(65, 19);
+            this.materialLabel2.TabIndex = 36;
+            this.materialLabel2.Text = "تاريخ البحث من";
+            this.materialLabel2.Visible = false;
             // 
             // pictureBox46
             // 
@@ -12581,7 +12648,7 @@ namespace PlancksoftPOS
             this.Menu.MouseState = MaterialSkin.MouseState.HOVER;
             this.Menu.Name = "Menu";
             this.Menu.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.Menu.Size = new System.Drawing.Size(181, 92);
+            this.Menu.Size = new System.Drawing.Size(110, 70);
             // 
             // اللغةToolStripMenuItem
             // 
@@ -12937,6 +13004,7 @@ namespace PlancksoftPOS
             this.tabControl7.ResumeLayout(false);
             this.TaxZReport.ResumeLayout(false);
             this.groupBox44.ResumeLayout(false);
+            this.groupBox44.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox46)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox44)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTaxZReport)).EndInit();
@@ -13772,6 +13840,10 @@ namespace PlancksoftPOS
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
         private DataGridViewTextBoxColumn Column71;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        public DateTimePicker dateTimePicker9;
+        public MaterialLabel materialLabel1;
+        public DateTimePicker dateTimePicker10;
+        public MaterialLabel materialLabel2;
     }
 }
 

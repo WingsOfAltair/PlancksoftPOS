@@ -172,9 +172,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.RetrieveVendorBills(ClientID);
         }
-        public DataTable RetrieveTaxZReport()
+        public DataTable RetrieveTaxZReport(string StartDate, string EndDate)
         {
-            return DAL.RetrieveTaxZReport();
+            return DAL.RetrieveTaxZReport(StartDate, EndDate);
         }
         public Tuple<List<Bill>, DataTable> RetrieveBillsRefund()
         {
