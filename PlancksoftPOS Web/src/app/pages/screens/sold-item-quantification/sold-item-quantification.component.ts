@@ -105,6 +105,8 @@ export class SoldItemQuantificationComponent implements OnInit {
         console.log(this.data);
 
         var list = [];
+        var totalAmount = 0;
+        
         data.forEach((el) => {
           var obj = {
             data: {
@@ -120,8 +122,24 @@ export class SoldItemQuantificationComponent implements OnInit {
             },
           };
 
+          totalAmount += parseFloat(el["Item Profit"]);
           list.push(obj);
         });
+
+        var obj = {
+          data: {
+            CashierName: "",
+            ItemBarCode: "",
+            ItemName: "Total",
+            ItemBuyPrice: "",
+            ItemPriceTax: "",
+            ItemProfit: totalAmount,
+            ItemType: "",
+            TimesSold: "",
+            TimesRefunded: "",
+          },
+        };
+        list.push(obj);
 
         this.data = list;
         this.dataSource = this.dataSourceBuilder.create(this.data);
