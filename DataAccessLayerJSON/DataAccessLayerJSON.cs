@@ -1257,6 +1257,11 @@ namespace DataAccessLayerJSON
                     bill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
                     bill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
                     bill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
+                    string paymentMethod = Bill["Payment Type"].ToString();
+                    if (paymentMethod == "Cash")
+                        bill.PayByCash = true;
+                    else if (paymentMethod == "Visa")
+                        bill.PayByCash = false;
                     Bills.Add(bill);
                 }
                 return new Response(Tuple.Create(Bills, SerializeDataTableToJSON(dt)), true);
@@ -1293,6 +1298,11 @@ namespace DataAccessLayerJSON
                     bill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
                     bill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
                     bill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
+                    string paymentMethod = Bill["Payment Type"].ToString();
+                    if (paymentMethod == "Cash")
+                        bill.PayByCash = true;
+                    else if (paymentMethod == "Visa")
+                        bill.PayByCash = false;
                     Bills.Add(bill);
                 }
                 return new Response(Tuple.Create(Bills, SerializeDataTableToJSON(dt)), true);

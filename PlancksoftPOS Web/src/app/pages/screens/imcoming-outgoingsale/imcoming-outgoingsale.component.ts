@@ -100,6 +100,8 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
         var array = response.ResponseMessage.Item1;
         
         var list = [];
+        var totalAmount = 0;
+
         array.forEach((el) => {
           var obj = {
             data: {
@@ -111,8 +113,23 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
               PayByCash: el.PayByCash,
             },
           };
+          console.log("Pay by cash");
+          console.log(el.PayByCash);
+          totalAmount += parseFloat(el.totalAmount);
           list.push(obj);
         });
+
+        var obj = {
+          data: {
+            BillNumber: "Total",
+            CashierName: '',
+            totalAmount: totalAmount,
+            paidAmount: '',
+            RemainderAmount: '',
+            PayByCash: ""
+          }
+        }
+        list.push(obj);
 
         this.data = list;
         this.dataSource = this.dataSourceBuilder.create(this.data);

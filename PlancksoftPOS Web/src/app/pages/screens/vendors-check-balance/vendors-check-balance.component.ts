@@ -124,7 +124,7 @@ export class VendorsCheckBalanceComponent implements OnInit {
 
         debugger
         var response = JSON.parse(res);
-        var array = response.ResponseMessage.Item1;
+        var array = JSON.parse(response.ResponseMessage.Item2);
 
         var list = [];
 
@@ -133,10 +133,10 @@ export class VendorsCheckBalanceComponent implements OnInit {
           const formattedDate = new Date(productionDate).toLocaleDateString();
           var obj = {
             data: {
-              BillNumber: el["BillNumber"],
-              ClientName: el["ClientName"],
-              CashierName: el["CashierName"],
-              TotalAmount: el["TotalAmount"],
+              BillNumber: el["Bill Number"],
+              ClientName: el["Vendor Name"],
+              CashierName: el["Cashier Name"],
+              TotalAmount: el["Total Amount"],
               Status: el["Status"],
               Date: formattedDate,
             },

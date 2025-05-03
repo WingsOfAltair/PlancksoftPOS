@@ -5414,7 +5414,9 @@ namespace PlancksoftPOS
             string dateFrom = dateTimePicker4.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
             string dateTo = dateTimePicker3.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
 
-            dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(dateFrom, dateTo, ItemTypeID, CashierName);
+            DataTable dtSoldItemsQuantification = Connection.server.RetrieveBillItemsProfit(dateFrom, dateTo, ItemTypeID, CashierName);
+            dtSoldItemsQuantification.Rows.Add();
+            dgvItemProfit.DataSource = dtSoldItemsQuantification;
 
             if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
             {
@@ -5439,6 +5441,19 @@ namespace PlancksoftPOS
                 dgvItemProfit.Columns["Column71"].HeaderText = "Refunded Quantity";
                 dgvItemProfit.Columns["dataGridViewTextBoxColumn19"].HeaderText = "Total";
             }
+            Decimal total = 0;
+
+            foreach(DataGridViewRow row in dgvItemProfit.Rows)
+            {
+                try
+                {
+                    total += Convert.ToDecimal(row.Cells["dataGridViewTextBoxColumn19"].Value.ToString());
+                } catch(Exception exc)
+                {
+                }                                                                                        
+            }
+
+            dgvItemProfit.Rows[dgvItemProfit.Rows.Count - 1].Cells["dataGridViewTextBoxColumn19"].Value = total;
         }
 
         public void tabControl4_SelectedIndexChanged(object sender, EventArgs e)
@@ -5467,7 +5482,25 @@ namespace PlancksoftPOS
             string dateFrom = dateTimePicker4.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
             string dateTo = dateTimePicker3.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
 
-            dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(dateFrom, dateTo, ItemTypeID, CashierName);
+            DataTable dtSoldItemsQuantification = Connection.server.RetrieveBillItemsProfit(dateFrom, dateTo, ItemTypeID, CashierName);
+            dtSoldItemsQuantification.Rows.Add();
+            dgvItemProfit.DataSource = dtSoldItemsQuantification;
+
+
+            Decimal total = 0;
+
+            foreach (DataGridViewRow row in dgvItemProfit.Rows)
+            {
+                try
+                {
+                    total += Convert.ToDecimal(row.Cells["dataGridViewTextBoxColumn19"].Value.ToString());
+                }
+                catch (Exception exc)
+                {
+                }
+            }
+
+            dgvItemProfit.Rows[dgvItemProfit.Rows.Count - 1].Cells["dataGridViewTextBoxColumn19"].Value = total;
         }
 
         public void pictureBox31_Click(object sender, EventArgs e)
@@ -5981,7 +6014,24 @@ namespace PlancksoftPOS
                     string dateFrom = dateTimePicker4.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
                     string dateTo = dateTimePicker3.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
 
-                    dgvItemProfit.DataSource = Connection.server.RetrieveBillItemsProfit(dateFrom, dateTo, ItemTypeID, CashierName);
+                    DataTable dtSoldItemsQuantification = Connection.server.RetrieveBillItemsProfit(dateFrom, dateTo, ItemTypeID, CashierName);
+                    dtSoldItemsQuantification.Rows.Add();
+                    dgvItemProfit.DataSource = dtSoldItemsQuantification;
+
+                    Decimal totalProfit = 0;
+
+                    foreach (DataGridViewRow row in dgvItemProfit.Rows)
+                    {
+                        try
+                        {
+                            totalProfit += Convert.ToDecimal(row.Cells["dataGridViewTextBoxColumn19"].Value.ToString());
+                        }
+                        catch (Exception exc)
+                        {
+                        }
+                    }
+
+                    dgvItemProfit.Rows[dgvItemProfit.Rows.Count - 1].Cells["dataGridViewTextBoxColumn19"].Value = totalProfit;
                 }
                 else if (tabControl1.SelectedTab == tabControl1.TabPages["Inventory"])
                 {
