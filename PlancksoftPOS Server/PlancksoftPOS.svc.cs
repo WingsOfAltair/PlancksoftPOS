@@ -152,13 +152,13 @@ namespace PlancksoftPOS_Server
         {
             return DAL.SearchInventoryItemsWithBarCode(ItemBarCode);
         }
-        public Tuple<List<Bill>, DataTable> RetrieveUnPortedBills()
+        public Tuple<List<Bill>, DataTable> RetrieveUnPortedBills(string Date1, string Date2)
         {
-            return DAL.RetrieveUnPortedBills(); 
+            return DAL.RetrieveUnPortedBills(Date1, Date2); 
         }
-        public Tuple<List<Bill>, DataTable> RetrievePortedBills()
+        public Tuple<List<Bill>, DataTable> RetrievePortedBills(string Date1, string Date2)
         { 
-            return DAL.RetrievePortedBills();
+            return DAL.RetrievePortedBills(Date1, Date2);
         }
         public Tuple<List<Bill>, DataTable> RetrieveUnpaidBills()
         {

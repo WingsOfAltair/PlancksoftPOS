@@ -5,7 +5,46 @@
         "GENERALWORDS.IMCOMMINGOUTGOINGSALES" | translate
       }}</nb-card-header>
       <nb-card-body>
-        <div class="row">
+        <div class="row mb-4 align-items-end" [formGroup]="IncomingData">
+          <div class="col-md-3 mt-2" style="display: flex; flex-direction: column; align-items: start;">
+            <label>{{ "GENERALWORDS.DATE1" | translate }}</label>
+
+            <input
+              style="width: 17rem"
+              nbInput
+              formControlName='Date1'
+              placeholder='{{ "GENERALWORDS.DATE1" | translate }}'
+              [nbDatepicker]="Date1"
+            />
+            <nb-datepicker #Date1></nb-datepicker>
+          </div>
+
+          <div class="col-md-3 mt-2" style="display: flex; flex-direction: column; align-items: start;">
+            <label>{{ "GENERALWORDS.DATE2" | translate }}</label>
+
+            <input
+              style="width: 17rem"
+              nbInput
+              formControlName="Date2"
+              placeholder='{{ "GENERALWORDS.DATE2" | translate }}'
+              [nbDatepicker]="Date2"
+            />
+            <nb-datepicker #Date2></nb-datepicker>
+          </div>
+
+            <div class="col-md-12" style="margin-top: 28px; text-align: end">
+              <div class="buttons-row">
+                <button
+                  class="col-md-2"
+                  nbButton
+                  status="primary"
+                  (click)="SearchIncoming()"
+                >
+                {{ "GENERALWORDS.SEARCH" | translate }}
+                </button>
+              </div>
+            </div>
+
           <div class="col-lg-12 mb-3" style="margin-top: 40px">
             <input
               nbInput
@@ -104,7 +143,47 @@
           </table>
         </div>
 
-        <div class="row">
+        <div class="row mb-4 align-items-end" [formGroup]="OutgoingData">
+
+          <div class="col-md-3 mt-2" style="display: flex; flex-direction: column; align-items: start;">
+            <label>{{ "GENERALWORDS.DATE1" | translate }}</label>
+
+            <input
+              style="width: 17rem"
+              nbInput
+              formControlName='Date3'
+              placeholder='{{ "GENERALWORDS.DATE1" | translate }}'
+              [nbDatepicker]="Date3"
+            />
+            <nb-datepicker #Date3></nb-datepicker>
+          </div>
+
+          <div class="col-md-3 mt-2" style="display: flex; flex-direction: column; align-items: start;">
+            <label>{{ "GENERALWORDS.DATE2" | translate }}</label>
+
+            <input
+              style="width: 17rem"
+              nbInput
+              formControlName="Date4"
+              placeholder='{{ "GENERALWORDS.DATE2" | translate }} '
+              [nbDatepicker]="Date4"
+            />
+            <nb-datepicker #Date4></nb-datepicker>
+          </div>
+
+          <div class="col-md-12" style="margin-top: 28px; text-align: end">
+            <div class="buttons-row">
+              <button
+                class="col-md-2"
+                nbButton
+                status="primary"
+                (click)="SearchOutgoing()"
+              >
+              {{ "GENERALWORDS.SEARCH" | translate }}
+              </button>
+            </div>
+          </div>
+
           <div class="col-lg-12 mb-3" style="margin-top: 40px">
             <input
               nbInput

@@ -232,16 +232,16 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         System.Threading.Tasks.Task<Dependencies.Item> SearchInventoryItemsWithBarCodeAsync(string ItemBarCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnPortedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnPortedBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnPortedBills();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnPortedBills(string Date1, string Date2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnPortedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnPortedBillsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnPortedBillsAsync();
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnPortedBillsAsync(string Date1, string Date2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrievePortedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrievePortedBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrievePortedBills();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrievePortedBills(string Date1, string Date2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrievePortedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrievePortedBillsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrievePortedBillsAsync();
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrievePortedBillsAsync(string Date1, string Date2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnpaidBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnpaidBillsResponse")]
         System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnpaidBills();
@@ -1047,20 +1047,20 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
             return base.Channel.SearchInventoryItemsWithBarCodeAsync(ItemBarCode);
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnPortedBills() {
-            return base.Channel.RetrieveUnPortedBills();
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnPortedBills(string Date1, string Date2) {
+            return base.Channel.RetrieveUnPortedBills(Date1, Date2);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnPortedBillsAsync() {
-            return base.Channel.RetrieveUnPortedBillsAsync();
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnPortedBillsAsync(string Date1, string Date2) {
+            return base.Channel.RetrieveUnPortedBillsAsync(Date1, Date2);
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrievePortedBills() {
-            return base.Channel.RetrievePortedBills();
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrievePortedBills(string Date1, string Date2) {
+            return base.Channel.RetrievePortedBills(Date1, Date2);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrievePortedBillsAsync() {
-            return base.Channel.RetrievePortedBillsAsync();
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrievePortedBillsAsync(string Date1, string Date2) {
+            return base.Channel.RetrievePortedBillsAsync(Date1, Date2);
         }
         
         public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnpaidBills() {

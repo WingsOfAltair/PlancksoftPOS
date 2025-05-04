@@ -560,7 +560,10 @@
   </xs:element>
   <xs:element name="RetrieveUnPortedBills">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Date1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Date2" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RetrieveUnPortedBillsResponse">
@@ -572,7 +575,10 @@
   </xs:element>
   <xs:element name="RetrievePortedBills">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Date1" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Date2" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="RetrievePortedBillsResponse">

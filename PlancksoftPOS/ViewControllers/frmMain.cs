@@ -3433,7 +3433,9 @@ namespace PlancksoftPOS
 
         public List<Bill> DisplayPortedBills()
         {
-            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrievePortedBills();
+            string dateFrom = dateTimePicker12.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+            string dateTo = dateTimePicker11.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrievePortedBills(dateFrom, dateTo);
             dgvPortedSales.DataSource = RetrievedBills.Item2;
             return RetrievedBills.Item1;
         }
@@ -4927,7 +4929,9 @@ namespace PlancksoftPOS
             decimal total = 0;
             DataTable dt = new DataTable();
             dt.Clear();
-            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveUnPortedBills();
+            string dateFrom = dateTimePicker14.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+            string dateTo = dateTimePicker13.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveUnPortedBills(dateFrom, dateTo);
             dgvUnPortedSales.DataSource = RetrievedBills.Item2;
             for (int i = 0; i < dgvUnPortedSales.Rows.Count; i++)
             {
@@ -4968,8 +4972,10 @@ namespace PlancksoftPOS
             decimal total = 0;
             DataTable dt = new DataTable();
             dt.Clear();
-            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrievePortedBills();
-            dgvUnPortedSales.DataSource = RetrievedBills.Item2;
+            string dateFrom = dateTimePicker12.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+            string dateTo = dateTimePicker11.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrievePortedBills(dateFrom, dateTo);
+            dgvPortedSales.DataSource = RetrievedBills.Item2;
             for (int i = 0; i < dgvPortedSales.Rows.Count; i++)
             {
                 CurrencyManager currencyManager1 = (CurrencyManager)BindingContext[dgvPortedSales.DataSource];
@@ -4995,7 +5001,7 @@ namespace PlancksoftPOS
             } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 dgvPortedSales.Columns["dataGridViewTextBoxColumn11"].HeaderText = "Bill ID";
-                dgvPortedSales.Columns["dataGridViewTextBoxColumn2"].HeaderText = "Cashier Name";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn12"].HeaderText = "Cashier Name";
                 dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "Net Amount";
                 dgvPortedSales.Columns["dataGridViewTextBoxColumn14"].HeaderText = "Paid Amount";
                 dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "Remainder";
@@ -5968,7 +5974,9 @@ namespace PlancksoftPOS
                     decimal total = 0;
                     DataTable dt = new DataTable();
                     dt.Clear();
-                    Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveUnPortedBills();
+                    string dateFrom = "";
+                    string dateTo = "";
+                    Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveUnPortedBills(dateFrom, dateTo);
                     dgvUnPortedSales.DataSource = RetrievedBills.Item2;
                     for (int i = 0; i < dgvUnPortedSales.Rows.Count; i++)
                     {
@@ -5986,7 +5994,9 @@ namespace PlancksoftPOS
                     total = 0;
                     dt = new DataTable();
                     dt.Clear();
-                    RetrievedBills = Connection.server.RetrievePortedBills();
+                    dateFrom = dateTimePicker12.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+                    dateTo = dateTimePicker11.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
+                    RetrievedBills = Connection.server.RetrievePortedBills(dateFrom, dateTo);
                     dgvPortedSales.DataSource = RetrievedBills.Item2;
                     for (int i = 0; i < dgvPortedSales.Rows.Count; i++)
                     {
@@ -6011,8 +6021,8 @@ namespace PlancksoftPOS
                     {
                         CashierName = comboBox2.SelectedItem.ToString();
                     }
-                    string dateFrom = dateTimePicker4.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
-                    string dateTo = dateTimePicker3.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
+                    dateFrom = dateTimePicker4.Value.ToString("yyyy-MM-dd") + " 00:00:00.000";
+                    dateTo = dateTimePicker3.Value.ToString("yyyy-MM-dd") + " 23:59:59.999";
 
                     DataTable dtSoldItemsQuantification = Connection.server.RetrieveBillItemsProfit(dateFrom, dateTo, ItemTypeID, CashierName);
                     dtSoldItemsQuantification.Rows.Add();

@@ -1200,7 +1200,7 @@ namespace DataAccessLayer
             }
         }
 
-        public Tuple<List<Bill>, DataTable> RetrieveUnPortedBills()
+        public Tuple<List<Bill>, DataTable> RetrieveUnPortedBills(string Date1, string Date2)
         {
             try
             {
@@ -1210,6 +1210,10 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                if (Date1 != "")
+                    cmd.Parameters.AddWithValue("@Date1", Date1);
+                if (Date2 != "")
+                    cmd.Parameters.AddWithValue("@Date2", Date2);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -1241,7 +1245,7 @@ namespace DataAccessLayer
             }
         }
 
-        public Tuple<List<Bill>, DataTable> RetrievePortedBills()
+        public Tuple<List<Bill>, DataTable> RetrievePortedBills(string Date1, string Date2)
         {
             try
             {
@@ -1251,6 +1255,10 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                if (Date1 != "")
+                    cmd.Parameters.AddWithValue("@Date1", Date1);
+                if (Date2 != "")
+                    cmd.Parameters.AddWithValue("@Date2", Date2);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);

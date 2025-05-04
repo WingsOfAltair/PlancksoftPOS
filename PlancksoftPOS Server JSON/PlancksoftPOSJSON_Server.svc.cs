@@ -238,17 +238,17 @@ namespace PlancksoftPOSJSON_Server
             serializer.MaxJsonLength = Int32.MaxValue;
             return serializer.Serialize(DAL.SearchInventoryItemsWithBarCode(ItemBarCode));
         }
-        public string RetrieveUnPortedBills()
+        public string RetrieveUnPortedBills(string Date1, string Date2)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             serializer.MaxJsonLength = Int32.MaxValue;
-            return serializer.Serialize(DAL.RetrieveUnPortedBills()); 
+            return serializer.Serialize(DAL.RetrieveUnPortedBills(Date1, Date2)); 
         }
-        public string RetrievePortedBills()
+        public string RetrievePortedBills(string Date1, string Date2)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             serializer.MaxJsonLength = Int32.MaxValue;
-            return serializer.Serialize(DAL.RetrievePortedBills());
+            return serializer.Serialize(DAL.RetrievePortedBills(Date1, Date2));
         }
         public string RetrieveUnpaidBills()
         {

@@ -1234,7 +1234,7 @@ namespace DataAccessLayerJSON
             }
         }
 
-        public Response RetrieveUnPortedBills()
+        public Response RetrieveUnPortedBills(string Date1, string Date2)
         {
             try
             {
@@ -1244,6 +1244,10 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                if (Date1 != "")
+                    cmd.Parameters.AddWithValue("@Date1", Date1);
+                if (Date2 != "")
+                    cmd.Parameters.AddWithValue("@Date2", Date2);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -1275,7 +1279,7 @@ namespace DataAccessLayerJSON
             }
         }
 
-        public Response RetrievePortedBills()
+        public Response RetrievePortedBills(string Date1, string Date2)
         {
             try
             {
@@ -1285,6 +1289,10 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                if (Date1 != "")
+                    cmd.Parameters.AddWithValue("@Date1", Date1);
+                if (Date2 != "")
+                    cmd.Parameters.AddWithValue("@Date2", Date2);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);

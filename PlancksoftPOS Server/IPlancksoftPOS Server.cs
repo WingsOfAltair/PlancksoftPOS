@@ -83,9 +83,9 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         Item SearchInventoryItemsWithBarCode(string ItemBarCode = "");
         [OperationContract]
-        Tuple<List<Bill>, DataTable> RetrieveUnPortedBills();
+        Tuple<List<Bill>, DataTable> RetrieveUnPortedBills(string Date1, string Date2);
         [OperationContract]
-        Tuple<List<Bill>, DataTable> RetrievePortedBills();
+        Tuple<List<Bill>, DataTable> RetrievePortedBills(string Date1, string Date2);
         [OperationContract]
         Tuple<List<Bill>, DataTable> RetrieveUnpaidBills();
         [OperationContract]
