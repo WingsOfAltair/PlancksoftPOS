@@ -9,6 +9,7 @@ import {
 } from "@nebular/theme";
 import { PublisherService } from "../../../services/publisher.service";
 import { debug } from "console";
+import { FormBuilder, FormGroup } from "@angular/forms";
 
 @Component({
   selector: "ngx-imcoming-outgoingsale",
@@ -16,6 +17,8 @@ import { debug } from "console";
   styleUrls: ["./imcoming-outgoingsale.component.scss"],
 })
 export class ImcomingOutgoingsaleComponent implements OnInit {
+  IncomingData: FormGroup;
+  OutgoingData: FormGroup;
   data: any;
 
   defaultColumns = [
@@ -87,12 +90,27 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
 
   constructor(
     private service: SmartTableData,
+    private fb: FormBuilder,
     private dataSourceBuilder: NbTreeGridDataSourceBuilder<any>,
     private publisherService: PublisherService
   ) {}
   ngOnInit(): void {
+    this.IncomingData = this.fb.group({
+      Date1: [],
+      Date2: [],
+    });
+    this.OutgoingData = this.fb.group({
+      Date3: [],
+      Date4: [],
+    });
+    
+    var obj = {
+      Date1: "",
+      Date2: "",
+    }
+
     this.publisherService
-      .PostRequest("RetrieveUnPortedBills", "")
+      .PostRequest("RetrieveUnPortedBills", obj)
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 
@@ -136,9 +154,69 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
 
         console.log(this.dataSource);
       });
+  }
+
+  SearchIncoming() {
+    var obj = {
+      Date1: this.IncomingData.value.Date1,
+      Date2: this.IncomingData.value.Date2,
+    }
 
     this.publisherService
-      .PostRequest("RetrievePortedBills", "")
+      .PostRequest("RetrieveUnPortedBills", obj)
+      .subscribe((res: any) => {
+        console.log(JSON.parse(res));
+
+        var response = JSON.parse(res);
+        var array = response.ResponseMessage.Item1;
+        
+        var list = [];
+        var totalAmount = 0;
+
+        array.forEach((el) => {
+          var obj = {
+            data: {
+              BillNumber: el.BillNumber,
+              CashierName: el.CashierName,
+              totalAmount: el.totalAmount,
+              paidAmount: el.paidAmount,
+              RemainderAmount: el.RemainderAmount,
+              PayByCash: el.PayByCash,
+            },
+          };
+          console.log("Pay by cash");
+          console.log(el.PayByCash);
+          totalAmount += parseFloat(el.totalAmount);
+          list.push(obj);
+        });
+
+        var obj = {
+          data: {
+            BillNumber: "Total",
+            CashierName: '',
+            totalAmount: totalAmount,
+            paidAmount: '',
+            RemainderAmount: '',
+            PayByCash: ""
+          }
+        }
+        list.push(obj);
+
+        this.data = list;
+        this.dataSource = this.dataSourceBuilder.create(this.data);
+
+        console.log(this.dataSource);
+      });
+  }
+  
+  SearchOutgoing() {
+    var obj = {
+      Date1: this.OutgoingData.value.Date3,
+      Date2: this.OutgoingData.value.Date4,
+    }
+
+    this.publisherService
+      .PostRequest("RetrievePortedBills", obj)
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
 

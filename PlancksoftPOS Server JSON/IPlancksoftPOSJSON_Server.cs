@@ -468,7 +468,7 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string RetrieveUnPortedBills();
+        string RetrieveUnPortedBills(string Date1, string Date2);
         [OperationContract]
         [
             WebInvoke
@@ -480,7 +480,7 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string RetrievePortedBills();
+        string RetrievePortedBills(string Date1, string Date2);
         [OperationContract]
         [
             WebInvoke
