@@ -53,7 +53,7 @@
             this.btnSearch.Depth = 0;
             this.btnSearch.HighEmphasis = true;
             this.btnSearch.Icon = null;
-            this.btnSearch.Location = new System.Drawing.Point(234, 460);
+            this.btnSearch.Location = new System.Drawing.Point(251, 459);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
@@ -74,7 +74,7 @@
             this.btnClear.Depth = 0;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(306, 460);
+            this.btnClear.Location = new System.Drawing.Point(323, 459);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
@@ -95,7 +95,7 @@
             this.btnClose.Depth = 0;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(378, 460);
+            this.btnClose.Location = new System.Drawing.Point(395, 459);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
@@ -128,7 +128,7 @@
             this.dgvBills.Name = "dgvBills";
             this.dgvBills.ReadOnly = true;
             this.dgvBills.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvBills.Size = new System.Drawing.Size(1205, 366);
+            this.dgvBills.Size = new System.Drawing.Size(1222, 366);
             this.dgvBills.TabIndex = 31;
             this.dgvBills.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvBills_RowHeaderMouseDoubleClick);
             // 
@@ -200,7 +200,7 @@
             this.txtCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCustomerName.HideSelection = true;
             this.txtCustomerName.LeadingIcon = null;
-            this.txtCustomerName.Location = new System.Drawing.Point(6, 460);
+            this.txtCustomerName.Location = new System.Drawing.Point(23, 459);
             this.txtCustomerName.MaxLength = 32767;
             this.txtCustomerName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtCustomerName.Name = "txtCustomerName";
@@ -218,7 +218,6 @@
             this.txtCustomerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtCustomerName.TrailingIcon = null;
             this.txtCustomerName.UseSystemPasswordChar = false;
-            this.txtCustomerName.Click += new System.EventHandler(this.txtCustomerName_Click);
             // 
             // lblCustomerName
             // 
@@ -227,19 +226,18 @@
             this.lblCustomerName.Depth = 0;
             this.lblCustomerName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.lblCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.lblCustomerName.Location = new System.Drawing.Point(89, 438);
+            this.lblCustomerName.Location = new System.Drawing.Point(106, 437);
             this.lblCustomerName.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCustomerName.Name = "lblCustomerName";
             this.lblCustomerName.Size = new System.Drawing.Size(43, 19);
             this.lblCustomerName.TabIndex = 36;
             this.lblCustomerName.Text = "إسم العميل";
-            this.lblCustomerName.Click += new System.EventHandler(this.lblCustomerName_Click);
             // 
             // frmBillLookup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1211, 514);
+            this.ClientSize = new System.Drawing.Size(1228, 513);
             this.Controls.Add(this.lblCustomerName);
             this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.dgvBills);
@@ -261,7 +259,6 @@
             this.Text = "البحث عن فاتورة";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmItemLookup_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmItemLookup_FormClosed);
-            this.Load += new System.EventHandler(this.frmBillLookup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
