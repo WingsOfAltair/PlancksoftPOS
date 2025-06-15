@@ -223,20 +223,5 @@ namespace PlancksoftPOS
             Program.exited = false;
             Program.materialSkinManager.RemoveFormToManage(this);
         }
-
-        private void frmBillLookup_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtCustomerName_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblCustomerName_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
