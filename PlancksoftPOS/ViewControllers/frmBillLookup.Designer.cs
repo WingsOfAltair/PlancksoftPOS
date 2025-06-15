@@ -40,18 +40,20 @@
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column64 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtCustomerName = new MaterialSkin.Controls.MaterialTextBox2();
+            this.lblCustomerName = new MaterialSkin.Controls.MaterialLabel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSearch
             // 
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSearch.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnSearch.Depth = 0;
             this.btnSearch.HighEmphasis = true;
             this.btnSearch.Icon = null;
-            this.btnSearch.Location = new System.Drawing.Point(7, 439);
+            this.btnSearch.Location = new System.Drawing.Point(234, 460);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
@@ -66,13 +68,13 @@
             // 
             // btnClear
             // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClear.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnClear.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnClear.Depth = 0;
             this.btnClear.HighEmphasis = true;
             this.btnClear.Icon = null;
-            this.btnClear.Location = new System.Drawing.Point(79, 439);
+            this.btnClear.Location = new System.Drawing.Point(306, 460);
             this.btnClear.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClear.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClear.Name = "btnClear";
@@ -87,13 +89,13 @@
             // 
             // btnClose
             // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnClose.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnClose.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnClose.Depth = 0;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(151, 439);
+            this.btnClose.Location = new System.Drawing.Point(378, 460);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
@@ -126,7 +128,7 @@
             this.dgvBills.Name = "dgvBills";
             this.dgvBills.ReadOnly = true;
             this.dgvBills.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dgvBills.Size = new System.Drawing.Size(1173, 366);
+            this.dgvBills.Size = new System.Drawing.Size(1205, 366);
             this.dgvBills.TabIndex = 31;
             this.dgvBills.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvBills_RowHeaderMouseDoubleClick);
             // 
@@ -186,11 +188,60 @@
             this.Column64.Name = "Column64";
             this.Column64.ReadOnly = true;
             // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCustomerName.AnimateReadOnly = false;
+            this.txtCustomerName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtCustomerName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtCustomerName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtCustomerName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtCustomerName.Depth = 0;
+            this.txtCustomerName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCustomerName.HideSelection = true;
+            this.txtCustomerName.LeadingIcon = null;
+            this.txtCustomerName.Location = new System.Drawing.Point(6, 460);
+            this.txtCustomerName.MaxLength = 32767;
+            this.txtCustomerName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.PasswordChar = '\0';
+            this.txtCustomerName.PrefixSuffixText = null;
+            this.txtCustomerName.ReadOnly = false;
+            this.txtCustomerName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtCustomerName.SelectedText = "";
+            this.txtCustomerName.SelectionLength = 0;
+            this.txtCustomerName.SelectionStart = 0;
+            this.txtCustomerName.ShortcutsEnabled = true;
+            this.txtCustomerName.Size = new System.Drawing.Size(221, 48);
+            this.txtCustomerName.TabIndex = 32;
+            this.txtCustomerName.TabStop = false;
+            this.txtCustomerName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtCustomerName.TrailingIcon = null;
+            this.txtCustomerName.UseSystemPasswordChar = false;
+            this.txtCustomerName.Click += new System.EventHandler(this.txtCustomerName_Click);
+            // 
+            // lblCustomerName
+            // 
+            this.lblCustomerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCustomerName.AutoSize = true;
+            this.lblCustomerName.Depth = 0;
+            this.lblCustomerName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCustomerName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblCustomerName.Location = new System.Drawing.Point(89, 438);
+            this.lblCustomerName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblCustomerName.Name = "lblCustomerName";
+            this.lblCustomerName.Size = new System.Drawing.Size(43, 19);
+            this.lblCustomerName.TabIndex = 36;
+            this.lblCustomerName.Text = "إسم العميل";
+            this.lblCustomerName.Click += new System.EventHandler(this.lblCustomerName_Click);
+            // 
             // frmBillLookup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1179, 482);
+            this.ClientSize = new System.Drawing.Size(1211, 514);
+            this.Controls.Add(this.lblCustomerName);
+            this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.dgvBills);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnClear);
@@ -210,6 +261,7 @@
             this.Text = "البحث عن فاتورة";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmItemLookup_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmItemLookup_FormClosed);
+            this.Load += new System.EventHandler(this.frmBillLookup_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBills)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -228,5 +280,7 @@
         public System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         public System.Windows.Forms.DataGridViewTextBoxColumn Column64;
+        public MaterialSkin.Controls.MaterialTextBox2 txtCustomerName;
+        public MaterialSkin.Controls.MaterialLabel lblCustomerName;
     }
 }
