@@ -1482,7 +1482,7 @@ namespace DataAccessLayer
             }
         }
 
-        public Tuple<List<Bill>, DataTable> RetrieveBillsRefund()
+        public Tuple<List<Bill>, DataTable> RetrieveBillsRefund(string customerName)
         {
             try
             {
@@ -1492,6 +1492,7 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                cmd.Parameters.AddWithValue("@ClientName", customerName);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);

@@ -60,7 +60,7 @@ namespace PlancksoftPOS
 
             this.UID = UID;
 
-            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveBillsRefund();
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveBillsRefund("");
             dgvBills.DataSource = RetrievedBills.Item2;
         }
 
@@ -72,6 +72,7 @@ namespace PlancksoftPOS
                 btnClear.Text = "مسح";
                 btnSearch.Text = "البحث";
                 btnClose.Text = "الخروج";
+                lblCustomerName.Text = "إسم العميل";
                 dgvBills.Columns["Column15"].HeaderText = "رقم الفاتوره";
                 dgvBills.Columns["Column16"].HeaderText = "اسم الكاشير";
                 dgvBills.Columns["Column17"].HeaderText = "المبلغ الصافي";
@@ -88,6 +89,7 @@ namespace PlancksoftPOS
                 btnClear.Text = "Clear";
                 btnSearch.Text = "Search";
                 btnClose.Text = "Close";
+                lblCustomerName.Text = "Customer Name";
                 dgvBills.Columns["Column15"].HeaderText = "Bill ID";
                 dgvBills.Columns["Column16"].HeaderText = "Cashier Name";
                 dgvBills.Columns["Column17"].HeaderText = "Net Total";
@@ -102,7 +104,7 @@ namespace PlancksoftPOS
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveBillsRefund();
+            Tuple<List<Bill>, DataTable> RetrievedBills = Connection.server.RetrieveBillsRefund(txtCustomerName.Text);
             dgvBills.DataSource = RetrievedBills.Item2;
 
 
@@ -220,6 +222,21 @@ namespace PlancksoftPOS
         {
             Program.exited = false;
             Program.materialSkinManager.RemoveFormToManage(this);
+        }
+
+        private void frmBillLookup_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCustomerName_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblCustomerName_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

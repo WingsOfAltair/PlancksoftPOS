@@ -128,7 +128,6 @@ namespace PlancksoftPOS_Receipt_Print_Server
 
                 foreach (Dependencies.Printer printer in PrintersToPrint)
                 {
-
                     printDocument1.PrinterSettings.PrinterName = printer.Name;
                     printDocument1.Print();
                 }

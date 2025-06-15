@@ -1473,7 +1473,7 @@ namespace DataAccessLayerJSON
             }
         }  
 
-        public Response RetrieveBillsRefund()
+        public Response RetrieveBillsRefund(string customerName)
         {
             try
             {
@@ -1483,6 +1483,7 @@ namespace DataAccessLayerJSON
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                cmd.Parameters.AddWithValue("@ClientName", customerName);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
