@@ -1205,9 +1205,11 @@ namespace DataAccessLayerJSON
 
                 if (dt.Rows.Count > 0)
                 {
+                    item.SetID(Int32.Parse(dt.Rows[0]["Item ID"].ToString()));
                     item.SetName(dt.Rows[0]["Item Name"].ToString());
                     item.SetBarCode(dt.Rows[0]["Item BarCode"].ToString());
                     item.SetQuantity(Convert.ToInt32(dt.Rows[0]["Item Quantity"].ToString()));
+                    item.SetBuyPrice(Convert.ToDecimal(dt.Rows[0]["Item Buy Price"].ToString()));
                     item.SetPrice(Convert.ToDecimal(dt.Rows[0]["Item Price"].ToString()));
                     item.SetPriceTax(Convert.ToDecimal(dt.Rows[0]["Item Price Tax"].ToString()));
                     item.SetFavoriteCategoryName(dt.Rows[0]["Favorite Category"].ToString());
