@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Vv41RxP6q2I=",
+  "dgSpecHash": "LoBdWyRsdIg=",
   "success": true,
   "projectFilePath": "D:\\GitHub\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
   "expectedPackageFiles": [
@@ -24,8 +24,10 @@
     {
       "code": "NU1903",
       "level": "Warning",
-      "warningLevel": 1,
       "message": "Package 'System.Data.SqlClient' 4.8.5 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "projectPath": "D:\\GitHub\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
+      "warningLevel": 1,
+      "filePath": "D:\\GitHub\\PlancksoftPOS\\PublisherApi\\PublisherApi.csproj",
       "libraryId": "System.Data.SqlClient",
       "targetGraphs": [
         "net8.0"

@@ -32,6 +32,7 @@ export class PaymentModalComponent implements OnInit {
   updatedata: any;
   filterrow: any;
   filteritemdata: any;
+  finalItemsData: any;
   itemdata: any[];
   Amount: any;
   AmountRemainder: any = 0;
@@ -84,6 +85,8 @@ export class PaymentModalComponent implements OnInit {
 
   ngOnInit(): void {
     this.updatedata = this.windowRef.config.context;
+
+    this.finalItemsData = [];
 
     this.filteritemdata = this.updatedata.itemlist;
 
@@ -303,6 +306,78 @@ export class PaymentModalComponent implements OnInit {
     this.discou = event;
   }
 
+  fulfill_payment() {
+  var obj = {
+    billToAdd: {
+      isVendor: false,
+      postponed: false,
+      clientID: this.CID,
+      billNumber: this.payment.value.billnumber
+        ? this.payment.value.billnumber
+        : 0,
+      remainderAmount: this.AmountRemainder,
+      totalAmount: this.Amount ? this.Amount : this.totalAmountRemainder,
+      paidAmount: this.payment.value.PaidAmount,
+      date: this.convertDateToJSONFormat(new Date()),
+      cashierName: this.userID,
+      paybycash:
+        this.payment.value.cashpayment == 1
+          ? this.payment.value.cashpayment
+          : this.payment.value.visapayment,
+      clientName: this.clientname,
+      clientPhone: this.clientPhone,
+      clientAddress: this.clientAddress,
+      clientEmail: this.clientEmail,
+      itemsBought: this.finalItemsData,
+    },
+    cashierName: this.userID,
+  };
+
+  console.log("SENDING DATA");
+  console.log(obj);
+
+  this.publisherService
+    .PostRequest("RetrieveLastBillNumberToday", "")
+    .subscribe((res: any) => {
+      console.log(JSON.parse(res));
+      var billNo = JSON.parse(res);
+
+      this.billno = billNo.ResponseMessage.billNumber;
+
+      this.bill = this.billno + 1;
+      this.publisherService
+        .PostRequest("PayBill", obj)
+        .subscribe((ress: any) => {
+          console.log(JSON.parse(ress));
+
+          /*if (this.bill) {
+            this.generatePDF(); 
+          }*/
+
+          // Initialize moneyInRegister from localStorage or default to 0 if not available or NaN
+          this.moneyInRegister = parseFloat(localStorage.getItem('moneyInRegister')) || 0;
+
+          // Parse amount and amountRemainder, defaulting to 0 if NaN
+          const amount = parseFloat(this.Amount) || 0;
+
+          if (this.payment.value.PaidAmount <= amount)
+          {
+            this.moneyInRegister += this.payment.value.PaidAmount;
+          } else {
+            this.moneyInRegister += amount;
+          }
+
+          // Update the value in localStorage
+          localStorage.setItem('moneyInRegister', this.moneyInRegister.toString());
+
+          this.closeModal();
+
+          this.filteritemdata = []
+
+        });
+    });
+  }
+
   Submit() {
     if (this.payment.valid) {
       this.paidAmount = this.payment.value.PaidAmount;
@@ -311,72 +386,37 @@ export class PaymentModalComponent implements OnInit {
       if (this.AmountRemainder < 0)
         this.AmountRemainder = this.AmountRemainder * -1;
 
-      var obj = {
-        billToAdd: {
-          isVendor: false,
-          postponed: false,
-          clientID: this.CID,
-          billNumber: this.payment.value.billnumber
-            ? this.payment.value.billnumber
-            : 0,
-          remainderAmount: this.AmountRemainder,
-          totalAmount: this.Amount ? this.Amount : this.totalAmountRemainder,
-          paidAmount: this.payment.value.PaidAmount,
-          date: this.convertDateToJSONFormat(new Date()),
-          cashierName: this.userID,
-          paybycash:
-            this.payment.value.cashpayment == 1
-              ? this.payment.value.cashpayment
-              : this.payment.value.visapayment,
-          clientName: this.clientname,
-          clientPhone: this.clientPhone,
-          clientAddress: this.clientAddress,
-          clientEmail: this.clientEmail,
-          itemsBought: this.filteritemdata,
-        },
-        cashierName: this.userID,
-      };
+      this.filteritemdata.forEach((el) => {
+        var obj = {
+          ItemBarCode: el.ItemBarCode,
+        };
 
-      this.publisherService
-        .PostRequest("RetrieveLastBillNumberToday", "")
-        .subscribe((res: any) => {
-          console.log(JSON.parse(res));
-          var billNo = JSON.parse(res);
+        this.publisherService
+          .PostRequest("SearchInventoryItemsWithBarCode", obj)
+          .subscribe((res: any) => {
+            var response = JSON.parse(res);
+            var data = response.ResponseMessage.Item1;
+            if (data.ItemName){
+              var bought = {
+                ItemBarCode: data.ItemBarCode,
+                ItemSellPrice: data.ItemPrice,
+                ItemSellPriceTax: data.ItemPriceTax,
+                ItemBuyPrice: data.ItemBuyPrice,
+                ItemQuantity: el.ItemQuantity,
+              };
 
-          this.billno = billNo.ResponseMessage.billNumber;
-
-          this.bill = this.billno + 1;
-          this.publisherService
-            .PostRequest("PayBill", obj)
-            .subscribe((ress: any) => {
-              console.log(JSON.parse(ress));
-
-              /*if (this.bill) {
-                this.generatePDF(); 
-              }*/
-
-              // Initialize moneyInRegister from localStorage or default to 0 if not available or NaN
-              this.moneyInRegister = parseFloat(localStorage.getItem('moneyInRegister')) || 0;
-
-              // Parse amount and amountRemainder, defaulting to 0 if NaN
-              const amount = parseFloat(this.Amount) || 0;
-    
-              if (this.payment.value.PaidAmount <= amount)
-              {
-                this.moneyInRegister += this.payment.value.PaidAmount;
-              } else {
-                this.moneyInRegister += amount;
-              }
-
-              // Update the value in localStorage
-              localStorage.setItem('moneyInRegister', this.moneyInRegister.toString());
-
-              this.closeModal();
-
-              this.filteritemdata = []
-
-            });
+            console.log("ITEM BUY PRICE DATA");
+            console.log(data.ItemBuyPrice);
+            this.finalItemsData.push(bought);
+            if (this.filteritemdata.length == this.finalItemsData.length)
+            {
+              this.fulfill_payment();
+            }
+            }
+          });
         });
+
+
     } else {
       this.toastrService.danger("Try Again", "Error");
     }

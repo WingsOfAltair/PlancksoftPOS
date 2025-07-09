@@ -1187,6 +1187,7 @@ namespace DataAccessLayer
                     Item.SetName(ItemFound["Item Name"].ToString());
                     Item.SetBarCode(ItemFound["Item BarCode"].ToString());
                     Item.SetQuantity(Convert.ToInt32(ItemFound["Item Quantity"].ToString()));
+                    Item.SetBuyPrice(Convert.ToDecimal(dt.Rows[0]["Item Buy Price"].ToString()));
                     Item.SetPrice(Convert.ToDecimal(ItemFound["Item Price"].ToString()));
                     Item.SetPriceTax(Convert.ToDecimal(ItemFound["Item Price Tax"].ToString()));
                     return Item;
