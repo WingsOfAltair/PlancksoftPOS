@@ -96,11 +96,11 @@ export class AddSellItemComponent implements OnInit {
       PaidAmount: [],
       Paycash: [],
       Postponed: [],
-      ProductionDate: [],
+      ProductionDate: new Date(new Date().setHours(0, 0, 0, 0)),
     });
 
     this.AddBill.patchValue({
-      ProductionDate: new Date(),
+      ProductionDate: new Date(new Date().setHours(0, 0, 0, 0)),
     });
 
     this.publisherService

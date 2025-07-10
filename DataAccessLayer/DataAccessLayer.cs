@@ -3924,6 +3924,15 @@ namespace DataAccessLayer
                     item.SetPrice(Convert.ToDecimal(Item["Item Price"].ToString()));
                     item.SetPriceTax(Convert.ToDecimal(Item["Item Price Tax"].ToString()));
                     item.SetItemTypeID(Convert.ToInt32(Item["Item Type"].ToString()));
+                    item.ProductionDate = Convert.ToDateTime(Item["Production Date"].ToString());
+                    item.ExpirationDate = Convert.ToDateTime(Item["Expiration Date"].ToString());
+                    item.EntryDate = Convert.ToDateTime(Item["Entry Date"].ToString());
+                    item.SetFavoriteCategory(Convert.ToInt32(Item["Favorite Category Number"].ToString()));
+                    item.SetFavoriteCategoryName(Item["Favorite Category"].ToString());
+                    item.SetItemTypeID(Convert.ToInt32(Item["Item Type"].ToString()));
+                    item.SetItemTypeName(Item["InventoryItemType"].ToString());
+                    item.SetWarehouseID(Convert.ToInt32(Item["Warehouse ID"].ToString()));
+                    item.SetWarehouseName(Item["InventoryItemWarehouse"].ToString());
                     Items.Add(item);
                 }
                 return Tuple.Create(Items, dt);

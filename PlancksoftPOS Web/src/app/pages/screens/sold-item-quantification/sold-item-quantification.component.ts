@@ -67,8 +67,8 @@ export class SoldItemQuantificationComponent implements OnInit {
     this.SoldItemsReviewData = this.fb.group({
       ItemType: [0],
       CashierName: [""],
-      Date1: [],
-      Date2: [],
+      Date1: new Date(new Date().setHours(0, 0, 0, 0)),
+      Date2: new Date(new Date().setHours(23, 59, 59, 999)),
     });
 
     this.publisherService

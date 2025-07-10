@@ -4091,6 +4091,9 @@ namespace DataAccessLayerJSON
                     item.SetWarehouseName(Item["InventoryItemWarehouse"].ToString());
                     item.SetItemTypeID(Convert.ToInt32(Item["Item Type"].ToString()));
                     item.SetItemTypeName(Item["InventoryItemType"].ToString());
+                    item.ProductionDate = Convert.ToDateTime(Item["Production Date"].ToString());
+                    item.ExpirationDate = Convert.ToDateTime(Item["Expiration Date"].ToString());
+                    item.EntryDate = Convert.ToDateTime(Item["Entry Date"].ToString());
                     Items.Add(item);
                 }
                 return new Response(Tuple.Create(SerializeDataTableToJSON(dt), Items), true);
