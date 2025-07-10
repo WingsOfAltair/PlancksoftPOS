@@ -73,8 +73,8 @@ export class ExpenseLookupComponent implements OnInit {
     this.Expense = this.fb.group({
       Expensename: [],
       Employeename: [],
-      ProductionDate: [],
-      ExpirationDate: [],
+      Date1: new Date(new Date().setHours(0, 0, 0, 0)),
+      Date2: new Date(new Date().setHours(23, 59, 59, 999)),
     });
 
     this.publisherService
@@ -104,8 +104,8 @@ export class ExpenseLookupComponent implements OnInit {
       });
 
     var obj = {
-      Date1: this.convertDateToJSONFormat(new Date()),
-      Date2: "",
+      Date1: this.Expense.value.Date1,
+      Date2: this.Expense.value.Date2,
       ExpenseName: "",
       EmployeeID: "",
     };
@@ -163,8 +163,8 @@ export class ExpenseLookupComponent implements OnInit {
 
   SearchData() {
     var obj = {
-      Date1: this.Expense.value.ProductionDate,
-      Date2: this.Expense.value.ExpirationDate,
+      Date1: this.Expense.value.Date1,
+      Date2: this.Expense.value.Date2,
       ExpenseName: this.Expense.value.Expensename,
       EmployeeID: this.employee,
     };

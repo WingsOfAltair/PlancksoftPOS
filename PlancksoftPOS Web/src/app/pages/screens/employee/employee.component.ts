@@ -81,8 +81,8 @@ export class EmployeeComponent implements OnInit {
 
   ngOnInit(): void {
     this.Search = this.fb.group({
-      Date1: [],
-      Date2: [],
+      Date1: new Date(new Date().setHours(0, 0, 0, 0)),
+      Date2: new Date(new Date().setHours(23, 59, 59, 999)),
     });
 
     this.publisherService
