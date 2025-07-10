@@ -274,49 +274,70 @@ handleKeyboardEvent(event: KeyboardEvent) {
     return;
   }
 
-  // Step 2: Calculate bill totals
-  let billAmount = 0;
-  let totalquantity = 0;
+  const exists = this.allbills.some(
+  bill =>
+    bill.randomcode === previousRandom2 &&
+    bill.data?.randomcode === previousRandom
+  );
 
-  previousItems.forEach(el => {
-    billAmount += el.data.ItemQuantity * el.data.ItemPrice;
-    totalquantity += el.data.ItemQuantity;
-  });
+  if (exists) {
+    // Step 6: Reset views
+    this.currentSelectedBill = null;
+    this.dataSource = this.dataSourceBuilder.create([]);
+    this.pandingdata = [];
+    this.paydata = [];
+    this.dataa = [];
+    this.PreviousPickedItem = [];
+    this.itemlist = [];
+    this.random = this.getRandomNumber(1, 1000000);
+    this.random2 = this.getRandomNumber(1, 1000000);
+    console.log("random: " + this.random);
+    console.log("random2 :" + this.random2);
+  } else {
+    // Step 2: Calculate bill totals
+    let billAmount = 0;
+    let totalquantity = 0;
 
-  const billquantity = previousItems.length;
+    previousItems.forEach(el => {
+      billAmount += el.data.ItemQuantity * el.data.ItemPrice;
+      totalquantity += el.data.ItemQuantity;
+    });
 
-  // Step 3: Add the bill summary to allbills
-  const billSummary = {
-    data: {
-      ItemName: billquantity,
-      ItemQuantity: totalquantity,
-      ItemPrice: billAmount,
-      randomcode: previousItems[0].data.RandomCode,
-    },
-    randomcode: previousRandom2,
-  };
+    const billquantity = previousItems.length;
 
-  this.allbills.push(billSummary);
+    // Step 3: Add the bill summary to allbills
+    const billSummary = {
+      data: {
+        ItemName: billquantity,
+        ItemQuantity: totalquantity,
+        ItemPrice: billAmount,
+        randomcode: previousItems[0].data.RandomCode,
+      },
+      randomcode: previousRandom2,
+    };
 
-  // Step 4: Update bill totals
-  let totalAmount = 0;
-  this.allbills.forEach(el => {
-    totalAmount += el.data.ItemPrice;
-  });
-  this.perivoustotal = totalAmount;
+    this.allbills.push(billSummary);
 
-  // Step 6: Reset views
-  this.currentSelectedBill = null;
-  this.dataSource = this.dataSourceBuilder.create([]);
-  this.pandingdata = [];
-  this.paydata = [];
-  this.dataa = [];
-  this.PreviousPickedItem = [];
-  this.itemlist = [];
-  this.random = this.getRandomNumber(1, 1000000);
-  this.random2 = this.getRandomNumber(1, 1000000);
-  console.log("random: " + this.random);
-  console.log("random2 :" + this.random2);
+    // Step 4: Update bill totals
+    let totalAmount = 0;
+    this.allbills.forEach(el => {
+      totalAmount += el.data.ItemPrice;
+    });
+    this.perivoustotal = totalAmount;
+
+    // Step 6: Reset views
+    this.currentSelectedBill = null;
+    this.dataSource = this.dataSourceBuilder.create([]);
+    this.pandingdata = [];
+    this.paydata = [];
+    this.dataa = [];
+    this.PreviousPickedItem = [];
+    this.itemlist = [];
+    this.random = this.getRandomNumber(1, 1000000);
+    this.random2 = this.getRandomNumber(1, 1000000);
+    console.log("random: " + this.random);
+    console.log("random2 :" + this.random2);
+  }
 }
 
   update(Barcode) {
