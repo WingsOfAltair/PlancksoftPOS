@@ -105,8 +105,8 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
     });
     
     var obj = {
-      Date1: "",
-      Date2: "",
+      Date1: new Date(new Date().setHours(0, 0, 0, 0)),
+      Date2: new Date(new Date().setHours(23, 59, 59, 999)),
     }
 
     this.publisherService
@@ -158,8 +158,8 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
 
   SearchIncoming() {
     var obj = {
-      Date1: this.IncomingData.value.Date1,
-      Date2: this.IncomingData.value.Date2,
+      Date1: new Date(new Date(this.IncomingData.value.Date1).setHours(0, 0, 0, 0)),
+      Date2: new Date(new Date(this.IncomingData.value.Date2).setHours(23, 59, 59, 999)),
     }
 
     this.publisherService
@@ -211,8 +211,8 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
   
   SearchOutgoing() {
     var obj = {
-      Date1: this.OutgoingData.value.Date3,
-      Date2: this.OutgoingData.value.Date4,
+      Date1: new Date(new Date(this.OutgoingData.value.Date3).setHours(0, 0, 0, 0)),
+      Date2: new Date(new Date(this.OutgoingData.value.Date4).setHours(23, 59, 59, 999)),
     }
 
     this.publisherService

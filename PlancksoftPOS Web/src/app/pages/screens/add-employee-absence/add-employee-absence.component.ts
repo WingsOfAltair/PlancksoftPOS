@@ -90,8 +90,8 @@ export class AddEmployeeAbsenceComponent implements OnInit {
       console.log(this.Search.value);
 
       var obj = {
-        Date1: this.convertDateToJSONFormat(this.Search.value.Date1),
-        Date2: this.convertDateToJSONFormat(this.Search.value.Date2),
+        Date1: this.convertDateToJSONFormat(new Date(new Date(this.Search.value.Date1).setHours(0, 0, 0, 0))),
+        Date2: this.convertDateToJSONFormat(new Date(new Date(this.Search.value.Date2).setHours(23, 59, 59, 999))),
       };
 
       var list = [];

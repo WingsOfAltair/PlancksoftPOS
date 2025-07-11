@@ -87,8 +87,8 @@ export class SoldItemQuantificationComponent implements OnInit {
     var obj = {
       ItemTypeID: this.SoldItemsReviewData.value.ItemType,
       CashierName: this.SoldItemsReviewData.value.CashierName,
-      Date1: this.convertDateToJSONFormat(this.SoldItemsReviewData.value.Date1) + " 00:00:00.000",
-      Date2: this.convertDateToJSONFormat(this.SoldItemsReviewData.value.Date2) + " 23:59:59.999",
+      Date1: new Date(new Date(this.SoldItemsReviewData.value.Date1).setHours(0, 0, 0, 0)),
+      Date2: new Date(new Date(this.SoldItemsReviewData.value.Date2).setHours(23, 59, 59, 999)),
       //BillNumber: 1,
       //itemBarcode: 123,
     };

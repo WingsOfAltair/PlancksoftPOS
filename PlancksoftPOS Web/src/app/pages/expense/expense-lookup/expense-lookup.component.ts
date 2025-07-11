@@ -104,8 +104,8 @@ export class ExpenseLookupComponent implements OnInit {
       });
 
     var obj = {
-      Date1: this.Expense.value.Date1,
-      Date2: this.Expense.value.Date2,
+      Date1: new Date(new Date(this.Expense.value.Date1).setHours(0, 0, 0, 0)),
+      Date2: new Date(new Date(this.Expense.value.Date2).setHours(23, 59, 59, 999)),
       ExpenseName: "",
       EmployeeID: "",
     };
@@ -163,8 +163,8 @@ export class ExpenseLookupComponent implements OnInit {
 
   SearchData() {
     var obj = {
-      Date1: this.Expense.value.Date1,
-      Date2: this.Expense.value.Date2,
+      Date1: new Date(new Date(this.Expense.value.Date1).setHours(0, 0, 0, 0)),
+      Date2: new Date(new Date(this.Expense.value.Date2).setHours(23, 59, 59, 999)),
       ExpenseName: this.Expense.value.Expensename,
       EmployeeID: this.employee,
     };
