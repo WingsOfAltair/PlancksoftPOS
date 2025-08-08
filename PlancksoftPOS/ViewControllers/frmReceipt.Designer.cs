@@ -52,7 +52,7 @@
             this.btnPickClient.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPickClient.Name = "btnPickClient";
             this.btnPickClient.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.btnPickClient.Size = new System.Drawing.Size(342, 36);
+            this.btnPickClient.Size = new System.Drawing.Size(378, 36);
             this.btnPickClient.TabIndex = 75;
             this.btnPickClient.Text = "X";
             this.btnPickClient.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -62,10 +62,10 @@
             // 
             // pbReceipt
             // 
-            this.pbReceipt.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pbReceipt.Location = new System.Drawing.Point(3, 100);
+            this.pbReceipt.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pbReceipt.Location = new System.Drawing.Point(3, 109);
             this.pbReceipt.Name = "pbReceipt";
-            this.pbReceipt.Size = new System.Drawing.Size(342, 865);
+            this.pbReceipt.Size = new System.Drawing.Size(378, 938);
             this.pbReceipt.TabIndex = 76;
             this.pbReceipt.TabStop = false;
             // 
@@ -73,7 +73,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(348, 1050);
+            this.ClientSize = new System.Drawing.Size(384, 1050);
             this.ControlBox = false;
             this.Controls.Add(this.pbReceipt);
             this.Controls.Add(this.btnPickClient);

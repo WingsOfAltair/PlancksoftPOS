@@ -68,3 +68,4 @@ D:\GitHub\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Ge
 D:\GitHub\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\Planckso.43195C9C.Up2Date
 D:\GitHub\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\PlancksoftPOS License Key Generator.exe
 D:\GitHub\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\PlancksoftPOS License Key Generator.pdb
+D:\GitHub\PlancksoftPOS\PlancksoftPOS License Generator\PlancksoftPOS License Generator\obj\Debug\PlancksoftPOS License Key Generator.exe.config

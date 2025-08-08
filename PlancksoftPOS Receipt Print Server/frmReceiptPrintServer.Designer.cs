@@ -54,23 +54,24 @@
             // 
             this.pbReceipt.Location = new System.Drawing.Point(0, 0);
             this.pbReceipt.Name = "pbReceipt";
-            this.pbReceipt.Size = new System.Drawing.Size(100, 50);
+            this.pbReceipt.Size = new System.Drawing.Size(0, 0);
             this.pbReceipt.TabIndex = 0;
             this.pbReceipt.TabStop = false;
+            this.pbReceipt.UseWaitCursor = true;
             // 
             // ReceiptPrintServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(10, 10);
+            this.ClientSize = new System.Drawing.Size(0, 0);
             this.ControlBox = false;
             this.Controls.Add(this.pbReceipt);
             this.DoubleBuffered = true;
+            this.Enabled = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ReceiptPrintServer";
-            this.Opacity = 0D;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
