@@ -85,7 +85,14 @@ namespace PlancksoftPOS
 
                 int y = padding;
 
-                y += DrawRightAndLeftUnbordered(g, "0776472166", "Plancksoft برمجة شركة", y, fontRegular);
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y += DrawRightAndLeftUnbordered(g, "0776472166", "Plancksoft برمجة شركة", y, fontRegular);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y += DrawRightAndLeftUnbordered(g, "0776472166", "Powered by Plancksoft", y, fontRegular);
+                }
 
                 // Header (centered, RTL-aware)    
                 string storeName = shopName;
@@ -97,17 +104,62 @@ namespace PlancksoftPOS
 
                 if (rePrint)
                 {
-                    y = DrawCenteredText(g, "Reprint of Invoice Number: " + Bill.BillNumber, y, fontRegular);
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y = DrawCenteredText(g, "إعادة طباعة فانوره رقم " + Bill.BillNumber, y, fontRegular);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y = DrawCenteredText(g, "Reprint of Invoice Number: " + Bill.BillNumber, y, fontRegular);
+                    }
                 }
-                y = DrawCenteredBorderedText(g, y, "Invoice Number: " + Bill.BillNumber);
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y = DrawCenteredBorderedText(g, y, "فانوره رقم: " + Bill.BillNumber);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y = DrawCenteredBorderedText(g, y, "Invoice Number: " + Bill.BillNumber);
+                }
 
                 y += DrawRightAndLeftUnbordered(g, DateTime.Now.DayOfWeek.ToString(), String.Format("{0}", DateTime.Now.ToString("dd MMMM yyyy MM/dd h:mm:ss tt")), y, fontRegular);
-                y = DrawCenteredText(g, "إسم الكاشير: " + Bill.CashierName, y, fontRegular);
-                y += DrawRightAndLeftUnbordered(g, "إسم العميل: " + Bill.ClientName, "عنوان العميل" + Bill.ClientAddress, y, fontRegular);
-                y += DrawRightAndLeftUnbordered(g, "رقم العميل: " + Bill.ClientPhone, "بريد العميل" + Bill.ClientEmail, y, fontRegular);
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y = DrawCenteredText(g, "إسم الكاشير: " + Bill.CashierName, y, fontRegular);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y = DrawCenteredText(g, "Cashier Name: " + Bill.CashierName, y, fontRegular);
+                }
+
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y += DrawRightAndLeftUnbordered(g, "إسم العميل: " + Bill.ClientName, "عنوان العميل" + Bill.ClientAddress, y, fontRegular);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y += DrawRightAndLeftUnbordered(g, "Client Name: +" + Bill.ClientName, "Client Address" + Bill.ClientAddress, y, fontRegular);
+                }
+
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y += DrawRightAndLeftUnbordered(g, "رقم العميل: " + Bill.ClientPhone, "بريد العميل" + Bill.ClientEmail, y, fontRegular);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y += DrawRightAndLeftUnbordered(g, "Client Number: +" + Bill.ClientName, "Client Email" + Bill.ClientAddress, y, fontRegular);
+                }
 
                 // Table data (you can replace/add rows)
-                string[] headers = { "اسم السلعة", "السعر", "الكمية", "الخصم", "المجموع" };
+                string[] headers = new string[] { };
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    headers = new string[] { "اسم السلعة", "السعر", "الكمية", "الخصم", "المجموع" };
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    headers = new string[] { "Item Name", "Price", "Quantity", "Discount", "Total" };
+                }
                 List<string[]> rows = new List<string[]>();
 
                 foreach (var item in Bill.ItemsBought)
@@ -197,12 +249,41 @@ namespace PlancksoftPOS
 
                     y += 10;
 
-                    y += DrawRightAndLeftCentered(g, "المدفوع: " + Bill.PaidAmount, "الباقي: " + Bill.RemainderAmount, y, fontBold);
-                    y += DrawRightAndLeftCentered(g, "عدد الأصناف: " + totalquantity, "الكميات: " + totalquantity, y, fontBold);
-                    y += DrawRightAndLeftCentered(g, "الخصم: 0.600", "المجموع: " + Bill.getTotalAmount().ToString(), y, fontBold);
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y += DrawRightAndLeftCentered(g, "المدفوع: " + Bill.PaidAmount, "الباقي: " + Bill.RemainderAmount, y, fontBold);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y += DrawRightAndLeftCentered(g, "Paid: " + Bill.PaidAmount, "Remainder: " + Bill.RemainderAmount, y, fontBold);
+                    }
 
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y += DrawRightAndLeftCentered(g, "عدد الأصناف: " + totalquantity, "الكميات: " + totalquantity, y, fontBold);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y += DrawRightAndLeftCentered(g, "Item Types Quantity: " + totalquantity, "Quantity: " + totalquantity, y, fontBold);
+                    }
 
-                    y = DrawCenteredBorderedText(g, y, "الصافي: " + Bill.getTotalAmount().ToString());
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y += DrawRightAndLeftCentered(g, "الخصم: 0.600", "المجموع: " + Bill.getTotalAmount().ToString(), y, fontBold);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y += DrawRightAndLeftCentered(g, "Discount: 0.600", "Total: " + Bill.getTotalAmount().ToString(), y, fontBold);
+                    }
+
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y = DrawCenteredBorderedText(g, y, "الصافي: " + Bill.getTotalAmount().ToString());
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y = DrawCenteredBorderedText(g, y, "Net Total: " + Bill.getTotalAmount().ToString());
+                    }
 
                     y += 10;
 
@@ -210,8 +291,23 @@ namespace PlancksoftPOS
 
                     y += 5;  // Optional spacing after line if needed
 
-                    y = DrawCenteredText(g, "شكرا لكم وأهلا وسهلا بكم", y, fontRegular);
-                    y = DrawCenteredText(g, "الغاتورة شامله الضريبه", y, fontRegular);
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y = DrawCenteredText(g, "شكرا لكم لزيارتكم", y, fontRegular);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y = DrawCenteredText(g, "Thank you for visiting", y, fontRegular);
+                    }
+
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y = DrawCenteredText(g, "الغاتورة شامله الضريبه", y, fontRegular);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y = DrawCenteredText(g, "Tax included in prices", y, fontRegular);
+                    }
 
                     // Crop and save
                     int cropHeight = Math.Min(y + padding, imgHeight);
