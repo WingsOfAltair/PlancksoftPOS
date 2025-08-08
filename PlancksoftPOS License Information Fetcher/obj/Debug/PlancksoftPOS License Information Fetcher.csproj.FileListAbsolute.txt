@@ -68,3 +68,4 @@ D:\GitHub\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\Plan
 D:\GitHub\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\Planckso.281D49E5.Up2Date
 D:\GitHub\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.exe
 D:\GitHub\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.pdb
+D:\GitHub\PlancksoftPOS\PlancksoftPOS License Information Fetcher\obj\Debug\PlancksoftPOS License Information Fetcher.exe.config

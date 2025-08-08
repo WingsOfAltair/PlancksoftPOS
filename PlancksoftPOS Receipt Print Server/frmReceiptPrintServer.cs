@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
+using System.Drawing.Text;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -27,18 +28,22 @@ namespace PlancksoftPOS_Receipt_Print_Server
 
         bool rePrint = false;
 
-        Bitmap bitmap = null;
-
         private PrintDocument PrintDocument;
-        private Graphics graphics;
-        private Graphics bitmapGraphic;
-        private int InitialHeight = 360;
 
         Image StoreLogo;
         byte[] storeLogo;
         string shopName;
         string shopAddress;
         string shopPhone;
+
+        static int width = 384;
+        static int padding = 10;
+        static int cellPadding = 6;
+        static int lineHeight = 30;
+        static Font fontRegular = new Font("Arial", 10);
+        static Font fontBold = new Font("Arial", 12, FontStyle.Bold);
+
+        int totalquantity = 0;
 
         public ReceiptPrintServer()
         {
@@ -101,12 +106,6 @@ namespace PlancksoftPOS_Receipt_Print_Server
 
                 foreach (Item item in ItemsInBill)
                 {
-                    AdjustHeight();
-                    bitmap = new Bitmap(342, InitialHeight + 865, PixelFormat.Format32bppArgb);
-                    bitmapGraphic = Graphics.FromImage(bitmap);
-                    bitmapGraphic.FillRectangle(Brushes.White, 0, 0, bitmap.Width, bitmap.Height);
-
-
                     foreach (Printer printer in PrintersList)
                     {
                         List<ItemType> ItemTypesInPrinterList = Connection.server.RetrievePrinterItemTypes(printer.ID);
@@ -133,249 +132,502 @@ namespace PlancksoftPOS_Receipt_Print_Server
                 }
             }
         }
-        private void AdjustHeight()
-        {
-            var capacity = 5 * ItemsInBill.Capacity;
-            InitialHeight += capacity;
-
-            capacity = 5 * ItemsInBill.Capacity;
-            InitialHeight += capacity;
-        }
-        void DrawAtStart(string text, int Offset)
-        {
-            int startX = 10;
-            int startY = 5;
-            Font minifont = new Font("Arial", 5);
-
-            graphics.DrawString(text, minifont,
-                     new SolidBrush(Color.Black), startX + 5, startY + Offset);
-            bitmapGraphic.DrawString(text, minifont,
-                     new SolidBrush(Color.Black), startX + 5, startY + Offset);
-        }
-        void InsertItem(string key, string value, int Offset)
-        {
-            Font minifont = new Font("Arial", 5);
-            int startX = 10;
-            int startY = 5;
-
-            graphics.DrawString(key, minifont,
-                         new SolidBrush(Color.Black), startX + 5, startY + Offset);
-
-            bitmapGraphic.DrawString(key, minifont,
-                     new SolidBrush(Color.Black), startX + 5, startY + Offset);
-
-            graphics.DrawString(value, minifont,
-                 new SolidBrush(Color.Black), startX + 130, startY + Offset);
-
-            bitmapGraphic.DrawString(value, minifont,
-                     new SolidBrush(Color.Black), startX + 130, startY + Offset);
-        }
-        void InsertHeaderStyleItem(string key, string value, int Offset)
-        {
-            int startX = 10;
-            int startY = 5;
-            Font itemfont = new Font("Arial", 6, FontStyle.Bold);
-
-            graphics.DrawString(key, itemfont,
-                         new SolidBrush(Color.Black), startX + 5, startY + Offset);
-
-            bitmapGraphic.DrawString(key, itemfont,
-                         new SolidBrush(Color.Black), startX + 5, startY + Offset);
-
-            graphics.DrawString(value, itemfont,
-                 new SolidBrush(Color.Black), startX + 130, startY + Offset);
-
-            bitmapGraphic.DrawString(value, itemfont,
-                     new SolidBrush(Color.Black), startX + 130, startY + Offset);
-        }
-        void DrawLine(string text, Font font, int Offset, int xOffset)
-        {
-            int startX = 10;
-            int startY = 5;
-            graphics.DrawString(text, font,
-                     new SolidBrush(Color.Black), startX + xOffset, startY + Offset);
-            bitmapGraphic.DrawString(text, font,
-                     new SolidBrush(Color.Black), startX + xOffset, startY + Offset);
-        }
-        void DrawSimpleString(string text, Font font, int Offset, int xOffset)
-        {
-            int startX = 10;
-            int startY = 5;
-            graphics.DrawString(text, font,
-                     new SolidBrush(Color.Black), startX + xOffset, startY + Offset);
-            bitmapGraphic.DrawString(text, font,
-                     new SolidBrush(Color.Black), startX + xOffset, startY + Offset);
-        }
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
-            graphics = e.Graphics;
             Font minifont = new Font("Arial", 5);
             Font itemfont = new Font("Arial", 6);
             Font smallfont = new Font("Arial", 8);
             Font mediumfont = new Font("Arial", 10);
             Font largefont = new Font("Arial", 12);
-            int Offset = 10;
-            int smallinc = 10, mediuminc = 12, largeinc = 15;
 
-            e.Graphics.DrawImage(StoreLogo, 0 + 80, 0 + Offset, 100, 30);
-            bitmapGraphic.DrawImage(StoreLogo, 0 + 80, 0 + Offset, 100, 30);
+            int imgHeight = 1200; // generous height, we'll crop later
 
-            Offset = Offset + largeinc + 40;
-
-            graphics.DrawString("Welcome to " + shopName, largefont,
-                  new SolidBrush(Color.Black), 0 + 22, 0 + Offset);
-
-            bitmapGraphic.DrawString("Welcome to " + shopName, largefont,
-                  new SolidBrush(Color.Black), 0 + 22, 0 + Offset);
-
-            Offset = Offset + largeinc + 10;
-
-            String underLine = "---------------------------------------------";
-            DrawLine(underLine, largefont, Offset, 0);
-
-            Offset = Offset + largeinc + 10;
-            Offset = Offset + largeinc + 10;
-            if (rePrint)
+            using (Bitmap bmp = new Bitmap(width, imgHeight))
+            using (Graphics g = Graphics.FromImage(bmp))
             {
-                DrawAtStart("Reprint of Invoice Number: " + Bill.BillNumber, Offset);
-            }
-            else
-            {
-                DrawAtStart("Invoice Number: " + Bill.BillNumber, Offset);
-            }
+                g.Clear(Color.White);
+                g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-            if (!String.Equals(Bill.ClientName, null) && !String.Equals(Bill.ClientName, ""))
-            {
-                Offset = Offset + mediuminc;
-                DrawAtStart("Client Name: " + Bill.ClientName, Offset);
-            }
+                int y = padding;
 
-            if (!String.Equals(Bill.ClientAddress, null) && !String.Equals(Bill.ClientAddress, ""))
-            {
-                Offset = Offset + mediuminc;
-                DrawAtStart("Client Address: " + Bill.ClientAddress, Offset);
-            }
+                y += DrawRightAndLeftUnbordered(g, "0776472166", "Plancksoft برمجة شركة", y, fontRegular);
 
-            if (!String.Equals(Bill.ClientPhone, null) && !String.Equals(Bill.ClientPhone, ""))
-            {
-                Offset = Offset + mediuminc;
-                DrawAtStart("Client Phone #: " + Bill.ClientPhone, Offset);
-            }
+                // Header (centered, RTL-aware)    
+                string storeName = shopName;
+                y = DrawCenteredBlackFilledWhiteText(g, y, storeName);
+                //y = DrawCenteredText(g, "رقم الدور: 6200", y, fontBold);
+                y += 10;
 
-            if (!String.Equals(Bill.ClientEmail, null) && !String.Equals(Bill.ClientEmail, ""))
-            {
-                Offset = Offset + mediuminc;
-                DrawAtStart("Client Email: " + Bill.ClientEmail, Offset);
-            }
+                y += DrawRightAndLeftUnbordered(g, shopAddress, shopPhone, y, fontRegular);
 
-            Offset = Offset + mediuminc;
-            DrawAtStart("Date: " + Bill.getDate(), Offset);
-
-            Offset = Offset + smallinc;
-            underLine = "-------------------------";
-            DrawLine(underLine, largefont, Offset, 30);
-
-            Offset = Offset + largeinc;
-
-            InsertHeaderStyleItem("Name. ", "Price. ", Offset);
-
-            Offset = Offset + largeinc;
-            foreach (var item in Bill.ItemsBought)
-            {
-                InsertItem(item.ItemName1 + " x " + item.ItemQuantity1, item.ItemPriceTax1.ToString(), Offset);
-                Offset = Offset + smallinc;
-            }
-            //foreach (var dtran in bill.ItemsBought)
-            //{
-            //    InsertItem(dtran.Deal.Name, dtran.Total.CValue, Offset);
-            //    Offset = Offset + smallinc;
-
-            //    foreach (var di in dtran.Deal.DealItems)
-            //    {
-            //        InsertItem(di.Item.Name + " x " + (dtran.Quantity * di.Quantity), "", Offset);
-            //        Offset = Offset + smallinc;
-            //    }
-            //}
-
-            underLine = "-------------------------";
-            DrawLine(underLine, largefont, Offset, 30);
-
-            Offset = Offset + largeinc;
-            InsertItem(" Net. Total: ", Bill.getTotalAmount().ToString(), Offset);//getTotalAmount().CValue
-
-            //if (!order.Cash.Discount.IsZero())
-            //{
-            //    Offset = Offset + smallinc;
-            //    InsertItem(" Discount: ", order.Cash.Discount.CValue, Offset);
-            //}
-
-            Offset = Offset + smallinc;
-            InsertItem(" Paid Amount: ", Bill.getPaidAmount().ToString(), Offset);
-            Offset = Offset + smallinc;
-            InsertHeaderStyleItem(" Remainder Amount: ", Bill.getRemainderAmount().ToString(), Offset); // GrossTotal.CValue
-
-            Offset = Offset + largeinc;
-            //String address = Bill.ClientAddress;
-            //DrawSimpleString("Address: " + address, minifont, Offset, 15);
-
-            Offset = Offset + smallinc;
-            //String number = "Tel: " + Bill.ClientPhone;// + " - OR - " + shop.Phone2;
-            //DrawSimpleString(number, minifont, Offset, 35);
-
-            Offset = Offset + 7;
-            underLine = "-------------------------------------";
-            DrawLine(underLine, largefont, Offset, 0);
-
-            Offset = Offset + mediuminc;
-            String greetings = "Thanks for visiting us.";
-            DrawSimpleString(greetings, largefont, Offset, 28);
-
-            Offset = Offset + mediuminc;
-            underLine = "-------------------------------------";
-            DrawLine(underLine, largefont, Offset, 0);
-
-            //Offset += (2 * mediuminc);
-            //string tip = "TIP: -----------------------------";
-            //InsertItem(tip, "", Offset);
-            Offset += (2 * mediuminc);
-            string cashier = "Cashier: " + Bill.getCashierName(); ;
-            InsertItem(cashier, "", Offset);
-
-            Offset = Offset + largeinc;
-            string DrawnBy = shopName + ": " + shopPhone + " - " + shopAddress;//"Plancksoft: +962 77 64 72 166 - Deir Al Asal Street, Khalda, Amman, Jordan.";
-            DrawSimpleString(DrawnBy, minifont, Offset, 15);
-
-
-            pbReceipt.Image = bitmap;
-            using (MemoryStream Mmst = new MemoryStream())
-            {
-                try
+                if (rePrint)
                 {
-                    try
-                    {
-                        Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts");
-                    }
-                    catch (Exception error) { }
-                    try
-                    {
-                        Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day);
-                    }
-                    catch (Exception error) { }
-
-                    bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + " " + DateTime.Today.Hour +
-                        "-" + DateTime.Today.Minute + "-" + DateTime.Today.Second + "-" + DateTime.Today.Millisecond + " Receipt " +
-                        Bill.getBillNumber() + ".png", ImageFormat.Png);
-
-                    //bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + " " + DateTime.Today.Hour +
-                    //    "-" + DateTime.Today.Minute + "-" + DateTime.Today.Second + "-" + DateTime.Today.Millisecond + " Receipt " +
-                    //    Bill.getBillNumber() + ".jpeg", ImageFormat.Jpeg);
+                    y = DrawCenteredText(g, "Reprint of Invoice Number: " + Bill.BillNumber, y, fontRegular);
                 }
-                catch (Exception error)
+                y = DrawCenteredBorderedText(g, y, "Invoice Number: " + Bill.BillNumber);
+
+                y += DrawRightAndLeftUnbordered(g, DateTime.Now.DayOfWeek.ToString(), String.Format("{0}", DateTime.Now.ToString("dd MMMM yyyy MM/dd h:mm:ss tt")), y, fontRegular);
+                y = DrawCenteredText(g, "إسم الكاشير: " + Bill.CashierName, y, fontRegular);
+                y += DrawRightAndLeftUnbordered(g, "إسم العميل: " + Bill.ClientName, "عنوان العميل" + Bill.ClientAddress, y, fontRegular);
+                y += DrawRightAndLeftUnbordered(g, "رقم العميل: " + Bill.ClientPhone, "بريد العميل" + Bill.ClientEmail, y, fontRegular);
+
+                // Table data (you can replace/add rows)
+                string[] headers = { "اسم السلعة", "السعر", "الكمية", "الخصم", "المجموع" };
+                List<string[]> rows = new List<string[]>();
+
+                foreach (var item in Bill.ItemsBought)
+                {
+                    rows.Add(new string[] { item.ItemName, item.ItemPriceTax.ToString(), item.ItemQuantity.ToString(), "0.00", (item.ItemPriceTax * item.ItemQuantity).ToString() });
+                }
                 {
 
+                    int availableWidth = width - 2 * padding;
+                    int cols = headers.Length;
+                    int[] colWidths = new int[cols];
+
+                    // Measure required widths per column (based on headers + all row cells)
+                    for (int c = 0; c < cols; c++)
+                    {
+                        float maxW = g.MeasureString(headers[c], fontRegular).Width;
+                        foreach (var r in rows)
+                        {
+                            float w = g.MeasureString(r[c], fontRegular).Width;
+                            if (w > maxW) maxW = w;
+                        }
+                        colWidths[c] = (int)Math.Ceiling(maxW) + 2 * cellPadding;
+                    }
+
+                    // If the table is wider than available width, scale columns down proportionally
+                    int totalWidth = 0;
+                    foreach (var w in colWidths) totalWidth += w;
+                    int minColWidth = 40;
+                    if (totalWidth > availableWidth)
+                    {
+                        float scale = (float)availableWidth / totalWidth;
+                        totalWidth = 0;
+                        for (int c = 0; c < cols; c++)
+                        {
+                            colWidths[c] = Math.Max(minColWidth, (int)(colWidths[c] * scale));
+                            totalWidth += colWidths[c];
+                        }
+                    }
+                    else
+                    {
+                        // recompute totalWidth in case it wasn't set above
+                        totalWidth = 0;
+                        foreach (var w in colWidths) totalWidth += w;
+                    }
+
+                    // Center the table horizontally
+                    int startX = padding + (availableWidth - totalWidth) / 2;
+                    int cellHeight = lineHeight;
+
+                    // StringFormats
+                    StringFormat centerFormat = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+                    StringFormat centerFormatRTL = new StringFormat(centerFormat) { FormatFlags = StringFormatFlags.DirectionRightToLeft };
+                    StringFormat rightFormatRTL = new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center, FormatFlags = StringFormatFlags.DirectionRightToLeft };
+
+                    // Draw header row (with borders)
+                    int x = startX;
+                    for (int c = 0; c < cols; c++)
+                    {
+                        Rectangle rect = new Rectangle(x, y, colWidths[c], cellHeight);
+                        g.DrawRectangle(Pens.Black, rect);
+                        g.DrawString(headers[c], fontRegular, Brushes.Black, rect, centerFormatRTL);
+                        x += colWidths[c];
+                    }
+                    y += cellHeight;
+
+                    // Draw rows (with borders)
+                    foreach (var row in rows)
+                    {
+                        x = startX;
+                        for (int c = 0; c < cols; c++)
+                        {
+                            Rectangle rect = new Rectangle(x, y, colWidths[c], cellHeight);
+                            g.DrawRectangle(Pens.Black, rect);
+
+                            string cellText = row[c] ?? string.Empty;
+                            bool isNumeric = IsMostlyNumeric(cellText);
+
+                            if (isNumeric)
+                                g.DrawString(cellText, fontRegular, Brushes.Black, rect, rightFormatRTL);
+                            else
+                                g.DrawString(cellText, fontRegular, Brushes.Black, rect, centerFormatRTL);
+
+                            x += colWidths[c];
+                        }
+                        y += cellHeight;
+                    }
+
+                    y += 10;
+
+                    y += DrawRightAndLeftCentered(g, "المدفوع: " + Bill.PaidAmount, "الباقي: " + Bill.RemainderAmount, y, fontBold);
+                    y += DrawRightAndLeftCentered(g, "عدد الأصناف: " + totalquantity, "الكميات: " + totalquantity, y, fontBold);
+                    y += DrawRightAndLeftCentered(g, "الخصم: 0.600", "المجموع: " + Bill.getTotalAmount().ToString(), y, fontBold);
+
+
+                    y = DrawCenteredBorderedText(g, y, "الصافي: " + Bill.getTotalAmount().ToString());
+
+                    y += 10;
+
+                    g.DrawLine(Pens.Black, 0, y, width, y);
+
+                    y += 5;  // Optional spacing after line if needed
+
+                    y = DrawCenteredText(g, "شكرا لكم وأهلا وسهلا بكم", y, fontRegular);
+                    y = DrawCenteredText(g, "الغاتورة شامله الضريبه", y, fontRegular);
+
+                    // Crop and save
+                    int cropHeight = Math.Min(y + padding, imgHeight);
+                    using (Bitmap cropped = bmp.Clone(new Rectangle(0, 0, width, cropHeight), bmp.PixelFormat))
+                    {
+                        try
+                        {
+                            try
+                            {
+                                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts");
+                            }
+                            catch (Exception error) { }
+                            try
+                            {
+                                Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day);
+                            }
+                            catch (Exception error) { }
+
+                            // Draw the bitmap onto the printer graphics at the top-left corner
+                            e.Graphics.DrawImage(cropped, 0, 0, width, cropHeight);
+
+                            /*if (this.InvokeRequired)
+                            {
+                                this.Invoke(new MethodInvoker(() =>
+                                {
+                                    pbReceipt.Image = cropped;
+                                    this.Height = imgHeight;
+                                    this.Width = cropped.Width;
+                                    pbReceipt.Height = imgHeight;
+                                    pbReceipt.Width = cropped.Width;
+                                }));
+                            }
+                            else
+                            {
+                                pbReceipt.Image = cropped;
+                                this.Height = imgHeight;
+                                this.Width = cropped.Width;
+                                pbReceipt.Height = imgHeight;
+                                pbReceipt.Width = cropped.Width;
+                            }*/
+
+                            cropped.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + " " + DateTime.Today.Hour +
+                                "-" + DateTime.Today.Minute + "-" + DateTime.Today.Second + "-" + DateTime.Today.Millisecond + " Receipt " +
+                                Bill.getBillNumber() + ".png", ImageFormat.Png);
+
+                            //bitmap.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Receipts\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + " " + DateTime.Today.Hour +
+                            //    "-" + DateTime.Today.Minute + "-" + DateTime.Today.Second + "-" + DateTime.Today.Millisecond + " Receipt " +
+                            //    Bill.getBillNumber() + ".jpeg", ImageFormat.Jpeg);
+                        }
+                        catch (Exception error)
+                        {
+
+                        }
+                    }
                 }
+
             }
+        }
+
+        static bool IsMostlyNumeric(string s)
+        {
+            if (string.IsNullOrWhiteSpace(s)) return false;
+            int digits = 0, chars = 0;
+            foreach (char ch in s)
+            {
+                if (char.IsDigit(ch) || ch == '.' || ch == ',') digits++;
+                if (!char.IsWhiteSpace(ch)) chars++;
+            }
+            return chars > 0 && ((double)digits / chars) > 0.5;
+        }
+
+        static int DrawCenteredBlackFilledWhiteText(Graphics g, int y, string storeName)
+        {
+            Font storeFont = new Font("Tahoma", 18, FontStyle.Bold);
+            SizeF storeSize = g.MeasureString(storeName, storeFont);
+            g.FillRectangle(Brushes.Black, 0, y, width, storeSize.Height + 10);
+            g.DrawString(storeName, storeFont, Brushes.White, new PointF((width - storeSize.Width) / 2, y + 5));
+            return y + (int)storeSize.Height + 10;
+        }
+
+        static int DrawCenteredBorderedText(Graphics g, int y, string text)
+        {
+            Font storeFont = new Font("Tahoma", 12, FontStyle.Bold);
+            // Measure text
+            SizeF textSize = g.MeasureString(text, storeFont);
+
+            // Calculate rectangle size (text + padding)
+            float rectWidth = textSize.Width + padding * 2;
+            float rectHeight = textSize.Height + padding * 2;
+
+            // Calculate X so that the rectangle is centered
+            float rectX = (width - rectWidth) / 2;
+
+            // Draw rectangle around text
+            g.DrawRectangle(Pens.Black, rectX, y, rectWidth, rectHeight);
+
+            // Draw centered text inside the rectangle
+            g.DrawString(
+                text,
+                storeFont,
+                Brushes.Black,
+                new RectangleF(rectX, y, rectWidth, rectHeight),
+                new StringFormat
+                {
+                    Alignment = StringAlignment.Center,
+                    LineAlignment = StringAlignment.Center
+                }
+            );
+
+            // Return the new Y position after the rectangle
+            return (int)(y + rectHeight);
+        }
+
+        static int DrawCenteredText(Graphics g, string text, int y, Font font)
+        {
+            RectangleF rect = new RectangleF(0, y, width, lineHeight);
+            StringFormat sf = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center, FormatFlags = StringFormatFlags.DirectionRightToLeft };
+            g.DrawString(text, font, Brushes.Black, rect, sf);
+            return y + lineHeight;
+        }
+
+        static int DrawRightAlignedText(Graphics g, string text, int y, Font font)
+        {
+            RectangleF rect = new RectangleF(padding, y, width - 2 * padding, lineHeight);
+            StringFormat sf = new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center, FormatFlags = StringFormatFlags.DirectionRightToLeft };
+            g.DrawString(text, font, Brushes.Black, rect, sf);
+            return y + lineHeight;
+        }
+
+        static int DrawRightAndLeftCentered(Graphics g, string rightText, string leftText, int y, Font font)
+        {
+            int rowHeight = lineHeight;
+            int horizontalPadding = padding;
+
+            // Measure text sizes + padding for rectangles
+            SizeF leftSize = g.MeasureString(leftText, font);
+            float leftRectWidth = leftSize.Width + horizontalPadding * 2;
+
+            SizeF rightSize = g.MeasureString(rightText, font);
+            float rightRectWidth = rightSize.Width + horizontalPadding * 2;
+
+            // Define gap between rectangles (you can adjust this)
+            int gap = 10;
+
+            // Total width of both rectangles + gap
+            float totalWidth = leftRectWidth + rightRectWidth + gap;
+
+            // Start X to horizontally center both rectangles as a group
+            float startX = (width - totalWidth) / 2f;
+
+            // Left rectangle position
+            float leftRectX = startX;
+
+            // Right rectangle position (right after left rect + gap)
+            float rightRectX = startX + leftRectWidth + gap;
+
+            // Draw left rectangle and centered text
+            RectangleF leftRect = new RectangleF(leftRectX, y, leftRectWidth, rowHeight);
+            g.DrawRectangle(Pens.Black, Rectangle.Round(leftRect));
+            g.DrawString(
+                leftText,
+                font,
+                Brushes.Black,
+                leftRect,
+                new StringFormat
+                {
+                    Alignment = StringAlignment.Center,
+                    LineAlignment = StringAlignment.Center
+                }
+            );
+
+            // Draw right rectangle and centered text (RTL)
+            RectangleF rightRect = new RectangleF(rightRectX, y, rightRectWidth, rowHeight);
+            g.DrawRectangle(Pens.Black, Rectangle.Round(rightRect));
+            g.DrawString(
+                rightText,
+                font,
+                Brushes.Black,
+                rightRect,
+                new StringFormat
+                {
+                    Alignment = StringAlignment.Center,
+                    LineAlignment = StringAlignment.Center,
+                    FormatFlags = StringFormatFlags.DirectionRightToLeft
+                }
+            );
+
+            return rowHeight;
+        }
+
+
+        static int DrawRightAndLeftUnbordered(Graphics g, string rightText, string leftText, int y, Font font)
+        {
+            int rowHeight = lineHeight;
+
+            // Measure text sizes (not really needed if no rectangles, but can keep for alignment)
+            SizeF rightSize = g.MeasureString(rightText, font);
+            float rightRectWidth = rightSize.Width + padding * 2;
+            float rightRectX = width - rightRectWidth;
+
+            SizeF leftSize = g.MeasureString(leftText, font);
+            float leftRectWidth = leftSize.Width + padding * 2;
+            float leftRectX = 0;
+
+            // Draw right text aligned to the right side inside its area
+            RectangleF rightRect = new RectangleF(rightRectX, y, rightRectWidth, rowHeight);
+            g.DrawString(
+                rightText,
+                font,
+                Brushes.Black,
+                rightRect,
+                new StringFormat
+                {
+                    Alignment = StringAlignment.Far,
+                    LineAlignment = StringAlignment.Center,
+                    FormatFlags = StringFormatFlags.DirectionRightToLeft
+                }
+            );
+
+            // Draw left text aligned to the left side inside its area
+            RectangleF leftRect = new RectangleF(leftRectX, y, leftRectWidth, rowHeight);
+            g.DrawString(
+                leftText,
+                font,
+                Brushes.Black,
+                leftRect,
+                new StringFormat
+                {
+                    Alignment = StringAlignment.Near,
+                    LineAlignment = StringAlignment.Center
+                }
+            );
+
+            // Return the vertical space consumed
+            return rowHeight;
+        }
+
+
+        static int DrawRightAndLeft(Graphics g, string rightText, string leftText, int y, Font font)
+        {
+            int verticalPadding = 4; // smaller padding for vertical space
+
+            // Fixed height for row
+            int rowHeight = lineHeight;
+
+            // Measure right text width
+            SizeF rightSize = g.MeasureString(rightText, font);
+            float rightRectWidth = rightSize.Width + padding * 2;
+            float rightRectX = width - rightRectWidth;
+
+            // Measure left text width
+            SizeF leftSize = g.MeasureString(leftText, font);
+            float leftRectWidth = leftSize.Width + padding * 2;
+            float leftRectX = 0;
+
+            // Draw right rectangle and text
+            RectangleF rightRect = new RectangleF(rightRectX, y, rightRectWidth, rowHeight);
+            g.DrawRectangle(Pens.Black, Rectangle.Round(rightRect));
+            g.DrawString(
+                rightText,
+                font,
+                Brushes.Black,
+                rightRect,
+                new StringFormat
+                {
+                    Alignment = StringAlignment.Far,
+                    LineAlignment = StringAlignment.Center,
+                    FormatFlags = StringFormatFlags.DirectionRightToLeft
+                }
+            );
+
+            // Draw left rectangle and text
+            RectangleF leftRect = new RectangleF(leftRectX, y, leftRectWidth, rowHeight);
+            g.DrawRectangle(Pens.Black, Rectangle.Round(leftRect));
+            g.DrawString(
+                leftText,
+                font,
+                Brushes.Black,
+                leftRect,
+                new StringFormat
+                {
+                    Alignment = StringAlignment.Near,
+                    LineAlignment = StringAlignment.Center
+                }
+            );
+
+            // Return the new y position after this row
+            return rowHeight;
+        }
+
+        static int DrawRightAlignedBorderedText(Graphics g, string text, int y, Font font)
+        {
+            // Measure text
+            SizeF textSize = g.MeasureString(text, font);
+
+            // Rectangle size (text + padding)
+            float rectWidth = textSize.Width + padding * 2;
+            float rectHeight = textSize.Height + padding * 2;
+
+            // Position rectangle so its right edge is at the receipt's right edge
+            float rectX = width - rectWidth;
+
+            // Draw rectangle
+            g.DrawRectangle(Pens.Black, rectX, y, rectWidth, rectHeight);
+
+            // Draw right-aligned text inside the rectangle
+            g.DrawString(
+                text,
+                font,
+                Brushes.Black,
+                new RectangleF(rectX, y, rectWidth, rectHeight),
+                new StringFormat
+                {
+                    Alignment = StringAlignment.Far, // Right-align text
+                    LineAlignment = StringAlignment.Center,
+                    FormatFlags = StringFormatFlags.DirectionRightToLeft // Helps with Arabic text
+                }
+            );
+
+            return (int)(y + rectHeight);
+        }
+        static int DrawLeftAlignedBorderedText(Graphics g, string text, int y, Font font)
+        {
+            // Measure text
+            SizeF textSize = g.MeasureString(text, font);
+
+            // Rectangle size (text + padding)
+            float rectWidth = textSize.Width + padding * 2;
+            float rectHeight = textSize.Height + padding * 2;
+
+            // Position rectangle at the left side
+            float rectX = 0;
+
+            // Draw rectangle
+            g.DrawRectangle(Pens.Black, rectX, y, rectWidth, rectHeight);
+
+            // Draw left-aligned text inside the rectangle
+            g.DrawString(
+                text,
+                font,
+                Brushes.Black,
+                new RectangleF(rectX, y, rectWidth, rectHeight),
+                new StringFormat
+                {
+                    Alignment = StringAlignment.Near, // Left align text
+                    LineAlignment = StringAlignment.Center
+                }
+            );
+
+            return (int)(y + rectHeight);
         }
     }
 }

@@ -28,3 +28,4 @@ D:\GitHub\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Debug\PlancksoftP
 D:\GitHub\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Debug\Planckso.857B3CEE.Up2Date
 D:\GitHub\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Debug\PlancksoftPOS Receipt Print Server.exe
 D:\GitHub\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Debug\PlancksoftPOS Receipt Print Server.pdb
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Debug\PlancksoftPOS Receipt Print Server.exe.config

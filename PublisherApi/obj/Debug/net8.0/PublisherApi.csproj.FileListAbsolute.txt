@@ -34,11 +34,6 @@ D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\PublisherApi.MvcApplicatio
 D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\PublisherApi.sourcelink.json
 D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets.build.json
 D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets.development.json
-D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets\msbuild.PublisherApi.Microsoft.AspNetCore.StaticWebAssets.props
-D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets\msbuild.build.PublisherApi.props
-D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.PublisherApi.props
-D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.PublisherApi.props
-D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets.pack.json
 D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\scopedcss\bundle\PublisherApi.styles.css
 D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\Publishe.4883F6FD.Up2Date
 D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\PublisherApi.dll
@@ -48,5 +43,9 @@ D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\PublisherApi.genruntimecon
 D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\ref\PublisherApi.dll
 D:\GitHub\PlancksoftPOS\PublisherApi\bin\Debug\net8.0\PublisherApi.staticwebassets.endpoints.json
 D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets\msbuild.PublisherApi.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
 D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\rjimswa.dswa.cache.json
+D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+D:\GitHub\PlancksoftPOS\PublisherApi\obj\Debug\net8.0\staticwebassets.build.json.cache
