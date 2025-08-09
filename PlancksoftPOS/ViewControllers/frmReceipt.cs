@@ -172,20 +172,20 @@ namespace PlancksoftPOS
 
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    y += DrawRightAndLeftUnbordered(g, "إسم العميل: " + Bill.ClientName, "عنوان العميل" + Bill.ClientAddress, y, fontRegular);
+                    y += DrawRightAndLeftUnbordered(g, "إسم العميل: " + Bill.ClientName, "عنوان العميل: " + Bill.ClientAddress, y, fontRegular);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    y += DrawRightAndLeftUnbordered(g, "Client Name: +" + Bill.ClientName, "Client Address" + Bill.ClientAddress, y, fontRegular);
+                    y += DrawRightAndLeftUnbordered(g, "Client Name: " + Bill.ClientName, "Client Address: " + Bill.ClientAddress, y, fontRegular);
                 }
 
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    y += DrawRightAndLeftUnbordered(g, "رقم العميل: " + Bill.ClientPhone, "بريد العميل" + Bill.ClientEmail, y, fontRegular);
+                    y += DrawRightAndLeftUnbordered(g, "رقم العميل: " + Bill.ClientPhone, "بريد العميل: " + Bill.ClientEmail, y, fontRegular);
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    y += DrawRightAndLeftUnbordered(g, "Client Number: +" + Bill.ClientName, "Client Email" + Bill.ClientAddress, y, fontRegular);
+                    y += DrawRightAndLeftUnbordered(g, "Client Number: " + Bill.ClientName, "Client Email: " + Bill.ClientAddress, y, fontRegular);
                 }
 
                 {

@@ -3793,6 +3793,7 @@ namespace DataAccessLayer
                     newBill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
                     newBill.DiscountAmount = Convert.ToDecimal(Bill["Discount Amount"].ToString());
                     newBill.SetDate(Convert.ToDateTime(Bill["Invoice Date"].ToString()));
+                    newBill.TaxID = Bill["Tax ID"].ToString();
                     newBill.ClientName = Bill["Client Name"].ToString();
                     newBill.ClientPhone = Bill["Client Phone"].ToString();
                     newBill.ClientAddress = Bill["Client Address"].ToString();
