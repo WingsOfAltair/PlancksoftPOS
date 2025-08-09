@@ -11,6 +11,7 @@ using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
 using System.Threading.Tasks;
@@ -33,11 +34,11 @@ namespace PlancksoftPOS
         private int InitialHeight = 360;
         Bill Bill;
 
-        System.Drawing.Image StoreLogo;
-        byte[] storeLogo;
+        System.Drawing.Image StoreLogImg;
         string shopName;
         string shopAddress;
         string shopPhone;
+        bool IncludeLogoInReceipt;
 
         static int width = 384;
         static int padding = 10;
@@ -48,14 +49,15 @@ namespace PlancksoftPOS
 
         int totalquantity = 0;
 
-        public frmReceipt(Bill bill, string shopName, string shopAddress, string shopPhone, byte[] storeLogo, bool multiPrint, bool rePrint = false)
+        public frmReceipt(Bill bill, string shopName, string shopAddress, string shopPhone, System.Drawing.Image storeLogoImage, bool IncludeLogoInReceipt, bool multiPrint, bool rePrint = false)
         {
             InitializeComponent();
             Connection = new Connection();
             this.Bill = bill;
             this.ItemsInBill = bill.ItemsBought;
             this.MultiPrint = multiPrint;
-            this.storeLogo = storeLogo;
+            this.StoreLogImg = storeLogoImage;
+            this.IncludeLogoInReceipt = IncludeLogoInReceipt;
             this.shopName = shopName;
             this.shopAddress = shopAddress;
             this.shopPhone = shopPhone;
@@ -84,6 +86,11 @@ namespace PlancksoftPOS
                 g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
                 int y = padding;
+
+                if (this.IncludeLogoInReceipt)
+                {
+                    y = DrawImage(g, StoreLogImg, y);
+                }
 
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
@@ -545,6 +552,22 @@ namespace PlancksoftPOS
             );
 
             return rowHeight;
+        }
+
+        static int DrawImage(Graphics g, System.Drawing.Image img, int y)
+        {
+            // Get actual image size
+            float logoWidth = img.Width;
+            float logoHeight = img.Height;
+
+            // Calculate centered X position
+            float x = (width - logoWidth) / 2f;
+
+            // Draw image at the given y
+            g.DrawImage(img, x, y, logoWidth, logoHeight);
+
+            // Return the new y position after the image
+            return y + (int)logoHeight;
         }
 
 

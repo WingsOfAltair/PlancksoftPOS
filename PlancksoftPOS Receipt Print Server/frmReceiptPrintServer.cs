@@ -50,8 +50,19 @@ namespace PlancksoftPOS_Receipt_Print_Server
         {
             InitializeComponent();
 
-            العربيةToolStripMenuItem.Checked = true;
-            englishToolStripMenuItem.Checked = false;
+            pickedLanguage = (LanguageChoice.Languages)Properties.Settings.Default.pickedLanguage;
+
+            if (pickedLanguage == LanguageChoice.Languages.Arabic)
+            {
+                اللغةToolStripMenuItem.Text = "اللغة";
+                العربيةToolStripMenuItem.Checked = true;
+                englishToolStripMenuItem.Checked = false;
+            } else if (pickedLanguage == LanguageChoice.Languages.English)
+            {
+                اللغةToolStripMenuItem.Text = "Language";
+                العربيةToolStripMenuItem.Checked = false;
+                englishToolStripMenuItem.Checked = true;
+            }
         }
 
         private void cycleTimer_Tick(object sender, EventArgs e)
@@ -154,6 +165,8 @@ namespace PlancksoftPOS_Receipt_Print_Server
                 g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
                 int y = padding;
+
+                y = DrawImage(g, ResizeImage(StoreLogo, 128, 128), y);
 
                 if (pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
@@ -556,7 +569,32 @@ namespace PlancksoftPOS_Receipt_Print_Server
 
             return rowHeight;
         }
+        public static Image ResizeImage(Image image, int width, int height)
+        {
+            Bitmap resized = new Bitmap(width, height);
+            using (Graphics g = Graphics.FromImage(resized))
+            {
+                g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                g.DrawImage(image, 0, 0, width, height);
+            }
+            return resized;
+        }
 
+        static int DrawImage(Graphics g, System.Drawing.Image img, int y)
+        {
+            // Get actual image size
+            float logoWidth = img.Width;
+            float logoHeight = img.Height;
+
+            // Calculate centered X position
+            float x = (width - logoWidth) / 2f;
+
+            // Draw image at the given y
+            g.DrawImage(img, x, y, logoWidth, logoHeight);
+
+            // Return the new y position after the image
+            return y + (int)logoHeight;
+        }
 
         static int DrawRightAndLeftUnbordered(Graphics g, string rightText, string leftText, int y, Font font)
         {
@@ -603,7 +641,6 @@ namespace PlancksoftPOS_Receipt_Print_Server
             // Return the vertical space consumed
             return rowHeight;
         }
-
 
         static int DrawRightAndLeft(Graphics g, string rightText, string leftText, int y, Font font)
         {
@@ -688,6 +725,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
 
             return (int)(y + rectHeight);
         }
+
         static int DrawLeftAlignedBorderedText(Graphics g, string text, int y, Font font)
         {
             // Measure text
@@ -721,14 +759,20 @@ namespace PlancksoftPOS_Receipt_Print_Server
 
         private void العربيةToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            اللغةToolStripMenuItem.Text = "اللغة";
             pickedLanguage = LanguageChoice.Languages.Arabic;
+            Properties.Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.Arabic;
+            Properties.Settings.Default.Save();
             العربيةToolStripMenuItem.Checked = true;
             englishToolStripMenuItem.Checked = false;
         }
 
         private void englishToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            اللغةToolStripMenuItem.Text = "Language";
             pickedLanguage = LanguageChoice.Languages.English;
+            Properties.Settings.Default.pickedLanguage = (int)LanguageChoice.Languages.English;
+            Properties.Settings.Default.Save();
             العربيةToolStripMenuItem.Checked = false;
             englishToolStripMenuItem.Checked = true;
         }
