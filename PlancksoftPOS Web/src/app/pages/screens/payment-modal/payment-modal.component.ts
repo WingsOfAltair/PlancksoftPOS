@@ -64,6 +64,8 @@ export class PaymentModalComponent implements OnInit {
   Billno: any;
   billno: any;
 
+  totalAmountNoDiscount: any;
+
   constructor(
     private fb: FormBuilder,
     private publisherService: PublisherService,
@@ -318,6 +320,8 @@ export class PaymentModalComponent implements OnInit {
       remainderAmount: this.AmountRemainder,
       totalAmount: this.Amount ? this.Amount : this.totalAmountRemainder,
       paidAmount: this.payment.value.PaidAmount,
+      discountAmount: (this.Amount ? this.Amount : this.totalAmountRemainder) * (this.payment.value.Discount / 100),
+      taxID: "Tax ID",
       date: this.convertDateToJSONFormat(new Date()),
       cashierName: this.userID,
       paybycash:
@@ -506,6 +510,7 @@ export class PaymentModalComponent implements OnInit {
   calculateDiscountAmount() {
     this.Discountpayment = this.Amount / 100;
     const price = this.Discountpayment * this.payment.value.Discount;
+    this.totalAmountNoDiscount = this.Amount;
     this.totalprice = this.Amount - price;
 
     if (this.AmountRemainder) {
