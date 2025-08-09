@@ -527,5 +527,7 @@ export class PaymentModalComponent implements OnInit {
       AmountRequired: this.totalprice,
       Remainder: this.remtotalprice,
     });
+
+    this.calculateRemainingAmount();
   }
 }
