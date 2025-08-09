@@ -228,6 +228,7 @@ namespace PlancksoftPOS
             if (rbCash.Checked)
                 this.paybycash = true;
             else this.paybycash = false;
+            this.totalAmount = originalTotal;
             this.moneyPaid = Convert.ToDecimal(txtPaidAmount.Text);
             this.dialogResult = DialogResult.OK;
             this.Close();
@@ -235,6 +236,7 @@ namespace PlancksoftPOS
 
         private void btnDelayPayment_Click(object sender, EventArgs e)
         {
+            this.totalAmount = originalTotal;
             this.moneyPaid = 0;
             this.dialogResult = DialogResult.Ignore;
             this.Close();
@@ -296,6 +298,7 @@ namespace PlancksoftPOS
                     this.paybycash = true;
                 else this.paybycash = false;
                 this.moneyPaid = Convert.ToDecimal(txtPaidAmount.Text);
+                this.totalAmount = originalTotal;
                 this.dialogResult = DialogResult.Retry;
                 this.Close();
             }

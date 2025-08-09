@@ -15,6 +15,8 @@ export const locale = {
         SEARCH: 'البحث',
         BillID: 'رقم الغاتورة',
         CASHIERNAME: 'الكاشير',
+        AMOUNTBEFOREDISCOUNT: 'المبلغ قبل الخصم',
+        DISCOUNTAMOUNT: 'قيمة الخصم',
         NETAMOUNT: 'المبلغ الصافي',
         PAIDAMOUNT: 'المبلغ المدفوع',
         REMIANDER: 'المبلغ الباقي',
