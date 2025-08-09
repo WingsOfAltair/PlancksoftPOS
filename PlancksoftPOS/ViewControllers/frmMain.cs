@@ -11746,7 +11746,7 @@ namespace PlancksoftPOS
                 decimal remainder = remainderAmount;
                 string InvoiceDate = bill.getDate().ToString();
 
-                frmReceipt receipt = new frmReceipt(bill, txtStoreName.Text, txtStoreAddress.Text, txtStorePhone.Text, StoreLogo, true, rePrint);
+                frmReceipt receipt = new frmReceipt(bill, txtStoreName.Text, txtStoreAddress.Text, txtStorePhone.Text, picLogo.Image, IncludeLogoInReceipt, true, rePrint);
                 openedForm = receipt;
                 receipt.ShowDialog();
             }
