@@ -43,6 +43,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
         static Font fontBold = new Font("Arial", 12, FontStyle.Bold);
 
         int totalquantity = 0;
+        int item_quantity = 0;
         int currentRowIndex = 0;
 
         string[] headers = new string[] { };
@@ -175,6 +176,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
                             , (item.ItemPriceTax * item.ItemQuantity).ToString() });
 
                         totalquantity += item.ItemQuantity;
+                        item_quantity += 1;
                     }
 
                     using (Graphics g = this.CreateGraphics()) // Temporary graphics just for measuring
@@ -205,6 +207,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
 
             int imgHeight = 1200; // generous height, we'll crop later       
             totalquantity = 0;
+            item_quantity = 0;
 
             imgHeight += StoreLogo.Height;
             imgHeight += lineHeight;
@@ -381,11 +384,11 @@ namespace PlancksoftPOS_Receipt_Print_Server
 
                     if (pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        y += DrawRightAndLeftCentered(g, "عدد الأصناف: " + totalquantity, "الكميات: " + totalquantity, y, fontBold);
+                        y += DrawRightAndLeftCentered(g, "عدد الأصناف: " + item_quantity, "الكميات: " + totalquantity, y, fontBold);
                     }
                     else if (pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        y += DrawRightAndLeftCentered(g, "Item Types Quantity: " + totalquantity, "Quantity: " + totalquantity, y, fontBold);
+                        y += DrawRightAndLeftCentered(g, "Item Types Quantity: " + item_quantity, "Quantity: " + totalquantity, y, fontBold);
                     }
 
                     if (pickedLanguage == LanguageChoice.Languages.Arabic)
