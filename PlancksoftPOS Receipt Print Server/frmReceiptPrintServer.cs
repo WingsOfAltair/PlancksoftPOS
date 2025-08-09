@@ -35,7 +35,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
         string shopAddress;
         string shopPhone;
 
-        static int width = 384;
+        static int width = 384; // or 284
         static int padding = 10;
         static int cellPadding = 6;
         static int lineHeight = 30;
@@ -43,6 +43,12 @@ namespace PlancksoftPOS_Receipt_Print_Server
         static Font fontBold = new Font("Arial", 12, FontStyle.Bold);
 
         int totalquantity = 0;
+        int currentRowIndex = 0;
+
+        string[] headers = new string[] { };
+        List<string[]> rows = new List<string[]>();
+
+        int y = 0;
 
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
@@ -145,6 +151,45 @@ namespace PlancksoftPOS_Receipt_Print_Server
                 foreach (Dependencies.Printer printer in PrintersToPrint)
                 {
                     printDocument1.PrinterSettings.PrinterName = printer.Name;
+
+                    // Use printer’s width in hundredths of an inch
+                    int printerWidth = width; // ~72mm printer (adjust if needed)         
+                                            // Table data (you can replace/add rows)
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        headers = new string[] { "اسم السلعة", "السعر", "الكمية"
+                            //,"الخصم"
+                            , "المجموع" };
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        headers = new string[] { "Item Name", "Price", "Quantity"
+                            //, "Discount"
+                            , "Total" };
+                    }
+
+                    foreach (var item in Bill.ItemsBought)
+                    {
+                        rows.Add(new string[] { item.ItemName, item.ItemPriceTax.ToString(), item.ItemQuantity.ToString()
+                            //, "0.00"
+                            , (item.ItemPriceTax * item.ItemQuantity).ToString() });
+
+                        totalquantity += item.ItemQuantity;
+                    }
+
+                    using (Graphics g = this.CreateGraphics()) // Temporary graphics just for measuring
+                    {
+                        int height = MeasureReceiptHeight(
+                            g,
+                            fontRegular,
+                            fontBold,
+                            rows,
+                            headers
+                        );
+
+                        PaperSize paperSize = new PaperSize("Custom", printerWidth, height);
+                        printDocument1.DefaultPageSettings.PaperSize = paperSize;
+                    }
                     printDocument1.Print();
                 }
             }
@@ -158,7 +203,16 @@ namespace PlancksoftPOS_Receipt_Print_Server
             Font mediumfont = new Font("Arial", 10);
             Font largefont = new Font("Arial", 12);
 
-            int imgHeight = 1200; // generous height, we'll crop later
+            int imgHeight = 1200; // generous height, we'll crop later       
+            totalquantity = 0;
+
+            imgHeight += StoreLogo.Height;
+            imgHeight += lineHeight;
+
+            foreach (var item in rows)
+            {
+                imgHeight +=  + lineHeight;
+            }
 
             using (Bitmap bmp = new Bitmap(width, imgHeight))
             using (Graphics g = Graphics.FromImage(bmp))
@@ -166,7 +220,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
                 g.Clear(Color.White);
                 g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
 
-                int y = padding;
+                y = padding;
 
                 y = DrawImage(g, ResizeImage(StoreLogo, 128, 128), y);
 
@@ -224,22 +278,6 @@ namespace PlancksoftPOS_Receipt_Print_Server
                     y += DrawRightAndLeftUnbordered(g, "Client Number: " + Bill.ClientName, "Client Email" + Bill.ClientAddress, y, fontRegular);
                 }
 
-                // Table data (you can replace/add rows)
-                string[] headers = new string[] { };
-                if (pickedLanguage == LanguageChoice.Languages.Arabic)
-                {
-                    headers = new string[] { "اسم السلعة", "السعر", "الكمية", "الخصم", "المجموع" };
-                }
-                else if (pickedLanguage == LanguageChoice.Languages.English)
-                {
-                    headers = new string[] { "Item Name", "Price", "Quantity", "Discount", "Total" };
-                }
-                List<string[]> rows = new List<string[]>();
-
-                foreach (var item in Bill.ItemsBought)
-                {
-                    rows.Add(new string[] { item.ItemName, item.ItemPriceTax.ToString(), item.ItemQuantity.ToString(), "0.00", (item.ItemPriceTax * item.ItemQuantity).ToString() });
-                }
                 {
 
                     int availableWidth = width - 2 * padding;
@@ -281,6 +319,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
 
                     // Center the table horizontally
                     int startX = padding + (availableWidth - totalWidth) / 2;
+                    int availableHeight = e.MarginBounds.Height;
                     int cellHeight = lineHeight;
 
                     // StringFormats
@@ -299,7 +338,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
                     }
                     y += cellHeight;
 
-                    // Draw rows (with borders)
+                    // Draw (items) rows (with borders)
                     foreach (var row in rows)
                     {
                         x = startX;
@@ -311,15 +350,23 @@ namespace PlancksoftPOS_Receipt_Print_Server
                             string cellText = row[c] ?? string.Empty;
                             bool isNumeric = IsMostlyNumeric(cellText);
 
-                            if (isNumeric)
-                                g.DrawString(cellText, fontRegular, Brushes.Black, rect, rightFormatRTL);
-                            else
-                                g.DrawString(cellText, fontRegular, Brushes.Black, rect, centerFormatRTL);
-
+                            g.DrawString(cellText, fontRegular, Brushes.Black, rect,
+                                isNumeric ? rightFormatRTL : centerFormatRTL);
                             x += colWidths[c];
                         }
-                        y += cellHeight;
+                        y += cellHeight; 
+                        
+                        /*
+                        // Check if we’ve reached the bottom of the page
+                        if (y + cellHeight > availableHeight)
+                        {
+                            e.HasMorePages = true;
+                            return; // stop and let PrintPage get called again
+                        }
+                        */
                     }
+
+                    // Done printing items
 
                     y += 10;
 
@@ -439,6 +486,23 @@ namespace PlancksoftPOS_Receipt_Print_Server
                 }
 
             }
+        }
+
+        private int MeasureReceiptHeight(Graphics g, Font fontRegular, Font fontBold, List<string[]> rows, string[] headers)
+        {
+            int y = 0;
+            int cellHeight = lineHeight;
+
+            // Header row
+            y += cellHeight;
+
+            // Rows
+            y += rows.Count * cellHeight;
+
+            // Add any extra space for logos, store info, totals, etc.
+            y += 200; // Adjust this if needed for top/bottom margins
+
+            return y;
         }
 
         static bool IsMostlyNumeric(string s)
