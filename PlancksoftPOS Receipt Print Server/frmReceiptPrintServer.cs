@@ -149,6 +149,9 @@ namespace PlancksoftPOS_Receipt_Print_Server
                     break;
                 }
 
+                totalquantity = 0;
+                item_quantity = 0;
+
                 foreach (Dependencies.Printer printer in PrintersToPrint)
                 {
                     printDocument1.PrinterSettings.PrinterName = printer.Name;
@@ -206,8 +209,6 @@ namespace PlancksoftPOS_Receipt_Print_Server
             Font largefont = new Font("Arial", 12);
 
             int imgHeight = 1200; // generous height, we'll crop later       
-            totalquantity = 0;
-            item_quantity = 0;
 
             imgHeight += StoreLogo.Height;
             imgHeight += lineHeight;
@@ -278,16 +279,16 @@ namespace PlancksoftPOS_Receipt_Print_Server
                 }
                 else if (pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    y += DrawRightAndLeftUnbordered(g, "Client Name: " + Bill.ClientName, "Client Address" + Bill.ClientAddress, y, fontRegular);
+                    y += DrawRightAndLeftUnbordered(g, "Client Name: " + Bill.ClientName, "Client Address: " + Bill.ClientAddress, y, fontRegular);
                 }
 
                 if (pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    y += DrawRightAndLeftUnbordered(g, "رقم العميل: " + Bill.ClientPhone, "بريد العميل" + Bill.ClientEmail, y, fontRegular);
+                    y += DrawRightAndLeftUnbordered(g, "رقم العميل: " + Bill.ClientPhone, ": بريد العميل" + Bill.ClientEmail, y, fontRegular);
                 }
                 else if (pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    y += DrawRightAndLeftUnbordered(g, "Client Number: " + Bill.ClientName, "Client Email" + Bill.ClientAddress, y, fontRegular);
+                    y += DrawRightAndLeftUnbordered(g, "Client Number: " + Bill.ClientName, "Client Email: " + Bill.ClientAddress, y, fontRegular);
                 }
 
                 {
