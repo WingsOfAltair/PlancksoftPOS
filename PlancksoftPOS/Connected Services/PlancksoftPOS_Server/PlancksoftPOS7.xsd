@@ -133,11 +133,13 @@
       <xs:element minOccurs="0" name="BillNumber" type="xs:int" />
       <xs:element minOccurs="0" name="ClientID" type="xs:int" />
       <xs:element minOccurs="0" name="Date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DiscountAmount" type="xs:decimal" />
       <xs:element minOccurs="0" name="ItemsBought" nillable="true" type="tns:ArrayOfItem" />
       <xs:element minOccurs="0" name="PaidAmount" type="xs:decimal" />
       <xs:element minOccurs="0" name="PayByCash" type="xs:boolean" />
       <xs:element minOccurs="0" name="Postponed" type="xs:boolean" />
       <xs:element minOccurs="0" name="RemainderAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="TaxID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TotalAmount" type="xs:decimal" />
       <xs:element minOccurs="0" name="billNumber" type="xs:int" />
       <xs:element minOccurs="0" name="cashierName" nillable="true" type="xs:string" />
@@ -147,12 +149,14 @@
       <xs:element minOccurs="0" name="clientName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="clientPhone" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="discountAmount" type="xs:decimal" />
       <xs:element minOccurs="0" name="isVendor" type="xs:boolean" />
       <xs:element minOccurs="0" name="itemsBought" nillable="true" type="tns:ArrayOfItem" />
       <xs:element minOccurs="0" name="paidAmount" type="xs:decimal" />
       <xs:element minOccurs="0" name="paybycash" type="xs:boolean" />
       <xs:element minOccurs="0" name="postponed" type="xs:boolean" />
       <xs:element minOccurs="0" name="remainderAmount" type="xs:decimal" />
+      <xs:element minOccurs="0" name="taxID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="totalAmount" type="xs:decimal" />
     </xs:sequence>
   </xs:complexType>

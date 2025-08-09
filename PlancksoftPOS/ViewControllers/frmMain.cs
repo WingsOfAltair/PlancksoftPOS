@@ -7291,7 +7291,7 @@ namespace PlancksoftPOS
                 }
                 Properties.Settings.Default.moneyInRegister = this.moneyInRegister;
                 Properties.Settings.Default.Save();
-                this.remainderAmount = this.totalAmount - this.paidAmount;
+                this.remainderAmount = (frmPayCash.totalAmount - frmPayCash.discountedAmount) - this.paidAmount;
 
                 if (frmPayCash.dialogResult == DialogResult.OK)
                 {
@@ -7364,7 +7364,7 @@ namespace PlancksoftPOS
                     }
 
 
-                    Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsToAdd, frmPayCash.paybycash, DateTime.Now, this.cashierName);
+                    Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, frmPayCash.discountedAmount, "Tax ID", itemsToAdd, frmPayCash.paybycash, DateTime.Now, this.cashierName);
                     if (Connection.server.PayBill(billToAdd, this.cashierName))
                     {
                         // paid bill
@@ -7413,7 +7413,7 @@ namespace PlancksoftPOS
                                 }
                             }
 
-                            Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, frmPayCash.paybycash, DateTime.Now, this.cashierName);
+                            Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, frmPayCash.discountedAmount, "Tax ID", items, frmPayCash.paybycash, DateTime.Now, this.cashierName);
 
                             billToAdd.ClientID = frmPickClientLookup.pickedClient.ClientID;
                             billToAdd.ClientName = frmPickClientLookup.pickedClient.ClientName;
@@ -7468,7 +7468,7 @@ namespace PlancksoftPOS
                             }
                         }
 
-                        Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
+                        Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, frmPayCash.discountedAmount, "Tax ID", items, DateTime.Now);
                         billToAdd.ClientID = frmPickClientLookup.pickedClient.ClientID;
                         int UnpaidBillNumber = Connection.server.AddUnpaidBill(billToAdd, this.cashierName);
                         if (UnpaidBillNumber > -1)

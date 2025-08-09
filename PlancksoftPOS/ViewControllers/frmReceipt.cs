@@ -94,6 +94,12 @@ namespace PlancksoftPOS
                 imgHeight += +lineHeight;
             }
 
+            int centerX = (Screen.PrimaryScreen.WorkingArea.Width - Width) / 2;
+            Location = new Point(centerX, 0);
+
+            this.Height = imgHeight;
+            pbReceipt.Height = imgHeight;
+
             using (Bitmap bmp = new Bitmap(width, imgHeight))
             using (Graphics g = Graphics.FromImage(bmp))
             {
@@ -118,9 +124,19 @@ namespace PlancksoftPOS
 
                 // Header (centered, RTL-aware)    
                 string storeName = shopName;
+
                 y = DrawCenteredBlackFilledWhiteText(g, y, storeName);
                 //y = DrawCenteredText(g, "رقم الدور: 6200", y, fontBold);
                 y += 10;
+
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y = DrawLeftAlignedUnborderedText(g, "الرقم الضريبي: " + Bill.TaxID, y, fontRegular);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y = DrawLeftAlignedUnborderedText(g, "Tax ID: " + Bill.TaxID, y, fontRegular);
+                }
 
                 y += DrawRightAndLeftUnbordered(g, shopAddress, shopPhone, y, fontRegular);
 
@@ -264,11 +280,11 @@ namespace PlancksoftPOS
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        y += DrawRightAndLeftCentered(g, "المدفوع: " + Bill.PaidAmount, "الباقي: " + Bill.RemainderAmount, y, fontBold);
+                        y += DrawRightAndLeftCentered(g, "المدفوع: " + Bill.PaidAmount, "الباقي: " + ((Bill.getTotalAmount() - Bill.DiscountAmount) - Bill.paidAmount).ToString(), y, fontBold);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        y += DrawRightAndLeftCentered(g, "Paid: " + Bill.PaidAmount, "Remainder: " + Bill.RemainderAmount, y, fontBold);
+                        y += DrawRightAndLeftCentered(g, "Paid: " + Bill.PaidAmount, "Remainder: " + ((Bill.getTotalAmount() - Bill.DiscountAmount) - Bill.paidAmount).ToString(), y, fontBold);
                     }
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -282,20 +298,20 @@ namespace PlancksoftPOS
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        y += DrawRightAndLeftCentered(g, "الخصم: 0.600", "المجموع: " + Bill.getTotalAmount().ToString(), y, fontBold);
+                        y += DrawRightAndLeftCentered(g, "الخصم: " + Bill.DiscountAmount, "المجموع: " + Bill.getTotalAmount().ToString(), y, fontBold);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        y += DrawRightAndLeftCentered(g, "Discount: 0.600", "Total: " + Bill.getTotalAmount().ToString(), y, fontBold);
+                        y += DrawRightAndLeftCentered(g, "Discount: " + Bill.DiscountAmount, "Total: " + Bill.getTotalAmount().ToString(), y, fontBold);
                     }
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        y = DrawCenteredBorderedText(g, y, "الصافي: " + Bill.getTotalAmount().ToString());
+                        y = DrawCenteredBorderedText(g, y, "الصافي: " + (Bill.getTotalAmount() - Bill.DiscountAmount).ToString());
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        y = DrawCenteredBorderedText(g, y, "Net Total: " + Bill.getTotalAmount().ToString());
+                        y = DrawCenteredBorderedText(g, y, "Net Total: " + (Bill.getTotalAmount() - Bill.DiscountAmount).ToString());
                     }
 
                     y += 10;
@@ -369,7 +385,6 @@ namespace PlancksoftPOS
 
             }
         }
-
         private void frmReceipt_Load(object sender, EventArgs e)
         {
             if (!MultiPrint)
@@ -472,7 +487,6 @@ namespace PlancksoftPOS
             Program.exited = false;
             Program.materialSkinManager.RemoveFormToManage(this);
         }
-
         private int MeasureReceiptHeight(Graphics g, Font fontRegular, Font fontBold, List<string[]> rows, string[] headers)
         {
             int y = 0;
@@ -551,7 +565,6 @@ namespace PlancksoftPOS
             g.DrawString(text, font, Brushes.Black, rect, sf);
             return y + lineHeight;
         }
-
         static int DrawRightAlignedText(Graphics g, string text, int y, Font font)
         {
             RectangleF rect = new RectangleF(padding, y, width - 2 * padding, lineHeight);
@@ -637,7 +650,6 @@ namespace PlancksoftPOS
             return y + (int)logoHeight;
         }
 
-
         static int DrawRightAndLeftUnbordered(Graphics g, string rightText, string leftText, int y, Font font)
         {
             int rowHeight = lineHeight;
@@ -684,6 +696,33 @@ namespace PlancksoftPOS
             return rowHeight;
         }
 
+        static int DrawLeftAlignedUnborderedText(Graphics g, string text, int y, Font font)
+        {
+            // Measure text
+            SizeF textSize = g.MeasureString(text, font);
+
+            // Rectangle size (text + padding)
+            float rectWidth = textSize.Width + padding * 2;
+            float rectHeight = textSize.Height + padding * 2;
+
+            // Position rectangle at the left side
+            float rectX = 0;
+
+            // Draw left-aligned text inside the rectangle
+            g.DrawString(
+                text,
+                font,
+                Brushes.Black,
+                new RectangleF(rectX, y, rectWidth, rectHeight),
+                new StringFormat
+                {
+                    Alignment = StringAlignment.Near, // Left align text
+                    LineAlignment = StringAlignment.Center
+                }
+            );
+
+            return (int)(y + rectHeight);
+        }
 
         static int DrawRightAndLeft(Graphics g, string rightText, string leftText, int y, Font font)
         {
@@ -736,7 +775,6 @@ namespace PlancksoftPOS
             // Return the new y position after this row
             return rowHeight;
         }
-
         static int DrawRightAlignedBorderedText(Graphics g, string text, int y, Font font)
         {
             // Measure text
