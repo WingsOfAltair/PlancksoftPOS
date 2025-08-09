@@ -24,9 +24,11 @@ export class ClientCheckBalanceComponent implements OnInit {
     "BillNumber",
     "CashierName",
     "ClientName",
-    "TotalAmount",
+    "TotalBeforeDiscount",
+    "DiscountAmount",
+    "NetTotal",
     "PaidAmount",
-    "Rwminder",
+    "Reminder",
     "Date",
     "Status",
     "PayBill",
@@ -182,7 +184,9 @@ export class ClientCheckBalanceComponent implements OnInit {
             data: {
               BillNumber: el["Bill Number"],
               CashierName: el["Cashier Name"],
-              TotalAmount: el["Total Amount"],
+              TotalBeforeDiscount: el["Total Amount"],
+              DiscountAmount: el["Discount Amount"],
+              NetTotal: (parseFloat(el["Total Amount"]) - parseFloat(el["Discount Amount"])),
               ClientName: el["Client Name"],
               ClientID: el["Client ID"],
               Remainder: el["Remainder Amount"],
@@ -268,7 +272,7 @@ export class ClientCheckBalanceComponent implements OnInit {
     
     var obj = {
       BillNumber: selected.data.BillNumber,
-      AmountRequired: selected.data.TotalAmount,
+      AmountRequired: selected.data.NetTotal,
       Remainder: selected.data.Remainder,
       ClientPhone: selectedclient.data.ClientPhone,
       ClientID: selected.data.ClientID,

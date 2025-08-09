@@ -96,29 +96,65 @@
                 {{ row.data["ClientName"] || "-" }}
               </td>
             </ng-container>
-            <ng-container [nbTreeGridColumnDef]="'TotalAmount'">
+            <ng-container [nbTreeGridColumnDef]="'TotalBeforeDiscount'">
               <th
                 nbTreeGridHeaderCell
-                [nbSortHeader]="getSortDirection('TotalAmount')"
+                [nbSortHeader]="getSortDirection('TotalBeforeDiscount')"
                 *nbTreeGridHeaderCellDef
               >
-              {{ "GENERALWORDS.TOTALAMOUNT" | translate }}
+              {{ "GENERALWORDS.AMOUNTBEFOREDISCOUNT" | translate }}
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                {{ row.data["TotalAmount"] || "0" }}
+                {{ row.data["TotalBeforeDiscount"] || "0" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'DiscountAmount'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('DiscountAmount')"
+                *nbTreeGridHeaderCellDef
+              >
+              {{ "GENERALWORDS.DISCOUNTAMOUNT" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["DiscountAmount"] || "0" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'NetTotal'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('NetTotal')"
+                *nbTreeGridHeaderCellDef
+              >
+              {{ "GENERALWORDS.NETAMOUNT" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["NetTotal"] || "0" }}
+              </td>
+            </ng-container>
+            <ng-container [nbTreeGridColumnDef]="'PaidAmount'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('PaidAmount')"
+                *nbTreeGridHeaderCellDef
+              >
+              {{ "GENERALWORDS.PAIDAMOUNT" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data["PaidAmount"] || "0" }}
               </td>
             </ng-container>
 
-            <ng-container [nbTreeGridColumnDef]="'Rwminder'">
+            <ng-container [nbTreeGridColumnDef]="'Reminder'">
               <th
                 nbTreeGridHeaderCell
-                [nbSortHeader]="getSortDirection('Rwminder')"
+                [nbSortHeader]="getSortDirection('Reminder')"
                 *nbTreeGridHeaderCellDef
               >
               {{ "GENERALWORDS.Rwminder" | translate }}
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                {{ row.data["Rwminder"] || "0" }}
+                {{ row.data["Remainder"] || "0" }}
               </td>
             </ng-container>
 
@@ -144,18 +180,6 @@
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
                 {{ row.data["Status"] || "-" }}
-              </td>
-            </ng-container>
-            <ng-container [nbTreeGridColumnDef]="'PaidAmount'">
-              <th
-                nbTreeGridHeaderCell
-                [nbSortHeader]="getSortDirection('PaidAmount')"
-                *nbTreeGridHeaderCellDef
-              >
-              {{ "GENERALWORDS.PAIDAMOUNT" | translate }}
-              </th>
-              <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                {{ row.data["PaidAmount"] || "0" }}
               </td>
             </ng-container>
 

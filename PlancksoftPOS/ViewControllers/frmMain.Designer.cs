@@ -111,6 +111,8 @@ namespace PlancksoftPOS
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column74 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column73 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -520,6 +522,8 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column72 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DiscountedAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientBillsPaidAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ClientBillsRemainderAmount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -2108,6 +2112,8 @@ namespace PlancksoftPOS
             this.Column16,
             this.Column12,
             this.Column17,
+            this.Column74,
+            this.Column73,
             this.Column18,
             this.Column19,
             this.Column5,
@@ -2149,9 +2155,25 @@ namespace PlancksoftPOS
             // 
             this.Column17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Column17.DataPropertyName = "Total Amount";
-            this.Column17.HeaderText = "المبلغ الصافي";
+            this.Column17.HeaderText = "المبلغ قبل الخصم";
             this.Column17.Name = "Column17";
             this.Column17.ReadOnly = true;
+            // 
+            // Column74
+            // 
+            this.Column74.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column74.DataPropertyName = "Discount Amount";
+            this.Column74.HeaderText = "قيمة الخصم";
+            this.Column74.Name = "Column74";
+            this.Column74.ReadOnly = true;
+            // 
+            // Column73
+            // 
+            this.Column73.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column73.DataPropertyName = "Discounted Amount";
+            this.Column73.HeaderText = "المبلغ الصافي";
+            this.Column73.Name = "Column73";
+            this.Column73.ReadOnly = true;
             // 
             // Column18
             // 
@@ -8245,6 +8267,8 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn24,
             this.dataGridViewTextBoxColumn29,
             this.dataGridViewTextBoxColumn30,
+            this.Column72,
+            this.DiscountedAmount,
             this.ClientBillsPaidAmount,
             this.ClientBillsRemainderAmount,
             this.dataGridViewTextBoxColumn31,
@@ -8279,9 +8303,25 @@ namespace PlancksoftPOS
             // 
             this.dataGridViewTextBoxColumn30.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn30.DataPropertyName = "Total Amount";
-            this.dataGridViewTextBoxColumn30.HeaderText = "المبلغ الصافي";
+            this.dataGridViewTextBoxColumn30.HeaderText = "المبلغ قبل الخصم";
             this.dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
             this.dataGridViewTextBoxColumn30.ReadOnly = true;
+            // 
+            // Column72
+            // 
+            this.Column72.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column72.DataPropertyName = "Discount Amount";
+            this.Column72.HeaderText = "قيمة الخصم";
+            this.Column72.Name = "Column72";
+            this.Column72.ReadOnly = true;
+            // 
+            // DiscountedAmount
+            // 
+            this.DiscountedAmount.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.DiscountedAmount.DataPropertyName = "Discounted Amount";
+            this.DiscountedAmount.HeaderText = "المبلغ الصافي";
+            this.DiscountedAmount.Name = "DiscountedAmount";
+            this.DiscountedAmount.ReadOnly = true;
             // 
             // ClientBillsPaidAmount
             // 
@@ -13901,15 +13941,6 @@ namespace PlancksoftPOS
         private DataGridViewTextBoxColumn VendorClientPhone;
         private DataGridViewTextBoxColumn VendorClientAddress;
         private DataGridViewTextBoxColumn Column11;
-        private DataGridViewTextBoxColumn Column15;
-        private DataGridViewTextBoxColumn Column16;
-        private DataGridViewTextBoxColumn Column12;
-        private DataGridViewTextBoxColumn Column17;
-        private DataGridViewTextBoxColumn Column18;
-        private DataGridViewTextBoxColumn Column19;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column64;
-        private DataGridViewTextBoxColumn Column13;
         private DataGridViewTextBoxColumn BillNumber;
         private DataGridViewTextBoxColumn BillCashierName;
         private DataGridViewTextBoxColumn Column40;
@@ -13932,15 +13963,6 @@ namespace PlancksoftPOS
         private DataGridViewTextBoxColumn InventoryItemTypeNumber;
         private DataGridViewTextBoxColumn InventoryItemType;
         private DataGridViewTextBoxColumn ItemPicture;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
-        private DataGridViewTextBoxColumn ClientBillsPaidAmount;
-        private DataGridViewTextBoxColumn ClientBillsRemainderAmount;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
-        private DataGridViewTextBoxColumn Column4;
-        private DataGridViewTextBoxColumn Column6;
-        private DataGridViewTextBoxColumn Column8;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
         private DataGridViewTextBoxColumn Column65;
@@ -13982,6 +14004,28 @@ namespace PlancksoftPOS
         public MaterialLabel materialLabel5;
         public DateTimePicker dateTimePicker14;
         public MaterialLabel materialLabel6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn29;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private DataGridViewTextBoxColumn Column72;
+        private DataGridViewTextBoxColumn DiscountedAmount;
+        private DataGridViewTextBoxColumn ClientBillsPaidAmount;
+        private DataGridViewTextBoxColumn ClientBillsRemainderAmount;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private DataGridViewTextBoxColumn Column4;
+        private DataGridViewTextBoxColumn Column6;
+        private DataGridViewTextBoxColumn Column8;
+        private DataGridViewTextBoxColumn Column15;
+        private DataGridViewTextBoxColumn Column16;
+        private DataGridViewTextBoxColumn Column12;
+        private DataGridViewTextBoxColumn Column17;
+        private DataGridViewTextBoxColumn Column74;
+        private DataGridViewTextBoxColumn Column73;
+        private DataGridViewTextBoxColumn Column18;
+        private DataGridViewTextBoxColumn Column19;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column64;
+        private DataGridViewTextBoxColumn Column13;
     }
 }
 

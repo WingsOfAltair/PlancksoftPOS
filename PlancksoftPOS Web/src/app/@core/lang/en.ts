@@ -15,6 +15,8 @@ export const locale = {
         SEARCH: 'Search',
         BillID: 'Bill ID',
         CASHIERNAME: 'Cashier Name',
+        AMOUNTBEFOREDISCOUNT: 'Total Before Discount',
+        DISCOUNTAMOUNT: 'Discount Amount',
         NETAMOUNT: 'Net Amount',
         PAIDAMOUNT: 'Paid Amount',
         REMIANDER: 'Remiander',

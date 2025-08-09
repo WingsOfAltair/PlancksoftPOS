@@ -1461,6 +1461,7 @@ namespace DataAccessLayerJSON
                     bill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
                     bill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
                     bill.SetDate(Convert.ToDateTime(Bill["Invoice Date"].ToString()));
+                    bill.DiscountAmount = Convert.ToDecimal(Bill["Discount Amount"].ToString());
                     bill.SetPayByCash(Convert.ToBoolean(Convert.ToInt32(Bill["PayByCash"].ToString())));
                     Bills.Add(bill);
                 }
@@ -3958,6 +3959,8 @@ namespace DataAccessLayerJSON
                     newBill.ClientPhone = Bill["Client Phone"].ToString();
                     newBill.ClientAddress = Bill["Client Address"].ToString();
                     newBill.SetPayByCash(Convert.ToBoolean(Convert.ToInt32(Bill["PayByCash"].ToString())));
+                    newBill.CashierName = Bill["Cashier Name"].ToString();
+                    newBill.DiscountAmount = Convert.ToDecimal(Bill["Discount Amount"].ToString());
                     Bills.Add(newBill);
                 }
                 return new Response(Tuple.Create(Bills, SerializeDataTableToJSON(dt)), true);
