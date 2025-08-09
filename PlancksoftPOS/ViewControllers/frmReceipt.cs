@@ -49,6 +49,7 @@ namespace PlancksoftPOS
 
 
         int totalquantity = 0;
+        int item_quantity = 0;
         int currentRowIndex = 0;
 
         string[] headers = new string[] { };
@@ -272,11 +273,11 @@ namespace PlancksoftPOS
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
-                        y += DrawRightAndLeftCentered(g, "عدد الأصناف: " + totalquantity, "الكميات: " + totalquantity, y, fontBold);
+                        y += DrawRightAndLeftCentered(g, "عدد الأصناف: " + item_quantity, "الكميات: " + totalquantity, y, fontBold);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
-                        y += DrawRightAndLeftCentered(g, "Item Types Quantity: " + totalquantity, "Quantity: " + totalquantity, y, fontBold);
+                        y += DrawRightAndLeftCentered(g, "Item Types Quantity: " + item_quantity, "Quantity: " + totalquantity, y, fontBold);
                     }
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -423,6 +424,7 @@ namespace PlancksoftPOS
                                             // Table data (you can replace/add rows)
 
                     totalquantity = 0;
+                    item_quantity = 0;
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
@@ -444,6 +446,7 @@ namespace PlancksoftPOS
                             , (item.ItemPriceTax * item.ItemQuantity).ToString() });
 
                         totalquantity += item.ItemQuantity;
+                        item_quantity += 1;
                     }
 
                     using (Graphics g = this.CreateGraphics()) // Temporary graphics just for measuring
