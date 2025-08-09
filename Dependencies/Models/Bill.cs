@@ -19,7 +19,7 @@ namespace Dependencies
         [DataMember]
         public int billNumber;
         [DataMember]
-        public decimal remainderAmount, totalAmount, paidAmount;
+        public decimal remainderAmount, totalAmount, paidAmount, discountAmount;
         [DataMember]
         public List<Item> itemsBought;
         [DataMember]
@@ -36,11 +36,17 @@ namespace Dependencies
         private string clientAddress;   
         [DataMember]
         private string clientEmail;
+        [DataMember]
+        private string taxID;
 
         [DataMember]
         public int BillNumber { get => billNumber; set => billNumber = value; }
         [DataMember]
+        public string TaxID { get => taxID; set => taxID = value; }
+        [DataMember]
         public decimal TotalAmount { get => totalAmount; set => totalAmount = value; }
+        [DataMember]
+        public decimal DiscountAmount { get => discountAmount; set => discountAmount = value; }
         [DataMember]
         public decimal PaidAmount { get => paidAmount; set => paidAmount = value; }
         [DataMember]
@@ -81,7 +87,7 @@ namespace Dependencies
             Date = date;
         }
 
-        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, List<Item> itemsBought, bool paybycash, DateTime date, string cashierName)
+        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, decimal discounedAmount, string taxID, List<Item> itemsBought, bool paybycash, DateTime date, string cashierName)
         {
             if (BillNumber > -1)
             {
@@ -94,6 +100,23 @@ namespace Dependencies
             PayByCash = paybycash;
             Date = date;
             CashierName = cashierName;
+            TaxID = taxID;
+            DiscountAmount = discounedAmount;
+        }
+
+        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, decimal discountedAmount, string taxID, List<Item> itemsBought, DateTime date)
+        {
+            if (BillNumber > -1)
+            {
+                BillNumber = billNumber;
+            }
+            TotalAmount = totalAmount;
+            PaidAmount = paidAmount;
+            RemainderAmount = remainderAmount;
+            ItemsBought = itemsBought;
+            Date = date;
+            TaxID = taxID;
+            DiscountAmount = discountedAmount;
         }
 
         public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, List<Item> itemsBought, DateTime date)

@@ -28,6 +28,7 @@ namespace PlancksoftPOS
         public decimal paidAmount = 0;
         public decimal remainderAmount = 0;
         public bool paybycash = true;
+        public decimal discountedAmount = 0;
 
         public DialogResult dialogResult;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
@@ -257,10 +258,10 @@ namespace PlancksoftPOS
         {
             try
             {
-                this.totalAmount = Convert.ToDecimal(txtRequiredAmount.Text);
+                //this.totalAmount = Convert.ToDecimal(txtRequiredAmount.Text);
                 this.paidAmount = Convert.ToDecimal(txtPaidAmount.Text);
-                this.remainderAmount = this.totalAmount - this.paidAmount;
-                txtRequiredAmount.Text = this.totalAmount.ToString();
+                this.remainderAmount = Convert.ToDecimal(txtRequiredAmount.Text) - this.paidAmount;
+                //txtRequiredAmount.Text = this.totalAmount.ToString();
                 txtRemainderAmount.Text = this.remainderAmount.ToString();
             }
             catch (Exception error) { }
@@ -269,6 +270,7 @@ namespace PlancksoftPOS
         private void nudDiscountRate_ValueChanged(object sender, EventArgs e)
         {
             decimal discount = Convert.ToDecimal(txtRequiredAmount.Text) * (nudDiscountRate.Value / 100);
+            discountedAmount = discount;
             decimal newPrice = Convert.ToDecimal(txtRequiredAmount.Text) - discount;
             txtRequiredAmount.Text = newPrice.ToString();
         }
@@ -277,10 +279,10 @@ namespace PlancksoftPOS
         {
             try
             {
-                this.totalAmount = Convert.ToDecimal(txtRequiredAmount.Text);
+                //this.totalAmount = Convert.ToDecimal(txtRequiredAmount.Text);
                 this.paidAmount = Convert.ToDecimal(txtPaidAmount.Text);
-                this.remainderAmount = this.totalAmount - this.paidAmount;
-                txtRequiredAmount.Text = this.totalAmount.ToString();
+                this.remainderAmount = Convert.ToDecimal(txtRequiredAmount.Text) - this.paidAmount;
+                //txtRequiredAmount.Text = this.totalAmount.ToString();
                 txtRemainderAmount.Text = this.remainderAmount.ToString();
             }
             catch (Exception error) { }

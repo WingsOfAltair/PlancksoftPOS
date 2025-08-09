@@ -3059,6 +3059,7 @@ namespace DataAccessLayerJSON
 
                     cmd.Parameters.AddWithValue("@cashierName", cashierName);
                     cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
+                    cmd.Parameters.AddWithValue("@discountedAmount", billToAdd.DiscountAmount);
                     cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
                     cmd.Parameters.AddWithValue("@ClientID", billToAdd.ClientID);
                     cmd.Parameters.Add("@BillID", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -3142,6 +3143,8 @@ namespace DataAccessLayerJSON
                         billToAdd.RemainderAmount = billToAdd.RemainderAmount * -1;
                     cmd.Parameters.AddWithValue("@remainderAmount", billToAdd.getRemainderAmount());
                     cmd.Parameters.AddWithValue("@paymentByCash", Convert.ToInt32(billToAdd.PayByCash));
+                    cmd.Parameters.AddWithValue("@discountedAmount", billToAdd.DiscountAmount);
+                    cmd.Parameters.AddWithValue("@TaxID", billToAdd.TaxID);
                     cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
                     cmd.Parameters.AddWithValue("@ClientID", billToAdd.ClientID);
                     cmd.Parameters.Add("@BillID", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -3949,6 +3952,7 @@ namespace DataAccessLayerJSON
                     newBill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
                     newBill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
                     newBill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
+                    newBill.DiscountAmount = Convert.ToDecimal(Bill["Discount Amount"].ToString());
                     newBill.SetDate(Convert.ToDateTime(Bill["Invoice Date"].ToString()));
                     newBill.ClientName = Bill["Client Name"].ToString();
                     newBill.ClientPhone = Bill["Client Phone"].ToString();
