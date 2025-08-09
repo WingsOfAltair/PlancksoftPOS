@@ -57,10 +57,12 @@ namespace PlancksoftPOS_Receipt_Print_Server
                 اللغةToolStripMenuItem.Text = "اللغة";
                 العربيةToolStripMenuItem.Checked = true;
                 englishToolStripMenuItem.Checked = false;
+                الخروجToolStripMenuItem.Text = "الخروج";
             } else if (pickedLanguage == LanguageChoice.Languages.English)
             {
                 اللغةToolStripMenuItem.Text = "Language";
                 العربيةToolStripMenuItem.Checked = false;
+                الخروجToolStripMenuItem.Text = "Quit";
                 englishToolStripMenuItem.Checked = true;
             }
         }
@@ -765,6 +767,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
             Properties.Settings.Default.Save();
             العربيةToolStripMenuItem.Checked = true;
             englishToolStripMenuItem.Checked = false;
+            الخروجToolStripMenuItem.Text = "الخروج";
         }
 
         private void englishToolStripMenuItem_Click(object sender, EventArgs e)
@@ -775,6 +778,12 @@ namespace PlancksoftPOS_Receipt_Print_Server
             Properties.Settings.Default.Save();
             العربيةToolStripMenuItem.Checked = false;
             englishToolStripMenuItem.Checked = true;
+            الخروجToolStripMenuItem.Text = "Quit";
+        }
+
+        private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

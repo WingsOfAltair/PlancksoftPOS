@@ -39,6 +39,7 @@
             this.اللغةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbReceipt)).BeginInit();
             this.languageContextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -76,9 +77,10 @@
             // languageContextMenu
             // 
             this.languageContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.اللغةToolStripMenuItem});
+            this.اللغةToolStripMenuItem,
+            this.الخروجToolStripMenuItem});
             this.languageContextMenu.Name = "languageContextMenu";
-            this.languageContextMenu.Size = new System.Drawing.Size(99, 26);
+            this.languageContextMenu.Size = new System.Drawing.Size(181, 70);
             // 
             // اللغةToolStripMenuItem
             // 
@@ -86,7 +88,7 @@
             this.العربيةToolStripMenuItem,
             this.englishToolStripMenuItem});
             this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
-            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(98, 22);
+            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.اللغةToolStripMenuItem.Text = "اللغة";
             // 
             // العربيةToolStripMenuItem
@@ -102,6 +104,13 @@
             this.englishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.englishToolStripMenuItem.Text = "English";
             this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
+            // 
+            // الخروجToolStripMenuItem
+            // 
+            this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
+            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.الخروجToolStripMenuItem.Text = "الخروج";
+            this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
             // 
             // ReceiptPrintServer
             // 
@@ -140,6 +149,7 @@
         private System.Windows.Forms.ToolStripMenuItem اللغةToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
     }
 }
 

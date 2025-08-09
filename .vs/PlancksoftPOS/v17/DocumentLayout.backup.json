@@ -1,7 +1,16 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\GitHub\\PlancksoftPOS\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{232285EC-55B5-4742-8B67-CC2D119A888E}|PlancksoftPOS Receipt Print Server\\PlancksoftPOS Receipt Print Server.csproj|d:\\github\\plancksoftpos\\plancksoftpos receipt print server\\frmreceiptprintserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{232285EC-55B5-4742-8B67-CC2D119A888E}|PlancksoftPOS Receipt Print Server\\PlancksoftPOS Receipt Print Server.csproj|solutionrelative:plancksoftpos receipt print server\\frmreceiptprintserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{232285EC-55B5-4742-8B67-CC2D119A888E}|PlancksoftPOS Receipt Print Server\\PlancksoftPOS Receipt Print Server.csproj|d:\\github\\plancksoftpos\\plancksoftpos receipt print server\\frmreceiptprintserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{232285EC-55B5-4742-8B67-CC2D119A888E}|PlancksoftPOS Receipt Print Server\\PlancksoftPOS Receipt Print Server.csproj|solutionrelative:plancksoftpos receipt print server\\frmreceiptprintserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +18,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 27,
           "Children": [
             {
               "$type": "Bookmark",
@@ -118,6 +127,31 @@
             {
               "$type": "Bookmark",
               "Name": "ST:153:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmReceiptPrintServer.cs",
+              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs",
+              "RelativeDocumentMoniker": "PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs",
+              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs",
+              "RelativeToolTip": "PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs",
+              "ViewState": "AgIAAPACAAAAAAAAAAAAABEDAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T09:35:11.141Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmReceiptPrintServer.cs [Design]",
+              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs",
+              "RelativeDocumentMoniker": "PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs",
+              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs [Design]",
+              "RelativeToolTip": "PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-09T09:34:43.856Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }
