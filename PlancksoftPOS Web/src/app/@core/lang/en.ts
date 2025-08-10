@@ -143,6 +143,7 @@ export const locale = {
         TAXAMOUNT:'Tax Amount',
         TAXTOTAL:'Tax Total',
         USERS:'User',
+        MACHINENAME:'Machine Name',
         USERNAME:'User Name',
         PASSWORD:'Password',
         PERMISSION:'Permission',

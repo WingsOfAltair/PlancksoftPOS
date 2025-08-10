@@ -11,6 +11,8 @@ namespace Dependencies
     public class Printer
     {
         [DataMember]
+        public string MachineName;
+        [DataMember]
         public string Name;
         [DataMember]
         public int ID;
@@ -20,10 +22,11 @@ namespace Dependencies
             ID = iD;
         }
 
-        public Printer(int iD, string name)
+        public Printer(int iD, string name, string machineName)
         {
             Name = name;
             ID = iD;
+            MachineName = machineName;
         }
     }
 }

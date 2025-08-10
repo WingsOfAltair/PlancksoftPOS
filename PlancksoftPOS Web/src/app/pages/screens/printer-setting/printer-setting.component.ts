@@ -17,8 +17,9 @@ export class PrinterSettingComponent implements OnInit {
   Return:FormGroup
   
   defaultColumns = [
-    "ItemName",
-    "ItemBarcode",
+    "PrinterID",
+    "PrinterName",
+    "MachineName",
     "Action",
   ];
   
@@ -43,10 +44,10 @@ export class PrinterSettingComponent implements OnInit {
   ngOnInit(): void {
 
     this.Return = this.fb.group({
-      itemName:[],
-      itemBarcode:[],
-      ItemAmount:[],
-
+      PrinterID:[],
+      PrinterName:[],
+      MachineName:[],
+      Action:[],
     })  
 
     var obj = {
@@ -71,6 +72,7 @@ export class PrinterSettingComponent implements OnInit {
             
             ID: el["ID"],
             Name: el["Name"],
+            MachineName: el["MachineName"],
           
           }
         }
@@ -123,7 +125,8 @@ export class PrinterSettingComponent implements OnInit {
 
     var obj = {
       Id: selected.data.ID,
-      PrinterName: selected.data.Name
+      PrinterName: selected.data.Name,
+      MachineName: selected.data.MachineName,
     }
 
     var dt = this.windowService.open(PrinterModalComponent, {

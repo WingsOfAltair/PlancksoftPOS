@@ -502,11 +502,11 @@ namespace PlancksoftPOSJSON_Server
             serializer.MaxJsonLength = Int32.MaxValue;
             return serializer.Serialize(DAL.UpdateFavoriteCategories(FavoriteCategoryID, FavoriteCategory));
         }
-        public string UpdatePrinters(int printerID, string printerName)
+        public string UpdatePrinters(int printerID, string printerName, string machineName)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             serializer.MaxJsonLength = Int32.MaxValue;
-            return serializer.Serialize(DAL.UpdatePrinters(printerID, printerName));
+            return serializer.Serialize(DAL.UpdatePrinters(printerID, printerName, machineName));
         }
         public string InsertItemType(string ItemTypeName)
         {

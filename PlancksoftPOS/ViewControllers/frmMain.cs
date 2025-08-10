@@ -54,7 +54,7 @@ namespace PlancksoftPOS
         public SortedList<int, string> itemtypes = new SortedList<int, string>();
         public SortedList<int, string> warehouses = new SortedList<int, string>();
         public SortedList<int, string> favorites = new SortedList<int, string>();
-        public SortedList<int, string> printers = new SortedList<int, string>();
+        public SortedList<int, Tuple<string, string>> printers = new SortedList<int, Tuple<string, string>>();
         public string ScannedBarCode = "";
         public bool timerstarted = false, registerOpen = false, IncludeLogoInReceipt = false;
         decimal capital, taxRate;
@@ -2909,9 +2909,9 @@ namespace PlancksoftPOS
             {
                 bool updatedPrinters = false;
                 int i = 0;
-                foreach (KeyValuePair<int, string> printer in printers)
+                foreach (KeyValuePair<int, Tuple<string, string>> printer in printers)
                 {
-                    updatedPrinters = Connection.server.UpdatePrinters(Convert.ToInt32(PrintersNamesTV[i].Tag), PrintersNamesTV[i++].Text);
+                    updatedPrinters = Connection.server.UpdatePrinters(Convert.ToInt32(PrintersNamesTV[i].Tag), PrintersNamesTV[i++].Text, Environment.MachineName);
                 }
                 if (updatedPrinters)
                 {
@@ -3009,7 +3009,7 @@ namespace PlancksoftPOS
 
             foreach (Printer printer in frmMain.PrintersList)
             {
-                this.printers.Add(printer.ID, printer.Name);
+                this.printers.Add(printer.ID, Tuple.Create(printer.Name, printer.MachineName));
             }
 
             flowLayoutPanel4.Controls.Clear();
@@ -3081,7 +3081,7 @@ namespace PlancksoftPOS
             PrintersMenus = new List<ContextMenu>();
 
 
-            foreach (KeyValuePair<int, string> printer in this.printers)
+            foreach (KeyValuePair<int, Tuple<string, string>> printer in this.printers)
             {
                 minusPrinterPB = new PictureBox();
                 minusPrinterPB.Image = Resources.minus;
@@ -3094,14 +3094,20 @@ namespace PlancksoftPOS
                 flowLayoutPanel4.Controls.Add(minusPrinterPB);
 
                 Label tempLabel = new Label();
-                tempLabel.Text = printer.Value;
+                tempLabel.Text = printer.Value.Item1;
                 tempLabel.ForeColor = Color.Black;
                 tempLabel.BackColor = Color.FromArgb(59, 89, 152);
                 tempLabel.Font = new Font(tempLabel.Font.FontFamily, 14, FontStyle.Bold);
                 tempLabel.Dock = DockStyle.Fill;
+                Label tempLabel2 = new Label();
+                tempLabel2.Text = printer.Value.Item2;
+                tempLabel2.ForeColor = Color.Black;
+                tempLabel2.BackColor = Color.FromArgb(59, 89, 152);
+                tempLabel2.Font = new Font(tempLabel2.Font.FontFamily, 14, FontStyle.Bold);
+                tempLabel2.Dock = DockStyle.Fill;
                 TreeView tempTreeView = new TreeView();
-                tempTreeView.Name = printer.Value;
-                tempTreeView.Text = printer.Value;
+                tempTreeView.Name = printer.Value.Item1;
+                tempTreeView.Text = printer.Value.Item1;
                 tempTreeView.Tag = printer.Key;
                 List<ItemType> itemTypes = Connection.server.RetrievePrinterItemTypes(printer.Key);
                 foreach (ItemType itemType in itemTypes)
@@ -3141,6 +3147,7 @@ namespace PlancksoftPOS
                 printerListTree.Add(tempTreeView);
                 PrintersNamesTV.Add(printerListTree[PrinterCount]);
                 flowLayoutPanel4.Controls.Add(tempLabel);
+                flowLayoutPanel4.Controls.Add(tempLabel2);
                 flowLayoutPanel4.Controls.Add(PrintersNamesTV[PrinterCount]);
                 PrinterCount++;
             }

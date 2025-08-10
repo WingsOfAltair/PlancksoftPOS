@@ -171,7 +171,7 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool UpdateFavoriteCategories(int FavoriteCategoryID, string FavoriteCategory);
         [OperationContract]
-        bool UpdatePrinters(int printerID, string printerName);
+        bool UpdatePrinters(int printerID, string printerName, string machineName);
         [OperationContract]
         bool InsertItemType(string ItemTypeName);
         [OperationContract]
