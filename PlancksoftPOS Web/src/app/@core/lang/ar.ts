@@ -142,6 +142,7 @@ export const locale = {
         TAXAMOUNT:'قيمة الضريبة',
         TAXTOTAL:'إجمالي الضريبة',
         USERS:'المستخدمين',
+        MACHINENAME:'إسم الحهاز',
         USERNAME:'اسم المستخدم',
         PASSWORD:'كلمة المرور',
         PERMISSION:'إذن',

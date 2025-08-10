@@ -39,10 +39,10 @@
                 *nbTreeGridRowDef="let row; columns: allColumns"
               ></tr>
   
-              <ng-container [nbTreeGridColumnDef]="'ItemName'">
+              <ng-container [nbTreeGridColumnDef]="'PrinterID'">
                 <th
                   nbTreeGridHeaderCell
-                  [nbSortHeader]="getSortDirection('ItemName')"
+                  [nbSortHeader]="getSortDirection('PrinterID')"
                   *nbTreeGridHeaderCellDef
                 >
                 {{ "GENERALWORDS.ID" | translate }}
@@ -51,16 +51,28 @@
                   {{ row.data.ID || "-" }}
                 </td>
               </ng-container>
-              <ng-container [nbTreeGridColumnDef]="'ItemBarcode'">
+              <ng-container [nbTreeGridColumnDef]="'PrinterName'">
                 <th
                   nbTreeGridHeaderCell
-                  [nbSortHeader]="getSortDirection('ItemBarcode')"
+                  [nbSortHeader]="getSortDirection('PrinterName')"
                   *nbTreeGridHeaderCellDef
                 >
                 {{ "GENERALWORDS.NAME" | translate }}
                 </th>
                 <td nbTreeGridCell *nbTreeGridCellDef="let row">
                   {{ row.data.Name || "-" }}
+                </td>
+              </ng-container>
+              <ng-container [nbTreeGridColumnDef]="'MachineName'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('MachineName')"
+                  *nbTreeGridHeaderCellDef
+                >
+                {{ "GENERALWORDS.MACHINENAME" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data.MachineName || "-" }}
                 </td>
               </ng-container>
   

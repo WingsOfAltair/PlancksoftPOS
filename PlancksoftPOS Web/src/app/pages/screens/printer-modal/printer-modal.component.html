@@ -18,8 +18,20 @@
           nbInput
           fullWidth
           shape="rectangle"
-          placeholder='{{ "GENERALWORDS.USERNAME" | translate }}'
+          placeholder='{{ "GENERALWORDS.PRINTERNAME" | translate }}'
           formControlName="PrinterName"
+        />
+      </div>
+
+      <div class="col-lg-12 mt-2">
+        <label >{{ "GENERALWORDS.MACHINENAME" | translate }}</label>
+        <input
+          type="text"
+          nbInput
+          fullWidth
+          shape="rectangle"
+          placeholder='{{ "GENERALWORDS.MACHINENAME" | translate }}'
+          formControlName="MachineName"
         />
       </div>
     </div>

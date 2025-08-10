@@ -28,12 +28,14 @@ export class PrinterModalComponent implements OnInit {
 
     this.AddData = this.fb.group({
       PrinterName:[],
+      MachineName:[],
     })
 
     if(this.data.Id > 0){
 
       this.AddData.patchValue({
-        PrinterName: this.data.PrinterName
+        PrinterName: this.data.PrinterName,
+        MachineName: this.data.MachineName
       })
 
     }
@@ -45,7 +47,7 @@ export class PrinterModalComponent implements OnInit {
     if (this.AddData.valid) {
 
       var obj = {
-        machineName: "machine",
+        machineName: this.AddData.value.MachineName,
         printerName: this.AddData.value.PrinterName,
       };
 
@@ -73,6 +75,7 @@ export class PrinterModalComponent implements OnInit {
       var obj = {
         printerID: this.data.Id,
         printerName: this.AddData.value.PrinterName,
+        machineName: this.AddData.value.MachineName,
       };
 
       this.publisherService

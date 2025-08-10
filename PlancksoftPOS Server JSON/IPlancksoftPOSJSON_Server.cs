@@ -996,7 +996,7 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string UpdatePrinters(int printerID, string printerName);
+        string UpdatePrinters(int printerID, string printerName, string machineName);
         [OperationContract]
         [
             WebInvoke

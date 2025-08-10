@@ -51,10 +51,10 @@
               *nbTreeGridRowDef="let row; columns: allColumns"
             ></tr>
 
-            <ng-container [nbTreeGridColumnDef]="'ItemName'">
+            <ng-container [nbTreeGridColumnDef]="'ItemTypeID'">
               <th
                 nbTreeGridHeaderCell
-                [nbSortHeader]="getSortDirection('ItemName')"
+                [nbSortHeader]="getSortDirection('ItemTypeID')"
                 *nbTreeGridHeaderCellDef
               >
               {{ "GENERALWORDS.ID" | translate }}
@@ -63,13 +63,13 @@
                 {{ row.data.ID || "-" }}
               </td>
             </ng-container>
-            <ng-container [nbTreeGridColumnDef]="'ItemBarcode'">
+            <ng-container [nbTreeGridColumnDef]="'ItemTypeName'">
               <th
                 nbTreeGridHeaderCell
-                [nbSortHeader]="getSortDirection('ItemBarcode')"
+                [nbSortHeader]="getSortDirection('ItemTypeName')"
                 *nbTreeGridHeaderCellDef
               >
-              {{ "GENERALWORDS.NAME" | translate }}
+              {{ "GENERALWORDS.ITEMTYPE" | translate }}
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
                 {{ row.data.Name || "-" }}

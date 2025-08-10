@@ -19,8 +19,8 @@ export class PrinterTypeComponent implements OnInit {
   Return:FormGroup
   
   defaultColumns = [
-    "ItemName",
-    "ItemBarcode",
+    "ItemTypeID",
+    "ItemTypeName",
     "Action",
   ];
   
