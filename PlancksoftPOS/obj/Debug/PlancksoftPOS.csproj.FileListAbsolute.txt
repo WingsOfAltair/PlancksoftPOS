@@ -506,3 +506,4 @@ D:\GitHub\PlancksoftPOS\PlancksoftPOS\obj\Debug\Planckso.D4B509AB.Up2Date
 D:\GitHub\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.exe
 D:\GitHub\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.pdb
 D:\GitHub\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.exe.config
+D:\GitHub\PlancksoftPOS\PlancksoftPOS\obj\Debug\PlancksoftPOS.frmEditPrinter.resources
