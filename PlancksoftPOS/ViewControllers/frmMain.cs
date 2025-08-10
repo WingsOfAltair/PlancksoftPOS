@@ -78,7 +78,7 @@ namespace PlancksoftPOS
         MaterialButton saveItemTypesBtn;
         MaterialButton saveWarehousesBtn;
         MaterialButton saveFavoritesBtn;
-        MaterialButton savePrintersBtn;
+        MaterialButton savePrintersBtn, editPrintersBtn;
         byte[] StoreLogo = null;
         List<ContextMenu> PrintersMenus = null;
 
@@ -2903,6 +2903,27 @@ namespace PlancksoftPOS
                 }
             }
         }
+        void EditPrintersHandler(object sender, EventArgs e, int index, string printerName, string machineName)
+        {
+            try
+            {
+                frmEditPrinter frmEditPrinter = new frmEditPrinter(index, printerName, machineName);
+                frmEditPrinter.ShowDialog();
+                DisplayPrinters();
+            }
+            catch (Exception ex)
+            {
+                DisplayFavorites();
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MaterialMessageBox.Show(".لم نتمكن من تعديل الطابعه", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MaterialMessageBox.Show("Unable to edit Printer.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
+            }
+        }
         void SavePrintersHandler(object sender, EventArgs e)
         {
             try
@@ -3109,6 +3130,24 @@ namespace PlancksoftPOS
                 tempTreeView.Name = printer.Value.Item1;
                 tempTreeView.Text = printer.Value.Item1;
                 tempTreeView.Tag = printer.Key;
+
+                editPrintersBtn = new MaterialButton();
+                editPrintersBtn.Name = "editPrintersBtn";
+                editPrintersBtn.Tag = printer.Key;
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    editPrintersBtn.Text = "تعديل الطابعه";
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    editPrintersBtn.Text = "Edit Printer";
+                }
+                editPrintersBtn.Size = new Size(340, 45);
+                editPrintersBtn.ForeColor = Color.White;
+                editPrintersBtn.BackColor = Color.FromArgb(59, 89, 152);
+                editPrintersBtn.Font = new Font(editPrintersBtn.Font.FontFamily, 14, FontStyle.Bold);
+                editPrintersBtn.Click += (sender, e) => { EditPrintersHandler(sender, e, printer.Key, printer.Value.Item1, printer.Value.Item2); };
+
                 List<ItemType> itemTypes = Connection.server.RetrievePrinterItemTypes(printer.Key);
                 foreach (ItemType itemType in itemTypes)
                 {
@@ -3148,6 +3187,7 @@ namespace PlancksoftPOS
                 PrintersNamesTV.Add(printerListTree[PrinterCount]);
                 flowLayoutPanel4.Controls.Add(tempLabel);
                 flowLayoutPanel4.Controls.Add(tempLabel2);
+                flowLayoutPanel4.Controls.Add(editPrintersBtn);
                 flowLayoutPanel4.Controls.Add(PrintersNamesTV[PrinterCount]);
                 PrinterCount++;
             }

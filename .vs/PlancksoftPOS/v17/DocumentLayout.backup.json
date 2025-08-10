@@ -3,20 +3,8 @@
   "WorkspaceRootPath": "D:\\GitHub\\PlancksoftPOS\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|d:\\github\\plancksoftpos\\plancksoftpos\\viewcontrollers\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|solutionrelative:plancksoftpos\\viewcontrollers\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A0F5C1A3-F956-4FBF-BA97-F9DC706F178B}|DataAccessLayerJSON\\DataAccessLayerJSON.csproj|d:\\github\\plancksoftpos\\dataaccesslayerjson\\dataaccesslayerjson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A0F5C1A3-F956-4FBF-BA97-F9DC706F178B}|DataAccessLayerJSON\\DataAccessLayerJSON.csproj|solutionrelative:dataaccesslayerjson\\dataaccesslayerjson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|d:\\github\\plancksoftpos\\plancksoftpos\\viewcontrollers\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|solutionrelative:plancksoftpos\\viewcontrollers\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{123458DB-B615-47E7-A917-C3D7E67CABD2}|Dependencies\\Dependencies.csproj|D:\\GitHub\\PlancksoftPOS\\dependencies\\models\\printer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{123458DB-B615-47E7-A917-C3D7E67CABD2}|Dependencies\\Dependencies.csproj|solutionrelative:dependencies\\models\\printer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|d:\\github\\plancksoftpos\\plancksoftpos\\viewcontrollers\\frmeditprinter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|solutionrelative:plancksoftpos\\viewcontrollers\\frmeditprinter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +14,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 29,
+          "SelectedChildIndex": 27,
           "Children": [
             {
               "$type": "Bookmark",
@@ -138,53 +126,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DataAccessLayerJSON.cs",
-              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.cs",
-              "RelativeDocumentMoniker": "DataAccessLayerJSON\\DataAccessLayerJSON.cs",
-              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\DataAccessLayerJSON\\DataAccessLayerJSON.cs",
-              "RelativeToolTip": "DataAccessLayerJSON\\DataAccessLayerJSON.cs",
-              "ViewState": "AgIAAB0KAAAAAAAAAAAWwDsKAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T15:59:18.992Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmMain.cs [Design]",
-              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmMain.cs",
-              "RelativeDocumentMoniker": "PlancksoftPOS\\ViewControllers\\frmMain.cs",
-              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmMain.cs [Design]",
-              "RelativeToolTip": "PlancksoftPOS\\ViewControllers\\frmMain.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T15:53:41.828Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmMain.cs",
-              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmMain.cs",
-              "RelativeDocumentMoniker": "PlancksoftPOS\\ViewControllers\\frmMain.cs",
-              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmMain.cs",
-              "RelativeToolTip": "PlancksoftPOS\\ViewControllers\\frmMain.cs",
-              "ViewState": "AgIAAAwMAAAAAAAAAAAiwC0MAAAsAAAAAAAAAA==",
+              "Title": "frmEditPrinter.cs [Design]",
+              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmEditPrinter.cs",
+              "RelativeDocumentMoniker": "PlancksoftPOS\\ViewControllers\\frmEditPrinter.cs",
+              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmEditPrinter.cs [Design]",
+              "RelativeToolTip": "PlancksoftPOS\\ViewControllers\\frmEditPrinter.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T15:52:30.936Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Printer.cs",
-              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\Dependencies\\Models\\Printer.cs",
-              "RelativeDocumentMoniker": "Dependencies\\Models\\Printer.cs",
-              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\Dependencies\\Models\\Printer.cs",
-              "RelativeToolTip": "Dependencies\\Models\\Printer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAcAAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-10T15:31:20.058Z"
+              "WhenOpened": "2025-08-10T16:46:10.611Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

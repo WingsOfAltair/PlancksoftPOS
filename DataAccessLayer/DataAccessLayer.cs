@@ -2605,7 +2605,7 @@ namespace DataAccessLayer
         {
             try
             {
-                using (SqlCommand cmd = new SqlCommand("UpdatePrinters", connection))
+                using (SqlCommand cmd = new SqlCommand("UpdatePrinter", connection))
                 {
                     cmd.CommandType = CommandType.StoredProcedure;
 
