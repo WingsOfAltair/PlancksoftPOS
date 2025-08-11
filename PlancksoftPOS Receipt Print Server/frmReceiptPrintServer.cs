@@ -152,6 +152,8 @@ namespace PlancksoftPOS_Receipt_Print_Server
                 totalquantity = 0;
                 item_quantity = 0;
 
+                rows.Clear();
+
                 foreach (Dependencies.Printer printer in PrintersToPrint)
                 {
                     printDocument1.PrinterSettings.PrinterName = printer.Name;
