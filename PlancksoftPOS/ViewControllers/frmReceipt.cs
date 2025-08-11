@@ -50,7 +50,6 @@ namespace PlancksoftPOS
 
         int totalquantity = 0;
         int item_quantity = 0;
-        int currentRowIndex = 0;
 
         string[] headers = new string[] { };
         List<string[]> rows = new List<string[]>();
@@ -565,6 +564,7 @@ namespace PlancksoftPOS
             g.DrawString(text, font, Brushes.Black, rect, sf);
             return y + lineHeight;
         }
+
         static int DrawRightAlignedText(Graphics g, string text, int y, Font font)
         {
             RectangleF rect = new RectangleF(padding, y, width - 2 * padding, lineHeight);
