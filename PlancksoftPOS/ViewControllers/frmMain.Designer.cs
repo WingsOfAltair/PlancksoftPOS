@@ -811,6 +811,7 @@ namespace PlancksoftPOS
             this.hamburger_menu_clients_affairs_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_taxes_sub_timer = new System.Windows.Forms.Timer(this.components);
             this.hamburger_menu_settings_sub_timer = new System.Windows.Forms.Timer(this.components);
+            this.printCloseCashReport = new System.Drawing.Printing.PrintDocument();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.Cash.SuspendLayout();
@@ -12961,6 +12962,10 @@ namespace PlancksoftPOS
             this.hamburger_menu_settings_sub_timer.Interval = 10;
             this.hamburger_menu_settings_sub_timer.Tick += new System.EventHandler(this.hamburger_menu_settings_sub_timer_Tick_1);
             // 
+            // printCloseCashReport
+            // 
+            this.printCloseCashReport.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printCloseCashReport_PrintPage);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -14076,6 +14081,7 @@ namespace PlancksoftPOS
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
         private DataGridViewTextBoxColumn Column28;
         private DataGridViewTextBoxColumn TotalPorted;
+        private System.Drawing.Printing.PrintDocument printCloseCashReport;
     }
 }
 

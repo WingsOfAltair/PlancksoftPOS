@@ -1,25 +1,26 @@
-﻿using PlancksoftPOS.Properties;
+﻿using Dependencies;
+using MaterialSkin;
+using MaterialSkin.Controls;
+using Microsoft.TeamFoundation.Common;
+using PlancksoftPOS.Properties;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
+using System.Drawing.Text;
 using System.Globalization;
 using System.IO;
-using System.Windows.Forms;
-using System.Drawing.Drawing2D;
-using System.Text.RegularExpressions;
-using WMPLib;
-using System.Text;
 using System.IO.Ports;
-using Dependencies;
-using MaterialSkin.Controls;
-using MaterialSkin;
-using Microsoft.TeamFoundation.Common;
 using System.Linq;
 using System.Runtime.InteropServices;
-using System.ComponentModel;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Windows.Forms;
+using WMPLib;
 
 namespace PlancksoftPOS
 {
@@ -87,6 +88,13 @@ namespace PlancksoftPOS
 
         public Account userPermissions;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
+
+        static int width = 384;  // or 284
+        static int padding = 10;
+        static int cellPadding = 6;
+        static int lineHeight = 30;
+        static Font fontRegular = new Font("Arial", 10);
+        static Font fontBold = new Font("Arial", 12, FontStyle.Bold);
 
         public class Items
         {
@@ -2445,7 +2453,7 @@ namespace PlancksoftPOS
                                 byte[] picture = Connection.server.RetrieveItemPictureFromBarCode(favoriteItem.GetItemBarCode()).PictureUpload;
                                 var stream = new MemoryStream(picture);
                                 btn.BackgroundImage = Image.FromStream(stream);
-                            } catch(Exception exc) { }
+                            } catch (Exception exc) { }
                             btn.BackgroundImageLayout = ImageLayout.Stretch;
                             btn.Text = favoriteItem.GetName();
                             btn.Font = new Font("Arial", 14f, FontStyle.Bold);
@@ -4451,7 +4459,7 @@ namespace PlancksoftPOS
                                 Users = DisplayUsers();
                                 DisplayCashierNames();
                                 cashierNameLbl.Text = txtUserNameAdd.Text;
-                                
+
                                 applyAuthorityPermissions();
                             }
                             else
@@ -5042,7 +5050,7 @@ namespace PlancksoftPOS
                 dgvUnPortedSales.Columns["Column77"].HeaderText = "المبلغ الصافي";
                 dgvUnPortedSales.Columns["dataGridViewTextBoxColumn9"].HeaderText = "المبلغ المدفوغ";
                 dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "المبلغ الباقي";
-                dgvUnPortedSales.Columns["Column75"].HeaderText = "قيمة الخصم";    
+                dgvUnPortedSales.Columns["Column75"].HeaderText = "قيمة الخصم";
                 dgvUnPortedSales.Columns["Column7"].HeaderText = "طريقة الدفع";
                 dgvUnPortedSales.Columns["TotalUnPorted"].HeaderText = "المجموع";
             } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
@@ -5223,7 +5231,7 @@ namespace PlancksoftPOS
                         var wmp = new WindowsMediaPlayer { URL = file };
                         wmp.controls.play();
                     }*/
-                    
+
                     foreach (DataGridViewRow row in ItemsPendingPurchase.Rows)
                     {
                         if (!row.IsNewRow)
@@ -5245,6 +5253,7 @@ namespace PlancksoftPOS
                                     }
                                     this.ScannedBarCode = "";
                                     found = true;
+                                    richTextBox6.ResetText();
                                 }
                             }
                         }
@@ -5280,6 +5289,7 @@ namespace PlancksoftPOS
                         {
                             richTextBox6.Text = " Barcode: " + item.GetItemBarCode();
                         }
+                        richTextBox6.ResetText();
                         this.ScannedBarCode = "";
                         found = true;
                     }
@@ -5312,7 +5322,7 @@ namespace PlancksoftPOS
                         }
                         else
                         {
-                            found = false;  
+                            found = false;
                             return;
                         }
                     }
@@ -5329,7 +5339,7 @@ namespace PlancksoftPOS
                         }
                         else
                         {
-                            found = false;  
+                            found = false;
                             return;
                         }
                     }
@@ -5436,7 +5446,7 @@ namespace PlancksoftPOS
                     Console.WriteLine("Cash drawer opened.");
                 else
                     Console.WriteLine("Failed to open cash drawer.");
-            } catch(Exception error)
+            } catch (Exception error)
             {
                 MaterialMessageBox.Show(e.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
             }
@@ -5624,14 +5634,14 @@ namespace PlancksoftPOS
             }
             Decimal total = 0;
 
-            foreach(DataGridViewRow row in dgvItemProfit.Rows)
+            foreach (DataGridViewRow row in dgvItemProfit.Rows)
             {
                 try
                 {
                     total += Convert.ToDecimal(row.Cells["dataGridViewTextBoxColumn19"].Value.ToString());
-                } catch(Exception exc)
+                } catch (Exception exc)
                 {
-                }                                                                                        
+                }
             }
 
             dgvItemProfit.Rows[dgvItemProfit.Rows.Count - 1].Cells["dataGridViewTextBoxColumn19"].Value = total;
@@ -5791,7 +5801,7 @@ namespace PlancksoftPOS
                 BillsPaidAmount.Value = Convert.ToDecimal(dgvBillsEdit.Rows[e.RowIndex].Cells["BillPaidAmount"].Value.ToString());
                 BillsRemainderAmount.Value = Convert.ToDecimal(dgvBillsEdit.Rows[e.RowIndex].Cells["BillRemainderAmount"].Value.ToString());
                 BillsEditButton.Enabled = true;
-            } catch(Exception error)
+            } catch (Exception error)
             {
 
             }
@@ -5877,7 +5887,7 @@ namespace PlancksoftPOS
                         MaterialMessageBox.Show("A new expense was added.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                     }
                 }
-            } catch(Exception error) {
+            } catch (Exception error) {
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
                     MaterialMessageBox.Show(".لم نتمكن من اضافة المصروف", false, FlexibleMaterialForm.ButtonsPosition.Center);
@@ -6013,12 +6023,12 @@ namespace PlancksoftPOS
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
                         label45.Text = " هذه النسخه مرخصه لمتجر " + this.PlancksoftPOSName;
-                    this.Text = this.PlancksoftPOSName + " - الشاشه الرئيسيه";
+                        this.Text = this.PlancksoftPOSName + " - الشاشه الرئيسيه";
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
                         label45.Text = "This copy was licensed for " + this.PlancksoftPOSName;
-                    this.Text = this.PlancksoftPOSName + " - Main Window";
+                        this.Text = this.PlancksoftPOSName + " - Main Window";
                     }
                     if (this.IncludeLogoReceipt.Checked)
                     {
@@ -6145,7 +6155,7 @@ namespace PlancksoftPOS
                         currencyManager1.ResumeBinding();
                     }
                     dgvBills.Refresh();
-                    
+
                     decimal total = 0;
                     DataTable dt = new DataTable();
                     dt.Clear();
@@ -6467,7 +6477,7 @@ namespace PlancksoftPOS
 
             decimal SumOfRevenue = 0;
 
-            foreach(DataGridViewRow row in dvgCapital.Rows)
+            foreach (DataGridViewRow row in dvgCapital.Rows)
             {
                 if (!row.IsNewRow)
                     SumOfRevenue += Convert.ToDecimal(row.Cells[1].Value.ToString());
@@ -6680,7 +6690,7 @@ namespace PlancksoftPOS
         public void pictureBox21_Click(object sender, EventArgs e)
         {
             try
-            {                                                                                               
+            {
                 DataTable retrievedClients = Connection.server.GetRetrieveClients();
 
                 dgvClients.DataSource = retrievedClients;
@@ -6701,7 +6711,7 @@ namespace PlancksoftPOS
                     dgvClients.Columns["Column10"].HeaderText = "Client Email";
                 }
             }
-            catch(Exception error)
+            catch (Exception error)
             { }
         }
 
@@ -7527,7 +7537,7 @@ namespace PlancksoftPOS
                             billToAdd.ClientPhone = frmPickClientLookup.pickedClient.ClientPhone;
                             billToAdd.ClientAddress = frmPickClientLookup.pickedClient.ClientAddress;
                             billToAdd.ClientEmail = frmPickClientLookup.pickedClient.ClientEmail;
-                                ;
+                            ;
                             if (Connection.server.PayBill(billToAdd, this.cashierName))
                             {
                                 // paid bill
@@ -9257,7 +9267,7 @@ namespace PlancksoftPOS
                             this.totalVendorAmount += newItem.GetBuyPrice() * newItem.GetQuantity();
                             itemsToAdd.Add(newItem);
                         }
-                        
+
                     }
                 }
 
@@ -9577,7 +9587,7 @@ namespace PlancksoftPOS
                         }
                     }
                 } else if (Connection.server.InsertDayOff(EmployeeID, AbsenceDate.Value))
-                    {
+                {
                     AbsenceEmpName.Text = "";
                     AbsenceDate.Value = DateTime.Now;
                     AbsenceHours.SelectedIndex = 0;
@@ -9819,7 +9829,7 @@ namespace PlancksoftPOS
 
         private void switchThemeScheme_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void فاتحToolStripMenuItem_Click(object sender, EventArgs e)
@@ -10074,7 +10084,7 @@ namespace PlancksoftPOS
                         if (Connection.server.PayUnpaidBill(Convert.ToInt32(row.Cells["dataGridViewTextBoxColumn24"].Value.ToString()), frmPayCash.paidAmount))
                         {
                             billPaid = Connection.server.SearchBills("", "", Convert.ToInt32(row.Cells["dataGridViewTextBoxColumn24"].Value.ToString())).Item1[0];
-                            billPaid.ItemsBought = itemsInBill; 
+                            billPaid.ItemsBought = itemsInBill;
                             if (frmPayCash.paidAmount <= frmPayCash.totalAmount)
                             {
                                 this.moneyInRegister += frmPayCash.paidAmount;
@@ -10285,7 +10295,7 @@ namespace PlancksoftPOS
             if (Properties.Settings.Default.actionMenuExpanded == false)
             {
                 pnlActionMenu.Width = 10;
-               // pnlActionMenu.FlowDirection = FlowDirection.TopDown;
+                // pnlActionMenu.FlowDirection = FlowDirection.TopDown;
 
             }
             else
@@ -10739,6 +10749,131 @@ namespace PlancksoftPOS
             printCertainReceipt(billPaid, true);
         }
 
+        private void printCloseCashReport_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            try
+            {
+                DataTable dt = Connection.server.RetrieveSystemSettings();
+
+                Font minifont = new Font("Arial", 5);
+                Font itemfont = new Font("Arial", 6);
+                Font smallfont = new Font("Arial", 8);
+                Font mediumfont = new Font("Arial", 10);
+                Font largefont = new Font("Arial", 12);
+
+                Font fontRegular = new Font("Arial", 10);
+                Font fontBold = new Font("Arial", 12, FontStyle.Bold);
+
+                int imgHeight = 1200; // generous height, we'll crop later   
+                imgHeight += picLogo.Height;
+                imgHeight += lineHeight;
+
+                using (Bitmap bmp = new Bitmap(width, imgHeight))
+                using (Graphics g = Graphics.FromImage(bmp))
+                {
+                    g.Clear(Color.White);
+                    g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+
+                    int y = padding;
+
+                    if (this.IncludeLogoInReceipt)
+                    {
+                        y = DrawImage(g, picLogo.Image, y);
+                    }
+
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y = DrawCenteredText(g, "تقرير اغلاق الصندوق", y, fontBold);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y = DrawCenteredText(g, "Cash Close Report", y, fontBold);
+                    }
+
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y += DrawRightAndLeftUnbordered(g, Connection.server.GetLastOpenRegisterDate() + " تاريخ الفتح ", Connection.server.GetLastOpenRegisterDate() + " تاريخ الإغلاق ", y, fontRegular);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y += DrawRightAndLeftUnbordered(g, "Open Date: " + Connection.server.GetLastOpenRegisterDate(), "Close Date: " + DateTime.Now.ToShortDateString(), y, fontRegular);
+                    }
+
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y = DrawCenteredText(g, this.cashierName + " إسم الكاشير: ", y, fontRegular);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y = DrawCenteredText(g, " Cashier Name: " + this.cashierName, y, fontRegular);
+                    }
+
+                    decimal openRegisterAmount = Connection.server.GetOpenRegisterAmount();
+                    decimal totalSalesAmount = Connection.server.GetTotalSalesAmount();
+
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y = DrawCenteredText(g, openRegisterAmount.ToString() + " أرضية الكاش ", y, fontRegular);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y = DrawCenteredText(g, "Cash Opening Value: " + openRegisterAmount.ToString(), y, fontRegular);
+                    }
+
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y = DrawCenteredText(g, totalSalesAmount.ToString() + " صافي مبلغ المبيعات ", y, fontRegular);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y = DrawCenteredText(g, "Net Sales Amount: " + totalSalesAmount.ToString(), y, fontRegular);
+                    }
+
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y = DrawCenteredText(g, Convert.ToDecimal(openRegisterAmount + totalSalesAmount).ToString() + " المجموع الكلي ", y, fontBold);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y = DrawCenteredText(g, "Total Cash in Register: " + Convert.ToDecimal(openRegisterAmount + totalSalesAmount).ToString(), y, fontBold);
+                    }
+
+                    // Crop and save
+                    int cropHeight = Math.Min(y + padding, imgHeight);
+                    using (Bitmap cropped = bmp.Clone(new Rectangle(0, 0, width, cropHeight), bmp.PixelFormat))
+                    {
+                        try
+                        {
+                            Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Cash Close Reports");
+                        }
+                        catch (Exception error) { }
+                        try
+                        {
+                            Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Cash Close Reports\\" + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day);
+                        }
+                        catch (Exception error) { }
+
+                        // Draw the bitmap onto the printer graphics at the top-left corner
+                        e.Graphics.DrawImage(cropped, 0, 0, width, cropHeight);
+                        
+                        cropped.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Cash Close Reports\\"  + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + "\\" + "Cash Close Report " + DateTime.Today.Year + "-" + DateTime.Today.Month + "-" + DateTime.Today.Day + " " + DateTime.Today.Hour +
+                                "-" + DateTime.Today.Minute + "-" + DateTime.Today.Second + "-" + DateTime.Today.Millisecond + ".png", ImageFormat.Png);
+                    }
+                }
+            }
+            catch (Exception error)
+            {
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MaterialMessageBox.Show(".لم نتمكن من طباعة تقرير غلق الكاش", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MaterialMessageBox.Show("Unable to print Cash Close Report.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                }
+            }
+        }
+
         private void btnMenuClientsVendorsSubVendoItemsDefinitions_Click(object sender, EventArgs e)
         {
             //tabControl3.SelectedTab = tabControl3.TabPages["AgentsItemsDefinitions"];
@@ -10926,7 +11061,7 @@ namespace PlancksoftPOS
                     openedForm.ShowDialog();
                 }
             }
-            catch(Exception err) { }
+            catch (Exception err) { }
         }
 
         private void englishToolStripMenuItem_Click(object sender, EventArgs e)
@@ -11158,7 +11293,7 @@ namespace PlancksoftPOS
                     }
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 StoreLogo = null;
                 picLogoStore.Image = Resources.plancksoft_b_t;
@@ -11655,7 +11790,7 @@ namespace PlancksoftPOS
                         label66.Enabled = false;
                         openRegisterBtn.Enabled = true;
                         label65.Enabled = true;
-                        
+
                         try
                         {
 
@@ -11945,161 +12080,86 @@ namespace PlancksoftPOS
 
         public void printCloseRegister()
         {
-            try
+            string printerName = "";
+            frmMain.PrintersList = Connection.server.RetrievePrinters(Environment.MachineName);
+            foreach (Dependencies.Printer printer in frmMain.PrintersList)
             {
-                DataTable dt = Connection.server.RetrieveSystemSettings();
-
-                int lineHeight = 20;
-                int height = 20;
-
-
-                for (int i = 0; i < 7; i++)
+                if (printer.MachineName == Environment.MachineName && Convert.ToBoolean(printer.IsMainPrinter))
                 {
-                    height += lineHeight;
-                }
-
-                Bitmap bitm = new Bitmap(354, height + 350);
-
-                StringFormat format = new StringFormat(StringFormatFlags.DirectionRightToLeft);
-                using (Graphics graphic = Graphics.FromImage(bitm))
-                {
-                    int startX = 0;
-                    int startY = 0;
-                    int offsetY = 0;
-                    Font newfont2 = null;
-                    Font itemFont = null;
-                    SolidBrush black = null;
-                    SolidBrush white = null;
-
-                    try
-                    {
-                        //Font newfont = new Font("Arial Black", 8);
-                        newfont2 = new Font("Calibri", 11, FontStyle.Bold);
-                        itemFont = new Font("Calibri", 11, FontStyle.Bold);
-
-                        black = new SolidBrush(Color.Black);
-                        white = new SolidBrush(Color.White);
-                        graphic.FillRectangle(white, 0, 0, bitm.Width, bitm.Height);
-
-                        //PointF point = new PointF(40f, 2f);
-
-                        if (IncludeLogoInReceipt)
-                        {
-                            try
-                            {
-                                if (!Convert.IsDBNull(dt.Rows[0]["SystemLogo"]))
-                                {
-                                    StoreLogo = (Byte[])(dt.Rows[0]["SystemLogo"]);
-                                    var stream = new MemoryStream(StoreLogo);
-                                    graphic.DrawImage(ResizeImage(new Bitmap(stream), 150, 150), (bitm.Width / 2) - 150, 0);
-                                }
-                                else
-                                {
-                                    graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 150, 0);
-                                }
-                            }
-                            catch (Exception err)
-                            {
-                                graphic.DrawImage(ResizeImage(Resources.plancksoft_b_t, 150, 150), (bitm.Width / 2) - 150, 0);
-                            }
-
-                            offsetY = offsetY + lineHeight;
-                            offsetY = offsetY + lineHeight;
-                            offsetY = offsetY + lineHeight;
-                            offsetY = offsetY + lineHeight;
-                            offsetY = offsetY + lineHeight;
-                        }
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString(".تقرير اغلاق الصندوق", newfont2, black, 0, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("Cash Close Report.", newfont2, black, 0, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString(this.cashierName + " إسم الكاشير: ", newfont2, black, 0, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString(" Cashier Name: " + this.cashierName, newfont2, black, 0, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString(Connection.server.GetLastOpenRegisterDate() + " تاريخ فتح الصندوق ", newfont2, black, 0, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("Register Open Date: " + Connection.server.GetLastOpenRegisterDate(), newfont2, black, 0, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString(DateTime.Now.ToShortDateString() + " تاريخ اغلاق الصندوق ", newfont2, black, 0, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("Register Close Date: " + DateTime.Now.ToShortDateString(), newfont2, black, 0, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        decimal openRegisterAmount = Connection.server.GetOpenRegisterAmount();
-                        decimal totalSalesAmount = Connection.server.GetTotalSalesAmount();
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString(openRegisterAmount.ToString() + " أرضية الكاش ", newfont2, black, 0, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("Cash Opening Value: " + openRegisterAmount.ToString(), newfont2, black, 0, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString(totalSalesAmount.ToString() + " مبلغ المبيعات ", newfont2, black, 0, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("Total Sales Amount: " + totalSalesAmount.ToString(), newfont2, black, 0, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                        if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                        {
-                            graphic.DrawString(Convert.ToDecimal(openRegisterAmount + totalSalesAmount).ToString() + " المجموع الكلي ", newfont2, black, 0, startY + offsetY);
-                        }
-                        else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                        {
-                            graphic.DrawString("Total Cash in Register: " + Convert.ToDecimal(openRegisterAmount + totalSalesAmount).ToString(), newfont2, black, 0, startY + offsetY);
-                        }
-                        offsetY = offsetY + lineHeight;
-                    }
-                    finally
-                    {
-                        black.Dispose();
-                        white.Dispose();
-                        itemFont.Dispose();
-                        newfont2.Dispose();
-                    }
-                }
-
-                using (MemoryStream Mmst = new MemoryStream())
-                {
-                    bitm.Save(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Cash Close Report.jpeg", ImageFormat.Jpeg);
+                    printerName = printer.Name;
                 }
             }
-            catch (Exception error)
-            {
-                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+            printCloseCashReport.PrinterSettings.PrinterName = printerName;
+            printCloseCashReport.Print();
+        }
+        static int DrawCenteredText(Graphics g, string text, int y, Font font)
+        {
+            RectangleF rect = new RectangleF(0, y, width, lineHeight);
+            StringFormat sf = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center, FormatFlags = StringFormatFlags.DirectionRightToLeft };
+            g.DrawString(text, font, Brushes.Black, rect, sf);
+            return y + lineHeight;
+        }
+
+        static int DrawRightAndLeftUnbordered(Graphics g, string rightText, string leftText, int y, Font font)
+        {
+            int rowHeight = lineHeight;
+
+            // Measure text sizes (not really needed if no rectangles, but can keep for alignment)
+            SizeF rightSize = g.MeasureString(rightText, font);
+            float rightRectWidth = rightSize.Width + padding * 2;
+            float rightRectX = width - rightRectWidth;
+
+            SizeF leftSize = g.MeasureString(leftText, font);
+            float leftRectWidth = leftSize.Width + padding * 2;
+            float leftRectX = 0;
+
+            // Draw right text aligned to the right side inside its area
+            RectangleF rightRect = new RectangleF(rightRectX, y, rightRectWidth, rowHeight);
+            g.DrawString(
+                rightText,
+                font,
+                Brushes.Black,
+                rightRect,
+                new StringFormat
                 {
-                    MaterialMessageBox.Show(".لم نتمكن من طباعة تقرير غلق الكاش", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    Alignment = StringAlignment.Far,
+                    LineAlignment = StringAlignment.Center,
+                    FormatFlags = StringFormatFlags.DirectionRightToLeft
                 }
-                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+            );
+
+            // Draw left text aligned to the left side inside its area
+            RectangleF leftRect = new RectangleF(leftRectX, y, leftRectWidth, rowHeight);
+            g.DrawString(
+                leftText,
+                font,
+                Brushes.Black,
+                leftRect,
+                new StringFormat
                 {
-                    MaterialMessageBox.Show("Unable to print Cash Close Report.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    Alignment = StringAlignment.Near,
+                    LineAlignment = StringAlignment.Center
                 }
-            }
+            );
+
+            // Return the vertical space consumed
+            return rowHeight;
+        }
+
+        static int DrawImage(Graphics g, System.Drawing.Image img, int y)
+        {
+            // Get actual image size
+            float logoWidth = img.Width;
+            float logoHeight = img.Height;
+
+            // Calculate centered X position
+            float x = (width - logoWidth) / 2f;
+
+            // Draw image at the given y
+            g.DrawImage(img, x, y, logoWidth, logoHeight);
+
+            // Return the new y position after the image
+            return y + (int)logoHeight;
         }
 
         public bool IsRtl(string input)
