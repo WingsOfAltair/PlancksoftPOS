@@ -35,6 +35,7 @@
             this.btnEditPrinter = new MaterialSkin.Controls.MaterialButton();
             this.txtMachineName = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblMachineName = new MaterialSkin.Controls.MaterialLabel();
+            this.cbIsMainPrinter = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblPrinterName
@@ -75,7 +76,7 @@
             this.txtPrinterName.SelectionLength = 0;
             this.txtPrinterName.SelectionStart = 0;
             this.txtPrinterName.ShortcutsEnabled = true;
-            this.txtPrinterName.Size = new System.Drawing.Size(556, 48);
+            this.txtPrinterName.Size = new System.Drawing.Size(572, 48);
             this.txtPrinterName.TabIndex = 41;
             this.txtPrinterName.TabStop = false;
             this.txtPrinterName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -90,7 +91,7 @@
             this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.HighEmphasis = true;
             this.btnClose.Icon = null;
-            this.btnClose.Location = new System.Drawing.Point(371, 207);
+            this.btnClose.Location = new System.Drawing.Point(373, 286);
             this.btnClose.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClose.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClose.Name = "btnClose";
@@ -111,7 +112,7 @@
             this.btnEditPrinter.Depth = 0;
             this.btnEditPrinter.HighEmphasis = true;
             this.btnEditPrinter.Icon = null;
-            this.btnEditPrinter.Location = new System.Drawing.Point(97, 207);
+            this.btnEditPrinter.Location = new System.Drawing.Point(114, 286);
             this.btnEditPrinter.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnEditPrinter.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnEditPrinter.Name = "btnEditPrinter";
@@ -148,7 +149,7 @@
             this.txtMachineName.SelectionLength = 0;
             this.txtMachineName.SelectionStart = 0;
             this.txtMachineName.ShortcutsEnabled = true;
-            this.txtMachineName.Size = new System.Drawing.Size(556, 48);
+            this.txtMachineName.Size = new System.Drawing.Size(572, 48);
             this.txtMachineName.TabIndex = 55;
             this.txtMachineName.TabStop = false;
             this.txtMachineName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -169,11 +170,23 @@
             this.lblMachineName.Text = "إسم الجهاز";
             this.lblMachineName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // cbIsMainPrinter
+            // 
+            this.cbIsMainPrinter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbIsMainPrinter.AutoSize = true;
+            this.cbIsMainPrinter.Location = new System.Drawing.Point(114, 220);
+            this.cbIsMainPrinter.Name = "cbIsMainPrinter";
+            this.cbIsMainPrinter.Size = new System.Drawing.Size(93, 17);
+            this.cbIsMainPrinter.TabIndex = 56;
+            this.cbIsMainPrinter.Text = "طابعه رئيسيه؟";
+            this.cbIsMainPrinter.UseVisualStyleBackColor = true;
+            // 
             // frmEditPrinter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(562, 292);
+            this.ClientSize = new System.Drawing.Size(578, 331);
+            this.Controls.Add(this.cbIsMainPrinter);
             this.Controls.Add(this.txtMachineName);
             this.Controls.Add(this.lblMachineName);
             this.Controls.Add(this.btnEditPrinter);
@@ -192,7 +205,7 @@
             this.ShowInTaskbar = false;
             this.Sizable = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "تعديل الطابعه";
+            this.Text = "تعديل طابعه";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmEditPrice_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -207,5 +220,6 @@
         private MaterialSkin.Controls.MaterialButton btnEditPrinter;
         private MaterialSkin.Controls.MaterialTextBox2 txtMachineName;
         private MaterialSkin.Controls.MaterialLabel lblMachineName;
+        private System.Windows.Forms.CheckBox cbIsMainPrinter;
     }
 }

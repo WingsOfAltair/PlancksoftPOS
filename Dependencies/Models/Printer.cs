@@ -15,18 +15,19 @@ namespace Dependencies
         [DataMember]
         public string Name;
         [DataMember]
-        public int ID;
+        public int ID, IsMainPrinter;
 
         public Printer(int iD)
         {
             ID = iD;
         }
 
-        public Printer(int iD, string name, string machineName)
+        public Printer(int iD, string name, string machineName, int isMainPrinter)
         {
             Name = name;
             ID = iD;
             MachineName = machineName;
+            IsMainPrinter = isMainPrinter;
         }
     }
 }

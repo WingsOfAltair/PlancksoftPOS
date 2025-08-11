@@ -512,7 +512,7 @@ namespace DataAccessLayer
                 adapter.Fill(dt);
                 foreach (DataRow Printer in dt.Rows)
                 {
-                    Printers.Add(new Printer(Convert.ToInt32(Printer["Printer ID"].ToString()), Printer["Printer Name"].ToString(), Printer["Machine Name"].ToString()));
+                    Printers.Add(new Printer(Convert.ToInt32(Printer["Printer ID"].ToString()), Printer["Printer Name"].ToString(), Printer["Machine Name"].ToString(), Convert.ToInt32(Printer["Is Main Printer?"].ToString())));
                 }
                 return Printers;
             }
@@ -2603,7 +2603,7 @@ namespace DataAccessLayer
             }
         }
 
-        public bool UpdatePrinters(int printerID, string printerName, string machineName)
+        public bool UpdatePrinters(int printerID, string printerName, string machineName, int isMainPrinter)
         {
             try
             {
@@ -2614,6 +2614,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@PrinterID", printerID);
                     cmd.Parameters.AddWithValue("@PrinterName", printerName);
                     cmd.Parameters.AddWithValue("@MachineName", machineName);
+                    cmd.Parameters.AddWithValue("@IsMainPrinter", isMainPrinter);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
