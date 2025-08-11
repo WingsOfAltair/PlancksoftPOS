@@ -979,17 +979,22 @@ namespace PlancksoftPOS
                         groupBox25.Text = "المبيعات الغير المرحله";
                         dgvUnPortedSales.Columns["dataGridViewTextBoxColumn6"].HeaderText = "رقم الغاتورة";
                         dgvUnPortedSales.Columns["dataGridViewTextBoxColumn7"].HeaderText = "إسم الكاشير";
-                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "المبلغ الصافي";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "المبلغ قبل الخصم";
+                        dgvUnPortedSales.Columns["Column77"].HeaderText = "المبلغ الصافي";
                         dgvUnPortedSales.Columns["dataGridViewTextBoxColumn9"].HeaderText = "المبلغ المدفوغ";
                         dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "المبلغ الباقي";
+                        dgvUnPortedSales.Columns["Column75"].HeaderText = "قيمة الخصم";
                         dgvUnPortedSales.Columns["Column7"].HeaderText = "طريقة الدفع";
                         dgvUnPortedSales.Columns["TotalUnPorted"].HeaderText = "المجموع";
                         groupBox26.Text = "المبيعات المرحله";
                         dgvPortedSales.Columns["dataGridViewTextBoxColumn11"].HeaderText = "رقم الغاتورة";
                         dgvPortedSales.Columns["dataGridViewTextBoxColumn12"].HeaderText = "إسم الكاشير";
-                        dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "المبلغ الصافي";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "المبلغ قبل الخصم";
+                        dgvPortedSales.Columns["Column78"].HeaderText = "المبلغ الصافي";
+                        dgvPortedSales.Columns["Column76"].HeaderText = "قيمة الخصم";
                         dgvPortedSales.Columns["dataGridViewTextBoxColumn14"].HeaderText = "المبلغ المدفوغ";
                         dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "المبلغ الباقي";
+                        dgvPortedSales.Columns["Column76"].HeaderText = "قيمة الخصم";
                         dgvPortedSales.Columns["Column28"].HeaderText = "طريقة الدفع";
                         dgvPortedSales.Columns["TotalPorted"].HeaderText = "المجموع";
                     }
@@ -1581,17 +1586,22 @@ namespace PlancksoftPOS
                         groupBox25.Text = "Untraveling Sales";
                         dgvUnPortedSales.Columns["dataGridViewTextBoxColumn6"].HeaderText = "Bill ID";
                         dgvUnPortedSales.Columns["dataGridViewTextBoxColumn7"].HeaderText = "Cashier Name";
-                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "Net Amount";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "Total Amount";
+                        dgvUnPortedSales.Columns["Column77"].HeaderText = "Net Amount";
                         dgvUnPortedSales.Columns["dataGridViewTextBoxColumn9"].HeaderText = "Paid Amount";
-                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "Remainder";
+                        dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "Remainder Amount";
+                        dgvUnPortedSales.Columns["Column75"].HeaderText = "Discount Amount";
                         dgvUnPortedSales.Columns["Column7"].HeaderText = "Payment Method";
                         dgvUnPortedSales.Columns["TotalUnPorted"].HeaderText = "Total";
                         groupBox26.Text = "Traveling Sales";
                         dgvPortedSales.Columns["dataGridViewTextBoxColumn11"].HeaderText = "Bill ID";
                         dgvPortedSales.Columns["dataGridViewTextBoxColumn12"].HeaderText = "Cashier Name";
-                        dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "Net Amount";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "Total Amount";
+                        dgvPortedSales.Columns["Column78"].HeaderText = "Net Total";
+                        dgvPortedSales.Columns["Column76"].HeaderText = "Discount Amount";
                         dgvPortedSales.Columns["dataGridViewTextBoxColumn14"].HeaderText = "Paid Amount";
-                        dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "Remainder";
+                        dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "Remainder Amount";
+                        dgvPortedSales.Columns["Column76"].HeaderText = "Discount Amount";
                         dgvPortedSales.Columns["Column28"].HeaderText = "Payment Method";
                         dgvPortedSales.Columns["TotalPorted"].HeaderText = "Total";
                     }
@@ -5011,9 +5021,9 @@ namespace PlancksoftPOS
                 dgvUnPortedSales.Rows[i].Selected = true;
                 dgvUnPortedSales.Rows[i].Visible = true;
                 currencyManager1.ResumeBinding();
-                total += Convert.ToDecimal(dgvUnPortedSales.Rows[i].Cells[2].Value);
+                total += Convert.ToDecimal(dgvUnPortedSales.Rows[i].Cells["Column77"].Value);
             }
-            RetrievedBills.Item2.Rows.Add(0, "", 0, 0, 0, "", total);
+            RetrievedBills.Item2.Rows.Add(0, "", 0, 0, 0, 0, 0, "", total);
             dgvUnPortedSales.DataSource = RetrievedBills.Item2;
             dgvUnPortedSales.Refresh();
 
@@ -5021,18 +5031,22 @@ namespace PlancksoftPOS
             {
                 dgvUnPortedSales.Columns["dataGridViewTextBoxColumn6"].HeaderText = "رقم الغاتورة";
                 dgvUnPortedSales.Columns["dataGridViewTextBoxColumn7"].HeaderText = "إسم الكاشير";
-                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "المبلغ الصافي";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "المبلغ قبل الخصم";
+                dgvUnPortedSales.Columns["Column77"].HeaderText = "المبلغ الصافي";
                 dgvUnPortedSales.Columns["dataGridViewTextBoxColumn9"].HeaderText = "المبلغ المدفوغ";
                 dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "المبلغ الباقي";
+                dgvUnPortedSales.Columns["Column75"].HeaderText = "قيمة الخصم";    
                 dgvUnPortedSales.Columns["Column7"].HeaderText = "طريقة الدفع";
                 dgvUnPortedSales.Columns["TotalUnPorted"].HeaderText = "المجموع";
             } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 dgvUnPortedSales.Columns["dataGridViewTextBoxColumn6"].HeaderText = "Bill ID";
                 dgvUnPortedSales.Columns["dataGridViewTextBoxColumn7"].HeaderText = "Cashier Name";
-                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "Net Amount";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn8"].HeaderText = "Total Amount";
+                dgvUnPortedSales.Columns["Column77"].HeaderText = "Net Total";
                 dgvUnPortedSales.Columns["dataGridViewTextBoxColumn9"].HeaderText = "Paid Amount";
-                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "Remainder";
+                dgvUnPortedSales.Columns["dataGridViewTextBoxColumn10"].HeaderText = "Remainder Amount";
+                dgvUnPortedSales.Columns["Column75"].HeaderText = "Discount Amount";
                 dgvUnPortedSales.Columns["Column7"].HeaderText = "Payment Method";
                 dgvUnPortedSales.Columns["TotalUnPorted"].HeaderText = "Total";
             }
@@ -5054,9 +5068,9 @@ namespace PlancksoftPOS
                 dgvPortedSales.Rows[i].Selected = true;
                 dgvPortedSales.Rows[i].Visible = true;
                 currencyManager1.ResumeBinding();
-                total += Convert.ToDecimal(dgvPortedSales.Rows[i].Cells[2].Value);
+                total += Convert.ToDecimal(dgvPortedSales.Rows[i].Cells["Column78"].Value);
             }
-            RetrievedBills.Item2.Rows.Add(0, "", 0, 0, 0, "", total);
+            RetrievedBills.Item2.Rows.Add(0, "", 0, 0, 0, 0, 0, "", total);
             dgvPortedSales.DataSource = RetrievedBills.Item2;
             dgvPortedSales.Refresh();
 
@@ -5064,18 +5078,24 @@ namespace PlancksoftPOS
             {
                 dgvPortedSales.Columns["dataGridViewTextBoxColumn11"].HeaderText = "رقم الغاتورة";
                 dgvPortedSales.Columns["dataGridViewTextBoxColumn12"].HeaderText = "إسم الكاشير";
-                dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "المبلغ الصافي";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "المبلغ قبل الخصم";
+                dgvPortedSales.Columns["Column78"].HeaderText = "المبلغ الصافي";
+                dgvPortedSales.Columns["Column76"].HeaderText = "قيمة الخصم";
                 dgvPortedSales.Columns["dataGridViewTextBoxColumn14"].HeaderText = "المبلغ المدفوغ";
                 dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "المبلغ الباقي";
+                dgvPortedSales.Columns["Column76"].HeaderText = "قيمة الخصم";
                 dgvPortedSales.Columns["Column28"].HeaderText = "طريقة الدفع";
                 dgvPortedSales.Columns["TotalPorted"].HeaderText = "المجموع";
             } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
             {
                 dgvPortedSales.Columns["dataGridViewTextBoxColumn11"].HeaderText = "Bill ID";
                 dgvPortedSales.Columns["dataGridViewTextBoxColumn12"].HeaderText = "Cashier Name";
-                dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "Net Amount";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn13"].HeaderText = "Total Amount";
+                dgvPortedSales.Columns["Column78"].HeaderText = "Net Total";
+                dgvPortedSales.Columns["Column76"].HeaderText = "Discount Amount";
                 dgvPortedSales.Columns["dataGridViewTextBoxColumn14"].HeaderText = "Paid Amount";
-                dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "Remainder";
+                dgvPortedSales.Columns["dataGridViewTextBoxColumn15"].HeaderText = "Remainder Amount";
+                dgvPortedSales.Columns["Column76"].HeaderText = "Discount Amount";
                 dgvPortedSales.Columns["Column28"].HeaderText = "Payment Method";
                 dgvPortedSales.Columns["TotalPorted"].HeaderText = "Total";
             }
@@ -6125,9 +6145,9 @@ namespace PlancksoftPOS
                         dgvUnPortedSales.Rows[i].Selected = true;
                         dgvUnPortedSales.Rows[i].Visible = true;
                         currencyManager1.ResumeBinding();
-                        total += Convert.ToDecimal(dgvUnPortedSales.Rows[i].Cells[2].Value);
+                        total += Convert.ToDecimal(dgvUnPortedSales.Rows[i].Cells["Column77"].Value);
                     }
-                    RetrievedBills.Item2.Rows.Add(0, "", 0, 0, 0, "", total);
+                    RetrievedBills.Item2.Rows.Add(0, "", 0, 0, 0, 0, 0, "", total);
                     dgvUnPortedSales.DataSource = RetrievedBills.Item2;
                     dgvUnPortedSales.Refresh();
 
@@ -6145,9 +6165,9 @@ namespace PlancksoftPOS
                         dgvPortedSales.Rows[i].Selected = true;
                         dgvPortedSales.Rows[i].Visible = true;
                         currencyManager1.ResumeBinding();
-                        total += Convert.ToDecimal(dgvPortedSales.Rows[i].Cells[2].Value);
+                        total += Convert.ToDecimal(dgvPortedSales.Rows[i].Cells["Column78"].Value);
                     }
-                    RetrievedBills.Item2.Rows.Add(0, "", 0, 0, 0, "", total);
+                    RetrievedBills.Item2.Rows.Add(0, "", 0, 0, 0, 0, 0, "", total);
                     dgvPortedSales.DataSource = RetrievedBills.Item2;
                     dgvPortedSales.Refresh();
 

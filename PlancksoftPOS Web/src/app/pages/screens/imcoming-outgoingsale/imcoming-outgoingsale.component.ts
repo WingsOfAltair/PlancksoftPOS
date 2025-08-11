@@ -24,6 +24,8 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
   defaultColumns = [
     "BillID",
     "CashierName",
+    "TotalAmount",
+    "DiscountAmount",
     "NetAmount",
     "PaidAmount",
     "Remainder",
@@ -58,6 +60,8 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
   defaultColumns1 = [
     "BillID",
     "CashierName",
+    "TotalAmount",
+    "DiscountAmount",
     "NetAmount",
     "PaidAmount",
     "Remainder",
@@ -125,6 +129,8 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
             data: {
               BillNumber: el.BillNumber,
               CashierName: el.CashierName,
+              netAmount: parseFloat(el.totalAmount) - parseFloat(el.DiscountAmount),
+              discountAmount: el.DiscountAmount,
               totalAmount: el.totalAmount,
               paidAmount: el.paidAmount,
               RemainderAmount: el.RemainderAmount,
@@ -133,24 +139,78 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
           };
           console.log("Pay by cash");
           console.log(el.PayByCash);
-          totalAmount += parseFloat(el.totalAmount);
+          totalAmount += parseFloat(el.totalAmount) - parseFloat(el.DiscountAmount);
           list.push(obj);
         });
 
         var obj = {
           data: {
             BillNumber: "Total",
-            CashierName: '',
-            totalAmount: totalAmount,
+            CashierName: totalAmount,
+            netAmount: '',
+            discountAmount: '',
+            totalAmount: '',
             paidAmount: '',
             RemainderAmount: '',
-            PayByCash: ""
+            PayByCash: '',
           }
         }
         list.push(obj);
 
         this.data = list;
         this.dataSource = this.dataSourceBuilder.create(this.data);
+
+        console.log(this.dataSource);
+      });
+
+      this.publisherService
+      .PostRequest("RetrievePortedBills", obj)
+      .subscribe((res: any) => {
+        console.log(JSON.parse(res));
+
+        var response = JSON.parse(res);
+        var data = JSON.parse(response.ResponseMessage.Item2);
+
+        var list = [];
+        var totalAmount = 0;
+
+        data.forEach((el) => {
+          var obj = {
+            data: {
+              // EmployeeAddress: el["Employee Address"],
+              BillNumber: el["Bill Number"],
+              CashierName: el["Cashier Name"],
+              netAmount: parseFloat(el["Total Amount"]) - parseFloat(el["Discount Amount"]),
+              discountAmount: el["Discount Amount"],
+              totalAmount: el["Total Amount"],
+              PaidAmount: el["Paid Amount"],
+              RemainderAmount: el["Remainder Amount"],
+              Status: el["Payment Type"]
+            },
+          };
+          totalAmount += parseFloat(el["Total Amount"]) - parseFloat(el["Discount Amount"]);
+          list.push(obj);
+        });
+
+        var obj = {
+          data: {
+            BillNumber: "Total",
+            CashierName: totalAmount,
+            netAmount: '',
+            discountAmount: '',
+            totalAmount: '',
+            PaidAmount: '',
+            RemainderAmount: '',
+            Status: '',
+          }
+        }
+        list.push(obj);
+
+        console.log("list")
+        console.log(list);
+
+        this.data = list;
+        this.dataSource1 = this.dataSourceBuilder.create(this.data);
 
         console.log(this.dataSource);
       });
@@ -178,6 +238,8 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
             data: {
               BillNumber: el.BillNumber,
               CashierName: el.CashierName,
+              netAmount: parseFloat(el.totalAmount) - parseFloat(el.DiscountAmount),
+              discountAmount: el.DiscountAmount,
               totalAmount: el.totalAmount,
               paidAmount: el.paidAmount,
               RemainderAmount: el.RemainderAmount,
@@ -186,18 +248,20 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
           };
           console.log("Pay by cash");
           console.log(el.PayByCash);
-          totalAmount += parseFloat(el.totalAmount);
+          totalAmount += parseFloat(el.totalAmount) - parseFloat(el.DiscountAmount);
           list.push(obj);
         });
 
         var obj = {
           data: {
             BillNumber: "Total",
-            CashierName: '',
-            totalAmount: totalAmount,
+            CashierName: totalAmount,
+            netAmount: '',
+            discountAmount: '',
+            totalAmount: '',
             paidAmount: '',
             RemainderAmount: '',
-            PayByCash: ""
+            PayByCash: '',
           }
         }
         list.push(obj);
@@ -232,24 +296,28 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
               // EmployeeAddress: el["Employee Address"],
               BillNumber: el["Bill Number"],
               CashierName: el["Cashier Name"],
-              TotalAmount: el["Total Amount"],
+              netAmount: parseFloat(el["Total Amount"]) - parseFloat(el["Discount Amount"]),
+              discountAmount: el["Discount Amount"],
+              totalAmount: el["Total Amount"],
               PaidAmount: el["Paid Amount"],
               RemainderAmount: el["Remainder Amount"],
               Status: el["Payment Type"]
             },
           };
-          totalAmount += parseFloat(el["Total Amount"]);
+          totalAmount += parseFloat(el["Total Amount"]) - parseFloat(el["Discount Amount"]);
           list.push(obj);
         });
 
         var obj = {
           data: {
             BillNumber: "Total",
-            CashierName: '',
-            TotalAmount: '',
+            CashierName: totalAmount,
+            netAmount: '',
+            discountAmount: '',
+            totalAmount: '',
             PaidAmount: '',
             RemainderAmount: '',
-            Status: totalAmount
+            Status: '',
           }
         }
         list.push(obj);

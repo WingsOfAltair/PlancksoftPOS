@@ -1263,6 +1263,7 @@ namespace DataAccessLayerJSON
                     bill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
                     bill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
                     bill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
+                    bill.DiscountAmount = Convert.ToDecimal(Bill["Discount Amount"].ToString());
                     string paymentMethod = Bill["Payment Type"].ToString();
                     if (paymentMethod == "Cash")
                         bill.PayByCash = true;
@@ -1308,6 +1309,7 @@ namespace DataAccessLayerJSON
                     bill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
                     bill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
                     bill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
+                    bill.DiscountAmount = Convert.ToDecimal(Bill["Discount Amount"].ToString());
                     string paymentMethod = Bill["Payment Type"].ToString();
                     if (paymentMethod == "Cash")
                         bill.PayByCash = true;
