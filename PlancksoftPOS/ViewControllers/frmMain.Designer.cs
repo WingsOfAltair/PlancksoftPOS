@@ -177,6 +177,8 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column76 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column78 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -194,6 +196,8 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column75 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column77 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -3065,6 +3069,8 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
             this.dataGridViewTextBoxColumn13,
+            this.Column76,
+            this.Column78,
             this.dataGridViewTextBoxColumn14,
             this.dataGridViewTextBoxColumn15,
             this.Column28,
@@ -3096,9 +3102,25 @@ namespace PlancksoftPOS
             // 
             this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn13.DataPropertyName = "Total Amount";
-            this.dataGridViewTextBoxColumn13.HeaderText = "المبلغ الصافي";
+            this.dataGridViewTextBoxColumn13.HeaderText = "المبلغ قبل الخصم";
             this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // Column76
+            // 
+            this.Column76.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column76.DataPropertyName = "Discount Amount";
+            this.Column76.HeaderText = "قيمة الخصم";
+            this.Column76.Name = "Column76";
+            this.Column76.ReadOnly = true;
+            // 
+            // Column78
+            // 
+            this.Column78.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column78.DataPropertyName = "Net Amount";
+            this.Column78.HeaderText = "المبلغ الصافي";
+            this.Column78.Name = "Column78";
+            this.Column78.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn14
             // 
@@ -3287,6 +3309,8 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
+            this.Column75,
+            this.Column77,
             this.dataGridViewTextBoxColumn9,
             this.dataGridViewTextBoxColumn10,
             this.Column7,
@@ -3318,9 +3342,25 @@ namespace PlancksoftPOS
             // 
             this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.dataGridViewTextBoxColumn8.DataPropertyName = "Total Amount";
-            this.dataGridViewTextBoxColumn8.HeaderText = "المبلغ الصافي";
+            this.dataGridViewTextBoxColumn8.HeaderText = "المبلغ قبل الخصم";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // Column75
+            // 
+            this.Column75.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column75.DataPropertyName = "Discount Amount";
+            this.Column75.HeaderText = "قيمة الخصم";
+            this.Column75.Name = "Column75";
+            this.Column75.ReadOnly = true;
+            // 
+            // Column77
+            // 
+            this.Column77.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column77.DataPropertyName = "Net Amount";
+            this.Column77.HeaderText = "المبلغ الصافي";
+            this.Column77.Name = "Column77";
+            this.Column77.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn9
             // 
@@ -6376,6 +6416,9 @@ namespace PlancksoftPOS
             // 
             // groupBox21
             // 
+            this.groupBox21.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.groupBox21.Controls.Add(this.label116);
             this.groupBox21.Controls.Add(this.label115);
@@ -6391,7 +6434,7 @@ namespace PlancksoftPOS
             this.groupBox21.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox21.Name = "groupBox21";
             this.groupBox21.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox21.Size = new System.Drawing.Size(1660, 432);
+            this.groupBox21.Size = new System.Drawing.Size(1885, 432);
             this.groupBox21.TabIndex = 2;
             this.groupBox21.Text = "الأرباح";
             // 
@@ -6401,7 +6444,7 @@ namespace PlancksoftPOS
             this.label116.AutoSize = true;
             this.label116.Depth = 0;
             this.label116.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label116.Location = new System.Drawing.Point(1583, 279);
+            this.label116.Location = new System.Drawing.Point(1808, 279);
             this.label116.MouseState = MaterialSkin.MouseState.HOVER;
             this.label116.Name = "label116";
             this.label116.Size = new System.Drawing.Size(43, 19);
@@ -6414,7 +6457,7 @@ namespace PlancksoftPOS
             this.label115.AutoSize = true;
             this.label115.Depth = 0;
             this.label115.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label115.Location = new System.Drawing.Point(1577, 237);
+            this.label115.Location = new System.Drawing.Point(1802, 237);
             this.label115.MouseState = MaterialSkin.MouseState.HOVER;
             this.label115.Name = "label115";
             this.label115.Size = new System.Drawing.Size(49, 19);
@@ -6427,7 +6470,7 @@ namespace PlancksoftPOS
             this.label91.AutoSize = true;
             this.label91.Depth = 0;
             this.label91.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label91.Location = new System.Drawing.Point(1532, 301);
+            this.label91.Location = new System.Drawing.Point(1757, 301);
             this.label91.MouseState = MaterialSkin.MouseState.HOVER;
             this.label91.Name = "label91";
             this.label91.Size = new System.Drawing.Size(1, 0);
@@ -6439,7 +6482,7 @@ namespace PlancksoftPOS
             this.label80.AutoSize = true;
             this.label80.Depth = 0;
             this.label80.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label80.Location = new System.Drawing.Point(1532, 260);
+            this.label80.Location = new System.Drawing.Point(1757, 260);
             this.label80.MouseState = MaterialSkin.MouseState.HOVER;
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(1, 0);
@@ -6455,10 +6498,10 @@ namespace PlancksoftPOS
             this.dvgCapital.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column22,
             this.Column26});
-            this.dvgCapital.Location = new System.Drawing.Point(0, 6);
+            this.dvgCapital.Location = new System.Drawing.Point(7, 6);
             this.dvgCapital.Name = "dvgCapital";
             this.dvgCapital.ReadOnly = true;
-            this.dvgCapital.Size = new System.Drawing.Size(1526, 423);
+            this.dvgCapital.Size = new System.Drawing.Size(1744, 423);
             this.dvgCapital.TabIndex = 0;
             // 
             // Column22
@@ -6483,7 +6526,7 @@ namespace PlancksoftPOS
             this.pictureBox27.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox27.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox27.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox27.Location = new System.Drawing.Point(1532, 140);
+            this.pictureBox27.Location = new System.Drawing.Point(1757, 140);
             this.pictureBox27.Name = "pictureBox27";
             this.pictureBox27.Size = new System.Drawing.Size(104, 94);
             this.pictureBox27.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -6497,7 +6540,7 @@ namespace PlancksoftPOS
             this.pictureBox24.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox24.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox24.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox24.Location = new System.Drawing.Point(1532, 21);
+            this.pictureBox24.Location = new System.Drawing.Point(1757, 21);
             this.pictureBox24.Name = "pictureBox24";
             this.pictureBox24.Size = new System.Drawing.Size(104, 91);
             this.pictureBox24.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -6513,12 +6556,12 @@ namespace PlancksoftPOS
             this.groupBox20.Controls.Add(this.dgvImports);
             this.groupBox20.Depth = 0;
             this.groupBox20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox20.Location = new System.Drawing.Point(-4, 0);
+            this.groupBox20.Location = new System.Drawing.Point(0, 0);
             this.groupBox20.Margin = new System.Windows.Forms.Padding(14);
             this.groupBox20.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox20.Name = "groupBox20";
             this.groupBox20.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox20.Size = new System.Drawing.Size(892, 522);
+            this.groupBox20.Size = new System.Drawing.Size(980, 522);
             this.groupBox20.TabIndex = 0;
             this.groupBox20.Text = "الوارد";
             // 
@@ -6528,7 +6571,7 @@ namespace PlancksoftPOS
             this.pictureBox9.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox9.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox9.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox9.Location = new System.Drawing.Point(827, 64);
+            this.pictureBox9.Location = new System.Drawing.Point(915, 64);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(59, 49);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -6542,7 +6585,7 @@ namespace PlancksoftPOS
             this.pictureBox23.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox23.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox23.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox23.Location = new System.Drawing.Point(827, 19);
+            this.pictureBox23.Location = new System.Drawing.Point(915, 19);
             this.pictureBox23.Name = "pictureBox23";
             this.pictureBox23.Size = new System.Drawing.Size(53, 39);
             this.pictureBox23.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -6552,15 +6595,17 @@ namespace PlancksoftPOS
             // 
             // dgvImports
             // 
+            this.dgvImports.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dgvImports.BackgroundColor = System.Drawing.Color.White;
             this.dgvImports.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvImports.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column35,
             this.Column36});
-            this.dgvImports.Location = new System.Drawing.Point(-11, 10);
+            this.dgvImports.Location = new System.Drawing.Point(0, 10);
             this.dgvImports.Name = "dgvImports";
             this.dgvImports.ReadOnly = true;
-            this.dgvImports.Size = new System.Drawing.Size(825, 504);
+            this.dgvImports.Size = new System.Drawing.Size(909, 504);
             this.dgvImports.TabIndex = 1;
             // 
             // Column35
@@ -6581,18 +6626,19 @@ namespace PlancksoftPOS
             // 
             // groupBox19
             // 
+            this.groupBox19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.groupBox19.Controls.Add(this.pictureBox8);
             this.groupBox19.Controls.Add(this.pictureBox22);
             this.groupBox19.Controls.Add(this.dgvExports);
             this.groupBox19.Depth = 0;
             this.groupBox19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox19.Location = new System.Drawing.Point(885, -1);
+            this.groupBox19.Location = new System.Drawing.Point(1008, -1);
             this.groupBox19.Margin = new System.Windows.Forms.Padding(14);
             this.groupBox19.MouseState = MaterialSkin.MouseState.HOVER;
             this.groupBox19.Name = "groupBox19";
             this.groupBox19.Padding = new System.Windows.Forms.Padding(14);
-            this.groupBox19.Size = new System.Drawing.Size(775, 523);
+            this.groupBox19.Size = new System.Drawing.Size(877, 523);
             this.groupBox19.TabIndex = 1;
             this.groupBox19.Text = "الصادر";
             // 
@@ -6602,7 +6648,7 @@ namespace PlancksoftPOS
             this.pictureBox8.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox8.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox8.Image = global::PlancksoftPOS.Properties.Resources.BtnPrint;
-            this.pictureBox8.Location = new System.Drawing.Point(687, 64);
+            this.pictureBox8.Location = new System.Drawing.Point(789, 64);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(85, 49);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -6616,7 +6662,7 @@ namespace PlancksoftPOS
             this.pictureBox22.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox22.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox22.Image = global::PlancksoftPOS.Properties.Resources.refresh;
-            this.pictureBox22.Location = new System.Drawing.Point(687, 19);
+            this.pictureBox22.Location = new System.Drawing.Point(789, 19);
             this.pictureBox22.Name = "pictureBox22";
             this.pictureBox22.Size = new System.Drawing.Size(85, 39);
             this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -6637,7 +6683,7 @@ namespace PlancksoftPOS
             this.dgvExports.Location = new System.Drawing.Point(6, 10);
             this.dgvExports.Name = "dgvExports";
             this.dgvExports.ReadOnly = true;
-            this.dgvExports.Size = new System.Drawing.Size(675, 507);
+            this.dgvExports.Size = new System.Drawing.Size(777, 507);
             this.dgvExports.TabIndex = 0;
             // 
             // Column33
@@ -13622,20 +13668,6 @@ namespace PlancksoftPOS
         public System.Windows.Forms.DataGridViewTextBoxColumn pendingPurchaseItemQuantity;
         public System.Windows.Forms.DataGridViewTextBoxColumn pendingPurchaseItemPrice;
         public System.Windows.Forms.DataGridViewTextBoxColumn pendingPurchaseItemPriceTax;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column28;
-        public System.Windows.Forms.DataGridViewTextBoxColumn TotalPorted;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        public System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        public System.Windows.Forms.DataGridViewTextBoxColumn TotalUnPorted;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
         public System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
@@ -14026,6 +14058,24 @@ namespace PlancksoftPOS
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column64;
         private DataGridViewTextBoxColumn Column13;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn Column75;
+        private DataGridViewTextBoxColumn Column77;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn TotalUnPorted;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn Column76;
+        private DataGridViewTextBoxColumn Column78;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private DataGridViewTextBoxColumn Column28;
+        private DataGridViewTextBoxColumn TotalPorted;
     }
 }
 
