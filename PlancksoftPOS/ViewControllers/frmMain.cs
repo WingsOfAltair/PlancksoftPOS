@@ -5425,7 +5425,7 @@ namespace PlancksoftPOS
                     if (printer.MachineName == Environment.MachineName && printer.IsMainPrinter == 1)
                     {
                         printerName = printer.Name;
-                        continue;
+                        break;
                     }
                 }
 
