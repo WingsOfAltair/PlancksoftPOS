@@ -328,9 +328,9 @@ namespace PlancksoftPOS_Server
         {
             return DAL.UpdateFavoriteCategories(FavoriteCategoryID, FavoriteCategory);
         }
-        public bool UpdatePrinters(int printerID, string printerName, string machineName)
+        public bool UpdatePrinters(int printerID, string printerName, string machineName, int isMainPrinter)
         {
-            return DAL.UpdatePrinters(printerID, printerName, machineName);
+            return DAL.UpdatePrinters(printerID, printerName, machineName, isMainPrinter);
         }
         public bool InsertItemType(string ItemTypeName)
         {

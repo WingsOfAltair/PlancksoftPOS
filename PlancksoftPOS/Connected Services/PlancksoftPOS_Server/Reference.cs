@@ -496,10 +496,10 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         System.Threading.Tasks.Task<bool> UpdateFavoriteCategoriesAsync(int FavoriteCategoryID, string FavoriteCategory);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrinters", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrintersResponse")]
-        bool UpdatePrinters(int printerID, string printerName, string machineName);
+        bool UpdatePrinters(int printerID, string printerName, string machineName, int isMainPrinter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrinters", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrintersResponse")]
-        System.Threading.Tasks.Task<bool> UpdatePrintersAsync(int printerID, string printerName, string machineName);
+        System.Threading.Tasks.Task<bool> UpdatePrintersAsync(int printerID, string printerName, string machineName, int isMainPrinter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/InsertItemType", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/InsertItemTypeResponse")]
         bool InsertItemType(string ItemTypeName);
@@ -1399,12 +1399,12 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
             return base.Channel.UpdateFavoriteCategoriesAsync(FavoriteCategoryID, FavoriteCategory);
         }
         
-        public bool UpdatePrinters(int printerID, string printerName, string machineName) {
-            return base.Channel.UpdatePrinters(printerID, printerName, machineName);
+        public bool UpdatePrinters(int printerID, string printerName, string machineName, int isMainPrinter) {
+            return base.Channel.UpdatePrinters(printerID, printerName, machineName, isMainPrinter);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdatePrintersAsync(int printerID, string printerName, string machineName) {
-            return base.Channel.UpdatePrintersAsync(printerID, printerName, machineName);
+        public System.Threading.Tasks.Task<bool> UpdatePrintersAsync(int printerID, string printerName, string machineName, int isMainPrinter) {
+            return base.Channel.UpdatePrintersAsync(printerID, printerName, machineName, isMainPrinter);
         }
         
         public bool InsertItemType(string ItemTypeName) {

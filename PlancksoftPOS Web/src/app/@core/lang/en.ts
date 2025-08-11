@@ -165,6 +165,7 @@ export const locale = {
         PRINTER:'Printer',
         ADDPRINTERINFO:'Add Printer Info',
         PRINTERNAME:'Printer Name',
+        ISMAINPRINTER:'طابعه رئيسيه؟',
         ITEMRETURN:'Items Return',
         ADDRETURNITEM:'Add Return Item',
         TODAYINVOICE:'Today Invoice',

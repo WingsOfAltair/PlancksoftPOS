@@ -164,6 +164,7 @@ export const locale = {
         PRINTER:'طابعة',
         ADDPRINTERINFO:'إضافة معلومات الطابعة',
         PRINTERNAME:'اسم الطابعة',
+        ISMAINPRINTER:'طابعه رئيسيه؟',
         ITEMRETURN:'إرجاع العناصر',
         ADDRETURNITEM:'إضافة عنصر الإرجاع',
         TODAYINVOICE:'فاتورة اليوم',

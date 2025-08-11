@@ -21,19 +21,22 @@ namespace PlancksoftPOS
     public partial class frmEditPrinter : MaterialForm
     {
         public int printerID = 0;
+        public bool isMainPrinter = false;
         public string printerName, machineName;
         public DialogResult dialogResult;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
-        public frmEditPrinter(int printerID, string printerName, string machineName)
+        public frmEditPrinter(int printerID, string printerName, string machineName, bool isMainPrinter)
         {
             InitializeComponent();
 
             this.printerID = printerID;
             this.printerName = printerName;
             this.machineName = machineName;
+            this.isMainPrinter = isMainPrinter;
             txtPrinterName.Text = printerName;
             txtMachineName.Text = machineName;
+            cbIsMainPrinter.Checked = isMainPrinter;
 
             Program.materialSkinManager.AddFormToManage(this);
 
@@ -61,6 +64,7 @@ namespace PlancksoftPOS
                 lblPrinterName.Text = "إسم الطابعه";
                 lblMachineName.Text = "إسم الجهاز";
                 btnEditPrinter.Text = "تعديل الطابعه";
+                cbIsMainPrinter.Text = "طابعه رئيسيه؟";
                 btnClose.Text = "إغلاق";
                 RightToLeft = RightToLeft.Yes;
                 RightToLeftLayout = true;
@@ -71,6 +75,7 @@ namespace PlancksoftPOS
                 lblPrinterName.Text = "Printer Name";
                 lblMachineName.Text = "Machine Name";
                 btnEditPrinter.Text = "Edit Printer";
+                cbIsMainPrinter.Text = "Main Printer?";
                 btnClose.Text = "Close";
                 RightToLeft = RightToLeft.No;
                 RightToLeftLayout = false;
@@ -97,7 +102,7 @@ namespace PlancksoftPOS
             try
             {
                 Connection connection = new Connection();
-                if (connection.server.UpdatePrinters(printerID, txtPrinterName.Text, txtMachineName.Text))
+                if (connection.server.UpdatePrinters(printerID, txtPrinterName.Text, txtMachineName.Text, Convert.ToInt32(cbIsMainPrinter.Checked)))
                 {
                     dialogResult = DialogResult.OK;
                     this.Close();
