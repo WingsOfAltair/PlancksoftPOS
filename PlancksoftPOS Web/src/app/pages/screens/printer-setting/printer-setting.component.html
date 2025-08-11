@@ -75,6 +75,19 @@
                   {{ row.data.MachineName || "-" }}
                 </td>
               </ng-container>
+             <ng-container [nbTreeGridColumnDef]="'IsMainPrinter'">
+              <th
+                nbTreeGridHeaderCell
+                [nbSortHeader]="getSortDirection('IsMainPrinter')"
+                *nbTreeGridHeaderCellDef
+              >
+                {{ "GENERALWORDS.ISMAINPRINTER" | translate }}
+              </th>
+              <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                {{ row.data.IsMainPrinter == 1 ? 'Yes' : 'No' }}
+              </td>
+            </ng-container>
+
   
               <ng-container [nbTreeGridColumnDef]="'Action'">
                 <th

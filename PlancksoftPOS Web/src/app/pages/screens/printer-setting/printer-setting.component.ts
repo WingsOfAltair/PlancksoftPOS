@@ -20,6 +20,7 @@ export class PrinterSettingComponent implements OnInit {
     "PrinterID",
     "PrinterName",
     "MachineName",
+    "IsMainPrinter",
     "Action",
   ];
   
@@ -73,6 +74,7 @@ export class PrinterSettingComponent implements OnInit {
             ID: el["ID"],
             Name: el["Name"],
             MachineName: el["MachineName"],
+            IsMainPrinter: el["IsMainPrinter"],
           
           }
         }
@@ -127,6 +129,7 @@ export class PrinterSettingComponent implements OnInit {
       Id: selected.data.ID,
       PrinterName: selected.data.Name,
       MachineName: selected.data.MachineName,
+      IsMainPrinter: selected.data.IsMainPrinter,
     }
 
     var dt = this.windowService.open(PrinterModalComponent, {
