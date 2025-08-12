@@ -1232,6 +1232,7 @@ namespace PlancksoftPOS
                         lblEmail.Text = "البريد الإلكتروني";
                         btnClientAdd.Text = "حفظ العميل";
                         groupBox15.Text = "جدول العملاء";
+                        selectAllClients.Text = "إختيار الجميع";
                         dgvClients.Columns["Column27"].HeaderText = "إسم العميل";
                         dgvClients.Columns["ClientIDDelete"].HeaderText = "رمز العميل";
                         dgvClients.Columns["Column38"].HeaderText = "رقم العميل";
@@ -1275,6 +1276,7 @@ namespace PlancksoftPOS
                         lblVendorEmail.Text = "البريد الإلكتروني";
                         button7.Text = "حفظ المورد";
                         groupBox39.Text = "جدول الموردين";
+                        selectAllVendors.Text = "إختيار الجميع";
                         dgvVendors.Columns["VendorClientName"].HeaderText = "إسم المورد";
                         dgvVendors.Columns["VendorClientID"].HeaderText = "رمز المورد";
                         dgvVendors.Columns["VendorClientPhone"].HeaderText = "رقم المورد";
@@ -1839,6 +1841,7 @@ namespace PlancksoftPOS
                         lblEmail.Text = "Email Address";
                         btnClientAdd.Text = "Save Client";
                         groupBox15.Text = "Clients Grid";
+                        selectAllClients.Text = "Select Everyone";
                         dgvClients.Columns["Column27"].HeaderText = "Client Name";
                         dgvClients.Columns["ClientIDDelete"].HeaderText = "Client ID";
                         dgvClients.Columns["Column38"].HeaderText = "Phone Number";
@@ -1882,6 +1885,7 @@ namespace PlancksoftPOS
                         lblVendorEmail.Text = "Email Address";
                         button7.Text = "Save Importer";
                         groupBox39.Text = "Importers Grid";
+                        selectAllVendors.Text = "Select Everyone";
                         dgvVendors.Columns["VendorClientName"].HeaderText = "Importer Name";
                         dgvVendors.Columns["VendorClientID"].HeaderText = "Importer ID";
                         dgvVendors.Columns["VendorClientPhone"].HeaderText = "Importer Phone Number";
