@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\GitHub\\PlancksoftPOS\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|d:\\github\\plancksoftpos\\plancksoftpos\\viewcontrollers\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|solutionrelative:plancksoftpos\\viewcontrollers\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|d:\\github\\plancksoftpos\\plancksoftpos\\viewcontrollers\\frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|solutionrelative:plancksoftpos\\viewcontrollers\\frmmain.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|D:\\GitHub\\PlancksoftPOS\\plancksoftpos\\viewcontrollers\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|solutionrelative:plancksoftpos\\viewcontrollers\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 29,
           "Children": [
             {
               "$type": "Bookmark",
@@ -118,6 +131,44 @@
             {
               "$type": "Bookmark",
               "Name": "ST:153:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "frmMain.Designer.cs",
+              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmMain.Designer.cs",
+              "RelativeDocumentMoniker": "PlancksoftPOS\\ViewControllers\\frmMain.Designer.cs",
+              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmMain.Designer.cs",
+              "RelativeToolTip": "PlancksoftPOS\\ViewControllers\\frmMain.Designer.cs",
+              "ViewState": "AgIAAG8uAAAAAAAAAAASwIcuAAA7AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T07:33:50.266Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "frmMain.cs",
+              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmMain.cs",
+              "RelativeDocumentMoniker": "PlancksoftPOS\\ViewControllers\\frmMain.cs",
+              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmMain.cs",
+              "RelativeToolTip": "PlancksoftPOS\\ViewControllers\\frmMain.cs",
+              "ViewState": "AgIAAB4CAAAAAAAAAAASwCsCAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T07:16:22.098Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "frmMain.cs [Design]",
+              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmMain.cs",
+              "RelativeDocumentMoniker": "PlancksoftPOS\\ViewControllers\\frmMain.cs",
+              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmMain.cs [Design]",
+              "RelativeToolTip": "PlancksoftPOS\\ViewControllers\\frmMain.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-13T07:16:47.316Z",
+              "EditorCaption": " [Design]"
             }
           ]
         }

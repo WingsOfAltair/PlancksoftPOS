@@ -558,6 +558,8 @@ namespace PlancksoftPOS
             {
                 InitializeComponent();
 
+                pnlActionMenu.Size = new Size(pnlActionMenu.Width, Screen.PrimaryScreen.WorkingArea.Height);
+
                 frmLogin.pickedLanguage = (LanguageChoice.Languages)Properties.Settings.Default.pickedLanguage;
 
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
