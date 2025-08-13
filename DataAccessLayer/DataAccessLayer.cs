@@ -1440,7 +1440,7 @@ namespace DataAccessLayer
             }
         }
 
-        public Tuple<List<Bill>, DataTable> RetrieveUnprintedBills()
+        public Tuple<List<Bill>, DataTable> RetrieveUnprintedBills(string MachineName)
         {
             try
             {
@@ -1450,6 +1450,7 @@ namespace DataAccessLayer
                 {
                     CommandType = CommandType.StoredProcedure
                 };
+                cmd.Parameters.AddWithValue("@MachineName", MachineName);
                 adapter.SelectCommand = cmd;
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
@@ -1469,7 +1470,7 @@ namespace DataAccessLayer
                     newBill.ClientPhone = Bill["Client Phone"].ToString();
                     newBill.ClientAddress = Bill["Client Address"].ToString();
                     newBill.ClientEmail = Bill["Client Email"].ToString();
-                    newBill.SetPayByCash(Convert.ToBoolean(Convert.ToInt32(Bill["PayByCash"].ToString())));
+                    newBill.SetPayByCash(Convert.ToBoolean(Bill["PayByCash"].ToString()));
                     newBill.TaxID = Bill["Tax ID"].ToString();
                     Bills.Add(newBill);
                 }
