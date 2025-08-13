@@ -81,5 +81,5 @@ export class ClientAddModalComponent implements OnInit {
     // this.publisherService.data = obj;
     this.windowRef.close(obj);
   }
-}
 */
+}
