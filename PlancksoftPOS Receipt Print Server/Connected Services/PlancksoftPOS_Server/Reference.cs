@@ -160,10 +160,10 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
         System.Threading.Tasks.Task LogLoginAsync(string cashierName, System.DateTime date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/Login", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/LoginResponse")]
-        System.Tuple<bool, string, bool> Login(Dependencies.Account AccountToLogin);
+        System.Tuple<bool, string, bool, bool> Login(Dependencies.Account AccountToLogin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/Login", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/LoginResponse")]
-        System.Threading.Tasks.Task<System.Tuple<bool, string, bool>> LoginAsync(Dependencies.Account AccountToLogin);
+        System.Threading.Tasks.Task<System.Tuple<bool, string, bool, bool>> LoginAsync(Dependencies.Account AccountToLogin);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/Register", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RegisterResponse")]
         bool Register(Dependencies.Account AccountToRegister, string UID, int AdminOrNot);
@@ -232,16 +232,16 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
         System.Threading.Tasks.Task<Dependencies.Item> SearchInventoryItemsWithBarCodeAsync(string ItemBarCode);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnPortedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnPortedBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnPortedBills();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnPortedBills(string Date1, string Date2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnPortedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnPortedBillsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnPortedBillsAsync();
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnPortedBillsAsync(string Date1, string Date2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrievePortedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrievePortedBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrievePortedBills();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrievePortedBills(string Date1, string Date2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrievePortedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrievePortedBillsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrievePortedBillsAsync();
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrievePortedBillsAsync(string Date1, string Date2);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnpaidBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnpaidBillsResponse")]
         System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnpaidBills();
@@ -250,16 +250,16 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnpaidBillsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveVendorBills();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveVendorBills(int ClientID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveVendorBillsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveVendorBillsAsync();
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveVendorBillsAsync(int ClientID);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveTaxZReport", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveTaxZReportResponse")]
-        System.Data.DataTable RetrieveTaxZReport();
+        System.Data.DataTable RetrieveTaxZReport(string StartDate, string EndDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveTaxZReport", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveTaxZReportResponse")]
-        System.Threading.Tasks.Task<System.Data.DataTable> RetrieveTaxZReportAsync();
+        System.Threading.Tasks.Task<System.Data.DataTable> RetrieveTaxZReportAsync(string StartDate, string EndDate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsResponse")]
         System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBills();
@@ -268,16 +268,16 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveBillsAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBillsResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnprintedBills();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnprintedBills(string MachineName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBillsResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnprintedBillsAsync();
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnprintedBillsAsync(string MachineName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefund", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefundResponse")]
-        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBillsRefund();
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBillsRefund(string customerName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefund", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefundResponse")]
-        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveBillsRefundAsync();
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveBillsRefundAsync(string customerName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveCapitalRevenue", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveCapitalRevenueResponse")]
         System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveCapitalRevenue();
@@ -496,10 +496,10 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
         System.Threading.Tasks.Task<bool> UpdateFavoriteCategoriesAsync(int FavoriteCategoryID, string FavoriteCategory);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrinters", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrintersResponse")]
-        bool UpdatePrinters(int printerID, string printerName);
+        bool UpdatePrinters(int printerID, string printerName, string machineName, int isMainPrinter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrinters", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdatePrintersResponse")]
-        System.Threading.Tasks.Task<bool> UpdatePrintersAsync(int printerID, string printerName);
+        System.Threading.Tasks.Task<bool> UpdatePrintersAsync(int printerID, string printerName, string machineName, int isMainPrinter);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/InsertItemType", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/InsertItemTypeResponse")]
         bool InsertItemType(string ItemTypeName);
@@ -951,11 +951,11 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
             return base.Channel.LogLoginAsync(cashierName, date);
         }
         
-        public System.Tuple<bool, string, bool> Login(Dependencies.Account AccountToLogin) {
+        public System.Tuple<bool, string, bool, bool> Login(Dependencies.Account AccountToLogin) {
             return base.Channel.Login(AccountToLogin);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<bool, string, bool>> LoginAsync(Dependencies.Account AccountToLogin) {
+        public System.Threading.Tasks.Task<System.Tuple<bool, string, bool, bool>> LoginAsync(Dependencies.Account AccountToLogin) {
             return base.Channel.LoginAsync(AccountToLogin);
         }
         
@@ -1047,20 +1047,20 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
             return base.Channel.SearchInventoryItemsWithBarCodeAsync(ItemBarCode);
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnPortedBills() {
-            return base.Channel.RetrieveUnPortedBills();
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnPortedBills(string Date1, string Date2) {
+            return base.Channel.RetrieveUnPortedBills(Date1, Date2);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnPortedBillsAsync() {
-            return base.Channel.RetrieveUnPortedBillsAsync();
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnPortedBillsAsync(string Date1, string Date2) {
+            return base.Channel.RetrieveUnPortedBillsAsync(Date1, Date2);
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrievePortedBills() {
-            return base.Channel.RetrievePortedBills();
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrievePortedBills(string Date1, string Date2) {
+            return base.Channel.RetrievePortedBills(Date1, Date2);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrievePortedBillsAsync() {
-            return base.Channel.RetrievePortedBillsAsync();
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrievePortedBillsAsync(string Date1, string Date2) {
+            return base.Channel.RetrievePortedBillsAsync(Date1, Date2);
         }
         
         public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnpaidBills() {
@@ -1071,20 +1071,20 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
             return base.Channel.RetrieveUnpaidBillsAsync();
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveVendorBills() {
-            return base.Channel.RetrieveVendorBills();
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveVendorBills(int ClientID) {
+            return base.Channel.RetrieveVendorBills(ClientID);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveVendorBillsAsync() {
-            return base.Channel.RetrieveVendorBillsAsync();
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveVendorBillsAsync(int ClientID) {
+            return base.Channel.RetrieveVendorBillsAsync(ClientID);
         }
         
-        public System.Data.DataTable RetrieveTaxZReport() {
-            return base.Channel.RetrieveTaxZReport();
+        public System.Data.DataTable RetrieveTaxZReport(string StartDate, string EndDate) {
+            return base.Channel.RetrieveTaxZReport(StartDate, EndDate);
         }
         
-        public System.Threading.Tasks.Task<System.Data.DataTable> RetrieveTaxZReportAsync() {
-            return base.Channel.RetrieveTaxZReportAsync();
+        public System.Threading.Tasks.Task<System.Data.DataTable> RetrieveTaxZReportAsync(string StartDate, string EndDate) {
+            return base.Channel.RetrieveTaxZReportAsync(StartDate, EndDate);
         }
         
         public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBills() {
@@ -1095,20 +1095,20 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
             return base.Channel.RetrieveBillsAsync();
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnprintedBills() {
-            return base.Channel.RetrieveUnprintedBills();
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveUnprintedBills(string MachineName) {
+            return base.Channel.RetrieveUnprintedBills(MachineName);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnprintedBillsAsync() {
-            return base.Channel.RetrieveUnprintedBillsAsync();
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnprintedBillsAsync(string MachineName) {
+            return base.Channel.RetrieveUnprintedBillsAsync(MachineName);
         }
         
-        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBillsRefund() {
-            return base.Channel.RetrieveBillsRefund();
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBillsRefund(string customerName) {
+            return base.Channel.RetrieveBillsRefund(customerName);
         }
         
-        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveBillsRefundAsync() {
-            return base.Channel.RetrieveBillsRefundAsync();
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveBillsRefundAsync(string customerName) {
+            return base.Channel.RetrieveBillsRefundAsync(customerName);
         }
         
         public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> RetrieveCapitalRevenue() {
@@ -1399,12 +1399,12 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
             return base.Channel.UpdateFavoriteCategoriesAsync(FavoriteCategoryID, FavoriteCategory);
         }
         
-        public bool UpdatePrinters(int printerID, string printerName) {
-            return base.Channel.UpdatePrinters(printerID, printerName);
+        public bool UpdatePrinters(int printerID, string printerName, string machineName, int isMainPrinter) {
+            return base.Channel.UpdatePrinters(printerID, printerName, machineName, isMainPrinter);
         }
         
-        public System.Threading.Tasks.Task<bool> UpdatePrintersAsync(int printerID, string printerName) {
-            return base.Channel.UpdatePrintersAsync(printerID, printerName);
+        public System.Threading.Tasks.Task<bool> UpdatePrintersAsync(int printerID, string printerName, string machineName, int isMainPrinter) {
+            return base.Channel.UpdatePrintersAsync(printerID, printerName, machineName, isMainPrinter);
         }
         
         public bool InsertItemType(string ItemTypeName) {

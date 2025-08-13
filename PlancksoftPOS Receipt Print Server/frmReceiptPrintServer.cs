@@ -111,7 +111,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
             this.shopPhone = dt.Rows[0]["SystemPhone"].ToString();
             this.shopAddress = dt.Rows[0]["SystemAddress"].ToString();
 
-            UnprintedBills = Connection.server.RetrieveUnprintedBills().Item1;
+            UnprintedBills = Connection.server.RetrieveUnprintedBills(Environment.MachineName).Item1;
 
             foreach(Bill UnprintedBill in UnprintedBills)
             {
@@ -135,13 +135,16 @@ namespace PlancksoftPOS_Receipt_Print_Server
                 {
                     foreach (Printer printer in PrintersList)
                     {
-                        List<ItemType> ItemTypesInPrinterList = Connection.server.RetrievePrinterItemTypes(printer.ID);
-
-                        foreach (ItemType itemTypeInPrinterList in ItemTypesInPrinterList)
+                        if (printer.MachineName == Environment.MachineName)
                         {
-                            if (item.GetItemTypeeID() == itemTypeInPrinterList.ID && !PrintersToPrint.Contains(printer))
+                            List<ItemType> ItemTypesInPrinterList = Connection.server.RetrievePrinterItemTypes(printer.ID);
+
+                            foreach (ItemType itemTypeInPrinterList in ItemTypesInPrinterList)
                             {
-                                PrintersToPrint.Add(printer);
+                                if (item.GetItemTypeeID() == itemTypeInPrinterList.ID && !PrintersToPrint.Contains(printer))
+                                {
+                                    PrintersToPrint.Add(printer);
+                                }
                             }
                         }
                     }

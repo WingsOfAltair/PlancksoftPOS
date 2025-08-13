@@ -95,7 +95,7 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         Tuple<List<Bill>, DataTable> RetrieveBills();     
         [OperationContract]
-        Tuple<List<Bill>, DataTable> RetrieveUnprintedBills();   
+        Tuple<List<Bill>, DataTable> RetrieveUnprintedBills(string MachineName);   
         [OperationContract]
         Tuple<List<Bill>, DataTable> RetrieveBillsRefund(string customerName);
         [OperationContract]
