@@ -2101,7 +2101,9 @@ namespace PlancksoftPOS
             plusItemTypePB.Image = Resources.plus;
             plusItemTypePB.BorderStyle = BorderStyle.Fixed3D;
             plusItemTypePB.Cursor = Cursors.Hand;
-            plusItemTypePB.BackColor = Color.FromArgb(59, 89, 152);
+            if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
+                plusItemTypePB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.darkPrimary);
+            else plusItemTypePB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.PrimaryDark);
             plusItemTypePB.SizeMode = PictureBoxSizeMode.StretchImage;
             plusItemTypePB.Click += (sender, e) => { AddItemTypeHandler(sender, e); };
             flowLayoutPanel3.Controls.Add(plusItemTypePB);
@@ -2157,7 +2159,9 @@ namespace PlancksoftPOS
                 minusItemTypePB.Size = new Size(50, 50);
                 minusItemTypePB.BorderStyle = BorderStyle.Fixed3D;
                 minusItemTypePB.Cursor = Cursors.Hand;
-                minusItemTypePB.BackColor = Color.FromArgb(59, 89, 152);
+                if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
+                    minusItemTypePB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.darkLightPrimary);
+                else minusItemTypePB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.LightPrimary);
                 minusItemTypePB.SizeMode = PictureBoxSizeMode.StretchImage;
                 minusItemTypePB.Click += (sender, e) => { DeleteItemTypeHandler(sender, e, itemtype.Key); };
                 flowLayoutPanel3.Controls.Add(minusItemTypePB);
@@ -2220,7 +2224,9 @@ namespace PlancksoftPOS
             plusWarehousePB.Image = Resources.plus;
             plusWarehousePB.BorderStyle = BorderStyle.Fixed3D;
             plusWarehousePB.Cursor = Cursors.Hand;
-            plusWarehousePB.BackColor = Color.FromArgb(59, 89, 152);
+            if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
+                plusWarehousePB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.darkPrimary);
+            else plusWarehousePB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.PrimaryDark);
             plusWarehousePB.SizeMode = PictureBoxSizeMode.StretchImage;
             plusWarehousePB.Click += (sender, e) => { AddWarehouseHandler(sender, e); };
             flowLayoutPanel2.Controls.Add(plusWarehousePB);
@@ -2277,7 +2283,9 @@ namespace PlancksoftPOS
                 minusWarehousePB.Size = new Size(50, 50);
                 minusWarehousePB.BorderStyle = BorderStyle.Fixed3D;
                 minusWarehousePB.Cursor = Cursors.Hand;
-                minusWarehousePB.BackColor = Color.FromArgb(59, 89, 152);
+                if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
+                    minusWarehousePB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.darkLightPrimary);
+                else minusWarehousePB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.LightPrimary);
                 minusWarehousePB.SizeMode = PictureBoxSizeMode.StretchImage;
                 minusWarehousePB.Click += (sender, e) => { DeleteWarehouseHandler(sender, e, warehouse.Key); };
                 flowLayoutPanel2.Controls.Add(minusWarehousePB);
@@ -2342,7 +2350,9 @@ namespace PlancksoftPOS
             plusFavoritePB.Image = Resources.plus;
             plusFavoritePB.BorderStyle = BorderStyle.Fixed3D;
             plusFavoritePB.Cursor = Cursors.Hand;
-            plusFavoritePB.BackColor = Color.FromArgb(59, 89, 152);
+            if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
+                plusFavoritePB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.darkPrimary);
+            else plusFavoritePB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.PrimaryDark);
             plusFavoritePB.SizeMode = PictureBoxSizeMode.StretchImage;
             plusFavoritePB.Click += (sender, e) => { AddFavoritesHandler(sender, e); };
             flowLayoutPanel1.Controls.Add(plusFavoritePB);
@@ -2395,7 +2405,9 @@ namespace PlancksoftPOS
                 minusFavoritePB.Size = new Size(50, 50);
                 minusFavoritePB.BorderStyle = BorderStyle.Fixed3D;
                 minusFavoritePB.Cursor = Cursors.Hand;
-                minusFavoritePB.BackColor = Color.FromArgb(59, 89, 152);
+                if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
+                    minusFavoritePB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.darkLightPrimary);
+                else minusFavoritePB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.LightPrimary);
                 minusFavoritePB.SizeMode = PictureBoxSizeMode.StretchImage;
                 minusFavoritePB.Click += (sender, e) => { DeleteFavoritesHandler(sender, e, favorite.Key); };
                 flowLayoutPanel1.Controls.Add(minusFavoritePB);
@@ -3080,7 +3092,9 @@ namespace PlancksoftPOS
             plusPrinterPB.Image = Resources.plus;
             plusPrinterPB.BorderStyle = BorderStyle.Fixed3D;
             plusPrinterPB.Cursor = Cursors.Hand;
-            plusPrinterPB.BackColor = Color.FromArgb(59, 89, 152);
+            if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
+                plusPrinterPB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.darkPrimary);
+            else plusPrinterPB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.PrimaryDark);
             plusPrinterPB.SizeMode = PictureBoxSizeMode.StretchImage;
             plusPrinterPB.Click += (sender, e) => { AddPrintersHandler(sender, e); };
             flowLayoutPanel4.Controls.Add(plusPrinterPB);
@@ -3131,7 +3145,9 @@ namespace PlancksoftPOS
                 minusPrinterPB.Size = new Size(50, 50);
                 minusPrinterPB.BorderStyle = BorderStyle.Fixed3D;
                 minusPrinterPB.Cursor = Cursors.Hand;
-                minusPrinterPB.BackColor = Color.FromArgb(59, 89, 152);
+                if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
+                    minusPrinterPB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.darkLightPrimary);
+                else minusPrinterPB.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.LightPrimary);
                 minusPrinterPB.SizeMode = PictureBoxSizeMode.StretchImage;
                 minusPrinterPB.Click += (sender, e) => { DeletePrintersHandler(sender, e, printer.Key); };
                 flowLayoutPanel4.Controls.Add(minusPrinterPB);
@@ -3139,19 +3155,25 @@ namespace PlancksoftPOS
                 Label tempLabel = new Label();
                 tempLabel.Text = printer.Value.Item1;
                 tempLabel.ForeColor = Color.Black;
-                tempLabel.BackColor = Color.FromArgb(59, 89, 152);
+                if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
+                    tempLabel.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.darkPrimary);
+                else tempLabel.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.PrimaryDark);
                 tempLabel.Font = new Font(tempLabel.Font.FontFamily, 14, FontStyle.Bold);
                 tempLabel.Dock = DockStyle.Fill;
                 Label tempLabel2 = new Label();
                 tempLabel2.Text = printer.Value.Item2.Item2;
                 tempLabel2.ForeColor = Color.Black;
-                tempLabel2.BackColor = Color.FromArgb(59, 89, 152);
+                if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
+                    tempLabel2.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.darkPrimary);
+                else tempLabel2.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.PrimaryDark);
                 tempLabel2.Font = new Font(tempLabel2.Font.FontFamily, 14, FontStyle.Bold);
                 tempLabel2.Dock = DockStyle.Fill;
                 Label tempLabel3 = new Label();
                 tempLabel3.Text = printer.Value.Item2.Item1 == 1 ? frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic ? "طابعه رئيسيه" : "Main Printer" : frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic ? "طابعه غير رئيسيه" : "Not Main Printer";
                 tempLabel3.ForeColor = Color.Black;
-                tempLabel3.BackColor = Color.FromArgb(59, 89, 152);
+                if (switchThemeScheme.Checked == (Convert.ToBoolean(Convert.ToInt32(ThemeSchemeChoice.ThemeScheme.Dark))))
+                    tempLabel3.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.darkPrimary);
+                else tempLabel3.BackColor = ColorTranslator.FromHtml(Properties.Settings.Default.PrimaryDark);
                 tempLabel3.Font = new Font(tempLabel3.Font.FontFamily, 14, FontStyle.Bold);
                 tempLabel3.Dock = DockStyle.Fill;
                 TreeView tempTreeView = new TreeView();
