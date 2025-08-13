@@ -109,6 +109,56 @@ export class ClientDefinationComponent implements OnInit {
 
   }
 
+  updateEmployee(id) {
+      var selected = this.data.filter((a) => a.ClientID == id)[0];
+  
+      var obj = {
+        ClientID: selected.ClientID,
+        ClientName: selected.ClientName,
+        ClientPhone: selected.ClientPhone,
+        ClientAddress: selected.ClientAddress,
+        ClientEmail: selected.ClientEmail,
+      };
+  
+      var bcbc = this.windowService.open(ClientAddModalComponent, {
+        title: `Update Item`,
+        context: obj,
+      });
+      bcbc.onClose.subscribe((res) => {
+        this.publisherService
+          .PostRequest("GetRetrieveClients", "")
+          .subscribe((res: any) => {
+            ;
+            console.log(JSON.parse(res));
+
+            var response = JSON.parse(res);
+            var array = JSON.parse(response.ResponseMessage);
+
+            var list = [];
+
+            array.forEach((el) => {
+              var obj = {
+                data: {
+                  // EmployeeAddress: el["Employee Address"],
+                  ClientID: el["Client ID"],
+                  ClientName: el["Client Name"],
+                  ClientPhone: el["Client Phone"],
+                  ClientAddress: el["Client Address"],
+                  ClientEmail: el["Client Email"],
+                },
+              };
+              ;
+              list.push(obj);
+            });
+
+            this.data = list;
+            this.dataSource = this.dataSourceBuilder.create(this.data);
+
+            console.log(this.dataSource);
+          });
+      });
+    }
+
   Delete(id) {
     var obj = {
       ClientID: id,

@@ -29,3 +29,4 @@ D:\GitHub\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Debug\Planckso.85
 D:\GitHub\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Debug\PlancksoftPOS Receipt Print Server.exe
 D:\GitHub\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Debug\PlancksoftPOS Receipt Print Server.pdb
 D:\GitHub\PlancksoftPOS\PlancksoftPOS Receipt Print Server\obj\Debug\PlancksoftPOS Receipt Print Server.exe.config
+D:\GitHub\PlancksoftPOS\PlancksoftPOS Receipt Print Server\bin\Debug\MaterialSkin.dll
