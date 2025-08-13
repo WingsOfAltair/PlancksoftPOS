@@ -137,6 +137,14 @@ namespace PlancksoftPOS
                     y = DrawLeftAlignedUnborderedText(g, "Tax ID: " + Bill.TaxID, y, fontRegular);
                 }
 
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y += DrawRightAndLeftUnbordered(g, "عنوان المتجر", "رقم المتجر", y, fontRegular);
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y += DrawRightAndLeftUnbordered(g, "Store Address", "Store Phone Number", y, fontRegular);
+                }
                 y += DrawRightAndLeftUnbordered(g, shopAddress, shopPhone, y, fontRegular);
 
                 if (rePrint)
@@ -169,22 +177,31 @@ namespace PlancksoftPOS
                     y = DrawCenteredText(g, "Cashier Name: " + Bill.CashierName, y, fontRegular);
                 }
 
-                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                if (Bill.ClientName.Trim().Length > 0 && Bill.ClientAddress.Trim().Length > 0)
                 {
-                    y += DrawRightAndLeftUnbordered(g, "إسم العميل: " + Bill.ClientName, "عنوان العميل: " + Bill.ClientAddress, y, fontRegular);
-                }
-                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                {
-                    y += DrawRightAndLeftUnbordered(g, "Client Name: " + Bill.ClientName, "Client Address: " + Bill.ClientAddress, y, fontRegular);
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y += DrawRightAndLeftUnbordered(g, "إسم العميل: ", "عنوان العميل", y, fontRegular);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y += DrawRightAndLeftUnbordered(g, "Client Name: ", "Client Address: ", y, fontRegular);
+                    }
+                    y = DrawCenteredText(g, Bill.ClientName, y, fontRegular);
+                    y = DrawCenteredText(g, Bill.ClientAddress, y, fontRegular);
                 }
 
-                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                if (Bill.ClientPhone.Trim().Length > 0 && Bill.ClientEmail.Trim().Length > 0)
                 {
-                    y += DrawRightAndLeftUnbordered(g, "رقم العميل: " + Bill.ClientPhone, "بريد العميل: " + Bill.ClientEmail, y, fontRegular);
-                }
-                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                {
-                    y += DrawRightAndLeftUnbordered(g, "Client Number: " + Bill.ClientName, "Client Email: " + Bill.ClientAddress, y, fontRegular);
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y += DrawRightAndLeftUnbordered(g, "رقم العميل: ", ": بريد العميل", y, fontRegular);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y += DrawRightAndLeftUnbordered(g, "Client Number: ", "Client Email: ", y, fontRegular);
+                    }
+                    y += DrawRightAndLeftUnbordered(g, Bill.ClientPhone, Bill.ClientEmail, y, fontRegular);
                 }
 
                 {
