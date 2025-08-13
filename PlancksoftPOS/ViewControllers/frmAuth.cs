@@ -82,11 +82,11 @@ namespace PlancksoftPOS
             e.Handled = !(char.IsDigit(e.KeyChar) || char.IsControl(e.KeyChar));
             if (e.KeyChar == (Char)Keys.Enter)
             {
-                btnCancel.PerformClick();
+                btnSubmit.PerformClick();
             }
             else if (e.KeyChar == (Char)Keys.Escape)
             {
-                btnSubmit.PerformClick();
+                btnCancel.PerformClick();
             }
         }
 

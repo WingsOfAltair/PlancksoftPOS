@@ -11100,8 +11100,11 @@ namespace PlancksoftPOS
                 englishToolStripMenuItem.Checked = true;
                 العربيةToolStripMenuItem.Checked = false;
                 applyLocalizationOnUI();
-                openedForm.Close();
-                openedForm.ShowDialog();
+                if (openedForm != null)
+                {
+                    openedForm.Close();
+                    openedForm.ShowDialog();
+                }
             }
             catch (Exception err) { }
         }
