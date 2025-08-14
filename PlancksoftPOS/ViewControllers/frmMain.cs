@@ -3086,6 +3086,7 @@ namespace PlancksoftPOS
             AddPrinter = new TextBox();
             AddPrinter.Text = "";
             AddPrinter.Size = new Size(351, 20);
+            AddWarehouse.KeyPress += (sender, e) => { if (e.KeyChar == (char)Keys.Enter) { AddPrintersHandler(sender, e); } };
             flowLayoutPanel4.Controls.Add(AddPrinter);
 
             plusPrinterPB = new PictureBox();
