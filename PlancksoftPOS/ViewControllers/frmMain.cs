@@ -10849,6 +10849,15 @@ namespace PlancksoftPOS
 
                     if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                     {
+                        y = DrawCenteredText(g, moneyInRegister.ToString() + " المبلغ المحصل ", y, fontRegular);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y = DrawCenteredText(g, "Amount Collected: " + moneyInRegister.ToString(), y, fontRegular);
+                    }
+
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
                         y = DrawCenteredText(g, totalSalesAmount.ToString() + " صافي مبلغ المبيعات ", y, fontRegular);
                     }
                     else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
