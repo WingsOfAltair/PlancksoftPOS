@@ -38,7 +38,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
         string shopAddress;
         string shopPhone;
 
-        static int width = 384; // or 284
+        static int width = 284; // or 284
         static int padding = 10;
         static int cellPadding = 6;
         static int lineHeight = 30;
