@@ -40,7 +40,7 @@ namespace PlancksoftPOS
         string shopPhone;
         bool IncludeLogoInReceipt;
 
-        static int width = 384;  // or 284
+        static int width = 284;  // or 284
         static int padding = 10;
         static int cellPadding = 6;
         static int lineHeight = 30;
@@ -130,11 +130,25 @@ namespace PlancksoftPOS
 
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    y = DrawLeftAlignedUnborderedText(g, "الرقم الضريبي: " + Bill.TaxID, y, fontRegular);
+                    if (Bill.TaxID == "Tax ID")
+                    {
+                        y = DrawLeftAlignedUnborderedText(g, "الرقم الضريبي: لا يوجد", y, fontRegular);
+                    }
+                    else
+                    {
+                        y = DrawLeftAlignedUnborderedText(g, "الرقم الضريبي: " + Bill.TaxID, y, fontRegular);
+                    }
                 }
                 else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                 {
-                    y = DrawLeftAlignedUnborderedText(g, "Tax ID: " + Bill.TaxID, y, fontRegular);
+                    if (Bill.TaxID == "Tax ID")
+                    {
+                        y = DrawLeftAlignedUnborderedText(g, "Tax ID: Not Available", y, fontRegular);
+                    }
+                    else
+                    {
+                        y = DrawLeftAlignedUnborderedText(g, "Tax ID: " + Bill.TaxID, y, fontRegular);
+                    }
                 }
 
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -490,10 +504,16 @@ namespace PlancksoftPOS
                             headers
                         );
 
-                        PaperSize paperSize = new PaperSize("Custom", printerWidth, height);
-                        printDocument1.DefaultPageSettings.PaperSize = paperSize;
+
+                        // Set paper size dynamically
+                        PaperSize ps = new PaperSize("CustomReceipt", 284, 1000000000);
+                        printDocument1.DefaultPageSettings.PaperSize = ps;
+
+                        // No margins, no origin shift
+                        printDocument1.DefaultPageSettings.Margins = new Margins(0, 0, 0, 0);
+                        printDocument1.OriginAtMargins = false;
+                        printDocument1.Print();
                     }
-                    printDocument1.Print();
                 }
             }
         }
