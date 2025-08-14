@@ -248,6 +248,12 @@ export class ClientCheckBalanceComponent implements OnInit {
   }
 
   updatebill(BillNumber) {
+    if (!JSON.parse(localStorage.getItem('registerOn')))
+    {
+      this.toastrService.danger("Cash register must be open to pay a debt bill.");
+      return;
+    }
+
     var selected = this.data.filter((a) => a.data.BillNumber == BillNumber)[0];
 
     if (selected.data.Status == "Paid")

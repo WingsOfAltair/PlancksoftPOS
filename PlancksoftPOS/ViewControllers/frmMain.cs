@@ -10056,6 +10056,20 @@ namespace PlancksoftPOS
 
         private void btnPayDebtBill_Click(object sender, EventArgs e)
         {
+            if (!registerOpen)
+            {
+                if(frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    MaterialMessageBox.Show(".يجب أن يكون الصندوق مفتوح لدفع فاتورة دين", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    return;
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    MaterialMessageBox.Show("Cash register must be open to pay a debt bill.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    return;
+                }
+            }
+
             if (dgvClientBills.SelectedRows.Count > 0)
             {
                 var selectedRows = dgvClientBills.SelectedRows
