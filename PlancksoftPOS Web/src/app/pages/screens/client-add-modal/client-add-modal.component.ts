@@ -39,7 +39,11 @@ export class ClientAddModalComponent implements OnInit {
       clientemail: [],
     });
 
-    this.ClientID = this.data.ClientID;
+    this.ClientID = 0;
+    if (this.data.ClientID)
+    {
+      this.ClientID = this.data.ClientID ? Number(this.data.ClientID) : 0;
+    }
 
     this.client.patchValue({
       clientname: this.data.ClientName,
@@ -47,6 +51,24 @@ export class ClientAddModalComponent implements OnInit {
       clientaddress: this.data.ClientAddress,
       clientemail: this.data.ClientEmail,
     })
+  }
+
+  submit() {
+    var obj = {
+      ClientToInsert: {
+        clientName: this.client.value.clientname,
+        clientPhone: this.client.value.clientphone,
+        clientAddress: this.client.value.clientaddress,
+        clientEmail: this.client.value.clientemail,
+      }
+    }
+
+    this.publisherService
+      .PostRequest("RegisterClient", obj)
+      .subscribe((res: any) => {
+        console.log(JSON.parse(res));
+            this.closeModal();
+      });
   }
 
   UpdateData(){

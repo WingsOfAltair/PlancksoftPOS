@@ -47,8 +47,8 @@
   <div class="row">
     <div class="col-lg-12">
       <div class="col-md-12" style="margin-top: 28px; text-align: end">
-        <button nbButton status="primary" *ngIf="vendor.value.clientname !== ''" (click)="UpdateData()">{{ "GENERALWORDS.UPDATE" | translate }}</button>
-        <button nbButton status="primary" *ngIf="vendor.value.clientname == ''" (click)="submit()">{{ "GENERALWORDS.SUBMIT" | translate }}</button>
+        <button nbButton status="primary" *ngIf="VendorID !== 0" (click)="UpdateData()">{{ "GENERALWORDS.UPDATE" | translate }}</button>
+        <button nbButton status="primary" *ngIf="VendorID == 0" (click)="submit()">{{ "GENERALWORDS.SUBMIT" | translate }}</button>
       </div>
     </div>
   </div>
