@@ -169,6 +169,35 @@ namespace DataAccessLayerJSON
             }
         }
 
+        public Response UpdateClientVendor(Client ClientToUpdate)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateClientVendor", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@ClientVendorID", ClientToUpdate.ClientID);
+                    cmd.Parameters.AddWithValue("@ClientVendorName", ClientToUpdate.ClientName);
+                    cmd.Parameters.AddWithValue("@ClientVendorPhone", ClientToUpdate.ClientPhone);
+                    cmd.Parameters.AddWithValue("@ClientVendorAddress", ClientToUpdate.ClientAddress);
+                    cmd.Parameters.AddWithValue("@ClientVendorEmail", ClientToUpdate.ClientEmail);
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                }
+                return new Response(Convert.ToBoolean(Status), true);
+            }
+            catch (Exception ex)
+            {
+                return new Response("Could not Update Client/Vendor.", false);
+            }
+        }
+
         public Response RetrieveItemTypeName(int ItemTypeIndex, int locale)
         {
             try

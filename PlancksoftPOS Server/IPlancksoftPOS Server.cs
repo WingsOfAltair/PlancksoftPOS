@@ -165,6 +165,8 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool DeleteFavoriteCategory(int FavoriteCategoryID);
         [OperationContract]
+        bool UpdateClientVendor(Client ClientToUpdate);
+        [OperationContract]
         bool UpdateItemTypes(int ItemTypeID, string ItemTypeName);
         [OperationContract]
         bool UpdateWarehouses(int WarehouseID, string WarehouseName);

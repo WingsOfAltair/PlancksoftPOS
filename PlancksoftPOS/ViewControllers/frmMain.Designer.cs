@@ -503,6 +503,7 @@ namespace PlancksoftPOS
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox21 = new System.Windows.Forms.PictureBox();
             this.groupBox17 = new MaterialSkin.Controls.MaterialCard();
+            this.btnClientEdit = new MaterialSkin.Controls.MaterialButton();
             this.ClientEmail = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblEmail = new MaterialSkin.Controls.MaterialLabel();
             this.ClientName = new MaterialSkin.Controls.MaterialTextBox2();
@@ -555,6 +556,7 @@ namespace PlancksoftPOS
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox42 = new System.Windows.Forms.PictureBox();
             this.groupBox40 = new MaterialSkin.Controls.MaterialCard();
+            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
             this.VendorEmail = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblVendorEmail = new MaterialSkin.Controls.MaterialLabel();
             this.VendorName = new MaterialSkin.Controls.MaterialTextBox2();
@@ -7905,6 +7907,7 @@ namespace PlancksoftPOS
             this.dgvClients.ReadOnly = true;
             this.dgvClients.Size = new System.Drawing.Size(937, 745);
             this.dgvClients.TabIndex = 0;
+            this.dgvClients.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvClients_RowHeaderMouseClick);
             // 
             // Column27
             // 
@@ -7966,6 +7969,7 @@ namespace PlancksoftPOS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox17.Controls.Add(this.btnClientEdit);
             this.groupBox17.Controls.Add(this.ClientEmail);
             this.groupBox17.Controls.Add(this.lblEmail);
             this.groupBox17.Controls.Add(this.ClientName);
@@ -7987,6 +7991,27 @@ namespace PlancksoftPOS
             this.groupBox17.Size = new System.Drawing.Size(966, 907);
             this.groupBox17.TabIndex = 4;
             this.groupBox17.Text = "تسجيل العملاء";
+            // 
+            // btnClientEdit
+            // 
+            this.btnClientEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClientEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnClientEdit.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnClientEdit.Depth = 0;
+            this.btnClientEdit.HighEmphasis = true;
+            this.btnClientEdit.Icon = null;
+            this.btnClientEdit.Location = new System.Drawing.Point(606, 329);
+            this.btnClientEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnClientEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnClientEdit.Name = "btnClientEdit";
+            this.btnClientEdit.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnClientEdit.Size = new System.Drawing.Size(90, 36);
+            this.btnClientEdit.TabIndex = 90;
+            this.btnClientEdit.Text = "تجديث العميل";
+            this.btnClientEdit.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnClientEdit.UseAccentColor = false;
+            this.btnClientEdit.UseVisualStyleBackColor = true;
+            this.btnClientEdit.Click += new System.EventHandler(this.btnClientEdit_Click);
             // 
             // ClientEmail
             // 
@@ -8072,7 +8097,7 @@ namespace PlancksoftPOS
             this.btnClientAdd.Depth = 0;
             this.btnClientAdd.HighEmphasis = true;
             this.btnClientAdd.Icon = null;
-            this.btnClientAdd.Location = new System.Drawing.Point(688, 324);
+            this.btnClientAdd.Location = new System.Drawing.Point(802, 331);
             this.btnClientAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnClientAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnClientAdd.Name = "btnClientAdd";
@@ -8182,7 +8207,7 @@ namespace PlancksoftPOS
             this.ClientID.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ClientID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClientID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.ClientID.Location = new System.Drawing.Point(103, 48);
+            this.ClientID.Location = new System.Drawing.Point(95, 48);
             this.ClientID.Maximum = new decimal(new int[] {
             -1486618625,
             232830643,
@@ -8216,7 +8241,7 @@ namespace PlancksoftPOS
             this.label83.Depth = 0;
             this.label83.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label83.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
-            this.label83.Location = new System.Drawing.Point(312, 26);
+            this.label83.Location = new System.Drawing.Point(304, 26);
             this.label83.MouseState = MaterialSkin.MouseState.HOVER;
             this.label83.Name = "label83";
             this.label83.Size = new System.Drawing.Size(46, 19);
@@ -8666,6 +8691,7 @@ namespace PlancksoftPOS
             this.dgvVendors.ReadOnly = true;
             this.dgvVendors.Size = new System.Drawing.Size(900, 761);
             this.dgvVendors.TabIndex = 0;
+            this.dgvVendors.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvVendors_RowHeaderMouseClick);
             // 
             // VendorClientName
             // 
@@ -8727,6 +8753,7 @@ namespace PlancksoftPOS
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox40.Controls.Add(this.materialButton1);
             this.groupBox40.Controls.Add(this.VendorEmail);
             this.groupBox40.Controls.Add(this.lblVendorEmail);
             this.groupBox40.Controls.Add(this.VendorName);
@@ -8748,6 +8775,27 @@ namespace PlancksoftPOS
             this.groupBox40.Size = new System.Drawing.Size(946, 913);
             this.groupBox40.TabIndex = 6;
             this.groupBox40.Text = "تسجيل الموردين";
+            // 
+            // materialButton1
+            // 
+            this.materialButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.materialButton1.Depth = 0;
+            this.materialButton1.HighEmphasis = true;
+            this.materialButton1.Icon = null;
+            this.materialButton1.Location = new System.Drawing.Point(616, 330);
+            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialButton1.Name = "materialButton1";
+            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.materialButton1.Size = new System.Drawing.Size(92, 36);
+            this.materialButton1.TabIndex = 92;
+            this.materialButton1.Text = "تجديث المورد";
+            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.materialButton1.UseAccentColor = false;
+            this.materialButton1.UseVisualStyleBackColor = true;
+            this.materialButton1.Click += new System.EventHandler(this.materialButton1_Click);
             // 
             // VendorEmail
             // 
@@ -8834,7 +8882,7 @@ namespace PlancksoftPOS
             this.button7.Depth = 0;
             this.button7.HighEmphasis = true;
             this.button7.Icon = null;
-            this.button7.Location = new System.Drawing.Point(690, 324);
+            this.button7.Location = new System.Drawing.Point(815, 330);
             this.button7.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button7.MouseState = MaterialSkin.MouseState.HOVER;
             this.button7.Name = "button7";
@@ -14186,6 +14234,8 @@ namespace PlancksoftPOS
         private DataGridViewTextBoxColumn InventoryItemTypeNumber;
         private DataGridViewTextBoxColumn InventoryItemType;
         private DataGridViewTextBoxColumn ItemPicture;
+        private MaterialButton btnClientEdit;
+        private MaterialButton materialButton1;
     }
 }
 

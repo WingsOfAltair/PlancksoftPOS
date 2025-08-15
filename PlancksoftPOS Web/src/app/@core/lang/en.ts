@@ -67,6 +67,7 @@ export const locale = {
         OPENREGISTER: 'Open Register',
         CLOSEREGISTER: 'Close Register',
         ITEMPRICE: 'Item Price',
+        PAYDEBT: 'Pay Debt',
         UPDATE: 'Update',
         INVENTORY : 'Inventory',
         FCN : 'Favorite Category Name',

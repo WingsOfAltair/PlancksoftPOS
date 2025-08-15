@@ -33,7 +33,7 @@ namespace PlancksoftPOS
         public DialogResult dialogResult;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
-        public frmPay(decimal totalAmount = 0, decimal paidAmount = -9999, decimal remainderAmount = -9999, bool postponed = false)
+        public frmPay(decimal totalAmount = 0, decimal paidAmount = -9999, decimal remainderAmount = -9999, bool postponed = false, bool hideDiscounts = false)
         {
             InitializeComponent();
 

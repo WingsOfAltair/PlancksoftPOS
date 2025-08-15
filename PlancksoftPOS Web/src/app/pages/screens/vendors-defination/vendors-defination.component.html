@@ -97,19 +97,16 @@
                   [nbSortHeader]="getSortDirection('Action')"
                   *nbTreeGridHeaderCellDef
                 >
-                {{ "GENERALWORDS.ACTION" | translate }}
+                  {{ "GENERALWORDS.ACTION" | translate }}
                 </th>
                 <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                  <!-- <a (click)="updateEmployee(row.data.EmployeeID)"
-                      ><i class="nb-edit" style="font-size: 20px"></i
-                    ></a> -->
+                  <a (click)="updatevendor(row.data.vendorID)">
+                    <i class="nb-edit" style="font-size: 20px;"></i>
+                  </a>
                   &nbsp;
-                  <a (click)="Delete(row.data.vendorID)"
-                    ><i
-                      class="nb-trash"
-                      style="font-size: 20px; color: orangered"
-                    ></i
-                  ></a>
+                  <a (click)="Delete(row.data.vendorID)">
+                    <i class="nb-trash" style="font-size: 20px; color: orangered"></i>
+                  </a>
                 </td>
               </ng-container>
             </table>

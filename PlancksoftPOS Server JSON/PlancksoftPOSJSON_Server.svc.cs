@@ -43,6 +43,12 @@ namespace PlancksoftPOSJSON_Server
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             serializer.MaxJsonLength = Int32.MaxValue;
             return serializer.Serialize(DAL.UpdateSystemSettings(SystemName, SystemLogo, SystemPhone, SystemAddress, SystemReceiptBlankSpaces, SystemIncludeLogoInReceipt, SystemTax));
+        }  
+        public string UpdateClientVendor(Client ClientToUpdate)
+        {
+            JavaScriptSerializer serializer = new JavaScriptSerializer();
+            serializer.MaxJsonLength = Int32.MaxValue;
+            return serializer.Serialize(DAL.UpdateClientVendor(ClientToUpdate));
         }
         public string RetrieveBillSoldBItemQuantity(int BillNumber, string itemBarcode)
         {
