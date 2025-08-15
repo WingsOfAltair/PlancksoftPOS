@@ -39,7 +39,11 @@ export class VendorAddModalComponent implements OnInit {
       clientemail: [],
     });
 
-    this.VendorID = this.data.ClientID;
+    this.VendorID = 0;
+    if (this.data.ClientID)
+    {
+      this.VendorID = this.data.ClientID ? Number(this.data.ClientID) : 0;
+    }
 
     this.vendor.patchValue({
       clientname: this.data.ClientName,
@@ -47,6 +51,24 @@ export class VendorAddModalComponent implements OnInit {
       clientaddress: this.data.ClientAddress,
       clientemail: this.data.ClientEmail,
     })
+  }
+
+    submit() {
+    var obj = {
+      ClientToInsert: {
+        clientName: this.vendor.value.clientname,
+        clientPhone: this.vendor.value.clientphone,
+        clientAddress: this.vendor.value.clientaddress,
+        clientEmail: this.vendor.value.clientemail,
+      }
+    }
+
+    this.publisherService
+      .PostRequest("RegisterVendor", obj)
+      .subscribe((res: any) => {
+        console.log(JSON.parse(res));
+            this.closeModal();
+      });
   }
 
   UpdateData(){
