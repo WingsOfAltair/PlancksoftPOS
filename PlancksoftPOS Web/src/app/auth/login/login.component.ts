@@ -47,6 +47,7 @@ export class NgxLoginComponent implements OnInit {
     this.firstFormGroup = this.formBuilder.group({
       UserName: ["", [Validators.required]],
       Password: ["", [Validators.required]],
+      RememberMe: [false],
     });
 
     this.publisherService
@@ -54,6 +55,17 @@ export class NgxLoginComponent implements OnInit {
       .subscribe((res: any) => {
         var response = JSON.parse(res);
         this.message = response.ResponseMessage.Item1;
+
+        var RememberMe = JSON.parse(localStorage.getItem('RememberMe') || 'false');
+        if (RememberMe) {
+          const UserName = localStorage.getItem('Username');
+          const Password = localStorage.getItem('Password');
+          this.firstFormGroup.patchValue({
+            UserName: UserName,
+            Password: Password,
+            RememberMe: RememberMe
+          });
+        }
 
         if (this.message.length <= 0) this.route.navigate(["/auth/register"]);
       });
@@ -166,6 +178,16 @@ export class NgxLoginComponent implements OnInit {
         sessionStorage.setItem("userData", JSON.stringify(dt));
 
         if (this.message.Item1 == true) {
+          if (this.firstFormGroup.value.RememberMe)
+          {
+            localStorage.setItem('RememberMe', JSON.stringify(true));
+            localStorage.setItem('Username', this.firstFormGroup.value.UserName);
+            localStorage.setItem('Password', this.firstFormGroup.value.Password);
+          } else {
+            localStorage.setItem('RememberMe', JSON.stringify(false));
+            localStorage.setItem('Username', "");
+            localStorage.setItem('Password', "");
+          }
           this.route.navigate(["/pages/iot-dashboard"]);
         } else {
           this.toastrService.danger("Try Again", "Login Field");
