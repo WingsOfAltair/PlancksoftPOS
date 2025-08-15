@@ -109,21 +109,27 @@ export class ClientDefinationComponent implements OnInit {
 
   }
 
-  updateEmployee(id) {
-      var selected = this.data.filter((a) => a.ClientID == id)[0];
+  updateClient(id) {
+      var selected = this.data.filter((a) => a.data.ClientID == id)[0];
   
       var obj = {
-        ClientID: selected.ClientID,
-        ClientName: selected.ClientName,
-        ClientPhone: selected.ClientPhone,
-        ClientAddress: selected.ClientAddress,
-        ClientEmail: selected.ClientEmail,
+        ClientID: selected.data.ClientID,
+        ClientName: selected.data.ClientName,
+        ClientPhone: selected.data.ClientPhone,
+        ClientAddress: selected.data.ClientAddress,
+        ClientEmail: selected.data.ClientEmail,
       };
   
       var bcbc = this.windowService.open(ClientAddModalComponent, {
-        title: `Update Item`,
+        title: `Update Client`,
         context: obj,
       });
+
+    bcbc.componentInstance.modalClose.subscribe(() => {
+      console.log("modal close");
+      this.ngOnInit();
+    });
+
       bcbc.onClose.subscribe((res) => {
         this.publisherService
           .PostRequest("GetRetrieveClients", "")

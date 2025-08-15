@@ -66,6 +66,18 @@ namespace PlancksoftPOSJSON_Server
             WebInvoke
             (
                 Method = "POST",
+                UriTemplate = "UpdateClientVendor",
+                RequestFormat = WebMessageFormat.Json,
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedRequest
+            )
+        ]
+        string UpdateClientVendor(Client ClientToUpdate);
+        [OperationContract]
+        [
+            WebInvoke
+            (
+                Method = "POST",
                 UriTemplate = "RetrieveBillSoldBItemQuantity",
                 RequestFormat = WebMessageFormat.Json,
                 ResponseFormat = WebMessageFormat.Json,

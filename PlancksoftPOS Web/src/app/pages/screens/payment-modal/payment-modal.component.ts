@@ -487,7 +487,7 @@ export class PaymentModalComponent implements OnInit {
   }
 
   calculateRemainingAmount() {
-    if (this.getreminderdata) {
+    /*if (this.getreminderdata) {
       this.AmountRemainder =
         this.payment.value.PaidAmount - this.getreminderdata;
     } else {
@@ -496,7 +496,9 @@ export class PaymentModalComponent implements OnInit {
       } else {
         this.AmountRemainder = this.Amount - this.payment.value.PaidAmount;
       }
-    }
+    }*/
+
+      this.AmountRemainder = this.payment.value.AmountRequired - this.payment.value.PaidAmount;
 
     if (this.AmountRemainder < 0)
       this.AmountRemainder = this.AmountRemainder * -1;
@@ -508,26 +510,17 @@ export class PaymentModalComponent implements OnInit {
   }
 
   calculateDiscountAmount() {
-    this.Discountpayment = this.Amount / 100;
-    const price = this.Discountpayment * this.payment.value.Discount;
-    this.totalAmountNoDiscount = this.Amount;
-    this.totalprice = this.Amount - price;
+    this.totalAmountNoDiscount = this.payment.value.AmountRequired;
+    this.Discountpayment = this.totalAmountNoDiscount / 100;
+    var price = this.Discountpayment * this.payment.value.Discount;
 
-    if (this.AmountRemainder) {
-      this.RemDiscountpayment = this.AmountRemainder / 100;
-      const remprice = this.RemDiscountpayment * this.payment.value.Discount;
-      this.remtotalprice = this.AmountRemainder - remprice;
-    } else {
-      this.RemDiscountpayment = this.getreminderdata / 100;
-      const remprice = this.RemDiscountpayment * this.payment.value.Discount;
-      this.remtotalprice = this.getreminderdata - remprice;
-    }
+    var netprice = this.totalAmountNoDiscount - price;
 
     this.payment.patchValue({
-      AmountRequired: this.totalprice,
-      Remainder: this.remtotalprice,
+      AmountRequired: netprice,
+      Remainder: (netprice - this.payment.value.PaidAmount),
     });
 
-    this.calculateRemainingAmount();
+    //this.calculateRemainingAmount();
   }
 }

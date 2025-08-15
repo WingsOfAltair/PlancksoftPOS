@@ -278,8 +278,8 @@ export class ClientCheckBalanceComponent implements OnInit {
     
     var obj = {
       BillNumber: selected.data.BillNumber,
-      AmountRequired: selected.data.NetTotal,
-      Remainder: selected.data.Remainder,
+      AmountRequired: (selected.data.NetTotal - selected.data.PaidAmount),
+      Remainder: 0,
       ClientPhone: selectedclient.data.ClientPhone,
       ClientID: selected.data.ClientID,
       Date: selected.data.Date,

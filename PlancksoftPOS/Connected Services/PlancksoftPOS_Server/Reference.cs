@@ -477,6 +477,12 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteFavoriteCategory", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteFavoriteCategoryResponse")]
         System.Threading.Tasks.Task<bool> DeleteFavoriteCategoryAsync(int FavoriteCategoryID);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateClientVendor", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateClientVendorResponse")]
+        bool UpdateClientVendor(Dependencies.Client ClientToUpdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateClientVendor", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateClientVendorResponse")]
+        System.Threading.Tasks.Task<bool> UpdateClientVendorAsync(Dependencies.Client ClientToUpdate);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemTypes", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemTypesResponse")]
         bool UpdateItemTypes(int ItemTypeID, string ItemTypeName);
         
@@ -1373,6 +1379,14 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         
         public System.Threading.Tasks.Task<bool> DeleteFavoriteCategoryAsync(int FavoriteCategoryID) {
             return base.Channel.DeleteFavoriteCategoryAsync(FavoriteCategoryID);
+        }
+        
+        public bool UpdateClientVendor(Dependencies.Client ClientToUpdate) {
+            return base.Channel.UpdateClientVendor(ClientToUpdate);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateClientVendorAsync(Dependencies.Client ClientToUpdate) {
+            return base.Channel.UpdateClientVendorAsync(ClientToUpdate);
         }
         
         public bool UpdateItemTypes(int ItemTypeID, string ItemTypeName) {

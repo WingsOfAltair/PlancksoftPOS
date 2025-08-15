@@ -89,6 +89,8 @@ namespace PlancksoftPOS
         public Account userPermissions;
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
+        public int CurrentClientID = -1, CurrentVendorID = -1;
+
         static int width = 384;  // or 284
         static int padding = 10;
         static int cellPadding = 6;
@@ -10106,7 +10108,7 @@ namespace PlancksoftPOS
                         }
                     }
                     Bill billPaid = Connection.server.SearchBills("", "", Convert.ToInt32(row.Cells["dataGridViewTextBoxColumn24"].Value.ToString())).Item1[0];
-                    frmPay frmPayCash = new frmPay(((billPaid.TotalAmount - billPaid.DiscountAmount) - billPaid.PaidAmount), Convert.ToDecimal(row.Cells["ClientBillsPaidAmount"].Value.ToString()), Convert.ToDecimal(row.Cells["ClientBillsRemainderAmount"].Value.ToString()), true);
+                    frmPay frmPayCash = new frmPay(((billPaid.TotalAmount - billPaid.DiscountAmount) - billPaid.PaidAmount), Convert.ToDecimal(row.Cells["ClientBillsPaidAmount"].Value.ToString()), Convert.ToDecimal(row.Cells["ClientBillsRemainderAmount"].Value.ToString()), true, true);
                     openedForm = frmPayCash;
                     frmPayCash.ShowDialog();
 
@@ -10922,6 +10924,250 @@ namespace PlancksoftPOS
                     MaterialMessageBox.Show("Unable to print Cash Close Report.", false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
             }
+        }
+
+        private void btnClientEdit_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CurrentClientID == -1)
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".لم نتمكن من تعديل العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Unable to update Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                }
+                if (ClientName.Text.Trim().Length < 1)
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".لم نتمكن من تعديل العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Unable to update new Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                }
+                if (ClientPhone.Text.Trim().Length < 1)
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".لم نتمكن من تعديل العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Unable to update new Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                }
+                if (ClientAddress.Text.Trim().Length < 1)
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".لم نتمكن من تعديل العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Unable to update new Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                }
+                if (ClientEmail.Text.Trim().Length < 1)
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".لم نتمكن من تعديل العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Unable to update new Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                }
+
+                if (Connection.server.UpdateClientVendor(new Client(ClientName.Text, CurrentClientID, ClientPhone.Text, ClientAddress.Text, ClientEmail.Text)))
+                {
+                    CurrentClientID = -1;
+                    ClientName.Text = "";
+                    ClientID.Value = 0;
+                    ClientPhone.Text = "";
+                    ClientAddress.Text = "";
+                    ClientEmail.Text = "";
+
+
+                    DataTable retrievedClients = Connection.server.GetRetrieveClients();
+
+                    dgvClients.DataSource = retrievedClients;
+
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".تمت اضافة العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("The Client was updated.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                }
+                else
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".لم نتمكن من تعديل العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Unable to update new Client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                }
+            }
+            catch (Exception error)
+            { }
+        }
+
+        private void dgvClients_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                CurrentClientID = Convert.ToInt32(dgvClients.Rows[e.RowIndex].Cells["ClientIDDelete"].Value.ToString());
+                ClientName.Text = dgvClients.Rows[e.RowIndex].Cells["Column27"].Value.ToString();
+                ClientPhone.Text = dgvClients.Rows[e.RowIndex].Cells["Column38"].Value.ToString();
+                ClientAddress.Text = dgvClients.Rows[e.RowIndex].Cells["Column39"].Value.ToString();
+                ClientEmail.Text = dgvClients.Rows[e.RowIndex].Cells["Column10"].Value.ToString();
+            }
+            catch (Exception ex) { }
+        }
+
+        private void dgvVendors_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            try
+            {
+                CurrentVendorID = Convert.ToInt32(dgvVendors.Rows[e.RowIndex].Cells["VendorClientID"].Value.ToString());
+                VendorName.Text = dgvVendors.Rows[e.RowIndex].Cells["VendorClientName"].Value.ToString();
+                VendorPhone.Text = dgvVendors.Rows[e.RowIndex].Cells["VendorClientPhone"].Value.ToString();
+                VendorAddress.Text = dgvVendors.Rows[e.RowIndex].Cells["VendorClientAddress"].Value.ToString();
+                VendorEmail.Text = dgvVendors.Rows[e.RowIndex].Cells["Column11"].Value.ToString();
+            }
+            catch (Exception ex) { }
+        }
+
+        private void materialButton1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (CurrentVendorID == -1)
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".لم نتمكن من تعديل المورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Unable to update Vendor.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                }
+                if (VendorName.Text.Trim().Length < 1)
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".لم نتمكن من تعديل المورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Unable to update Vendor.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                }
+                if (VendorPhone.Text.Trim().Length < 1)
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".لم نتمكن من تعديل المورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Unable to update Vendor.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                }
+                if (VendorAddress.Text.Trim().Length < 1)
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".لم نتمكن من تعديل المورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Unable to update Vendor.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                }
+                if (VendorEmail.Text.Trim().Length < 1)
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".لم نتمكن من تعديل المورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Unable to update Vendor.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                        return;
+                    }
+                }
+
+                if (Connection.server.UpdateClientVendor(new Client(VendorName.Text, CurrentVendorID, VendorPhone.Text, VendorAddress.Text, VendorEmail.Text)))
+                {
+                    CurrentVendorID = -1;
+                    VendorName.Text = "";
+                    VendorID.Value = 0;
+                    VendorPhone.Text = "";
+                    VendorAddress.Text = "";
+                    VendorEmail.Text = "";
+
+
+                    DataTable retrievedVendors = Connection.server.GetRetrieveVendors();
+
+                    dgvVendors.DataSource = retrievedVendors;
+
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".تم تعديل المورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("The Vendor was updated.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                }
+                else
+                {
+                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        MaterialMessageBox.Show(".لم نتمكن من تعديل المورد", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        MaterialMessageBox.Show("Unable to update Vendor.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                    }
+                }
+            }
+            catch (Exception error)
+            { }
         }
 
         private void btnMenuClientsVendorsSubVendoItemsDefinitions_Click(object sender, EventArgs e)

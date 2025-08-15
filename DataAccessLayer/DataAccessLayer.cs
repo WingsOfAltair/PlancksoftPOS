@@ -146,6 +146,35 @@ namespace DataAccessLayer
             }
         }
 
+        public bool UpdateClientVendor(Client Client)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("UpdateClientVendor", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@ClientVendorID", Client.ClientID);
+                    cmd.Parameters.AddWithValue("@ClientVendorName", Client.ClientName);
+                    cmd.Parameters.AddWithValue("@ClientVendorPhone", Client.ClientPhone);
+                    cmd.Parameters.AddWithValue("@ClientVendorAddress", Client.ClientAddress);
+                    cmd.Parameters.AddWithValue("@ClientVendorEmail", Client.ClientEmail);
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                }
+                return Convert.ToBoolean(Status);
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
         public string RetrieveItemTypeName(int ItemTypeIndex, int locale)
         {
             try

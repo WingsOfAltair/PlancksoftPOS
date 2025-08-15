@@ -11,6 +11,8 @@ import { PublisherService } from "../../../services/publisher.service";
 export class ClientAddModalComponent implements OnInit {
   client: FormGroup;
   updateList:any
+  data: any;
+  ClientID: any;
 
   constructor(
     private fb: FormBuilder,
@@ -28,7 +30,7 @@ export class ClientAddModalComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    this.updateList = this.windowRef.config.context;
+    this.data = this.windowRef.config.context;
 
     this.client = this.fb.group({
       clientname: [],
@@ -37,49 +39,35 @@ export class ClientAddModalComponent implements OnInit {
       clientemail: [],
     });
 
+    this.ClientID = this.data.ClientID;
+
     this.client.patchValue({
-      clientname: this.updateList.ClientName,
-      clientphone: this.updateList.ClientPhone,
-      clientaddress: this.updateList.ClientAddress,
-      clientemail: this.updateList.ClientEmail,
+      clientname: this.data.ClientName,
+      clientphone: this.data.ClientPhone,
+      clientaddress: this.data.ClientAddress,
+      clientemail: this.data.ClientEmail,
     })
   }
 
-  submit() {
+  UpdateData(){
+    
     var obj = {
-      ClientToInsert: {
+      ClientToUpdate: {
+        clientID: this.ClientID,
         clientName: this.client.value.clientname,
         clientPhone: this.client.value.clientphone,
         clientAddress: this.client.value.clientaddress,
         clientEmail: this.client.value.clientemail,
-        buyPrice: 0,
-        sellPrice: 0,
-        sellPriceTax: 0,
-        clientPrice: 0,
       },
     };
 
     this.publisherService
-      .PostRequest("RegisterClient", obj)
+      .PostRequest("UpdateClientVendor", obj)
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
-        this.windowRef.close("res");
+            this.closeModal();
       });
+
+    this.windowRef.close();
   }
-
-  /*UpdateData(){
-    
-    this.updateList
-
-    var obj = {
-      ItemName :  this.client.ClientName,
-      ItemBarCode: this.client.value.ClientAddress,
-      ItemQuantity: this.client.value.ClientPhone,
-      : this.client.value.ClientEmail,
-    }
-
-    // this.publisherService.data = obj;
-    this.windowRef.close(obj);
-  }
-*/
 }

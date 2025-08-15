@@ -316,6 +316,10 @@ namespace PlancksoftPOS_Server
         {
             return DAL.DeleteFavoriteCategory(FavoriteCategoryID);
         }
+        public bool UpdateClientVendor(Client ClientToUpdate)
+        {
+            return DAL.UpdateClientVendor(ClientToUpdate);
+        }   
         public bool UpdateItemTypes(int ItemTypeID, string ItemTypeName)
         {
             return DAL.UpdateItemTypes(ItemTypeID, ItemTypeName);

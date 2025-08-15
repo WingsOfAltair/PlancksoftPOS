@@ -68,23 +68,23 @@
     </nb-radio-group>
   </div>
 
-  <div class="col-md-2 mt-3">
-    <nb-checkbox (checkedChange)="toggle($event)">{{
-      "GENERALWORDS.DISCOUNT" | translate
-    }}</nb-checkbox>
-  </div>
+  <div class="col-md-2 mt-3" *ngIf="status !== 'Unpaid'">
+  <nb-checkbox (checkedChange)="toggle($event)">
+    {{ "GENERALWORDS.DISCOUNT" | translate }}
+  </nb-checkbox>
+</div>
 
-  <div class="col-md-4 mt-3" *ngIf="discou == true">
-    <input
-      type="number"
-      nbInput
-      fullWidth
-      formControlName="Discount"
-      shape="rectangle"
-      (keyup)="calculateDiscountAmount()"
-      placeholder="{{ 'GENERALWORDS.DISCOUNT' | translate }}"
-    />
-  </div>
+<div class="col-md-4 mt-3" *ngIf="status !== 'Unpaid' && discou === true">
+  <input
+    type="number"
+    nbInput
+    fullWidth
+    formControlName="Discount"
+    shape="rectangle"
+    (keyup)="calculateDiscountAmount()"
+    placeholder="{{ 'GENERALWORDS.DISCOUNT' | translate }}"
+  />
+</div>
 
   <div class="col-md-12 mt-3">
     <div class="buttons-row" style="text-align: end">
@@ -104,7 +104,7 @@
         (click)="Update()"
         *ngIf="this.status == 'Unpaid'"
       >
-        {{ "GENERALWORDS.UPDATE" | translate }}
+        {{ "GENERALWORDS.PAYDEBT" | translate }}
       </button>
     </div>
   </div>

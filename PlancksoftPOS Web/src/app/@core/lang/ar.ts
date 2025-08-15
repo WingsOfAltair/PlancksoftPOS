@@ -65,6 +65,7 @@ export const locale = {
         PERIOUSTOTAL: 'المجموع السابق',
         OPENREGISTER: 'افتح التسجيل',
         CLOSEREGISTER: 'إغلاق التسجيل',
+        PAYDEBT: 'دفع الدين',
         ITEMPRICE: 'سعر العنصر',
         UPDATE: 'تحديث',
         INVENTORY : 'جرد',
