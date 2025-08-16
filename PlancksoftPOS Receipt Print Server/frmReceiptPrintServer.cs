@@ -1104,7 +1104,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
 
                 string mainPrinterName = "";
 
-                foreach (Printer printer in PrintersList)
+                foreach (Printer printer in RePrintersList)
                 {
                     if (printer.MachineName == Environment.MachineName && printer.IsMainPrinter == 1)
                     {
