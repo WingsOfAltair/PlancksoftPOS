@@ -24,13 +24,18 @@ namespace PlancksoftPOS_Receipt_Print_Server
         public Connection Connection = new Connection();
 
         Bill Bill;
+        Bill ReBill;
         List<Bill> UnprintedBills = new List<Bill>();
+        List<Bill> ReprintedBills = new List<Bill>();
 
         List<Item> ItemsInBill;
+        List<Item> ReprintedItemsInBill;
 
         public static List<Printer> PrintersList = new List<Printer>();
+        public static List<Printer> RePrintersList = new List<Printer>();
 
         private PrintDocument PrintDocument;
+        private PrintDocument RePrintDocument;
 
         Image StoreLogo;
         byte[] storeLogo;
@@ -46,13 +51,19 @@ namespace PlancksoftPOS_Receipt_Print_Server
         static Font fontBold = new Font("Arial", 12, FontStyle.Bold);
 
         int totalquantity = 0;
+        int Retotalquantity = 0;
         int item_quantity = 0;
+        int Reitem_quantity = 0;
         int currentRowIndex = 0;
+        int RecurrentRowIndex = 0;
 
         string[] headers = new string[] { };
+        string[] Reheaders = new string[] { };
         List<string[]> rows = new List<string[]>();
+        List<string[]> Rerows = new List<string[]>();
 
         int y = 0;
+        int Rey = 0;
 
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
 
@@ -81,6 +92,8 @@ namespace PlancksoftPOS_Receipt_Print_Server
         {
             if (!NewReceiptsFetcher.IsBusy)
                 NewReceiptsFetcher.RunWorkerAsync();
+            if (!reprintReceiptsFetcher.IsBusy)
+                reprintReceiptsFetcher.RunWorkerAsync();
         }
 
         private void NewReceiptsFetcher_DoWork(object sender, DoWorkEventArgs e)
@@ -1020,6 +1033,450 @@ namespace PlancksoftPOS_Receipt_Print_Server
                 ClosePrinter(hPrinter);
             }
             return success;
+        }
+
+        private void reprintReceiptsFetcher_DoWork(object sender, DoWorkEventArgs e)
+        {
+            DataTable SystemSettings = Connection.server.RetrieveSystemSettings();
+
+            DataTable dt = Connection.server.RetrieveSystemSettings();
+
+            try
+            {
+                if (!Convert.IsDBNull(dt.Rows[0]["SystemLogo"]))
+                {
+                    this.storeLogo = (Byte[])(dt.Rows[0]["SystemLogo"]);
+                    var stream = new MemoryStream(this.storeLogo);
+                    StoreLogo = Image.FromStream(stream);
+                }
+                else
+                {
+                    StoreLogo = new Bitmap(Properties.Resources.plancksoft_b_t);
+                }
+            }
+            catch (Exception err)
+            {
+                StoreLogo = new Bitmap(Properties.Resources.plancksoft_b_t);
+            }
+
+            this.shopName = dt.Rows[0]["SystemName"].ToString();
+            this.shopPhone = dt.Rows[0]["SystemPhone"].ToString();
+            this.shopAddress = dt.Rows[0]["SystemAddress"].ToString();
+
+            ReprintedBills = Connection.server.RetrieveReprintedBills(Environment.MachineName).Item1;
+
+            foreach (Bill ReprintedBill in ReprintedBills)
+            {
+                List<Item> itemsInBill = new List<Item>();
+
+                foreach (Item ReprintedBillItem in ReprintedBill.ItemsBought)
+                {
+                    Item SearchedItem = Connection.server.SearchItems("", ReprintedBillItem.GetItemBarCode(), 0).Item1[0];
+                    SearchedItem.SetQuantity(Connection.server.RetrieveBillSoldBItemQuantity(ReprintedBill.BillNumber, SearchedItem.GetItemBarCode()));
+                    itemsInBill.Add(SearchedItem);
+                }
+                ReprintedBill.ItemsBought = itemsInBill;
+                ItemsInBill = ReprintedBill.ItemsBought;
+                ReBill = ReprintedBill;
+
+                List<Printer> PrintersToPrint = new List<Printer>();
+
+                RePrintersList = Connection.server.RetrievePrinters(Environment.MachineName);
+
+                foreach (Item item in ItemsInBill)
+                {
+                    foreach (Printer printer in RePrintersList)
+                    {
+                        if (printer.MachineName == Environment.MachineName)
+                        {
+                            List<ItemType> ItemTypesInPrinterList = Connection.server.RetrievePrinterItemTypes(printer.ID);
+
+                            foreach (ItemType itemTypeInPrinterList in ItemTypesInPrinterList)
+                            {
+                                if (item.GetItemTypeeID() == itemTypeInPrinterList.ID && !PrintersToPrint.Contains(printer))
+                                {
+                                    PrintersToPrint.Add(printer);
+                                }
+                            }
+                        }
+                    }
+                }
+
+                string mainPrinterName = "";
+
+                foreach (Printer printer in PrintersList)
+                {
+                    if (printer.MachineName == Environment.MachineName && printer.IsMainPrinter == 1)
+                    {
+                        mainPrinterName = printer.Name;
+                        break;
+                    }
+                }
+
+                if (PrintersToPrint.Count <= 0)
+                {
+                    break;
+                }
+
+                Retotalquantity = 0;
+                Reitem_quantity = 0;
+
+                Rerows.Clear();
+
+                foreach (Dependencies.Printer printer in PrintersToPrint)
+                {
+                    printDocument1.PrinterSettings.PrinterName = printer.Name;
+
+                    // Use printer’s width in hundredths of an inch
+                    int printerWidth = width; // ~72mm printer (adjust if needed)         
+                                              // Table data (you can replace/add rows)
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        Reheaders = new string[] { "اسم السلعة", "السعر", "الكمية"
+                            //,"الخصم"
+                            , "المجموع" };
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        Reheaders = new string[] { "Item Name", "Price", "Quantity"
+                            //, "Discount"
+                            , "Total" };
+                    }
+
+                    foreach (var item in ReBill.ItemsBought)
+                    {
+                        Rerows.Add(new string[] { item.ItemName, item.ItemPriceTax.ToString(), item.ItemQuantity.ToString()
+                            //, "0.00"
+                            , (item.ItemPriceTax * item.ItemQuantity).ToString() });
+
+                        Retotalquantity += item.ItemQuantity;
+                        Reitem_quantity += 1;
+                    }
+
+                    using (Graphics g = this.CreateGraphics()) // Temporary graphics just for measuring
+                    {
+                        int height = MeasureReceiptHeight(
+                            g,
+                            fontRegular,
+                            fontBold,
+                            rows,
+                            headers
+                        );
+
+                        // Set paper size dynamically
+                        PaperSize ps = new PaperSize("CustomReceipt", 284, 1000000000);
+                        printDocument2.DefaultPageSettings.PaperSize = ps;
+
+                        // No margins, no origin shift
+                        printDocument2.DefaultPageSettings.Margins = new Margins(0, 0, 0, 0);
+                        printDocument2.OriginAtMargins = false;
+                        printDocument2.Print();
+                    }
+                }
+            }
+        }
+
+        private void printDocument2_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            Font minifont = new Font("Arial", 5);
+            Font itemfont = new Font("Arial", 6);
+            Font smallfont = new Font("Arial", 8);
+            Font mediumfont = new Font("Arial", 10);
+            Font largefont = new Font("Arial", 12);
+
+            int imgHeight = 1200; // generous height, we'll crop later       
+
+            imgHeight += StoreLogo.Height;
+            imgHeight += lineHeight;
+
+            foreach (var item in rows)
+            {
+                imgHeight += +lineHeight;
+            }
+
+            using (Bitmap bmp = new Bitmap(width, imgHeight))
+            using (Graphics g = Graphics.FromImage(bmp))
+            {
+                g.Clear(Color.White);
+                g.TextRenderingHint = TextRenderingHint.ClearTypeGridFit;
+
+                y = padding;
+
+                y = DrawImage(g, ResizeImage(StoreLogo, 128, 128), y);
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y += DrawRightAndLeftUnbordered(g, "0776472166", "Plancksoft برمجة شركة", y, fontRegular);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y += DrawRightAndLeftUnbordered(g, "0776472166", "Powered by Plancksoft", y, fontRegular);
+                }
+
+                // Header (centered, RTL-aware)    
+                string storeName = shopName;
+                y = DrawCenteredBlackFilledWhiteText(g, y, storeName);
+                //y = DrawCenteredText(g, "رقم الدور: 6200", y, fontBold);
+                y += 10;
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    if (ReBill.TaxID == "Tax ID")
+                    {
+                        y = DrawLeftAlignedUnborderedText(g, "الرقم الضريبي: لا يوجد", y, fontRegular);
+                    }
+                    else
+                    {
+                        y = DrawLeftAlignedUnborderedText(g, "الرقم الضريبي: " + Bill.TaxID, y, fontRegular);
+                    }
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    if (ReBill.TaxID == "Tax ID")
+                    {
+                        y = DrawLeftAlignedUnborderedText(g, "Tax ID: Not Available", y, fontRegular);
+                    }
+                    else
+                    {
+                        y = DrawLeftAlignedUnborderedText(g, "Tax ID: " + Bill.TaxID, y, fontRegular);
+                    }
+                }
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y += DrawRightAndLeftUnbordered(g, "عنوان المتجر", "رقم المتجر", y, fontRegular);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y += DrawRightAndLeftUnbordered(g, "Store Address", "Store Phone Number", y, fontRegular);
+                }
+                y += DrawRightAndLeftUnbordered(g, shopAddress, shopPhone, y, fontRegular);
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y = DrawCenteredText(g, "إعادة طباعة فانوره رقم " + ReBill.BillNumber, y, fontRegular);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y = DrawCenteredText(g, "Reprint of Invoice Number: " + ReBill.BillNumber, y, fontRegular);
+                }
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y = DrawCenteredBorderedText(g, y, "فانوره رقم: " + ReBill.BillNumber);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y = DrawCenteredBorderedText(g, y, "Invoice Number: " + ReBill.BillNumber);
+                }
+
+                y += DrawRightAndLeftUnbordered(g, DateTime.Now.DayOfWeek.ToString(), String.Format("{0}", DateTime.Now.ToString("dd MMMM yyyy MM/dd h:mm:ss tt")), y, fontRegular);
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y = DrawCenteredText(g, "إسم الكاشير: " + ReBill.CashierName, y, fontRegular);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y = DrawCenteredText(g, "Cashier Name: " + ReBill.CashierName, y, fontRegular);
+                }
+
+                if (ReBill.ClientName.Trim().Length > 0 && ReBill.ClientAddress.Trim().Length > 0)
+                {
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y += DrawRightAndLeftUnbordered(g, "إسم العميل: ", "عنوان العميل", y, fontRegular);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y += DrawRightAndLeftUnbordered(g, "Client Name: ", "Client Address: ", y, fontRegular);
+                    }
+                    y = DrawCenteredText(g, ReBill.ClientName, y, fontRegular);
+                    y = DrawCenteredText(g, ReBill.ClientAddress, y, fontRegular);
+                }
+
+                if (ReBill.ClientPhone.Trim().Length > 0 && ReBill.ClientEmail.Trim().Length > 0)
+                {
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y += DrawRightAndLeftUnbordered(g, "رقم العميل: ", ": بريد العميل", y, fontRegular);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y += DrawRightAndLeftUnbordered(g, "Client Number: ", "Client Email: ", y, fontRegular);
+                    }
+                    y += DrawRightAndLeftUnbordered(g, ReBill.ClientPhone, ReBill.ClientEmail, y, fontRegular);
+                }
+
+                {
+
+                    int availableWidth = width - 2 * padding;
+                    int cols = Reheaders.Length;
+                    int[] colWidths = new int[cols];
+
+                    // Measure required widths per column (based on headers + all row cells)
+                    for (int c = 0; c < cols; c++)
+                    {
+                        float maxW = g.MeasureString(Reheaders[c], fontRegular).Width;
+                        foreach (var r in rows)
+                        {
+                            float w = g.MeasureString(r[c], fontRegular).Width;
+                            if (w > maxW) maxW = w;
+                        }
+                        colWidths[c] = (int)Math.Ceiling(maxW) + 2 * cellPadding;
+                    }
+
+                    // If the table is wider than available width, scale columns down proportionally
+                    int totalWidth = 0;
+                    foreach (var w in colWidths) totalWidth += w;
+                    int minColWidth = 40;
+                    if (totalWidth > availableWidth)
+                    {
+                        float scale = (float)availableWidth / totalWidth;
+                        totalWidth = 0;
+                        for (int c = 0; c < cols; c++)
+                        {
+                            colWidths[c] = Math.Max(minColWidth, (int)(colWidths[c] * scale));
+                            totalWidth += colWidths[c];
+                        }
+                    }
+                    else
+                    {
+                        // recompute totalWidth in case it wasn't set above
+                        totalWidth = 0;
+                        foreach (var w in colWidths) totalWidth += w;
+                    }
+
+                    // Center the table horizontally
+                    int startX = padding + (availableWidth - totalWidth) / 2;
+                    int availableHeight = e.MarginBounds.Height;
+                    int cellHeight = lineHeight;
+
+                    // StringFormats
+                    StringFormat centerFormat = new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+                    StringFormat centerFormatRTL = new StringFormat(centerFormat) { FormatFlags = StringFormatFlags.DirectionRightToLeft };
+                    StringFormat rightFormatRTL = new StringFormat { Alignment = StringAlignment.Far, LineAlignment = StringAlignment.Center, FormatFlags = StringFormatFlags.DirectionRightToLeft };
+
+                    // Draw header row (with borders)
+                    int x = startX;
+                    for (int c = 0; c < cols; c++)
+                    {
+                        Rectangle rect = new Rectangle(x, y, colWidths[c], cellHeight);
+                        g.DrawRectangle(Pens.Black, rect);
+                        g.DrawString(Reheaders[c], fontRegular, Brushes.Black, rect, centerFormatRTL);
+                        x += colWidths[c];
+                    }
+                    y += cellHeight;
+
+                    // Draw (items) rows (with borders)
+                    foreach (var row in Rerows)
+                    {
+                        x = startX;
+                        for (int c = 0; c < cols; c++)
+                        {
+                            Rectangle rect = new Rectangle(x, y, colWidths[c], cellHeight);
+                            g.DrawRectangle(Pens.Black, rect);
+
+                            string cellText = row[c] ?? string.Empty;
+                            bool isNumeric = IsMostlyNumeric(cellText);
+
+                            g.DrawString(cellText, fontRegular, Brushes.Black, rect,
+                                isNumeric ? rightFormatRTL : centerFormatRTL);
+                            x += colWidths[c];
+                        }
+                        y += cellHeight;
+
+                        /*
+                        // Check if we’ve reached the bottom of the page
+                        if (y + cellHeight > availableHeight)
+                        {
+                            e.HasMorePages = true;
+                            return; // stop and let PrintPage get called again
+                        }
+                        */
+                    }
+
+                    // Done printing items
+
+                    y += 10;
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y += DrawRightAndLeftCentered(g, "المدفوع: " + ReBill.PaidAmount, "الباقي: " + ((ReBill.getTotalAmount() - ReBill.DiscountAmount) - ReBill.paidAmount).ToString(), y, fontBold);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y += DrawRightAndLeftCentered(g, "Paid: " + ReBill.PaidAmount, "Remainder: " + ((ReBill.getTotalAmount() - ReBill.DiscountAmount) - ReBill.paidAmount).ToString(), y, fontBold);
+                    }
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y += DrawRightAndLeftCentered(g, "عدد الأصناف: " + Reitem_quantity, "الكميات: " + Retotalquantity, y, fontBold);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y += DrawRightAndLeftCentered(g, "Item Types Quantity: " + Reitem_quantity, "Quantity: " + Retotalquantity, y, fontBold);
+                    }
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y += DrawRightAndLeftCentered(g, "الخصم: " + ReBill.DiscountAmount, "المجموع: " + ReBill.getTotalAmount().ToString(), y, fontBold);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y += DrawRightAndLeftCentered(g, "Discount: " + ReBill.DiscountAmount, "Total: " + ReBill.getTotalAmount().ToString(), y, fontBold);
+                    }
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y = DrawCenteredBorderedText(g, y, "الصافي: " + (ReBill.getTotalAmount() - ReBill.DiscountAmount).ToString());
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y = DrawCenteredBorderedText(g, y, "Net Total: " + (ReBill.getTotalAmount() - ReBill.DiscountAmount).ToString());
+                    }
+
+                    y += 10;
+
+                    g.DrawLine(Pens.Black, 0, y, width, y);
+
+                    y += 5;  // Optional spacing after line if needed
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y = DrawCenteredText(g, "شكرا لكم لزيارتكم", y, fontRegular);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y = DrawCenteredText(g, "Thank you for visiting", y, fontRegular);
+                    }
+
+                    if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                    {
+                        y = DrawCenteredText(g, "الغاتورة شامله الضريبه", y, fontRegular);
+                    }
+                    else if (pickedLanguage == LanguageChoice.Languages.English)
+                    {
+                        y = DrawCenteredText(g, "Tax included in prices", y, fontRegular);
+                    }
+
+                    // Crop and save
+                    int cropHeight = Math.Min(y + padding, imgHeight);
+                    using (Bitmap cropped = bmp.Clone(new Rectangle(0, 0, width, cropHeight), bmp.PixelFormat))
+                    {
+                        try
+                        {
+
+                            // Draw the bitmap onto the printer graphics at the top-left corner
+                            e.Graphics.DrawImage(cropped, 0, 0, width, cropHeight);
+                        }
+                        catch (Exception error)
+                        {
+
+                        }
+                    }
+                }
+
+            }
         }
     }
 }

@@ -172,6 +172,7 @@ namespace PlancksoftPOS
                         y = DrawCenteredText(g, "Reprint of Invoice Number: " + Bill.BillNumber, y, fontRegular);
                     }
                 }
+
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
                     y = DrawCenteredBorderedText(g, y, "فانوره رقم: " + Bill.BillNumber);

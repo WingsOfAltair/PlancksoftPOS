@@ -40,6 +40,8 @@
             this.العربيةToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.englishToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reprintReceiptsFetcher = new System.ComponentModel.BackgroundWorker();
+            this.printDocument2 = new System.Drawing.Printing.PrintDocument();
             ((System.ComponentModel.ISupportInitialize)(this.pbReceipt)).BeginInit();
             this.languageContextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -80,7 +82,7 @@
             this.اللغةToolStripMenuItem,
             this.الخروجToolStripMenuItem});
             this.languageContextMenu.Name = "languageContextMenu";
-            this.languageContextMenu.Size = new System.Drawing.Size(181, 70);
+            this.languageContextMenu.Size = new System.Drawing.Size(107, 48);
             // 
             // اللغةToolStripMenuItem
             // 
@@ -88,29 +90,37 @@
             this.العربيةToolStripMenuItem,
             this.englishToolStripMenuItem});
             this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
-            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.اللغةToolStripMenuItem.Text = "اللغة";
             // 
             // العربيةToolStripMenuItem
             // 
             this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
-            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.العربيةToolStripMenuItem.Text = "العربية";
             this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
             // 
             // englishToolStripMenuItem
             // 
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.englishToolStripMenuItem.Text = "English";
             this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
             // 
             // الخروجToolStripMenuItem
             // 
             this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
-            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
             this.الخروجToolStripMenuItem.Text = "الخروج";
             this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
+            // 
+            // reprintReceiptsFetcher
+            // 
+            this.reprintReceiptsFetcher.DoWork += new System.ComponentModel.DoWorkEventHandler(this.reprintReceiptsFetcher_DoWork);
+            // 
+            // printDocument2
+            // 
+            this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
             // 
             // ReceiptPrintServer
             // 
@@ -150,6 +160,8 @@
         private System.Windows.Forms.ToolStripMenuItem العربيةToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem englishToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
+        private System.ComponentModel.BackgroundWorker reprintReceiptsFetcher;
+        private System.Drawing.Printing.PrintDocument printDocument2;
     }
 }
 

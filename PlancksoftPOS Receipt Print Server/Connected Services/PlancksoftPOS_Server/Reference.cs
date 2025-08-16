@@ -273,6 +273,12 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBillsResponse")]
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnprintedBillsAsync(string MachineName);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveReprintedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveReprintedBillsResponse")]
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveReprintedBills(string MachineName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveReprintedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveReprintedBillsResponse")]
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveReprintedBillsAsync(string MachineName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefund", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefundResponse")]
         System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBillsRefund(string customerName);
         
@@ -476,6 +482,12 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteFavoriteCategory", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteFavoriteCategoryResponse")]
         System.Threading.Tasks.Task<bool> DeleteFavoriteCategoryAsync(int FavoriteCategoryID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateClientVendor", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateClientVendorResponse")]
+        bool UpdateClientVendor(Dependencies.Client ClientToUpdate);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateClientVendor", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateClientVendorResponse")]
+        System.Threading.Tasks.Task<bool> UpdateClientVendorAsync(Dependencies.Client ClientToUpdate);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemTypes", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemTypesResponse")]
         bool UpdateItemTypes(int ItemTypeID, string ItemTypeName);
@@ -1103,6 +1115,14 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
             return base.Channel.RetrieveUnprintedBillsAsync(MachineName);
         }
         
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveReprintedBills(string MachineName) {
+            return base.Channel.RetrieveReprintedBills(MachineName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveReprintedBillsAsync(string MachineName) {
+            return base.Channel.RetrieveReprintedBillsAsync(MachineName);
+        }
+        
         public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBillsRefund(string customerName) {
             return base.Channel.RetrieveBillsRefund(customerName);
         }
@@ -1373,6 +1393,14 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
         
         public System.Threading.Tasks.Task<bool> DeleteFavoriteCategoryAsync(int FavoriteCategoryID) {
             return base.Channel.DeleteFavoriteCategoryAsync(FavoriteCategoryID);
+        }
+        
+        public bool UpdateClientVendor(Dependencies.Client ClientToUpdate) {
+            return base.Channel.UpdateClientVendor(ClientToUpdate);
+        }
+        
+        public System.Threading.Tasks.Task<bool> UpdateClientVendorAsync(Dependencies.Client ClientToUpdate) {
+            return base.Channel.UpdateClientVendorAsync(ClientToUpdate);
         }
         
         public bool UpdateItemTypes(int ItemTypeID, string ItemTypeName) {

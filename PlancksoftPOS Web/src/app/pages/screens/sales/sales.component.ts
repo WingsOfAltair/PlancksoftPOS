@@ -299,28 +299,18 @@ export class SalesComponent implements OnInit {
   }
 
   download(id) {
-    this.filter = this.data.filter((a) => a.data.BillNumber == id)[0];
     debugger
-    this.invoiceNo = this.filter.data.BillNumber;
-    this.invoicedate = this.filter.data.Date;
-    this.requiredamount = this.filter.data.TotalAmount;
-    this.paidAmount = this.filter.data.PaidAmount;
-    this.AmountRemainder = this.filter.data.RemainderAmount;
-    this.userID = this.filter.data.CashierName
 
     var obj = {
       BillNumber: id,
     };
 
     this.publisherService
-      .PostRequest("RetrieveBillItems", obj)
+      .PostRequest("ReprintBill", obj)
       .subscribe((res: any) => {
         console.log(JSON.parse(res));
         debugger;
         var response = JSON.parse(res);
-        this.filteritemdata = response.ResponseMessage.Item1;
-
-        this.generatePDF(id);
       });
   }
 

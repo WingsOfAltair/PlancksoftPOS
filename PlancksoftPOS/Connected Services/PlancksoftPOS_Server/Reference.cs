@@ -273,6 +273,12 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBillsResponse")]
         System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnprintedBillsAsync(string MachineName);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveReprintedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveReprintedBillsResponse")]
+        System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveReprintedBills(string MachineName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveReprintedBills", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveReprintedBillsResponse")]
+        System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveReprintedBillsAsync(string MachineName);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefund", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefundResponse")]
         System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBillsRefund(string customerName);
         
@@ -1107,6 +1113,14 @@ namespace PlancksoftPOS.PlancksoftPOS_Server {
         
         public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveUnprintedBillsAsync(string MachineName) {
             return base.Channel.RetrieveUnprintedBillsAsync(MachineName);
+        }
+        
+        public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveReprintedBills(string MachineName) {
+            return base.Channel.RetrieveReprintedBills(MachineName);
+        }
+        
+        public System.Threading.Tasks.Task<System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable>> RetrieveReprintedBillsAsync(string MachineName) {
+            return base.Channel.RetrieveReprintedBillsAsync(MachineName);
         }
         
         public System.Tuple<System.Collections.Generic.List<Dependencies.Bill>, System.Data.DataTable> RetrieveBillsRefund(string customerName) {

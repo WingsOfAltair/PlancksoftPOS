@@ -300,6 +300,22 @@ export class ClientCheckBalanceComponent implements OnInit {
     });
   }
 
+  download(id) {
+    debugger
+
+    var obj = {
+      BillNumber: id,
+    };
+
+    this.publisherService
+      .PostRequest("ReprintBill", obj)
+      .subscribe((res: any) => {
+        console.log(JSON.parse(res));
+        debugger;
+        var response = JSON.parse(res);
+      });
+  }
+
   convertDateToJSONFormat(date) {
     var milliseconds = date.getTime();
     return "/Date(" + milliseconds + ")/";
