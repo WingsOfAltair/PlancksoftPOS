@@ -169,6 +169,31 @@ namespace DataAccessLayerJSON
             }
         }
 
+        public Response ReprintBill(int BillNumber)
+        {
+            try
+            {
+                using (SqlCommand cmd = new SqlCommand("ReprintBill", connection))
+                {
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.AddWithValue("@BillNumber", BillNumber);
+                    cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+                    if (connection != null && connection.State == ConnectionState.Closed)
+                        connection.Open();
+                    cmd.ExecuteNonQuery();
+                    Status = Convert.ToInt32(cmd.Parameters["@Status"].Value);
+                    connection.Close();
+                }
+                return new Response(Convert.ToBoolean(Status), true);
+            }
+            catch (Exception ex)
+            {
+                return new Response("Could not reprint bill.", false);
+            }
+        }
+
         public Response UpdateClientVendor(Client ClientToUpdate)
         {
             try

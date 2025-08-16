@@ -60,7 +60,19 @@ namespace PlancksoftPOSJSON_Server
             )
         ]
         string UpdateSystemSettings(string SystemName, byte[] SystemLogo, string SystemPhone,
-            string SystemAddress, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax);
+            string SystemAddress, int SystemReceiptBlankSpaces, int SystemIncludeLogoInReceipt, decimal SystemTax);       
+        [OperationContract]
+        [
+            WebInvoke
+            (
+                Method = "POST",
+                UriTemplate = "ReprintBill",
+                RequestFormat = WebMessageFormat.Json,
+                ResponseFormat = WebMessageFormat.Json,
+                BodyStyle = WebMessageBodyStyle.WrappedRequest
+            )
+        ]
+        string ReprintBill(int BillNumber);
         [OperationContract]
         [
             WebInvoke

@@ -268,6 +268,12 @@
   <wsdl:message name="IPlancksoftPOS_Server_RetrieveUnprintedBills_OutputMessage">
     <wsdl:part name="parameters" element="tns:RetrieveUnprintedBillsResponse" />
   </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveReprintedBills_InputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveReprintedBills" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_RetrieveReprintedBills_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RetrieveReprintedBillsResponse" />
+  </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_RetrieveBillsRefund_InputMessage">
     <wsdl:part name="parameters" element="tns:RetrieveBillsRefund" />
   </wsdl:message>
@@ -471,6 +477,12 @@
   </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_DeleteFavoriteCategory_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteFavoriteCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateClientVendor_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientVendor" />
+  </wsdl:message>
+  <wsdl:message name="IPlancksoftPOS_Server_UpdateClientVendor_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateClientVendorResponse" />
   </wsdl:message>
   <wsdl:message name="IPlancksoftPOS_Server_UpdateItemTypes_InputMessage">
     <wsdl:part name="parameters" element="tns:UpdateItemTypes" />
@@ -897,6 +909,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBills" message="tns:IPlancksoftPOS_Server_RetrieveUnprintedBills_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveUnprintedBillsResponse" message="tns:IPlancksoftPOS_Server_RetrieveUnprintedBills_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="RetrieveReprintedBills">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveReprintedBills" message="tns:IPlancksoftPOS_Server_RetrieveReprintedBills_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveReprintedBillsResponse" message="tns:IPlancksoftPOS_Server_RetrieveReprintedBills_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="RetrieveBillsRefund">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefund" message="tns:IPlancksoftPOS_Server_RetrieveBillsRefund_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefundResponse" message="tns:IPlancksoftPOS_Server_RetrieveBillsRefund_OutputMessage" />
@@ -1032,6 +1048,10 @@
     <wsdl:operation name="DeleteFavoriteCategory">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteFavoriteCategory" message="tns:IPlancksoftPOS_Server_DeleteFavoriteCategory_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/DeleteFavoriteCategoryResponse" message="tns:IPlancksoftPOS_Server_DeleteFavoriteCategory_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientVendor">
+      <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateClientVendor" message="tns:IPlancksoftPOS_Server_UpdateClientVendor_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateClientVendorResponse" message="tns:IPlancksoftPOS_Server_UpdateClientVendor_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="UpdateItemTypes">
       <wsdl:input wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateItemTypes" message="tns:IPlancksoftPOS_Server_UpdateItemTypes_InputMessage" />
@@ -1591,6 +1611,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="RetrieveReprintedBills">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveReprintedBills" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="RetrieveBillsRefund">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/RetrieveBillsRefund" style="document" />
       <wsdl:input>
@@ -1890,6 +1919,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteFavoriteCategory">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/DeleteFavoriteCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateClientVendor">
+      <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateClientVendor" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -187,6 +187,10 @@ namespace PlancksoftPOS_Server
         public Tuple<List<Bill>, DataTable> RetrieveUnprintedBills(string MachineName)
         {
             return DAL.RetrieveUnprintedBills(MachineName);
+        }  
+        public Tuple<List<Bill>, DataTable> RetrieveReprintedBills(string MachineName)
+        {
+            return DAL.RetrieveReprintedBills(MachineName);
         } 
         public Tuple<List<Item>, DataTable> RetrieveCapitalRevenue()
         {

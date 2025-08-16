@@ -211,6 +211,7 @@
               </th>
               <td nbTreeGridCell *nbTreeGridCellDef="let row">
                 <a>
+                  <nb-icon icon="download-outline" pack="eva" (click)="download(row.data.BillNumber)"></nb-icon>
                   <nb-icon icon="list-outline" pack="eva" (click)="Bill(row.data.BillNumber)"></nb-icon>
                 </a>
               </td>
