@@ -124,7 +124,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
             this.shopPhone = dt.Rows[0]["SystemPhone"].ToString();
             this.shopAddress = dt.Rows[0]["SystemAddress"].ToString();
 
-            UnprintedBills = Connection.server.RetrieveUnprintedBills(Environment.MachineName + "").Item1;
+            UnprintedBills = Connection.server.RetrieveUnprintedBills(Environment.MachineName).Item1;
 
             foreach(Bill UnprintedBill in UnprintedBills)
             {
