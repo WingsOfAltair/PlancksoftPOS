@@ -25,7 +25,6 @@ namespace PlancksoftPOS
         Connection Connection = null;
         List<Item> ItemsInBill;
         bool rePrint = false;
-        bool MultiPrint = false;
         Bitmap bitmap = null;
 
         private PrintDocument PrintDocument;
@@ -56,13 +55,12 @@ namespace PlancksoftPOS
 
         int y = 0;
 
-        public frmReceipt(Bill bill, string shopName, string shopAddress, string shopPhone, System.Drawing.Image storeLogoImage, bool IncludeLogoInReceipt, bool multiPrint, bool rePrint = false)
+        public frmReceipt(Bill bill, string shopName, string shopAddress, string shopPhone, System.Drawing.Image storeLogoImage, bool IncludeLogoInReceipt, bool rePrint = false)
         {
             InitializeComponent();
             Connection = new Connection();
             this.Bill = bill;
             this.ItemsInBill = bill.ItemsBought;
-            this.MultiPrint = multiPrint;
             this.StoreLogImg = storeLogoImage;
             this.IncludeLogoInReceipt = IncludeLogoInReceipt;
             this.shopName = shopName;
@@ -418,103 +416,86 @@ namespace PlancksoftPOS
         }
         private void frmReceipt_Load(object sender, EventArgs e)
         {
-            if (!MultiPrint)
-            {
-                frmMain.PrintersList = Connection.server.RetrievePrinters(Environment.MachineName);
+            List<Dependencies.Printer> PrintersToPrint = new List<Dependencies.Printer>();
 
+            frmMain.PrintersList = Connection.server.RetrievePrinters(Environment.MachineName);
+
+            foreach (Dependencies.Item item in ItemsInBill)
+            {
                 foreach (Dependencies.Printer printer in frmMain.PrintersList)
                 {
-                    printDocument1.PrinterSettings.PrinterName = printer.Name;
-                    if (printDocument1.PrinterSettings.IsDefaultPrinter)
+                    List<Dependencies.ItemType> ItemTypesInPrinterList = Connection.server.RetrievePrinterItemTypes(printer.ID);
+
+                    foreach (Dependencies.ItemType itemTypeInPrinterList in ItemTypesInPrinterList)
                     {
-                        printDocument1.PrinterSettings.PrinterName = printer.Name;
-                        printDocument1.Print();
-                    }
-                }
-            }
-            else
-            {
-                List<Dependencies.Printer> PrintersToPrint = new List<Dependencies.Printer>();
-
-                frmMain.PrintersList = Connection.server.RetrievePrinters(Environment.MachineName);
-
-                foreach (Dependencies.Item item in ItemsInBill)
-                {
-                    foreach (Dependencies.Printer printer in frmMain.PrintersList)
-                    {
-                        List<Dependencies.ItemType> ItemTypesInPrinterList = Connection.server.RetrievePrinterItemTypes(printer.ID);
-
-                        foreach (Dependencies.ItemType itemTypeInPrinterList in ItemTypesInPrinterList)
+                        if (item.GetItemTypeeID() == itemTypeInPrinterList.ID && !PrintersToPrint.Contains(printer))
                         {
-                            if (item.GetItemTypeeID() == itemTypeInPrinterList.ID && !PrintersToPrint.Contains(printer))
-                            {
-                                PrintersToPrint.Add(printer);
-                            }
+                            PrintersToPrint.Add(printer);
                         }
                     }
                 }
+            }
 
-                if (PrintersToPrint.Count <= 0)
+            if (PrintersToPrint.Count <= 0)
+            {
+                Program.exited = false;
+                Program.materialSkinManager.RemoveFormToManage(this);
+                this.Close();
+            }
+
+            foreach (Dependencies.Printer printer in PrintersToPrint)
+            {
+                printDocument1.PrinterSettings.PrinterName = printer.Name;
+
+                // Use printer’s width in hundredths of an inch
+                int printerWidth = width; // ~72mm printer (adjust if needed)         
+                                        // Table data (you can replace/add rows)
+
+                totalquantity = 0;
+                item_quantity = 0;
+
+                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
-                    Program.exited = false;
-                    Program.materialSkinManager.RemoveFormToManage(this);
-                    this.Close();
+                    headers = new string[] { "اسم السلعة", "السعر", "الكمية"
+                        //,"الخصم"
+                        , "المجموع" };
+                }
+                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    headers = new string[] { "Item Name", "Price", "Quantity"
+                        //, "Discount"
+                        , "Total" };
                 }
 
-                foreach (Dependencies.Printer printer in PrintersToPrint)
+                foreach (var item in Bill.ItemsBought)
                 {
-                    printDocument1.PrinterSettings.PrinterName = printer.Name;
+                    rows.Add(new string[] { item.ItemName, item.ItemPriceTax.ToString(), item.ItemQuantity.ToString()
+                        //, "0.00"
+                        , (item.ItemPriceTax * item.ItemQuantity).ToString() });
 
-                    // Use printer’s width in hundredths of an inch
-                    int printerWidth = width; // ~72mm printer (adjust if needed)         
-                                            // Table data (you can replace/add rows)
+                    totalquantity += item.ItemQuantity;
+                    item_quantity += 1;
+                }
 
-                    totalquantity = 0;
-                    item_quantity = 0;
-
-                    if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
-                    {
-                        headers = new string[] { "اسم السلعة", "السعر", "الكمية"
-                            //,"الخصم"
-                            , "المجموع" };
-                    }
-                    else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
-                    {
-                        headers = new string[] { "Item Name", "Price", "Quantity"
-                            //, "Discount"
-                            , "Total" };
-                    }
-
-                    foreach (var item in Bill.ItemsBought)
-                    {
-                        rows.Add(new string[] { item.ItemName, item.ItemPriceTax.ToString(), item.ItemQuantity.ToString()
-                            //, "0.00"
-                            , (item.ItemPriceTax * item.ItemQuantity).ToString() });
-
-                        totalquantity += item.ItemQuantity;
-                        item_quantity += 1;
-                    }
-
-                    using (Graphics g = this.CreateGraphics()) // Temporary graphics just for measuring
-                    {
-                        int height = MeasureReceiptHeight(
-                            g,
-                            fontRegular,
-                            fontBold,
-                            rows,
-                            headers
-                        );
+                using (Graphics g = this.CreateGraphics()) // Temporary graphics just for measuring
+                {
+                    int height = MeasureReceiptHeight(
+                        g,
+                        fontRegular,
+                        fontBold,
+                        rows,
+                        headers
+                    );
 
 
-                        // Set paper size dynamically
-                        PaperSize ps = new PaperSize("CustomReceipt", 284, 1000000000);
-                        printDocument1.DefaultPageSettings.PaperSize = ps;
+                    // Set paper size dynamically
+                    PaperSize ps = new PaperSize("CustomReceipt", 284, 1000000000);
+                    printDocument1.DefaultPageSettings.PaperSize = ps;
 
-                        // No margins, no origin shift
-                        printDocument1.DefaultPageSettings.Margins = new Margins(0, 0, 0, 0);
-                        printDocument1.OriginAtMargins = false;
-                        printDocument1.Print();
-                    }
+                    // No margins, no origin shift
+                    printDocument1.DefaultPageSettings.Margins = new Margins(0, 0, 0, 0);
+                    printDocument1.OriginAtMargins = false;
+                    printDocument1.Print();
                 }
             }
         }
