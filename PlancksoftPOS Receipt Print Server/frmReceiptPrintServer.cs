@@ -190,7 +190,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
                     MaterialMessageBox.Show(e.ToString(), false, FlexibleMaterialForm.ButtonsPosition.Center);
                 }
 
-            if (PrintersToPrint.Count <= 0)
+                if (PrintersToPrint.Count <= 0)
                 {
                     break;
                 }
