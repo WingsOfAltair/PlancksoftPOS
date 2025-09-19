@@ -42,6 +42,8 @@
             this.الخروجToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reprintReceiptsFetcher = new System.ComponentModel.BackgroundWorker();
             this.printDocument2 = new System.Drawing.Printing.PrintDocument();
+            this.الإعداداتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pbReceipt)).BeginInit();
             this.languageContextMenu.SuspendLayout();
             this.SuspendLayout();
@@ -79,10 +81,11 @@
             // languageContextMenu
             // 
             this.languageContextMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.الإعداداتToolStripMenuItem,
             this.اللغةToolStripMenuItem,
             this.الخروجToolStripMenuItem});
             this.languageContextMenu.Name = "languageContextMenu";
-            this.languageContextMenu.Size = new System.Drawing.Size(107, 48);
+            this.languageContextMenu.Size = new System.Drawing.Size(181, 92);
             // 
             // اللغةToolStripMenuItem
             // 
@@ -90,27 +93,27 @@
             this.العربيةToolStripMenuItem,
             this.englishToolStripMenuItem});
             this.اللغةToolStripMenuItem.Name = "اللغةToolStripMenuItem";
-            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.اللغةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.اللغةToolStripMenuItem.Text = "اللغة";
             // 
             // العربيةToolStripMenuItem
             // 
             this.العربيةToolStripMenuItem.Name = "العربيةToolStripMenuItem";
-            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.العربيةToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.العربيةToolStripMenuItem.Text = "العربية";
             this.العربيةToolStripMenuItem.Click += new System.EventHandler(this.العربيةToolStripMenuItem_Click);
             // 
             // englishToolStripMenuItem
             // 
             this.englishToolStripMenuItem.Name = "englishToolStripMenuItem";
-            this.englishToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.englishToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.englishToolStripMenuItem.Text = "English";
             this.englishToolStripMenuItem.Click += new System.EventHandler(this.englishToolStripMenuItem_Click);
             // 
             // الخروجToolStripMenuItem
             // 
             this.الخروجToolStripMenuItem.Name = "الخروجToolStripMenuItem";
-            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(106, 22);
+            this.الخروجToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.الخروجToolStripMenuItem.Text = "الخروج";
             this.الخروجToolStripMenuItem.Click += new System.EventHandler(this.الخروجToolStripMenuItem_Click);
             // 
@@ -121,6 +124,21 @@
             // printDocument2
             // 
             this.printDocument2.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument2_PrintPage);
+            // 
+            // الإعداداتToolStripMenuItem
+            // 
+            this.الإعداداتToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem});
+            this.الإعداداتToolStripMenuItem.Name = "الإعداداتToolStripMenuItem";
+            this.الإعداداتToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.الإعداداتToolStripMenuItem.Text = "الإعدادات";
+            // 
+            // إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem
+            // 
+            this.إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem.Name = "إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem";
+            this.إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem.Size = new System.Drawing.Size(241, 22);
+            this.إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem.Text = "إعادة طباعة الغاتورة لكل الطابعات";
+            this.إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem.Click += new System.EventHandler(this.إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem_Click);
             // 
             // ReceiptPrintServer
             // 
@@ -162,6 +180,8 @@
         private System.Windows.Forms.ToolStripMenuItem الخروجToolStripMenuItem;
         private System.ComponentModel.BackgroundWorker reprintReceiptsFetcher;
         private System.Drawing.Printing.PrintDocument printDocument2;
+        private System.Windows.Forms.ToolStripMenuItem الإعداداتToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem;
     }
 }
 

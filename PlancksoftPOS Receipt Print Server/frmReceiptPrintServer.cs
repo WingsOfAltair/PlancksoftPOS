@@ -1,4 +1,6 @@
 ﻿using Dependencies;
+using MaterialSkin;
+using MaterialSkin.Controls;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
@@ -10,12 +12,11 @@ using System.Drawing.Printing;
 using System.Drawing.Text;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MaterialSkin;
-using MaterialSkin.Controls;
 
 namespace PlancksoftPOS_Receipt_Print_Server
 {
@@ -66,12 +67,14 @@ namespace PlancksoftPOS_Receipt_Print_Server
         int Rey = 0;
 
         public static LanguageChoice.Languages pickedLanguage = LanguageChoice.Languages.Arabic;
+        public static bool reprintAllPrinters = false;
 
         public ReceiptPrintServer()
         {
             InitializeComponent();
 
             pickedLanguage = (LanguageChoice.Languages)Properties.Settings.Default.pickedLanguage;
+            reprintAllPrinters = Convert.ToBoolean(Properties.Settings.Default.reprintAllPrinters);
 
             if (pickedLanguage == LanguageChoice.Languages.Arabic)
             {
@@ -79,13 +82,19 @@ namespace PlancksoftPOS_Receipt_Print_Server
                 العربيةToolStripMenuItem.Checked = true;
                 englishToolStripMenuItem.Checked = false;
                 الخروجToolStripMenuItem.Text = "الخروج";
+                الإعداداتToolStripMenuItem.Text = "الإعدادات";
+                إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem.Text = "إعادة طباعة الغاتورة لكل الطابعات";
             } else if (pickedLanguage == LanguageChoice.Languages.English)
             {
                 اللغةToolStripMenuItem.Text = "Language";
                 العربيةToolStripMenuItem.Checked = false;
                 الخروجToolStripMenuItem.Text = "Quit";
                 englishToolStripMenuItem.Checked = true;
+                الإعداداتToolStripMenuItem.Text = "Settings";
+                إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem.Text = "Reprint Receipt to All Printers";
             }
+
+            إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem.Checked = reprintAllPrinters;
         }
 
         private void cycleTimer_Tick(object sender, EventArgs e)
@@ -956,6 +965,8 @@ namespace PlancksoftPOS_Receipt_Print_Server
             العربيةToolStripMenuItem.Checked = true;
             englishToolStripMenuItem.Checked = false;
             الخروجToolStripMenuItem.Text = "الخروج";
+            الإعداداتToolStripMenuItem.Text = "الإعدادات";
+            إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem.Text = "إعادة طباعة الغاتورة لكل الطابعات";
         }
 
         private void englishToolStripMenuItem_Click(object sender, EventArgs e)
@@ -967,14 +978,14 @@ namespace PlancksoftPOS_Receipt_Print_Server
             العربيةToolStripMenuItem.Checked = false;
             englishToolStripMenuItem.Checked = true;
             الخروجToolStripMenuItem.Text = "Quit";
+            الإعداداتToolStripMenuItem.Text = "Settings";
+            إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem.Text = "Reprint Receipt to All Printers";
         }
 
         private void الخروجToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-
-
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Ansi)]
         public class DOCINFOA
@@ -1123,9 +1134,61 @@ namespace PlancksoftPOS_Receipt_Print_Server
 
                 Rerows.Clear();
 
-                foreach (Dependencies.Printer printer in PrintersToPrint)
+                if (reprintAllPrinters)
                 {
-                    printDocument1.PrinterSettings.PrinterName = printer.Name;
+                    foreach (Dependencies.Printer printer in PrintersToPrint)
+                    {
+                        printDocument2.PrinterSettings.PrinterName = printer.Name;
+
+                        // Use printer’s width in hundredths of an inch
+                        int printerWidth = width; // ~72mm printer (adjust if needed)         
+                                                  // Table data (you can replace/add rows)
+                        if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                        {
+                            Reheaders = new string[] { "اسم السلعة", "السعر", "الكمية"
+                            //,"الخصم"
+                            , "المجموع" };
+                        }
+                        else if (pickedLanguage == LanguageChoice.Languages.English)
+                        {
+                            Reheaders = new string[] { "Item Name", "Price", "Quantity"
+                            //, "Discount"
+                            , "Total" };
+                        }
+
+                        foreach (var item in ReBill.ItemsBought)
+                        {
+                            Rerows.Add(new string[] { item.ItemName, item.ItemPriceTax.ToString(), item.ItemQuantity.ToString()
+                            //, "0.00"
+                            , (item.ItemPriceTax * item.ItemQuantity).ToString() });
+
+                            Retotalquantity += item.ItemQuantity;
+                            Reitem_quantity += 1;
+                        }
+
+                        using (Graphics g = this.CreateGraphics()) // Temporary graphics just for measuring
+                        {
+                            int height = MeasureReceiptHeight(
+                                g,
+                                fontRegular,
+                                fontBold,
+                                rows,
+                                headers
+                            );
+
+                            // Set paper size dynamically
+                            PaperSize ps = new PaperSize("CustomReceipt", 284, 1000000000);
+                            printDocument2.DefaultPageSettings.PaperSize = ps;
+
+                            // No margins, no origin shift
+                            printDocument2.DefaultPageSettings.Margins = new Margins(0, 0, 0, 0);
+                            printDocument2.OriginAtMargins = false;
+                            printDocument2.Print();
+                        }
+                    }
+                } else
+                {
+                    printDocument2.PrinterSettings.PrinterName = mainPrinterName;
 
                     // Use printer’s width in hundredths of an inch
                     int printerWidth = width; // ~72mm printer (adjust if needed)         
@@ -1477,6 +1540,14 @@ namespace PlancksoftPOS_Receipt_Print_Server
                 }
 
             }
+        }
+
+        private void إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem.Checked = !(إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem.Checked);
+            reprintAllPrinters = إعادةطباعةالغاتورةلكلالفواتيرToolStripMenuItem.Checked;
+            Properties.Settings.Default.reprintAllPrinters = Convert.ToInt32(reprintAllPrinters);
+            Properties.Settings.Default.Save();
         }
     }
 }

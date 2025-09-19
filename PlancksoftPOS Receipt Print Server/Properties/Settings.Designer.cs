@@ -34,5 +34,17 @@ namespace PlancksoftPOS_Receipt_Print_Server.Properties {
                 this["pickedLanguage"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int reprintAllPrinters {
+            get {
+                return ((int)(this["reprintAllPrinters"]));
+            }
+            set {
+                this["reprintAllPrinters"] = value;
+            }
+        }
     }
 }
