@@ -11,7 +11,7 @@ namespace PlancksoftPOS_Receipt_Print_Server
         public PlancksoftPOS_ServerClient server;
         public Connection()
         {
-            server = new PlancksoftPOS_ServerClient();
+            server = new PlancksoftPOS_ServerClient("BasicHttpsBinding_IPlancksoftPOS_Server");
         }
     }
 }

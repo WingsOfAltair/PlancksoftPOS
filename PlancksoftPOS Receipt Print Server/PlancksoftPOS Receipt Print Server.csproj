@@ -94,25 +94,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS6.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS1.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS61.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS2.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS62.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS3.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS63.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS4.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS64.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS5.xsd">
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS65.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS_Server.wsdl" />
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS_Server1.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Dependencies.Account.datasource" />
     <None Include="Properties\DataSources\Dependencies.Bill.datasource" />
@@ -152,9 +152,6 @@
     <WCFMetadataStorage Include="Connected Services\PlancksoftPOS_Server\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\PlancksoftPOS_Server\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -180,6 +177,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\PlancksoftPOS_Server\PlancksoftPOS1.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

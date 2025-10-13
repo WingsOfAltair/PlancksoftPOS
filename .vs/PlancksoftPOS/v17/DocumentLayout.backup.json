@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "D:\\GitHub\\PlancksoftPOS\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{232285EC-55B5-4742-8B67-CC2D119A888E}|PlancksoftPOS Receipt Print Server\\PlancksoftPOS Receipt Print Server.csproj|d:\\github\\plancksoftpos\\plancksoftpos receipt print server\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{232285EC-55B5-4742-8B67-CC2D119A888E}|PlancksoftPOS Receipt Print Server\\PlancksoftPOS Receipt Print Server.csproj|solutionrelative:plancksoftpos receipt print server\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|d:\\github\\plancksoftpos\\plancksoftpos\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|solutionrelative:plancksoftpos\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E9FD12D7-24CB-4B93-848E-83B73645CD1A}|PlancksoftPOS Server\\PlancksoftPOS Server.csproj|d:\\github\\plancksoftpos\\plancksoftpos server\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{E9FD12D7-24CB-4B93-848E-83B73645CD1A}|PlancksoftPOS Server\\PlancksoftPOS Server.csproj|solutionrelative:plancksoftpos server\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|d:\\github\\plancksoftpos\\plancksoftpos\\classes\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|solutionrelative:plancksoftpos\\classes\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{232285EC-55B5-4742-8B67-CC2D119A888E}|PlancksoftPOS Receipt Print Server\\PlancksoftPOS Receipt Print Server.csproj|d:\\github\\plancksoftpos\\plancksoftpos receipt print server\\classes\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{232285EC-55B5-4742-8B67-CC2D119A888E}|PlancksoftPOS Receipt Print Server\\PlancksoftPOS Receipt Print Server.csproj|solutionrelative:plancksoftpos receipt print server\\classes\\connection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{232285EC-55B5-4742-8B67-CC2D119A888E}|PlancksoftPOS Receipt Print Server\\PlancksoftPOS Receipt Print Server.csproj|d:\\github\\plancksoftpos\\plancksoftpos receipt print server\\frmreceiptprintserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{232285EC-55B5-4742-8B67-CC2D119A888E}|PlancksoftPOS Receipt Print Server\\PlancksoftPOS Receipt Print Server.csproj|solutionrelative:plancksoftpos receipt print server\\frmreceiptprintserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{232285EC-55B5-4742-8B67-CC2D119A888E}|PlancksoftPOS Receipt Print Server\\PlancksoftPOS Receipt Print Server.csproj|d:\\github\\plancksoftpos\\plancksoftpos receipt print server\\frmreceiptprintserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{232285EC-55B5-4742-8B67-CC2D119A888E}|PlancksoftPOS Receipt Print Server\\PlancksoftPOS Receipt Print Server.csproj|solutionrelative:plancksoftpos receipt print server\\frmreceiptprintserver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|d:\\github\\plancksoftpos\\plancksoftpos\\viewcontrollers\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{690B9723-B20B-4BBA-BFED-5BC79081D516}|PlancksoftPOS\\PlancksoftPOS.csproj|solutionrelative:plancksoftpos\\viewcontrollers\\frmlogin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,140 +38,108 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 27,
+          "SelectedChildIndex": 1,
           "Children": [
             {
-              "$type": "Bookmark",
-              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:133:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:134:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:135:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:136:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:137:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:138:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:139:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:141:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:142:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:143:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:144:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:145:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:146:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:147:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:148:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:149:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:150:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:151:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:152:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:140:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:154:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:153:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "App.config",
+              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\App.config",
+              "RelativeDocumentMoniker": "PlancksoftPOS\\App.config",
+              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\App.config",
+              "RelativeToolTip": "PlancksoftPOS\\App.config",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAwFgAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-10-13T07:59:38.749Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "App.config",
+              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Receipt Print Server\\App.config",
+              "RelativeDocumentMoniker": "PlancksoftPOS Receipt Print Server\\App.config",
+              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Receipt Print Server\\App.config",
+              "RelativeToolTip": "PlancksoftPOS Receipt Print Server\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-10-13T07:58:10.923Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Connection.cs",
+              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Receipt Print Server\\Classes\\Connection.cs",
+              "RelativeDocumentMoniker": "PlancksoftPOS Receipt Print Server\\Classes\\Connection.cs",
+              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Receipt Print Server\\Classes\\Connection.cs",
+              "RelativeToolTip": "PlancksoftPOS Receipt Print Server\\Classes\\Connection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T07:57:32.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "frmReceiptPrintServer.cs",
               "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs",
               "RelativeDocumentMoniker": "PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs",
               "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs",
               "RelativeToolTip": "PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAYwFsAAAAvAAAAAAAAAA==",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAmwG0AAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T06:13:48.736Z",
+              "WhenOpened": "2025-10-13T07:57:26.398Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmReceiptPrintServer.cs [Design]",
-              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs",
-              "RelativeDocumentMoniker": "PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs",
-              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs [Design]",
-              "RelativeToolTip": "PlancksoftPOS Receipt Print Server\\frmReceiptPrintServer.cs [Design]",
+              "DocumentIndex": 3,
+              "Title": "Connection.cs",
+              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\Classes\\Connection.cs",
+              "RelativeDocumentMoniker": "PlancksoftPOS\\Classes\\Connection.cs",
+              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\Classes\\Connection.cs",
+              "RelativeToolTip": "PlancksoftPOS\\Classes\\Connection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAABcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-19T06:13:44.443Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2025-10-13T07:56:40.804Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "frmLogin.cs",
+              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmLogin.cs",
+              "RelativeDocumentMoniker": "PlancksoftPOS\\ViewControllers\\frmLogin.cs",
+              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS\\ViewControllers\\frmLogin.cs",
+              "RelativeToolTip": "PlancksoftPOS\\ViewControllers\\frmLogin.cs",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAAwGoAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-13T07:56:24.798Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Web.config",
+              "DocumentMoniker": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Server\\Web.config",
+              "RelativeDocumentMoniker": "PlancksoftPOS Server\\Web.config",
+              "ToolTip": "D:\\GitHub\\PlancksoftPOS\\PlancksoftPOS Server\\Web.config",
+              "RelativeToolTip": "PlancksoftPOS Server\\Web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-10-13T07:54:24.888Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 600,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1547168514:0:{81164725-9a96-4ece-a4cb-440d8fd285e5}"
             }
           ]
         }

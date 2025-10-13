@@ -12,7 +12,7 @@ namespace PlancksoftPOS
         public PlancksoftPOS_ServerClient server;
         public Connection()
         {
-            server = new PlancksoftPOS_ServerClient();
+            server = new PlancksoftPOS_ServerClient("BasicHttpsBinding_IPlancksoftPOS_Server");
         }
     }
 }
