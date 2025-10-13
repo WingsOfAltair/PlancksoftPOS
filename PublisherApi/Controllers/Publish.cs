@@ -30,7 +30,7 @@ namespace PublisherApi.Controllers
                 var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 
                 // Send a POST request to the API endpoint
-                var response = await httpClient.PostAsync("http://192.168.1.29/PlancksoftPOSJSON/PlancksoftPOSJSON_Server.svc/" + request.Method, content);
+                var response = await httpClient.PostAsync("https://192.168.1.29/PlancksoftPOSJSON/PlancksoftPOSJSON_Server.svc/" + request.Method, content);
 
                 // Check if the response was successful
                 if (response.IsSuccessStatusCode)

@@ -20,10 +20,25 @@ namespace PublisherApi
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseKestrel();
-                    webBuilder.UseIIS();
-                    webBuilder.UseUrls("http://*:5000");
-                    webBuilder.UseStartup<Startup>().UseKestrel(o => o.Limits.MaxRequestBodySize = null);
+                    webBuilder.UseStartup<Startup>();
+
+                    webBuilder.UseKestrel(options =>
+                    {
+                        // HTTP (optional, e.g. for redirect)
+                        options.ListenAnyIP(5000);
+
+                        // HTTPS endpoint using your PFX cert
+                        options.ListenAnyIP(5002, listenOptions =>
+                        {
+                            listenOptions.UseHttps(
+                                "C:\\temp\\192.168.1.29.pfx",
+                                "P@ssw0rd!"
+                            );
+                        });
+
+                        // Optional: remove body size limit
+                        options.Limits.MaxRequestBodySize = null;
+                    });
                 });
-    }
+        }
 }

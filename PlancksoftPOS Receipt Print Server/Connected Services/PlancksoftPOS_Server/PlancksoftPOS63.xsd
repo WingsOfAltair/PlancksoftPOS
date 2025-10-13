@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/System" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/System" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:import schemaLocation="http://localhost/PlancksoftPOSSOAP/PlancksoftPOS.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Dependencies" />
+  <xs:import schemaLocation="https://192.168.1.29/PlancksoftPOSSOAP/PlancksoftPOS.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/Dependencies" />
   <xs:complexType name="TupleOfArrayOfAccountDataTablex3XxKQzD">
     <xs:annotation>
       <xs:appinfo>
