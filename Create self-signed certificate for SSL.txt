@@ -1,0 +1,4 @@
+Configure the create-ip-cert.ps1 file to desired LAN IP pfx path and password and crt path then
+Run this command in an elevated CMD to run the script file:
+
+PowerShell -ExecutionPolicy Bypass -File "D:\PATH\TO\\create-ip-cert.ps1"
