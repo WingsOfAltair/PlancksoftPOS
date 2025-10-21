@@ -15,7 +15,7 @@ namespace PublisherApi.Controllers
     [ApiController]
     public class Publish : ControllerBase
     {
-       
+
         [AllowAnonymous]
         [HttpPost("publish")]
         public async Task<ActionResult> PublishAsync(Request request)
@@ -24,36 +24,33 @@ namespace PublisherApi.Controllers
 
             try
             {
-                // Create the request payload
+                // Serialize the payload
                 var requestData = request.Data;
                 var jsonPayload = System.Text.Json.JsonSerializer.Serialize(requestData);
                 var content = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 
-                // Send a POST request to the API endpoint
-                var response = await httpClient.PostAsync("https://192.168.1.29/PlancksoftPOSJSON/PlancksoftPOSJSON_Server.svc/" + request.Method, content);
+                // Determine target scheme based on incoming request
+                var scheme = Request.IsHttps ? "https" : "http";
+                var host = "192.168.1.29"; // or dynamically: Request.Host.Host
+                var url = $"{scheme}://{host}/PlancksoftPOSJSON/PlancksoftPOSJSON_Server.svc/{request.Method}";
 
-                // Check if the response was successful
+                // Send the POST request
+                var response = await httpClient.PostAsync(url, content);
+
                 if (response.IsSuccessStatusCode)
                 {
-                    // Read the response content as a string
                     var responseContent = await response.Content.ReadAsStringAsync();
-
-                    // Process the response or deserialize it to your desired data type
                     return Ok(responseContent);
                 }
                 else
                 {
-                    // Handle the error case, if needed
-
-                    return BadRequest($"Request failed with status code {response.RequestMessage}");
+                    return BadRequest($"Request failed with status code {response.StatusCode}");
                 }
             }
             catch (Exception ex)
             {
-                // Handle any exceptions that occurred during the request
                 return BadRequest($"An error occurred: {ex.Message}");
             }
-            
         }
 
         [AllowAnonymous]

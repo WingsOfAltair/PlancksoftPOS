@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,13 +36,15 @@ namespace PublisherApi
 
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(builder =>
+                options.AddPolicy("AllowAll", policy =>
                 {
-                    builder.AllowAnyOrigin()
-                           .AllowAnyMethod()
-                           .AllowAnyHeader();
+                    policy
+                        .AllowAnyOrigin()
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
                 });
             });
+
             services.Configure<FormOptions>(o =>
             {
                 o.ValueCountLimit = int.MaxValue;
@@ -68,18 +70,33 @@ namespace PublisherApi
 
             app.Use(async (context, next) =>
             {
-                context.Features.Get<IHttpMaxRequestBodySizeFeature>().MaxRequestBodySize = null; // unlimited I guess
-                await next.Invoke();
+                context.Features.Get<IHttpMaxRequestBodySizeFeature>().MaxRequestBodySize = null;
+
+                var remoteIp = context.Connection.RemoteIpAddress;
+                if (remoteIp != null && remoteIp.IsIPv4MappedToIPv6)
+                    remoteIp = remoteIp.MapToIPv4();
+
+                bool isLan = remoteIp != null && (
+                    remoteIp.ToString().StartsWith("192.168.") ||
+                    remoteIp.ToString().StartsWith("10.") ||
+                    remoteIp.ToString().StartsWith("172.")
+                );
+
+                // Redirect only non-LAN clients to HTTPS
+                if (!isLan && !context.Request.IsHttps)
+                {
+                    var httpsUrl = "https://" + context.Request.Host + context.Request.Path + context.Request.QueryString;
+                    context.Response.Redirect(httpsUrl);
+                }
+                else
+                {
+                    await next();
+                }
             });
 
-            app.UseHttpsRedirection();
-
             app.UseRouting();
-            // Enable CORS
-            app.UseCors();
-
+            app.UseCors("AllowAll");
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
