@@ -1056,7 +1056,7 @@ namespace DataAccessLayer
             }
         }
 
-        public bool SaveRegisterClose(string cashierName, decimal moneyInRegister)
+        public bool SaveRegisterClose(string cashierName, string cashName, decimal moneyInRegister)
         {
             try
             {
@@ -1066,6 +1066,7 @@ namespace DataAccessLayer
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.AddWithValue("@cashier_name", cashierName);
+                cmd.Parameters.AddWithValue("@cash_name", cashName);
                 cmd.Parameters.AddWithValue("@moneyInRegister", moneyInRegister);
                 cmd.Parameters.AddWithValue("@date", DateTime.Now);
                 cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -1083,7 +1084,7 @@ namespace DataAccessLayer
             }
         }
 
-        public bool SaveRegisterOpen(string cashierName, decimal moneyInRegister)
+        public bool SaveRegisterOpen(string cashierName, string cashName, decimal moneyInRegister)
         {
             try
             {
@@ -1093,6 +1094,7 @@ namespace DataAccessLayer
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.AddWithValue("@cashier_name", cashierName);
+                cmd.Parameters.AddWithValue("@cash_name", cashName);
                 cmd.Parameters.AddWithValue("@moneyInRegister", moneyInRegister);
                 cmd.Parameters.AddWithValue("@date", DateTime.Now);
                 cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -1490,6 +1492,7 @@ namespace DataAccessLayer
                     Bill newBill = new Bill();
                     newBill.SetBillNumber(Convert.ToInt32(Bill["Bill Number"].ToString()));
                     newBill.SetCashierName(Bill["Cashier Name"].ToString());
+                    newBill.CashName = Bill["Cash Name"].ToString();
                     newBill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
                     newBill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
                     newBill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
@@ -1539,6 +1542,7 @@ namespace DataAccessLayer
                     Bill newBill = new Bill();
                     newBill.SetBillNumber(Convert.ToInt32(Bill["Bill Number"].ToString()));
                     newBill.SetCashierName(Bill["Cashier Name"].ToString());
+                    newBill.CashName = Bill["Cash Name"].ToString();
                     newBill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
                     newBill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
                     newBill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
@@ -3168,6 +3172,7 @@ namespace DataAccessLayer
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@cashierName", cashierName);
+                    cmd.Parameters.AddWithValue("@cashName", billToAdd.CashName);
                     cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
                     cmd.Parameters.AddWithValue("@paidAmount", billToAdd.getPaidAmount());
                     if (billToAdd.getRemainderAmount() < 0)

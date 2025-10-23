@@ -144,6 +144,7 @@
       <xs:element minOccurs="0" name="TaxID" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TotalAmount" type="xs:decimal" />
       <xs:element minOccurs="0" name="billNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="cashName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="cashierName" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="clientAddress" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="clientEmail" nillable="true" type="xs:string" />

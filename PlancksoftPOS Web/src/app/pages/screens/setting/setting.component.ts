@@ -25,8 +25,9 @@ export class SettingComponent implements OnInit {
       Storename: [],
       Phone: [],
       Address: [],
+      CashName: [],
       SystemTax: [],
-      BlankSpacesInRecipt: [],
+      //BlankSpacesInRecipt: [],
       IncludeLogo: [],
       Logo: [],
     });
@@ -42,8 +43,9 @@ export class SettingComponent implements OnInit {
           Storename: this.message[0].SystemName,
           Phone: this.message[0].SystemPhone,
           Address: this.message[0].SystemAddress,
+          CashName: localStorage.getItem("CashName"),
           SystemTax: this.message[0].SystemTax,
-          BlankSpacesInRecipt: this.message[0].SystemReceiptBlankSpaces,
+          //BlankSpacesInRecipt: this.message[0].SystemReceiptBlankSpaces,
           IncludeLogo: this.message[0].SystemIncludeLogoInReceipt,
         });
 
@@ -88,12 +90,15 @@ export class SettingComponent implements OnInit {
         SystemName: this.firstFormGroup.value.Storename,
         SystemPhone: this.firstFormGroup.value.Phone,
         SystemAddress: this.firstFormGroup.value.Address,
-        SystemReceiptBlankSpaces: this.firstFormGroup.value.BlankSpacesInRecipt,
+        SystemReceiptBlankSpaces: 0,//this.firstFormGroup.value.BlankSpacesInRecipt,
         SystemIncludeLogoInReceipt:
           this.firstFormGroup.value.IncludeLogo == true ? 1 : 0,
         SystemTax: this.firstFormGroup.value.SystemTax,
         SystemLogo: Object.values(this.imageByteArray),
       };
+
+      localStorage.setItem('CashName', this.firstFormGroup.value.CashName);
+
       this.publisherService
         .PostRequest("UpdateSystemSettings", obj)
         .subscribe((res: any) => {

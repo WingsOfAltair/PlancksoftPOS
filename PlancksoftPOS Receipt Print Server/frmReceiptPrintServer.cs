@@ -356,6 +356,15 @@ namespace PlancksoftPOS_Receipt_Print_Server
                     y = DrawCenteredText(g, "Cashier Name: " + Bill.CashierName, y, fontRegular);
                 }
 
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y = DrawCenteredText(g, "إسم الكاش: " + Bill.CashName, y, fontRegular);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y = DrawCenteredText(g, "Cash Name: " + Bill.CashName, y, fontRegular);
+                }
+
                 if (Bill.ClientName.Trim().Length > 0 && Bill.ClientAddress.Trim().Length > 0)
                 {
                     if (pickedLanguage == LanguageChoice.Languages.Arabic)
@@ -1341,6 +1350,15 @@ namespace PlancksoftPOS_Receipt_Print_Server
                 else if (pickedLanguage == LanguageChoice.Languages.English)
                 {
                     y = DrawCenteredText(g, "Cashier Name: " + ReBill.CashierName, y, fontRegular);
+                }
+
+                if (pickedLanguage == LanguageChoice.Languages.Arabic)
+                {
+                    y = DrawCenteredText(g, "إسم الكاش: " + Bill.CashName, y, fontRegular);
+                }
+                else if (pickedLanguage == LanguageChoice.Languages.English)
+                {
+                    y = DrawCenteredText(g, "Cash Name: " + Bill.CashName, y, fontRegular);
                 }
 
                 if (ReBill.ClientName.Trim().Length > 0 && ReBill.ClientAddress.Trim().Length > 0)

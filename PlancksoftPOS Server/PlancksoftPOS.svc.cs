@@ -133,13 +133,13 @@ namespace PlancksoftPOS_Server
         {
             return DAL.AddFavoriteItem(ItemName, ItemBarCode, ItemQuantity, ItemPrice, ItemPriceTax, Category, Date);
         }
-        public bool SaveRegisterClose(string cashierName, decimal moneyInRegister)
+        public bool SaveRegisterClose(string cashierName, string cashName, decimal moneyInRegister)
         {
-            return DAL.SaveRegisterClose(cashierName, moneyInRegister);
+            return DAL.SaveRegisterClose(cashierName, cashName, moneyInRegister);
         }
-        public bool SaveRegisterOpen(string cashierName, decimal moneyInRegister)
+        public bool SaveRegisterOpen(string cashierName, string cashName, decimal moneyInRegister)
         {
-            return DAL.SaveRegisterOpen(cashierName, moneyInRegister);
+            return DAL.SaveRegisterOpen(cashierName, cashName, moneyInRegister);
         }
         public Tuple<List<Item>, DataTable> SearchWarehouseInventoryItems(int WarehouseID) { 
             return DAL.SearchWarehouseInventoryItems(WarehouseID);

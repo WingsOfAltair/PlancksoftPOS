@@ -120,7 +120,7 @@ namespace DataAccessLayerJSON
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@BillNumber", BillNumber);
-                    cmd.Parameters.AddWithValue("@itemBarcode    ", itemBarcode);
+                    cmd.Parameters.AddWithValue("@itemBarcode", itemBarcode);
                     cmd.Parameters.Add("@SoldItemQuantity", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
@@ -147,12 +147,12 @@ namespace DataAccessLayerJSON
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@SystemName", SystemName);
-                    cmd.Parameters.AddWithValue("@SystemLogo    ", SystemLogo);
-                    cmd.Parameters.AddWithValue("@SystemPhone    ", SystemPhone);
-                    cmd.Parameters.AddWithValue("@SystemAddress    ", SystemAddress);
-                    cmd.Parameters.AddWithValue("@SystemReceiptBlankSpaces    ", SystemReceiptBlankSpaces);
-                    cmd.Parameters.AddWithValue("@SystemIncludeLogoInReceipt    ", SystemIncludeLogoInReceipt);
-                    cmd.Parameters.AddWithValue("@SystemTax    ", SystemTax);
+                    cmd.Parameters.AddWithValue("@SystemLogo", SystemLogo);
+                    cmd.Parameters.AddWithValue("@SystemPhone", SystemPhone);
+                    cmd.Parameters.AddWithValue("@SystemAddress", SystemAddress);
+                    cmd.Parameters.AddWithValue("@SystemReceiptBlankSpaces", SystemReceiptBlankSpaces);
+                    cmd.Parameters.AddWithValue("@SystemIncludeLogoInReceipt", SystemIncludeLogoInReceipt);
+                    cmd.Parameters.AddWithValue("@SystemTax", SystemTax);
                     cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
 
                     if (connection != null && connection.State == ConnectionState.Closed)
@@ -1103,7 +1103,7 @@ namespace DataAccessLayerJSON
             }
         }
 
-        public Response SaveRegisterClose(string cashierName, decimal moneyInRegister)
+        public Response SaveRegisterClose(string cashierName, string cashName, decimal moneyInRegister)
         {
             try
             {
@@ -1113,6 +1113,7 @@ namespace DataAccessLayerJSON
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.AddWithValue("@cashier_name", cashierName);
+                cmd.Parameters.AddWithValue("@cash_name", cashName);
                 cmd.Parameters.AddWithValue("@moneyInRegister", moneyInRegister);
                 cmd.Parameters.AddWithValue("@date", DateTime.Now);
                 cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -1130,7 +1131,7 @@ namespace DataAccessLayerJSON
             }
         }
 
-        public Response SaveRegisterOpen(string cashierName, decimal moneyInRegister)
+        public Response SaveRegisterOpen(string cashierName, string cashName, decimal moneyInRegister)
         {
             try
             {
@@ -1140,6 +1141,7 @@ namespace DataAccessLayerJSON
                     CommandType = CommandType.StoredProcedure
                 };
                 cmd.Parameters.AddWithValue("@cashier_name", cashierName);
+                cmd.Parameters.AddWithValue("@cash_name", cashName);
                 cmd.Parameters.AddWithValue("@moneyInRegister", moneyInRegister);
                 cmd.Parameters.AddWithValue("@date", DateTime.Now);
                 cmd.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -1314,6 +1316,7 @@ namespace DataAccessLayerJSON
                     Bill bill = new Bill();
                     bill.SetBillNumber(Convert.ToInt32(Bill["Bill Number"].ToString()));
                     bill.SetCashierName(Bill["Cashier Name"].ToString());
+                    bill.CashName = Bill["Cash Name"].ToString();
                     bill.SetTotalAmount(Convert.ToDecimal(Bill["Total Amount"].ToString()));
                     bill.SetPaidAmount(Convert.ToDecimal(Bill["Paid Amount"].ToString()));
                     bill.SetRemainderAmount(Convert.ToDecimal(Bill["Remainder Amount"].ToString()));
@@ -3196,6 +3199,7 @@ namespace DataAccessLayerJSON
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@cashierName", cashierName);
+                    cmd.Parameters.AddWithValue("@cashName", billToAdd.CashName);
                     cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
                     cmd.Parameters.AddWithValue("@paidAmount", billToAdd.getPaidAmount());
                     if (billToAdd.getRemainderAmount() < 0)

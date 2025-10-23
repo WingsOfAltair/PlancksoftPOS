@@ -220,17 +220,17 @@ namespace PlancksoftPOSJSON_Server
             serializer.MaxJsonLength = Int32.MaxValue;
             return serializer.Serialize(DAL.AddFavoriteItem(ItemName, ItemBarCode, ItemQuantity, ItemPrice, ItemPriceTax, Category, Date));
         }
-        public string SaveRegisterClose(string cashierName, decimal moneyInRegister)
+        public string SaveRegisterClose(string cashierName, string cashName, decimal moneyInRegister)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             serializer.MaxJsonLength = Int32.MaxValue;
-            return serializer.Serialize(DAL.SaveRegisterClose(cashierName, moneyInRegister));
+            return serializer.Serialize(DAL.SaveRegisterClose(cashierName, cashName, moneyInRegister));
         }
-        public string SaveRegisterOpen(string cashierName, decimal moneyInRegister)
+        public string SaveRegisterOpen(string cashierName, string cashName, decimal moneyInRegister)
         {
             JavaScriptSerializer serializer = new JavaScriptSerializer();
             serializer.MaxJsonLength = Int32.MaxValue;
-            return serializer.Serialize(DAL.SaveRegisterOpen(cashierName, moneyInRegister));
+            return serializer.Serialize(DAL.SaveRegisterOpen(cashierName, cashName, moneyInRegister));
         }
         public string SearchWarehouseInventoryItems(int WarehouseID)
         {

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="PlancksoftPOS_Server" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
-  <wsp:Policy wsu:Id="BasicHttpBinding_IPlancksoftPOS_Server1_policy">
+  <wsp:Policy wsu:Id="HTTPS_Endpoint_policy">
     <wsp:ExactlyOne>
       <wsp:All>
         <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
@@ -1247,7 +1247,7 @@
       <wsdl:output wsaw:Action="http://tempuri.org/IPlancksoftPOS_Server/SearchClientsInfoResponse" message="tns:IPlancksoftPOS_Server_SearchClientsInfo_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
-  <wsdl:binding name="BasicHttpBinding_IPlancksoftPOS_Server" type="tns:IPlancksoftPOS_Server">
+  <wsdl:binding name="HTTP_Endpoint" type="tns:IPlancksoftPOS_Server">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CheckConnection">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/CheckConnection" style="document" />
@@ -2339,8 +2339,8 @@
       </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
-  <wsdl:binding name="BasicHttpBinding_IPlancksoftPOS_Server1" type="tns:IPlancksoftPOS_Server">
-    <wsp:PolicyReference URI="#BasicHttpBinding_IPlancksoftPOS_Server1_policy" />
+  <wsdl:binding name="HTTPS_Endpoint" type="tns:IPlancksoftPOS_Server">
+    <wsp:PolicyReference URI="#HTTPS_Endpoint_policy" />
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="CheckConnection">
       <soap:operation soapAction="http://tempuri.org/IPlancksoftPOS_Server/CheckConnection" style="document" />
@@ -3433,10 +3433,10 @@
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="PlancksoftPOS_Server">
-    <wsdl:port name="BasicHttpBinding_IPlancksoftPOS_Server" binding="tns:BasicHttpBinding_IPlancksoftPOS_Server">
+    <wsdl:port name="HTTP_Endpoint" binding="tns:HTTP_Endpoint">
       <soap:address location="http://sheikhhash/PlancksoftPOSSOAP/PlancksoftPOS.svc" />
     </wsdl:port>
-    <wsdl:port name="BasicHttpBinding_IPlancksoftPOS_Server1" binding="tns:BasicHttpBinding_IPlancksoftPOS_Server1">
+    <wsdl:port name="HTTPS_Endpoint" binding="tns:HTTPS_Endpoint">
       <soap:address location="https://192.168.1.29/PlancksoftPOSSOAP/PlancksoftPOS.svc" />
     </wsdl:port>
   </wsdl:service>

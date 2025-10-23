@@ -324,6 +324,7 @@ export class PaymentModalComponent implements OnInit {
       taxID: "Tax ID",
       date: this.convertDateToJSONFormat(new Date()),
       cashierName: this.userID,
+      cashName: localStorage.getItem("CashName"),
       paybycash:
         this.payment.value.cashpayment == 1
           ? this.payment.value.cashpayment

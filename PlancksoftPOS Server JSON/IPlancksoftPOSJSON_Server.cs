@@ -432,7 +432,7 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string SaveRegisterClose(string cashierName, decimal moneyInRegister);
+        string SaveRegisterClose(string cashierName, string cashName, decimal moneyInRegister);
         [OperationContract]
         [
             WebInvoke
@@ -444,7 +444,7 @@ namespace PlancksoftPOSJSON_Server
                 BodyStyle = WebMessageBodyStyle.WrappedRequest
             )
         ]
-        string SaveRegisterOpen(string cashierName, decimal moneyInRegister);
+        string SaveRegisterOpen(string cashierName, string cashName, decimal moneyInRegister);
         [OperationContract]
         [
             WebInvoke
