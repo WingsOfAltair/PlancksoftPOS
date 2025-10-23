@@ -1235,6 +1235,7 @@ namespace PlancksoftPOS
                         label21.Text = "العنوان";
                         lblEmail.Text = "البريد الإلكتروني";
                         btnClientAdd.Text = "حفظ العميل";
+                        btnClientEdit.Text = "تعديل العميل";
                         groupBox15.Text = "جدول العملاء";
                         selectAllClients.Text = "إختيار الجميع";
                         dgvClients.Columns["Column27"].HeaderText = "إسم العميل";
@@ -1279,6 +1280,7 @@ namespace PlancksoftPOS
                         label39.Text = "العنوان";
                         lblVendorEmail.Text = "البريد الإلكتروني";
                         button7.Text = "حفظ المورد";
+                        materialButton1.Text = "تعديل المورد";
                         groupBox39.Text = "جدول الموردين";
                         selectAllVendors.Text = "إختيار الجميع";
                         dgvVendors.Columns["VendorClientName"].HeaderText = "إسم المورد";
@@ -1846,6 +1848,7 @@ namespace PlancksoftPOS
                         label21.Text = "Address";
                         lblEmail.Text = "Email Address";
                         btnClientAdd.Text = "Save Client";
+                        btnClientEdit.Text = "Update Client";
                         groupBox15.Text = "Clients Grid";
                         selectAllClients.Text = "Select Everyone";
                         dgvClients.Columns["Column27"].HeaderText = "Client Name";
@@ -1890,6 +1893,7 @@ namespace PlancksoftPOS
                         label39.Text = "Address";
                         lblVendorEmail.Text = "Email Address";
                         button7.Text = "Save Importer";
+                        materialButton1.Text = "Update Importer";
                         groupBox39.Text = "Importers Grid";
                         selectAllVendors.Text = "Select Everyone";
                         dgvVendors.Columns["VendorClientName"].HeaderText = "Importer Name";
