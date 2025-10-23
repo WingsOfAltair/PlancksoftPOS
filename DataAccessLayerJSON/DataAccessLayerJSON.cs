@@ -3120,6 +3120,7 @@ namespace DataAccessLayerJSON
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.AddWithValue("@cashierName", cashierName);
+                    cmd.Parameters.AddWithValue("@cashName", billToAdd.CashName);
                     cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
                     cmd.Parameters.AddWithValue("@discountedAmount", billToAdd.DiscountAmount);
                     cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
