@@ -215,6 +215,7 @@ namespace PlancksoftPOS
             this.txtStorePhone.Text = dt.Rows[0]["SystemPhone"].ToString();
             this.PlancksoftPOSAddress = dt.Rows[0]["SystemAddress"].ToString();
             this.txtStoreAddress.Text = dt.Rows[0]["SystemAddress"].ToString();
+            this.txtCashName.Text = Properties.Settings.Default.cashName;
             this.Text = this.PlancksoftPOSName + " - الشاشه الرئيسيه";
             label45.Text = " هذه النسخه مرخصه لمتجر " + this.PlancksoftPOSName;
             this.receiptSpacingnud.Value = Convert.ToInt32(dt.Rows[0]["SystemReceiptBlankSpaces"].ToString());
@@ -729,6 +730,7 @@ namespace PlancksoftPOS
                 this.txtStorePhone.Text = dt.Rows[0]["SystemPhone"].ToString();
                 this.PlancksoftPOSAddress = dt.Rows[0]["SystemAddress"].ToString();
                 this.txtStoreAddress.Text = dt.Rows[0]["SystemAddress"].ToString();
+                this.txtCashName.Text = Properties.Settings.Default.cashName;
                 if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
                 {
                     this.Text = this.PlancksoftPOSName + " - الشاشه الرئيسيه";
@@ -1388,6 +1390,8 @@ namespace PlancksoftPOS
                         groupBox9.Text = "الإعدادات الأساسية";
                         lblStoreName.Text = "إسم المتجر";
                         lblStorePhone.Text = "رقم الهاتف";
+                        lblStoreAddress.Text = "عنوان المتجر";
+                        lblCashName.Text = "إسم الكاش";
                         groupBox18.Text = "الضرائب";
                         label78.Text = "% نسبة الضريبه بالمئه";
                         groupBox2.Text = "صورة المتجر";
@@ -1994,6 +1998,8 @@ namespace PlancksoftPOS
                         groupBox9.Text = "Fundamental Settings";
                         lblStoreName.Text = "Store Name";
                         lblStorePhone.Text = "Phone Number";
+                        lblStoreAddress.Text = "Store Addrerss";
+                        lblCashName.Text = "Cash Name";
                         groupBox18.Text = "Taxes";
                         label78.Text = "Percentage of Taxes %";
                         groupBox2.Text = "Store Logo";
@@ -3971,7 +3977,7 @@ namespace PlancksoftPOS
                 Properties.Settings.Default.Save();
                 this.remainderAmount = this.totalAmount - this.paidAmount;
 
-                Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
+                Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now, txtCashName.Text);
                 previousBillsList.Push(billToAdd);
 
                 richTextBox4.ResetText();
@@ -4044,7 +4050,7 @@ namespace PlancksoftPOS
                         }
                     }
 
-                    nextBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
+                    nextBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now, txtCashName.Text));
                     ItemsPendingPurchase.Rows.Clear();
                     Bill bill = previousBillsList.Pop();
                     if (bill.BillNumber < 1)
@@ -4133,7 +4139,7 @@ namespace PlancksoftPOS
                         }
                     }
 
-                    previousBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
+                    previousBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now, txtCashName.Text));
                     ItemsPendingPurchase.Rows.Clear();
                     Bill bill = nextBillsList.Pop();
 
@@ -6041,11 +6047,13 @@ namespace PlancksoftPOS
             bool changedUI = false;
             try
             {
-                if (Connection.server.UpdateSystemSettings(this.txtStoreName.Text, StoreLogo, this.txtStorePhone.Text,
-                    txtStoreAddress.Text,
+                if (Connection.server.UpdateSystemSettings(this.txtStoreName.Text, StoreLogo, this.txtStorePhone.Text, txtStoreAddress.Text,
                     Convert.ToInt32(this.receiptSpacingnud.Value),
                     Convert.ToInt32(this.IncludeLogoReceipt.Checked), nudTaxRate.Value))
                 {
+                    Properties.Settings.Default.cashName = txtCashName.Text;
+                    Properties.Settings.Default.Save();
+
                     this.PlancksoftPOSName = this.txtStoreName.Text;
                     this.PlancksoftPOSPhone = this.txtStorePhone.Text;
                     this.PlancksoftPOSAddress = this.txtStorePhone.Text;
@@ -7510,7 +7518,7 @@ namespace PlancksoftPOS
                     }
 
 
-                    Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, frmPayCash.discountedAmount, "Tax ID", itemsToAdd, frmPayCash.paybycash, DateTime.Now, this.cashierName);
+                    Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, frmPayCash.discountedAmount, "Tax ID", itemsToAdd, frmPayCash.paybycash, DateTime.Now, this.cashierName, Properties.Settings.Default.cashName);
                     if (Connection.server.PayBill(billToAdd, this.cashierName))
                     {
                         // paid bill
@@ -7559,7 +7567,7 @@ namespace PlancksoftPOS
                                 }
                             }
 
-                            Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, frmPayCash.discountedAmount, "Tax ID", items, frmPayCash.paybycash, DateTime.Now, this.cashierName);
+                            Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, frmPayCash.discountedAmount, "Tax ID", items, frmPayCash.paybycash, DateTime.Now, this.cashierName, Properties.Settings.Default.cashName);
 
                             billToAdd.ClientID = frmPickClientLookup.pickedClient.ClientID;
                             billToAdd.ClientName = frmPickClientLookup.pickedClient.ClientName;
@@ -7614,7 +7622,7 @@ namespace PlancksoftPOS
                             }
                         }
 
-                        Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, frmPayCash.discountedAmount, "Tax ID", items, DateTime.Now);
+                        Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, frmPayCash.discountedAmount, "Tax ID", items, DateTime.Now, txtCashName.Text);
                         billToAdd.ClientID = frmPickClientLookup.pickedClient.ClientID;
                         int UnpaidBillNumber = Connection.server.AddUnpaidBill(billToAdd, this.cashierName);
                         if (UnpaidBillNumber > -1)
@@ -7863,7 +7871,7 @@ namespace PlancksoftPOS
                 Properties.Settings.Default.Save();
                 this.remainderAmount = this.totalAmount - this.paidAmount;
 
-                Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
+                Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now, txtCashName.Text);
                 previousBillsList.Push(billToAdd);
 
                 richTextBox4.ResetText();
@@ -8329,7 +8337,7 @@ namespace PlancksoftPOS
                         Properties.Settings.Default.Save();
                         this.remainderAmount = this.totalAmount - this.paidAmount;
 
-                        Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now);
+                        Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, items, DateTime.Now, txtCashName.Text);
                         previousBillsList.Push(billToAdd);
 
                         richTextBox4.ResetText();
@@ -8545,7 +8553,7 @@ namespace PlancksoftPOS
                                 }
                             }
 
-                            nextBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
+                            nextBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now, txtCashName.Text));
                             ItemsPendingPurchase.Rows.Clear();
                             Bill bill = previousBillsList.Pop();
                             if (bill.BillNumber < 1)
@@ -8631,7 +8639,7 @@ namespace PlancksoftPOS
                                 }
                             }
 
-                            previousBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now));
+                            previousBillsList.Push(new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, itemsBought, DateTime.Now, txtCashName.Text));
                             ItemsPendingPurchase.Rows.Clear();
                             Bill bill = nextBillsList.Pop();
 
@@ -8821,7 +8829,7 @@ namespace PlancksoftPOS
                         this.registerOpen = true;
                         this.moneyInRegisterInitial = this.moneyInRegister = openRegister.moneyInRegister;
                         openRegister.Dispose();
-                        bool openedRegister = Connection.server.SaveRegisterOpen(cashierName, moneyInRegister);
+                        bool openedRegister = Connection.server.SaveRegisterOpen(cashierName, Properties.Settings.Default.cashName, moneyInRegister);
                         if (openedRegister)
                         {
                             Properties.Settings.Default.RegisterOpen = true;
@@ -8871,7 +8879,7 @@ namespace PlancksoftPOS
                         closeRegister.ShowDialog(this);
                         if (closeRegister.dialogResult == DialogResult.OK)
                         {
-                            bool closedRegister = Connection.server.SaveRegisterClose(cashierName, moneyInRegister);
+                            bool closedRegister = Connection.server.SaveRegisterClose(cashierName, Properties.Settings.Default.cashName, moneyInRegister);
                             if (closedRegister)
                             {
                                 Properties.Settings.Default.RegisterOpen = false;
@@ -8975,7 +8983,7 @@ namespace PlancksoftPOS
                 closeRegister.ShowDialog(this);
                 if (closeRegister.dialogResult == DialogResult.OK)
                 {
-                    bool closedRegister = Connection.server.SaveRegisterClose(cashierName, moneyInRegister);
+                    bool closedRegister = Connection.server.SaveRegisterClose(cashierName, Properties.Settings.Default.cashName, moneyInRegister);
                     if (closedRegister)
                     {
                         Properties.Settings.Default.RegisterOpen = false;
@@ -9076,7 +9084,7 @@ namespace PlancksoftPOS
                 this.registerOpen = true;
                 this.moneyInRegisterInitial = this.moneyInRegister = openRegister.moneyInRegister;
                 openRegister.Dispose();
-                bool openedRegister = Connection.server.SaveRegisterOpen(cashierName, moneyInRegister);
+                bool openedRegister = Connection.server.SaveRegisterOpen(cashierName, Properties.Settings.Default.cashName, moneyInRegister);
                 if (openedRegister)
                 {
                     Properties.Settings.Default.RegisterOpen = true;
@@ -12071,7 +12079,7 @@ namespace PlancksoftPOS
                 if (closeRegister.dialogResult == DialogResult.OK)
                 {
                     printCloseRegister();
-                    bool closedRegister = Connection.server.SaveRegisterClose(cashierName, moneyInRegister);
+                    bool closedRegister = Connection.server.SaveRegisterClose(cashierName, Properties.Settings.Default.cashName, moneyInRegister);
                     if (closedRegister)
                     {
                         this.moneyInRegister = 0;
@@ -12180,7 +12188,7 @@ namespace PlancksoftPOS
                 this.registerOpen = true;
                 this.moneyInRegisterInitial = this.moneyInRegister = openRegister.moneyInRegister;
                 openRegister.Dispose();
-                bool openedRegister = Connection.server.SaveRegisterOpen(cashierName, moneyInRegister);
+                bool openedRegister = Connection.server.SaveRegisterOpen(cashierName, Properties.Settings.Default.cashName, moneyInRegister);
                 if (openedRegister)
                 {
                     Properties.Settings.Default.RegisterOpen = true;

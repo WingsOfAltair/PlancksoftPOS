@@ -25,7 +25,9 @@ namespace Dependencies
         [DataMember]
         public DateTime date;
         [DataMember]
-        private string cashierName;
+        private string cashierName;   
+        [DataMember]
+        private string cashName;
         [DataMember]
         public bool paybycash;
         [DataMember]
@@ -66,6 +68,7 @@ namespace Dependencies
         public string ClientAddress { get => clientAddress; set => clientAddress = value; }
         public string ClientEmail { get => clientEmail; set => clientEmail = value; }
         public string CashierName { get => cashierName; set => cashierName = value; }
+        public string CashName { get => cashName; set => cashName = value; }
         public bool IsVendor { get => isVendor; set => isVendor = value; }
 
         public Bill()
@@ -87,7 +90,7 @@ namespace Dependencies
             Date = date;
         }
 
-        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, decimal discounedAmount, string taxID, List<Item> itemsBought, bool paybycash, DateTime date, string cashierName)
+        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, decimal discounedAmount, string taxID, List<Item> itemsBought, bool paybycash, DateTime date, string cashierName, string cashName)
         {
             if (BillNumber > -1)
             {
@@ -102,9 +105,10 @@ namespace Dependencies
             CashierName = cashierName;
             TaxID = taxID;
             DiscountAmount = discounedAmount;
+            CashName = cashName;
         }
 
-        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, decimal discountedAmount, string taxID, List<Item> itemsBought, DateTime date)
+        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, decimal discountedAmount, string taxID, List<Item> itemsBought, DateTime date, string cashName)
         {
             if (BillNumber > -1)
             {
@@ -117,9 +121,10 @@ namespace Dependencies
             Date = date;
             TaxID = taxID;
             DiscountAmount = discountedAmount;
+            CashName = cashName;
         }
 
-        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, List<Item> itemsBought, DateTime date)
+        public Bill(int billNumber, decimal totalAmount, decimal paidAmount, decimal remainderAmount, List<Item> itemsBought, DateTime date, string cashName)
         {
             if (BillNumber > -1)
             {
@@ -130,6 +135,7 @@ namespace Dependencies
             RemainderAmount = remainderAmount;
             ItemsBought = itemsBought;
             Date = date;
+            CashName = cashName;
         }
 
         public string getCashierName()

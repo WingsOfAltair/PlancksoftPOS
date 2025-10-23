@@ -56,6 +56,7 @@ export class CloseModelRegisterComponent implements OnInit {
     } else {
       var obj = {
         cashierName:this.cashierName,
+        cashName:localStorage.getItem("CashName"),
         moneyInRegister: this.AddData.value.Amount
       }
 

@@ -488,6 +488,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="cashierName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cashName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="moneyInRegister" type="xs:decimal" />
       </xs:sequence>
     </xs:complexType>
@@ -503,6 +504,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="cashierName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cashName" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="moneyInRegister" type="xs:decimal" />
       </xs:sequence>
     </xs:complexType>
@@ -1506,6 +1508,7 @@
       <xs:sequence>
         <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/Dependencies" minOccurs="0" name="billToAdd" nillable="true" type="q44:Bill" />
         <xs:element minOccurs="0" name="cashierName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="cashName" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

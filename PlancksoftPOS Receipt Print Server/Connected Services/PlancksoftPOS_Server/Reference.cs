@@ -202,16 +202,16 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
         System.Threading.Tasks.Task<bool> AddFavoriteItemAsync(string ItemName, string ItemBarCode, int ItemQuantity, decimal ItemPrice, decimal ItemPriceTax, decimal Category, System.DateTime Date);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SaveRegisterClose", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SaveRegisterCloseResponse")]
-        bool SaveRegisterClose(string cashierName, decimal moneyInRegister);
+        bool SaveRegisterClose(string cashierName, string cashName, decimal moneyInRegister);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SaveRegisterClose", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SaveRegisterCloseResponse")]
-        System.Threading.Tasks.Task<bool> SaveRegisterCloseAsync(string cashierName, decimal moneyInRegister);
+        System.Threading.Tasks.Task<bool> SaveRegisterCloseAsync(string cashierName, string cashName, decimal moneyInRegister);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SaveRegisterOpen", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SaveRegisterOpenResponse")]
-        bool SaveRegisterOpen(string cashierName, decimal moneyInRegister);
+        bool SaveRegisterOpen(string cashierName, string cashName, decimal moneyInRegister);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SaveRegisterOpen", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SaveRegisterOpenResponse")]
-        System.Threading.Tasks.Task<bool> SaveRegisterOpenAsync(string cashierName, decimal moneyInRegister);
+        System.Threading.Tasks.Task<bool> SaveRegisterOpenAsync(string cashierName, string cashName, decimal moneyInRegister);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/SearchWarehouseInventoryItems", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/SearchWarehouseInventoryItemsResponse")]
         System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchWarehouseInventoryItems(int WarehouseID);
@@ -604,10 +604,10 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
         System.Threading.Tasks.Task<bool> PayUnpaidBillAsync(int BillNumber, decimal paidAmount);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayBillResponse")]
-        bool PayBill(Dependencies.Bill billToAdd, string cashierName);
+        bool PayBill(Dependencies.Bill billToAdd, string cashierName, string cashName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/PayBill", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/PayBillResponse")]
-        System.Threading.Tasks.Task<bool> PayBillAsync(Dependencies.Bill billToAdd, string cashierName);
+        System.Threading.Tasks.Task<bool> PayBillAsync(Dependencies.Bill billToAdd, string cashierName, string cashName);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployee", ReplyAction="http://tempuri.org/IPlancksoftPOS_Server/UpdateEmployeeResponse")]
         bool UpdateEmployee(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address);
@@ -1019,20 +1019,20 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
             return base.Channel.AddFavoriteItemAsync(ItemName, ItemBarCode, ItemQuantity, ItemPrice, ItemPriceTax, Category, Date);
         }
         
-        public bool SaveRegisterClose(string cashierName, decimal moneyInRegister) {
-            return base.Channel.SaveRegisterClose(cashierName, moneyInRegister);
+        public bool SaveRegisterClose(string cashierName, string cashName, decimal moneyInRegister) {
+            return base.Channel.SaveRegisterClose(cashierName, cashName, moneyInRegister);
         }
         
-        public System.Threading.Tasks.Task<bool> SaveRegisterCloseAsync(string cashierName, decimal moneyInRegister) {
-            return base.Channel.SaveRegisterCloseAsync(cashierName, moneyInRegister);
+        public System.Threading.Tasks.Task<bool> SaveRegisterCloseAsync(string cashierName, string cashName, decimal moneyInRegister) {
+            return base.Channel.SaveRegisterCloseAsync(cashierName, cashName, moneyInRegister);
         }
         
-        public bool SaveRegisterOpen(string cashierName, decimal moneyInRegister) {
-            return base.Channel.SaveRegisterOpen(cashierName, moneyInRegister);
+        public bool SaveRegisterOpen(string cashierName, string cashName, decimal moneyInRegister) {
+            return base.Channel.SaveRegisterOpen(cashierName, cashName, moneyInRegister);
         }
         
-        public System.Threading.Tasks.Task<bool> SaveRegisterOpenAsync(string cashierName, decimal moneyInRegister) {
-            return base.Channel.SaveRegisterOpenAsync(cashierName, moneyInRegister);
+        public System.Threading.Tasks.Task<bool> SaveRegisterOpenAsync(string cashierName, string cashName, decimal moneyInRegister) {
+            return base.Channel.SaveRegisterOpenAsync(cashierName, cashName, moneyInRegister);
         }
         
         public System.Tuple<System.Collections.Generic.List<Dependencies.Item>, System.Data.DataTable> SearchWarehouseInventoryItems(int WarehouseID) {
@@ -1555,12 +1555,12 @@ namespace PlancksoftPOS_Receipt_Print_Server.PlancksoftPOS_Server {
             return base.Channel.PayUnpaidBillAsync(BillNumber, paidAmount);
         }
         
-        public bool PayBill(Dependencies.Bill billToAdd, string cashierName) {
-            return base.Channel.PayBill(billToAdd, cashierName);
+        public bool PayBill(Dependencies.Bill billToAdd, string cashierName, string cashName) {
+            return base.Channel.PayBill(billToAdd, cashierName, cashName);
         }
         
-        public System.Threading.Tasks.Task<bool> PayBillAsync(Dependencies.Bill billToAdd, string cashierName) {
-            return base.Channel.PayBillAsync(billToAdd, cashierName);
+        public System.Threading.Tasks.Task<bool> PayBillAsync(Dependencies.Bill billToAdd, string cashierName, string cashName) {
+            return base.Channel.PayBillAsync(billToAdd, cashierName, cashName);
         }
         
         public bool UpdateEmployee(int EmployeeID, string EmployeeName, decimal Salary, string Phone, string Address) {

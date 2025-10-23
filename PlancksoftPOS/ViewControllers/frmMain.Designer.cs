@@ -711,6 +711,8 @@ namespace PlancksoftPOS
             this.switchThemeScheme = new MaterialSkin.Controls.MaterialSwitch();
             this.button1 = new MaterialSkin.Controls.MaterialButton();
             this.groupBox9 = new MaterialSkin.Controls.MaterialCard();
+            this.lblCashName = new MaterialSkin.Controls.MaterialLabel();
+            this.txtCashName = new MaterialSkin.Controls.MaterialTextBox2();
             this.txtStoreAddress = new MaterialSkin.Controls.MaterialTextBox2();
             this.lblStoreAddress = new MaterialSkin.Controls.MaterialLabel();
             this.txtStorePhone = new MaterialSkin.Controls.MaterialTextBox2();
@@ -11287,6 +11289,8 @@ namespace PlancksoftPOS
             // groupBox9
             // 
             this.groupBox9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.groupBox9.Controls.Add(this.lblCashName);
+            this.groupBox9.Controls.Add(this.txtCashName);
             this.groupBox9.Controls.Add(this.txtStoreAddress);
             this.groupBox9.Controls.Add(this.lblStoreAddress);
             this.groupBox9.Controls.Add(this.txtStorePhone);
@@ -11304,6 +11308,49 @@ namespace PlancksoftPOS
             this.groupBox9.Size = new System.Drawing.Size(492, 836);
             this.groupBox9.TabIndex = 35;
             this.groupBox9.Text = "الإعدادات الأساسية";
+            // 
+            // lblCashName
+            // 
+            this.lblCashName.AutoSize = true;
+            this.lblCashName.Depth = 0;
+            this.lblCashName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.lblCashName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
+            this.lblCashName.Location = new System.Drawing.Point(17, 250);
+            this.lblCashName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblCashName.Name = "lblCashName";
+            this.lblCashName.Size = new System.Drawing.Size(42, 19);
+            this.lblCashName.TabIndex = 33;
+            this.lblCashName.Text = "إسم الكاش";
+            // 
+            // txtCashName
+            // 
+            this.txtCashName.AnimateReadOnly = false;
+            this.txtCashName.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.None;
+            this.txtCashName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.None;
+            this.txtCashName.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.txtCashName.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.txtCashName.Depth = 0;
+            this.txtCashName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCashName.HideSelection = true;
+            this.txtCashName.LeadingIcon = null;
+            this.txtCashName.Location = new System.Drawing.Point(17, 270);
+            this.txtCashName.MaxLength = 32767;
+            this.txtCashName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtCashName.Name = "txtCashName";
+            this.txtCashName.PasswordChar = '\0';
+            this.txtCashName.PrefixSuffixText = null;
+            this.txtCashName.ReadOnly = false;
+            this.txtCashName.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtCashName.SelectedText = "";
+            this.txtCashName.SelectionLength = 0;
+            this.txtCashName.SelectionStart = 0;
+            this.txtCashName.ShortcutsEnabled = true;
+            this.txtCashName.Size = new System.Drawing.Size(437, 48);
+            this.txtCashName.TabIndex = 32;
+            this.txtCashName.TabStop = false;
+            this.txtCashName.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtCashName.TrailingIcon = null;
+            this.txtCashName.UseSystemPasswordChar = false;
             // 
             // txtStoreAddress
             // 
@@ -14236,6 +14283,8 @@ namespace PlancksoftPOS
         private DataGridViewTextBoxColumn ItemPicture;
         private MaterialButton btnClientEdit;
         private MaterialButton materialButton1;
+        public MaterialLabel lblCashName;
+        public MaterialTextBox2 txtCashName;
     }
 }
 

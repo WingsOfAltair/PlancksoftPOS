@@ -46,6 +46,7 @@ export class OpenRegisterModalComponent implements OnInit {
 
     var obj = {
       cashierName:this.cashierName,
+      cashName:localStorage.getItem("CashName"),
       moneyInRegister: this.AddData.value.Amount
     }
 

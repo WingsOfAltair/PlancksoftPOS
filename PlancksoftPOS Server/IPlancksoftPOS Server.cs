@@ -73,9 +73,9 @@ namespace PlancksoftPOS_Server
         [OperationContract]
         bool AddFavoriteItem(string ItemName, string ItemBarCode, int ItemQuantity, decimal ItemPrice, decimal ItemPriceTax, decimal Category, DateTime Date);
         [OperationContract]
-        bool SaveRegisterClose(string cashierName, decimal moneyInRegister);
+        bool SaveRegisterClose(string cashierName, string cashName, decimal moneyInRegister);
         [OperationContract]
-        bool SaveRegisterOpen(string cashierName, decimal moneyInRegister);
+        bool SaveRegisterOpen(string cashierName, string cashName, decimal moneyInRegister);
         [OperationContract]
         Tuple<List<Item>, DataTable> SearchWarehouseInventoryItems(int WarehouseID);
         [OperationContract]

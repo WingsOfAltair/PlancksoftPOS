@@ -59,5 +59,8 @@
     <Setting Name="actionMenuExpanded" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
+    <Setting Name="cashName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">PlancksoftPOS Cash #1</Value>
+    </Setting>
   </Settings>
 </SettingsFile>
