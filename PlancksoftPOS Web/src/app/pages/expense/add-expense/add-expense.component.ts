@@ -1,5 +1,5 @@
 import { DatePipe } from "@angular/common";
-import { Component, OnInit } from "@angular/core";
+import { Output, EventEmitter, Component, OnInit } from "@angular/core";
 import {
   NbDateService,
   NbDialogService,
@@ -27,6 +27,13 @@ export class AddExpenseComponent implements OnInit {
     private windowRef: NbWindowRef,
     public datepipe: DatePipe
   ) {}
+
+    @Output() modalClose = new EventEmitter();
+  
+    closeModal() {
+      this.modalClose.emit(); // Emit custom event
+      this.windowRef.close("");
+    }
 
   ngOnInit(): void {
     this.jsonDate = this.datepipe.transform(new Date(), "MM/dd/yyyy");
@@ -67,7 +74,7 @@ export class AddExpenseComponent implements OnInit {
       this.toastrService.danger("Try Again", "Error");
     }
 
-    this.windowRef.close("");
+    this.closeModal();
 
   }
 

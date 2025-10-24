@@ -1431,6 +1431,7 @@ namespace PlancksoftPOS
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn52"].HeaderText = "إسم الماده";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "باركود الماده";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "عدد القطع المرجعه";
+                    dgvReturnedItems.Columns["ReturnTransactionDate"].HeaderText = "تاريخ الإعادة";
                 }
                 DisplayPrinters();
                 خروجToolStripMenuItem1.Text = "خروج";
@@ -2041,6 +2042,7 @@ namespace PlancksoftPOS
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn52"].HeaderText = "Item Name";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "Item Barcode";
                     dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "Returned Items Quantity";
+                    dgvReturnedItems.Columns["ReturnTransactionDate"].HeaderText = "Return Date";
                 }
                 DisplayPrinters();
                 خروجToolStripMenuItem1.Text = "Quit";
@@ -4968,7 +4970,7 @@ namespace PlancksoftPOS
                     dgvBills.Columns["Column12"].HeaderText = "Client Name";
                     dgvBills.Columns["Column17"].HeaderText = "Total Before Discount";
                     dgvBills.Columns["Column74"].HeaderText = "Discount Amount";
-                    dgvBills.Columns["Column73"].HeaderText = "Net Total";
+                    dgvBills.Columns["Column73"].HeaderText = "Net Amount";
                     dgvBills.Columns["Column18"].HeaderText = "Paid Amount";
                     dgvBills.Columns["Column19"].HeaderText = "Remainder";
                     dgvBills.Columns["Column5"].HeaderText = "Payment Method";
@@ -6497,6 +6499,7 @@ namespace PlancksoftPOS
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn52"].HeaderText = "إسم الماده";
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "باركود الماده";
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "عدد القطع المرجعه";
+                        dgvReturnedItems.Columns["ReturnTransactionDate"].HeaderText = "تاريخ الإعادة";
                     } else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
                     {
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn54"].HeaderText = "Return ID";
@@ -6505,6 +6508,7 @@ namespace PlancksoftPOS
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn52"].HeaderText = "Item Name";
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn51"].HeaderText = "Item Barcode";
                         dgvReturnedItems.Columns["dataGridViewTextBoxColumn57"].HeaderText = "Returned Items Quantity";
+                        dgvReturnedItems.Columns["ReturnTransactionDate"].HeaderText = "Return Date";
                     }
                 }
             } catch (Exception error)
@@ -7602,48 +7606,51 @@ namespace PlancksoftPOS
                     List<Item> items = new List<Item>();
 
                     frmPickClientLookup frmPickClientLookup = new frmPickClientLookup();
-                    frmPickClientLookup.ShowDialog();
-
-                    if (frmPickClientLookup.dialogResult == DialogResult.OK)
+                    if (frmPickClientLookup != null && !frmPickClientLookup.IsDisposed)
                     {
-                        foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
-                        {
-                            if (!currentBillRow.IsNewRow)
-                            {
-                                string itemName = currentBillRow.Cells[0].Value.ToString();
-                                string itemBarCode = currentBillRow.Cells[1].Value.ToString();
-                                int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
-                                decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
-                                decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
-                                Item item = new Item();
-                                item.SetName(itemName);
-                                item.SetBarCode(itemBarCode);
-                                item.SetQuantity(itemQuantity);
-                                item.SetPrice(itemPrice);
-                                item.SetPriceTax(itemPriceTax);
-                                item.SetBuyPrice(Connection.server.SearchItems("", itemBarCode, 0).Item1[0].GetBuyPrice());
-                                items.Add(item);
-                            }
-                        }
+                        frmPickClientLookup.ShowDialog();
 
-                        Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, frmPayCash.discountedAmount, "Tax ID", items, DateTime.Now, txtCashName.Text);
-                        billToAdd.ClientID = frmPickClientLookup.pickedClient.ClientID;
-                        int UnpaidBillNumber = Connection.server.AddUnpaidBill(billToAdd, this.cashierName);
-                        if (UnpaidBillNumber > -1)
+                        if (frmPickClientLookup.dialogResult == DialogResult.OK)
                         {
-                            this.CurrentBillNumber = Connection.server.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
-                            this.ItemsList = DisplayData();
-                            DisplayFavorites();
-                            if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                            foreach (DataGridViewRow currentBillRow in ItemsPendingPurchase.Rows)
                             {
-                                MaterialMessageBox.Show(".تمت إضافة الفاتوره غير مدفوعه كدين على العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                                if (!currentBillRow.IsNewRow)
+                                {
+                                    string itemName = currentBillRow.Cells[0].Value.ToString();
+                                    string itemBarCode = currentBillRow.Cells[1].Value.ToString();
+                                    int itemQuantity = Convert.ToInt32(currentBillRow.Cells[2].Value.ToString());
+                                    decimal itemPrice = Convert.ToDecimal(currentBillRow.Cells[3].Value.ToString());
+                                    decimal itemPriceTax = Convert.ToDecimal(currentBillRow.Cells[4].Value.ToString());
+                                    Item item = new Item();
+                                    item.SetName(itemName);
+                                    item.SetBarCode(itemBarCode);
+                                    item.SetQuantity(itemQuantity);
+                                    item.SetPrice(itemPrice);
+                                    item.SetPriceTax(itemPriceTax);
+                                    item.SetBuyPrice(Connection.server.SearchItems("", itemBarCode, 0).Item1[0].GetBuyPrice());
+                                    items.Add(item);
+                                }
                             }
-                            else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+
+                            Bill billToAdd = new Bill(this.CurrentBillNumber, this.totalAmount, this.paidAmount, this.remainderAmount, frmPayCash.discountedAmount, "Tax ID", items, DateTime.Now, txtCashName.Text);
+                            billToAdd.ClientID = frmPickClientLookup.pickedClient.ClientID;
+                            int UnpaidBillNumber = Connection.server.AddUnpaidBill(billToAdd, this.cashierName);
+                            if (UnpaidBillNumber > -1)
                             {
-                                MaterialMessageBox.Show("A new unpaid bill was added as debt to the client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                                this.CurrentBillNumber = Connection.server.RetrieveLastVendorBillNumberToday(DateTime.Now).getBillNumber() + 1;
+                                this.ItemsList = DisplayData();
+                                DisplayFavorites();
+                                if (frmLogin.pickedLanguage == LanguageChoice.Languages.Arabic)
+                                {
+                                    MaterialMessageBox.Show(".تمت إضافة الفاتوره غير مدفوعه كدين على العميل", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                                }
+                                else if (frmLogin.pickedLanguage == LanguageChoice.Languages.English)
+                                {
+                                    MaterialMessageBox.Show("A new unpaid bill was added as debt to the client.", false, FlexibleMaterialForm.ButtonsPosition.Center);
+                                }
                             }
+                            billToAdd.BillNumber = UnpaidBillNumber;
                         }
-                        billToAdd.BillNumber = UnpaidBillNumber;
                     }
 
                     frmPayCash.Dispose();

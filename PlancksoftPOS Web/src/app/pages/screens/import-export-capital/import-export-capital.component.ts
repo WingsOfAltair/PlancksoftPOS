@@ -129,9 +129,19 @@ export class ImportExportCapitalComponent implements OnInit {
       var list = [];
 
       array.forEach((el) => {
+        const date = new Date(el["Date"]);
+        const formattedDate = date.toLocaleString('en-US', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true, // 12-hour format
+        });
         var obj = {
           data: {
-            Date: el["Date"],
+            Date: formattedDate,
             TotalCost: el["Total Cost"],
           },
         };
@@ -158,9 +168,19 @@ export class ImportExportCapitalComponent implements OnInit {
       var list = [];
 
       array.forEach((el) => {
+        const date = new Date(el["Date"]);
+        const formattedDate = date.toLocaleString('en-US', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true, // 12-hour format
+        });
         var obj = {
           data: {
-            Date: el["Date"],
+            Date: formattedDate,
             TotalCost: el["Total Cost"],
           },
         };
@@ -187,10 +207,20 @@ export class ImportExportCapitalComponent implements OnInit {
       var list = [];
 
       array.forEach((el) => {
+        const date = new Date(el["Date"]);
+        const formattedDate = date.toLocaleString('en-US', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true, // 12-hour format
+        });
         var obj = {
           data: {
            
-            Date: el["Date"],
+            Date: formattedDate,
             TotalRevenue: el["Total Revenue"],
           },
         };

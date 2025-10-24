@@ -115,6 +115,19 @@
                 {{ row.data["ItemName"] || "-" }}
               </td>
             </ng-container>
+
+            <ng-container [nbTreeGridColumnDef]="'Date'">
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('Date')"
+                  *nbTreeGridHeaderCellDef
+                >
+                {{ "GENERALWORDS.DATE" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data.Date || "-" }}
+                </td>
+              </ng-container>
           </table>
         </div>
       </nb-card-body>

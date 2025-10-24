@@ -96,12 +96,22 @@ export class TaxReportComponent implements OnInit {
       var billTotal = 0;
 
       array.forEach((el) => {
+        const date = new Date(el["Date"]);
+        const formattedDate = date.toLocaleString('en-US', {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: true, // 12-hour format
+        });
         var obj = {
           data: {
             BillID: el["Bill Number"],
             Billtotal: el["Total Amount"],
             taxAmount: el["Tax"],
-            date: el["Date"],
+            date: formattedDate,
             TaxTotal: el["TaxTotal"],
           },
         };

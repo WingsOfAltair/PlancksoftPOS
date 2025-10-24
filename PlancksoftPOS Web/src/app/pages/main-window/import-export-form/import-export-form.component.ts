@@ -131,6 +131,29 @@ export class ImportExportFormComponent implements OnInit {
     const data = this.service.getData();
   }
 
+  normalizeDate(input: any): Date {
+    if (!input) return this.getNowDate();
+
+    // Handle .NET MinValue
+    if (typeof input === 'string' && input.match(/\/Date\(-62135596800000\)\//)) {
+      return this.getNowDate();
+    }
+
+    // Handle /Date(...)/
+    const match = typeof input === 'string' && input.match(/\/Date\((\-?\d+)\)\//);
+    if (match) return new Date(parseInt(match[1], 10));
+
+    // Handle Date object
+    if (input instanceof Date && !isNaN(input.getTime())) return input;
+
+    // Handle string or number
+    const parsed = new Date(input);
+    if (!isNaN(parsed.getTime())) return parsed;
+
+    // fallback
+    return this.getNowDate();
+  }
+
   ngOnInit(): void {
     this.firstFormGroup = this.fb.group({
       ItemName: [],
@@ -139,12 +162,19 @@ export class ImportExportFormComponent implements OnInit {
       Warehouse: [],
       FormType: [],
       warningLimit: [],
-      ProductionDate: new Date(new Date().setHours(0, 0, 0, 0)),
-      ExpirationDate: new Date(new Date().setHours(0, 0, 0, 0)),
-      EntryDate: new Date(new Date().setHours(0, 0, 0, 0)),
+      ProductionDate: [this.getNowDate()],
+      ExpirationDate: [this.getNowDate()],
+      EntryDate: [this.getNowDate()],
       buyprice: [],
       PickClient: [],
       PickClientId: [],
+    });
+
+    const dateControls = ['ProductionDate', 'ExpirationDate', 'EntryDate'];
+    dateControls.forEach((field) => {
+      const control = this.firstFormGroup.get(field);
+      control.markAsTouched();
+      control.updateValueAndValidity();
     });
 
     this.publisherService
@@ -287,72 +317,79 @@ export class ImportExportFormComponent implements OnInit {
   UpdateTable: any[] = [];
   UpdateDeleteTable: any[] = [];
   secoundDeleteTable: any[] = [];
+
   AddItem() {
+    const dateFields = ['ProductionDate', 'ExpirationDate', 'EntryDate'];
+    const defaultDate = new Date();
+    dateFields.forEach(field => {
+      if (!this.firstFormGroup.value[field]) {
+        this.firstFormGroup.patchValue({ [field]: defaultDate });
+      }
+      const control = this.firstFormGroup.get(field);
+      control.markAsTouched();
+      control.updateValueAndValidity();
+    });
+
+    if (!this.firstFormGroup.value.ItemQuantity) {
+    this.firstFormGroup.patchValue({ ItemQuantity: 0 });
+    }
+    if (!this.firstFormGroup.value.buyprice) {
+      this.firstFormGroup.patchValue({ buyprice: 0 });
+    }
+    if (!this.firstFormGroup.value.warningLimit) {
+      this.firstFormGroup.patchValue({ warningLimit: 0 });
+    }
+
     if (this.firstFormGroup.valid) {
-      var obj = {
+      const form = this.firstFormGroup.value;
+      const obj = {
         data: {
           ItemID: 0,
-          ItemName: this.firstFormGroup.value.ItemName,
-          ItemBarCode: this.firstFormGroup.value.ItemBarcode,
+          ItemName: form.ItemName,
+          ItemBarCode: form.ItemBarcode,
           favoriteCategoryName: "",
           warehouseName: "",
           itemTypeName: "",
-          ItemQuantity: this.firstFormGroup.value.ItemQuantity,
-          ItemBuyPrice: this.firstFormGroup.value.buyprice,
+          ItemQuantity: form.ItemQuantity,
+          ItemBuyPrice: form.buyprice,
           ItemPrice: this.ItemPrice,
-          QuantityWarning: parseInt(this.firstFormGroup.value.warningLimit),
+          QuantityWarning: parseInt(form.warningLimit),
           ItemPriceTax: this.ItemPriceTax,
           ItemTypeID: this.ItemTypeName,
           Warehouse_ID: this.warehouseName,
           FavoriteCategory: this.favoriteCategoryName,
-          Date: this.convertDateToJSONFormat(new Date()),
+          Date: this.convertDateToJSONFormat(this.normalizeDate(this.getNowDate())),
           picture: null,
-          ItemNewBarCode: this.firstFormGroup.value.ItemBarcode,
-          ProductionDate: this.convertDateToJSONFormat(
-            this.firstFormGroup.value.ProductionDate
-          ),
-          ExpirationDate: this.convertDateToJSONFormat(
-            this.firstFormGroup.value.ExpirationDate
-          ),
-          EntryDate: this.convertDateToJSONFormat(
-            this.firstFormGroup.value.EntryDate
-          ),
+          ItemNewBarCode: form.ItemBarcode,
+          ProductionDate: this.convertDateToJSONFormat(this.normalizeDate(form.ProductionDate)),
+          ExpirationDate: this.convertDateToJSONFormat(this.normalizeDate(form.ExpirationDate)),
+          EntryDate: this.convertDateToJSONFormat(this.normalizeDate(form.EntryDate)),
         },
       };
 
-      var obbj = {
+      const obbj = {
         ItemsToUpdate: {
           ItemID: 0,
-          ItemName: this.firstFormGroup.value.ItemName,
-          ItemBarCode: this.firstFormGroup.value.ItemBarcode,
-          itemNewBarCode: this.firstFormGroup.value.ItemBarcode,
+          ItemName: form.ItemName,
+          ItemBarCode: form.ItemBarcode,
+          itemNewBarCode: form.ItemBarcode,
           favoriteCategoryName: "",
           warehouseName: "",
           itemTypeName: "",
-          ItemQuantity: this.firstFormGroup.value.ItemQuantity,
-          ItemBuyPrice: this.firstFormGroup.value.buyprice,
+          ItemQuantity: form.ItemQuantity,
+          ItemBuyPrice: form.buyprice,
           ItemPrice: this.ItemPrice,
-          QuantityWarning: parseInt(
-            this.firstFormGroup.value.warninglimit
-              ? this.firstFormGroup.value.warninglimit
-              : 0
-          ),
+          QuantityWarning: parseInt(form.warningLimit || 0),
           ItemPriceTax: this.ItemPrice,
           ItemTypeID: this.ItemTypeID,
-          Warehouse_ID: parseInt(this.firstFormGroup.value.Warehouse),
+          Warehouse_ID: parseInt(form.Warehouse),
           FavoriteCategory: this.favroiteCategory,
-          Date: this.convertDateToJSONFormat(new Date()),
+          Date: this.convertDateToJSONFormat(this.normalizeDate(this.getNowDate())),
           picture: null,
           ItemNewBarCode: null,
-          ProductionDate: this.convertDateToJSONFormat(
-            this.firstFormGroup.value.ProductionDate
-          ),
-          ExpirationDate: this.convertDateToJSONFormat(
-            this.firstFormGroup.value.ExpirationDate
-          ),
-          EntryDate: this.convertDateToJSONFormat(
-            this.firstFormGroup.value.EntryDate
-          ),
+          ProductionDate: this.convertDateToJSONFormat(this.normalizeDate(form.ProductionDate)),
+          ExpirationDate: this.convertDateToJSONFormat(this.normalizeDate(form.ExpirationDate)),
+          EntryDate: this.convertDateToJSONFormat(this.normalizeDate(form.EntryDate)),
         },
       };
 
@@ -377,17 +414,17 @@ export class ImportExportFormComponent implements OnInit {
           ItemTypeID: this.ItemTypeID,
           Warehouse_ID: parseInt(this.firstFormGroup.value.Warehouse),
           FavoriteCategory: this.favroiteCategory,
-          Date: this.convertDateToJSONFormat(new Date()),
+          Date: this.convertDateToJSONFormat(this.normalizeDate(this.getNowDate())),
           picture: null,
           ItemNewBarCode: null,
           ProductionDate: this.convertDateToJSONFormat(
-            this.firstFormGroup.value.ProductionDate
+            this.normalizeDate(this.normalizeDate(this.firstFormGroup.value.ProductionDate))
           ),
           ExpirationDate: this.convertDateToJSONFormat(
-            this.firstFormGroup.value.ExpirationDate
+            this.normalizeDate(this.normalizeDate(this.firstFormGroup.value.ExpirationDate))
           ),
           EntryDate: this.convertDateToJSONFormat(
-            this.firstFormGroup.value.EntryDate
+            this.normalizeDate(this.normalizeDate(this.firstFormGroup.value.EntryDate))
           ),
         },
       };
@@ -405,21 +442,22 @@ export class ImportExportFormComponent implements OnInit {
 
       this.insert = this.updatelist;
 
-      if (this.UpdateDeleteTable.length > 0) {
-        this.dataSource = this.dataSourceBuilder.create(this.UpdateDeleteTable);
-      } else {
-        this.dataSource = this.dataSourceBuilder.create(this.list);
-      }
+      this.dataSource =
+        this.UpdateDeleteTable.length > 0
+          ? this.dataSourceBuilder.create(this.UpdateDeleteTable)
+          : this.dataSourceBuilder.create(this.list);
 
-      this.firstFormGroup.get("ItemName").reset();
-      this.firstFormGroup.get("ItemBarcode").reset();
-      this.firstFormGroup.get("ItemQuantity").reset();
-      this.firstFormGroup.get("Warehouse").reset();
-      this.firstFormGroup.get("ProductionDate").reset();
-      this.firstFormGroup.get("warningLimit").reset();
-      this.firstFormGroup.get("ExpirationDate").reset();
-      this.firstFormGroup.get("EntryDate").reset();
-      this.firstFormGroup.get("buyprice").reset();
+       this.firstFormGroup.patchValue({
+        ItemName: '',
+        ItemBarcode: '',
+        ItemQuantity: 0,
+        Warehouse: '',
+        ProductionDate: this.convertDateToJSONFormat(this.normalizeDate(this.getNowDate())),
+        ExpirationDate: this.convertDateToJSONFormat(this.normalizeDate(this.getNowDate())),
+        EntryDate: this.convertDateToJSONFormat(this.normalizeDate(this.getNowDate())),
+        buyprice: 0,
+        warningLimit: 0,
+      });
       this.imageSrc = '';
     } else {
       this.toastrService.danger("Try Again", "Error");
@@ -551,7 +589,7 @@ export class ImportExportFormComponent implements OnInit {
           clientEmail : this.clientEmail,
           clientID: this.client,
           paybycash: false,
-          date: this.convertDateToJSONFormat(new Date()),
+          date: this.convertDateToJSONFormat(this.normalizeDate(this.getNowDate()),),
           cashierName: this.cashierName,
           postponed: false,
         },
@@ -571,8 +609,42 @@ export class ImportExportFormComponent implements OnInit {
     }
   }
 
-  convertDateToJSONFormat(date) {
-    var milliseconds = date.getTime();
-    return "/Date(" + milliseconds + ")/";
+  convertDateToJSONFormat(date: any) {
+    console.log('Input date:', date);
+
+    let d: Date;
+
+    if (!date) {
+      d = new Date(); // fallback to now
+    } else if (date instanceof Date && !isNaN(date.getTime())) {
+      d = date;
+    } else if (typeof date === 'string') {
+      const match = date.match(/\/Date\((\-?\d+)\)\//);
+      if (match) {
+        d = new Date(parseInt(match[1], 10));
+      } else {
+        d = new Date(date);
+      }
+    } else if (typeof date === 'number') {
+      d = new Date(date);
+    } else if (date.year !== undefined && date.month !== undefined && date.day !== undefined) {
+      d = new Date(date.year, date.month - 1, date.day);
+    } else {
+      d = new Date(date);
+    }
+
+    // handle .NET MinValue
+    if (d.getTime() === -62135596800000 || isNaN(d.getTime())) {
+      console.warn('Invalid or MinValue date detected, using current date instead');
+      d = new Date();
+    }
+
+    console.log('Converted date:', d);
+    return `/Date(${d.getTime()})/`;
+  }
+
+  getNowDate(): Date {
+    const now = new Date();
+    return now;
   }
 }

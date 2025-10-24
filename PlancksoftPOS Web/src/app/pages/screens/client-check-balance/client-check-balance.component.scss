@@ -1,0 +1,9 @@
+::ng-deep nb-tree-grid-cell {
+  white-space: nowrap;  /* keep everything on one line */
+  overflow: visible;    /* avoid ellipsis */
+  text-overflow: clip;  /* show full text */
+}
+
+::ng-deep nb-tree-grid-cell[title] {
+  cursor: default;
+}

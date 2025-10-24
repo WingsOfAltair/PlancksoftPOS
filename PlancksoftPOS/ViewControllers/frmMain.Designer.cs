@@ -740,6 +740,7 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ReturnTransactionDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox49 = new System.Windows.Forms.PictureBox();
             this.pnlActionMenu = new MaterialSkin.Controls.MaterialCard();
             this.btnPay = new MaterialSkin.Controls.MaterialButton();
@@ -6962,7 +6963,7 @@ namespace PlancksoftPOS
             this.button16.Depth = 0;
             this.button16.HighEmphasis = true;
             this.button16.Icon = null;
-            this.button16.Location = new System.Drawing.Point(213, 61);
+            this.button16.Location = new System.Drawing.Point(96, 61);
             this.button16.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.button16.MouseState = MaterialSkin.MouseState.HOVER;
             this.button16.Name = "button16";
@@ -11554,6 +11555,7 @@ namespace PlancksoftPOS
             this.label114.AutoSize = true;
             this.label114.Depth = 0;
             this.label114.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label114.Enabled = false;
             this.label114.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label114.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(89)))), ((int)(((byte)(152)))));
             this.label114.Location = new System.Drawing.Point(314, 51);
@@ -11563,9 +11565,11 @@ namespace PlancksoftPOS
             this.label114.Size = new System.Drawing.Size(72, 19);
             this.label114.TabIndex = 31;
             this.label114.Text = "عدد فراغ الفاتوره";
+            this.label114.Visible = false;
             // 
             // receiptSpacingnud
             // 
+            this.receiptSpacingnud.Enabled = false;
             this.receiptSpacingnud.Location = new System.Drawing.Point(6, 77);
             this.receiptSpacingnud.Maximum = new decimal(new int[] {
             -159383553,
@@ -11580,6 +11584,7 @@ namespace PlancksoftPOS
             this.receiptSpacingnud.Name = "receiptSpacingnud";
             this.receiptSpacingnud.Size = new System.Drawing.Size(387, 22);
             this.receiptSpacingnud.TabIndex = 32;
+            this.receiptSpacingnud.Visible = false;
             // 
             // IncludeLogoReceipt
             // 
@@ -11714,7 +11719,8 @@ namespace PlancksoftPOS
             this.Column9,
             this.dataGridViewTextBoxColumn52,
             this.dataGridViewTextBoxColumn51,
-            this.dataGridViewTextBoxColumn57});
+            this.dataGridViewTextBoxColumn57,
+            this.ReturnTransactionDate});
             this.dgvReturnedItems.Location = new System.Drawing.Point(10, 20);
             this.dgvReturnedItems.Name = "dgvReturnedItems";
             this.dgvReturnedItems.ReadOnly = true;
@@ -11769,6 +11775,14 @@ namespace PlancksoftPOS
             this.dataGridViewTextBoxColumn57.HeaderText = "عدد القطع المرجعه";
             this.dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
             this.dataGridViewTextBoxColumn57.ReadOnly = true;
+            // 
+            // ReturnTransactionDate
+            // 
+            this.ReturnTransactionDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.ReturnTransactionDate.DataPropertyName = "Transaction Date";
+            this.ReturnTransactionDate.HeaderText = "تاريخ الإعادة";
+            this.ReturnTransactionDate.Name = "ReturnTransactionDate";
+            this.ReturnTransactionDate.ReadOnly = true;
             // 
             // pictureBox49
             // 
@@ -14148,12 +14162,6 @@ namespace PlancksoftPOS
         public DateTimePicker DateEmployeeTo;
         public DateTimePicker DateEmployeeFrom;
         private TabControl tabControl2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
-        private DataGridViewTextBoxColumn Column9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
         public MaterialTextBox2 ClientEmail;
         public MaterialLabel lblEmail;
         public MaterialTextBox2 VendorEmail;
@@ -14228,17 +14236,6 @@ namespace PlancksoftPOS
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column6;
         private DataGridViewTextBoxColumn Column8;
-        private DataGridViewTextBoxColumn Column15;
-        private DataGridViewTextBoxColumn Column16;
-        private DataGridViewTextBoxColumn Column12;
-        private DataGridViewTextBoxColumn Column17;
-        private DataGridViewTextBoxColumn Column74;
-        private DataGridViewTextBoxColumn Column73;
-        private DataGridViewTextBoxColumn Column18;
-        private DataGridViewTextBoxColumn Column19;
-        private DataGridViewTextBoxColumn Column5;
-        private DataGridViewTextBoxColumn Column64;
-        private DataGridViewTextBoxColumn Column13;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
@@ -14285,6 +14282,24 @@ namespace PlancksoftPOS
         private MaterialButton materialButton1;
         public MaterialLabel lblCashName;
         public MaterialTextBox2 txtCashName;
+        private DataGridViewTextBoxColumn Column15;
+        private DataGridViewTextBoxColumn Column16;
+        private DataGridViewTextBoxColumn Column12;
+        private DataGridViewTextBoxColumn Column17;
+        private DataGridViewTextBoxColumn Column74;
+        private DataGridViewTextBoxColumn Column73;
+        private DataGridViewTextBoxColumn Column18;
+        private DataGridViewTextBoxColumn Column19;
+        private DataGridViewTextBoxColumn Column5;
+        private DataGridViewTextBoxColumn Column64;
+        private DataGridViewTextBoxColumn Column13;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
+        private DataGridViewTextBoxColumn Column9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
+        private DataGridViewTextBoxColumn ReturnTransactionDate;
     }
 }
 

@@ -3095,6 +3095,7 @@ namespace DataAccessLayer
                     cmd.Parameters.AddWithValue("@cashName", billToAdd.CashName);
                     cmd.Parameters.AddWithValue("@totalAmount", billToAdd.getTotalAmount());
                     cmd.Parameters.AddWithValue("@discountedAmount", billToAdd.DiscountAmount);
+                    cmd.Parameters.AddWithValue("@TaxID", billToAdd.TaxID);
                     cmd.Parameters.AddWithValue("@Date", billToAdd.getDate());
                     cmd.Parameters.AddWithValue("@ClientID", billToAdd.ClientID);
                     cmd.Parameters.Add("@BillID", SqlDbType.Int).Direction = ParameterDirection.Output;

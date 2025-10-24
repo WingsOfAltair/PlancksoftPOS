@@ -144,7 +144,7 @@
                   {{ "GENERALWORDS.DATE" | translate }}
                 </th>
                 <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                  {{ row.data["Date"] | date : "dd-MM-yyyy" || "-" }}
+                  {{ row.data["Date"] || "-" }}
                 </td>
               </ng-container>
 

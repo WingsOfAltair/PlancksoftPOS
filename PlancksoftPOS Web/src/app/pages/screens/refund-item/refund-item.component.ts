@@ -29,6 +29,7 @@ export class RefundItemComponent implements OnInit {
     "ProductionDate",
     "ExpirationDate",
     "warninglimit",
+    "Date",
   ];
   allColumns = [...this.defaultColumns];
 
@@ -66,6 +67,16 @@ export class RefundItemComponent implements OnInit {
 
         var list = [];
         data.forEach((el) => {
+          const date = new Date(el["Transaction Date"]);
+          const formattedDate = date.toLocaleString('en-US', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true, // 12-hour format
+          });
           var obj = {
             data: {
               ItemName: el["Item Name"],
@@ -74,6 +85,7 @@ export class RefundItemComponent implements OnInit {
               ItemBarcode: el["Item BarCode"],
               ItemQuantity: el["Item Quantity"],
               TransctionID: el["Transaction ID"],
+              Date: formattedDate,
             },
           };
 
