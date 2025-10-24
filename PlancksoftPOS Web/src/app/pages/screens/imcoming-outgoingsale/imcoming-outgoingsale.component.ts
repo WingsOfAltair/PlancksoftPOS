@@ -24,6 +24,7 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
   defaultColumns = [
     "BillID",
     "CashierName",
+    "CashName",
     "TotalAmount",
     "DiscountAmount",
     "NetAmount",
@@ -60,6 +61,7 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
   defaultColumns1 = [
     "BillID",
     "CashierName",
+    "CashName",
     "TotalAmount",
     "DiscountAmount",
     "NetAmount",
@@ -129,6 +131,7 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
             data: {
               BillNumber: el.BillNumber,
               CashierName: el.CashierName,
+              CashName: el.CashName,
               netAmount: parseFloat(el.totalAmount) - parseFloat(el.DiscountAmount),
               discountAmount: el.DiscountAmount,
               totalAmount: el.totalAmount,
@@ -147,6 +150,7 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
           data: {
             BillNumber: "Total",
             CashierName: totalAmount,
+            CashName: '',
             netAmount: '',
             discountAmount: '',
             totalAmount: '',
@@ -180,6 +184,7 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
               // EmployeeAddress: el["Employee Address"],
               BillNumber: el["Bill Number"],
               CashierName: el["Cashier Name"],
+              CashName: el["Cash Name"],
               netAmount: parseFloat(el["Total Amount"]) - parseFloat(el["Discount Amount"]),
               discountAmount: el["Discount Amount"],
               totalAmount: el["Total Amount"],
@@ -196,6 +201,7 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
           data: {
             BillNumber: "Total",
             CashierName: totalAmount,
+            CashName: '',
             netAmount: '',
             discountAmount: '',
             totalAmount: '',
@@ -238,6 +244,7 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
             data: {
               BillNumber: el.BillNumber,
               CashierName: el.CashierName,
+              CashName: el.CashName,
               netAmount: parseFloat(el.totalAmount) - parseFloat(el.DiscountAmount),
               discountAmount: el.DiscountAmount,
               totalAmount: el.totalAmount,
@@ -256,6 +263,7 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
           data: {
             BillNumber: "Total",
             CashierName: totalAmount,
+            CashName: '',
             netAmount: '',
             discountAmount: '',
             totalAmount: '',
@@ -296,6 +304,7 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
               // EmployeeAddress: el["Employee Address"],
               BillNumber: el["Bill Number"],
               CashierName: el["Cashier Name"],
+              CashName: el["Cash Name"],
               netAmount: parseFloat(el["Total Amount"]) - parseFloat(el["Discount Amount"]),
               discountAmount: el["Discount Amount"],
               totalAmount: el["Total Amount"],
@@ -312,6 +321,7 @@ export class ImcomingOutgoingsaleComponent implements OnInit {
           data: {
             BillNumber: "Total",
             CashierName: totalAmount,
+            CashName: '',
             netAmount: '',
             discountAmount: '',
             totalAmount: '',

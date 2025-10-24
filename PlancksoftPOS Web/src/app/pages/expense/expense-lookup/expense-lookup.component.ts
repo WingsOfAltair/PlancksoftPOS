@@ -121,6 +121,16 @@ export class ExpenseLookupComponent implements OnInit {
         var list = [];
 
         array.forEach((el) => {
+          const date = new Date(el["Expense Date"]);
+          const formattedDate = date.toLocaleString('en-US', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true, // 12-hour format
+          });
           var obj = {
             data: {
               // EmployeeAddress: el["Employee Address"],
@@ -128,7 +138,7 @@ export class ExpenseLookupComponent implements OnInit {
               ExpanseName: el["Expense Name"],
               cost: el["Expense Cost"],
               UserId: el["Employee ID"],
-              Date: el["Expense Date"],
+              Date: formattedDate,
               Current: el["Current"],
             },
           };
@@ -180,6 +190,16 @@ export class ExpenseLookupComponent implements OnInit {
         var list = [];
 
         array.forEach((el) => {
+          const date = new Date(el["Expense Date"]);
+          const formattedDate = date.toLocaleString('en-US', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: true, // 12-hour format
+          });
           var obj = {
             data: {
               // EmployeeAddress: el["Employee Address"],
@@ -187,7 +207,7 @@ export class ExpenseLookupComponent implements OnInit {
               ExpanseName: el["Expense Name"],
               cost: el["Expense Cost"],
               UserId: el["Employee ID"],
-              Date: el["Expense Date"],
+              Date: formattedDate,
               Current: el["Current"],
             },
           };
@@ -203,12 +223,14 @@ export class ExpenseLookupComponent implements OnInit {
 
   button() {
     var data = { id: 1, name: "hanzalla" };
-    this.windowService.open(AddExpenseComponent, {
+    var dt = this.windowService.open(AddExpenseComponent, {
       title: `Insert Expense`,
       context: data,
     });
 
-    this.ngOnInit();
+    dt.onClose.subscribe((res) => {
+      this.ngOnInit();
+    });
   }
 
   onSelectChange(newValue: any) {

@@ -159,17 +159,17 @@
             </ng-container>
 
             <ng-container [nbTreeGridColumnDef]="'Date'">
-              <th
-                nbTreeGridHeaderCell
-                [nbSortHeader]="getSortDirection('Date')"
-                *nbTreeGridHeaderCellDef
-              >
-              {{ "GENERALWORDS.DATE" | translate }}
-              </th>
-              <td nbTreeGridCell *nbTreeGridCellDef="let row">
-                {{ row.data["Date"] | date : "dd-MM-yyyy" || "-" }}
-              </td>
-            </ng-container>
+                <th
+                  nbTreeGridHeaderCell
+                  [nbSortHeader]="getSortDirection('Date')"
+                  *nbTreeGridHeaderCellDef
+                >
+                {{ "GENERALWORDS.DATE" | translate }}
+                </th>
+                <td nbTreeGridCell *nbTreeGridCellDef="let row">
+                  {{ row.data["Date"] || "-" }}
+                </td>
+              </ng-container>
             <ng-container [nbTreeGridColumnDef]="'Status'">
               <th
                 nbTreeGridHeaderCell
